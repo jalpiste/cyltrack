@@ -1,0 +1,69 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 11.00
+# Visual Studio 2010
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CYLTRACK_BL", "CYLTRACK_BL\CYLTRACK_BL.csproj", "{DEAFB57A-F928-48E2-B486-7E17331A62BB}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CYLTRACK_DL", "CYLTRACK_DL\CYLTRACK_DL.csproj", "{E7D320EC-8D90-496F-99F1-33845B1452E0}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CYLTRACK_BE", "CYLTRACK_BE\CYLTRACK_BE.csproj", "{46D7E147-3BEC-4D66-9AE9-904256F04620}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CYLTRACK_WCF_Services", "CYLTRACK_WCF_Services\CYLTRACK_WCF_Services.csproj", "{F3B7A10E-450C-42BA-B5CE-79F83EBB31BA}"
+EndProject
+Project("{E24C65DC-7377-472B-9ABA-BC803B73C61A}") = "CYLTRACK_Services", "CYLTRACK_Services\", "{AD98270E-AF3B-4DEE-BDC9-6E41FA303508}"
+	ProjectSection(WebsiteProperties) = preProject
+		TargetFrameworkMoniker = ".NETFramework,Version%3Dv4.0"
+		Debug.AspNetCompiler.VirtualPath = "/CYLTRACK_Services"
+		Debug.AspNetCompiler.PhysicalPath = "CYLTRACK_Services\"
+		Debug.AspNetCompiler.TargetPath = "PrecompiledWeb\CYLTRACK_Services\"
+		Debug.AspNetCompiler.Updateable = "true"
+		Debug.AspNetCompiler.ForceOverwrite = "true"
+		Debug.AspNetCompiler.FixedNames = "false"
+		Debug.AspNetCompiler.Debug = "True"
+		Release.AspNetCompiler.VirtualPath = "/CYLTRACK_Services"
+		Release.AspNetCompiler.PhysicalPath = "CYLTRACK_Services\"
+		Release.AspNetCompiler.TargetPath = "PrecompiledWeb\CYLTRACK_Services\"
+		Release.AspNetCompiler.Updateable = "true"
+		Release.AspNetCompiler.ForceOverwrite = "true"
+		Release.AspNetCompiler.FixedNames = "false"
+		Release.AspNetCompiler.Debug = "False"
+		VWDPort = "49334"
+		DefaultWebSiteLanguage = "Visual C#"
+	EndProjectSection
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CYLTRACK_WebApp", "CYLTRACK_WebApp\CYLTRACK_WebApp.csproj", "{764A507E-34DD-4E08-B8AB-25B2B2FBFEF7}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{DEAFB57A-F928-48E2-B486-7E17331A62BB}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{DEAFB57A-F928-48E2-B486-7E17331A62BB}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{DEAFB57A-F928-48E2-B486-7E17331A62BB}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{DEAFB57A-F928-48E2-B486-7E17331A62BB}.Release|Any CPU.Build.0 = Release|Any CPU
+		{E7D320EC-8D90-496F-99F1-33845B1452E0}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{E7D320EC-8D90-496F-99F1-33845B1452E0}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{E7D320EC-8D90-496F-99F1-33845B1452E0}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{E7D320EC-8D90-496F-99F1-33845B1452E0}.Release|Any CPU.Build.0 = Release|Any CPU
+		{46D7E147-3BEC-4D66-9AE9-904256F04620}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{46D7E147-3BEC-4D66-9AE9-904256F04620}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{46D7E147-3BEC-4D66-9AE9-904256F04620}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{46D7E147-3BEC-4D66-9AE9-904256F04620}.Release|Any CPU.Build.0 = Release|Any CPU
+		{F3B7A10E-450C-42BA-B5CE-79F83EBB31BA}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{F3B7A10E-450C-42BA-B5CE-79F83EBB31BA}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{F3B7A10E-450C-42BA-B5CE-79F83EBB31BA}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{F3B7A10E-450C-42BA-B5CE-79F83EBB31BA}.Release|Any CPU.Build.0 = Release|Any CPU
+		{AD98270E-AF3B-4DEE-BDC9-6E41FA303508}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{AD98270E-AF3B-4DEE-BDC9-6E41FA303508}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{AD98270E-AF3B-4DEE-BDC9-6E41FA303508}.Release|Any CPU.ActiveCfg = Debug|Any CPU
+		{AD98270E-AF3B-4DEE-BDC9-6E41FA303508}.Release|Any CPU.Build.0 = Debug|Any CPU
+		{764A507E-34DD-4E08-B8AB-25B2B2FBFEF7}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{764A507E-34DD-4E08-B8AB-25B2B2FBFEF7}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{764A507E-34DD-4E08-B8AB-25B2B2FBFEF7}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{764A507E-34DD-4E08-B8AB-25B2B2FBFEF7}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+EndGlobal
