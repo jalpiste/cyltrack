@@ -1,0 +1,33 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<siteMap>
+  <siteMapNode title="Principal" description="Home" url="Default.aspx" >
+    <siteMapNode title="Compañias Afiliadas" description="Compañias afiliadas">
+      <siteMapNode title="Registro de usuarios" description="Informacion Unigas Colombia" url="~/Autenticacion/frmRegistrarUsuario.aspx" />
+      <siteMapNode title="Olvido contraseña" description="Informacion Unigas Colombia" url="~/Autenticacion/frmOlvidoContrasena.aspx" />
+      <siteMapNode title="Autenticar usuario" description="Informacion Unigas Colombia" url="~/Autenticacion/frmAutenticacion.aspx" />
+    </siteMapNode>
+    <siteMapNode title="Cilindros"    description="Todo sobre Cilindros"  >
+      <siteMapNode title="Registrar Cilindro"     description="Crear cilindro en el sistema"   text ="solo miembros" Value="solo miembros"  url="~/Cilindros/frmRegistrarCilindro.aspx" />
+      <siteMapNode title="Consultar Cilindro"          description="Consultar datos en el sistema"  text ="solo miembros" Value="solo miembros"  url="~/Cilindros/frmConsultarCilindro.aspx" />
+      <siteMapNode title="Modificar Cilindro"          description="Modificar datos en el sistema"  text ="solo miembros" Value="solo miembros"  url="~/Cilindros/frmmodificarcil.aspx" />
+      <siteMapNode title="Asignar Ubicación"          description="Asignarle una ubicacion del cilindro dentro de la planta"  text ="solo miembros" Value="solo miembros" url="~/Cilindros/frmAsignarUbicacion.aspx" />    
+    </siteMapNode>
+    <siteMapNode title="Clientes"    description="Todo sobre Clientes"  >
+      <siteMapNode title="Registrar Cliente"     description="Crear cliente en el sistema"   text ="solo miembros" Value="solo miembros" url="~/Clientes/frmRegistrarcliente.aspx" />
+      <siteMapNode title="Consultar CLiente"          description="Consultar datos del cliente en el sistema"  text ="solo miembros" Value="solo miembros"  url="~/Clientes/frmconsultarcliente.aspx" />
+      <siteMapNode title="Modificar CLiente"          description="Modificar datos del cliente en el sistema"  text ="solo miembros" Value="solo miembros" url="~/Clientes/frmModificarCliente.aspx"  />
+    </siteMapNode>
+    <siteMapNode title="Pedidos"    description="Todo sobre Pedidos"  >
+      <siteMapNode title="Registrar Pedido"     description="Crear Pedido en el sistema"   text ="solo miembros" Value="solo miembros" url="~/Pedido/frmRegistroPedido.aspx" />
+      <siteMapNode title="Consultar Pedido"          description="Consultar datos del pedido en el sistema"  text ="solo miembros" Value="solo miembros" url="~/Pedido/frmConsultarPedido.aspx" />
+      <siteMapNode title="Modificar Pedido"          description="Modificar datos del pedido en el sistema"  text ="solo miembros" Value="solo miembros"  url="~/Pedido/frmModificarPedido.aspx" />
+      <siteMapNode title="Cancelar Pedido"          description="Cancelar pedido en el sistema"  text ="solo miembros" Value="solo miembros"  url="~/Pedido/frmCancelarPedido.aspx" />
+    </siteMapNode>
+    <siteMapNode title="Ventas"    description="Todo sobre Ventas"  >
+      <siteMapNode title="Entrega de Cilindro"     description="Registrar la entrega del cilindro en el sistema"   text ="solo miembros" Value="solo miembros" url="~/Ventas/frmEntregaCilindro.aspx" />
+        </siteMapNode>
+    <siteMapNode title="Inventario"    description="Todo sobre inventario"  >
+      <siteMapNode title="Inventario Cilindros"     description="Realizar reporte de cilindros en el sistema"   text ="solo miembros" Value="solo miembros" url="~/Inventarios/frmInventario.aspx" />
+    </siteMapNode>
+  </siteMapNode>
+</siteMap>
