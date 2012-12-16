@@ -58,13 +58,13 @@ namespace CYLTRACK_WebApp {
         protected global::System.Web.UI.WebControls.RequiredFieldValidator CodeCilindroRequired;
         
         /// <summary>
-        /// Control ImpresionCodigo.
+        /// Control DivImpresionCodigo.
         /// </summary>
         /// <remarks>
         /// Campo generado automáticamente.
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
-        protected global::System.Web.UI.HtmlControls.HtmlGenericControl ImpresionCodigo;
+        protected global::System.Web.UI.HtmlControls.HtmlGenericControl DivImpresionCodigo;
         
         /// <summary>
         /// Control lblCodCil.
@@ -85,13 +85,13 @@ namespace CYLTRACK_WebApp {
         protected global::System.Web.UI.WebControls.TextBox txtCodigoCilindro;
         
         /// <summary>
-        /// Control UbicacionCil.
+        /// Control DivUbicacionCil.
         /// </summary>
         /// <remarks>
         /// Campo generado automáticamente.
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
-        protected global::System.Web.UI.HtmlControls.HtmlGenericControl UbicacionCil;
+        protected global::System.Web.UI.HtmlControls.HtmlGenericControl DivUbicacionCil;
         
         /// <summary>
         /// Control lblPost.
@@ -121,13 +121,13 @@ namespace CYLTRACK_WebApp {
         protected global::System.Web.UI.WebControls.TextBox txtUbicacionActual;
         
         /// <summary>
-        /// Control NuevaUbicacion.
+        /// Control DivNuevaUbicacion.
         /// </summary>
         /// <remarks>
         /// Campo generado automáticamente.
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
-        protected global::System.Web.UI.HtmlControls.HtmlGenericControl NuevaUbicacion;
+        protected global::System.Web.UI.HtmlControls.HtmlGenericControl DivNuevaUbicacion;
         
         /// <summary>
         /// Control lblUbicacion.

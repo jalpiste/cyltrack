@@ -14,7 +14,7 @@ namespace CYLTRACK_WebApp.Pedido
 
         }
 
-       
+
         protected void txtCedula_TextChanged(object sender, EventArgs e)
         {
             divInfoCliente.Visible = true;

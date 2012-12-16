@@ -2,13 +2,17 @@
 <asp:Content ID="Content1" ContentPlaceHolderID="HeadContent" runat="server">
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="MainContent" runat="server">
-<h1> 
-           
-            </h1>
+<h1 style="margin-top: 75px">
+        Cambiar Teléfono
+    </h1>
             <div class="accountInfo">
                 <fieldset class="login">
-                    <legend>Telefono Cliente</legend>
+                    <legend>Cambio Teléfono Cliente</legend>
                    <p>
+                       <asp:Label ID="lblCedula" runat="server" Text="Número de Cédula: "></asp:Label>
+                       <br />
+                       <asp:TextBox ID="txtCedula" CssClass="textEntry"  runat="server"></asp:TextBox>
+                       <br />
                       <asp:Label ID="lblTelefono" runat="server" Text="Nuevo Telefono: "></asp:Label>
                        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
                       <asp:Label ID="lblTipoTelefono" runat="server" Text="Tipo Telefono:"></asp:Label><br />

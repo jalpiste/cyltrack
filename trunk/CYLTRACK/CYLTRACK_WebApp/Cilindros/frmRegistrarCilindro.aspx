@@ -4,8 +4,9 @@
     
 </asp:Content>
 <asp:Content ID="BodyContent" runat="server" ContentPlaceHolderID="MainContent">
-        <h1>
-        </h1>
+<h1 style="margin-top: 75px">
+        Registrar Cilindro
+    </h1>
      <span class="failureNotification">
        <asp:Literal ID="FailureText" runat="server"></asp:Literal>
         </span> 

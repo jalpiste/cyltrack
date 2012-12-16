@@ -4,10 +4,10 @@
     
     </asp:Content>
 <asp:Content ID="BodyContent" runat="server" ContentPlaceHolderID="MainContent">
-        <h1> 
-           
-            </h1>
-            <asp:ValidationSummary ID="ConsultarClienteValidationSummary" runat="server" CssClass="failureNotification" 
+     <h1 style="margin-top: 75px">
+        Consultar Cliente
+    </h1>
+       <asp:ValidationSummary ID="ConsultarClienteValidationSummary" runat="server" CssClass="failureNotification" 
                  ValidationGroup="ConsultarClienteValidationGroup"/>
             <div class="accountInfo">
                 <fieldset class="login">

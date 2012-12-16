@@ -103,13 +103,13 @@ namespace CYLTRACK_WebApp.Account.Pedido {
         protected global::System.Web.UI.WebControls.Label lblPrimerApellido;
         
         /// <summary>
-        /// Control SegundoApellidoLabel.
+        /// Control lblSegundoApellido.
         /// </summary>
         /// <remarks>
         /// Campo generado automáticamente.
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Label SegundoApellidoLabel;
+        protected global::System.Web.UI.WebControls.Label lblSegundoApellido;
         
         /// <summary>
         /// Control txtPrimerApellido.
@@ -274,15 +274,6 @@ namespace CYLTRACK_WebApp.Account.Pedido {
         protected global::System.Web.UI.WebControls.Label lblTamano;
         
         /// <summary>
-        /// Control lblCantCilindro.
-        /// </summary>
-        /// <remarks>
-        /// Campo generado automáticamente.
-        /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.Label lblCantCilindro;
-        
-        /// <summary>
         /// Control txtCilindro.
         /// </summary>
         /// <remarks>
@@ -299,15 +290,6 @@ namespace CYLTRACK_WebApp.Account.Pedido {
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
         protected global::System.Web.UI.WebControls.TextBox txtTamano;
-        
-        /// <summary>
-        /// Control txtCantCil.
-        /// </summary>
-        /// <remarks>
-        /// Campo generado automáticamente.
-        /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox txtCantCil;
         
         /// <summary>
         /// Control lblVehiculo.

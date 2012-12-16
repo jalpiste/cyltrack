@@ -22,7 +22,7 @@ namespace CYLTRACK_WebApp
                 DivBodega.Visible = false;
                 DivMantenimiento.Visible = false;
                 DivChatarra.Visible = false;
-                DivVehiculo.Visible = false; 
+                DivVehiculo.Visible = false;
             }
             if (lstUbicacion.SelectedIndex == 2)
             {
@@ -30,7 +30,7 @@ namespace CYLTRACK_WebApp
                 DivPlataforma.Visible = false;
                 DivMantenimiento.Visible = false;
                 DivChatarra.Visible = false;
-                DivVehiculo.Visible = false; 
+                DivVehiculo.Visible = false;
             }
             if (lstUbicacion.SelectedIndex == 3)
             {
@@ -38,7 +38,7 @@ namespace CYLTRACK_WebApp
                 DivPlataforma.Visible = false;
                 DivBodega.Visible = false;
                 DivChatarra.Visible = false;
-                DivVehiculo.Visible = false; 
+                DivVehiculo.Visible = false;
             }
             if (lstUbicacion.SelectedIndex == 4)
             {
@@ -46,7 +46,7 @@ namespace CYLTRACK_WebApp
                 DivPlataforma.Visible = false;
                 DivBodega.Visible = false;
                 DivMantenimiento.Visible = false;
-                DivVehiculo.Visible = false; 
+                DivVehiculo.Visible = false;
             }
             if (lstUbicacion.SelectedIndex == 5)
             {
@@ -57,7 +57,7 @@ namespace CYLTRACK_WebApp
                 DivBodega.Visible = false;
                 DivMantenimiento.Visible = false;
                 DivChatarra.Visible = false;
-                 
+
             }
         }
 
@@ -66,6 +66,6 @@ namespace CYLTRACK_WebApp
             Response.Redirect("~/Default.aspx");
         }
 
-        
+
     }
 }

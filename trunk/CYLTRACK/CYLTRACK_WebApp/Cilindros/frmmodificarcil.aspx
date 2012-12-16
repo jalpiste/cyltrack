@@ -3,10 +3,10 @@
 <asp:Content ID="HeaderContent" runat="server" ContentPlaceHolderID="HeadContent">
     </asp:Content>
 <asp:Content ID="BodyContent" runat="server" ContentPlaceHolderID="MainContent">
-        <h1> 
-           
-            </h1>
-            <asp:ValidationSummary ID="ModificacionCilindrosValidationSummary" runat="server" CssClass="failureNotification" 
+      <h1 style="margin-top: 75px">
+        Modificar Cilindro
+    </h1>
+      <asp:ValidationSummary ID="ModificacionCilindrosValidationSummary" runat="server" CssClass="failureNotification" 
                  ValidationGroup="ModificacionCilindrosValidationGroup"/>
             <div class="accountInfo">
                 <fieldset class="login">

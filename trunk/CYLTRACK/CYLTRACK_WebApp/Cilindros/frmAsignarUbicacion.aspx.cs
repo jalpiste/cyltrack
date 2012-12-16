@@ -7,7 +7,7 @@ using System.Web.UI.WebControls;
 
 namespace CYLTRACK_WebApp
 {
-      
+
     public partial class AsignarUbicacion : System.Web.UI.Page
     {
         protected void Page_Load(object sender, EventArgs e)
@@ -15,30 +15,29 @@ namespace CYLTRACK_WebApp
 
         }
 
-        
-        
+
+
         protected void Ubica_SelectedIndexChanged(object sender, EventArgs e)
         {
-            if (lstUbica.SelectedIndex == 4) 
-           {
-               lblPlaca.Visible = true;
-               lstPlacaVehiculo.Visible = true;
+            if (lstUbica.SelectedIndex == 4)
+            {
+                lblPlaca.Visible = true;
+                lstPlacaVehiculo.Visible = true;
             }
-            
+
         }
 
         protected void Cambiar_Click(object sender, EventArgs e)
         {
-            NuevaUbicacion.Visible = true;
+            DivNuevaUbicacion.Visible = true;
         }
 
         protected void txtCodeCilindro_TextChanged(object sender, EventArgs e)
         {
-            UbicacionCil.Visible = true;
-            ImpresionCodigo.Visible = true;
-            btnCambiar.Visible = true;
-            btnCancelar.Visible = true;
-            btnGuardar.Visible = true;
+            txtCodigoCilindro.Text = txtCodeCilindro.Text;
+            txtCodeCilindro.Text = "";
+            DivUbicacionCil.Visible = true;
+            DivImpresionCodigo.Visible = true;
         }
 
 

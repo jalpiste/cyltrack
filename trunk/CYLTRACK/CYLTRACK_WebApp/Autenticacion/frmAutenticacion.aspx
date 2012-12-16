@@ -28,8 +28,8 @@
                         CssClass="failureNotification" ErrorMessage="La contraseña es obligatoria." ToolTip="La contraseña es obligatoria."
                         ValidationGroup="LoginUserValidationGroup">*</asp:RequiredFieldValidator>
                     <br />
-<%--                    <%--<asp:HyperLink ID="ForgetHyperLink" runat="server" EnableViewState="False" NavigateUrl="~/Autenticacion/frmOlvidoContraseña.aspx">
-                        ¿Olvidó su contraseña?</asp:HyperLink>--%>
+                    <asp:HyperLink ID="ForgetHyperLink" runat="server" EnableViewState="False" NavigateUrl="~/Autenticacion/frmOlvidoContraseña.aspx">
+                        ¿Olvidó su contraseña?</asp:HyperLink>
                     <br />
                     <asp:CheckBox ID="RememberMe" runat="server" />
                     <br />

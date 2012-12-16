@@ -4,14 +4,14 @@
     
     </asp:Content>
 <asp:Content ID="BodyContent" runat="server" ContentPlaceHolderID="MainContent">
-        <h1> 
-           
-            </h1>
-            <asp:ValidationSummary ID="ModificarClienteValidationSummary" runat="server" CssClass="failureNotification" 
+       <h1 style="margin-top: 75px">
+        Modificar Cliente
+    </h1>
+     <asp:ValidationSummary ID="ModificarClienteValidationSummary" runat="server" CssClass="failureNotification" 
                  ValidationGroup="ModificarClienteValidationGroup"/>
             <div class="accountInfo">
                 <fieldset class="login">
-                    <legend>Modificar Cliente</legend>
+                    <legend>Modificación de Cliente</legend>
                                    <p>
                         <asp:Label ID="lblCedula" runat="server" AssociatedControlID="txtCedula" Width="725px">Número de Cédula:</asp:Label><br />
                         <asp:TextBox ID="txtCedula" runat="server" CssClass="textEntry" 
