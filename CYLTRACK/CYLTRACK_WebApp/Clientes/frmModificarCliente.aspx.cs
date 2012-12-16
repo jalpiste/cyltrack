@@ -13,17 +13,17 @@ namespace CYLTRACK_WebApp.Account.Clientes
         {
             hprNuevaDireccion.NavigateUrl = "frmCambioDireccion.aspx?ReturnUrl=" + HttpUtility.UrlEncode(Request.QueryString["ReturnUrl"]);
             hprNuevoTelefono.NavigateUrl = "frmCambioTelefono.aspx?ReturnUrl=" + HttpUtility.UrlEncode(Request.QueryString["ReturnUrl"]);
-            
+
         }
 
-      
+
         protected void txtCedula_TextChanged(object sender, EventArgs e)
         {
             divInfoCliente.Visible = true;
-           
+
         }
 
 
-        
+
     }
 }

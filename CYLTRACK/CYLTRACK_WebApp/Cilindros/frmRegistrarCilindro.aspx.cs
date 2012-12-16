@@ -11,7 +11,7 @@ namespace CYLTRACK_WebApp.Account
     {
         protected void Page_Load(object sender, EventArgs e)
         {
-            
+
         }
 
         protected void TxtCodigoCilindro_TextChanged(object sender, EventArgs e)
@@ -23,9 +23,9 @@ namespace CYLTRACK_WebApp.Account
         {
             Response.Write("<script type='text/javascript'> alert('Sus datos fueron enviados satisfactoriamente') </script>");
         }
-       
-       
-        
-        
+
+
+
+
     }
 }

@@ -3,14 +3,14 @@
 <asp:Content ID="HeaderContent" runat="server" ContentPlaceHolderID="HeadContent">
     </asp:Content>
 <asp:Content ID="BodyContent" runat="server" ContentPlaceHolderID="MainContent">
-        <h1> 
-           
-            </h1>
-            <asp:ValidationSummary ID="RegistrarClienteValidationSummary" runat="server" CssClass="failureNotification" 
+    <h1 style="margin-top: 75px">
+        Registrar Cliente
+    </h1>
+        <asp:ValidationSummary ID="RegistrarClienteValidationSummary" runat="server" CssClass="failureNotification" 
                  ValidationGroup="RegistrarClienteValidationGroup"/>
             <div class="accountInfo">
                 <fieldset class="login">
-                    <legend>Registrar Cliente</legend>
+                    <legend>Registro de Cliente</legend>
                                    <p>
                         <asp:Label ID="lblCedula" runat="server" AssociatedControlID="txtCedula" Width="725px">Número de Cédula:</asp:Label><br />
                         <asp:TextBox ID="txtCedula" runat="server" CssClass="textEntry" 

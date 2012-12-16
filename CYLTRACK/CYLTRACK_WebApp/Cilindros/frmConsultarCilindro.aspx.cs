@@ -15,13 +15,13 @@ namespace CYLTRACK_WebApp.Account
         }
 
 
-    protected void txtCodigoCilindro_TextChanged(object sender, EventArgs e)
-    {
-        DivDatosCilindro.Visible = true;  
-    }
+        protected void txtCodigoCilindro_TextChanged(object sender, EventArgs e)
+        {
+            DivDatosCilindro.Visible = true;
+        }
 
-          
 
-        
+
+
     }
 }

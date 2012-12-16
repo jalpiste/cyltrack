@@ -13,25 +13,25 @@ namespace CYLTRACK_WebApp.Account
         {
 
         }
-       
 
-           
+
+
 
         protected void lstUbicacion_SelectedIndexChanged(object sender, EventArgs e)
         {
-            
-         if (lstUbicacion.SelectedIndex== 4)
+
+            if (lstUbicacion.SelectedIndex == 4)
             {
                 divInfoCliente.Visible = true;
             }
-        
+
         }
 
         protected void txtCodigoCilindro_TextChanged(object sender, EventArgs e)
         {
             divConsultarCilindro.Visible = true;
-        } 
+        }
 
-        
+
     }
 }

@@ -15,8 +15,9 @@
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="MainContent" runat="server">
     <h1 style="margin-top: 75px">
-        Reporte de Cilindros
+        Reporte de Inventario de Cilindros
     </h1>
+    <br />
     <div style="width: 381px">
         Seleccione un parámetro de búsqueda.
     </div>
@@ -25,16 +26,16 @@
     </span>
     <asp:ValidationSummary ID="LoginUserValidationSummary" runat="server" CssClass="failureNotification"
         ValidationGroup="LoginUserValidationGroup" Width="385px" />
-    <br />
+    
     <div class="accountInfo">
-        <fieldset class="login" width="250px">
-            <legend>Búsqueda</legend>
+        <fieldset class="login">
+            <legend>Parámetros</legend>
             <asp:CheckBoxList ID="parametroCheckBoxList" runat="server" AutoPostBack="True" Width="250px">
                 <asp:ListItem>Fecha</asp:ListItem>
                 <asp:ListItem>Ubicación</asp:ListItem>
             </asp:CheckBoxList>
             <br />
-            <asp:Label ID="lblDesde" runat="server" Text="Desde el: "></asp:Label>
+            <asp:Label ID="lblDesde" runat="server" Text="Fecha: "></asp:Label>
             &nbsp;&nbsp;&nbsp;
             <asp:TextBox ID="lblDesdeDia" runat="server" Width="42px"></asp:TextBox>
             <asp:ListBox ID="lstDesdeMes" runat="server" AutoPostBack="True" Rows="1">

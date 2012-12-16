@@ -64,17 +64,27 @@
     <Content Include="Clientes\frmRegistrarCliente.aspx" />
     <Content Include="Cilindros\frmmodificarcil.aspx" />
     <Content Include="Clientes\frmModificarCliente.aspx" />
-    <Content Include="Inventarios\frmInventario.aspx" />
+    <Content Include="Reportes\frmHistoricoCilindro.aspx" />
+    <Content Include="Reportes\frmInventario.aspx" />
     <Content Include="Autenticacion\frmOlvidoContrasena.aspx" />
     <Content Include="Pedido\frmConsultarPedido.aspx" />
     <Content Include="Pedido\frmRegistroPedido.aspx" />
     <Content Include="Autenticacion\frmRegistrarUsuario.aspx" />
+    <Content Include="Reportes\frmReporteRegistros.aspx" />
+    <Content Include="Reportes\frmReporteSiembras.aspx" />
+    <Content Include="Rutas\frmModificarRuta.aspx" />
+    <Content Include="Rutas\frmRegistrarRuta.aspx" />
     <Content Include="Styles\stiloFinalJacky2.css" />
     <Content Include="Default.aspx" />
     <Content Include="Global.asax" />
     <Content Include="Scripts\jquery-1.4.1-vsdoc.js" />
     <Content Include="Scripts\jquery-1.4.1.js" />
     <Content Include="Scripts\jquery-1.4.1.min.js" />
+    <Content Include="Vehiculos\frmModificarVehiculo.aspx" />
+    <Content Include="Vehiculos\frmRegistrarVehiculo.aspx" />
+    <Content Include="Ventas\frmCancelarVenta.aspx" />
+    <Content Include="Ventas\frmConsultarVenta.aspx" />
+    <Content Include="Ventas\frmDevolucionCilindro.aspx" />
     <Content Include="Ventas\frmEntregaCilindro.aspx" />
     <Content Include="Web.config" />
     <Content Include="Web.Debug.config">
@@ -176,11 +186,18 @@
     <Compile Include="Clientes\frmModificarCliente.aspx.designer.cs">
       <DependentUpon>frmModificarCliente.aspx</DependentUpon>
     </Compile>
-    <Compile Include="Inventarios\frmInventario.aspx.cs">
+    <Compile Include="Reportes\frmHistoricoCilindro.aspx.cs">
+      <DependentUpon>frmHistoricoCilindro.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Reportes\frmHistoricoCilindro.aspx.designer.cs">
+      <DependentUpon>frmHistoricoCilindro.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Reportes\frmInventario.aspx.cs">
       <DependentUpon>frmInventario.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
     </Compile>
-    <Compile Include="Inventarios\frmInventario.aspx.designer.cs">
+    <Compile Include="Reportes\frmInventario.aspx.designer.cs">
       <DependentUpon>frmInventario.aspx</DependentUpon>
     </Compile>
     <Compile Include="Autenticacion\frmOlvidoContrasena.aspx.cs">
@@ -222,12 +239,75 @@
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Reportes\frmReporteRegistros.aspx.cs">
+      <DependentUpon>frmReporteRegistros.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Reportes\frmReporteRegistros.aspx.designer.cs">
+      <DependentUpon>frmReporteRegistros.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Reportes\frmReporteSiembras.aspx.cs">
+      <DependentUpon>frmReporteSiembras.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Reportes\frmReporteSiembras.aspx.designer.cs">
+      <DependentUpon>frmReporteSiembras.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Rutas\frmModificarRuta.aspx.cs">
+      <DependentUpon>frmModificarRuta.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Rutas\frmModificarRuta.aspx.designer.cs">
+      <DependentUpon>frmModificarRuta.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Rutas\frmRegistrarRuta.aspx.cs">
+      <DependentUpon>frmRegistrarRuta.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Rutas\frmRegistrarRuta.aspx.designer.cs">
+      <DependentUpon>frmRegistrarRuta.aspx</DependentUpon>
+    </Compile>
     <Compile Include="Site.Master.cs">
       <DependentUpon>Site.Master</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
     </Compile>
     <Compile Include="Site.Master.designer.cs">
       <DependentUpon>Site.Master</DependentUpon>
+    </Compile>
+    <Compile Include="Vehiculos\frmModificarVehiculo.aspx.cs">
+      <DependentUpon>frmModificarVehiculo.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Vehiculos\frmModificarVehiculo.aspx.designer.cs">
+      <DependentUpon>frmModificarVehiculo.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Vehiculos\frmRegistrarVehiculo.aspx.cs">
+      <DependentUpon>frmRegistrarVehiculo.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Vehiculos\frmRegistrarVehiculo.aspx.designer.cs">
+      <DependentUpon>frmRegistrarVehiculo.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Ventas\frmCancelarVenta.aspx.cs">
+      <DependentUpon>frmCancelarVenta.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Ventas\frmCancelarVenta.aspx.designer.cs">
+      <DependentUpon>frmCancelarVenta.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Ventas\frmConsultarVenta.aspx.cs">
+      <DependentUpon>frmConsultarVenta.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Ventas\frmConsultarVenta.aspx.designer.cs">
+      <DependentUpon>frmConsultarVenta.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Ventas\frmDevolucionCilindro.aspx.cs">
+      <DependentUpon>frmDevolucionCilindro.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Ventas\frmDevolucionCilindro.aspx.designer.cs">
+      <DependentUpon>frmDevolucionCilindro.aspx</DependentUpon>
     </Compile>
     <Compile Include="Ventas\frmEntregaCilindro.aspx.cs">
       <DependentUpon>frmEntregaCilindro.aspx</DependentUpon>
