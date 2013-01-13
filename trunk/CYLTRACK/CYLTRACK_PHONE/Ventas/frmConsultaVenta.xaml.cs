@@ -91,7 +91,28 @@ namespace Cyltrack_phone.Ventas
             NavigationService.Navigate(new Uri("/MainPage.xaml", UriKind.Relative));
         }
 
-        
+        private void btnAtrasMod_Click(object sender, RoutedEventArgs e)
+        {
+            ContentCilindro.Visibility = System.Windows.Visibility.Collapsed;
+            ContentCliente.Visibility = System.Windows.Visibility.Visible;
+        }
+
+        private void btnGuardarMod_Click(object sender, RoutedEventArgs e)
+        {
+            MessageBox.Show("Datos Guardados");
+            ContentCilindro.Visibility = System.Windows.Visibility.Collapsed;
+            ContentBusq.Visibility = System.Windows.Visibility.Visible;
+        }
+        private void hplModVenta_Click(object sender, RoutedEventArgs e)
+        {
+            btnMenu.Visibility = System.Windows.Visibility.Collapsed;
+            btnAtrasMod.Visibility = System.Windows.Visibility.Visible;
+            btnNvConsulta.Visibility = System.Windows.Visibility.Collapsed;
+            btnGuardarMod.Visibility = System.Windows.Visibility.Visible;
+
+        }
+
+               
 
     }
 }
