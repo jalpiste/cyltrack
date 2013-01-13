@@ -41,7 +41,13 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Cilindro.cs" />
-    <Compile Include="Class1.cs" />
+    <Compile Include="Cilindro_Historial.cs" />
+    <Compile Include="Ciudad.cs" />
+    <Compile Include="Cliente.cs" />
+    <Compile Include="Conductor.cs" />
+    <Compile Include="Conductor_Vehiculo.cs" />
+    <Compile Include="Departamento.cs" />
+    <Compile Include="Detalle_Venta.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
