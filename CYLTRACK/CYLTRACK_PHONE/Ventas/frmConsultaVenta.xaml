@@ -102,9 +102,11 @@
                 <TextBlock Height="30" HorizontalAlignment="Left" Margin="249,426,0,0" Name="lblHora" Text="Hora:" VerticalAlignment="Top" />
                 <TextBox Height="72" HorizontalAlignment="Left" Margin="0,445,0,0" Name="txtFecha" VerticalAlignment="Top" Width="217" Style="{StaticResource textboxSolos}"/>
                 <TextBox Height="72" HorizontalAlignment="Left" Margin="236,445,0,0" Name="txtHora" Style="{StaticResource textboxSolos}" VerticalAlignment="Top" Width="158" />
-                <Button Content="Nueva Consulta" Height="72" HorizontalAlignment="Left" Margin="33,670,0,0" Name="btnNvConsulta" VerticalAlignment="Top" Width="230" MouseEnter="btnNvConsulta_MouseEnter" Click="btnNvConsulta_Click" Grid.Row="1" />
+                <Button Content="Nueva Consulta" Height="72" HorizontalAlignment="Left" Margin="33,670,0,0" Name="btnNvConsulta" VerticalAlignment="Top" Width="230" Click="btnNvConsulta_Click" Grid.Row="1" />
+                <Button Content="Guardar" Height="72" HorizontalAlignment="Left" Margin="33,670,0,0" Name="btnGuardarMod" VerticalAlignment="Top" Width="230" Click="btnGuardarMod_Click" Grid.Row="1" Visibility="Collapsed"/>
                 <Button Content="Menú" Height="72" HorizontalAlignment="Left" Margin="270,670,0,0" Name="btnMenu" VerticalAlignment="Top" Width="160" MouseEnter="btnMenu_MouseEnter" Grid.Row="1" />
-                <HyperlinkButton Content="Modificar Venta" Height="30" HorizontalAlignment="Left" Margin="5,600,0,0" Name="hplModVenta" VerticalAlignment="Top" Width="200" Style="{StaticResource link}"/>
+                <Button Content="Atras" Height="72" HorizontalAlignment="Left" Margin="270,670,0,0" Name="btnAtrasMod" VerticalAlignment="Top" Width="160" Grid.Row="1" Visibility="Collapsed" Click="btnAtrasMod_Click" />
+                <HyperlinkButton Content="Modificar Venta" Height="30" HorizontalAlignment="Left" Margin="5,600,0,0" Name="hplModVenta" VerticalAlignment="Top" Width="200" Style="{StaticResource link}" Click="hplModVenta_Click" />
                 <HyperlinkButton Content="Devolver Cilindro" Height="30" HorizontalAlignment="Left" Margin="5,630,0,0" Name="hplDevCil" VerticalAlignment="Top" Width="200" Style="{StaticResource link}" Click="hplDevCil_Click"/>
             </Grid>
         </ScrollViewer>
