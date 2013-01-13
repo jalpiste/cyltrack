@@ -1,0 +1,25 @@
+﻿using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Text;
+
+namespace CYLTRACK_BE
+{
+    /// <summary>
+    /// Clase utilizada para representar la entidad Pais
+    /// </summary>
+    class Pais
+    {
+        /// <summary>
+        /// Identificador del pais
+        /// </summary>
+        public String Id_Pais { get; set; }
+
+        /// <summary>
+        /// Nombre del pais
+        /// </summary>
+        public String Nombre { get; set; }
+
+
+    }
+}
