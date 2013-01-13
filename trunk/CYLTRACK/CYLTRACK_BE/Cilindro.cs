@@ -2,7 +2,7 @@
  * Proyecto de grado: Trazabilidad de Cilindros CYLTRACK
  * Integrantes: Viviana Camacho y Jackelyne Padilla
  * Director: Fabián Lancheros Currea
- * Deerechos reservados
+ * Derechos reservados
  * */
 using System;
 using System.Collections.Generic;
