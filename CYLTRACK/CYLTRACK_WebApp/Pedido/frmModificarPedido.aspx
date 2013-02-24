@@ -56,14 +56,12 @@
                     <p>
                         <asp:Label ID="lblDireccion" runat="server" Text="Dirección:  "></asp:Label>
                         &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<asp:Label ID="lblBarrio" runat="server" Text="Barrio:" ></asp:Label>
-                        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-                        <asp:Label ID="lblTipoDireccion" runat="server" Text="Tipo de Dirección:"></asp:Label><br />
+                        <br />
                         <asp:ListBox ID="lstDireccion" runat="server" AutoPostBack="True" Rows="1">
                               <asp:ListItem>Calle 4 N° 2-49</asp:ListItem>
                           </asp:ListBox>
-                          &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<asp:TextBox ID="txtBarrio" runat="server" CssClass="textEntry" Width="197px" Enabled="False" ></asp:TextBox>
-                          &nbsp;&nbsp;&nbsp; &nbsp;
-                          <asp:TextBox ID="txtTipoDireccion" runat="server" Enabled="false" CssClass="textEntry"></asp:TextBox>
+                          &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                          <asp:TextBox ID="txtBarrio" runat="server" CssClass="textEntry" Width="197px" Enabled="False" ></asp:TextBox>
                     </p> 
                     <p><asp:Label ID="lblCiudad" runat="server" Width="685px">Ciudad:</asp:Label><br />
                     <asp:TextBox ID="txtCiudad" runat="server" CssClass="textEntry" Width="197px" Enabled="False"></asp:TextBox>
@@ -75,12 +73,9 @@
                         </p>
                     
                      <p> 
-                        <asp:Label ID="lblTipoTelefono" runat="server" Text="Tipo de Teléfono: "></asp:Label>
-                         &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
                          <asp:Label ID="lblTelefono" runat="server" Text="Telefono:"></asp:Label>
                     <br />
-                           <asp:TextBox ID="txtTipoTelefono" CssClass="textEntry" Enabled="false" runat="server"></asp:TextBox>
-                            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<asp:TextBox ID="txtTelefono" runat="server" CssClass="textEntry" Enabled="False"></asp:TextBox>
+                           <asp:TextBox ID="txtTelefono" runat="server" CssClass="textEntry" Enabled="False"></asp:TextBox>
                     </p>
                   <div class="post">Información Cilindro Cliente</div>
                   <p>
@@ -120,7 +115,7 @@
                           &nbsp;&nbsp;
                           
                           <asp:TextBox ID="txtCantidadCilindro"  CssClass="textEntry" runat="server" 
-                              Width="50px" Text="1"></asp:TextBox>
+                              Width="50px" Text=""></asp:TextBox>
                       </p>
                         <p>
                      <asp:Label ID="lblFecha" runat="server" Text="Fecha de Registro de Pedido:   "></asp:Label>
@@ -129,10 +124,14 @@
                    </div>
                 </fieldset>
                 <p class="submitButton">
-                <asp:Button ID="btnGuardarDatos" runat="server" Text="Guardar Datos" /> 
+                    <asp:Button ID="btnLimpiar" runat="server" Text="Limpiar" Width="121px" 
+                        onclick="btnLimpiar_Click"/> 
                     &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; &nbsp; 
-                    <asp:Button ID="btnMenuPrincipal" runat="server" Text="Menu Principal" 
-                       />  
+                    <asp:Button ID="btnGuardar" runat="server" Text="Guardar" Width="121px" 
+                        onclick="btnGuardar_Click"/> 
+                    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; &nbsp; 
+                    <asp:Button ID="btnMenuPrincipal" runat="server" Text="Menú Principal" 
+                        Width="121px" onclick="btnMenuPrincipal_Click"/>  
                    
                     </p>
             </div>

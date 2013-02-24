@@ -24,5 +24,23 @@ namespace CYLTRACK_WebApp.Pedido
         {
             divInfoCliente.Visible = true;
         }
+
+        protected void btnMenuPrincipal_Click(object sender, EventArgs e)
+        {
+            Response.Redirect("~/Default.aspx");
+        }
+
+        protected void btnGuardar_Click(object sender, EventArgs e)
+        {
+            Response.Write("<script type='text/javascript'> alert('Sus datos fueron enviados satisfactoriamente') </script>");
+            //Response.Redirect("~/Pedido/frmModificarPedido.aspx");
+        }
+
+        protected void btnLimpiar_Click(object sender, EventArgs e)
+        {
+            txtCantidadCilindro.Text = " ";
+            txtCedulaCliente.Text = " ";
+
+        }
     }
 }

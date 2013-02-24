@@ -25,5 +25,15 @@ namespace CYLTRACK_WebApp.Account.Pedido
         {
             divInfoCliente.Visible = true;
         }
+
+        protected void btnNuevaConsulta_Click(object sender, EventArgs e)
+        {
+            Response.Redirect("~/Pedido/frmConsultarPedido.aspx");
+        }
+
+        protected void btnMenuPrincipal_Click(object sender, EventArgs e)
+        {
+            Response.Redirect("~/Default.aspx");
+        }
     }
 }

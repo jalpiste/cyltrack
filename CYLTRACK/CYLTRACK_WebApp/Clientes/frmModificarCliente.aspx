@@ -44,9 +44,7 @@
                         <asp:Label ID="lblDireccion" runat="server" Text="Dirección:  "></asp:Label>
                     &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; &nbsp;&nbsp; &nbsp;
                         <asp:Label ID="lblBarrio" runat="server" Text="Barrio:" ></asp:Label>
-                        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;
-                        <asp:Label ID="lblTipoDireccion" runat="server" Text="Tipo de Dirección:"></asp:Label>
-                        &nbsp;</p> 
+                        &nbsp;&nbsp;</p> 
                    
                       <p>
                         <asp:TextBox ID="txtDireccion" runat="server" CssClass="textEntry" 
@@ -54,23 +52,8 @@
                           &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; &nbsp;
                           <asp:TextBox ID="txtBarrio" runat="server" CssClass="textEntry" 
                                 Width="197px" ></asp:TextBox>
-                          &nbsp;&nbsp;&nbsp;&nbsp;&nbsp; &nbsp;
-                          <asp:ListBox ID="lstTipoDireccion" runat="server" Rows="1">
-                              <asp:ListItem>Residencia</asp:ListItem>
-                              <asp:ListItem>Oficina</asp:ListItem>
-                              <asp:ListItem>Deposito</asp:ListItem>
-                          </asp:ListBox>
-                    </p> 
-                    <p><asp:Label ID="lblCiudad" runat="server">Ciudad:</asp:Label></p>
-                    <p>
-                        <asp:ListBox ID="lstCiudad" runat="server" Rows="1">
-                            <asp:ListItem>Chiquinquirá</asp:ListItem>
-                            <asp:ListItem>Bogotá</asp:ListItem>
-                            <asp:ListItem>Tunja</asp:ListItem>
-                        </asp:ListBox>
-                          
-                        </p>  
-                        <p><asp:Label ID="lblDepartamento" runat="server" >Departamento:</asp:Label></p>
+                          </p> 
+                          <p><asp:Label ID="lblDepartamento" runat="server" >Departamento:</asp:Label></p>
                     <p>
                         <asp:ListBox ID="lstDepartamento" runat="server" Rows="1">
                             <asp:ListItem>Boyacá</asp:ListItem>
@@ -78,37 +61,35 @@
                         </asp:ListBox>
                           
                         </p>
-                    
+                    <p><asp:Label ID="lblCiudad" runat="server">Ciudad:</asp:Label></p>
+                    <p>
+                        <asp:ListBox ID="lstCiudad" runat="server" Rows="1">
+                            <asp:ListItem>Chiquinquirá</asp:ListItem>
+                            <asp:ListItem>Bogotá</asp:ListItem>
+                            <asp:ListItem>Tunja</asp:ListItem>
+                        </asp:ListBox>
+                        </p>  
                      <p> 
-                        <asp:Label ID="lblTipoTelefono" runat="server" Text="Tipo de Teléfono: "></asp:Label>
-                         &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; &nbsp; &nbsp;
                          <asp:Label ID="lblTelefono" runat="server" Text="Telefono:"></asp:Label>
                     </p>
                         <p>
-                            <asp:ListBox ID="lstTipoTelefono" runat="server" Rows="1">
-                                <asp:ListItem>Celular</asp:ListItem>
-                                <asp:ListItem>Telefono</asp:ListItem>
-                                <asp:ListItem>PBX</asp:ListItem>
-                            </asp:ListBox>
-                            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;
                             <asp:TextBox ID="txtTelefono" runat="server" CssClass="textEntry"></asp:TextBox>
                     </p>
                   <p>
-                  
-                      <asp:HyperLink ID="hprNuevaDireccion" runat="server">Agregar Nueva Dirección del cliente</asp:HyperLink>
-                     </p> 
-                     
-                <p>
+                      <asp:HyperLink ID="hprNuevaUbicacion" runat="server">Agregar Nueva Ubicación del cliente</asp:HyperLink>
+                     </p>      
                 
-                    <asp:HyperLink ID="hprNuevoTelefono" runat="server">Agregar Nuevo Teléfono del cliente</asp:HyperLink>
-                
-                </p>
                     </div>
                 </fieldset>
                 <p class="submitButton">
-                    <asp:Button ID="btnGuardarDatos" runat="server" Text="Guardar Datos" />  
+                    <asp:Button ID="btnLimpiar" runat="server" Text="Limpiar" Width="121px" 
+                        onclick="btnLimpiar_Click" />  
                     &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; &nbsp;  
-                    <asp:Button ID="btnCancelar" runat="server" Text="Cancelar" />
+                    <asp:Button ID="btnGuardar" runat="server" Text="Guardar" Width="121px" 
+                        onclick="btnGuardar_Click" />  
+                    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; &nbsp;  
+                    <asp:Button ID="btnMenuPrincipal" runat="server" Text="Menú Principal" 
+                        Width="121px" onclick="btnMenuPrincipal_Click" />
                </p>
             </div>
 </asp:Content>
