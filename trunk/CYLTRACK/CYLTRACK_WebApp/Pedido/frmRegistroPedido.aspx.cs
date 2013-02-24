@@ -19,5 +19,30 @@ namespace CYLTRACK_WebApp.Account.Pedido
         {
             divInfoCliente.Visible = true;
         }
+
+        protected void btnLimpiar_Click(object sender, EventArgs e)
+        {
+            txtNombreCliente.Text = " ";
+            txtPrimerApellido.Text = " ";
+            txtSegundoApellido.Text = " ";
+            txtBarrio.Text = " ";
+            txtCiudad.Text = " ";
+            txtDepartamento.Text = " ";
+            txtTelefono.Text = " ";
+            txtCilindro.Text = " ";
+            txtTamano.Text = " ";
+            txtCantidadCilindro.Text = " ";
+        }
+
+        protected void btnGuardar_Click(object sender, EventArgs e)
+        {
+            Response.Write("<script type='text/javascript'> alert('Sus datos fueron enviados satisfactoriamente') </script>");
+            //Response.Redirect("~/Pedido/frmRegistrarPedido.aspx");
+        }
+
+        protected void btnMenuPrincipal_Click(object sender, EventArgs e)
+        {
+            Response.Redirect("~/Default.aspx");
+        }
     }
 }

@@ -130,15 +130,6 @@ namespace CYLTRACK_WebApp.Account {
         protected global::System.Web.UI.WebControls.Label lblBarrio;
         
         /// <summary>
-        /// Control lblTipoDireccion.
-        /// </summary>
-        /// <remarks>
-        /// Campo generado automáticamente.
-        /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.Label lblTipoDireccion;
-        
-        /// <summary>
         /// Control txtDireccion.
         /// </summary>
         /// <remarks>
@@ -155,15 +146,6 @@ namespace CYLTRACK_WebApp.Account {
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
         protected global::System.Web.UI.WebControls.TextBox txtBarrio;
-        
-        /// <summary>
-        /// Control txtTipoDireccion.
-        /// </summary>
-        /// <remarks>
-        /// Campo generado automáticamente.
-        /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox txtTipoDireccion;
         
         /// <summary>
         /// Control lblCiudad.
@@ -202,15 +184,6 @@ namespace CYLTRACK_WebApp.Account {
         protected global::System.Web.UI.WebControls.TextBox txtDepartamento;
         
         /// <summary>
-        /// Control lblTipoTelefono.
-        /// </summary>
-        /// <remarks>
-        /// Campo generado automáticamente.
-        /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.Label lblTipoTelefono;
-        
-        /// <summary>
         /// Control lblTelefono.
         /// </summary>
         /// <remarks>
@@ -218,15 +191,6 @@ namespace CYLTRACK_WebApp.Account {
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
         protected global::System.Web.UI.WebControls.Label lblTelefono;
-        
-        /// <summary>
-        /// Control txtTipoTelefono.
-        /// </summary>
-        /// <remarks>
-        /// Campo generado automáticamente.
-        /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox txtTipoTelefono;
         
         /// <summary>
         /// Control txtTelefono.

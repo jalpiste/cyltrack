@@ -50,7 +50,6 @@
                     &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; &nbsp; &nbsp;
                         <asp:Label ID="lblBarrio" runat="server" Text="Barrio:"  ></asp:Label>
                         &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;
-                        <asp:Label ID="lblTipoDireccion" runat="server" Text="Tipo de Dirección:" ></asp:Label>
                         &nbsp;</p> 
                    
                       <p>
@@ -58,59 +57,39 @@
                         <asp:RequiredFieldValidator ID="txtDirecciónRequired" runat="server" ControlToValidate="txtDireccion" 
                              CssClass="failureNotification" ErrorMessage="La dirección es obligatorio." ToolTip="La dirección es obligatorio." 
                              ValidationGroup="RegistrarClienteValidationGroup">*</asp:RequiredFieldValidator>
-                          &nbsp;&nbsp;&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;<asp:TextBox ID="txtBarrio" runat="server" CssClass="textEntry" 
-                                Width="197px" ></asp:TextBox>
+                          &nbsp;&nbsp;&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;
+                          <asp:TextBox ID="txtBarrio" runat="server" CssClass="textEntry" Width="197px" ></asp:TextBox>
                                 <asp:RequiredFieldValidator ID="txtBarrioRequired" runat="server" ControlToValidate="txtBarrio" 
                              CssClass="failureNotification" ErrorMessage="El barrio es obligatorio." ToolTip="El barrio es obligatorio." 
                              ValidationGroup="RegistrarClienteValidationGroup">*</asp:RequiredFieldValidator>
-                          &nbsp;&nbsp;&nbsp; &nbsp;<asp:ListBox ID="LstTipodir" runat="server" AutoPostBack="True" Rows="1" >
-                              <asp:ListItem>Domicilio</asp:ListItem>
-                              <asp:ListItem>Oficina</asp:ListItem>
-                              <asp:ListItem>Apartado Aereo</asp:ListItem>
-                          </asp:ListBox>
-                    </p> 
-                    <p><asp:Label ID="lblCiudad" runat="server" AssociatedControlID="LstCiudad" Width="685px" >Ciudad:</asp:Label></p>
-                    <p>
-                        <asp:ListBox ID="LstCiudad" runat="server" Rows="1">
-                            <asp:ListItem>Chiquinquirá</asp:ListItem>
-                            <asp:ListItem>Bogotá</asp:ListItem>
-                            <asp:ListItem>Tunja</asp:ListItem>
-                        </asp:ListBox>
-                     <asp:RequiredFieldValidator ID="lstCiudadRequired" runat="server" ControlToValidate="LstCiudad" 
-                             CssClass="failureNotification" ErrorMessage="La ciudad es obligatorio." ToolTip="La ciudad es obligatorio." 
-                             ValidationGroup="RegistrarClienteValidationGroup">*</asp:RequiredFieldValidator>
-                            </p>  
-                        <p><asp:Label ID="lblDepartamento" runat="server" AssociatedControlID="lstDepartamento" 
+                          </p> 
+                          <p><asp:Label ID="lblDepartamento" runat="server" AssociatedControlID="lstDepartamento" 
                             Width="679px">Departamento:</asp:Label></p>
                     <p>
                         <asp:ListBox ID="lstDepartamento" runat="server" Rows="1">
-                            <asp:ListItem>Boyacá</asp:ListItem>
-                            <asp:ListItem>Cundinamarca</asp:ListItem>
-                        </asp:ListBox>
+                            <asp:ListItem>Seleccionar</asp:ListItem>
+                            </asp:ListBox>
                             <asp:RequiredFieldValidator ID="lstDepartamentoRequired" runat="server" ControlToValidate="lstDepartamento" 
                              CssClass="failureNotification" ErrorMessage="El departamento es obligatorio." ToolTip="El departamento es obligatorio." 
                              ValidationGroup="RegistrarClienteValidationGroup">*</asp:RequiredFieldValidator>
                        
                         </p>
+                    <p><asp:Label ID="lblCiudad" runat="server" AssociatedControlID="LstCiudad" Width="685px" >Ciudad:</asp:Label></p>
+                    <p>
+                        <asp:ListBox ID="LstCiudad" runat="server" Rows="1">
+                            <asp:ListItem>Seleccionar</asp:ListItem>
+                            </asp:ListBox>
+                     <asp:RequiredFieldValidator ID="lstCiudadRequired" runat="server" ControlToValidate="LstCiudad" 
+                             CssClass="failureNotification" ErrorMessage="La ciudad es obligatorio." ToolTip="La ciudad es obligatorio." 
+                             ValidationGroup="RegistrarClienteValidationGroup">*</asp:RequiredFieldValidator>
+                            </p>  
+                        
                     
                      <p> 
-                        <asp:Label ID="lblTipoTelefono" runat="server" Text="Tipo de Teléfono: "></asp:Label>
-                         &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; &nbsp;&nbsp; &nbsp;&nbsp;
-                         <asp:Label ID="lblTelefono" runat="server" Text="Telefono:" AssociatedControlID="lstTipoTelefono"></asp:Label>
+                         <asp:Label ID="lblTelefono" runat="server" Text="Telefono:" ></asp:Label>
                     </p>
                         <p>
-                            <asp:ListBox ID="lstTipoTelefono" runat="server"  Rows="1">
-                                <asp:ListItem>Residencia</asp:ListItem>
-                                <asp:ListItem>Celular</asp:ListItem>
-                                <asp:ListItem>Oficina</asp:ListItem>
-                                <asp:ListItem>PBX/Conmutador</asp:ListItem>
-                                <asp:ListItem>Telefax</asp:ListItem>
-                            </asp:ListBox>
-                             <asp:RequiredFieldValidator ID="lstTipoTelefonoRequiredField" runat="server" ControlToValidate="lstTipoTelefono" 
-                             CssClass="failureNotification" ErrorMessage="El telefono del cliente es obligatorio." ToolTip="El telefono del cliente es obligatorio." 
-                             ValidationGroup="RegistrarClienteValidationGroup">*</asp:RequiredFieldValidator>
-                            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; &nbsp; &nbsp;
-                            <asp:TextBox ID="txtTelefono" runat="server" CssClass="textEntry" ></asp:TextBox>
+                           <asp:TextBox ID="txtTelefono" runat="server" CssClass="textEntry" ></asp:TextBox>
                             <asp:RequiredFieldValidator ID="txtTelefonoRequiredField" runat="server" ControlToValidate="txtTelefono" 
                              CssClass="failureNotification" ErrorMessage="El telefono del cliente es obligatorio." ToolTip="El telefono del cliente es obligatorio." 
                              ValidationGroup="RegistrarClienteValidationGroup">*</asp:RequiredFieldValidator>
@@ -119,11 +98,14 @@
                   
                 </fieldset>
                 <p class="submitButton">
-                <asp:Button ID="btnLimpiar" runat="server" Text="Limpiar" /> 
+                <asp:Button ID="btnLimpiar" runat="server" Text="Limpiar" Width="121px" 
+                        onclick="btnLimpiar_Click" /> 
                     &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; &nbsp; 
-                    <asp:Button ID="btnGuardarDatos" runat="server" Text="Guardar Datos" />  
+                    <asp:Button ID="btnGuardar" runat="server" Text="Guardar" Width="121px" 
+                        onclick="btnGuardar_Click" />  
                     &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; &nbsp;  
-                    <asp:Button ID="btnCancelar" runat="server" Text="Cancelar" />
+                    <asp:Button ID="btnMenuPrincipal" runat="server" Text="Menú Principal" 
+                        Width="121px" onclick="btnMenuPrincipal_Click" />
                </p>
             </div>
 </asp:Content>
