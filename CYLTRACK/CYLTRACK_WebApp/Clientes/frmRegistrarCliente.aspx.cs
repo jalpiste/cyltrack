@@ -18,26 +18,5 @@ namespace CYLTRACK_WebApp.Account
         {
             divInfoCliente.Visible = true;
         }
-
-        protected void btnLimpiar_Click(object sender, EventArgs e)
-        {
-            txtNombreCliente.Text = " ";
-            txtPrimerApellido.Text = " ";
-            txtSegundoApellido.Text = " ";
-            txtDireccion.Text = " ";
-            txtBarrio.Text = " ";
-            txtTelefono.Text = " ";
-        }
-
-        protected void btnGuardar_Click(object sender, EventArgs e)
-        {
-            Response.Write("<script type='text/javascript'> alert('Sus datos fueron enviados satisfactoriamente') </script>");
-            //Response.Redirect("~/Clientes/frmRegistrarCliente.aspx");
-        }
-
-        protected void btnMenuPrincipal_Click(object sender, EventArgs e)
-        {
-            Response.Redirect("~/Default.aspx");
-        }
     }
 }

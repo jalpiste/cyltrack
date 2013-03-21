@@ -13,6 +13,7 @@
     <RootNamespace>CYLTRACK_WebApp</RootNamespace>
     <AssemblyName>CYLTRACK_WebApp</AssemblyName>
     <TargetFrameworkVersion>v4.0</TargetFrameworkVersion>
+    <UseIISExpress>false</UseIISExpress>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
     <DebugSymbols>true</DebugSymbols>
@@ -52,7 +53,6 @@
   <ItemGroup>
     <Content Include="About.aspx" />
     <Content Include="Autenticacion\frmAutenticacion.aspx" />
-    <Content Include="Clientes\frmCambioTelefono.aspx" />
     <Content Include="nada.html" />
     <Content Include="Pedido\frmCancelarPedido.aspx" />
     <Content Include="Pedido\frmModificarPedido.aspx" />
@@ -108,13 +108,6 @@
     </Compile>
     <Compile Include="Autenticacion\frmAutenticacion.aspx.designer.cs">
       <DependentUpon>frmAutenticacion.aspx</DependentUpon>
-    </Compile>
-    <Compile Include="Clientes\frmCambioTelefono.aspx.cs">
-      <DependentUpon>frmCambioTelefono.aspx</DependentUpon>
-      <SubType>ASPXCodeBehind</SubType>
-    </Compile>
-    <Compile Include="Clientes\frmCambioTelefono.aspx.designer.cs">
-      <DependentUpon>frmCambioTelefono.aspx</DependentUpon>
     </Compile>
     <Compile Include="Pedido\frmCancelarPedido.aspx.cs">
       <DependentUpon>frmCancelarPedido.aspx</DependentUpon>
