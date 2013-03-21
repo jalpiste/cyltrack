@@ -58,7 +58,7 @@
     <Content Include="Pedido\frmModificarPedido.aspx" />
     <Content Include="Cilindros\frmAsignarUbicacion.aspx" />
     <Content Include="Cilindros\frmConsultarCilindro.aspx" />
-    <Content Include="Clientes\frmCambioDireccion.aspx" />
+    <Content Include="Clientes\frmNuevaUbicacion.aspx" />
     <Content Include="Clientes\frmConsultarCliente.aspx" />
     <Content Include="Cilindros\frmRegistrarCilindro.aspx" />
     <Content Include="Clientes\frmRegistrarCliente.aspx" />
@@ -137,12 +137,12 @@
     <Compile Include="Cilindros\frmConsultarCilindro.aspx.designer.cs">
       <DependentUpon>frmConsultarCilindro.aspx</DependentUpon>
     </Compile>
-    <Compile Include="Clientes\frmCambioDireccion.aspx.cs">
-      <DependentUpon>frmCambioDireccion.aspx</DependentUpon>
+    <Compile Include="Clientes\frmNuevaUbicacion.aspx.cs">
+      <DependentUpon>frmNuevaUbicacion.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
     </Compile>
-    <Compile Include="Clientes\frmCambioDireccion.aspx.designer.cs">
-      <DependentUpon>frmCambioDireccion.aspx</DependentUpon>
+    <Compile Include="Clientes\frmNuevaUbicacion.aspx.designer.cs">
+      <DependentUpon>frmNuevaUbicacion.aspx</DependentUpon>
     </Compile>
     <Compile Include="Clientes\frmConsultarCliente.aspx.cs">
       <DependentUpon>frmConsultarCliente.aspx</DependentUpon>
