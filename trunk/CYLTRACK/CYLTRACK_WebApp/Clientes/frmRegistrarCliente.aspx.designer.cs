@@ -148,6 +148,15 @@ namespace CYLTRACK_WebApp.Account {
         protected global::System.Web.UI.WebControls.Label lblBarrio;
         
         /// <summary>
+        /// Control lblTipoDireccion.
+        /// </summary>
+        /// <remarks>
+        /// Campo generado automáticamente.
+        /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Label lblTipoDireccion;
+        
+        /// <summary>
         /// Control txtDireccion.
         /// </summary>
         /// <remarks>
@@ -184,31 +193,13 @@ namespace CYLTRACK_WebApp.Account {
         protected global::System.Web.UI.WebControls.RequiredFieldValidator txtBarrioRequired;
         
         /// <summary>
-        /// Control lblDepartamento.
+        /// Control LstTipodir.
         /// </summary>
         /// <remarks>
         /// Campo generado automáticamente.
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Label lblDepartamento;
-        
-        /// <summary>
-        /// Control lstDepartamento.
-        /// </summary>
-        /// <remarks>
-        /// Campo generado automáticamente.
-        /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.ListBox lstDepartamento;
-        
-        /// <summary>
-        /// Control lstDepartamentoRequired.
-        /// </summary>
-        /// <remarks>
-        /// Campo generado automáticamente.
-        /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.RequiredFieldValidator lstDepartamentoRequired;
+        protected global::System.Web.UI.WebControls.ListBox LstTipodir;
         
         /// <summary>
         /// Control lblCiudad.
@@ -238,6 +229,42 @@ namespace CYLTRACK_WebApp.Account {
         protected global::System.Web.UI.WebControls.RequiredFieldValidator lstCiudadRequired;
         
         /// <summary>
+        /// Control lblDepartamento.
+        /// </summary>
+        /// <remarks>
+        /// Campo generado automáticamente.
+        /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Label lblDepartamento;
+        
+        /// <summary>
+        /// Control lstDepartamento.
+        /// </summary>
+        /// <remarks>
+        /// Campo generado automáticamente.
+        /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.ListBox lstDepartamento;
+        
+        /// <summary>
+        /// Control lstDepartamentoRequired.
+        /// </summary>
+        /// <remarks>
+        /// Campo generado automáticamente.
+        /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.RequiredFieldValidator lstDepartamentoRequired;
+        
+        /// <summary>
+        /// Control lblTipoTelefono.
+        /// </summary>
+        /// <remarks>
+        /// Campo generado automáticamente.
+        /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Label lblTipoTelefono;
+        
+        /// <summary>
         /// Control lblTelefono.
         /// </summary>
         /// <remarks>
@@ -245,6 +272,24 @@ namespace CYLTRACK_WebApp.Account {
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
         protected global::System.Web.UI.WebControls.Label lblTelefono;
+        
+        /// <summary>
+        /// Control lstTipoTelefono.
+        /// </summary>
+        /// <remarks>
+        /// Campo generado automáticamente.
+        /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.ListBox lstTipoTelefono;
+        
+        /// <summary>
+        /// Control lstTipoTelefonoRequiredField.
+        /// </summary>
+        /// <remarks>
+        /// Campo generado automáticamente.
+        /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.RequiredFieldValidator lstTipoTelefonoRequiredField;
         
         /// <summary>
         /// Control txtTelefono.
@@ -274,21 +319,21 @@ namespace CYLTRACK_WebApp.Account {
         protected global::System.Web.UI.WebControls.Button btnLimpiar;
         
         /// <summary>
-        /// Control btnGuardar.
+        /// Control btnGuardarDatos.
         /// </summary>
         /// <remarks>
         /// Campo generado automáticamente.
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Button btnGuardar;
+        protected global::System.Web.UI.WebControls.Button btnGuardarDatos;
         
         /// <summary>
-        /// Control btnMenuPrincipal.
+        /// Control btnCancelar.
         /// </summary>
         /// <remarks>
         /// Campo generado automáticamente.
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Button btnMenuPrincipal;
+        protected global::System.Web.UI.WebControls.Button btnCancelar;
     }
 }
