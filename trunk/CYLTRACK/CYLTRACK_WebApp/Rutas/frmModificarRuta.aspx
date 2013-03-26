@@ -78,8 +78,8 @@
                 <p class="submitButton">
                 <asp:Button ID="btnGuardar" runat="server" Text="Guardar" Width="115px"/> 
                     &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; &nbsp; 
-                    <asp:Button ID="btnCancelar" runat="server" Text="Cancelar" Width="115px" 
-                    onclick="btnCancelar_Click"/>  
+                    <asp:Button ID="btnMenu" runat="server" Text="Menú Principal" Width="115px" 
+                    onclick="btnMenu_Click"/>  
                </p>
                 </div>
                     

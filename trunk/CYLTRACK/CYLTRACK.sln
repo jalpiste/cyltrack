@@ -30,7 +30,7 @@ Project("{E24C65DC-7377-472B-9ABA-BC803B73C61A}") = "CYLTRACK_Services", "CYLTRA
 		Release.AspNetCompiler.ForceOverwrite = "true"
 		Release.AspNetCompiler.FixedNames = "false"
 		Release.AspNetCompiler.Debug = "False"
-		VWDPort = "49334"
+		VWDPort = "49336"
 		DefaultWebSiteLanguage = "Visual C#"
 	EndProjectSection
 	ProjectSection(SvnOrigin) = preProject

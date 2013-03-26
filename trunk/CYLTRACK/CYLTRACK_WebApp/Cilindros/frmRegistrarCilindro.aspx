@@ -4,7 +4,7 @@
     
 </asp:Content>
 <asp:Content ID="BodyContent" runat="server" ContentPlaceHolderID="MainContent">
-<h1 style="margin-top: 75px">
+    <h1 style="margin-top: 75px">
         Registrar Cilindro
     </h1>
      <span class="failureNotification">
@@ -74,12 +74,14 @@
                 </div>
                 </fieldset>
                 <p class="submitButton">
-                <asp:Button ID="BtnLimpiar" runat="server" Text="Limpiar"  /> 
+                <asp:Button ID="BtnLimpiar" runat="server" Text="Limpiar" 
+                        onclick="BtnLimpiar_Click"  /> 
                     &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; &nbsp; 
-                    <asp:Button ID="BtnGuardarDatos" runat="server" Text="Guardar Datos" 
-                        onclick="BtnGuardarDatos_Click"  />  
+                    <asp:Button ID="BtnGuardar" runat="server" Text="Guardar" 
+                        onclick="BtnGuardar_Click"  />  
                     &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; &nbsp;  
-                    <asp:Button ID="BtnCancelar" runat="server" Text="Cancelar" />
+                    <asp:Button ID="BtnMenu" runat="server" Text="Menú Principal" 
+                        onclick="BtnMenu_Click" />
                </p>
             </div>
 </asp:Content>

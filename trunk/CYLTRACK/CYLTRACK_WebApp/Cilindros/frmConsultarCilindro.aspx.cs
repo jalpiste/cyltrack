@@ -18,6 +18,21 @@ namespace CYLTRACK_WebApp.Account
         protected void txtCodigoCilindro_TextChanged(object sender, EventArgs e)
         {
             DivDatosCilindro.Visible = true;
+            if (TxtUbicacion.Text == "Vehiculo") 
+            {
+                DivInfoVehiculo.Visible = true;
+            }
+        }
+
+        protected void BtnNuevaConsulta_Click(object sender, EventArgs e)
+        {
+            //DivDatosCilindro.Visible = false;
+            //DivInfoCilindro.Visible = false;
+        }
+
+        protected void BtnMenuPrincipal_Click(object sender, EventArgs e)
+        {
+            Response.Redirect("~/Default.aspx");
         }
 
 

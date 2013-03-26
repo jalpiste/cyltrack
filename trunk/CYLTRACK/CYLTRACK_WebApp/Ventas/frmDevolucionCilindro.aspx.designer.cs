@@ -292,15 +292,6 @@ namespace CYLTRACK_WebApp.Ventas {
         protected global::System.Web.UI.WebControls.TextBox txtDepartamento;
         
         /// <summary>
-        /// Control lblTipoTelefono.
-        /// </summary>
-        /// <remarks>
-        /// Campo generado automáticamente.
-        /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.Label lblTipoTelefono;
-        
-        /// <summary>
         /// Control lblTelefono.
         /// </summary>
         /// <remarks>
@@ -308,15 +299,6 @@ namespace CYLTRACK_WebApp.Ventas {
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
         protected global::System.Web.UI.WebControls.Label lblTelefono;
-        
-        /// <summary>
-        /// Control txtTelefono.
-        /// </summary>
-        /// <remarks>
-        /// Campo generado automáticamente.
-        /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox txtTelefono;
         
         /// <summary>
         /// Control txtTipoTelefono.
@@ -418,21 +400,21 @@ namespace CYLTRACK_WebApp.Ventas {
         protected global::System.Web.UI.WebControls.TextBox txtObservaciones;
         
         /// <summary>
-        /// Control btnGuardar.
+        /// Control BtnGuardar.
         /// </summary>
         /// <remarks>
         /// Campo generado automáticamente.
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Button btnGuardar;
+        protected global::System.Web.UI.WebControls.Button BtnGuardar;
         
         /// <summary>
-        /// Control btnCancelar.
+        /// Control BtnMenu.
         /// </summary>
         /// <remarks>
         /// Campo generado automáticamente.
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Button btnCancelar;
+        protected global::System.Web.UI.WebControls.Button BtnMenu;
     }
 }

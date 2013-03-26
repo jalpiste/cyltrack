@@ -14,24 +14,23 @@ namespace CYLTRACK_WebApp.Ventas
 
         }
 
-        protected void btnCancelar_Click(object sender, EventArgs e)
+        protected void btnMenu_Click(object sender, EventArgs e)
         {
-            Response.Redirect("~/Default.aspx");
+            //Response.Redirect("~/Default.aspx");
         }
 
-        protected void btnConsultar_Click(object sender, EventArgs e)
-        {
-            DivInfoVenta.Visible = true;
-            btnNuevaConsulta.Visible = true;
-            btnConsultar.Visible = false;
-            txtCedulaCliente.Text = "";
-        }
+       
 
         protected void btnNuevaConsulta_Click(object sender, EventArgs e)
         {
-            DivInfoVenta.Visible = false;
-            btnNuevaConsulta.Visible = false;
-            btnConsultar.Visible = true;
+            //DivInfoVenta.Visible = false;
+            //btnNuevaConsulta.Visible = false;
+              }
+
+        protected void txtCedulaCliente_TextChanged(object sender, EventArgs e)
+        {
+            DivInfoVenta.Visible = true;
+            btnNuevaConsulta.Visible = true;
         }
     }
 }

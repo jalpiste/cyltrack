@@ -30,11 +30,12 @@
             <TextBlock Height="30" HorizontalAlignment="Left" Margin="25,66,0,0" Name="lblCedula" Text="Número de Cédula: " VerticalAlignment="Top" Style="{StaticResource textArea}" />
             <TextBox Height="Auto" HorizontalAlignment="Left" Margin="8,88,0,0" Name="txtCedula" Text="" VerticalAlignment="Top" Width="303" Style="{StaticResource textboxSolos}" InputScope="TelephoneNumber"/>
             <Button Content="Consultar" Height="72" HorizontalAlignment="Left" Margin="70,188,0,0" Name="btnRegistrar" VerticalAlignment="Top" Width="160"  Click="btnRegistrar_Click" />
-            <Button Content="Cancelar" Height="72" HorizontalAlignment="Left" Margin="226,188,0,0" Name="btnRegresar" VerticalAlignment="Top" Width="160"  Click="btnRegresar_Click" />
+            <Button Content="Menú" Height="72" HorizontalAlignment="Left" Margin="226,188,0,0" Name="btnMenu" VerticalAlignment="Top" Width="160"  Click="btnMenu_Click" />
+            <TextBlock Height="30" HorizontalAlignment="Left" Margin="26,24,0,0" Name="txtConsulCliente" Text="Consultar Cliente" VerticalAlignment="Top" Style="{StaticResource h2}"/>
         </Grid>
 
         <Grid x:Name="ContentDatosP" Grid.Row="1" Margin="12,0,12,0" Background="White" Visibility="Collapsed">
-            <TextBlock Height="30" HorizontalAlignment="Left" Margin="19,23,0,0" Name="lblDatos" Text="Datos Personales" VerticalAlignment="Top" Width="269" Style="{StaticResource h3}" />
+            <TextBlock Height="30" HorizontalAlignment="Left" Margin="19,23,0,0" Name="lblDatos" Text="Datos Personales" VerticalAlignment="Top" Width="269" Style="{StaticResource h2}" />
             <TextBlock Height="30" HorizontalAlignment="Left" Margin="19,75,0,0" Name="lblNombres" Text="Nombres: " VerticalAlignment="Top" Style="{StaticResource textArea}" />
             <TextBox Height="Auto" HorizontalAlignment="Left" Margin="2,89,0,0" Name="txtNombres" Text="" VerticalAlignment="Top" Width="320" Style="{StaticResource textboxConsulta}" />
             <TextBlock Height="30" HorizontalAlignment="Left" Margin="19,153,0,0" Name="lblPrApellido" Text="Primer Apellido: " VerticalAlignment="Top" Style="{StaticResource textArea}" />
@@ -52,13 +53,13 @@
             <TextBlock Height="30" HorizontalAlignment="Left" Margin="19,458,0,0" Name="lblTel" Text="Teléfono: " VerticalAlignment="Top" Style="{StaticResource textArea}" />
             <TextBox Height="Auto" HorizontalAlignment="Left" Margin="0,473,0,0" Name="txtTel" Text="" VerticalAlignment="Top" Width="226" Style="{StaticResource textboxConsulta}" InputScope="TelephoneNumber"/>
             <HyperlinkButton Content="Modificar Cliente" Height="30" HorizontalAlignment="Left" Margin="-50,548,0,0" Name="hplModificarCliente" VerticalAlignment="Top" Width="276" Style="{StaticResource link}" Click="hplModificarCliente_Click" />
-            <Button Content="Cancelar" Height="72" HorizontalAlignment="Left" Margin="130,593,0,0" Name="btnCancelar" VerticalAlignment="Top" Width="209" Click="btnCancelar_Click"/>
+            <Button Content="Menú" Height="72" HorizontalAlignment="Left" Margin="130,593,0,0" Name="btnMenuReg" VerticalAlignment="Top" Width="209" Click="btnMenuReg_Click"/>
         </Grid>
 
         <Grid x:Name="ContentModificarCliente" Grid.Row="1" Margin="12,0,12,0" Background="White" Visibility="Collapsed">
             <ScrollViewer HorizontalScrollBarVisibility="Auto">
                 <StackPanel Margin="0,0,6,6">
-                    <TextBlock Height="30" HorizontalAlignment="Left" Margin="19,23,0,0" Name="lblDatos2" Text="Datos Personales" VerticalAlignment="Top" Width="269" Style="{StaticResource h3}" />
+                    <TextBlock Height="30" HorizontalAlignment="Left" Margin="19,23,0,0" Name="lblDatos2" Text="Datos Personales" VerticalAlignment="Top" Width="269" Style="{StaticResource h2}" />
                     <TextBlock Height="30" Margin="19,18,0,0" Name="lblNombres2" Text="Nombres: " Style="{StaticResource textArea}" />
                     <TextBox Height="Auto" HorizontalAlignment="Left" Margin="2,-12,0,0" Name="txtNombres2" Text="" VerticalAlignment="Top" Width="320" Style="{StaticResource textboxSolos}" />
                     <TextBlock Height="30" HorizontalAlignment="Left" Margin="19,0,0,0" Name="lblPrApellido2" Text="Primer Apellido: " VerticalAlignment="Top" Style="{StaticResource textArea}" />
@@ -81,8 +82,8 @@
                     <TextBox Height="Auto" HorizontalAlignment="Left" Margin="0,-443,0,0" Name="txtTel2" Text="" VerticalAlignment="Top" Width="226" Style="{StaticResource textboxSolos}" InputScope="TelephoneNumber"/>
                     <HyperlinkButton Content="Agregar Nueva Dirección" Height="30" HorizontalAlignment="Left" Margin="-21,-378,0,0" Name="hplNuevaDir" VerticalAlignment="Top" Width="276" Style="{StaticResource link}" Click="hplNuevaDir_Click" />
                     <HyperlinkButton Content="Agregar Nuevo Teléfono" Height="30" HorizontalAlignment="Left" Margin="-24,-350,0,0" Name="hplNuevoTel" VerticalAlignment="Top" Width="276" Style="{StaticResource link}" Click="hplNuevoTel_Click" />
-                    <Button Content="Guardar" Height="72" HorizontalAlignment="Left" Margin="18,-311,0,0" Name="btnGuardar" VerticalAlignment="Top" Width="209"/>
-                    <Button Content="Cancelar" Height="72" HorizontalAlignment="Left" Margin="224,-311,0,0" Name="btnCancelar2" VerticalAlignment="Top" Width="209" Click="btnCancelar_Click"/>
+                    <Button Content="Guardar" Height="72" HorizontalAlignment="Left" Margin="18,-311,0,0" Name="btnGuardarModif" VerticalAlignment="Top" Width="209" Click="btnGuardarModif_Click"/>
+                    <Button Content="Menú" Height="72" HorizontalAlignment="Left" Margin="224,-311,0,0" Name="btnMenuConsul" VerticalAlignment="Top" Width="209" Click="btnMenuConsul_Click"/>
                 </StackPanel>
             </ScrollViewer>
         </Grid>

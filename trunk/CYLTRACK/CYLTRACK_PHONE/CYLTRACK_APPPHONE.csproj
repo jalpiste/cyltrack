@@ -70,17 +70,11 @@
     <Compile Include="Clientes\frmConsultarCliente.xaml.cs">
       <DependentUpon>frmConsultarCliente.xaml</DependentUpon>
     </Compile>
-    <Compile Include="Clientes\frmModificarCliente.xaml.cs">
-      <DependentUpon>frmModificarCliente.xaml</DependentUpon>
-    </Compile>
     <Compile Include="Clientes\frmRegistrarCliente.xaml.cs">
       <DependentUpon>frmRegistrarCliente.xaml</DependentUpon>
     </Compile>
     <Compile Include="MainPage.xaml.cs">
       <DependentUpon>MainPage.xaml</DependentUpon>
-    </Compile>
-    <Compile Include="Pedidos\frmCancelarPedido.xaml.cs">
-      <DependentUpon>frmCancelarPedido.xaml</DependentUpon>
     </Compile>
     <Compile Include="Pedidos\frmConsultarPedido.xaml.cs">
       <DependentUpon>frmConsultarPedido.xaml</DependentUpon>
@@ -120,10 +114,6 @@
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </Page>
-    <Page Include="Clientes\frmModificarCliente.xaml">
-      <Generator>MSBuild:Compile</Generator>
-      <SubType>Designer</SubType>
-    </Page>
     <Page Include="Clientes\frmRegistrarCliente.xaml">
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
@@ -131,10 +121,6 @@
     <Page Include="MainPage.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
-    </Page>
-    <Page Include="Pedidos\frmCancelarPedido.xaml">
-      <Generator>MSBuild:Compile</Generator>
-      <SubType>Designer</SubType>
     </Page>
     <Page Include="Pedidos\frmConsultarPedido.xaml">
       <Generator>MSBuild:Compile</Generator>

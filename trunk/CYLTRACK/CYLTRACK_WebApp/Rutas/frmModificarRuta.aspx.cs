@@ -14,7 +14,7 @@ namespace CYLTRACK_WebApp.Rutas
 
         }
 
-        protected void btnCancelar_Click(object sender, EventArgs e)
+        protected void btnMenu_Click(object sender, EventArgs e)
         {
             Response.Redirect("~/Default.aspx");
         }

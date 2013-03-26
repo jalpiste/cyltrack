@@ -25,9 +25,9 @@ namespace Cyltrack_phone.Clientes
             ContentBusq.Visibility = System.Windows.Visibility.Collapsed;
             ContentDatosP.Visibility = System.Windows.Visibility.Visible;
         }
-        private void btnCancelar_Click(object sender, RoutedEventArgs e)
+        private void btnMenuReg_Click(object sender, RoutedEventArgs e)
         {
-            NavigationService.GoBack();
+            NavigationService.Navigate(new Uri("/MainPage.xaml", UriKind.Relative));
         }
 
         private void hplModificarCliente_Click(object sender, RoutedEventArgs e)
@@ -36,9 +36,9 @@ namespace Cyltrack_phone.Clientes
             ContentModificarCliente.Visibility = System.Windows.Visibility.Visible;
         }
 
-        private void btnRegresar_Click(object sender, RoutedEventArgs e)
+        private void btnMenu_Click(object sender, RoutedEventArgs e)
         {
-            NavigationService.GoBack();
+            NavigationService.Navigate(new Uri("/MainPage.xaml", UriKind.Relative));
         }
 
         private void hplNuevaDir_Click(object sender, RoutedEventArgs e)
@@ -51,8 +51,19 @@ namespace Cyltrack_phone.Clientes
         {
             NavigationService.Navigate(new Uri("/Clientes/frmCambiarTelefono.xaml", UriKind.Relative));
         }
-    
-        
+
+        private void btnMenuConsul_Click(object sender, RoutedEventArgs e)
+        {
+            NavigationService.GoBack();
+        }
+
+        private void btnGuardarModif_Click(object sender, RoutedEventArgs e)
+        {
+            MessageBox.Show("Sus datos fueron enviados satisfactoriamente");
+            ContentModificarCliente.Visibility = System.Windows.Visibility.Collapsed;
+            ContentBusq.Visibility = System.Windows.Visibility.Visible;
+        }
+
         
     }
 }

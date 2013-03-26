@@ -27,15 +27,18 @@ namespace CYLTRACK_WebApp.Ventas
             {
                 DivCambio.Visible = true;
             }
-            if (lstMotivo.SelectedIndex == 2)
-            {
-                DivCambio.Visible = true;
-            }
+            
         }
 
-        protected void btnCancelar_Click(object sender, EventArgs e)
+        protected void BtnMenu_Click(object sender, EventArgs e)
         {
             Response.Redirect("~/Default.aspx");
+        }
+
+        protected void BtnGuardar_Click(object sender, EventArgs e)
+        {
+            //Response.Write("<script type='text/javascript'> alert('Sus datos fueron enviados satisfactoriamente') </script>");
+        
         }
     }
 }

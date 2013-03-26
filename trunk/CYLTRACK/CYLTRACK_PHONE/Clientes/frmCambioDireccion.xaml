@@ -28,25 +28,22 @@
 
         <!--ContentPanel. Colocar aquí el contenido adicional-->
         <Grid x:Name="ContentCambioDireccion" Grid.Row="1" Margin="12,0,12,0" Background="White">
-            <TextBlock Height="46" HorizontalAlignment="Left" Margin="19,23,0,0" Name="lblCambioDir" Text="Agregar Nueva Dirección" VerticalAlignment="Top" Width="358" Style="{StaticResource h3}"  />
+            <TextBlock Height="46" HorizontalAlignment="Left" Margin="19,23,0,0" Name="lblCambioDir" Text="Agregar Nueva Dirección" VerticalAlignment="Top" Width="358" Style="{StaticResource h2}"  />
             <TextBlock Height="30" HorizontalAlignment="Left" Margin="19,75,0,0" Name="lblDireccion" Text="Dirección: " VerticalAlignment="Top" Style="{StaticResource textArea}" />
             <TextBox Height="Auto" HorizontalAlignment="Left" Margin="2,89,0,0" Name="txtNuevaDir" Text="" VerticalAlignment="Top" Width="320" Style="{StaticResource textboxSolos}" />
-            <TextBlock Height="30" HorizontalAlignment="Left" Margin="19,159,0,0" Name="lblTipoDir" Text="Tipo de Dirección: " VerticalAlignment="Top" Style="{StaticResource textArea}" />
-            <ListBox Height="37" HorizontalAlignment="Left" Margin="19,187,0,0" Name="lstTipoDir" VerticalAlignment="Top" Width="247" Style="{StaticResource listas}" >
+            <TextBlock Height="30" HorizontalAlignment="Left" Margin="19,159,0,0" Name="lblBarrio" Text="Barrio: " VerticalAlignment="Top" Style="{StaticResource textArea}" />
+            <TextBox Height="Auto" HorizontalAlignment="Left" Margin="2,173,0,0" Name="txtBarrio" Text="" VerticalAlignment="Top" Width="233" Style="{StaticResource textboxSolos}" />
+            <TextBlock HorizontalAlignment="Left" Margin="19,245,0,363" Name="lblDep" Text="Departamento: " Style="{StaticResource textArea}" />
+            <ListBox Height="28" HorizontalAlignment="Left" Margin="19,270,0,0" Name="lstDep" VerticalAlignment="Top" Width="195" Style="{StaticResource listas}" >
                 <ListBoxItem Content="Seleccionar..." />
             </ListBox>
-            <TextBlock Height="30" HorizontalAlignment="Left" Margin="19,230,0,0" Name="lblBarrio" Text="Barrio: " VerticalAlignment="Top" Style="{StaticResource textArea}" />
-            <TextBox Height="Auto" HorizontalAlignment="Left" Margin="2,245,0,0" Name="txtBarrio" Text="" VerticalAlignment="Top" Width="233" Style="{StaticResource textboxSolos}" />
-            <TextBlock HorizontalAlignment="Left" Margin="19,310,0,298" Name="lblDep" Text="Departamento: " Style="{StaticResource textArea}" />
-            <ListBox Height="28" HorizontalAlignment="Left" Margin="19,335,0,0" Name="lstDep" VerticalAlignment="Top" Width="195" Style="{StaticResource listas}" >
+            <TextBlock HorizontalAlignment="Left" Margin="241,245,0,363" Name="lblCiudad" Text="Ciudad: " Style="{StaticResource textArea}" />
+            <ListBox Height="28" HorizontalAlignment="Left" Margin="241,270,0,0" Name="lstCiudad" VerticalAlignment="Top" Width="195" Style="{StaticResource listas}">
                 <ListBoxItem Content="Seleccionar..." />
+                <ListBoxItem Content="" />
             </ListBox>
-            <TextBlock HorizontalAlignment="Left" Margin="241,310,0,298" Name="lblCiudad" Text="Ciudad: " Style="{StaticResource textArea}" />
-            <ListBox Height="28" HorizontalAlignment="Left" Margin="241,335,0,0" Name="lstCiudad" VerticalAlignment="Top" Width="195" Style="{StaticResource listas}">
-                <ListBoxItem Content="Seleccionar..." />
-            </ListBox>
-            <Button Content="Guardar" Height="72" HorizontalAlignment="Left" Margin="51,400,0,0" Name="btnGuardar" VerticalAlignment="Top" Width="160" />
-            <Button Content="Cancelar" Height="72" HorizontalAlignment="Left" Margin="217,400,0,0" Name="btnCancelar" VerticalAlignment="Top" Width="160"  Click="btnCancelar_Click" />
+            <Button Content="Guardar" Height="72" HorizontalAlignment="Left" Margin="51,335,0,0" Name="btnGuardar" VerticalAlignment="Top" Width="160" Click="btnGuardar_Click" />
+            <Button Content="Atrás" Height="72" HorizontalAlignment="Left" Margin="217,335,0,0" Name="btnAtrasDir" VerticalAlignment="Top" Width="160"  Click="btnAtrasDir_Click" />
         </Grid>
     </Grid>
     <!--Código de ejemplo que muestra el uso de ApplicationBar-->

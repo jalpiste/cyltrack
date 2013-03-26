@@ -18,13 +18,14 @@
                      <div id="DivNomRuta" runat="server" >
                      <asp:Label ID="lblNombreRuta" runat="server" Text="Nombre de Ruta: "></asp:Label>           
                      <br />
-                     <asp:TextBox ID="txtNombreRuta" runat="server" CssClass="textEntry" Width="197px"></asp:TextBox>
+                     <asp:TextBox ID="txtNombreRuta" runat="server" CssClass="textEntry" Width="197px" 
+                             ontextchanged="txtNombreRuta_TextChanged"></asp:TextBox>
                      <asp:RequiredFieldValidator ID="RegistrarRutaRequired" runat="server" 
                      ControlToValidate="txtNombreRuta" CssClass="failureNotification" 
                      ErrorMessage="El nombre de la ruta es obligatorio." ToolTip="El nombre de la ruta es obligatorio." 
                      ValidationGroup="RegistrarRutaValidationGroup"> * </asp:RequiredFieldValidator>
                      </div>
-                    <div id="DivSelCiudades" runat="server" >
+                    <div id="DivSelCiudades" runat="server" visible ="false">
                     <h3>
                     Seleccione la(s) ciudad(es) que hace(n) parte de la ruta.
                     </h3>
@@ -49,15 +50,18 @@
                     <br />
                     <br />
                      <asp:ListBox ID="lstAgregar" runat="server" Height="55px" Width="120px" 
-                         visible ="false"></asp:ListBox>    
+                         visible ="false"></asp:ListBox> 
+                         &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 
+                         <asp:Button ID="btnRemover" runat="server" Text="Remover" Width="115px" 
+                           onclick="btnRemover_Click"/>    
                     </div> 
                    
                  </fieldset>
                  <p class="submitButton">
                 <asp:Button ID="btnRegistrar" runat="server" Text="Registrar" Width="115px"/> 
                     &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; &nbsp; 
-                    <asp:Button ID="btnCancelar" runat="server" Text="Cancelar" Width="115px" 
-                    onclick="btnCancelar_Click"/>  
+                    <asp:Button ID="btnMenu" runat="server" Text="Menú Principal" Width="115px" 
+                    onclick="btnMenu_Click"/>  
                </p>
                  </div>
 </asp:Content>

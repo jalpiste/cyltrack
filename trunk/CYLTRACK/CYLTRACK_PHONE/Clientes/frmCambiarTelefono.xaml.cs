@@ -20,9 +20,15 @@ namespace Cyltrack_phone.Clientes
             InitializeComponent();
         }
 
-        private void btnCancelar_Click(object sender, RoutedEventArgs e)
+        private void btnAtrasTel_Click(object sender, RoutedEventArgs e)
         {
             NavigationService.GoBack();
+        }
+
+        private void btnGuardar_Click(object sender, RoutedEventArgs e)
+        {
+            MessageBox.Show("Sus datos fueron enviados satisfactoriamente");
+            NavigationService.Navigate(new Uri("/Clientes/frmConsultarCliente.xaml", UriKind.Relative)); 
         }
     }
 }

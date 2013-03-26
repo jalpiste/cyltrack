@@ -15,7 +15,11 @@ namespace CYLTRACK_WebApp
 
         }
 
-
+        protected void txtCodeCilindro_TextChanged(object sender, EventArgs e)
+        {
+            DivUbicacionCil.Visible = true;
+            DivNuevaUbicacion.Visible = true;
+        }
 
         protected void Ubica_SelectedIndexChanged(object sender, EventArgs e)
         {
@@ -23,29 +27,41 @@ namespace CYLTRACK_WebApp
             {
                 lblPlaca.Visible = true;
                 lstPlacaVehiculo.Visible = true;
+                LblConductor.Visible = true;
+                TxtConductor.Visible = true;
+                LblRuta.Visible = true;
+                LblRutaVehiculo.Visible = true;
             }
 
         }
 
-        protected void Cambiar_Click(object sender, EventArgs e)
-        {
-            DivNuevaUbicacion.Visible = true;
-        }
+        //protected void BtnCambiar_Click(object sender, EventArgs e)
+        //{
+        //    //Response.Write("<script type='text/javascript'> alert('Sus datos fueron enviados satisfactoriamente') </script>");
+            
+        //    //DivCodigo.Visible = true;
+        //    //txtCodeCilindro.Text = "";
+        //    //DivUbicacionCil.Visible = false;
+        //}
 
-        protected void txtCodeCilindro_TextChanged(object sender, EventArgs e)
-        {
-            txtCodigoCilindro.Text = txtCodeCilindro.Text;
-            txtCodeCilindro.Text = "";
-            DivUbicacionCil.Visible = true;
-            DivImpresionCodigo.Visible = true;
-        }
+        
 
 
         public string ValidationGroup { get; set; }
 
-        protected void btnCancelar_Click(object sender, EventArgs e)
+        protected void BtnMenu_Click(object sender, EventArgs e)
         {
             Response.Redirect("~/Default.aspx");
         }
+
+        protected void BtnGuardar_Click(object sender, EventArgs e)
+        {
+            Response.Write("<script type='text/javascript'> alert('Sus datos fueron enviados satisfactoriamente') </script>");
+            txtCodeCilindro.Text = "";
+            //DivUbicacionCil.Visible = false;
+            //DivNuevaUbicacion.Visible = false;
+        }
+       
+        
     }
 }

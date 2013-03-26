@@ -2,7 +2,7 @@
 <asp:Content ID="Content1" ContentPlaceHolderID="HeadContent" runat="server">
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="MainContent" runat="server">
-<h1 style="margin-top: 75px">
+    <h1 style="margin-top: 75px">
         Histórico de Cilindro
     </h1>
     <br />
@@ -16,7 +16,8 @@
                     <div id="DivHistorial" runat="server">
                      <asp:Label ID="lblCodigoCil" runat="server" Text="Código Cilindro: "></asp:Label>           
                      <br />
-                     <asp:TextBox ID="txtCodigoCil" runat="server" CssClass="textEntry" Width="197px" ></asp:TextBox>
+                     <asp:TextBox ID="txtCodigoCil" runat="server" CssClass="textEntry" Width="197px" 
+                            ontextchanged="txtCodigoCil_TextChanged" ></asp:TextBox>
                      <asp:RequiredFieldValidator ID="HistorialRequired" runat="server" 
                      ControlToValidate="txtCodigoCil" CssClass="failureNotification" 
                      ErrorMessage="El código del cilindro es obligatorio." ToolTip="El código del cilindro es obligatorio." 
@@ -25,18 +26,13 @@
                      <br />
                 </fieldset>
                  <p class="submitButton">
-                <asp:Button ID="btnReportar" runat="server" Text="Generar Reporte" Width="115px" 
-                         onclick="btnReportar_Click" /> 
-                    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; &nbsp; 
-                    <asp:Button ID="btnCancelar" runat="server" Text="Cancelar" Width="115px" 
-                    onclick="btnCancelar_Click"/>  
+                    <asp:Button ID="btnMenu" runat="server" Text="Menú Principal" onclick="btnMenu_Click"/>  
                </p>
 
-        <div id= "DivReporte" runat = "server" class="InfoInventarios">
+        <div id= "DivReporte" runat = "server" class="accountInfo" visible="false">
        <fieldset class ="login">
             <legend>Reporte</legend>
-            <div style="height: 1468px; width: 677px; margin-right: 4px;">
-                <asp:Label ID="lblCodigo" runat="server" Text="Código: "></asp:Label>
+              <asp:Label ID="lblCodigo" runat="server" Text="Código: "></asp:Label>
                 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
                 <asp:Label ID="lblTamaño" runat="server" Text="Tamaño: "></asp:Label><br />
                 <asp:TextBox ID="txtCódigo" runat="server" CssClass="textEntry" Enabled ="false" ></asp:TextBox>               
@@ -50,17 +46,22 @@
                 <asp:Label ID="lblRuta" runat="server" Text="Ruta"></asp:Label>
                 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
                 <asp:Label ID="lblUbicacion" runat="server" Text="Ubicación"></asp:Label>
-                
-                
                 </h3>
-                <%--cuales campos mas debe reportar en esta consulta --%>
-            <br />
-            </div> 
-        </fieldset>
+                <div id="DivMostrarReporte" runat = "server" class="accountInfo">
+                
+                <asp:Label ID="lblResFecha" runat="server" Text="20/02/2013"></asp:Label>
+                    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<asp:Label ID="lblResHora" runat="server" Text="14:36"></asp:Label>
+                    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                <asp:Label ID="lblResRuta" runat="server" ></asp:Label>
+                    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                <asp:Label ID="lblResUbica" runat="server" Text="Bodega"></asp:Label>
+                
+                </div>
+            </fieldset>
+            <p class="submitButton">
+            <asp:Button ID="btnImp" runat="server" Text="Imprimir" />
+             </p>
         </div> 
-        <p class="submitButton">
-            <asp:Button ID="btnImp" runat="server" Text="Imprimir" Width="115px" />
-            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; &nbsp;
-            </p>
+        
                 </div>
 </asp:Content>

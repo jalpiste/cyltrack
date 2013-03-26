@@ -11,7 +11,7 @@
             <div class="accountInfo">
                 <fieldset class="login">
                     <legend>Registro de Cliente</legend>
-                                   <p>
+                        <p>
                         <asp:Label ID="lblCedula" runat="server" AssociatedControlID="txtCedula" Width="725px">Número de Cédula:</asp:Label><br />
                         <asp:TextBox ID="txtCedula" runat="server" CssClass="textEntry" 
                             Width="197px" ontextchanged="txtCedula_TextChanged"></asp:TextBox>

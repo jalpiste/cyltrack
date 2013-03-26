@@ -14,14 +14,16 @@ namespace CYLTRACK_WebApp.Reporte
 
         }
 
-        protected void btnCancelar_Click(object sender, EventArgs e)
+
+        protected void btnMenu_Click(object sender, EventArgs e)
         {
-            Response.Redirect("~/Default.aspx");
+            //Response.Redirect("~/Default.aspx");
         }
 
-        protected void btnReportar_Click(object sender, EventArgs e)
+        protected void txtCodigoCil_TextChanged(object sender, EventArgs e)
         {
-            txtCodigoCil.Text = "";
+            DivReporte.Visible = true;
+            DivMostrarReporte.Visible = true;
         }
 
 
