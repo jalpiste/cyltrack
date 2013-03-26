@@ -31,15 +31,6 @@ namespace CYLTRACK_WebApp {
         protected global::System.Web.UI.WebControls.ValidationSummary LoginUserValidationSummary;
         
         /// <summary>
-        /// Control parametroCheckBoxList.
-        /// </summary>
-        /// <remarks>
-        /// Campo generado automáticamente.
-        /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.CheckBoxList parametroCheckBoxList;
-        
-        /// <summary>
         /// Control lblDesde.
         /// </summary>
         /// <remarks>
@@ -148,6 +139,24 @@ namespace CYLTRACK_WebApp {
         protected global::System.Web.UI.WebControls.Label lblImpresionFecha;
         
         /// <summary>
+        /// Control LblUbicacionTamano.
+        /// </summary>
+        /// <remarks>
+        /// Campo generado automáticamente.
+        /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Label LblUbicacionTamano;
+        
+        /// <summary>
+        /// Control LblTipoCil.
+        /// </summary>
+        /// <remarks>
+        /// Campo generado automáticamente.
+        /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Label LblTipoCil;
+        
+        /// <summary>
         /// Control DivPlataforma.
         /// </summary>
         /// <remarks>
@@ -166,31 +175,31 @@ namespace CYLTRACK_WebApp {
         protected global::System.Web.UI.WebControls.Label lblPlataforma1;
         
         /// <summary>
-        /// Control lblCilindroMarca1.
+        /// Control LblCilMarcPlat.
         /// </summary>
         /// <remarks>
         /// Campo generado automáticamente.
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Label lblCilindroMarca1;
+        protected global::System.Web.UI.WebControls.Label LblCilMarcPlat;
         
         /// <summary>
-        /// Control lblTamano1.
+        /// Control LblCilUnivPlat.
         /// </summary>
         /// <remarks>
         /// Campo generado automáticamente.
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Label lblTamano1;
+        protected global::System.Web.UI.WebControls.Label LblCilUnivPlat;
         
         /// <summary>
-        /// Control lblCantidad1.
+        /// Control LblTotalPlataforma.
         /// </summary>
         /// <remarks>
         /// Campo generado automáticamente.
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Label lblCantidad1;
+        protected global::System.Web.UI.WebControls.Label LblTotalPlataforma;
         
         /// <summary>
         /// Control lblTreinta1.
@@ -211,6 +220,15 @@ namespace CYLTRACK_WebApp {
         protected global::System.Web.UI.WebControls.Label lblCantidadTreinta1;
         
         /// <summary>
+        /// Control lblCantidadTreinta.
+        /// </summary>
+        /// <remarks>
+        /// Campo generado automáticamente.
+        /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Label lblCantidadTreinta;
+        
+        /// <summary>
         /// Control lblCuarenta1.
         /// </summary>
         /// <remarks>
@@ -227,6 +245,15 @@ namespace CYLTRACK_WebApp {
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
         protected global::System.Web.UI.WebControls.Label lblCantidadCuarenta1;
+        
+        /// <summary>
+        /// Control lblCantidadCuarenta.
+        /// </summary>
+        /// <remarks>
+        /// Campo generado automáticamente.
+        /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Label lblCantidadCuarenta;
         
         /// <summary>
         /// Control lblOchenta1.
@@ -247,6 +274,15 @@ namespace CYLTRACK_WebApp {
         protected global::System.Web.UI.WebControls.Label lblCantidadOchenta1;
         
         /// <summary>
+        /// Control lblCantidadOchenta.
+        /// </summary>
+        /// <remarks>
+        /// Campo generado automáticamente.
+        /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Label lblCantidadOchenta;
+        
+        /// <summary>
         /// Control lblCien1.
         /// </summary>
         /// <remarks>
@@ -263,6 +299,51 @@ namespace CYLTRACK_WebApp {
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
         protected global::System.Web.UI.WebControls.Label lblCantidadCien;
+        
+        /// <summary>
+        /// Control LblCantidadCien1.
+        /// </summary>
+        /// <remarks>
+        /// Campo generado automáticamente.
+        /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Label LblCantidadCien1;
+        
+        /// <summary>
+        /// Control lblResumenPlat.
+        /// </summary>
+        /// <remarks>
+        /// Campo generado automáticamente.
+        /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Label lblResumenPlat;
+        
+        /// <summary>
+        /// Control lblResMPlat.
+        /// </summary>
+        /// <remarks>
+        /// Campo generado automáticamente.
+        /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Label lblResMPlat;
+        
+        /// <summary>
+        /// Control lblResUPlat.
+        /// </summary>
+        /// <remarks>
+        /// Campo generado automáticamente.
+        /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Label lblResUPlat;
+        
+        /// <summary>
+        /// Control lblTotalPlat.
+        /// </summary>
+        /// <remarks>
+        /// Campo generado automáticamente.
+        /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Label lblTotalPlat;
         
         /// <summary>
         /// Control DivBodega.
@@ -283,103 +364,175 @@ namespace CYLTRACK_WebApp {
         protected global::System.Web.UI.WebControls.Label lblBodega;
         
         /// <summary>
-        /// Control lblCilindroMarca2.
+        /// Control lblCilMarca.
         /// </summary>
         /// <remarks>
         /// Campo generado automáticamente.
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Label lblCilindroMarca2;
+        protected global::System.Web.UI.WebControls.Label lblCilMarca;
         
         /// <summary>
-        /// Control lblTamano2.
+        /// Control lblCilUniv.
         /// </summary>
         /// <remarks>
         /// Campo generado automáticamente.
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Label lblTamano2;
+        protected global::System.Web.UI.WebControls.Label lblCilUniv;
         
         /// <summary>
-        /// Control lblCantidad2.
+        /// Control lblTotalBodega.
         /// </summary>
         /// <remarks>
         /// Campo generado automáticamente.
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Label lblCantidad2;
+        protected global::System.Web.UI.WebControls.Label lblTotalBodega;
         
         /// <summary>
-        /// Control lblTreinta2.
+        /// Control lbl30Bod.
         /// </summary>
         /// <remarks>
         /// Campo generado automáticamente.
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Label lblTreinta2;
+        protected global::System.Web.UI.WebControls.Label lbl30Bod;
         
         /// <summary>
-        /// Control lblCantidadTreinta2.
+        /// Control lblCantM30.
         /// </summary>
         /// <remarks>
         /// Campo generado automáticamente.
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Label lblCantidadTreinta2;
+        protected global::System.Web.UI.WebControls.Label lblCantM30;
         
         /// <summary>
-        /// Control lblCuarenta2.
+        /// Control lblCantU30.
         /// </summary>
         /// <remarks>
         /// Campo generado automáticamente.
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Label lblCuarenta2;
+        protected global::System.Web.UI.WebControls.Label lblCantU30;
         
         /// <summary>
-        /// Control lblCantidadCuarenta2.
+        /// Control lbl40Bod.
         /// </summary>
         /// <remarks>
         /// Campo generado automáticamente.
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Label lblCantidadCuarenta2;
+        protected global::System.Web.UI.WebControls.Label lbl40Bod;
         
         /// <summary>
-        /// Control lblOchenta2.
+        /// Control lblCantM40.
         /// </summary>
         /// <remarks>
         /// Campo generado automáticamente.
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Label lblOchenta2;
+        protected global::System.Web.UI.WebControls.Label lblCantM40;
         
         /// <summary>
-        /// Control lblCantidadOchenta2.
+        /// Control lblCantU40.
         /// </summary>
         /// <remarks>
         /// Campo generado automáticamente.
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Label lblCantidadOchenta2;
+        protected global::System.Web.UI.WebControls.Label lblCantU40;
         
         /// <summary>
-        /// Control lblCien2.
+        /// Control lbl80Bod.
         /// </summary>
         /// <remarks>
         /// Campo generado automáticamente.
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Label lblCien2;
+        protected global::System.Web.UI.WebControls.Label lbl80Bod;
         
         /// <summary>
-        /// Control lblCantidadCien2.
+        /// Control lblCantM80.
         /// </summary>
         /// <remarks>
         /// Campo generado automáticamente.
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Label lblCantidadCien2;
+        protected global::System.Web.UI.WebControls.Label lblCantM80;
+        
+        /// <summary>
+        /// Control lblCantU80.
+        /// </summary>
+        /// <remarks>
+        /// Campo generado automáticamente.
+        /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Label lblCantU80;
+        
+        /// <summary>
+        /// Control lbl100Bod.
+        /// </summary>
+        /// <remarks>
+        /// Campo generado automáticamente.
+        /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Label lbl100Bod;
+        
+        /// <summary>
+        /// Control lblCantM100.
+        /// </summary>
+        /// <remarks>
+        /// Campo generado automáticamente.
+        /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Label lblCantM100;
+        
+        /// <summary>
+        /// Control lblCantU100.
+        /// </summary>
+        /// <remarks>
+        /// Campo generado automáticamente.
+        /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Label lblCantU100;
+        
+        /// <summary>
+        /// Control lblResumenBod.
+        /// </summary>
+        /// <remarks>
+        /// Campo generado automáticamente.
+        /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Label lblResumenBod;
+        
+        /// <summary>
+        /// Control lblResuMBod.
+        /// </summary>
+        /// <remarks>
+        /// Campo generado automáticamente.
+        /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Label lblResuMBod;
+        
+        /// <summary>
+        /// Control lblResuUBod.
+        /// </summary>
+        /// <remarks>
+        /// Campo generado automáticamente.
+        /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Label lblResuUBod;
+        
+        /// <summary>
+        /// Control lblTotalBod.
+        /// </summary>
+        /// <remarks>
+        /// Campo generado automáticamente.
+        /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Label lblTotalBod;
         
         /// <summary>
         /// Control DivMantenimiento.
@@ -400,202 +553,175 @@ namespace CYLTRACK_WebApp {
         protected global::System.Web.UI.WebControls.Label lblMantenimiento;
         
         /// <summary>
-        /// Control lblCilindroMarca3.
+        /// Control lblCilMM.
         /// </summary>
         /// <remarks>
         /// Campo generado automáticamente.
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Label lblCilindroMarca3;
+        protected global::System.Web.UI.WebControls.Label lblCilMM;
         
         /// <summary>
-        /// Control lblTamano3.
+        /// Control lblCilUM.
         /// </summary>
         /// <remarks>
         /// Campo generado automáticamente.
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Label lblTamano3;
+        protected global::System.Web.UI.WebControls.Label lblCilUM;
         
         /// <summary>
-        /// Control lblCantidad3.
+        /// Control lblTotalMant.
         /// </summary>
         /// <remarks>
         /// Campo generado automáticamente.
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Label lblCantidad3;
+        protected global::System.Web.UI.WebControls.Label lblTotalMant;
         
         /// <summary>
-        /// Control lblTreinta3.
+        /// Control lbl30Mant.
         /// </summary>
         /// <remarks>
         /// Campo generado automáticamente.
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Label lblTreinta3;
+        protected global::System.Web.UI.WebControls.Label lbl30Mant;
         
         /// <summary>
-        /// Control lblCantidadTreinta3.
+        /// Control lblCantMM30.
         /// </summary>
         /// <remarks>
         /// Campo generado automáticamente.
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Label lblCantidadTreinta3;
+        protected global::System.Web.UI.WebControls.Label lblCantMM30;
         
         /// <summary>
-        /// Control lblCuarenta3.
+        /// Control lblCantUM30.
         /// </summary>
         /// <remarks>
         /// Campo generado automáticamente.
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Label lblCuarenta3;
+        protected global::System.Web.UI.WebControls.Label lblCantUM30;
         
         /// <summary>
-        /// Control lblCantidadCuarenta3.
+        /// Control lbl40Mant.
         /// </summary>
         /// <remarks>
         /// Campo generado automáticamente.
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Label lblCantidadCuarenta3;
+        protected global::System.Web.UI.WebControls.Label lbl40Mant;
         
         /// <summary>
-        /// Control lblOchenta3.
+        /// Control lblCantMM40.
         /// </summary>
         /// <remarks>
         /// Campo generado automáticamente.
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Label lblOchenta3;
+        protected global::System.Web.UI.WebControls.Label lblCantMM40;
         
         /// <summary>
-        /// Control lblCantidadOchenta3.
+        /// Control lblCantUM40.
         /// </summary>
         /// <remarks>
         /// Campo generado automáticamente.
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Label lblCantidadOchenta3;
+        protected global::System.Web.UI.WebControls.Label lblCantUM40;
         
         /// <summary>
-        /// Control lblCien3.
+        /// Control lbl80Mant.
         /// </summary>
         /// <remarks>
         /// Campo generado automáticamente.
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Label lblCien3;
+        protected global::System.Web.UI.WebControls.Label lbl80Mant;
         
         /// <summary>
-        /// Control lblCantidadCien3.
+        /// Control lblCantMM80.
         /// </summary>
         /// <remarks>
         /// Campo generado automáticamente.
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Label lblCantidadCien3;
+        protected global::System.Web.UI.WebControls.Label lblCantMM80;
         
         /// <summary>
-        /// Control lblCilindroUniversal4.
+        /// Control lblCantUM80.
         /// </summary>
         /// <remarks>
         /// Campo generado automáticamente.
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Label lblCilindroUniversal4;
+        protected global::System.Web.UI.WebControls.Label lblCantUM80;
         
         /// <summary>
-        /// Control lblTamano4.
+        /// Control lbl100Mant.
         /// </summary>
         /// <remarks>
         /// Campo generado automáticamente.
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Label lblTamano4;
+        protected global::System.Web.UI.WebControls.Label lbl100Mant;
         
         /// <summary>
-        /// Control lblCantidad4.
+        /// Control lblCantMM100.
         /// </summary>
         /// <remarks>
         /// Campo generado automáticamente.
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Label lblCantidad4;
+        protected global::System.Web.UI.WebControls.Label lblCantMM100;
         
         /// <summary>
-        /// Control lblTreinta4.
+        /// Control lblCantUM100.
         /// </summary>
         /// <remarks>
         /// Campo generado automáticamente.
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Label lblTreinta4;
+        protected global::System.Web.UI.WebControls.Label lblCantUM100;
         
         /// <summary>
-        /// Control lblCantidadTreinta4.
+        /// Control lblResumenMant.
         /// </summary>
         /// <remarks>
         /// Campo generado automáticamente.
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Label lblCantidadTreinta4;
+        protected global::System.Web.UI.WebControls.Label lblResumenMant;
         
         /// <summary>
-        /// Control lblCuarenta4.
+        /// Control lblResuMMant.
         /// </summary>
         /// <remarks>
         /// Campo generado automáticamente.
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Label lblCuarenta4;
+        protected global::System.Web.UI.WebControls.Label lblResuMMant;
         
         /// <summary>
-        /// Control lblCantidadCuarenta4.
+        /// Control lblResuUMant.
         /// </summary>
         /// <remarks>
         /// Campo generado automáticamente.
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Label lblCantidadCuarenta4;
+        protected global::System.Web.UI.WebControls.Label lblResuUMant;
         
         /// <summary>
-        /// Control lblOchenta4.
+        /// Control lblTotalMantenimiento.
         /// </summary>
         /// <remarks>
         /// Campo generado automáticamente.
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Label lblOchenta4;
-        
-        /// <summary>
-        /// Control lblCantidadOchenta4.
-        /// </summary>
-        /// <remarks>
-        /// Campo generado automáticamente.
-        /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.Label lblCantidadOchenta4;
-        
-        /// <summary>
-        /// Control lblCien4.
-        /// </summary>
-        /// <remarks>
-        /// Campo generado automáticamente.
-        /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.Label lblCien4;
-        
-        /// <summary>
-        /// Control lblCantidadCien4.
-        /// </summary>
-        /// <remarks>
-        /// Campo generado automáticamente.
-        /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.Label lblCantidadCien4;
+        protected global::System.Web.UI.WebControls.Label lblTotalMantenimiento;
         
         /// <summary>
         /// Control DivChatarra.
@@ -616,202 +742,175 @@ namespace CYLTRACK_WebApp {
         protected global::System.Web.UI.WebControls.Label lblChatarra;
         
         /// <summary>
-        /// Control lblCilindroMarca4.
+        /// Control lblCilMC.
         /// </summary>
         /// <remarks>
         /// Campo generado automáticamente.
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Label lblCilindroMarca4;
+        protected global::System.Web.UI.WebControls.Label lblCilMC;
         
         /// <summary>
-        /// Control lblTamano5.
+        /// Control lblCilUC.
         /// </summary>
         /// <remarks>
         /// Campo generado automáticamente.
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Label lblTamano5;
+        protected global::System.Web.UI.WebControls.Label lblCilUC;
         
         /// <summary>
-        /// Control lblCantidad5.
+        /// Control lblTotalChat.
         /// </summary>
         /// <remarks>
         /// Campo generado automáticamente.
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Label lblCantidad5;
+        protected global::System.Web.UI.WebControls.Label lblTotalChat;
         
         /// <summary>
-        /// Control lblTreinta5.
+        /// Control lbl30Ch.
         /// </summary>
         /// <remarks>
         /// Campo generado automáticamente.
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Label lblTreinta5;
+        protected global::System.Web.UI.WebControls.Label lbl30Ch;
         
         /// <summary>
-        /// Control lblCantidadTreinta5.
+        /// Control lblCantMC30.
         /// </summary>
         /// <remarks>
         /// Campo generado automáticamente.
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Label lblCantidadTreinta5;
+        protected global::System.Web.UI.WebControls.Label lblCantMC30;
         
         /// <summary>
-        /// Control lblCuarenta5.
+        /// Control lblCantUC30.
         /// </summary>
         /// <remarks>
         /// Campo generado automáticamente.
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Label lblCuarenta5;
+        protected global::System.Web.UI.WebControls.Label lblCantUC30;
         
         /// <summary>
-        /// Control lblCantidadCuarenta5.
+        /// Control lbl40Ch.
         /// </summary>
         /// <remarks>
         /// Campo generado automáticamente.
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Label lblCantidadCuarenta5;
+        protected global::System.Web.UI.WebControls.Label lbl40Ch;
         
         /// <summary>
-        /// Control lblOchenta5.
+        /// Control lblCantMC40.
         /// </summary>
         /// <remarks>
         /// Campo generado automáticamente.
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Label lblOchenta5;
+        protected global::System.Web.UI.WebControls.Label lblCantMC40;
         
         /// <summary>
-        /// Control lblCantidadOchenta5.
+        /// Control lblCantUC40.
         /// </summary>
         /// <remarks>
         /// Campo generado automáticamente.
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Label lblCantidadOchenta5;
+        protected global::System.Web.UI.WebControls.Label lblCantUC40;
         
         /// <summary>
-        /// Control lblCien5.
+        /// Control lbl80Ch.
         /// </summary>
         /// <remarks>
         /// Campo generado automáticamente.
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Label lblCien5;
+        protected global::System.Web.UI.WebControls.Label lbl80Ch;
         
         /// <summary>
-        /// Control lblCantidadCien5.
+        /// Control lblCantMC80.
         /// </summary>
         /// <remarks>
         /// Campo generado automáticamente.
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Label lblCantidadCien5;
+        protected global::System.Web.UI.WebControls.Label lblCantMC80;
         
         /// <summary>
-        /// Control lblCilindroUniversal5.
+        /// Control lblCantUC80.
         /// </summary>
         /// <remarks>
         /// Campo generado automáticamente.
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Label lblCilindroUniversal5;
+        protected global::System.Web.UI.WebControls.Label lblCantUC80;
         
         /// <summary>
-        /// Control lblTamano6.
+        /// Control lbl100Ch.
         /// </summary>
         /// <remarks>
         /// Campo generado automáticamente.
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Label lblTamano6;
+        protected global::System.Web.UI.WebControls.Label lbl100Ch;
         
         /// <summary>
-        /// Control lblCantidad6.
+        /// Control lblCantMC100.
         /// </summary>
         /// <remarks>
         /// Campo generado automáticamente.
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Label lblCantidad6;
+        protected global::System.Web.UI.WebControls.Label lblCantMC100;
         
         /// <summary>
-        /// Control lblTreinta6.
+        /// Control lblCantUC100.
         /// </summary>
         /// <remarks>
         /// Campo generado automáticamente.
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Label lblTreinta6;
+        protected global::System.Web.UI.WebControls.Label lblCantUC100;
         
         /// <summary>
-        /// Control lblCantidadTreinta6.
+        /// Control lblResumenChatarra.
         /// </summary>
         /// <remarks>
         /// Campo generado automáticamente.
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Label lblCantidadTreinta6;
+        protected global::System.Web.UI.WebControls.Label lblResumenChatarra;
         
         /// <summary>
-        /// Control lblCuarenta6.
+        /// Control lblResuMChat.
         /// </summary>
         /// <remarks>
         /// Campo generado automáticamente.
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Label lblCuarenta6;
+        protected global::System.Web.UI.WebControls.Label lblResuMChat;
         
         /// <summary>
-        /// Control lblCantidadCuarenta6.
+        /// Control lblResuUChat.
         /// </summary>
         /// <remarks>
         /// Campo generado automáticamente.
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Label lblCantidadCuarenta6;
+        protected global::System.Web.UI.WebControls.Label lblResuUChat;
         
         /// <summary>
-        /// Control lblOchenta6.
+        /// Control lblTotalChatarra.
         /// </summary>
         /// <remarks>
         /// Campo generado automáticamente.
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Label lblOchenta6;
-        
-        /// <summary>
-        /// Control lblCantidadOchenta6.
-        /// </summary>
-        /// <remarks>
-        /// Campo generado automáticamente.
-        /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.Label lblCantidadOchenta6;
-        
-        /// <summary>
-        /// Control lblCien6.
-        /// </summary>
-        /// <remarks>
-        /// Campo generado automáticamente.
-        /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.Label lblCien6;
-        
-        /// <summary>
-        /// Control lblCantidadCien6.
-        /// </summary>
-        /// <remarks>
-        /// Campo generado automáticamente.
-        /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.Label lblCantidadCien6;
+        protected global::System.Web.UI.WebControls.Label lblTotalChatarra;
         
         /// <summary>
         /// Control DivVehiculo.
@@ -823,211 +922,193 @@ namespace CYLTRACK_WebApp {
         protected global::System.Web.UI.HtmlControls.HtmlGenericControl DivVehiculo;
         
         /// <summary>
-        /// Control lblVehiculo.
+        /// Control DivPlaca.
         /// </summary>
         /// <remarks>
         /// Campo generado automáticamente.
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Label lblVehiculo;
+        protected global::System.Web.UI.HtmlControls.HtmlGenericControl DivPlaca;
         
         /// <summary>
-        /// Control lblCilindroMarca5.
+        /// Control lblPlacaXXX.
         /// </summary>
         /// <remarks>
         /// Campo generado automáticamente.
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Label lblCilindroMarca5;
+        protected global::System.Web.UI.WebControls.Label lblPlacaXXX;
         
         /// <summary>
-        /// Control lblTamano7.
+        /// Control lblCilMV.
         /// </summary>
         /// <remarks>
         /// Campo generado automáticamente.
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Label lblTamano7;
+        protected global::System.Web.UI.WebControls.Label lblCilMV;
         
         /// <summary>
-        /// Control lblCantidad7.
+        /// Control lblCilUV.
         /// </summary>
         /// <remarks>
         /// Campo generado automáticamente.
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Label lblCantidad7;
+        protected global::System.Web.UI.WebControls.Label lblCilUV;
         
         /// <summary>
-        /// Control lblTreinta7.
+        /// Control lblTotalVeh.
         /// </summary>
         /// <remarks>
         /// Campo generado automáticamente.
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Label lblTreinta7;
+        protected global::System.Web.UI.WebControls.Label lblTotalVeh;
         
         /// <summary>
-        /// Control lblCantidadTreinta7.
+        /// Control lbl30Veh.
         /// </summary>
         /// <remarks>
         /// Campo generado automáticamente.
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Label lblCantidadTreinta7;
+        protected global::System.Web.UI.WebControls.Label lbl30Veh;
         
         /// <summary>
-        /// Control lblCuarenta7.
+        /// Control lblCantMVeh30.
         /// </summary>
         /// <remarks>
         /// Campo generado automáticamente.
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Label lblCuarenta7;
+        protected global::System.Web.UI.WebControls.Label lblCantMVeh30;
         
         /// <summary>
-        /// Control lblCantidadCuarenta7.
+        /// Control lblCantUVeh30.
         /// </summary>
         /// <remarks>
         /// Campo generado automáticamente.
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Label lblCantidadCuarenta7;
+        protected global::System.Web.UI.WebControls.Label lblCantUVeh30;
         
         /// <summary>
-        /// Control lblOchenta7.
+        /// Control lbl40Veh.
         /// </summary>
         /// <remarks>
         /// Campo generado automáticamente.
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Label lblOchenta7;
+        protected global::System.Web.UI.WebControls.Label lbl40Veh;
         
         /// <summary>
-        /// Control lblCantidadOchenta7.
+        /// Control lblCantMVeh40.
         /// </summary>
         /// <remarks>
         /// Campo generado automáticamente.
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Label lblCantidadOchenta7;
+        protected global::System.Web.UI.WebControls.Label lblCantMVeh40;
         
         /// <summary>
-        /// Control lblCien7.
+        /// Control lblCantUVeh40.
         /// </summary>
         /// <remarks>
         /// Campo generado automáticamente.
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Label lblCien7;
+        protected global::System.Web.UI.WebControls.Label lblCantUVeh40;
         
         /// <summary>
-        /// Control lblCantidadCien7.
+        /// Control lbl80Veh.
         /// </summary>
         /// <remarks>
         /// Campo generado automáticamente.
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Label lblCantidadCien7;
+        protected global::System.Web.UI.WebControls.Label lbl80Veh;
         
         /// <summary>
-        /// Control lblCilindroUniversal6.
+        /// Control lblCantMVeh80.
         /// </summary>
         /// <remarks>
         /// Campo generado automáticamente.
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Label lblCilindroUniversal6;
+        protected global::System.Web.UI.WebControls.Label lblCantMVeh80;
         
         /// <summary>
-        /// Control lblTamano8.
+        /// Control lblCantUVeh80.
         /// </summary>
         /// <remarks>
         /// Campo generado automáticamente.
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Label lblTamano8;
+        protected global::System.Web.UI.WebControls.Label lblCantUVeh80;
         
         /// <summary>
-        /// Control lblCantidad8.
+        /// Control lbl100Veh.
         /// </summary>
         /// <remarks>
         /// Campo generado automáticamente.
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Label lblCantidad8;
+        protected global::System.Web.UI.WebControls.Label lbl100Veh;
         
         /// <summary>
-        /// Control lblTreinta8.
+        /// Control lblCantMVeh100.
         /// </summary>
         /// <remarks>
         /// Campo generado automáticamente.
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Label lblTreinta8;
+        protected global::System.Web.UI.WebControls.Label lblCantMVeh100;
         
         /// <summary>
-        /// Control lblCantidadTreinta8.
+        /// Control lblCantUVeh100.
         /// </summary>
         /// <remarks>
         /// Campo generado automáticamente.
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Label lblCantidadTreinta8;
+        protected global::System.Web.UI.WebControls.Label lblCantUVeh100;
         
         /// <summary>
-        /// Control lblCuarenta8.
+        /// Control lblResumenVehiculo.
         /// </summary>
         /// <remarks>
         /// Campo generado automáticamente.
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Label lblCuarenta8;
+        protected global::System.Web.UI.WebControls.Label lblResumenVehiculo;
         
         /// <summary>
-        /// Control lblCantidadCuarenta8.
+        /// Control lblResuMVeh.
         /// </summary>
         /// <remarks>
         /// Campo generado automáticamente.
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Label lblCantidadCuarenta8;
+        protected global::System.Web.UI.WebControls.Label lblResuMVeh;
         
         /// <summary>
-        /// Control lblOchenta8.
+        /// Control lblResuUVeh.
         /// </summary>
         /// <remarks>
         /// Campo generado automáticamente.
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Label lblOchenta8;
+        protected global::System.Web.UI.WebControls.Label lblResuUVeh;
         
         /// <summary>
-        /// Control lblCantidadOchenta8.
+        /// Control lblTotalVehiculo.
         /// </summary>
         /// <remarks>
         /// Campo generado automáticamente.
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Label lblCantidadOchenta8;
-        
-        /// <summary>
-        /// Control lblCien8.
-        /// </summary>
-        /// <remarks>
-        /// Campo generado automáticamente.
-        /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.Label lblCien8;
-        
-        /// <summary>
-        /// Control lblCantidadCien8.
-        /// </summary>
-        /// <remarks>
-        /// Campo generado automáticamente.
-        /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.Label lblCantidadCien8;
+        protected global::System.Web.UI.WebControls.Label lblTotalVehiculo;
         
         /// <summary>
         /// Control DivTotales.
@@ -1102,12 +1183,12 @@ namespace CYLTRACK_WebApp {
         protected global::System.Web.UI.WebControls.Button btnImp;
         
         /// <summary>
-        /// Control btnCancel.
+        /// Control btnMenu.
         /// </summary>
         /// <remarks>
         /// Campo generado automáticamente.
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Button btnCancel;
+        protected global::System.Web.UI.WebControls.Button btnMenu;
     }
 }

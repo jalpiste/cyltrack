@@ -20,12 +20,12 @@ namespace Cyltrack_phone.Pedidos
             InitializeComponent();
         }
 
-        private void btnBuscar_Click(object sender, RoutedEventArgs e)
+        private void btnConsultar_Click(object sender, RoutedEventArgs e)
         {
             ContentBusq.Visibility = System.Windows.Visibility.Collapsed;
             ContentConsultar.Visibility = System.Windows.Visibility.Visible;
         }
-        private void btnCancelar_Click(object sender, RoutedEventArgs e)
+        private void btnMenu_Click(object sender, RoutedEventArgs e)
         {
             NavigationService.GoBack();
         }
@@ -45,5 +45,32 @@ namespace Cyltrack_phone.Pedidos
             NavigationService.GoBack();
         }
 
+        private void btnMenuConsul_Click(object sender, RoutedEventArgs e)
+        {
+            NavigationService.Navigate(new Uri("/MainPage.xaml", UriKind.Relative));
+        }
+
+        private void btnMenuConsul2_Click(object sender, RoutedEventArgs e)
+        {
+            NavigationService.Navigate(new Uri("/MainPage.xaml", UriKind.Relative));
+        }
+
+        private void btnNuevaConsul_Click(object sender, RoutedEventArgs e)
+        {
+            ContentConsultar.Visibility = System.Windows.Visibility.Collapsed;
+            ContentBusq.Visibility = System.Windows.Visibility.Visible;
+        }
+        private void btnAtrasCancel_Click(object sender, RoutedEventArgs e)
+        {
+            NavigationService.GoBack();
+        }
+
+        private void btnGuardarCancel_Click(object sender, RoutedEventArgs e)
+        {
+            MessageBox.Show("Sus datos fueron enviados satisfactoriamente");
+            NavigationService.Navigate(new Uri("/Pedidos/frmConsultarPedido.xaml", UriKind.Relative));
+        }  
+        
+        
     }
 }

@@ -75,13 +75,9 @@
                     <asp:TextBox ID="txtDepartamento" runat="server" CssClass="textEntry" 
                             Width="197px" Enabled="False"></asp:TextBox>
                     <br />
-                    <asp:Label ID="lblTipoTelefono" runat="server" Text="Tipo de Teléfono: "></asp:Label>
-                    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; &nbsp;&nbsp; &nbsp; &nbsp;
-                    <asp:Label ID="lblTelefono" runat="server" Text="Telefono:"></asp:Label>
+                        <asp:Label ID="lblTelefono" runat="server" Text="Telefono:"></asp:Label>
                         <br />
-                    <asp:TextBox ID="txtTelefono" runat="server" CssClass="textEntry" Enabled="False"></asp:TextBox>
-                         &nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-                    <asp:TextBox ID="txtTipoTelefono" Enabled="false" CssClass="textEntry" runat="server"></asp:TextBox>
+                         <asp:TextBox ID="txtTipoTelefono" Enabled="false" CssClass="textEntry" runat="server"></asp:TextBox>
                          &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; &nbsp;
                     </div>
               <div id="DivObservaciones" runat="server" visible="false">       
@@ -96,7 +92,6 @@
                         onselectedindexchanged="lstMotivo_SelectedIndexChanged"> 
                     <asp:ListItem>Seleccionar</asp:ListItem>
                     <asp:ListItem>Cambio de cilindro por escape</asp:ListItem>
-                    <asp:ListItem>Cambio de tamaño del cilindro</asp:ListItem>
                     <asp:ListItem>Terminación del contrato</asp:ListItem>
                     </asp:ListBox>
                     <br />
@@ -117,10 +112,11 @@
               </div>
             </fieldset> 
             <p class="submitButton">
-                <asp:Button ID="btnGuardar" runat="server" Text="Guardar Cambios" Width="120px"/> 
+                <asp:Button ID="BtnGuardar" runat="server" Text="Guardar" Width="120px" 
+                    onclick="BtnGuardar_Click"/> 
                     &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; &nbsp; 
-                    <asp:Button ID="btnCancelar" runat="server" Text="Cancelar" Width="120px" 
-                    onclick="btnCancelar_Click"/>  
+                    <asp:Button ID="BtnMenu" runat="server" Text="Menú Principal" Width="120px" 
+                    onclick="BtnMenu_Click"/>  
                    
                </p>
             </div> 

@@ -58,23 +58,25 @@ namespace Cyltrack_phone.Ventas
         {
             ContentCilindro.Visibility = System.Windows.Visibility.Collapsed;
             grdDevCil.Visibility = System.Windows.Visibility.Visible;
+            ContentObserv.Visibility = System.Windows.Visibility.Visible;
         }
 
         
 
         private void btnGuardar_Click(object sender, RoutedEventArgs e)
         {
-            MessageBox.Show("Datos Guardados");
+            MessageBox.Show("Sus datos fueron enviados satisfactoriamente");
             grdDevCil.Visibility = System.Windows.Visibility.Collapsed;
             ContentCambioCil.Visibility = System.Windows.Visibility.Collapsed;
+            ContentObserv.Visibility = System.Windows.Visibility.Collapsed;
             ContentBusq.Visibility = System.Windows.Visibility.Visible;
 
 
         }
 
-        private void btnCancelar_Click(object sender, RoutedEventArgs e)
+        private void btnAtrasDev_Click(object sender, RoutedEventArgs e)
         {
-            NavigationService.Navigate(new Uri("/MainPage.xaml", UriKind.Relative));
+            NavigationService.GoBack();
         }
 
         private void lstDevolucion_SelectionChanged(object sender, SelectionChangedEventArgs e)
@@ -86,7 +88,7 @@ namespace Cyltrack_phone.Ventas
             }
         }
 
-        private void btnCancelarConsulta_Click(object sender, RoutedEventArgs e)
+        private void btnMenuPrincipal_Click(object sender, RoutedEventArgs e)
         {
             NavigationService.Navigate(new Uri("/MainPage.xaml", UriKind.Relative));
         }
@@ -101,6 +103,8 @@ namespace Cyltrack_phone.Ventas
         {
             MessageBox.Show("Datos Guardados");
             ContentCilindro.Visibility = System.Windows.Visibility.Collapsed;
+            ContentObserv.Visibility = System.Windows.Visibility.Collapsed;
+            grdDevCil.Visibility = System.Windows.Visibility.Collapsed;
             ContentBusq.Visibility = System.Windows.Visibility.Visible;
         }
         private void hplModVenta_Click(object sender, RoutedEventArgs e)

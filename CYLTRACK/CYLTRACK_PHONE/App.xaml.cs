@@ -138,5 +138,10 @@ namespace Cyltrack_phone
         }
 
         #endregion
+
+        private void Setter_Loaded(object sender, RoutedEventArgs e)
+        {
+
+        }
     }
 }

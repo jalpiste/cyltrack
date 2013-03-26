@@ -12,8 +12,15 @@ namespace CYLTRACK_WebApp.Autenticacion
         protected void Page_Load(object sender, EventArgs e)
         {
 
+         }
+
+        protected void txtPassword_TextChanged(object sender, EventArgs e)
+        {
+            Response.Redirect("~/Default.aspx");
         }
 
-
+        
+  
+        
     }
 }

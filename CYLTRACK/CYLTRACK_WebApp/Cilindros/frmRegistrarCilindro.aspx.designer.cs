@@ -184,21 +184,21 @@ namespace CYLTRACK_WebApp.Account {
         protected global::System.Web.UI.WebControls.Button BtnLimpiar;
         
         /// <summary>
-        /// Control BtnGuardarDatos.
+        /// Control BtnGuardar.
         /// </summary>
         /// <remarks>
         /// Campo generado automáticamente.
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Button BtnGuardarDatos;
+        protected global::System.Web.UI.WebControls.Button BtnGuardar;
         
         /// <summary>
-        /// Control BtnCancelar.
+        /// Control BtnMenu.
         /// </summary>
         /// <remarks>
         /// Campo generado automáticamente.
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Button BtnCancelar;
+        protected global::System.Web.UI.WebControls.Button BtnMenu;
     }
 }

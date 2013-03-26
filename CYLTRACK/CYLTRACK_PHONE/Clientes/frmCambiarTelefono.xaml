@@ -28,15 +28,11 @@
         
         <!--ContentPanel. Colocar aquí el contenido adicional-->
         <Grid x:Name="ContentCambioTelefono" Grid.Row="1" Margin="12,0,12,0" Background="White">
-            <TextBlock Height="46" HorizontalAlignment="Left" Margin="19,23,0,0" Name="lblCambioTel" Text="Agregar Nuevo Teléfono" VerticalAlignment="Top" Width="328" FontStyle="Italic" FontWeight="Normal" FontFamily="Times New Roman" Style="{StaticResource h3}"   />
-            <TextBlock Height="30" HorizontalAlignment="Left" Margin="19,75,0,0" Name="lblNumTel" Text="Número de Teléfono: " VerticalAlignment="Top" Style="{StaticResource textArea}"  />
-            <TextBox Height="Auto" HorizontalAlignment="Left" Margin="2,89,0,0" Name="txtNumTel" Text="" VerticalAlignment="Top" Width="320" Style="{StaticResource textboxSolos}" InputScope="TelephoneNumber"/>
-            <TextBlock Height="30" HorizontalAlignment="Left" Margin="19,159,0,0" Name="lblTipoTel" Text="Tipo de Teléfono: " VerticalAlignment="Top" Style="{StaticResource textArea}"/>
-            <ListBox Height="37" HorizontalAlignment="Left" Margin="19,187,0,0" Name="lstTipoTel" VerticalAlignment="Top" Width="247" Style="{StaticResource listas}">
-                <ListBoxItem Content="Seleccionar..." />
-            </ListBox>
-            <Button Content="Guardar" Height="72" HorizontalAlignment="Left" Margin="51,245,0,0" Name="btnGuardar" VerticalAlignment="Top" Width="160" />
-            <Button Content="Cancelar" Height="72" HorizontalAlignment="Left" Margin="217,245,0,0" Name="btnCancelar" VerticalAlignment="Top" Width="160" Click="btnCancelar_Click" />
+            <TextBlock Height="46" HorizontalAlignment="Left" Margin="19,23,0,0" Name="lblCambioTel" Text="Agregar Nuevo Teléfono" VerticalAlignment="Top" Width="328"  Style="{StaticResource h2}"   />
+            <TextBlock Height="30" HorizontalAlignment="Left" Margin="19,73,0,0" Name="lblNumTel" Text="Número de Teléfono: " VerticalAlignment="Top" Style="{StaticResource textArea}"  />
+            <TextBox Height="Auto" HorizontalAlignment="Left" Margin="2,94,0,0" Name="txtNumTel" Text="" VerticalAlignment="Top" Width="320" Style="{StaticResource textboxSolos}" InputScope="TelephoneNumber"/>
+            <Button Content="Guardar" Height="72" HorizontalAlignment="Left" Margin="51,167,0,0" Name="btnGuardar" VerticalAlignment="Top" Width="160" Click="btnGuardar_Click" />
+            <Button Content="Atrás" Height="72" HorizontalAlignment="Left" Margin="217,167,0,0" Name="btnAtrasTel" VerticalAlignment="Top" Width="160" Click="btnAtrasTel_Click" />
         </Grid>
     </Grid>
  

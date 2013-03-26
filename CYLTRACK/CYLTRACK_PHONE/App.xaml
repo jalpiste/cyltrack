@@ -29,6 +29,7 @@
             <Setter Property="FontFamily" Value="Calibri"/>
             <Setter Property="FontSize" Value="30"/>
             <Setter Property="Foreground" Value="#966262"/>
+            <Setter Property="FontStyle" Value="Italic"/>
         </Style>
 
         <Style TargetType="TextBlock" x:Key="h3">

@@ -16,7 +16,8 @@
                 <legend>Consulta de Venta</legend>
                     <asp:Label ID="lblCedulaCliente" runat="server" Text="Cédula cliente:"></asp:Label>
                         <br />
-                    <asp:TextBox ID="txtCedulaCliente" runat="server" CssClass="textEntry" Width="197px"></asp:TextBox>
+                    <asp:TextBox ID="txtCedulaCliente" runat="server" CssClass="textEntry" 
+                    Width="197px" ontextchanged="txtCedulaCliente_TextChanged"></asp:TextBox>
                     <asp:RequiredFieldValidator ID="ConsultarVentaRequired" runat="server" ControlToValidate="txtCedulaCliente"
                         CssClass="failureNotification" ErrorMessage="El número de cédula del cliente es obligatorio."
                         ToolTip="El número de cédula del cliente es obligatorio." ValidationGroup="ConsultarVentaValidationGroup">*</asp:RequiredFieldValidator>
@@ -25,11 +26,11 @@
                 <div class="post">Información Venta</div>   
                 <asp:Label ID="lblFecha" runat="server" Text="Fecha: "></asp:Label>
                 &nbsp;
-                <asp:TextBox ID="txtFecha" runat="server" enabled ="false"></asp:TextBox>
+                <asp:TextBox ID="txtFecha" runat="server" enabled ="false" CssClass="textEntry"></asp:TextBox>
                 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
                 <asp:Label ID="lblHora" runat="server" Text="Hora: "></asp:Label>
                 &nbsp;
-                <asp:TextBox ID="txtHora" runat="server" Width="90px" enabled ="false"></asp:TextBox>
+                <asp:TextBox ID="txtHora" runat="server" Width="90px" enabled ="false" CssClass="textEntry"></asp:TextBox>
                 <br />
                 <br />
                 <asp:Label ID="lblNumCed" runat="server" text="Número de Cédula: "></asp:Label>
@@ -52,11 +53,11 @@
                 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
                 <asp:Label ID="lblBarrio" runat="server" Text="Barrio:" ></asp:Label> 
                 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 
-                <asp:Label ID="lblTipoDireccion" runat="server" Text="Tipo de Dirección:"></asp:Label><br />
+                <br />
                 <asp:TextBox ID="txtDireccion" runat="server" CssClass="textEntry" Width="197px" enabled ="false"></asp:TextBox>                
                 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
                 <asp:TextBox ID="Barrio" runat="server" CssClass="textEntry" Width="197px" enabled ="false"></asp:TextBox>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 
-                <asp:TextBox ID="txtTipoDireccion" CssClass="textEntry" runat="server" enabled ="false"></asp:TextBox><br/><br/>
+                <br/><br/>
                 <asp:Label ID="lblCiudad" runat="server" Text="Ciudad:"></asp:Label>
                 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; &nbsp; &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 
                 <asp:Label ID="DepartamentoLabel" runat="server" text="Departamento:"></asp:Label><br/>
@@ -65,11 +66,9 @@
                 <asp:TextBox ID="txtDepartamento" runat="server" CssClass="textEntry" Width="197px" enabled ="false"></asp:TextBox><br/><br/>
              <asp:Label ID="lblTelefono" runat="server" Text="Teléfono: "></asp:Label>
              &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-             <asp:Label ID="TipoTelefono" runat="server" Text="Tipo de Teléfono: "></asp:Label>
              <br />
              <asp:TextBox ID="txtTelefono" runat="server" CssClass="textEntry" Width="197px" enabled ="false"></asp:TextBox>
              &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-             <asp:TextBox ID="txtTipoTelefono" runat="server" CssClass="textEntry" Width="197px" enabled ="false"></asp:TextBox>
                 <br/><br/>
                 <asp:Label ID="lblCilindro" runat="server" Text="Código cilindro: "></asp:Label>
                 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
@@ -81,7 +80,7 @@
                 <br /><br />
                 <asp:Label ID="lblObservaciones" runat="server" Text="Observaciones: "></asp:Label>
                 <br />
-                <asp:TextBox ID="txtObservacion" runat="server" Height="77px" Width="306px" enabled ="false"></asp:TextBox>
+                <asp:TextBox ID="txtObservacion" runat="server" Height="77px" Width="306px" enabled ="false" CssClass="textEntry"></asp:TextBox>
                 <br /><br />
                  <div class="post">Vendedor</div>  
              <asp:Label ID="lblNombreConductor" runat="server" Text="Nombre: "></asp:Label><br />
@@ -103,14 +102,12 @@
            </div> 
         </fieldset>
         <p class="submitButton">
-                <asp:Button ID="btnConsultar" runat="server" Text="Consultar" Width="115px" 
-                    onclick="btnConsultar_Click" /> 
-                    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; &nbsp; 
+                     
                 <asp:Button ID="btnNuevaConsulta" runat="server" Visible="false" 
                     Text="Nueva Consulta" Width="115px" onclick="btnNuevaConsulta_Click"/> 
                     &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; &nbsp; 
-                <asp:Button ID="btnCancelar" runat="server" Text="Cancelar" Width="115px" 
-                    onclick="btnCancelar_Click"/>  
+                <asp:Button ID="btnMenu" runat="server" Text="Menú Principal" Width="115px" 
+                    onclick="btnMenu_Click"/>  
                     &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; &nbsp;  
                     </p>
         </div>

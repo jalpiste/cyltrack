@@ -10,7 +10,7 @@
 namespace CYLTRACK_WebApp.Ventas {
     
     
-    public partial class frmConsultarVenta {
+    public partial class frmVentaCilindro {
         
         /// <summary>
         /// Control FailureText.
@@ -22,103 +22,85 @@ namespace CYLTRACK_WebApp.Ventas {
         protected global::System.Web.UI.WebControls.Literal FailureText;
         
         /// <summary>
-        /// Control ConsultarVentaValidationSummary.
+        /// Control EntregaCilindroValidationSummary.
         /// </summary>
         /// <remarks>
         /// Campo generado automáticamente.
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.ValidationSummary ConsultarVentaValidationSummary;
+        protected global::System.Web.UI.WebControls.ValidationSummary EntregaCilindroValidationSummary;
         
         /// <summary>
-        /// Control lblCedulaCliente.
+        /// Control lblCedula.
         /// </summary>
         /// <remarks>
         /// Campo generado automáticamente.
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Label lblCedulaCliente;
+        protected global::System.Web.UI.WebControls.Label lblCedula;
         
         /// <summary>
-        /// Control txtCedulaCliente.
+        /// Control lblNumPedido.
         /// </summary>
         /// <remarks>
         /// Campo generado automáticamente.
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox txtCedulaCliente;
+        protected global::System.Web.UI.WebControls.Label lblNumPedido;
         
         /// <summary>
-        /// Control ConsultarVentaRequired.
+        /// Control txtCedula.
         /// </summary>
         /// <remarks>
         /// Campo generado automáticamente.
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.RequiredFieldValidator ConsultarVentaRequired;
+        protected global::System.Web.UI.WebControls.TextBox txtCedula;
         
         /// <summary>
-        /// Control DivInfoVenta.
+        /// Control txtCedulaRequired.
         /// </summary>
         /// <remarks>
         /// Campo generado automáticamente.
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
-        protected global::System.Web.UI.HtmlControls.HtmlGenericControl DivInfoVenta;
+        protected global::System.Web.UI.WebControls.RequiredFieldValidator txtCedulaRequired;
         
         /// <summary>
-        /// Control lblFecha.
+        /// Control TxtNumPedido.
         /// </summary>
         /// <remarks>
         /// Campo generado automáticamente.
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Label lblFecha;
+        protected global::System.Web.UI.WebControls.TextBox TxtNumPedido;
         
         /// <summary>
-        /// Control txtFecha.
+        /// Control divInfoCliente.
         /// </summary>
         /// <remarks>
         /// Campo generado automáticamente.
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox txtFecha;
+        protected global::System.Web.UI.HtmlControls.HtmlGenericControl divInfoCliente;
         
         /// <summary>
-        /// Control lblHora.
+        /// Control lblPedido.
         /// </summary>
         /// <remarks>
         /// Campo generado automáticamente.
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Label lblHora;
+        protected global::System.Web.UI.WebControls.Label lblPedido;
         
         /// <summary>
-        /// Control txtHora.
+        /// Control lblCodigoPedido.
         /// </summary>
         /// <remarks>
         /// Campo generado automáticamente.
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox txtHora;
-        
-        /// <summary>
-        /// Control lblNumCed.
-        /// </summary>
-        /// <remarks>
-        /// Campo generado automáticamente.
-        /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.Label lblNumCed;
-        
-        /// <summary>
-        /// Control txtNumCedula.
-        /// </summary>
-        /// <remarks>
-        /// Campo generado automáticamente.
-        /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox txtNumCedula;
+        protected global::System.Web.UI.WebControls.Label lblCodigoPedido;
         
         /// <summary>
         /// Control lblNombreCliente.
@@ -193,13 +175,22 @@ namespace CYLTRACK_WebApp.Ventas {
         protected global::System.Web.UI.WebControls.Label lblBarrio;
         
         /// <summary>
-        /// Control txtDireccion.
+        /// Control lblTelefono.
         /// </summary>
         /// <remarks>
         /// Campo generado automáticamente.
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox txtDireccion;
+        protected global::System.Web.UI.WebControls.Label lblTelefono;
+        
+        /// <summary>
+        /// Control lstDireccion.
+        /// </summary>
+        /// <remarks>
+        /// Campo generado automáticamente.
+        /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.ListBox lstDireccion;
         
         /// <summary>
         /// Control Barrio.
@@ -209,6 +200,15 @@ namespace CYLTRACK_WebApp.Ventas {
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
         protected global::System.Web.UI.WebControls.TextBox Barrio;
+        
+        /// <summary>
+        /// Control txtTelefono.
+        /// </summary>
+        /// <remarks>
+        /// Campo generado automáticamente.
+        /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.TextBox txtTelefono;
         
         /// <summary>
         /// Control lblCiudad.
@@ -247,24 +247,6 @@ namespace CYLTRACK_WebApp.Ventas {
         protected global::System.Web.UI.WebControls.TextBox txtDepartamento;
         
         /// <summary>
-        /// Control lblTelefono.
-        /// </summary>
-        /// <remarks>
-        /// Campo generado automáticamente.
-        /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.Label lblTelefono;
-        
-        /// <summary>
-        /// Control txtTelefono.
-        /// </summary>
-        /// <remarks>
-        /// Campo generado automáticamente.
-        /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox txtTelefono;
-        
-        /// <summary>
         /// Control lblCilindro.
         /// </summary>
         /// <remarks>
@@ -281,6 +263,24 @@ namespace CYLTRACK_WebApp.Ventas {
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
         protected global::System.Web.UI.WebControls.Label lblTamano;
+        
+        /// <summary>
+        /// Control lblCantidad.
+        /// </summary>
+        /// <remarks>
+        /// Campo generado automáticamente.
+        /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Label lblCantidad;
+        
+        /// <summary>
+        /// Control lblTipo.
+        /// </summary>
+        /// <remarks>
+        /// Campo generado automáticamente.
+        /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Label lblTipo;
         
         /// <summary>
         /// Control txtCilindro.
@@ -301,13 +301,85 @@ namespace CYLTRACK_WebApp.Ventas {
         protected global::System.Web.UI.WebControls.TextBox txtTamano;
         
         /// <summary>
-        /// Control lblObservaciones.
+        /// Control txtCantidadCil.
         /// </summary>
         /// <remarks>
         /// Campo generado automáticamente.
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Label lblObservaciones;
+        protected global::System.Web.UI.WebControls.TextBox txtCantidadCil;
+        
+        /// <summary>
+        /// Control txtTipoCil.
+        /// </summary>
+        /// <remarks>
+        /// Campo generado automáticamente.
+        /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.TextBox txtTipoCil;
+        
+        /// <summary>
+        /// Control lblCilindroPedido.
+        /// </summary>
+        /// <remarks>
+        /// Campo generado automáticamente.
+        /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Label lblCilindroPedido;
+        
+        /// <summary>
+        /// Control lblTamanoCil.
+        /// </summary>
+        /// <remarks>
+        /// Campo generado automáticamente.
+        /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Label lblTamanoCil;
+        
+        /// <summary>
+        /// Control LstCodigos.
+        /// </summary>
+        /// <remarks>
+        /// Campo generado automáticamente.
+        /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.ListBox LstCodigos;
+        
+        /// <summary>
+        /// Control LstCodigosRequired.
+        /// </summary>
+        /// <remarks>
+        /// Campo generado automáticamente.
+        /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.RequiredFieldValidator LstCodigosRequired;
+        
+        /// <summary>
+        /// Control TxtTamanoCil.
+        /// </summary>
+        /// <remarks>
+        /// Campo generado automáticamente.
+        /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.TextBox TxtTamanoCil;
+        
+        /// <summary>
+        /// Control TxtTamanoCilRequired.
+        /// </summary>
+        /// <remarks>
+        /// Campo generado automáticamente.
+        /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.RequiredFieldValidator TxtTamanoCilRequired;
+        
+        /// <summary>
+        /// Control lblObservacion.
+        /// </summary>
+        /// <remarks>
+        /// Campo generado automáticamente.
+        /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Label lblObservacion;
         
         /// <summary>
         /// Control txtObservacion.
@@ -319,111 +391,21 @@ namespace CYLTRACK_WebApp.Ventas {
         protected global::System.Web.UI.WebControls.TextBox txtObservacion;
         
         /// <summary>
-        /// Control lblNombreConductor.
+        /// Control btnGuardar.
         /// </summary>
         /// <remarks>
         /// Campo generado automáticamente.
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Label lblNombreConductor;
+        protected global::System.Web.UI.WebControls.Button btnGuardar;
         
         /// <summary>
-        /// Control txtNombreConductor.
+        /// Control btnMenuPrincipal.
         /// </summary>
         /// <remarks>
         /// Campo generado automáticamente.
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox txtNombreConductor;
-        
-        /// <summary>
-        /// Control lblApellidoConductor.
-        /// </summary>
-        /// <remarks>
-        /// Campo generado automáticamente.
-        /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.Label lblApellidoConductor;
-        
-        /// <summary>
-        /// Control lblSegundoApellidoConductor.
-        /// </summary>
-        /// <remarks>
-        /// Campo generado automáticamente.
-        /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.Label lblSegundoApellidoConductor;
-        
-        /// <summary>
-        /// Control txtApellidoConductor.
-        /// </summary>
-        /// <remarks>
-        /// Campo generado automáticamente.
-        /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox txtApellidoConductor;
-        
-        /// <summary>
-        /// Control txtSegundoApellidoConductor.
-        /// </summary>
-        /// <remarks>
-        /// Campo generado automáticamente.
-        /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox txtSegundoApellidoConductor;
-        
-        /// <summary>
-        /// Control lblPlaca.
-        /// </summary>
-        /// <remarks>
-        /// Campo generado automáticamente.
-        /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.Label lblPlaca;
-        
-        /// <summary>
-        /// Control lblRuta.
-        /// </summary>
-        /// <remarks>
-        /// Campo generado automáticamente.
-        /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.Label lblRuta;
-        
-        /// <summary>
-        /// Control txtPlaca.
-        /// </summary>
-        /// <remarks>
-        /// Campo generado automáticamente.
-        /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox txtPlaca;
-        
-        /// <summary>
-        /// Control txtRuta.
-        /// </summary>
-        /// <remarks>
-        /// Campo generado automáticamente.
-        /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox txtRuta;
-        
-        /// <summary>
-        /// Control btnNuevaConsulta.
-        /// </summary>
-        /// <remarks>
-        /// Campo generado automáticamente.
-        /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.Button btnNuevaConsulta;
-        
-        /// <summary>
-        /// Control btnMenu.
-        /// </summary>
-        /// <remarks>
-        /// Campo generado automáticamente.
-        /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.Button btnMenu;
+        protected global::System.Web.UI.WebControls.Button btnMenuPrincipal;
     }
 }

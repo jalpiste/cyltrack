@@ -20,19 +20,31 @@ namespace Cyltrack_phone.Clientes
             InitializeComponent();
         }
 
-        private void btnRegistrar_Click(object sender, RoutedEventArgs e)
+        private void btnMenuRegistro_Click(object sender, RoutedEventArgs e)
         {
-            ContentBusq.Visibility = System.Windows.Visibility.Collapsed;
-            ContentDatosP.Visibility = System.Windows.Visibility.Visible;
-    }
-        private void btnCancelar_Click(object sender, RoutedEventArgs e)
+            NavigationService.Navigate(new Uri("/MainPage.xaml", UriKind.Relative)); 
+        
+        }
+
+        private void btnMenu_Click(object sender, RoutedEventArgs e)
         {
             NavigationService.GoBack();
         }
 
-        private void btnRegresar_Click(object sender, RoutedEventArgs e)
+        private void btnRegistrar_Click(object sender, RoutedEventArgs e)
         {
-            NavigationService.GoBack();
+            ContentBusq.Visibility = System.Windows.Visibility.Collapsed;
+            ContentDatosP.Visibility = System.Windows.Visibility.Visible;
         }
+
+        private void btnGuardar_Click(object sender, RoutedEventArgs e)
+        {
+            MessageBox.Show("Los datos fueron enviados satisfactoriamente");
+            ContentDatosP.Visibility = System.Windows.Visibility.Collapsed;
+            ContentBusq.Visibility = System.Windows.Visibility.Visible;
+        }
+
+
+        
 }
 }

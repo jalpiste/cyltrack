@@ -130,6 +130,15 @@ namespace CYLTRACK_WebApp.Autenticacion {
         protected global::System.Web.UI.WebControls.ListBox lstAgregar;
         
         /// <summary>
+        /// Control btnRemover.
+        /// </summary>
+        /// <remarks>
+        /// Campo generado automáticamente.
+        /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Button btnRemover;
+        
+        /// <summary>
         /// Control btnRegistrar.
         /// </summary>
         /// <remarks>
@@ -139,12 +148,12 @@ namespace CYLTRACK_WebApp.Autenticacion {
         protected global::System.Web.UI.WebControls.Button btnRegistrar;
         
         /// <summary>
-        /// Control btnCancelar.
+        /// Control btnMenu.
         /// </summary>
         /// <remarks>
         /// Campo generado automáticamente.
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Button btnCancelar;
+        protected global::System.Web.UI.WebControls.Button btnMenu;
     }
 }

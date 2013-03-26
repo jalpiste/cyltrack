@@ -23,17 +23,17 @@
                     <asp:Label ID="lblPass" runat="server" Text="Contraseña:"></asp:Label>
                     <br />
                     <asp:TextBox ID="txtPassword" runat="server" CssClass="passwordEntry" TextMode="Password"
-                        Width="320px"></asp:TextBox>
+                        Width="320px" ontextchanged="txtPassword_TextChanged"></asp:TextBox>
                     <asp:RequiredFieldValidator ID="PasswordRequired" runat="server" ControlToValidate="txtPassword"
                         CssClass="failureNotification" ErrorMessage="La contraseña es obligatoria." ToolTip="La contraseña es obligatoria."
                         ValidationGroup="LoginUserValidationGroup">*</asp:RequiredFieldValidator>
                     <br />
-                    <asp:HyperLink ID="ForgetHyperLink" runat="server" EnableViewState="False" NavigateUrl="~/Autenticacion/frmOlvidoContraseña.aspx">
-                        ¿Olvidó su contraseña?</asp:HyperLink>
+                   
+                    <a href="~/frmRecuperarContrasena.aspx" ID="lnkRecuperarContrasena" runat="server">Olvidó Contraseña</a>
                     <br />
-                    <asp:CheckBox ID="RememberMe" runat="server" />
+                    <asp:CheckBox ID="RememberMe" runat="server"  />
                     <br />
-                    <asp:Label ID="lblRememberMe" runat="server" AssociatedControlID="RememberMe" CssClass="inline">Mantenerme conectado</asp:Label>
+                    <asp:Label ID="lblRememberMe" runat="server" AssociatedControlID="RememberMe" CssClass="inline">Mantener la sesion iniciada</asp:Label>
                     <br />
                     <h3>
                         <asp:Label ID="lblPrimeraVez" runat="server" Text="Ingreso por primera vez. Por favor digite su nueva contraseña."

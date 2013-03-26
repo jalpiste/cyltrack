@@ -31,6 +31,15 @@ namespace CYLTRACK_WebApp {
         protected global::System.Web.UI.WebControls.ValidationSummary LoginValidationSummary;
         
         /// <summary>
+        /// Control DivCodigo.
+        /// </summary>
+        /// <remarks>
+        /// Campo generado automáticamente.
+        /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
+        /// </remarks>
+        protected global::System.Web.UI.HtmlControls.HtmlGenericControl DivCodigo;
+        
+        /// <summary>
         /// Control lblCodeCil.
         /// </summary>
         /// <remarks>
@@ -56,33 +65,6 @@ namespace CYLTRACK_WebApp {
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
         protected global::System.Web.UI.WebControls.RequiredFieldValidator CodeCilindroRequired;
-        
-        /// <summary>
-        /// Control DivImpresionCodigo.
-        /// </summary>
-        /// <remarks>
-        /// Campo generado automáticamente.
-        /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
-        /// </remarks>
-        protected global::System.Web.UI.HtmlControls.HtmlGenericControl DivImpresionCodigo;
-        
-        /// <summary>
-        /// Control lblCodCil.
-        /// </summary>
-        /// <remarks>
-        /// Campo generado automáticamente.
-        /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.Label lblCodCil;
-        
-        /// <summary>
-        /// Control txtCodigoCilindro.
-        /// </summary>
-        /// <remarks>
-        /// Campo generado automáticamente.
-        /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox txtCodigoCilindro;
         
         /// <summary>
         /// Control DivUbicacionCil.
@@ -166,30 +148,57 @@ namespace CYLTRACK_WebApp {
         protected global::System.Web.UI.WebControls.ListBox lstPlacaVehiculo;
         
         /// <summary>
-        /// Control btnCambiar.
+        /// Control LblConductor.
         /// </summary>
         /// <remarks>
         /// Campo generado automáticamente.
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Button btnCambiar;
+        protected global::System.Web.UI.WebControls.Label LblConductor;
         
         /// <summary>
-        /// Control btnGuardar.
+        /// Control TxtConductor.
         /// </summary>
         /// <remarks>
         /// Campo generado automáticamente.
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Button btnGuardar;
+        protected global::System.Web.UI.WebControls.TextBox TxtConductor;
         
         /// <summary>
-        /// Control btnCancelar.
+        /// Control LblRuta.
         /// </summary>
         /// <remarks>
         /// Campo generado automáticamente.
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Button btnCancelar;
+        protected global::System.Web.UI.WebControls.Label LblRuta;
+        
+        /// <summary>
+        /// Control LblRutaVehiculo.
+        /// </summary>
+        /// <remarks>
+        /// Campo generado automáticamente.
+        /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Label LblRutaVehiculo;
+        
+        /// <summary>
+        /// Control BtnGuardar.
+        /// </summary>
+        /// <remarks>
+        /// Campo generado automáticamente.
+        /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Button BtnGuardar;
+        
+        /// <summary>
+        /// Control BtnMenu.
+        /// </summary>
+        /// <remarks>
+        /// Campo generado automáticamente.
+        /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Button BtnMenu;
     }
 }

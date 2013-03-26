@@ -19,9 +19,21 @@ namespace CYLTRACK_WebApp.Account
             DivDatosCilindro.Visible = true;
         }
 
-        protected void BtnGuardarDatos_Click(object sender, EventArgs e)
+        protected void BtnGuardar_Click(object sender, EventArgs e)
         {
             Response.Write("<script type='text/javascript'> alert('Sus datos fueron enviados satisfactoriamente') </script>");
+            DivDatosCilindro.Visible = false;
+        }
+
+        protected void BtnMenu_Click(object sender, EventArgs e)
+        {
+            Response.Redirect("~/Default.aspx");
+        }
+
+        protected void BtnLimpiar_Click(object sender, EventArgs e)
+        {
+            
+            
         }
 
 
