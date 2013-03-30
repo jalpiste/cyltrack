@@ -11,16 +11,24 @@ namespace CYLTRACK_WebApp.Account.Clientes
     {
         protected void Page_Load(object sender, EventArgs e)
         {
-            hprNuevaDireccion.NavigateUrl = "frmCambioDireccion.aspx?ReturnUrl=" + HttpUtility.UrlEncode(Request.QueryString["ReturnUrl"]);
-            hprNuevoTelefono.NavigateUrl = "frmCambioTelefono.aspx?ReturnUrl=" + HttpUtility.UrlEncode(Request.QueryString["ReturnUrl"]);
-
+            hprNuevaUbicacion.NavigateUrl = "frmNuevaUbicacion.aspx?ReturnUrl=" + HttpUtility.UrlEncode(Request.QueryString["ReturnUrl"]);
         }
 
 
         protected void txtCedula_TextChanged(object sender, EventArgs e)
         {
             divInfoCliente.Visible = true;
+        }
 
+        protected void btnGuardar_Click(object sender, EventArgs e)
+        {
+            Response.Write("<script type='text/javascript'> alert('Sus datos fueron enviados satisfactoriamente') </script>");
+            //Response.Redirect("~/Cliente/frmModificarCliente.aspx");
+        }
+
+        protected void btnMenuPrincipal_Click(object sender, EventArgs e)
+        {
+            Response.Redirect("~/Default.aspx");
         }
 
 

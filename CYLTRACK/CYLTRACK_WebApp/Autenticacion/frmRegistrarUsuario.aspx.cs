@@ -16,6 +16,12 @@ namespace CYLTRACK_WebApp.Autenticacion
 
         }
 
+        protected void btnCreateUserButton_Click(object sender, EventArgs e)
+        {
+            Response.Write("<script type='text/javascript'> alert('Sus datos fueron enviados satisfactoriamente') </script>");
+            //Response.Redirect("~/Autenticacion/frmRegistrarUsuario.aspx");
+        }
+
 
     }
 }

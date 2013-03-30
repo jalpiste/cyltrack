@@ -42,5 +42,12 @@ namespace CYLTRACK_WebApp.Pedido
             txtCedulaCliente.Text = " ";
 
         }
+
+        protected void btnAgregar_Click(object sender, EventArgs e)
+        {
+            lstAgregar.Visible = true;
+            lstAgregar.Items.Add(lstTamano.Text + " " + txtCantidadCilindro.Text);
+            txtCantidadCilindro.Text = "";
+        }
     }
 }

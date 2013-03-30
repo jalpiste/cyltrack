@@ -105,6 +105,14 @@
                           &nbsp;&nbsp;
                           
                           <asp:TextBox ID="txtCantidadCilindro"  CssClass="textEntry" runat="server" enabled = "false" Width="50px" Text=""></asp:TextBox>
+                          &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                    <asp:Button ID="btnAgregar" runat="server" Text="Agregar" Width="115px" enabled = "false" 
+                         onclick="btnAgregar_Click"/>
+                         
+                    <br />
+                    <br />
+                     <asp:ListBox ID="lstAgregar" runat="server" Height="62px" Width="120px" enabled ="false" 
+                         visible ="false"></asp:ListBox>    
                       </p>
                         <p>
                       
@@ -123,7 +131,7 @@
                 <asp:Button ID="btnNuevaConsulta" runat="server" Text="Nueva Consulta" 
                         onclick="btnNuevaConsulta_Click" /> 
                     &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; &nbsp; 
-                    <asp:Button ID="btnMenuPrincipal" runat="server" Text="Menú Principal" onclick="btnMenuPrincipal_Click" 
+                    <asp:Button ID="btnMenuPrincipal" runat="server" Text="Menu Principal" onclick="btnMenuPrincipal_Click" 
                        />  
                     
                     </p>

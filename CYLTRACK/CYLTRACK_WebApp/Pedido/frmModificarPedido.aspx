@@ -71,7 +71,8 @@
                     <asp:TextBox ID="txtDepartamento" runat="server" CssClass="textEntry" Width="197px" Enabled="False"></asp:TextBox>
                          
                         </p>
-                    
+                    <br />
+                   <br />
                      <p> 
                          <asp:Label ID="lblTelefono" runat="server" Text="Telefono:"></asp:Label>
                     <br />
@@ -104,7 +105,7 @@
                       <p>
                           <asp:Label ID="lblTamanoCil" runat="server" Text="Tamaño Cilindro:"></asp:Label>
                       &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-                          <asp:ListBox ID="lstTamanoCil" runat="server" Rows="1">
+                          <asp:ListBox ID="lstTamano" runat="server" Rows="1">
                               <asp:ListItem>30</asp:ListItem>
                               <asp:ListItem>40</asp:ListItem>
                               <asp:ListItem>80</asp:ListItem>
@@ -116,6 +117,14 @@
                           
                           <asp:TextBox ID="txtCantidadCilindro"  CssClass="textEntry" runat="server" 
                               Width="50px" Text=""></asp:TextBox>
+                              &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                    <asp:Button ID="btnAgregar" runat="server" Text="Agregar" Width="115px" 
+                         onclick="btnAgregar_Click"/>
+                         
+                    <br />
+                    <br />
+                     <asp:ListBox ID="lstAgregar" runat="server" Height="62px" Width="120px" 
+                         visible ="false"></asp:ListBox>    
                       </p>
                         <p>
                      <asp:Label ID="lblFecha" runat="server" Text="Fecha de Registro de Pedido:   "></asp:Label>
@@ -130,7 +139,7 @@
                     <asp:Button ID="btnGuardar" runat="server" Text="Guardar" Width="121px" 
                         onclick="btnGuardar_Click"/> 
                     &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; &nbsp; 
-                    <asp:Button ID="btnMenuPrincipal" runat="server" Text="Menú Principal" 
+                    <asp:Button ID="btnMenuPrincipal" runat="server" Text="Menu Principal" 
                         Width="121px" onclick="btnMenuPrincipal_Click"/>  
                    
                     </p>

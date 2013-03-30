@@ -13,24 +13,6 @@ namespace CYLTRACK_WebApp.Account.Clientes {
     public partial class frmConsultaClientes2 {
         
         /// <summary>
-        /// Control lblCedula.
-        /// </summary>
-        /// <remarks>
-        /// Campo generado automáticamente.
-        /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.Label lblCedula;
-        
-        /// <summary>
-        /// Control txtCedula.
-        /// </summary>
-        /// <remarks>
-        /// Campo generado automáticamente.
-        /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox txtCedula;
-        
-        /// <summary>
         /// Control lblNuevaDireccion.
         /// </summary>
         /// <remarks>
@@ -49,13 +31,13 @@ namespace CYLTRACK_WebApp.Account.Clientes {
         protected global::System.Web.UI.WebControls.Label lblNuevoBarrio;
         
         /// <summary>
-        /// Control lblNuevoTipoDir.
+        /// Control lblTelefono.
         /// </summary>
         /// <remarks>
         /// Campo generado automáticamente.
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Label lblNuevoTipoDir;
+        protected global::System.Web.UI.WebControls.Label lblTelefono;
         
         /// <summary>
         /// Control txtNuevaDireccion.
@@ -76,13 +58,13 @@ namespace CYLTRACK_WebApp.Account.Clientes {
         protected global::System.Web.UI.WebControls.TextBox txtNuevoBarrio;
         
         /// <summary>
-        /// Control lstNuevaTipoDireccion.
+        /// Control txtTelefono.
         /// </summary>
         /// <remarks>
         /// Campo generado automáticamente.
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.ListBox lstNuevaTipoDireccion;
+        protected global::System.Web.UI.WebControls.TextBox txtTelefono;
         
         /// <summary>
         /// Control lblDepartamento.
@@ -121,6 +103,15 @@ namespace CYLTRACK_WebApp.Account.Clientes {
         protected global::System.Web.UI.WebControls.ListBox LstCiudad;
         
         /// <summary>
+        /// Control btnLimpiar.
+        /// </summary>
+        /// <remarks>
+        /// Campo generado automáticamente.
+        /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Button btnLimpiar;
+        
+        /// <summary>
         /// Control btnGuardar.
         /// </summary>
         /// <remarks>
@@ -130,12 +121,12 @@ namespace CYLTRACK_WebApp.Account.Clientes {
         protected global::System.Web.UI.WebControls.Button btnGuardar;
         
         /// <summary>
-        /// Control btnMenuPrincipal.
+        /// Control btnAtras.
         /// </summary>
         /// <remarks>
         /// Campo generado automáticamente.
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Button btnMenuPrincipal;
+        protected global::System.Web.UI.WebControls.Button btnAtras;
     }
 }

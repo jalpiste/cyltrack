@@ -34,7 +34,7 @@
             <TextBlock Height="30" HorizontalAlignment="Left" Margin="26,24,0,0" Name="txtConsulCliente" Text="Consultar Cliente" VerticalAlignment="Top" Style="{StaticResource h2}"/>
         </Grid>
 
-        <Grid x:Name="ContentDatosP" Grid.Row="1" Margin="12,0,12,0" Background="White" Visibility="Collapsed">
+        <Grid x:Name="ContentDatosP" Grid.Row="1" Margin="11,0,13,0" Background="White" Visibility="Collapsed">
             <TextBlock Height="30" HorizontalAlignment="Left" Margin="19,23,0,0" Name="lblDatos" Text="Datos Personales" VerticalAlignment="Top" Width="269" Style="{StaticResource h2}" />
             <TextBlock Height="30" HorizontalAlignment="Left" Margin="19,75,0,0" Name="lblNombres" Text="Nombres: " VerticalAlignment="Top" Style="{StaticResource textArea}" />
             <TextBox Height="Auto" HorizontalAlignment="Left" Margin="2,89,0,0" Name="txtNombres" Text="" VerticalAlignment="Top" Width="320" Style="{StaticResource textboxConsulta}" />
@@ -80,14 +80,37 @@
                     </ListBox>
                     <TextBlock Height="30" HorizontalAlignment="Left" Margin="19,-455,0,0" Name="lblTel2" Text="Teléfono: " VerticalAlignment="Top" Style="{StaticResource textArea}" />
                     <TextBox Height="Auto" HorizontalAlignment="Left" Margin="0,-443,0,0" Name="txtTel2" Text="" VerticalAlignment="Top" Width="226" Style="{StaticResource textboxSolos}" InputScope="TelephoneNumber"/>
-                    <HyperlinkButton Content="Agregar Nueva Dirección" Height="30" HorizontalAlignment="Left" Margin="-21,-378,0,0" Name="hplNuevaDir" VerticalAlignment="Top" Width="276" Style="{StaticResource link}" Click="hplNuevaDir_Click" />
-                    <HyperlinkButton Content="Agregar Nuevo Teléfono" Height="30" HorizontalAlignment="Left" Margin="-24,-350,0,0" Name="hplNuevoTel" VerticalAlignment="Top" Width="276" Style="{StaticResource link}" Click="hplNuevoTel_Click" />
+                    <HyperlinkButton Content="Agregar Nueva Ubicación" Height="30" HorizontalAlignment="Left" Margin="-21,-378,0,0" Name="hplNuevaUbi" VerticalAlignment="Top" Width="276" Style="{StaticResource link}" Click="hplNuevaUbi_Click" />
                     <Button Content="Guardar" Height="72" HorizontalAlignment="Left" Margin="18,-311,0,0" Name="btnGuardarModif" VerticalAlignment="Top" Width="209" Click="btnGuardarModif_Click"/>
                     <Button Content="Menú" Height="72" HorizontalAlignment="Left" Margin="224,-311,0,0" Name="btnMenuConsul" VerticalAlignment="Top" Width="209" Click="btnMenuConsul_Click"/>
                 </StackPanel>
             </ScrollViewer>
         </Grid>
+
+        <Grid x:Name="ContentAgregarUbicacion" Grid.Row="1" Margin="12,0,12,0" Background="White" Visibility="Collapsed">
+            <TextBlock Height="46" HorizontalAlignment="Left" Margin="19,23,0,0" Name="lblAgregarUbi" Text="Agregar Nueva Ubicación" VerticalAlignment="Top" Width="358" Style="{StaticResource h3}"  />
+            <TextBlock Height="30" HorizontalAlignment="Left" Margin="19,75,0,0" Name="lblNuevaDireccion" Text="Dirección: " VerticalAlignment="Top" Style="{StaticResource textArea}" />
+            <TextBox Height="Auto" HorizontalAlignment="Left" Margin="2,89,0,0" Name="txtNuevaDir" Text="" VerticalAlignment="Top" Width="320" Style="{StaticResource textboxSolos}" />
+            <TextBlock Height="30" HorizontalAlignment="Left" Margin="19,167,0,0" Name="lblNuevoBarrio" Text="Barrio: " VerticalAlignment="Top" Style="{StaticResource textArea}" />
+            <TextBox Height="Auto" HorizontalAlignment="Left" Margin="1,181,0,0" Name="txtNuevoBarrio" Text="" VerticalAlignment="Top" Width="233" Style="{StaticResource textboxSolos}" />
+            <TextBlock HorizontalAlignment="Left" Margin="19,255,0,374" Name="lblNuevoDep" Text="Departamento: " Style="{StaticResource textArea}" />
+            <ListBox Height="28" HorizontalAlignment="Left" Margin="19,295,0,0" Name="lstNuevoDep" VerticalAlignment="Top" Width="195" Style="{StaticResource listas}" >
+                <ListBoxItem Content="Seleccionar..." />
+            </ListBox>
+            <TextBlock HorizontalAlignment="Left" Margin="241,255,0,374" Name="lblNuevaCiudad" Text="Ciudad: " Style="{StaticResource textArea}" />
+            <ListBox Height="28" HorizontalAlignment="Left" Margin="241,295,0,0" Name="lstNuevaCiudad" VerticalAlignment="Top" Width="195" Style="{StaticResource listas}">
+                <ListBoxItem Content="Seleccionar..." />
+            </ListBox>
+            <TextBlock HorizontalAlignment="Left" Margin="19,333,0,307" Name="lblTelefono" Text="Teléfono: " Style="{StaticResource textArea}" />
+            <TextBox Height="Auto" HorizontalAlignment="Left" Margin="1,347,0,0" Name="txtTelefono" Text="" VerticalAlignment="Top" Width="233" Style="{StaticResource textboxSolos}" />
+            <Button Content="Guardar" Height="72" HorizontalAlignment="Left" Margin="51,430,0,0" Name="btnGuardar" VerticalAlignment="Top" Width="160" Click="btnGuardar_Click" />
+            <Button Content="Atrás" Height="72" HorizontalAlignment="Left" Margin="217,430,0,0" Name="btnAtras" VerticalAlignment="Top" Width="160"  Click="btnAtras_Click" />
+        </Grid>
     </Grid>
+    
+    
+    
+    
     <!--Código de ejemplo que muestra el uso de ApplicationBar-->
     <!--<phone:PhoneApplicationPage.ApplicationBar>
         <shell:ApplicationBar IsVisible="True" IsMenuEnabled="True">

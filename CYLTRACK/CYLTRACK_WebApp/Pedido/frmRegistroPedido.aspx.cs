@@ -44,5 +44,12 @@ namespace CYLTRACK_WebApp.Account.Pedido
         {
             Response.Redirect("~/Default.aspx");
         }
+
+        protected void btnAgregar_Click(object sender, EventArgs e)
+        {
+            lstAgregar.Visible = true;
+            lstAgregar.Items.Add(lstTamano.Text + " " + txtCantidadCilindro.Text);
+            txtCantidadCilindro.Text = "";
+        }
     }
 }

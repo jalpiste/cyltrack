@@ -27,18 +27,8 @@
         </StackPanel>
 
         <!--ContentPanel. Colocar aquí el contenido adicional-->
-        <Grid x:Name="ContentBusq" Margin="14,101,12,0" Visibility="Visible" Grid.RowSpan="2" Background="White">
-            <TextBlock Height="30" HorizontalAlignment="Left" Margin="25,11,0,0" Name="lblAviso" Text="Seleccione un parámetro de búsqueda: " VerticalAlignment="Top" Style= "{StaticResource textArea}"/>
-            <TextBlock Height="30" HorizontalAlignment="Left" Margin="25,105,0,0" Name="lblNumero" Text="Número: " VerticalAlignment="Top" Style= "{StaticResource textArea}"/>
-            <TextBox Height="Auto" HorizontalAlignment="Left" Margin="8,116,0,0" Name="txtCedula" Text="" VerticalAlignment="Top" Width="303" Style= "{StaticResource textboxSolos}" InputScope="TelephoneNumber"/>
-            <Button Content="Buscar" Height="72" HorizontalAlignment="Left" Margin="70,188,0,0" Name="btnBuscar" VerticalAlignment="Top" Width="160"  Click="btnBuscar_Click" />
-            <Button Content="Cancelar" Height="72" HorizontalAlignment="Left" Margin="226,188,0,0" Name="btnRegresar" VerticalAlignment="Top" Width="160"  Click="btnRegresar_Click" />
-            <RadioButton Content="Cédula Cliente" Height="74" HorizontalAlignment="Left" Margin="13,47,0,0" Name="rbCedula" VerticalAlignment="Top" Width="217" Style= "{StaticResource radio}"/>
-            <RadioButton Content="Pedido" Height="74" HorizontalAlignment="Left" Margin="212,47,0,0" Name="rbPedido" VerticalAlignment="Top" Width="217" Style= "{StaticResource radio}"/>
-        </Grid>
-
-
-        <Grid x:Name="ContentModificar" Grid.Row="1" Margin="14,0,10,-2" Visibility="Collapsed" Background="White">
+        
+        <Grid x:Name="ContentModificar" Grid.Row="1" Margin="14,0,10,-2" Visibility="Visible" Background="White">
             <ScrollViewer HorizontalScrollBarVisibility="Auto">
                 <StackPanel Margin="0,0,6,6">
 
@@ -73,8 +63,8 @@
                     </ListBox>
                     <TextBlock Height="30" HorizontalAlignment="Left" Margin="240,-154,0,0" Name="lblCantidad" Text="Cantidad: " VerticalAlignment="Top" Style= "{StaticResource textArea}"/>
                     <TextBox Height="74" HorizontalAlignment="Left" Margin="230,-141,0,0" Name="txtCantidad" Text="" VerticalAlignment="Top" Width="125" Style= "{StaticResource textboxSolos}" InputScope="TelephoneNumber"/>
-                    <Button Content="Guardar" Height="72" HorizontalAlignment="Left" Margin="18,-41,0,0" Name="btnGuardar" VerticalAlignment="Top" Width="209"  />
-                    <Button Content="Cancelar" Height="72" HorizontalAlignment="Left" Margin="224,-72,0,0" Name="btnCancelar" VerticalAlignment="Top" Width="209" Click="btnCancelar_Click"/>
+                    <Button Content="Guardar" Height="72" HorizontalAlignment="Left" Margin="18,-41,0,0" Name="btnGuardar" VerticalAlignment="Top" Width="209" Click="btnGuardar_Click" />
+                    <Button Content="Atrás" Height="72" HorizontalAlignment="Left" Margin="224,-72,0,0" Name="btnAtras" VerticalAlignment="Top" Width="209" Click="btnAtras_Click"/>
                 </StackPanel>
             </ScrollViewer>
         </Grid>
