@@ -61,12 +61,6 @@
     <Compile Include="App.xaml.cs">
       <DependentUpon>App.xaml</DependentUpon>
     </Compile>
-    <Compile Include="Clientes\frmCambiarTelefono.xaml.cs">
-      <DependentUpon>frmCambiarTelefono.xaml</DependentUpon>
-    </Compile>
-    <Compile Include="Clientes\frmCambioDireccion.xaml.cs">
-      <DependentUpon>frmCambioDireccion.xaml</DependentUpon>
-    </Compile>
     <Compile Include="Clientes\frmConsultarCliente.xaml.cs">
       <DependentUpon>frmConsultarCliente.xaml</DependentUpon>
     </Compile>
@@ -102,14 +96,6 @@
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </ApplicationDefinition>
-    <Page Include="Clientes\frmCambiarTelefono.xaml">
-      <Generator>MSBuild:Compile</Generator>
-      <SubType>Designer</SubType>
-    </Page>
-    <Page Include="Clientes\frmCambioDireccion.xaml">
-      <Generator>MSBuild:Compile</Generator>
-      <SubType>Designer</SubType>
-    </Page>
     <Page Include="Clientes\frmConsultarCliente.xaml">
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>

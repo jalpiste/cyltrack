@@ -20,19 +20,20 @@ namespace Cyltrack_phone.Pedidos
             InitializeComponent();
         }
 
-        private void btnBuscar_Click(object sender, RoutedEventArgs e)
+       
+      
+        private void btnGuardar_Click(object sender, RoutedEventArgs e)
         {
-            ContentBusq.Visibility = System.Windows.Visibility.Collapsed;
-            ContentModificar.Visibility = System.Windows.Visibility.Visible;
+            MessageBox.Show("Los datos fueron guardados satisfactoriamente");
+            ContentModificar.Visibility = System.Windows.Visibility.Collapsed;
+            NavigationService.GoBack();
         }
-        private void btnCancelar_Click(object sender, RoutedEventArgs e)
+
+        private void btnAtras_Click(object sender, RoutedEventArgs e)
         {
             NavigationService.GoBack();
         }
 
-        private void btnRegresar_Click(object sender, RoutedEventArgs e)
-        {
-            NavigationService.GoBack();
-        }  
+      
     }
 }

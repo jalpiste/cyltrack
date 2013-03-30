@@ -74,15 +74,14 @@
     <Content Include="Reportes\frmReporteSiembras.aspx" />
     <Content Include="Rutas\frmModificarRuta.aspx" />
     <Content Include="Rutas\frmRegistrarRuta.aspx" />
-    <Content Include="Styles\stiloFinalJacky2.css" />
     <Content Include="Default.aspx" />
     <Content Include="Global.asax" />
     <Content Include="Scripts\jquery-1.4.1-vsdoc.js" />
     <Content Include="Scripts\jquery-1.4.1.js" />
     <Content Include="Scripts\jquery-1.4.1.min.js" />
+    <Content Include="Styles\stiloFinalJacky3.css" />
     <Content Include="Vehiculos\frmModificarVehiculo.aspx" />
     <Content Include="Vehiculos\frmRegistrarVehiculo.aspx" />
-    <Content Include="Ventas\frmCancelarVenta.aspx" />
     <Content Include="Ventas\frmConsultarVenta.aspx" />
     <Content Include="Ventas\frmDevolucionCilindro.aspx" />
     <Content Include="Ventas\frmEntregaCilindro.aspx" />
@@ -281,13 +280,6 @@
     <Compile Include="Vehiculos\frmRegistrarVehiculo.aspx.designer.cs">
       <DependentUpon>frmRegistrarVehiculo.aspx</DependentUpon>
     </Compile>
-    <Compile Include="Ventas\frmCancelarVenta.aspx.cs">
-      <DependentUpon>frmCancelarVenta.aspx</DependentUpon>
-      <SubType>ASPXCodeBehind</SubType>
-    </Compile>
-    <Compile Include="Ventas\frmCancelarVenta.aspx.designer.cs">
-      <DependentUpon>frmCancelarVenta.aspx</DependentUpon>
-    </Compile>
     <Compile Include="Ventas\frmConsultarVenta.aspx.cs">
       <DependentUpon>frmConsultarVenta.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
@@ -333,7 +325,7 @@
         <WebProjectProperties>
           <UseIIS>False</UseIIS>
           <AutoAssignPort>True</AutoAssignPort>
-          <DevelopmentServerPort>2341</DevelopmentServerPort>
+          <DevelopmentServerPort>1137</DevelopmentServerPort>
           <DevelopmentServerVPath>/</DevelopmentServerVPath>
           <IISUrl>
           </IISUrl>

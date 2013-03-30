@@ -44,7 +44,8 @@ namespace Cyltrack_phone.Ventas
 
         private void btnAtras_Click(object sender, RoutedEventArgs e)
         {
-            NavigationService.GoBack();
+            ContentCliente.Visibility = System.Windows.Visibility.Collapsed;
+            ContentBusq.Visibility = System.Windows.Visibility.Visible;
         }
 
         private void btnNvConsulta_Click(object sender, RoutedEventArgs e)
@@ -101,11 +102,14 @@ namespace Cyltrack_phone.Ventas
 
         private void btnGuardarMod_Click(object sender, RoutedEventArgs e)
         {
-            MessageBox.Show("Datos Guardados");
+            MessageBox.Show("Sus datos fueron enviados satisfactoriamente");
             ContentCilindro.Visibility = System.Windows.Visibility.Collapsed;
             ContentObserv.Visibility = System.Windows.Visibility.Collapsed;
             grdDevCil.Visibility = System.Windows.Visibility.Collapsed;
             ContentBusq.Visibility = System.Windows.Visibility.Visible;
+            hplModVenta.Visibility = System.Windows.Visibility.Visible;
+            hplDevCil.Visibility = System.Windows.Visibility.Visible;
+
         }
         private void hplModVenta_Click(object sender, RoutedEventArgs e)
         {
@@ -113,7 +117,8 @@ namespace Cyltrack_phone.Ventas
             btnAtrasMod.Visibility = System.Windows.Visibility.Visible;
             btnNvConsulta.Visibility = System.Windows.Visibility.Collapsed;
             btnGuardarMod.Visibility = System.Windows.Visibility.Visible;
-
+            hplModVenta.Visibility = System.Windows.Visibility.Collapsed;
+            hplDevCil.Visibility = System.Windows.Visibility.Collapsed;
         }
 
                

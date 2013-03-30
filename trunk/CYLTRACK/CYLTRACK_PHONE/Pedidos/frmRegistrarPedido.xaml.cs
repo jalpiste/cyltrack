@@ -26,14 +26,17 @@ namespace Cyltrack_phone.Pedidos
             ContentRegistrar.Visibility = System.Windows.Visibility.Visible;
         }
 
-        private void btnCancelar_Click(object sender, RoutedEventArgs e)
+        private void btnMenu_Click(object sender, RoutedEventArgs e)
         {
             NavigationService.GoBack();
         }
 
-        private void btnRegresar_Click(object sender, RoutedEventArgs e)
+     
+        private void btnGuardar_Click(object sender, RoutedEventArgs e)
         {
-            NavigationService.GoBack();
-        }       
+            MessageBox.Show("Los datos fueron guardados satisfactoriamente");
+            ContentRegistrar.Visibility = System.Windows.Visibility.Collapsed;
+            ContentBusq.Visibility = System.Windows.Visibility.Visible;
+        }   
     }
 }

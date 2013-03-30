@@ -20,6 +20,7 @@
         <asp:ListItem>Clientes</asp:ListItem>
         <asp:ListItem>Pedidos</asp:ListItem>
         <asp:ListItem>Rutas</asp:ListItem>
+        <asp:ListItem>Usuarios</asp:ListItem>
         <asp:ListItem>Vehículos</asp:ListItem>
         <asp:ListItem>Ventas</asp:ListItem>
         </asp:RadioButtonList>

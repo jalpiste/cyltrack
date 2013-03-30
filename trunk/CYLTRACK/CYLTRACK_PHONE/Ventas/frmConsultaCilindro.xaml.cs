@@ -24,6 +24,7 @@ namespace Cyltrack_phone.Ventas
         {
             ContentBusq.Visibility = System.Windows.Visibility.Collapsed;
             ContentCil.Visibility = System.Windows.Visibility.Visible;
+            txtCedula.Text = "";
         }
 
         private void btnCancelarConsulta_Click(object sender, RoutedEventArgs e)
@@ -46,14 +47,16 @@ namespace Cyltrack_phone.Ventas
             NavigationService.Navigate(new Uri("/MainPage.xaml", UriKind.Relative));
         }
 
-        private void btnMenu_Click(object sender, RoutedEventArgs e)
+        private void btnNuevaConsulta_Click(object sender, RoutedEventArgs e)
         {
-            NavigationService.Navigate(new Uri("/MainPage.xaml", UriKind.Relative));
+            ContentDatosP.Visibility = System.Windows.Visibility.Collapsed;
+            ContentBusq.Visibility = System.Windows.Visibility.Visible;
         }
 
         private void btnAtras_Click(object sender, RoutedEventArgs e)
         {
-            NavigationService.GoBack();
+            ContentDatosP.Visibility = System.Windows.Visibility.Collapsed;
+            ContentCil.Visibility = System.Windows.Visibility.Visible;
         }
 
        

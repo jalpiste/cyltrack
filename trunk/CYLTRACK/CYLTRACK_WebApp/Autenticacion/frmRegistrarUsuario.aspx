@@ -71,6 +71,18 @@
                              <div class="post" >
                              <asp:Label ID="LblPoster" runat="server" Text="Datos Personales"></asp:Label>
                                </div> 
+                            
+                             <asp:Label ID="lblCedula" runat="server" Text="Número de Cédula: "></asp:Label>
+                             <br />
+                             <asp:TextBox ID="txtCedula" runat="server" CssClass="textEntry" Width="320px"></asp:TextBox>
+                             <asp:RequiredFieldValidator ID="RequiredCedula" runat="server" 
+                                 ControlToValidate="txtCedula" CssClass="failureNotification" 
+                                 ErrorMessage="El número de cédula es obligatorio." 
+                                 ToolTip="El número de cédula es obligatorio." 
+                                 ValidationGroup="RegisterUserValidationGroup">*</asp:RequiredFieldValidator>
+                            <br />
+                            
+                             
                              <asp:Label ID="lblNombre" runat="server" Text="Nombres: "></asp:Label>
                              <br />
                              <asp:TextBox ID="txtNombre" runat="server" CssClass="textEntry" Width="320px"></asp:TextBox>
@@ -130,7 +142,8 @@
                              </fieldset>
                         <p class="submitButton">
                             <asp:Button ID="btnCreateUserButton" runat="server" Text="Crear usuario" Width="115px"
-                           ValidationGroup="RegisterUserValidationGroup"  />
+                           ValidationGroup="RegisterUserValidationGroup" 
+                                onclick="btnCreateUserButton_Click"  />
                         </p>
                     </div>
                

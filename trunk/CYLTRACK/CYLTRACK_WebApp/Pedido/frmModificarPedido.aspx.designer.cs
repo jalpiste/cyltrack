@@ -337,13 +337,13 @@ namespace CYLTRACK_WebApp.Pedido {
         protected global::System.Web.UI.WebControls.Label lblTamanoCil;
         
         /// <summary>
-        /// Control lstTamanoCil.
+        /// Control lstTamano.
         /// </summary>
         /// <remarks>
         /// Campo generado automáticamente.
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.ListBox lstTamanoCil;
+        protected global::System.Web.UI.WebControls.ListBox lstTamano;
         
         /// <summary>
         /// Control lblCantidadCilindro.
@@ -362,6 +362,24 @@ namespace CYLTRACK_WebApp.Pedido {
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
         protected global::System.Web.UI.WebControls.TextBox txtCantidadCilindro;
+        
+        /// <summary>
+        /// Control btnAgregar.
+        /// </summary>
+        /// <remarks>
+        /// Campo generado automáticamente.
+        /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Button btnAgregar;
+        
+        /// <summary>
+        /// Control lstAgregar.
+        /// </summary>
+        /// <remarks>
+        /// Campo generado automáticamente.
+        /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.ListBox lstAgregar;
         
         /// <summary>
         /// Control lblFecha.

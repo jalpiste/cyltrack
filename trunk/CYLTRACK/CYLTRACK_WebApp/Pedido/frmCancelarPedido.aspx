@@ -71,7 +71,8 @@
                     <asp:TextBox ID="txtDepartamento" runat="server" CssClass="textEntry" Width="197px" Enabled="False"></asp:TextBox>
                          
                         </p>
-                    
+                    <br />
+                    <br />
                      <p> 
                          <asp:Label ID="lblTelefono" runat="server" Text="Telefono:"></asp:Label>
                     <br />
@@ -124,7 +125,7 @@
                     <asp:Button ID="btnGuardar" runat="server" Text="Guardar" Width="121px" 
                         onclick="btnGuardar_Click"/> 
                     &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; &nbsp; 
-                    <asp:Button ID="btnMenuPrincipal" runat="server" Text="Menú Principal" 
+                    <asp:Button ID="btnMenuPrincipal" runat="server" Text="Menu Principal" 
                         Width="121px" onclick="btnMenuPrincipal_Click"/>  
                     
                     </p>

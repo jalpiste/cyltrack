@@ -13,5 +13,13 @@ namespace CYLTRACK_WebApp.Reporte
         {
 
         }
+        protected void Ubicacion_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            if (lstUbicacion.SelectedIndex == 1)
+            {
+                lblPlaca.Visible = true;
+                lstPlacaVehículo.Visible = true;
+            }
+        }
     }
 }

@@ -31,7 +31,7 @@
             <TextBlock Height="30" HorizontalAlignment="Left" Margin="25,66,0,0" Name="lblCedula" Text="Número de Cédula Cliente: " VerticalAlignment="Top" Style= "{StaticResource textArea}"/>
             <TextBox Height="Auto" HorizontalAlignment="Left" Margin="8,88,0,0" Name="txtCedula" Text="" VerticalAlignment="Top" Width="303" Style= "{StaticResource textboxSolos}" InputScope="TelephoneNumber"/>
             <Button Content="Buscar" Height="72" HorizontalAlignment="Left" Margin="70,188,0,0" Name="btnBuscar" VerticalAlignment="Top" Width="160" Click="btnBuscar_Click" />
-            <Button Content="Cancelar" Height="72" HorizontalAlignment="Left" Margin="226,188,0,0" Name="btnRegresar" VerticalAlignment="Top" Width="160" Click="btnRegresar_Click" />
+            <Button Content="Menú" Height="72" HorizontalAlignment="Left" Margin="226,188,0,0" Name="btnMenu" VerticalAlignment="Top" Width="160" Click="btnMenu_Click" />
         </Grid>
 
         <Grid x:Name="ContentRegistrar" Grid.Row="1" Margin="14,0,10,-2" Visibility="Collapsed" Background="White">
@@ -67,17 +67,22 @@
                         <ListBoxItem Content="Seleccionar..." />
                     </ListBox>
                     <TextBlock Height="30" HorizontalAlignment="Left" Margin="267,-80,0,0" Name="lblRuta" Text="Ruta Chiquinquirá" VerticalAlignment="Top" Width="189" Style= "{StaticResource textArea}"/>
-                    <TextBlock Height="30" HorizontalAlignment="Left" Margin="19,-34,0,0" Name="lblTamanoNuevo" Text="Tamaño: " VerticalAlignment="Top" Style= "{StaticResource textArea}"/>
-                    <ListBox Height="38" HorizontalAlignment="Left" Margin="20,-17,0,0" Name="lstTamano" VerticalAlignment="Top" Width="162" Style= "{StaticResource listas}">
-                        <ListBoxItem Content="Seleccionar..." />
-                    </ListBox>
-                    <TextBlock Height="30" HorizontalAlignment="Left" Margin="240,-55,0,0" Name="lblCantidad" Text="Cantidad: " VerticalAlignment="Top" Style= "{StaticResource textArea}"/>
-                    <TextBox Height="74" HorizontalAlignment="Left" Margin="230,-38,0,0" Name="txtCantidad" Text="" VerticalAlignment="Top" Width="125" Style= "{StaticResource textboxSolos}" InputScope="TelephoneNumber"/>
-                    <Button Content="Guardar" Height="72" HorizontalAlignment="Left" Margin="18,28,0,0" Name="btnGuardar" VerticalAlignment="Top" Width="209"  />
-                    <Button Content="Cancelar" Height="72" HorizontalAlignment="Left" Margin="224,-72,0,0" Name="btnCancelar" VerticalAlignment="Top" Width="209"  Click="btnCancelar_Click" />
+                    <TextBlock Height="30" HorizontalAlignment="Left" Margin="19,-40,0,0" Name="lblTamanoPedido" Text="Tamaño/Cantidad " VerticalAlignment="Top" Style= "{StaticResource textArea}"/>
+                    <TextBlock Height="30" HorizontalAlignment="Left" Margin="19,0,0,0" Name="lbl30" Text="30" VerticalAlignment="Top" Style= "{StaticResource textArea}"/>
+                    <TextBox Height="59" HorizontalAlignment="Left" Margin="30,-46,0,0" Name="txt30" Text="" VerticalAlignment="Top" Width="80" Style= "{StaticResource textboxConsulta}" />
+                    <TextBlock Height="30" HorizontalAlignment="Left" Margin="119,-46,0,0" Name="lbl40" Text="40" VerticalAlignment="Top" Style= "{StaticResource textArea}"/>
+                    <TextBox Height="59" HorizontalAlignment="Left" Margin="130,-60,0,0" Name="txt40" Text="" VerticalAlignment="Top" Width="80" Style= "{StaticResource textboxConsulta}" />
+                    <TextBlock Height="30" HorizontalAlignment="Left" Margin="219,-45,0,0" Name="lbl80" Text="80" VerticalAlignment="Top" Style= "{StaticResource textArea}"/>
+                    <TextBox Height="59" HorizontalAlignment="Left" Margin="230,-60,0,0" Name="txt80" Text="" VerticalAlignment="Top" Width="80" Style= "{StaticResource textboxConsulta}" />
+                    <TextBlock Height="30" HorizontalAlignment="Left" Margin="319,-46,0,0" Name="lbl100" Text="100" VerticalAlignment="Top" Style= "{StaticResource textArea}"/>
+                    <TextBox Height="59" HorizontalAlignment="Left" Margin="342,-60,0,0" Name="txt100" Text="" VerticalAlignment="Top" Width="80" Style= "{StaticResource textboxConsulta}" />
+                    <Button Content="Guardar" Height="72" HorizontalAlignment="Left" Margin="18,28,0,0" Name="btnGuardar" VerticalAlignment="Top" Width="209"  Click="btnGuardar_Click" />
+                    <Button Content="Menú" Height="72" HorizontalAlignment="Left" Margin="224,-72,0,0" Name="btnCancelar" VerticalAlignment="Top" Width="209"  Click="btnMenu_Click" />
+
                 </StackPanel>
             </ScrollViewer>
         </Grid>
+        
     </Grid>
 
     

@@ -125,10 +125,13 @@
                  </div>
                  </fieldset> 
                   <p class="submitButton">
-                <asp:Button ID="btnRegistrar" runat="server" Text="Registrar" Width="115px" /> 
+                  <asp:Button ID="btnLimpiar" runat="server" Text="Limpiar" Width="121px" /> 
                     &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; &nbsp; 
-                    <asp:Button ID="btnCancelar" runat="server" Text="Cancelar" Width="115px" 
-                    onclick="btnCancelar_Click"/>  
+                    <asp:Button ID="btnGuardar" runat="server" Text="Guardar" Width="121px" 
+                        onclick="btnGuardar_Click"/> 
+                    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; &nbsp; 
+                    <asp:Button ID="btnMenuPrincipal" runat="server" Text="Menu Principal" 
+                        Width="121px" onclick="btnMenuPrincipal_Click"/>
                </p>
                  </div> 
 </asp:Content>

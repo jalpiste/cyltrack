@@ -20,6 +20,16 @@ namespace CYLTRACK_WebApp.Account
             divInfoCliente.Visible = true;
         }
 
+        protected void btnMenuPrincipal_Click(object sender, EventArgs e)
+        {
+            Response.Redirect("~/Default.aspx");
+        }
+
+        protected void btnNuevaConsulta_Click(object sender, EventArgs e)
+        {
+          // Response.Redirect("~/Clientes/frmConsultarCliente.aspx");
+        }
+
 
     }
 }

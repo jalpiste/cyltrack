@@ -14,14 +14,14 @@
     </siteMapNode>
     <siteMapNode title="Clientes"    description="Todo sobre Clientes"  >
       <siteMapNode title="Registrar Cliente"     description="Crear cliente en el sistema"   text ="solo miembros" Value="solo miembros" url="~/Clientes/frmRegistrarcliente.aspx" />
-      <siteMapNode title="Consultar CLiente"          description="Consultar datos de clientes en el sistema"  text ="solo miembros" Value="solo miembros"  url="~/Clientes/frmconsultarcliente.aspx" />
-      <siteMapNode title="Modificar CLiente"          description="Modificar datos de clientes en el sistema"  text ="solo miembros" Value="solo miembros" url="~/Clientes/frmModificarCliente.aspx"  />
+      <siteMapNode title="Consultar Cliente"          description="Consultar datos del cliente en el sistema"  text ="solo miembros" Value="solo miembros"  url="~/Clientes/frmconsultarcliente.aspx" />
+      <siteMapNode title="Modificar Cliente"          description="Modificar datos del cliente en el sistema"  text ="solo miembros" Value="solo miembros" url="~/Clientes/frmModificarCliente.aspx"  />
     </siteMapNode>
     <siteMapNode title="Pedidos"    description="Todo sobre Pedidos"  >
       <siteMapNode title="Registrar Pedido"     description="Crear Pedido en el sistema"   text ="solo miembros" Value="solo miembros" url="~/Pedido/frmRegistroPedido.aspx" />
-      <siteMapNode title="Consultar Pedido"          description="Consultar datos del pedido en el sistema"  text ="solo miembros" Value="solo miembros" url="~/Pedido/frmConsultarPedido.aspx" />
-      <siteMapNode title="Modificar Pedido"          description="Modificar datos del pedido en el sistema"  text ="solo miembros" Value="solo miembros"  url="~/Pedido/frmModificarPedido.aspx" />
-      <siteMapNode title="Cancelar Pedido"          description="Cancelar pedido en el sistema"  text ="solo miembros" Value="solo miembros"  url="~/Pedido/frmCancelarPedido.aspx" />
+      <siteMapNode title="Consultar Pedido"     description="Consultar datos del pedido en el sistema"  text ="solo miembros" Value="solo miembros" url="~/Pedido/frmConsultarPedido.aspx" />
+      <siteMapNode title="Modificar Pedido"     description="Modificar datos del pedido en el sistema"  text ="solo miembros" Value="solo miembros"  url="~/Pedido/frmModificarPedido.aspx" />
+      <siteMapNode title="Cancelar Pedido"      description="Cancelar pedido en el sistema"  text ="solo miembros" Value="solo miembros"  url="~/Pedido/frmCancelarPedido.aspx" />
     </siteMapNode>
     <siteMapNode title="Ventas"    description="Todo sobre Ventas"  >
       <siteMapNode title="Venta de Cilindro"     description="Registrar la venta de cilindros en el sistema"   text ="solo miembros" Value="solo miembros" url="~/Ventas/frmVentaCilindro.aspx" />

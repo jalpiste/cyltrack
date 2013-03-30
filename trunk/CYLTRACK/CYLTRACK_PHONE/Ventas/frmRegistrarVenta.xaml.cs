@@ -26,15 +26,9 @@ namespace Cyltrack_phone.Ventas
             ContentCilindro.Visibility = System.Windows.Visibility.Visible;
         }
 
-        private void btnConsultar_MouseEnter(object sender, MouseEventArgs e)
-        {
-            ContentInicial.Visibility = System.Windows.Visibility.Collapsed;
-            ContentCliente.Visibility = System.Windows.Visibility.Visible;
-        }
-
         private void btnGuardar_Click(object sender, RoutedEventArgs e)
         {
-            MessageBox.Show("Datos Guardados");
+            MessageBox.Show("Los datos fueron guardados satisfactoriamente");
             ContentCilindro.Visibility = System.Windows.Visibility.Collapsed;
             ContentInicial.Visibility = System.Windows.Visibility.Visible;
         }
@@ -47,11 +41,21 @@ namespace Cyltrack_phone.Ventas
         private void btnCancelarRegistro_Click(object sender, RoutedEventArgs e)
         {
             NavigationService.Navigate(new Uri("/MainPage.xaml", UriKind.Relative));
+            txtCedula.Text = "";
         }
 
         private void btnCancelar_Click(object sender, RoutedEventArgs e)
         {
-            NavigationService.Navigate(new Uri("/MainPage.xaml", UriKind.Relative));
+            ContentCliente.Visibility = System.Windows.Visibility.Collapsed;
+            ContentInicial.Visibility = System.Windows.Visibility.Visible;
         }
+
+        private void btnConsultar_Click(object sender, RoutedEventArgs e)
+        {
+            ContentInicial.Visibility = System.Windows.Visibility.Collapsed;
+            ContentCliente.Visibility = System.Windows.Visibility.Visible;
+            txtCedula.Text = "";
+        }
+
     }
 }

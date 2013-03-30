@@ -27,7 +27,7 @@ namespace Cyltrack_phone.Pedidos
         }
         private void btnMenu_Click(object sender, RoutedEventArgs e)
         {
-            NavigationService.GoBack();
+            NavigationService.Navigate(new Uri("/MainPage.xaml", UriKind.Relative));
         }
         private void hplCancelarPedido_Click(object sender, RoutedEventArgs e)
         {
