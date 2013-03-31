@@ -66,7 +66,7 @@ namespace Cyltrack_phone.Ventas
 
         private void btnGuardar_Click(object sender, RoutedEventArgs e)
         {
-            MessageBox.Show("Sus datos fueron enviados satisfactoriamente");
+            MessageBox.Show("Los datos fueron enviados satisfactoriamente");
             grdDevCil.Visibility = System.Windows.Visibility.Collapsed;
             ContentCambioCil.Visibility = System.Windows.Visibility.Collapsed;
             ContentObserv.Visibility = System.Windows.Visibility.Collapsed;
