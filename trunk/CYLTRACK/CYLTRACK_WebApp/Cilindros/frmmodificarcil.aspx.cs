@@ -14,9 +14,6 @@ namespace CYLTRACK_WebApp.Account
 
         }
 
-
-
-
         protected void lstUbicacion_SelectedIndexChanged(object sender, EventArgs e)
         {
 

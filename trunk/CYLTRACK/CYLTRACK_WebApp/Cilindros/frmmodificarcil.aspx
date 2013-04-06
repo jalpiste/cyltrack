@@ -166,7 +166,7 @@
                 <p class="submitButton">
                 <asp:Button ID="btnLimpiar" runat="server" Text="Limpiar" /> 
                     &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; &nbsp; 
-                    <asp:Button ID="btnGuardarDatos" runat="server" Text="Guardar Datos" />  
+                    <asp:Button ID="btnGuardarDatos" runat="server" Text="Guardar" />  
                     &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; &nbsp;  
                     <asp:Button ID="btnCancelar" runat="server" Text="Cancelar" />
                </p>

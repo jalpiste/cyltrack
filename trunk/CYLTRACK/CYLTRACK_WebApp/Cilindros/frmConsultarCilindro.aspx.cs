@@ -22,6 +22,11 @@ namespace CYLTRACK_WebApp.Account
             {
                 DivInfoVehiculo.Visible = true;
             }
+            if (TxtUbicacion.Text == "Cliente") 
+            {
+                DivInfoCilindro.Visible = true;
+            }
+            
         }
 
         protected void BtnNuevaConsulta_Click(object sender, EventArgs e)

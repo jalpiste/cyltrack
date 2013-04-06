@@ -9,7 +9,7 @@
     <siteMapNode title="Cilindros"    description="Todo sobre Cilindros"  >
       <siteMapNode title="Registrar Cilindro"     description="Crear Cilindro en el sistema"   text ="solo miembros" Value="solo miembros"  url="~/Cilindros/frmRegistrarCilindro.aspx" />
       <siteMapNode title="Consultar Cilindro"          description="Consultar datos del cilindro en el sistema"  text ="solo miembros" Value="solo miembros"  url="~/Cilindros/frmConsultarCilindro.aspx" />
-      <siteMapNode title="Modificar Cilindro"          description="Modificar datos del cilindro en el sistema"  text ="solo miembros" Value="solo miembros"  url="~/Cilindros/frmmodificarcil.aspx" />
+      <!--<siteMapNode title="Modificar Cilindro"          description="Modificar datos del cilindro en el sistema"  text ="solo miembros" Value="solo miembros"  url="~/Cilindros/frmmodificarcil.aspx" />-->
       <siteMapNode title="Asignar Ubicación"          description="Asignarle una ubicacion del cilindro dentro de la planta"  text ="solo miembros" Value="solo miembros" url="~/Cilindros/frmAsignarUbicacion.aspx" />
     </siteMapNode>
     <siteMapNode title="Clientes"    description="Todo sobre Clientes"  >
