@@ -88,7 +88,7 @@
                    <div class="post">Información Pedido</div>
                     <p>
 
-                        <asp:Label ID="lblVehiculo" runat="server" Text="Vehiculo zona: "></asp:Label>
+                        <asp:Label ID="lblVehiculo" runat="server" Text="Placa Vehículo: "></asp:Label>
                     &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
                         <asp:ListBox ID="lstPlaca" runat="server" Rows="1">
                             <asp:ListItem>UZK201</asp:ListItem>

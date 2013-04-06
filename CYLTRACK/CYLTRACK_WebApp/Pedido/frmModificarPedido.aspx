@@ -33,7 +33,7 @@
                     </h5> 
                     <p>
                         <asp:Label ID="lblCedulaCliente" runat="server" AssociatedControlID="txtCedulaCliente" Text="Cedula: "></asp:Label><br />
-                        <asp:TextBox ID="txtCedulaCliente" CssClass="textEntry" runat="server"></asp:TextBox>
+                        <asp:TextBox ID="txtCedulaCliente" CssClass="textEntry" runat="server" ></asp:TextBox>
                         <asp:RequiredFieldValidator ID="ModificarPedidoRequired" runat="server" ControlToValidate="txtCedula" 
                              CssClass="failureNotification" ErrorMessage="La cedula del cliente es obligatorio." ToolTip="La cedula del cliente es obligatorio." 
                              ValidationGroup="LoginUserValidationGroup">*</asp:RequiredFieldValidator>
@@ -55,12 +55,12 @@
                     </p> 
                     <p>
                         <asp:Label ID="lblDireccion" runat="server" Text="Dirección:  "></asp:Label>
-                        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<asp:Label ID="lblBarrio" runat="server" Text="Barrio:" ></asp:Label>
+                        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; <asp:Label ID="lblBarrio" runat="server" Text="Barrio:" ></asp:Label>
                         <br />
                         <asp:ListBox ID="lstDireccion" runat="server" AutoPostBack="True" Rows="1">
                               <asp:ListItem>Calle 4 N° 2-49</asp:ListItem>
                           </asp:ListBox>
-                          &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                          &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
                           <asp:TextBox ID="txtBarrio" runat="server" CssClass="textEntry" Width="197px" Enabled="False" ></asp:TextBox>
                     </p> 
                     <p><asp:Label ID="lblCiudad" runat="server" Width="685px">Ciudad:</asp:Label><br />
@@ -71,8 +71,7 @@
                     <asp:TextBox ID="txtDepartamento" runat="server" CssClass="textEntry" Width="197px" Enabled="False"></asp:TextBox>
                          
                         </p>
-                    <br />
-                   <br />
+                   
                      <p> 
                          <asp:Label ID="lblTelefono" runat="server" Text="Telefono:"></asp:Label>
                     <br />
