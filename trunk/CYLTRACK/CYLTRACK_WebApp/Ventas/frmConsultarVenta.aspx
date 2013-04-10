@@ -5,7 +5,7 @@
 <h1 style="margin-top: 75px">
         Consultar Venta
     </h1>
-    <span class="failureNotification">
+<span class="failureNotification">
                 <asp:Literal ID="FailureText" runat="server"></asp:Literal>
             </span>
 
@@ -97,7 +97,20 @@
              <asp:TextBox ID="txtPlaca" CssClass="textEntry" Width="127px" runat="server" enabled ="false"></asp:TextBox>
              &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;
              <asp:TextBox ID="txtRuta" CssClass="textEntry" Width="127px" runat="server" enabled ="false"></asp:TextBox>
+             <br />
+             <br />
+             <asp:CheckBox ID="chckCasoEspecial" runat="server" Text="Reportar código erroneo en venta" 
+                    oncheckedchanged="chckCasoEspecial_CheckedChanged" />
            </div> 
+           <div id="divCilCorrecto" runat="server" visible="false">
+           <br />
+           <div class="post">Datos Cilindro</div> 
+               <h3>Digite el código del cilindro correcto entregado al cliente:</h3>
+               <br />
+               <asp:Label ID="lblCilindroCorrecto" runat="server" Text="Código Cilindro:"></asp:Label>
+               <br />
+               <asp:TextBox ID="txtCilCorrecto" runat="server" CssClass="textEntry"></asp:TextBox>
+           </div>
         </fieldset>
         <p class="submitButton">
                      
