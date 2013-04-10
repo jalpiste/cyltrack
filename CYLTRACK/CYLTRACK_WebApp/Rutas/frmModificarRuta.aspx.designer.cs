@@ -7,7 +7,7 @@
 // </generado automáticamente>
 //------------------------------------------------------------------------------
 
-namespace CYLTRACK_WebApp.Rutas {
+namespace Unisangil.CYLTRACK.CYLTRACK_WebApp.Rutas {
     
     
     public partial class frmModificarRuta {

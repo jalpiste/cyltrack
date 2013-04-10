@@ -7,7 +7,7 @@
 // </generado automáticamente>
 //------------------------------------------------------------------------------
 
-namespace CYLTRACK_WebApp.Vehiculos {
+namespace Unisangil.CYLTRACK.CYLTRACK_WebApp.Vehiculos {
     
     
     public partial class frmModificarVehiculo {
