@@ -1,4 +1,4 @@
-﻿<%@ Page Title="" Language="C#" MasterPageFile="~/Site.Master" AutoEventWireup="true" CodeBehind="frmAsignarUbicacion.aspx.cs" Inherits="CYLTRACK_WebApp.AsignarUbicacion" %>
+﻿<%@ Page Title="" Language="C#" MasterPageFile="~/Site.Master" AutoEventWireup="true" CodeBehind="frmAsignarUbicacion.aspx.cs" Inherits="Unisangil.CYLTRACK.CYLTRACK_WebApp.AsignarUbicacion" %>
 <asp:Content ID="Content1" ContentPlaceHolderID="HeadContent" runat="server">
 
 </asp:Content>
@@ -51,7 +51,7 @@
                             <asp:ListItem>Chatarra</asp:ListItem>
                             <asp:ListItem>Vehículo</asp:ListItem>
                         </asp:ListBox>
-                        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; &nbsp;&nbsp; &nbsp;
                         <asp:Label ID="lblPlaca" runat="server" Text="Placa Vehículo:  " visible="false"></asp:Label>
                         <asp:ListBox ID="lstPlacaVehiculo" runat="server" AutoPostBack="True" Rows="1" visible="false">
                             <asp:ListItem>XHA913</asp:ListItem>
@@ -68,7 +68,7 @@
 
                         <asp:TextBox ID="TxtConductor" runat="server" CssClass="textEntry" Visible="false" Enabled="false"></asp:TextBox>
                        
-                            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
                        
                             <asp:Label ID="LblRuta" runat="server" Text="Ruta:" Visible="false"></asp:Label>
                         &nbsp;&nbsp;&nbsp;

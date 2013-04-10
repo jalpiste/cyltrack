@@ -7,7 +7,7 @@
 // </generado automáticamente>
 //------------------------------------------------------------------------------
 
-namespace CYLTRACK_WebApp.Autenticacion {
+namespace Unisangil.CYLTRACK.CYLTRACK_WebApp.Autenticacion {
     
     
     public partial class frmOlvidoContrasena {

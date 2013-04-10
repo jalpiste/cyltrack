@@ -1,5 +1,5 @@
 ﻿<%@ Page Title="Registrarse" Language="C#" MasterPageFile="~/Site.master" AutoEventWireup="true"
-    CodeBehind="frmRegistrarUsuario.aspx.cs" Inherits="CYLTRACK_WebApp.Autenticacion.frmRegistrarUsuario" %>
+    CodeBehind="frmRegistrarUsuario.aspx.cs" Inherits="Unisangil.CYLTRACK.CYLTRACK_WebApp.Autenticacion.frmRegistrarUsuario" %>
 
 <asp:Content ID="HeaderContent" runat="server" ContentPlaceHolderID="HeadContent">
 </asp:Content>
@@ -29,10 +29,6 @@
                                  ControlToValidate="txtUserName" CssClass="failureNotification" 
                                  ErrorMessage="El nombre de usuario es obligatorio." 
                                  ValidationGroup="RegisterUserValidationGroup">*</asp:RequiredFieldValidator>
-                             <asp:RequiredFieldValidator ID="DisponibleRequired" runat="server" 
-                                 ControlToValidate="txtUserName" CssClass="failureNotification" 
-                                 ErrorMessage="El nombre de usuario no está disponible. Inténtelo con otro nombre." 
-                                 ValidationGroup="RegisterUserValidationGroup">*</asp:RequiredFieldValidator> 
                              <br />
                              <asp:Label ID="lblPass" runat="server" Text="Contraseña:"></asp:Label>
                              <br />
@@ -52,11 +48,6 @@
                              <asp:RequiredFieldValidator ControlToValidate="txtConfirmPassword" CssClass="failureNotification" Display="Dynamic" 
                                      ErrorMessage="Confirmar contraseña es obligatorio." ID="ConfirmPasswordRequired" runat="server" 
                                      ToolTip="Confirmar contraseña es obligatorio." ValidationGroup="RegisterUserValidationGroup">*</asp:RequiredFieldValidator>
-                             <asp:CompareValidator ID="PasswordCompare" runat="server" 
-                                 ControlToCompare="txtConfirmPassword" ControlToValidate="txtPassword" 
-                                 CssClass="failureNotification" Display="Dynamic" 
-                                 ErrorMessage="Contraseña y Confirmar contraseña deben coincidir." 
-                                 ValidationGroup="RegisterUserValidationGroup">*</asp:CompareValidator>
                              <br />
                              <asp:Label ID="lblCorreo" runat="server" Text="Correo electrónico:"></asp:Label>
                              <br />
@@ -104,10 +95,20 @@
                              <asp:Label ID="lblDireccion" runat="server" Text="Dirección: "></asp:Label>
                              <br />
                              <asp:TextBox ID="txtDireccion" runat="server" CssClass="textEntry" Width="320px"></asp:TextBox>
+                             <asp:RequiredFieldValidator ID="RequiredFieldValidator2" runat="server" 
+                                 ControlToValidate="txtApellidos" CssClass="failureNotification" 
+                                 ErrorMessage="El apellido es obligatorio." 
+                                 ToolTip="El apellido es obligatorio." 
+                                 ValidationGroup="RegisterUserValidationGroup">*</asp:RequiredFieldValidator>
                              <br />
                              <asp:Label ID="lblTelefono" runat="server" Text="Teléfono: "></asp:Label>
                              <br />
                              <asp:TextBox ID="txtTelefono" runat="server" CssClass="textEntry" Width="150px"></asp:TextBox>
+                             <asp:RequiredFieldValidator ID="RequiredFieldValidator3" runat="server" 
+                                 ControlToValidate="txtApellidos" CssClass="failureNotification" 
+                                 ErrorMessage="El apellido es obligatorio." 
+                                 ToolTip="El apellido es obligatorio." 
+                                 ValidationGroup="RegisterUserValidationGroup">*</asp:RequiredFieldValidator>
                              <br />
                              <asp:Label ID="lblGenero" runat="server" Text="Sexo: "></asp:Label>
                              <br />
@@ -144,6 +145,8 @@
                             <asp:Button ID="btnCreateUserButton" runat="server" Text="Crear usuario" Width="115px"
                            ValidationGroup="RegisterUserValidationGroup" 
                                 onclick="btnCreateUserButton_Click"  />
+                            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                            <asp:Button ID="btnMenu" runat="server" Text="Menú" Width="115px" />
                         </p>
                     </div>
                

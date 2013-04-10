@@ -1,4 +1,4 @@
-﻿<%@ Page Title="Olvido Contraseña" Language="C#" MasterPageFile="~/Site.Master" AutoEventWireup="true" CodeBehind="frmOlvidoContrasena.aspx.cs" Inherits="CYLTRACK_WebApp.Autenticacion.frmOlvidoContrasena" %>
+﻿<%@ Page Title="Olvido Contraseña" Language="C#" MasterPageFile="~/Site.Master" AutoEventWireup="true" CodeBehind="frmOlvidoContrasena.aspx.cs" Inherits="Unisangil.CYLTRACK.CYLTRACK_WebApp.Autenticacion.frmOlvidoContrasena" %>
 <asp:Content ID="HeaderContent" runat="server" ContentPlaceHolderID="HeadContent">
 </asp:Content>
 <asp:Content ID="BodyContent" runat="server" ContentPlaceHolderID="MainContent">

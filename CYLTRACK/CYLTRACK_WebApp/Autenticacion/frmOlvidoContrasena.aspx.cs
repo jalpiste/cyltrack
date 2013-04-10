@@ -6,7 +6,7 @@ using System.Web.UI;
 using System.Web.UI.WebControls;
 using System.Web.Security;
 
-namespace CYLTRACK_WebApp.Autenticacion
+namespace Unisangil.CYLTRACK.CYLTRACK_WebApp.Autenticacion
 {
     public partial class frmOlvidoContrasena : System.Web.UI.Page
     {
