@@ -1,0 +1,105 @@
+﻿<phone:PhoneApplicationPage 
+    x:Class="Unisangil.CYLTRACK.CYLTRACK_PHONE.Autenticacion.frmRegistrarUsuario"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:phone="clr-namespace:Microsoft.Phone.Controls;assembly=Microsoft.Phone"
+    xmlns:shell="clr-namespace:Microsoft.Phone.Shell;assembly=Microsoft.Phone"
+    xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    FontFamily="{StaticResource PhoneFontFamilyNormal}"
+    FontSize="{StaticResource PhoneFontSizeNormal}"
+    Foreground="{StaticResource PhoneForegroundBrush}"
+    SupportedOrientations="Portrait" Orientation="Portrait"
+    mc:Ignorable="d" d:DesignHeight="768" d:DesignWidth="480"
+    shell:SystemTray.IsVisible="True">
+
+    <!--LayoutRoot es la cuadrícula raíz donde se coloca todo el contenido de la página-->
+    <Grid x:Name="LayoutRoot" Background="Transparent">
+        <Grid.RowDefinitions>
+            <RowDefinition Height="768"/>
+            <RowDefinition Height="0*"/>
+        </Grid.RowDefinitions>
+
+        <!--TitlePanel contiene el nombre de la aplicación y el título de la página-->
+        <StackPanel x:Name="nuevo" Margin="12,17,0,28" Style="{StaticResource fondo}">
+            <StackPanel Name="barra" Width="467"  Style= "{StaticResource encabezado}" >
+                <TextBlock x:Name="ApplicationTitle" Text="CYLTRACK" Style="{StaticResource PhoneTextNormalStyle}"/>
+                <TextBlock x:Name="PageTitle" Text="REGISTRAR USUARIO" Margin="9,-7,0,0" Style="{StaticResource PhoneTextExtraLargeStyle}" />
+            </StackPanel>
+            <Grid x:Name="ContRegistrar" Visibility="Visible" Margin="12,20,12,0" >
+                <TextBlock Height="50" HorizontalAlignment="Left" Name="lblRegistarUsuario" Text="Informacion de la cuenta" VerticalAlignment="Top" Style="{StaticResource h2}" Width="373" Margin="0,0,0,0" />
+                <TextBlock Height="30" HorizontalAlignment="Left" Name="lblNomUsuario" Text="Nombre de usuario: "  Margin="10,-360,0,0"/>
+                <TextBox Height="Auto" HorizontalAlignment="Left" Name="txtNomUsuario" Text="" VerticalAlignment="Top" Width="303" Style="{StaticResource textboxSolos}" Margin="2,81,0,0" />
+                <TextBlock Height="30" HorizontalAlignment="Left" Name="lblContrasena" Text="Contraseña: "  Margin="10,-180,0,0" />
+                <TextBox Height="Auto" HorizontalAlignment="Left" Name="txtContrasena" Text="" VerticalAlignment="Top" Width="303" Style="{StaticResource textboxSolos}" Margin="2,173,0,0" />
+                <TextBlock Height="30" HorizontalAlignment="Left" Name="lblConfContrasena" Text="Confirmar Contraseña: " Margin="10,1,0,0" />
+                <TextBox Height="Auto" HorizontalAlignment="Left" Name="txtConfContrasena" Text="" VerticalAlignment="Top" Width="303" Style="{StaticResource textboxSolos}" Margin="0,269,0,0" />
+                <TextBox Height="Auto" HorizontalAlignment="Left" Name="txtCorreo" VerticalAlignment="Top" Width="303" Style="{StaticResource textboxSolos}" Margin="2,366,0,0" />
+                <TextBlock Height="30" Name="lblCorreo" Text="Correo Electrónico: " Margin="10,195,0,0" />
+                <Button Content="Atrás" Height="72" HorizontalAlignment="Left" Margin="5,450,0,0" Name="btnAtras" VerticalAlignment="Top" Width="209" Click="btnAtras_Click" />
+                <Button Content="Continuar" Height="72" HorizontalAlignment="Left" Margin="208,450,0,0" Name="btnContinuar" VerticalAlignment="Top" Width="229" Click="btnContinuar_Click" />
+            </Grid>
+
+            <ScrollViewer Height="1100" HorizontalAlignment="Left" Margin="12,10,0,0" Name="scrollViewer2" VerticalAlignment="Top" Width="auto">
+                <Grid x:Name="ContentRegisUser"  Margin="12,0,12,0" Height="2000" Visibility="Collapsed">
+                    <TextBlock Height="50" HorizontalAlignment="Left" Name="lblDatosPersonales" Text="Datos Personales" VerticalAlignment="Top" Style="{StaticResource h2}" Width="373" Margin="2,0,0,0" />
+                    <TextBlock Height="30" HorizontalAlignment="Left" Name="lblNumCedula" Text="Número de Cédula: " Margin="10,-1090,0,767" />
+                    <TextBox Height="Auto" HorizontalAlignment="Left" Name="txtNumCedula" Text="" VerticalAlignment="Top" Width="303" Style="{StaticResource textboxSolos}" Margin="0,80,0,0" InputScope="TelephoneNumber" />
+                    <TextBlock Height="30" HorizontalAlignment="Left" Name="lblNombres" Text="Nombres: " Margin="10,-990,0,667" />
+                    <TextBox Height="Auto" HorizontalAlignment="Left" Name="txtNombres" Text="" VerticalAlignment="Top" Width="303" Style="{StaticResource textboxSolos}" Margin="0,180,0,0" />
+                    <TextBlock Height="30" HorizontalAlignment="Left" Name="lblApellidos" Text="Apellidos: " Margin="10,-890,0,567" />
+                    <TextBox Height="Auto" HorizontalAlignment="Left" Name="txtApellidos" Text="" VerticalAlignment="Top" Width="303" Style="{StaticResource textboxSolos}" Margin="0,280,0,0" />
+                    <TextBlock Height="30" HorizontalAlignment="Left" Name="lblDireccion" Text="Dirección: " Margin="10,-790,0,467" />
+                    <TextBox Height="Auto" HorizontalAlignment="Left" Name="txtDireccion" Text="" VerticalAlignment="Top" Width="303" Style="{StaticResource textboxSolos}" Margin="0,380,0,0" />
+                    <TextBlock Height="30" HorizontalAlignment="Left" Name="lblTelefono" Text="Teléfono: " Margin="10,-690,0,367" />
+                    <TextBox Height="Auto" HorizontalAlignment="Left" Name="txtTelefono" Text="" VerticalAlignment="Top" Width="303" Style="{StaticResource textboxSolos}" Margin="0,480,0,0" InputScope="TelephoneNumber" />
+                    <TextBlock Height="30" HorizontalAlignment="Left" Name="lblSexo" Text="Sexo: " Margin="10,-590,0,267" />
+                    <ListBox Height="30" HorizontalAlignment="Left" Margin="12,590,0,0" Name="lstSexo" VerticalAlignment="Top" Width="203" Style="{StaticResource listas}">
+                        <ListBoxItem Content="Seleccionar..." />
+                        <ListBoxItem Content="Hombre" />
+                        <ListBoxItem Content="Mujer" />
+                    </ListBox>
+                    <TextBlock Height="30" HorizontalAlignment="Left" Name="lblfechaNac" Text="Fecha de nacimiento: " Margin="10,-540,0,167" />
+                    <ListBox Height="30" HorizontalAlignment="Left" Margin="10,670,0,0" Name="lstDia" VerticalAlignment="Top" Width="100" Style="{StaticResource listas}">
+                        <ListBoxItem Content="Dia.." />
+                        <ListBoxItem Content="01" />
+                        <ListBoxItem Content="02" />
+                        <ListBoxItem Content="03" />
+                    </ListBox>
+                    <ListBox Height="30" HorizontalAlignment="Left" Margin="120,670,0,0" Name="lstMes" VerticalAlignment="Top" Width="100" Style="{StaticResource listas}">
+                        <ListBoxItem Content="Mes.." />
+                        <ListBoxItem Content="Enero" />
+                        <ListBoxItem Content="Febrero" />
+                        <ListBoxItem Content="Marzo" />
+                    </ListBox>
+                    <ListBox Height="30" HorizontalAlignment="Left" Margin="230,670,0,0" Name="lstAno" VerticalAlignment="Top" Width="100" Style="{StaticResource listas}">
+                        <ListBoxItem Content="Año.." />
+                        <ListBoxItem Content="1960" />
+                        <ListBoxItem Content="1961" />
+                        <ListBoxItem Content="1962" />
+                    </ListBox>
+                    <TextBlock Height="30" HorizontalAlignment="Left" Name="lblPerfil" Text="Perfil: " Margin="10,-350,0,167" />
+                    <ListBox Height="30" HorizontalAlignment="Left" Margin="10,769,0,0" Name="lstPerfil" VerticalAlignment="Top" Width="100" Style="{StaticResource listas}">
+                        <ListBoxItem Content="Seleccionar..." />
+                    </ListBox>
+                    <Button Content="Crear Usuario" Height="72" HorizontalAlignment="Left" Margin="25,830,0,0" Name="btnCrearUser" VerticalAlignment="Top" Width="215" Click="btnCrearUser_Click" />
+                    <Button Content="Menú" Height="72" HorizontalAlignment="Left" Margin="250,830,0,0" Name="btnMenu" VerticalAlignment="Top" Width="150" Click="btnMenu_Click" />
+
+                </Grid>
+            </ScrollViewer>
+        </StackPanel>
+    </Grid>
+
+    <!--Código de ejemplo que muestra el uso de ApplicationBar-->
+    <!--<phone:PhoneApplicationPage.ApplicationBar>
+        <shell:ApplicationBar IsVisible="True" IsMenuEnabled="True">
+            <shell:ApplicationBarIconButton IconUri="/Images/appbar_button1.png" Text="Botón 1"/>
+            <shell:ApplicationBarIconButton IconUri="/Images/appbar_button2.png" Text="Botón 2"/>
+            <shell:ApplicationBar.MenuItems>
+                <shell:ApplicationBarMenuItem Text="Elemento de menú 1"/>
+                <shell:ApplicationBarMenuItem Text="Elemento de menú 2"/>
+            </shell:ApplicationBar.MenuItems>
+        </shell:ApplicationBar>
+    </phone:PhoneApplicationPage.ApplicationBar>-->
+
+</phone:PhoneApplicationPage>
