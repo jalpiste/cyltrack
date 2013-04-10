@@ -7,7 +7,7 @@
 // </generado automáticamente>
 //------------------------------------------------------------------------------
 
-namespace CYLTRACK_WebApp {
+namespace Unisangil.CYLTRACK.CYLTRACK_WebApp {
     
     
     public partial class Inventario {

@@ -7,7 +7,7 @@
 // </generado automáticamente>
 //------------------------------------------------------------------------------
 
-namespace CYLTRACK_WebApp.Reporte {
+namespace Unisangil.CYLTRACK.CYLTRACK_WebApp.Reporte {
     
     
     public partial class frmReporteRegistros {
