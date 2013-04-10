@@ -1,4 +1,4 @@
-﻿<%@ Page Title="" Language="C#" MasterPageFile="~/Site.Master" AutoEventWireup="true" CodeBehind="frmDevolucionCilindro.aspx.cs" Inherits="CYLTRACK_WebApp.Ventas.frmDevolucionCilindro" %>
+﻿<%@ Page Title="" Language="C#" MasterPageFile="~/Site.Master" AutoEventWireup="true" CodeBehind="frmDevolucionCilindro.aspx.cs" Inherits="Unisangil.CYLTRACK.CYLTRACK_WebApp.Ventas.frmDevolucionCilindro" %>
 <asp:Content ID="Content1" ContentPlaceHolderID="HeadContent" runat="server">
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="MainContent" runat="server">
@@ -15,14 +15,16 @@
                  <div class="accountInfo">
                  <fieldset class="login">
                     <legend>Devolución de Cilindro</legend>
+                    <div id="DivBusqueda" runat="server" visible="true">
                      <asp:Label ID="lblCodigoCilindro" runat="server" Text="Código Cilindro: "></asp:Label>
                      <br />
                      <asp:TextBox ID="txtCodigoCilindro" runat="server" CssClass="textEntry" 
                          Width="197px" ontextchanged="txtCodigoCilindro_TextChanged"></asp:TextBox>
-                         <%--AutoPostBack="True" pendiente por verificar si funciona en textbox para usar el mensaje de error --%>
                      <asp:RequiredFieldValidator ID="CodigoCilindroRequired" runat="server" ControlToValidate="txtCodigoCilindro" 
                              CssClass="failureNotification" ErrorMessage="El código del cilindro es obligatorio." ToolTip="El Codigo del Cilindro es obligatorio." 
                              ValidationGroup="DevolucionCilindroValidationGroup"> * </asp:RequiredFieldValidator>
+                         </div>
+                         <%--AutoPostBack="True" pendiente por verificar si funciona en textbox para usar el mensaje de error --%>
                     <div id="DivDatosCilindro" runat="server" visible="false">
                     <div class="post" >
                           <asp:Label ID="lblPoster" runat="server" Text="Datos Cilindro"></asp:Label>
@@ -40,8 +42,8 @@
                     <div id="DivDatosCliente" runat="server" visible="false">
                     <div class="post" >
                           <asp:Label ID="lblPost" runat="server" Text="Información Cliente"></asp:Label>
-                          </div> 
-                    <h5>
+                          </div>
+                        <h5>
                         <asp:Label ID="lblPedido" runat="server" Text="Pedido N°: "></asp:Label>
                         <asp:Label ID="lblCodigoPedido" runat="server" Text="2323432"></asp:Label>
                     </h5>
@@ -50,28 +52,26 @@
                         <asp:TextBox ID="txtNombreCliente" runat="server" CssClass="textEntry" Width="197px" Enabled="False"></asp:TextBox><br />
                         
                     <asp:Label ID="lblPrimerApellido" runat="server" text="Primer Apellido:"></asp:Label>
-                    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;
+                    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;&nbsp;
                     <asp:Label ID="SegundoApellidoLabel" runat="server" Text="Segundo Apellido:"></asp:Label>
                     <br />
                     <asp:TextBox ID="txtPrimerApellido" runat="server" CssClass="textEntry" Width="197px" Enabled="False"></asp:TextBox>
-                    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;
+                    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
                     <asp:TextBox ID="txtSegundoApellido" runat="server" CssClass="textEntry" Width="197px" Enabled="False"></asp:TextBox>
                     <br />
                     <asp:Label ID="lblDireccion" runat="server" Text="Dirección:  "></asp:Label>
-                    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; &nbsp;&nbsp;
-                    <asp:Label ID="lblBarrio" runat="server" Text="Barrio:" ></asp:Label> 
+                        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;&nbsp; &nbsp; &nbsp;<asp:Label ID="lblBarrio" runat="server" Text="Barrio:" ></asp:Label> 
                     <br />
                     <asp:TextBox ID="txtDireccion" runat="server" CssClass="textEntry" Width="197px" Enabled="False" ></asp:TextBox>
-                     &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;
+                     &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
                     <asp:TextBox ID="txtBarrio" runat="server" CssClass="textEntry" Width="197px" Enabled="False" ></asp:TextBox>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 
                     <br />
                     <asp:Label ID="lblCiudad" runat="server" Text="Ciudad:"></asp:Label>
-                    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; &nbsp; &nbsp;&nbsp; 
-                    <asp:Label ID="lblDepartamento" runat="server" text="Departamento:"></asp:Label> 
+                        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;&nbsp; &nbsp;&nbsp; &nbsp;<asp:Label ID="lblDepartamento" runat="server" text="Departamento:"></asp:Label> 
                     <br />
                     <asp:TextBox ID="txtCiudad" runat="server" CssClass="textEntry" 
                             Width="197px" Enabled="False"></asp:TextBox>
-                     &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;
+                     &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; &nbsp;
                     <asp:TextBox ID="txtDepartamento" runat="server" CssClass="textEntry" 
                             Width="197px" Enabled="False"></asp:TextBox>
                     <br />
@@ -111,8 +111,8 @@
                   <asp:TextBox ID="txtObservaciones" runat="server" Height="77px" Width="306px" CssClass="textEntry"></asp:TextBox>
               </div>
             </fieldset> 
-            <p class="submitButton">
-                <asp:Button ID="BtnGuardar" runat="server" Text="Guardar" Width="120px" 
+                     <p class="submitButton">
+                <asp:Button ID="BtnGuardar" runat="server" Visible="false" Text="Guardar" Width="120px" 
                     onclick="BtnGuardar_Click"/> 
                     &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; &nbsp; 
                     <asp:Button ID="BtnMenu" runat="server" Text="Menú Principal" Width="120px" 

@@ -5,7 +5,7 @@ using System.Web;
 using System.Web.UI;
 using System.Web.UI.WebControls;
 
-namespace CYLTRACK_WebApp.Ventas
+namespace Unisangil.CYLTRACK.CYLTRACK_WebApp.Ventas
 {
     public partial class frmConsultarVenta : System.Web.UI.Page
     {
