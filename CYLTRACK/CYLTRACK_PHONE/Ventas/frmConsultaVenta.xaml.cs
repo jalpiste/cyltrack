@@ -46,6 +46,7 @@ namespace Cyltrack_phone.Ventas
         {
             ContentCliente.Visibility = System.Windows.Visibility.Collapsed;
             ContentBusq.Visibility = System.Windows.Visibility.Visible;
+
         }
 
         private void btnNvConsulta_Click(object sender, RoutedEventArgs e)
@@ -58,8 +59,9 @@ namespace Cyltrack_phone.Ventas
         private void hplDevCil_Click(object sender, RoutedEventArgs e)
         {
             ContentCilindro.Visibility = System.Windows.Visibility.Collapsed;
-            grdDevCil.Visibility = System.Windows.Visibility.Visible;
+            ContentCambioCil.Visibility = System.Windows.Visibility.Visible;
             ContentObserv.Visibility = System.Windows.Visibility.Visible;
+            PageTitle.Text = "MODIFICAR VENTA";
         }
 
         
@@ -77,7 +79,14 @@ namespace Cyltrack_phone.Ventas
 
         private void btnAtrasDev_Click(object sender, RoutedEventArgs e)
         {
-            NavigationService.GoBack();
+            ContentCambioCil.Visibility = System.Windows.Visibility.Collapsed;
+            ContentObserv.Visibility = System.Windows.Visibility.Collapsed;
+            ContentCilindro.Visibility = System.Windows.Visibility.Visible;
+            PageTitle.Text = "CONSULTAR VENTA";
+            btnMenu.Visibility = System.Windows.Visibility.Visible;
+            btnAtrasMod.Visibility = System.Windows.Visibility.Collapsed;
+            btnNvConsulta.Visibility = System.Windows.Visibility.Visible;
+            btnGuardarMod.Visibility = System.Windows.Visibility.Collapsed;
         }
 
         private void lstDevolucion_SelectionChanged(object sender, SelectionChangedEventArgs e)
@@ -97,7 +106,15 @@ namespace Cyltrack_phone.Ventas
         private void btnAtrasMod_Click(object sender, RoutedEventArgs e)
         {
             ContentCilindro.Visibility = System.Windows.Visibility.Collapsed;
-            ContentCliente.Visibility = System.Windows.Visibility.Visible;
+            ContentCilindro.Visibility = System.Windows.Visibility.Visible;
+            hplModVenta.Visibility = System.Windows.Visibility.Visible;
+            hplDevCil.Visibility = System.Windows.Visibility.Visible;
+            PageTitle.Text = "CONSULTAR VENTA";
+            btnMenu.Visibility = System.Windows.Visibility.Visible;
+            btnAtrasMod.Visibility = System.Windows.Visibility.Collapsed;
+            btnNvConsulta.Visibility = System.Windows.Visibility.Visible;
+            btnGuardarMod.Visibility = System.Windows.Visibility.Collapsed;
+            
         }
 
         private void btnGuardarMod_Click(object sender, RoutedEventArgs e)
@@ -119,6 +136,7 @@ namespace Cyltrack_phone.Ventas
             btnGuardarMod.Visibility = System.Windows.Visibility.Visible;
             hplModVenta.Visibility = System.Windows.Visibility.Collapsed;
             hplDevCil.Visibility = System.Windows.Visibility.Collapsed;
+            PageTitle.Text = "MODIFICAR VENTA";
         }
 
                

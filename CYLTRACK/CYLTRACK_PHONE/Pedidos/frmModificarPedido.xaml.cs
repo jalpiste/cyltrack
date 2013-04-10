@@ -26,7 +26,7 @@ namespace Cyltrack_phone.Pedidos
         {
             MessageBox.Show("Los datos fueron guardados satisfactoriamente");
             ContentModificar.Visibility = System.Windows.Visibility.Collapsed;
-            NavigationService.GoBack();
+            NavigationService.Navigate(new Uri("/Pedidos/frmConsultarPedido.xaml", UriKind.Relative));
         }
 
         private void btnAtras_Click(object sender, RoutedEventArgs e)

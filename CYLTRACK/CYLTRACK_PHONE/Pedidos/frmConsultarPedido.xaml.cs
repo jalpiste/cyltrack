@@ -33,6 +33,7 @@ namespace Cyltrack_phone.Pedidos
         {
             ContentConsultar.Visibility = System.Windows.Visibility.Collapsed;
             ContentCancelar.Visibility = System.Windows.Visibility.Visible;
+            PageTitle.Text = "CANCELAR PEDIDO";
         }
 
         private void hplModificarPedido_Click(object sender, RoutedEventArgs e)
@@ -62,13 +63,16 @@ namespace Cyltrack_phone.Pedidos
         }
         private void btnAtrasCancel_Click(object sender, RoutedEventArgs e)
         {
-            NavigationService.GoBack();
+            ContentCancelar.Visibility = System.Windows.Visibility.Collapsed;
+            ContentConsultar.Visibility = System.Windows.Visibility.Visible;
+            PageTitle.Text = "CONSULTAR PEDIDO";
         }
 
         private void btnGuardarCancel_Click(object sender, RoutedEventArgs e)
         {
             MessageBox.Show("Sus datos fueron enviados satisfactoriamente");
-            NavigationService.Navigate(new Uri("/Pedidos/frmConsultarPedido.xaml", UriKind.Relative));
+            ContentCancelar.Visibility = System.Windows.Visibility.Collapsed;
+            ContentBusq.Visibility = System.Windows.Visibility.Visible;
         }  
         
         
