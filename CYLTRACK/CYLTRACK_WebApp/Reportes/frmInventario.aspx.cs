@@ -4,7 +4,7 @@ using System.Linq;
 using System.Web;
 using System.Web.UI;
 using System.Web.UI.WebControls;
-using CYLTRACK_WebApp.Reportes;
+using Unisangil.CYLTRACK.CYLTRACK_WebApp.Reportes;
 
 namespace Unisangil.CYLTRACK.CYLTRACK_WebApp
 {
