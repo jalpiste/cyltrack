@@ -5,7 +5,7 @@ using System.Web;
 using System.Web.UI;
 using System.Web.UI.WebControls;
 
-namespace CYLTRACK_WebApp.Ventas
+namespace Unisangil.CYLTRACK.CYLTRACK_WebApp.Ventas
 {
     public partial class frmVentaCilindro : System.Web.UI.Page
     {
@@ -17,6 +17,7 @@ namespace CYLTRACK_WebApp.Ventas
         protected void txtCedula_TextChanged(object sender, EventArgs e)
         {
             divInfoCliente.Visible = true;
+            btnGuardar.Visible = true;
         }
 
         protected void TxtNumPedido_TextChanged(object sender, EventArgs e)
@@ -26,13 +27,15 @@ namespace CYLTRACK_WebApp.Ventas
 
         protected void btnGuardar_Click(object sender, EventArgs e)
         {
-            //Response.Write("<script type='text/javascript'> alert('Sus datos fueron enviados satisfactoriamente') </script>");
-            //divInfoCliente.Visible = false;
+            Response.Write("<script type='text/javascript'> alert('Sus datos fueron enviados satisfactoriamente') </script>");
+            divInfoCliente.Visible = false;
+            btnGuardar.Visible = false;
         }
 
-        protected void btnMenuPrincipal_Click(object sender, EventArgs e)
+        
+        protected void btnMenuPrincipal_Click1(object sender, EventArgs e)
         {
-            Response.Redirect("~/Default.aspx");
+            //Response.Redirect("~/Default.aspx");
         }
     }
 }
