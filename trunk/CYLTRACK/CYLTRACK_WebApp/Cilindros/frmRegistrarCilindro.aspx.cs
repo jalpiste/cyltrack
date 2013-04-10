@@ -5,7 +5,7 @@ using System.Web;
 using System.Web.UI;
 using System.Web.UI.WebControls;
 
-namespace CYLTRACK_WebApp.Account
+namespace Unisangil.CYLTRACK.CYLTRACK_WebApp.Account
 {
     public partial class frmcrearcil : System.Web.UI.Page
     {
@@ -17,6 +17,7 @@ namespace CYLTRACK_WebApp.Account
         protected void TxtCodigoCilindro_TextChanged(object sender, EventArgs e)
         {
             DivDatosCilindro.Visible = true;
+            BtnGuardar.Visible = true;
         }
 
         protected void BtnGuardar_Click(object sender, EventArgs e)

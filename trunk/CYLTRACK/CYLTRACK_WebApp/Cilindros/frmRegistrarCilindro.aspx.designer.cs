@@ -7,7 +7,7 @@
 // </generado automáticamente>
 //------------------------------------------------------------------------------
 
-namespace CYLTRACK_WebApp.Account {
+namespace Unisangil.CYLTRACK.CYLTRACK_WebApp.Account {
     
     
     public partial class frmcrearcil {
