@@ -14,26 +14,24 @@ namespace Unisangil.CYLTRACK.CYLTRACK_WebApp.Ventas
 
         }
 
-        protected void lstCasosEspeciales_SelectedIndexChanged(object sender, EventArgs e)
+        protected void btnMenu_Click(object sender, EventArgs e)
         {
-            if (lstCasosEspeciales.SelectedIndex == 1)
-            {
-                divConsultarCilindro.Visible = true;
-            }
-            
+            Response.Redirect("~/Default.aspx");
         }
 
-        protected void lstCodigosVehiculo_SelectedIndexChanged(object sender, EventArgs e)
+        protected void txtCedulaCliente_TextChanged(object sender, EventArgs e)
         {
+            DivInfoVenta.Visible = true;
 
-            //if (lstCodigosVehiculo.SelectedIndexChanged) {
-            //    DivDatosCilindro.Visible = true;
-            //    divCodigoCorrecto.Visible = true;
-            //}
-            
         }
 
-        
+        protected void btnEnviarDatos_Click(object sender, EventArgs e)
+        {
+            //Response.Write("<script type='text/javascript'> alert('Sus datos fueron enviados satisfactoriamente') </script>");
+        }
+
+
+
 
     }
 }

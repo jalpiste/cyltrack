@@ -19,18 +19,24 @@ namespace Unisangil.CYLTRACK.CYLTRACK_WebApp.Ventas
             //Response.Redirect("~/Default.aspx");
         }
 
-       
+
 
         protected void btnNuevaConsulta_Click(object sender, EventArgs e)
         {
             //DivInfoVenta.Visible = false;
             //btnNuevaConsulta.Visible = false;
-              }
+        }
 
         protected void txtCedulaCliente_TextChanged(object sender, EventArgs e)
         {
             DivInfoVenta.Visible = true;
             btnNuevaConsulta.Visible = true;
         }
+
+        protected void chckCasoEspecial_CheckedChanged(object sender, EventArgs e)
+        {
+            divCilCorrecto.Visible = true;
+        }
+
     }
 }

@@ -6,8 +6,7 @@
         Histórico de Cilindro
     </h1>
     <br />
-    
-    <asp:ValidationSummary ID="HistorialValidationSummary" runat="server" CssClass="failureNotification"
+     <asp:ValidationSummary ID="HistorialValidationSummary" runat="server" CssClass="failureNotification"
         ValidationGroup="HistorialValidationGroup" Width="385px" />
 
         <div class="accountInfo">
@@ -26,11 +25,11 @@
                      <br />
                 </fieldset>
                  <p class="submitButton">
-                    <asp:Button ID="btnMenu" runat="server" Text="Menú Principal" onclick="btnMenu_Click"/>  
+                    <asp:Button ID="btnMenu" runat="server" Text="Menú Principal" Width="115px" onclick="btnMenu_Click"/>  
                &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;  
                </p>
 
-        <div id= "DivReporte" runat = "server" class="accountInfo" visible="false">
+        <div id= "DivHistoricoCilindro" runat = "server" class="accountInfo" visible="false">
        <fieldset class ="login">
             <legend>Reporte</legend>
               <asp:Label ID="lblCodigo" runat="server" Text="Código: "></asp:Label>
@@ -38,32 +37,32 @@
                 <asp:Label ID="lblTamaño" runat="server" Text="Tamaño: "></asp:Label><br />
                 <asp:TextBox ID="txtCódigo" runat="server" CssClass="textEntry" Enabled ="false" ></asp:TextBox>               
                 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-                <asp:TextBox ID="txtTamano" runat="server" CssClass="textEntry" Width="97px" Enabled ="false" ></asp:TextBox>               
-              <h3>
-                <asp:Label ID="lblfecha" runat="server" Text="Fecha"></asp:Label>
-                &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-                <asp:Label ID="lblHora" runat="server" Text="Hora"></asp:Label>
-                &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-                <asp:Label ID="lblRuta" runat="server" Text="Ruta"></asp:Label>
-                &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-                <asp:Label ID="lblUbicacion" runat="server" Text="Ubicación"></asp:Label>
-                </h3>
-                <div id="DivMostrarReporte" runat = "server" class="accountInfo">
-                
-                <asp:Label ID="lblResFecha" runat="server" Text="20/02/2013"></asp:Label>
-                    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; <asp:Label ID="lblResHora" runat="server" Text="14:36"></asp:Label>
-                    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; &nbsp;
-                <asp:Label ID="lblResRuta" runat="server" ></asp:Label>
-                    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; &nbsp;
-                <asp:Label ID="lblResUbica" runat="server" Text="Bodega"></asp:Label>
-                
-                </div>
+                <asp:TextBox ID="txtTamano" runat="server" CssClass="textEntry" Width="97px" Enabled ="false" ></asp:TextBox>   
+                <br /> 
+               <p>  
+               <br />        
+             <asp:GridView ID="gvReporte" runat="server" CellPadding="4" ForeColor="#333333" 
+        GridLines="None">
+        <AlternatingRowStyle BackColor="White" />
+        <EditRowStyle BackColor="#7C6F57" />
+        <FooterStyle BackColor="#1C5E55" Font-Bold="True" ForeColor="White" />
+        <HeaderStyle BackColor="#AC3332" Font-Bold="True" ForeColor="White" />
+        <PagerStyle BackColor="#666666" ForeColor="White" HorizontalAlign="Center" />
+        <RowStyle BackColor="#E3EAEB" />
+        <SelectedRowStyle BackColor="#C5BBAF" Font-Bold="True" ForeColor="#333333" />
+        <SortedAscendingCellStyle BackColor="#F8FAFA" />
+        <SortedAscendingHeaderStyle BackColor="#246B61" />
+        <SortedDescendingCellStyle BackColor="#D4DFE1" />
+        <SortedDescendingHeaderStyle BackColor="#15524A" />
+    </asp:GridView>
+            </p>    
             </fieldset>
-            <p class="submitButton">
-            <asp:Button ID="btnImp" runat="server" Text="Imprimir" />
-             &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+             </div>
+                 <p class="submitButton">
+             <asp:Button ID="btnImp" runat="server" Text="Imprimir" Width="115px" Visible="false"/>
+              &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;  
              </p>
         </div> 
         
-                </div>
+               
 </asp:Content>

@@ -67,13 +67,13 @@ namespace Unisangil.CYLTRACK.CYLTRACK_WebApp.Reporte {
         protected global::System.Web.UI.WebControls.Button btnMenu;
         
         /// <summary>
-        /// Control DivReporte.
+        /// Control DivHistoricoCilindro.
         /// </summary>
         /// <remarks>
         /// Campo generado automáticamente.
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
-        protected global::System.Web.UI.HtmlControls.HtmlGenericControl DivReporte;
+        protected global::System.Web.UI.HtmlControls.HtmlGenericControl DivHistoricoCilindro;
         
         /// <summary>
         /// Control lblCodigo.
@@ -112,85 +112,13 @@ namespace Unisangil.CYLTRACK.CYLTRACK_WebApp.Reporte {
         protected global::System.Web.UI.WebControls.TextBox txtTamano;
         
         /// <summary>
-        /// Control lblfecha.
+        /// Control gvReporte.
         /// </summary>
         /// <remarks>
         /// Campo generado automáticamente.
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Label lblfecha;
-        
-        /// <summary>
-        /// Control lblHora.
-        /// </summary>
-        /// <remarks>
-        /// Campo generado automáticamente.
-        /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.Label lblHora;
-        
-        /// <summary>
-        /// Control lblRuta.
-        /// </summary>
-        /// <remarks>
-        /// Campo generado automáticamente.
-        /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.Label lblRuta;
-        
-        /// <summary>
-        /// Control lblUbicacion.
-        /// </summary>
-        /// <remarks>
-        /// Campo generado automáticamente.
-        /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.Label lblUbicacion;
-        
-        /// <summary>
-        /// Control DivMostrarReporte.
-        /// </summary>
-        /// <remarks>
-        /// Campo generado automáticamente.
-        /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
-        /// </remarks>
-        protected global::System.Web.UI.HtmlControls.HtmlGenericControl DivMostrarReporte;
-        
-        /// <summary>
-        /// Control lblResFecha.
-        /// </summary>
-        /// <remarks>
-        /// Campo generado automáticamente.
-        /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.Label lblResFecha;
-        
-        /// <summary>
-        /// Control lblResHora.
-        /// </summary>
-        /// <remarks>
-        /// Campo generado automáticamente.
-        /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.Label lblResHora;
-        
-        /// <summary>
-        /// Control lblResRuta.
-        /// </summary>
-        /// <remarks>
-        /// Campo generado automáticamente.
-        /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.Label lblResRuta;
-        
-        /// <summary>
-        /// Control lblResUbica.
-        /// </summary>
-        /// <remarks>
-        /// Campo generado automáticamente.
-        /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.Label lblResUbica;
+        protected global::System.Web.UI.WebControls.GridView gvReporte;
         
         /// <summary>
         /// Control btnImp.
