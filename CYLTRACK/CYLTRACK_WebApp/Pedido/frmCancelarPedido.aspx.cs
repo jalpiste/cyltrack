@@ -5,7 +5,7 @@ using System.Web;
 using System.Web.UI;
 using System.Web.UI.WebControls;
 
-namespace CYLTRACK_WebApp.Pedido
+namespace Unisangil.CYLTRACK.CYLTRACK_WebApp.Pedido
 {
     public partial class frmCancelarPedido : System.Web.UI.Page
     {
