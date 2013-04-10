@@ -37,7 +37,7 @@
         <Grid x:Name="ContentDatosP" Grid.Row="1" Margin="11,0,13,0" Background="White" Visibility="Collapsed">
             <TextBlock Height="30" HorizontalAlignment="Left" Margin="19,23,0,0" Name="lblDatos" Text="Datos Personales" VerticalAlignment="Top" Width="269" Style="{StaticResource h2}" />
             <TextBlock Height="30" HorizontalAlignment="Left" Margin="19,75,0,0" Name="lblNombres" Text="Nombres: " VerticalAlignment="Top" Style="{StaticResource textArea}" />
-            <TextBox Height="Auto" HorizontalAlignment="Left" Margin="2,89,0,0" Name="txtNombres" Text="" VerticalAlignment="Top" Width="320" Style="{StaticResource textboxConsulta}" />
+            <TextBox Height="Auto" HorizontalAlignment="Left" Margin="2,89,0,0" Name="txtNombres" Text="" VerticalAlignment="Top" Width="320" Style="{StaticResource textboxConsulta}" IsEnabled="True" />
             <TextBlock Height="30" HorizontalAlignment="Left" Margin="19,153,0,0" Name="lblPrApellido" Text="Primer Apellido: " VerticalAlignment="Top" Style="{StaticResource textArea}" />
             <TextBox Height="Auto" HorizontalAlignment="Left" Margin="2,170,0,0" Name="txtPrApellido" Text="" VerticalAlignment="Top" Width="320" Style="{StaticResource textboxConsulta}"/>
             <TextBlock Height="30" HorizontalAlignment="Left" Margin="19,231,0,0" Name="lblSgApellido" Text="Segundo Apellido: " VerticalAlignment="Top" Style="{StaticResource textArea}" />
@@ -53,7 +53,8 @@
             <TextBlock Height="30" HorizontalAlignment="Left" Margin="19,458,0,0" Name="lblTel" Text="Teléfono: " VerticalAlignment="Top" Style="{StaticResource textArea}" />
             <TextBox Height="Auto" HorizontalAlignment="Left" Margin="0,473,0,0" Name="txtTel" Text="" VerticalAlignment="Top" Width="226" Style="{StaticResource textboxConsulta}" InputScope="TelephoneNumber"/>
             <HyperlinkButton Content="Modificar Cliente" Height="30" HorizontalAlignment="Left" Margin="-50,548,0,0" Name="hplModificarCliente" VerticalAlignment="Top" Width="276" Style="{StaticResource link}" Click="hplModificarCliente_Click" />
-            <Button Content="Menú" Height="72" HorizontalAlignment="Left" Margin="130,593,0,0" Name="btnMenuReg" VerticalAlignment="Top" Width="209" Click="btnMenuReg_Click"/>
+            <Button Content="Nueva Consulta" Height="72" HorizontalAlignment="Left" Margin="-2,587,0,0" Name="btnNuevaCons" VerticalAlignment="Top" Width="238" Click="btnNuevaCons_Click"/>
+            <Button Content="Menú" Height="72" HorizontalAlignment="Left" Margin="218,587,0,0" Name="btnMenuReg" VerticalAlignment="Top" Width="238" Click="btnMenu_Click"/>
         </Grid>
 
         <Grid x:Name="ContentModificarCliente" Grid.Row="1" Margin="12,0,12,0" Background="White" Visibility="Collapsed">
@@ -88,7 +89,7 @@
         </Grid>
 
         <Grid x:Name="ContentAgregarUbicacion" Grid.Row="1" Margin="12,0,12,0" Background="White" Visibility="Collapsed">
-            <TextBlock Height="46" HorizontalAlignment="Left" Margin="19,23,0,0" Name="lblAgregarUbi" Text="Agregar Nueva Ubicación" VerticalAlignment="Top" Width="358" Style="{StaticResource h3}"  />
+            <TextBlock Height="46" HorizontalAlignment="Left" Margin="19,23,0,0" Name="lblAgregarUbi" Text="Agregar Nueva Ubicación" VerticalAlignment="Top" Width="358" Style="{StaticResource h2}"  />
             <TextBlock Height="30" HorizontalAlignment="Left" Margin="19,75,0,0" Name="lblNuevaDireccion" Text="Dirección: " VerticalAlignment="Top" Style="{StaticResource textArea}" />
             <TextBox Height="Auto" HorizontalAlignment="Left" Margin="2,89,0,0" Name="txtNuevaDir" Text="" VerticalAlignment="Top" Width="320" Style="{StaticResource textboxSolos}" />
             <TextBlock Height="30" HorizontalAlignment="Left" Margin="19,167,0,0" Name="lblNuevoBarrio" Text="Barrio: " VerticalAlignment="Top" Style="{StaticResource textArea}" />

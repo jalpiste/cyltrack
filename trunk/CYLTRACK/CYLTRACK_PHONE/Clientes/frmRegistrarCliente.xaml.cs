@@ -39,7 +39,7 @@ namespace Cyltrack_phone.Clientes
 
         private void btnGuardar_Click(object sender, RoutedEventArgs e)
         {
-            MessageBox.Show("Los datos fueron enviados satisfactoriamente");
+            MessageBox.Show("Sus datos fueron enviados satisfactoriamente");
             ContentDatosP.Visibility = System.Windows.Visibility.Collapsed;
             ContentBusq.Visibility = System.Windows.Visibility.Visible;
         }

@@ -29,7 +29,7 @@
 
             <!--ContentPanel. Colocar aquí el contenido adicional-->
             <ScrollViewer HorizontalScrollBarVisibility="Auto">
-                <Grid x:Name="ContentCliente" Grid.Row="1" Margin="14,0,10,-2" Visibility="Collapsed">
+                <Grid x:Name="ContentCliente" Grid.Row="1" Margin="14,0,10,-2" Visibility="Visible">
                     <TextBlock Height="49" HorizontalAlignment="Right" Margin="0,6,79,0" Name="lblDatos" Text="Datos Personales" VerticalAlignment="Top" Width="346" Style="{StaticResource h2}" />
                     <TextBlock Height="30" Margin="19,61,249,582" Name="lblNombres" Text="Nombres: " Style="{StaticResource h3}" Width="182" />
                     <TextBox Height="Auto" HorizontalAlignment="Left" Margin="2,89,0,0" Name="txtNombres" Text="" VerticalAlignment="Top" Width="320" Style="{StaticResource textboxSolos}" />
@@ -56,7 +56,7 @@
                 </Grid>
             </ScrollViewer>
 
-            <Grid x:Name="ContentInicial" Grid.Row="1" Margin="14,0,10,-2" Visibility="Visible">
+            <Grid x:Name="ContentInicial" Grid.Row="1" Margin="14,0,10,-2" Visibility="Collapsed">
                 <TextBlock Height="30" HorizontalAlignment="Left" Name="lblCedula" Text="Número de Cédula: " Margin="6,83,0,171" />
                 <TextBox Height="Auto" HorizontalAlignment="Left" Name="txtCedula" Text="" VerticalAlignment="Top" Width="303" Style="{StaticResource textboxSolos}" Margin="-12,118,0,0" InputScope="TelephoneNumber"/>
                 <Button Content="Consultar" Height="72" HorizontalAlignment="Left" Name="btnConsultar" VerticalAlignment="Top" Width="160" Margin="50,196,0,0" Click="btnConsultar_Click" />

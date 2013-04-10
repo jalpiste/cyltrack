@@ -25,15 +25,12 @@ namespace Cyltrack_phone.Clientes
             ContentBusq.Visibility = System.Windows.Visibility.Collapsed;
             ContentDatosP.Visibility = System.Windows.Visibility.Visible;
         }
-        private void btnMenuReg_Click(object sender, RoutedEventArgs e)
-        {
-            NavigationService.Navigate(new Uri("/MainPage.xaml", UriKind.Relative));
-        }
-
+       
         private void hplModificarCliente_Click(object sender, RoutedEventArgs e)
         {
             ContentDatosP.Visibility = System.Windows.Visibility.Collapsed;
             ContentModificarCliente.Visibility = System.Windows.Visibility.Visible;
+            PageTitle.Text = "MODIFICAR CLIENTE";
         }
 
         private void btnMenu_Click(object sender, RoutedEventArgs e)
@@ -71,6 +68,12 @@ namespace Cyltrack_phone.Clientes
             MessageBox.Show("Sus datos fueron enviados satisfactoriamente");
             ContentAgregarUbicacion.Visibility = System.Windows.Visibility.Collapsed;
             ContentModificarCliente.Visibility = System.Windows.Visibility.Visible;
-    }
+        }
+
+        private void btnNuevaCons_Click(object sender, RoutedEventArgs e)
+        {
+            ContentDatosP.Visibility = System.Windows.Visibility.Collapsed;
+            ContentBusq.Visibility = System.Windows.Visibility.Visible;
+        }
     }
 }

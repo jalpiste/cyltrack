@@ -67,7 +67,7 @@
                     <HyperlinkButton Content="Cancelar Pedido" Height="30" HorizontalAlignment="Left" Margin="-21,0,0,0" Name="hplCancelarPedido" VerticalAlignment="Top" Width="276" Style="{StaticResource link}" Click="hplCancelarPedido_Click"/>
                     <HyperlinkButton Content="Modificar Pedido" Height="30" HorizontalAlignment="Left" Margin="-21,20,0,0" Name="hplModificarPedido" VerticalAlignment="Top" Width="276" Style="{StaticResource link}" Click="hplModificarPedido_Click"/>
                     <Button Content="Menú" Height="72" HorizontalAlignment="Left" Margin="243,0,0,0" Name="btnMenuConsul" VerticalAlignment="Top" Width="212" Click="btnMenuConsul_Click" />
-                    <Button Content="Nueva Consulta" Height="72" HorizontalAlignment="Left" Margin="10,-70,0,0" Name="btnNuevaConsul" VerticalAlignment="Top" Width="227" Click="btnNuevaConsul_Click" />
+                    <Button Content="Nueva Consulta" Height="72" HorizontalAlignment="Left" Margin="10,-72,0,0" Name="btnNuevaConsul" VerticalAlignment="Top" Width="227" Click="btnNuevaConsul_Click" />
                 </StackPanel>
             </ScrollViewer>
         </Grid>

@@ -31,7 +31,7 @@
             <TextBox Height="Auto" HorizontalAlignment="Left" Margin="8,95,0,0" Name="txtCedula" Text="" VerticalAlignment="Top" Width="303" Style="{StaticResource textboxSolos}" InputScope="TelephoneNumber" />
             <Button Content="Registrar" Height="72" HorizontalAlignment="Left" Margin="70,188,0,0" Name="btnRegistrar" VerticalAlignment="Top" Width="160" Click="btnRegistrar_Click" />
             <Button Content="Menú" Height="72" HorizontalAlignment="Left" Margin="226,188,0,0" Name="btnMenu" VerticalAlignment="Top" Width="160"  Click="btnMenu_Click" />
-            <TextBlock Height="30" HorizontalAlignment="Left" Margin="27,27,0,0" Name="txtRegistrarCli" Text="Registrar Cliente" VerticalAlignment="Top" Style="{StaticResource h2}"  />
+            <TextBlock Height="43" HorizontalAlignment="Left" Margin="27,27,0,0" Name="txtRegistrarCli" Text="Registrar Cliente" VerticalAlignment="Top" Style="{StaticResource h2}"  />
         </Grid>
         
         <Grid x:Name="ContentDatosP" Grid.Row="1" Margin="12,0,12,0" Background="White" Visibility="Collapsed">
