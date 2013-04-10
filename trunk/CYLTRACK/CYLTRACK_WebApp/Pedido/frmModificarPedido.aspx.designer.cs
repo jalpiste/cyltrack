@@ -7,7 +7,7 @@
 // </generado automáticamente>
 //------------------------------------------------------------------------------
 
-namespace CYLTRACK_WebApp.Pedido {
+namespace Unisangil.CYLTRACK.CYLTRACK_WebApp.Pedido {
     
     
     public partial class frmModificarPedido {
