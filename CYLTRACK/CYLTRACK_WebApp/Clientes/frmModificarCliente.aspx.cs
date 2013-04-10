@@ -5,7 +5,7 @@ using System.Web;
 using System.Web.UI;
 using System.Web.UI.WebControls;
 
-namespace CYLTRACK_WebApp.Account.Clientes
+namespace Unisangil.CYLTRACK.CYLTRACK_WebApp.Account.Clientes
 {
     public partial class frmModificarCliente : System.Web.UI.Page
     {

@@ -53,17 +53,19 @@
   <ItemGroup>
     <Content Include="About.aspx" />
     <Content Include="Autenticacion\frmAutenticacion.aspx" />
+    <Content Include="frmRecuperarContrasena.aspx" />
+    <Content Include="Imagenes\banner_01.png" />
     <Content Include="nada.html" />
     <Content Include="Pedido\frmCancelarPedido.aspx" />
     <Content Include="Pedido\frmModificarPedido.aspx" />
     <Content Include="Cilindros\frmAsignarUbicacion.aspx" />
     <Content Include="Cilindros\frmConsultarCilindro.aspx" />
-    <Content Include="Clientes\frmNuevaUbicacion.aspx" />
     <Content Include="Clientes\frmConsultarCliente.aspx" />
     <Content Include="Cilindros\frmRegistrarCilindro.aspx" />
     <Content Include="Clientes\frmRegistrarCliente.aspx" />
     <Content Include="Cilindros\frmmodificarcil.aspx" />
     <Content Include="Clientes\frmModificarCliente.aspx" />
+    <Content Include="Reportes\Fabiancito.aspx" />
     <Content Include="Reportes\frmHistoricoCilindro.aspx" />
     <Content Include="Reportes\frmInventario.aspx" />
     <Content Include="Autenticacion\frmOlvidoContrasena.aspx" />
@@ -74,17 +76,18 @@
     <Content Include="Reportes\frmReporteSiembras.aspx" />
     <Content Include="Rutas\frmModificarRuta.aspx" />
     <Content Include="Rutas\frmRegistrarRuta.aspx" />
+    <Content Include="Styles\stiloFinalJacky3.css" />
     <Content Include="Default.aspx" />
     <Content Include="Global.asax" />
     <Content Include="Scripts\jquery-1.4.1-vsdoc.js" />
     <Content Include="Scripts\jquery-1.4.1.js" />
     <Content Include="Scripts\jquery-1.4.1.min.js" />
-    <Content Include="Styles\stiloFinalJacky3.css" />
     <Content Include="Vehiculos\frmModificarVehiculo.aspx" />
     <Content Include="Vehiculos\frmRegistrarVehiculo.aspx" />
+    <Content Include="Ventas\frmCasosEspeciales.aspx" />
     <Content Include="Ventas\frmConsultarVenta.aspx" />
     <Content Include="Ventas\frmDevolucionCilindro.aspx" />
-    <Content Include="Ventas\frmEntregaCilindro.aspx" />
+    <Content Include="Ventas\frmVentaCilindro.aspx" />
     <Content Include="Web.config" />
     <Content Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
@@ -107,6 +110,13 @@
     </Compile>
     <Compile Include="Autenticacion\frmAutenticacion.aspx.designer.cs">
       <DependentUpon>frmAutenticacion.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="frmRecuperarContrasena.aspx.cs">
+      <DependentUpon>frmRecuperarContrasena.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="frmRecuperarContrasena.aspx.designer.cs">
+      <DependentUpon>frmRecuperarContrasena.aspx</DependentUpon>
     </Compile>
     <Compile Include="Pedido\frmCancelarPedido.aspx.cs">
       <DependentUpon>frmCancelarPedido.aspx</DependentUpon>
@@ -135,13 +145,6 @@
     </Compile>
     <Compile Include="Cilindros\frmConsultarCilindro.aspx.designer.cs">
       <DependentUpon>frmConsultarCilindro.aspx</DependentUpon>
-    </Compile>
-    <Compile Include="Clientes\frmNuevaUbicacion.aspx.cs">
-      <DependentUpon>frmNuevaUbicacion.aspx</DependentUpon>
-      <SubType>ASPXCodeBehind</SubType>
-    </Compile>
-    <Compile Include="Clientes\frmNuevaUbicacion.aspx.designer.cs">
-      <DependentUpon>frmNuevaUbicacion.aspx</DependentUpon>
     </Compile>
     <Compile Include="Clientes\frmConsultarCliente.aspx.cs">
       <DependentUpon>frmConsultarCliente.aspx</DependentUpon>
@@ -177,6 +180,13 @@
     </Compile>
     <Compile Include="Clientes\frmModificarCliente.aspx.designer.cs">
       <DependentUpon>frmModificarCliente.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Reportes\Fabiancito.aspx.cs">
+      <DependentUpon>Fabiancito.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Reportes\Fabiancito.aspx.designer.cs">
+      <DependentUpon>Fabiancito.aspx</DependentUpon>
     </Compile>
     <Compile Include="Reportes\frmHistoricoCilindro.aspx.cs">
       <DependentUpon>frmHistoricoCilindro.aspx</DependentUpon>
@@ -245,6 +255,7 @@
     <Compile Include="Reportes\frmReporteSiembras.aspx.designer.cs">
       <DependentUpon>frmReporteSiembras.aspx</DependentUpon>
     </Compile>
+    <Compile Include="Reportes\ProcesoInventario.cs" />
     <Compile Include="Rutas\frmModificarRuta.aspx.cs">
       <DependentUpon>frmModificarRuta.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
@@ -280,6 +291,13 @@
     <Compile Include="Vehiculos\frmRegistrarVehiculo.aspx.designer.cs">
       <DependentUpon>frmRegistrarVehiculo.aspx</DependentUpon>
     </Compile>
+    <Compile Include="Ventas\frmCasosEspeciales.aspx.cs">
+      <DependentUpon>frmCasosEspeciales.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Ventas\frmCasosEspeciales.aspx.designer.cs">
+      <DependentUpon>frmCasosEspeciales.aspx</DependentUpon>
+    </Compile>
     <Compile Include="Ventas\frmConsultarVenta.aspx.cs">
       <DependentUpon>frmConsultarVenta.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
@@ -294,12 +312,12 @@
     <Compile Include="Ventas\frmDevolucionCilindro.aspx.designer.cs">
       <DependentUpon>frmDevolucionCilindro.aspx</DependentUpon>
     </Compile>
-    <Compile Include="Ventas\frmEntregaCilindro.aspx.cs">
-      <DependentUpon>frmEntregaCilindro.aspx</DependentUpon>
+    <Compile Include="Ventas\frmVentaCilindro.aspx.cs">
+      <DependentUpon>frmVentaCilindro.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
     </Compile>
-    <Compile Include="Ventas\frmEntregaCilindro.aspx.designer.cs">
-      <DependentUpon>frmEntregaCilindro.aspx</DependentUpon>
+    <Compile Include="Ventas\frmVentaCilindro.aspx.designer.cs">
+      <DependentUpon>frmVentaCilindro.aspx</DependentUpon>
     </Compile>
   </ItemGroup>
   <ItemGroup>
@@ -325,7 +343,7 @@
         <WebProjectProperties>
           <UseIIS>False</UseIIS>
           <AutoAssignPort>True</AutoAssignPort>
-          <DevelopmentServerPort>1137</DevelopmentServerPort>
+          <DevelopmentServerPort>2341</DevelopmentServerPort>
           <DevelopmentServerVPath>/</DevelopmentServerVPath>
           <IISUrl>
           </IISUrl>

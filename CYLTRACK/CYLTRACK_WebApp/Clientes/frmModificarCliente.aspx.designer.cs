@@ -7,7 +7,7 @@
 // </generado automáticamente>
 //------------------------------------------------------------------------------
 
-namespace CYLTRACK_WebApp.Account.Clientes {
+namespace Unisangil.CYLTRACK.CYLTRACK_WebApp.Account.Clientes {
     
     
     public partial class frmModificarCliente {
