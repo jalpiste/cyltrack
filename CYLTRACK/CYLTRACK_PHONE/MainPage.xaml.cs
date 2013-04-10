@@ -11,7 +11,7 @@ using System.Windows.Media.Animation;
 using System.Windows.Shapes;
 using Microsoft.Phone.Controls;
 
-namespace Cyltrack_phone
+namespace Unisangil.CYLTRACK.Cyltrack_phone
 {
     public partial class MainPage : PhoneApplicationPage
     {
@@ -19,11 +19,14 @@ namespace Cyltrack_phone
         public MainPage()
         {
             InitializeComponent();
-            Loaded += new RoutedEventHandler(MainPage_Loaded);
+           Loaded += new RoutedEventHandler(MainPage_Loaded);
+                     
         }
 
+       
         void MainPage_Loaded(object sender, RoutedEventArgs e)
         {
+            
             List<ProcesoCyltrack> listaCyltrack = new List<ProcesoCyltrack>();
 
             listaCyltrack.Add(new ProcesoCyltrack("Cliente"));
@@ -53,6 +56,11 @@ namespace Cyltrack_phone
             else if (((System.Windows.Controls.ContentControl)(sender)).Content.ToString() == "Consultar Cilindro")
                 NavigationService.Navigate(new Uri("/Ventas/frmConsultaCilindro.xaml", UriKind.Relative));
 
+        }
+
+        private void hprInicioSesion_Click(object sender, RoutedEventArgs e)
+        {
+            NavigationService.Navigate(new Uri("/Autenticacion/frmAutenticacion.xaml", UriKind.Relative));
         }
     }
 }
