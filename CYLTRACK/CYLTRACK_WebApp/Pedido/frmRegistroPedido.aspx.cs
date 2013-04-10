@@ -5,7 +5,7 @@ using System.Web;
 using System.Web.UI;
 using System.Web.UI.WebControls;
 
-namespace CYLTRACK_WebApp.Account.Pedido
+namespace Unisangil.CYLTRACK.CYLTRACK_WebApp.Account.Pedido
 {
     public partial class frmRegistroPedido : System.Web.UI.Page
     {
