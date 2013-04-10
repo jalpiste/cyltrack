@@ -1,4 +1,4 @@
-﻿<%@ Master Language="C#" AutoEventWireup="true" CodeBehind="Site.master.cs" Inherits="CYLTRACK_WebApp.SiteMaster" %>
+﻿<%@ Master Language="C#" AutoEventWireup="true" CodeBehind="Site.master.cs" Inherits="Unisangil.CYLTRACK.CYLTRACK_WebApp.SiteMaster" %>
 
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en">
@@ -8,13 +8,21 @@
     <link href="~/Styles/stiloFinalJacky3.css" rel="stylesheet" type="text/css" />
     <asp:ContentPlaceHolder ID="HeadContent" runat="server">
     </asp:ContentPlaceHolder>
+    <style type="text/css">
+        #Img1
+        {
+            width: 786px;
+            height: 78px;
+        }
+    </style>
 </head>
 <body>
     <form id="Form1" runat="server"> 
     <div class="page">
-        <div class="header">
+        <div class="header" >
+       
             <div class="title">
- <h1 style="height: 78px"> CYLTRACK </h1>
+             <img id="Img1" alt ="" src="~/Imagenes/banner_01.png" runat="server" />
             </div>
             <div class="loginDisplay">
                 <asp:LoginView ID="HeadLoginView" runat="server" EnableViewState="false">
@@ -32,7 +40,7 @@
                 </asp:LoginView>
             </div>
             <div class="clear hideSkiplink">
-                <asp:SiteMapDataSource ID="SiteMapDataSource1" runat="server" />
+                <asp:SiteMapDataSource ID="SiteMapDataSource1" runat="server"/>
                 <asp:Menu ID="NavigationMenu" runat="server" CssClass="menu" 
                     EnableViewState="false" IncludeStyleBlock="false" Orientation="Horizontal" 
                     DataSourceID="SiteMapDataSource1" StaticDisplayLevels="2" 

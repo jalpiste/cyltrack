@@ -5,7 +5,7 @@ using System.Web;
 using System.Web.UI;
 using System.Web.UI.WebControls;
 
-namespace CYLTRACK_WebApp.Vehiculos
+namespace Unisangil.CYLTRACK.CYLTRACK_WebApp.Vehiculos
 {
     public partial class frmModificarVehiculo : System.Web.UI.Page
     {
