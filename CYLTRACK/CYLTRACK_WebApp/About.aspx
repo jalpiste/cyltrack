@@ -1,5 +1,5 @@
 ﻿<%@ Page Title="Acerca de nosotros" Language="C#" MasterPageFile="~/Site.master" AutoEventWireup="true"
-    CodeBehind="About.aspx.cs" Inherits="CYLTRACK_WebApp.About" %>
+    CodeBehind="About.aspx.cs" Inherits="Unisangil.CYLTRACK.CYLTRACK_WebApp.About" %>
 
 <asp:Content ID="HeaderContent" runat="server" ContentPlaceHolderID="HeadContent">
 </asp:Content>
