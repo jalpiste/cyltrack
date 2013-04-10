@@ -1,5 +1,5 @@
 ﻿<%@ Page Title="Página principal" Language="C#" MasterPageFile="~/Site.master" AutoEventWireup="true"
-    CodeBehind="Default.aspx.cs" Inherits="CYLTRACK_WebApp._Default" %>
+    CodeBehind="Default.aspx.cs" Inherits="Unisangil.CYLTRACK.CYLTRACK_WebApp._Default" %>
 
 <asp:Content ID="HeaderContent" runat="server" ContentPlaceHolderID="HeadContent">
 </asp:Content>
