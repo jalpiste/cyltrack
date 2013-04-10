@@ -7,7 +7,7 @@
 // </generado automáticamente>
 //------------------------------------------------------------------------------
 
-namespace CYLTRACK_WebApp.Autenticacion {
+namespace Unisangil.CYLTRACK.CYLTRACK_WebApp.Autenticacion {
     
     
     public partial class frmRegistrarUsuario {
@@ -56,15 +56,6 @@ namespace CYLTRACK_WebApp.Autenticacion {
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
         protected global::System.Web.UI.WebControls.RequiredFieldValidator UserRequired;
-        
-        /// <summary>
-        /// Control DisponibleRequired.
-        /// </summary>
-        /// <remarks>
-        /// Campo generado automáticamente.
-        /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.RequiredFieldValidator DisponibleRequired;
         
         /// <summary>
         /// Control lblPass.
@@ -119,15 +110,6 @@ namespace CYLTRACK_WebApp.Autenticacion {
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
         protected global::System.Web.UI.WebControls.RequiredFieldValidator ConfirmPasswordRequired;
-        
-        /// <summary>
-        /// Control PasswordCompare.
-        /// </summary>
-        /// <remarks>
-        /// Campo generado automáticamente.
-        /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.CompareValidator PasswordCompare;
         
         /// <summary>
         /// Control lblCorreo.
@@ -274,6 +256,15 @@ namespace CYLTRACK_WebApp.Autenticacion {
         protected global::System.Web.UI.WebControls.TextBox txtDireccion;
         
         /// <summary>
+        /// Control RequiredFieldValidator2.
+        /// </summary>
+        /// <remarks>
+        /// Campo generado automáticamente.
+        /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.RequiredFieldValidator RequiredFieldValidator2;
+        
+        /// <summary>
         /// Control lblTelefono.
         /// </summary>
         /// <remarks>
@@ -290,6 +281,15 @@ namespace CYLTRACK_WebApp.Autenticacion {
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
         protected global::System.Web.UI.WebControls.TextBox txtTelefono;
+        
+        /// <summary>
+        /// Control RequiredFieldValidator3.
+        /// </summary>
+        /// <remarks>
+        /// Campo generado automáticamente.
+        /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.RequiredFieldValidator RequiredFieldValidator3;
         
         /// <summary>
         /// Control lblGenero.
@@ -371,5 +371,14 @@ namespace CYLTRACK_WebApp.Autenticacion {
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
         protected global::System.Web.UI.WebControls.Button btnCreateUserButton;
+        
+        /// <summary>
+        /// Control btnMenu.
+        /// </summary>
+        /// <remarks>
+        /// Campo generado automáticamente.
+        /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Button btnMenu;
     }
 }

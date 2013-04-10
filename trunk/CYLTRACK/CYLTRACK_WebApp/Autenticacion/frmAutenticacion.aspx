@@ -1,5 +1,5 @@
 ﻿<%@ Page Title="Iniciar sesión" Language="C#" MasterPageFile="~/Site.master" AutoEventWireup="true"
-    CodeBehind="frmAutenticacion.aspx.cs" Inherits="CYLTRACK_WebApp.Autenticacion.frmAutenticacion" %>
+    CodeBehind="frmAutenticacion.aspx.cs" Inherits="Unisangil.CYLTRACK.CYLTRACK_WebApp.Autenticacion.frmAutenticacion" %>
 
 <asp:Content ID="HeaderContent" runat="server" ContentPlaceHolderID="HeadContent">
 </asp:Content>
@@ -56,7 +56,7 @@
                     <asp:CompareValidator ID="PasswordCompare" runat="server" ControlToCompare="txtConfirmPassword"
                         ControlToValidate="ConfirmPassword" CssClass="failureNotification" Display="Dynamic"
                         ErrorMessage="Contraseña y Confirmar contraseña deben coincidir." ValidationGroup="RegisterUserValidationGroup"
-                        Visible="False">**</asp:CompareValidator>
+                        Visible="False">*</asp:CompareValidator>
                     <br />
                     <asp:Label ID="lblNota" runat="server" Text="Nueva contraseña y Confirmar nueva contraseña deben coincidir."
                         Width="400px" Visible="False"></asp:Label>
