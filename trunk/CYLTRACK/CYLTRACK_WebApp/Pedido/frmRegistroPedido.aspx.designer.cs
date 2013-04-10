@@ -7,7 +7,7 @@
 // </generado automáticamente>
 //------------------------------------------------------------------------------
 
-namespace CYLTRACK_WebApp.Account.Pedido {
+namespace Unisangil.CYLTRACK.CYLTRACK_WebApp.Account.Pedido {
     
     
     public partial class frmRegistroPedido {
