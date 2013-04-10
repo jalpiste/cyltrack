@@ -5,7 +5,7 @@ using System.Web;
 using System.Web.Security;
 using System.Web.SessionState;
 
-namespace CYLTRACK_WebApp
+namespace Unisangil.CYLTRACK.CYLTRACK_WebApp
 {
     public class Global : System.Web.HttpApplication
     {

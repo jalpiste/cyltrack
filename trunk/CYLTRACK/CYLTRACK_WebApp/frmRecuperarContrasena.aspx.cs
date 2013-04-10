@@ -5,7 +5,7 @@ using System.Web;
 using System.Web.UI;
 using System.Web.UI.WebControls;
 
-namespace CYLTRACK_WebApp
+namespace Unisangil.CYLTRACK.CYLTRACK_WebApp
 {
     public partial class frmRecuperarContrasena : System.Web.UI.Page
     {
