@@ -1,4 +1,4 @@
-﻿<%@ Page Title="" Language="C#" MasterPageFile="~/Site.Master" AutoEventWireup="true" CodeBehind="frmRecuperarContrasena.aspx.cs" Inherits="CYLTRACK_WebApp.frmRecuperarContrasena" %>
+﻿<%@ Page Title="" Language="C#" MasterPageFile="~/Site.Master" AutoEventWireup="true" CodeBehind="frmRecuperarContrasena.aspx.cs" Inherits="Unisangil.CYLTRACK.CYLTRACK_WebApp.frmRecuperarContrasena" %>
 <asp:Content ID="Content1" ContentPlaceHolderID="HeadContent" runat="server">
 
 </asp:Content>
