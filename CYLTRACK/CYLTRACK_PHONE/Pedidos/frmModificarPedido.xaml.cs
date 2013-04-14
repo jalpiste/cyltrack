@@ -24,7 +24,7 @@ namespace Unisangil.CYLTRACK.Cyltrack_phone.Pedidos
       
         private void btnGuardar_Click(object sender, RoutedEventArgs e)
         {
-            MessageBox.Show("Los datos fueron guardados satisfactoriamente");
+            MessageBox.Show("Los datos fueron guardados satisfactoriamente ");
             ContentModificar.Visibility = System.Windows.Visibility.Collapsed;
             NavigationService.Navigate(new Uri("/Pedidos/frmConsultarPedido.xaml", UriKind.Relative));
         }
