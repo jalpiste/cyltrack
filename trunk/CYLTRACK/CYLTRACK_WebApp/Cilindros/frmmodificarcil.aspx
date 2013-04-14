@@ -1,4 +1,4 @@
-﻿ <%@ Page Language="C#" AutoEventWireup="true" CodeBehind="frmmodificarcil.aspx.cs"  MasterPageFile="~/Site.Master"Inherits="CYLTRACK_WebApp.Account.frmmodificarcil" %>
+﻿ <%@ Page Language="C#" AutoEventWireup="true" CodeBehind="frmmodificarcil.aspx.cs"  MasterPageFile="~/Site.Master"Inherits="Unisangil.CYLTRACK.CYLTRACK_WebApp.Account.frmmodificarcil" %>
 
 <asp:Content ID="HeaderContent" runat="server" ContentPlaceHolderID="HeadContent">
     </asp:Content>
