@@ -6,10 +6,10 @@ using System.ServiceModel;
 
 namespace Unisangil.CYLTRACK.CYLTRACK_WCF_Services
 {
-    [ServiceContract]
-   public class IVentaService
+    [ServiceContract(Namespace = "http://servicios.cyltrack.com.co/cyltrack/")]
+    public interface IVentaService
     {
         [OperationContract]
-        string Prueba(int i); 
+        string Prueba(int i);
     }
 }
