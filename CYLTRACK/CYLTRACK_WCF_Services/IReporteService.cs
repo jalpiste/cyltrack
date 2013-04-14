@@ -6,8 +6,8 @@ using System.ServiceModel;
 
 namespace Unisangil.CYLTRACK.CYLTRACK_WCF_Services
 {
-    [ServiceContract]
-   public class IReporteService
+    [ServiceContract (Namespace = "http://servicios.cyltrack.com.co/cyltrack/")]
+    public interface IReporteService
     {
         [OperationContract]
         string Prueba(int i); 
