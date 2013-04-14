@@ -1,1 +1,1 @@
-﻿<%@ Application Codebehind="Global.asax.cs" Inherits="CYLTRACK_WebApp.Global" Language="C#" %>
+﻿<%@ Application Codebehind="Global.asax.cs" Inherits="Unisangil.CYLTRACK.CYLTRACK_WebApp.Global" Language="C#" %>
