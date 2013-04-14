@@ -11,7 +11,7 @@ using System.Windows.Media.Animation;
 using System.Windows.Shapes;
 using Microsoft.Phone.Controls;
 
-namespace Cyltrack_phone.Pedidos
+namespace Unisangi.CYLTRACK.Cyltrack_phone.Pedidos
 {
     public partial class frmConsultarPedido : PhoneApplicationPage
     {
