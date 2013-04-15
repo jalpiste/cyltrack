@@ -9,13 +9,13 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 
-namespace CYLTRACK_BE
+namespace Unisangil.CYLTRACK.CYLTRACK_BE
 {
     // <summary>
     /// Clase utilizada para representar la entidad Departamento
     /// </summary>
     
-    class Departamento
+    public class Departamento
     {
         /// <summary>
         /// Identificador de un departamento

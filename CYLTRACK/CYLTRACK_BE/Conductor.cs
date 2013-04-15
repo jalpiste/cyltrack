@@ -9,13 +9,13 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 
-namespace CYLTRACK_BE
+namespace Unisangil.CYLTRACK.CYLTRACK_BE
 {
     /// <summary>
     /// Clase utilizada para representar la entidad Conductor
     /// </summary>
     
-    class Conductor
+    public class Conductor
     {
         /// <summary>
         /// Identificador de un conductor
