@@ -10,12 +10,12 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 
-namespace CYLTRACK_BE
+namespace Unisangil.CYLTRACK.CYLTRACK_BE
 {
     /// <summary>
     /// Clase utilizada para representar la entidad Tipo de ubicación
     /// </summary>
-    class Tipo_Ubicacion
+    public class Tipo_Ubicacion
     {
         /// <summary>
         /// Identificador de Ubicacion

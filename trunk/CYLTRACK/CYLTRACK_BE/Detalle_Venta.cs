@@ -9,13 +9,13 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 
-namespace CYLTRACK_BE
+namespace Unisangil.CYLTRACK.CYLTRACK_BE
 {
     // <summary>
     /// Clase utilizada para representar la entidad Detalle_Venta
     /// </summary>
     /// 
-    class Detalle_Venta
+    public class Detalle_Venta
     {
         /// <summary>
         /// Identificador de un detalle de venta
