@@ -4,6 +4,7 @@ using System.Linq;
 using System.Runtime.Serialization;
 using System.ServiceModel;
 using System.Text;
+using Unisangil.CYLTRACK.CYLTRACK_BE;
 
 namespace Unisangil.CYLTRACK.WCF_Services
 {
@@ -12,7 +13,7 @@ namespace Unisangil.CYLTRACK.WCF_Services
     public interface IService1
     {
         [OperationContract]
-        string Prueba(int value);        
+        long Prueba(Cilindro cilindro);
     }
 
     
