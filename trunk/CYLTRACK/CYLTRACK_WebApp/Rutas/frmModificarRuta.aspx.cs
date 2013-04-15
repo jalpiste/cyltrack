@@ -39,6 +39,7 @@ namespace Unisangil.CYLTRACK.CYLTRACK_WebApp.Rutas
             DivPost.Visible = true;
             DivDatos.Visible = true;
             DivCiudad.Visible = true;
+            btnGuardar.Visible = true;
         }
 
         protected void btnRemover_Click(object sender, EventArgs e)

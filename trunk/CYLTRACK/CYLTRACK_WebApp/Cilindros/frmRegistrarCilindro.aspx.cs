@@ -13,7 +13,6 @@ namespace Unisangil.CYLTRACK.CYLTRACK_WebApp.Account
         {
 
         }
-
         protected void TxtCodigoCilindro_TextChanged(object sender, EventArgs e)
         {
             DivDatosCilindro.Visible = true;
@@ -33,8 +32,8 @@ namespace Unisangil.CYLTRACK.CYLTRACK_WebApp.Account
 
         protected void BtnLimpiar_Click(object sender, EventArgs e)
         {
-            
-            
+
+
         }
 
 

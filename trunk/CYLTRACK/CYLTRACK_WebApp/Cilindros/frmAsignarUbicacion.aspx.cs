@@ -19,6 +19,7 @@ namespace Unisangil.CYLTRACK.CYLTRACK_WebApp
         {
             DivUbicacionCil.Visible = true;
             DivNuevaUbicacion.Visible = true;
+            BtnGuardar.Visible = true;
         }
 
         protected void Ubica_SelectedIndexChanged(object sender, EventArgs e)
@@ -39,7 +40,7 @@ namespace Unisangil.CYLTRACK.CYLTRACK_WebApp
 
         protected void BtnMenu_Click(object sender, EventArgs e)
         {
-            Response.Redirect("~/Default.aspx");
+            //Response.Redirect("~/Default.aspx");
         }
 
         protected void BtnGuardar_Click(object sender, EventArgs e)

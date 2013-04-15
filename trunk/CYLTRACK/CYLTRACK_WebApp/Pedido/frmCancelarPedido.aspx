@@ -122,7 +122,7 @@
                 <p class="submitButton">
                     <asp:Button ID="btnLimpiar" runat="server" Text="Limpiar" Width="121px" /> 
                     &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; &nbsp; 
-                    <asp:Button ID="btnGuardar" runat="server" Text="Guardar" Width="121px" 
+                    <asp:Button ID="btnGuardar" runat="server" Text="Guardar" Width="121px" Visible="false" 
                         onclick="btnGuardar_Click"/> 
                     &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; &nbsp; 
                     <asp:Button ID="btnMenuPrincipal" runat="server" Text="Menu Principal" 

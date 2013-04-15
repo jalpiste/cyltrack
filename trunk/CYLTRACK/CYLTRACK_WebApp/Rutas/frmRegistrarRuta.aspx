@@ -57,7 +57,7 @@
                    
                  </fieldset>
                  <p class="submitButton">
-                <asp:Button ID="btnRegistrar" runat="server" Text="Registrar" Width="115px"/> 
+                <asp:Button ID="btnRegistrar" runat="server" Text="Registrar" Visible="false" Width="115px"/> 
                     &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; &nbsp; 
                     <asp:Button ID="btnMenu" runat="server" Text="Menú Principal" Width="115px" 
                     onclick="btnMenu_Click"/>  

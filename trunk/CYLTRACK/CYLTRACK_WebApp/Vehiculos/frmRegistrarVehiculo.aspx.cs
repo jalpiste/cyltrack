@@ -20,6 +20,7 @@ namespace Unisangil.CYLTRACK.CYLTRACK_WebApp.Rutas
             lblImprimirCedula.Text = txtCedula1.Text;
             txtCedula1.Text = "";
             DivAsignacionConductor.Visible = true;
+            btnGuardar.Visible = true;
         }
 
         protected void btnGuardar_Click(object sender, EventArgs e)

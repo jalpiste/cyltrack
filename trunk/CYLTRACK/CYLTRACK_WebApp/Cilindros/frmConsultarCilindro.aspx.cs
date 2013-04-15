@@ -18,6 +18,7 @@ namespace Unisangil.CYLTRACK.CYLTRACK_WebApp.Account
         protected void txtCodigoCilindro_TextChanged(object sender, EventArgs e)
         {
             DivDatosCilindro.Visible = true;
+            BtnNuevaConsulta.Visible = true;
             if (TxtUbicacion.Text == "Vehiculo") 
             {
                 DivInfoVehiculo.Visible = true;
@@ -37,7 +38,7 @@ namespace Unisangil.CYLTRACK.CYLTRACK_WebApp.Account
 
         protected void BtnMenuPrincipal_Click(object sender, EventArgs e)
         {
-            Response.Redirect("~/Default.aspx");
+            //Response.Redirect("~/Default.aspx");
         }
 
 
