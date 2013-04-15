@@ -2,6 +2,8 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
+using System.Runtime.Serialization;
+using System.ServiceModel;
 
 namespace Unisangil.CYLTRACK.CYLTRACK_WCF_Services
 {
