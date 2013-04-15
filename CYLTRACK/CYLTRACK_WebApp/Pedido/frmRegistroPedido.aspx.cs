@@ -18,6 +18,7 @@ namespace Unisangil.CYLTRACK.CYLTRACK_WebApp.Account.Pedido
         protected void txtCedula_TextChanged(object sender, EventArgs e)
         {
             divInfoCliente.Visible = true;
+            btnGuardar.Visible = true;
         }
 
         protected void btnLimpiar_Click(object sender, EventArgs e)

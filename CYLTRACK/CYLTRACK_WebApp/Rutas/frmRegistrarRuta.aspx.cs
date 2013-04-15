@@ -32,6 +32,7 @@ namespace Unisangil.CYLTRACK.CYLTRACK_WebApp.Autenticacion
         protected void txtNombreRuta_TextChanged(object sender, EventArgs e)
         {
             DivSelCiudades.Visible = true;
+            btnRegistrar.Visible = true;
         }
     }
 }

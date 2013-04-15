@@ -104,6 +104,7 @@
                  <div id= "DivAsigRuta" class="post" runat ="server" visible="false">
                           <asp:Label ID="lblPost" runat="server" Text="Ruta Asignada"></asp:Label>
                       </div> 
+                 <div id="divDatosRuta" runat="server" visible="false">
                  <h3>
                     <asp:Label ID="lblNota" runat="server" Text="Seleccione la ruta a asignar." Visible="false"></asp:Label>
                  </h3>             
@@ -115,12 +116,12 @@
                  <asp:ListBox ID="lstRuta" runat="server" AutoPostBack="True" Rows="1" visible="false">
                             <asp:ListItem>Seleccionar</asp:ListItem>
                      </asp:ListBox>
-                    
+                  </div>  
                 </fieldset>
                 <p class="submitButton">
                 <asp:Button ID="btnLimpiar" runat="server" Text="Limpiar" Width="121px" /> 
                     &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; &nbsp; 
-                    <asp:Button ID="btnGuardar" runat="server" Text="Guardar" Width="121px" 
+                    <asp:Button ID="btnGuardar" runat="server" Text="Guardar" Width="121px" visible="false"
                         onclick="btnGuardar_Click"/> 
                     &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; &nbsp; 
                     <asp:Button ID="btnMenuPrincipal" runat="server" Text="Menu Principal" 

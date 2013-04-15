@@ -19,6 +19,7 @@ namespace Unisangil.CYLTRACK.CYLTRACK_WebApp.Account.Pedido
         protected void txtCedula_TextChanged(object sender, EventArgs e)
         {
             divInfoCliente.Visible = true;
+            btnNuevaConsulta.Visible = true;
         }
 
         protected void NumPedidoTxt_TextChanged(object sender, EventArgs e)
@@ -33,7 +34,7 @@ namespace Unisangil.CYLTRACK.CYLTRACK_WebApp.Account.Pedido
 
         protected void btnMenuPrincipal_Click(object sender, EventArgs e)
         {
-            Response.Redirect("~/Default.aspx");
+            //Response.Redirect("~/Default.aspx");
         }
     }
 }

@@ -74,14 +74,15 @@
                 </div>
                 </fieldset>
                 <p class="submitButton">
-                <asp:Button ID="BtnLimpiar" runat="server" Text="Limpiar" 
+                <asp:Button ID="BtnLimpiar" runat="server" Text="Limpiar"  Width="115px"
                         onclick="BtnLimpiar_Click"  /> 
                     &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; &nbsp; 
-                    <asp:Button ID="BtnGuardar" runat="server" Text="Guardar" 
+                    <asp:Button ID="BtnGuardar" runat="server" Text="Guardar" visible="false" Width="115px"
                         onclick="BtnGuardar_Click"  />  
                     &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; &nbsp;  
                     <asp:Button ID="BtnMenu" runat="server" Text="Menú Principal" 
                         onclick="BtnMenu_Click" />
+                        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; &nbsp;  
                </p>
             </div>
 </asp:Content>

@@ -140,12 +140,11 @@
                     </div>  
                 </fieldset>
                 <p class="submitButton">
-                <asp:Button ID="BtnNuevaConsulta" runat="server" Text="Nueva Consulta" onclick="BtnNuevaConsulta_Click" 
+                <asp:Button ID="BtnNuevaConsulta" runat="server" Text="Nueva Consulta" Visible="false" onclick="BtnNuevaConsulta_Click" 
                        /> 
                     &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; &nbsp; 
-                    <asp:Button ID="BtnMenuPrincipal" runat="server" Text="Menú Principal" 
-                        onclick="BtnMenuPrincipal_Click" />  
-                   
+                    <asp:Button ID="BtnMenuPrincipal" runat="server" Text="Menú Principal" />  
+                    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; &nbsp; &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; &nbsp; 
                </p>
             </div>
 </asp:Content>

@@ -26,10 +26,8 @@ namespace Unisangil.CYLTRACK.CYLTRACK_WebApp.Vehiculos
             DivAsigRuta.Visible = true;
             DivConductor.Visible = true;
             DivConductorAsignado.Visible = true;
-            lblRuta.Visible = true;
-            txtRuta.Visible = true;
-            txtIdVehiculo.Text = txtPlaca.Text;
-            txtPlaca.Text = "";
+            divDatosRuta.Visible = true;
+            btnGuardar.Visible = true;
 
         }
 

@@ -18,11 +18,12 @@ namespace Unisangil.CYLTRACK.CYLTRACK_WebApp.Account
         protected void txtCedula_TextChanged(object sender, EventArgs e)
         {
             //divInfoCliente.Visible = true;
+            btnNuevaConsulta.Visible = true;
         }
 
         protected void btnMenuPrincipal_Click(object sender, EventArgs e)
         {
-            Response.Redirect("~/Default.aspx");
+            //Response.Redirect("~/Default.aspx");
         }
 
         protected void btnNuevaConsulta_Click(object sender, EventArgs e)
