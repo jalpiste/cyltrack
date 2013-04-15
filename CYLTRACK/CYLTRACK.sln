@@ -16,6 +16,7 @@ Project("{E24C65DC-7377-472B-9ABA-BC803B73C61A}") = "CYLTRACK_Services", "CYLTRA
 		SccLocalPath = "Svn"
 		SccProvider = "SubversionScc"
 		TargetFrameworkMoniker = ".NETFramework,Version%3Dv4.0"
+		ProjectReferences = "{F3B7A10E-450C-42BA-B5CE-79F83EBB31BA}|CYLTRACK_WCF_Services.dll;{46D7E147-3BEC-4D66-9AE9-904256F04620}|CYLTRACK_BE.dll;{DEAFB57A-F928-48E2-B486-7E17331A62BB}|CYLTRACK_BL.dll;{E7D320EC-8D90-496F-99F1-33845B1452E0}|CYLTRACK_DL.dll;"
 		Debug.AspNetCompiler.VirtualPath = "/CYLTRACK_Services"
 		Debug.AspNetCompiler.PhysicalPath = "CYLTRACK_Services\"
 		Debug.AspNetCompiler.TargetPath = "PrecompiledWeb\CYLTRACK_Services\"
