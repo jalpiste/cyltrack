@@ -335,6 +335,12 @@
   <ItemGroup>
     <WCFMetadata Include="Service References\" />
   </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\CYLTRACK_BE\CYLTRACK_BE.csproj">
+      <Project>{46D7E147-3BEC-4D66-9AE9-904256F04620}</Project>
+      <Name>CYLTRACK_BE</Name>
+    </ProjectReference>
+  </ItemGroup>
   <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.targets" />
   <Import Project="$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v10.0\WebApplications\Microsoft.WebApplication.targets" />
   <ProjectExtensions>
