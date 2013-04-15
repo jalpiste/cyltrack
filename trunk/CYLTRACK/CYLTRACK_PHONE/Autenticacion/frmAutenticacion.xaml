@@ -27,7 +27,7 @@
                 <TextBlock x:Name="PageTitle" Text="INICIO DE SESION" Margin="9,-7,0,0" Style="{StaticResource PhoneTextExtraLargeStyle}" />
             </StackPanel>
             <Grid x:Name="ContRegistrar" Visibility="Visible" Margin="12,20,12,0" >
-                <TextBlock Height="50" HorizontalAlignment="Left" Name="lblRegistarUsuario" Text="Informacion de cuenta" VerticalAlignment="Top" Style="{StaticResource h2}" Width="373" Margin="0,0,0,0" />
+                <TextBlock Height="50" HorizontalAlignment="Left" Name="lblRegistarUsuario" Text="Informacion de cuenta " VerticalAlignment="Top" Style="{StaticResource h2}" Width="373" Margin="0,0,0,0" />
                 <TextBlock Height="30" HorizontalAlignment="Left" Name="lblNomUsuario" Text="Nombre de usuario: "  Margin="10,58,0,311"/>
                 <TextBox Height="Auto" HorizontalAlignment="Left" Name="txtNomUsuario" Text="" VerticalAlignment="Top" Width="303" Style="{StaticResource textboxSolos}" Margin="2,81,0,0" />
                 <TextBlock Height="30" HorizontalAlignment="Left" Name="lblContrasena" Text="Contraseña: "  Margin="10,155,0,214" />
