@@ -7,7 +7,7 @@
 // </generado automáticamente>
 //------------------------------------------------------------------------------
 
-namespace CYLTRACK_WebApp.Clientes {
+namespace Unisangil.CYLTRACK.CYLTRACK_WebApp.Clientes {
     
     
     public partial class frmNuevaUbicacion {
