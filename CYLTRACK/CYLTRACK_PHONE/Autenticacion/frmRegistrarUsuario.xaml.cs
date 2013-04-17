@@ -21,7 +21,7 @@ namespace Unisangil.CYLTRACK.CYLTRACK_PHONE.Autenticacion
         }
         private void btnCrearUser_Click(object sender, RoutedEventArgs e)
         {
-            MessageBox.Show("Los datos fueron enviados satisfactoriamente");
+            MessageBox.Show("Los datos fueron enviados satisfactoriamente ");
 
         }
 
