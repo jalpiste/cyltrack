@@ -54,10 +54,11 @@
                     </p> 
                     <p>
                         <asp:Label ID="lblDireccion" runat="server" Text="Dirección:  "></asp:Label>
-                        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; <asp:Label ID="lblBarrio" runat="server" Text="Barrio:" ></asp:Label>
+                        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 
+                        <asp:Label ID="lblBarrio" runat="server" Text="Barrio:" ></asp:Label>
                         <br />
                         <asp:TextBox ID="txtDireccion" runat="server" Enabled="false" CssClass="textEntry"></asp:TextBox>
-                          &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<asp:TextBox ID="txtBarrio" runat="server" CssClass="textEntry" Width="197px" Enabled="False" ></asp:TextBox>
+                          &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;<asp:TextBox ID="txtBarrio" runat="server" CssClass="textEntry" Width="197px" Enabled="False" ></asp:TextBox>
                     </p> 
                     <p><asp:Label ID="lblCiudad" runat="server" Width="685px">Ciudad:</asp:Label><br />
                     <asp:TextBox ID="txtCiudad" runat="server" CssClass="textEntry" Width="197px" Enabled="False"></asp:TextBox>
@@ -106,13 +107,11 @@
                           
                           <asp:TextBox ID="txtCantidadCilindro"  CssClass="textEntry" runat="server" enabled = "false" Width="50px" Text=""></asp:TextBox>
                           &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-                    <asp:Button ID="btnAgregar" runat="server" Text="Agregar" Width="115px" enabled = "false" 
-                         onclick="btnAgregar_Click"/>
+                    <asp:Button ID="btnAgregar" runat="server" Text="Agregar" Width="115px" enabled = "false" />
                          
                     <br />
                     <br />
-                     <asp:ListBox ID="lstAgregar" runat="server" Height="62px" Width="120px" enabled ="false" 
-                         visible ="false"></asp:ListBox>    
+                     <asp:ListBox ID="lstAgregar" runat="server" Height="62px" Width="120px" enabled ="false"></asp:ListBox>    
                       </p>
                         <p>
                       
