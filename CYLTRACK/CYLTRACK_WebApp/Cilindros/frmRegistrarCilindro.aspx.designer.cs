@@ -7,10 +7,10 @@
 // </generado automáticamente>
 //------------------------------------------------------------------------------
 
-namespace Unisangil.CYLTRACK.CYLTRACK_WebApp.Account {
+namespace Unisangil.CYLTRACK.CYLTRACK_WebApp.Cilindros {
     
     
-    public partial class frmcrearcil {
+    public partial class frmRegistrarCilindro {
         
         /// <summary>
         /// Control FailureText.

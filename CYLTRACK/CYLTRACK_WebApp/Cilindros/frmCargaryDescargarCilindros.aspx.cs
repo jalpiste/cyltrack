@@ -5,46 +5,33 @@ using System.Web;
 using System.Web.UI;
 using System.Web.UI.WebControls;
 
-namespace Unisangil.CYLTRACK.CYLTRACK_WebApp.Reportes
+namespace CYLTRACK_WebApp.Cilindros
 {
-    public partial class frmHistoricoCilindro : System.Web.UI.Page
+    public partial class frmCargaryDescargarCilindros : System.Web.UI.Page
     {
         protected void Page_Load(object sender, EventArgs e)
         {
-
             prueba[] pps = new prueba[2];
+
             prueba pp = new prueba();
-            pp.Prueba1 = "Hola";
+            pp.Codigo_Cilindro = "09987";
             pp.Prueba2 = "Tooo";
             prueba pp1 = new prueba();
-            pp1.Prueba1 = "Hola 1";
+            pp1.Codigo_Cilindro = "675675";
             pp1.Prueba2 = "Tooo 1";
 
             pps[0] = pp;
             pps[1] = pp1;
             gvReporte.DataSource = pps;
             gvReporte.DataBind();
+                        
         }
-
-
-        protected void btnMenu_Click(object sender, EventArgs e)
-        {
-            //Response.Redirect("~/Default.aspx");
-        }
-
-        protected void txtCodigoCil_TextChanged(object sender, EventArgs e)
-        {
-            DivHistoricoCilindro.Visible = true;
-            btnImp.Visible = true;
-        }
-
-
 
         public class prueba
         {
             private string prueba1;
 
-            public string Prueba1
+            public string Codigo_Cilindro
             {
                 get { return prueba1; }
                 set { prueba1 = value; }
@@ -56,8 +43,35 @@ namespace Unisangil.CYLTRACK.CYLTRACK_WebApp.Reportes
                 get { return prueba2; }
                 set { prueba2 = value; }
             }
+
+          
         }
 
+       
+        protected void BtnGuardar_Click(object sender, EventArgs e)
+        {
 
+        }
+
+        protected void lstOpcion_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            DivUbicacionCil.Visible = true;
+                                        
+        }
+
+        protected void gvReporte_SelectedIndexChanged(object sender, EventArgs e)
+        {
+             if (gvReporte.SelectedDataKey["Checking"].ToString() == "True")
+            {
+                
+            }
+            else 
+            {
+                gvReporte.DataBind();
+            }
+
+        }
+
+                       
     }
 }

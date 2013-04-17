@@ -53,6 +53,7 @@
   <ItemGroup>
     <Content Include="About.aspx" />
     <Content Include="Autenticacion\frmAutenticacion.aspx" />
+    <Content Include="Cilindros\frmCargaryDescargarCilindros.aspx" />
     <Content Include="frmRecuperarContrasena.aspx" />
     <Content Include="Imagenes\banner_01.png" />
     <Content Include="nada.html" />
@@ -87,6 +88,7 @@
     <Content Include="Ventas\frmCasosEspeciales.aspx" />
     <Content Include="Ventas\frmConsultarVenta.aspx" />
     <Content Include="Ventas\frmDevolucionCilindro.aspx" />
+    <Content Include="Ventas\frmRevisionCasosEspeciales.aspx" />
     <Content Include="Ventas\frmVentaCilindro.aspx" />
     <Content Include="Web.config" />
     <Content Include="Web.Debug.config">
@@ -110,6 +112,13 @@
     </Compile>
     <Compile Include="Autenticacion\frmAutenticacion.aspx.designer.cs">
       <DependentUpon>frmAutenticacion.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Cilindros\frmCargaryDescargarCilindros.aspx.cs">
+      <DependentUpon>frmCargaryDescargarCilindros.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Cilindros\frmCargaryDescargarCilindros.aspx.designer.cs">
+      <DependentUpon>frmCargaryDescargarCilindros.aspx</DependentUpon>
     </Compile>
     <Compile Include="frmRecuperarContrasena.aspx.cs">
       <DependentUpon>frmRecuperarContrasena.aspx</DependentUpon>
@@ -311,6 +320,13 @@
     </Compile>
     <Compile Include="Ventas\frmDevolucionCilindro.aspx.designer.cs">
       <DependentUpon>frmDevolucionCilindro.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Ventas\frmRevisionCasosEspeciales.aspx.cs">
+      <DependentUpon>frmRevisionCasosEspeciales.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Ventas\frmRevisionCasosEspeciales.aspx.designer.cs">
+      <DependentUpon>frmRevisionCasosEspeciales.aspx</DependentUpon>
     </Compile>
     <Compile Include="Ventas\frmVentaCilindro.aspx.cs">
       <DependentUpon>frmVentaCilindro.aspx</DependentUpon>

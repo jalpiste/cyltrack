@@ -9,8 +9,8 @@
     <siteMapNode title="Cilindros"    description="Todo sobre Cilindros"  >
       <siteMapNode title="Registrar Cilindro"     description="Crear Cilindro en el sistema"   text ="solo miembros" Value="solo miembros"  url="~/Cilindros/frmRegistrarCilindro.aspx" />
       <siteMapNode title="Consultar Cilindro"          description="Consultar datos del cilindro en el sistema"  text ="solo miembros" Value="solo miembros"  url="~/Cilindros/frmConsultarCilindro.aspx" />
-      <!--<siteMapNode title="Modificar Cilindro"          description="Modificar datos del cilindro en el sistema"  text ="solo miembros" Value="solo miembros"  url="~/Cilindros/frmmodificarcil.aspx" />-->
       <siteMapNode title="Asignar Ubicación"          description="Asignarle una ubicacion del cilindro dentro de la planta"  text ="solo miembros" Value="solo miembros" url="~/Cilindros/frmAsignarUbicacion.aspx" />
+      <siteMapNode title="Cargue o Descague de Cilindros"          description="Cargar o descargar cilindros en el sistema"  text ="solo miembros" Value="solo miembros"  url="~/Cilindros/frmCargaryDescargarCilindros.aspx" />
     </siteMapNode>
     <siteMapNode title="Clientes"    description="Todo sobre Clientes"  >
       <siteMapNode title="Registrar Cliente"     description="Crear cliente en el sistema"   text ="solo miembros" Value="solo miembros" url="~/Clientes/frmRegistrarcliente.aspx" />
@@ -25,9 +25,10 @@
     </siteMapNode>
     <siteMapNode title="Ventas"    description="Todo sobre Ventas"  >
       <siteMapNode title="Venta de Cilindro"     description="Registrar la venta de cilindros en el sistema"   text ="solo miembros" Value="solo miembros" url="~/Ventas/frmVentaCilindro.aspx" />
-      <siteMapNode title="Devolución de Cilindro"     description="Registrar la devolución del cilindro en el sistema"   text ="solo miembros" Value="solo miembros" url="~/Ventas/frmDevolucionCilindro.aspx" />
       <siteMapNode title="Consultar Venta"     description="Consulta la venta de cilindros en el sistema"   text ="solo miembros" Value="solo miembros" url="~/Ventas/frmConsultarVenta.aspx" />
-      </siteMapNode>
+      <siteMapNode title="Casos Especiales"     description="Registro de escapes, errores en la entrega y terminacion contrato de cilindros en el sistema"   text ="solo miembros" Value="solo miembros" url="~/Ventas/frmCasosEspeciales.aspx" />
+      <siteMapNode title="Revisión Casos Especiales"     description="Aprobación de Casos Especiales en el sistema"   text ="solo miembros" Value="solo miembros" url="~/Ventas/frmRevisionCasosEspeciales.aspx" />
+    </siteMapNode>
     <siteMapNode title="Vehículos"    description="Todo sobre Vehiculos"  >
       <siteMapNode title="Registrar Vehículo"     description="Registrar datos de vehiculos en el sistema"   text ="solo miembros" Value="solo miembros" url="~/Vehiculos/frmRegistrarVehiculo.aspx" />
       <siteMapNode title="Modificar Vehículo"     description="Registrar la modificacion del vehiculo en el sistema"   text ="solo miembros" Value="solo miembros" url="~/Vehiculos/frmModificarVehiculo.aspx" />

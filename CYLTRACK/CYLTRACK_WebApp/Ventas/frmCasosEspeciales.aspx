@@ -7,7 +7,11 @@
     </h1>
      <div class="accountInfo">
   <fieldset class="login" style="width: 777px">
-                <legend>Consulta de Venta</legend>
+                <legend>Casos Especiales</legend>
+                <h3>
+                Digite el número de cédula del cliente
+                </h3>
+                <br />
                     <asp:Label ID="lblCedulaCliente" runat="server" Text="Cédula cliente:"></asp:Label>
                         <br />
                     <asp:TextBox ID="txtCedulaCliente" runat="server" CssClass="textEntry" 
@@ -74,34 +78,49 @@
                 <br />
                 <asp:TextBox ID="txtObservacion" runat="server" Height="77px" Width="306px" enabled ="false" CssClass="textEntry"></asp:TextBox>
                 <br /><br />
-                 <div class="post">Vendedor</div>  
-             <asp:Label ID="lblNombreConductor" runat="server" Text="Nombre: "></asp:Label><br />
-             <asp:TextBox ID="txtNombreConductor" CssClass="textEntry" Width="197px" runat="server" enabled ="false"></asp:TextBox>
-             <br /><br />
-             <asp:Label ID="lblApellidoConductor" runat="server" Text="Primer Apellido: "></asp:Label>
-             &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; &nbsp;
-             <asp:Label ID="lblSegundoApellidoConductor" runat="server" Text="Segundo Apellido: "></asp:Label><br />
-             <asp:TextBox ID="txtApellidoConductor" CssClass="textEntry" Width="197px" runat="server" enabled ="false"></asp:TextBox>
-                &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-             <asp:TextBox ID="txtSegundoApellidoConductor" CssClass="textEntry" Width="197px" runat="server" enabled ="false"></asp:TextBox>
-             <br /><br />
-             <asp:Label ID="lblPlaca" runat="server" Text="Placa Vehículo: "></asp:Label>
-             &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; &nbsp;
-             <asp:Label ID="lblRuta" runat="server" Text="Ruta: "></asp:Label><br />
-             <asp:TextBox ID="txtPlaca" CssClass="textEntry" Width="127px" runat="server" enabled ="false"></asp:TextBox>
-             &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;
-             <asp:TextBox ID="txtRuta" CssClass="textEntry" Width="127px" runat="server" enabled ="false"></asp:TextBox>
-          
-           </div> 
-  
-        </fieldset>
+                 </div>
+                <div id="divVerifInfo" runat="server" visible="false">
+                 <div class="post">Verificación de Información</div>  
+               <h3>Seleccione la opcion correspondiente a su caso: </h3>
+                    <asp:ListBox ID="lstCaso" runat="server" Rows="1" AutoPostBack="True"
+                        onselectedindexchanged="lstCaso_SelectedIndexChanged">
+                        <asp:ListItem>Seleccionar...</asp:ListItem>
+                        <asp:ListItem>Escape de Cilindro</asp:ListItem>
+                        <asp:ListItem>Terminación del Contrato </asp:ListItem>
+                        <asp:ListItem>Error en el Código del Cilindro Entregado por el Cliente</asp:ListItem>
+                    </asp:ListBox>
+
+                    <div id="divEscape" runat="server" visible="false">
+             <br />
+             <p>
+                 <asp:Label ID="lblEscape" runat="server" Text="Seleccione el código del cilindro a entregar:"></asp:Label> 
+                 <br />
+                 <asp:ListBox ID="lstCilEntrega" runat="server" Rows="1">
+                     <asp:ListItem>889898776</asp:ListItem>
+                     <asp:ListItem>998987655</asp:ListItem>
+                 </asp:ListBox>
+           </p>
+           </div>
+           <div id="divCodCorrecto" runat="server" visible="false">
+             <br />
+             <p>
+                 <asp:Label ID="lblCodigoVerific" runat="server" Text="Digite el código del cilindro correcto:"></asp:Label> 
+                 <br />
+                 <asp:TextBox ID="txtCodigoVerific" runat="server" CssClass="textEntry"></asp:TextBox>
+           </p>
+           </div>
+             </div>
+
+           
+            
+          </fieldset>
         </div>
                 <p class="submitButton">
-                    <asp:Button ID="btnEnviarDatos" runat="server" Text="Enviar" Width="115px" 
-                        onclick="btnEnviarDatos_Click"/>  
+                    <asp:Button ID="btnGuardar" runat="server" Text="Guardar" Width="115px" visible="false"
+                        />  
                     &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; &nbsp;  
-                    <asp:Button ID="btnMenu" runat="server" Text="Menú" Width="115px" 
-                        onclick="btnMenu_Click" />
+                    <asp:Button ID="btnMenu" runat="server" Text="Menú Principal" Width="115px" 
+                         />
                </p>
            
 </asp:Content>

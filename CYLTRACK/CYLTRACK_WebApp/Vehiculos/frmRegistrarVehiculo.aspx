@@ -119,7 +119,7 @@
                     <br />
                      <asp:Label ID="lblRuta" runat="server" Text="Ruta: "></asp:Label>
                      <br />
-                        <asp:ListBox ID="lstRuta" runat="server" AutoPostBack="True" Rows="1" >
+                        <asp:ListBox ID="lstRuta" runat="server" AutoPostBack="True" Rows="1"  >
                             <asp:ListItem>Seleccionar</asp:ListItem>
                      </asp:ListBox>
                  </div>

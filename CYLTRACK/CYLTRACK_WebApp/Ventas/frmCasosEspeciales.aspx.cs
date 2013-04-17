@@ -16,22 +16,34 @@ namespace Unisangil.CYLTRACK.CYLTRACK_WebApp.Ventas
 
         protected void btnMenu_Click(object sender, EventArgs e)
         {
-            Response.Redirect("~/Default.aspx");
+            //Response.Redirect("~/Default.aspx");
         }
 
         protected void txtCedulaCliente_TextChanged(object sender, EventArgs e)
         {
             DivInfoVenta.Visible = true;
-
+            divVerifInfo.Visible = true;
+            btnGuardar.Visible = true;
         }
 
-        protected void btnEnviarDatos_Click(object sender, EventArgs e)
+        protected void btnGuardar_Click(object sender, EventArgs e)
         {
             //Response.Write("<script type='text/javascript'> alert('Sus datos fueron enviados satisfactoriamente') </script>");
         }
 
+        protected void lstCaso_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            if (lstCaso.SelectedIndex == 1) 
+            {
+                divEscape.Visible = true;
+            }
+            if (lstCaso.SelectedIndex == 3) 
+            {
+                divCodCorrecto.Visible = true;
+            }
+        }
 
-
-
+                      
+      
     }
 }

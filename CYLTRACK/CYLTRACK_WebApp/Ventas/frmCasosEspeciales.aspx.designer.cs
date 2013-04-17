@@ -301,103 +301,85 @@ namespace Unisangil.CYLTRACK.CYLTRACK_WebApp.Ventas {
         protected global::System.Web.UI.WebControls.TextBox txtObservacion;
         
         /// <summary>
-        /// Control lblNombreConductor.
+        /// Control divVerifInfo.
         /// </summary>
         /// <remarks>
         /// Campo generado automáticamente.
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Label lblNombreConductor;
+        protected global::System.Web.UI.HtmlControls.HtmlGenericControl divVerifInfo;
         
         /// <summary>
-        /// Control txtNombreConductor.
+        /// Control lstCaso.
         /// </summary>
         /// <remarks>
         /// Campo generado automáticamente.
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox txtNombreConductor;
+        protected global::System.Web.UI.WebControls.ListBox lstCaso;
         
         /// <summary>
-        /// Control lblApellidoConductor.
+        /// Control divEscape.
         /// </summary>
         /// <remarks>
         /// Campo generado automáticamente.
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Label lblApellidoConductor;
+        protected global::System.Web.UI.HtmlControls.HtmlGenericControl divEscape;
         
         /// <summary>
-        /// Control lblSegundoApellidoConductor.
+        /// Control lblEscape.
         /// </summary>
         /// <remarks>
         /// Campo generado automáticamente.
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Label lblSegundoApellidoConductor;
+        protected global::System.Web.UI.WebControls.Label lblEscape;
         
         /// <summary>
-        /// Control txtApellidoConductor.
+        /// Control lstCilEntrega.
         /// </summary>
         /// <remarks>
         /// Campo generado automáticamente.
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox txtApellidoConductor;
+        protected global::System.Web.UI.WebControls.ListBox lstCilEntrega;
         
         /// <summary>
-        /// Control txtSegundoApellidoConductor.
+        /// Control divCodCorrecto.
         /// </summary>
         /// <remarks>
         /// Campo generado automáticamente.
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox txtSegundoApellidoConductor;
+        protected global::System.Web.UI.HtmlControls.HtmlGenericControl divCodCorrecto;
         
         /// <summary>
-        /// Control lblPlaca.
+        /// Control lblCodigoVerific.
         /// </summary>
         /// <remarks>
         /// Campo generado automáticamente.
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Label lblPlaca;
+        protected global::System.Web.UI.WebControls.Label lblCodigoVerific;
         
         /// <summary>
-        /// Control lblRuta.
+        /// Control txtCodigoVerific.
         /// </summary>
         /// <remarks>
         /// Campo generado automáticamente.
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Label lblRuta;
+        protected global::System.Web.UI.WebControls.TextBox txtCodigoVerific;
         
         /// <summary>
-        /// Control txtPlaca.
+        /// Control btnGuardar.
         /// </summary>
         /// <remarks>
         /// Campo generado automáticamente.
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox txtPlaca;
-        
-        /// <summary>
-        /// Control txtRuta.
-        /// </summary>
-        /// <remarks>
-        /// Campo generado automáticamente.
-        /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox txtRuta;
-        
-        /// <summary>
-        /// Control btnEnviarDatos.
-        /// </summary>
-        /// <remarks>
-        /// Campo generado automáticamente.
-        /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.Button btnEnviarDatos;
+        protected global::System.Web.UI.WebControls.Button btnGuardar;
         
         /// <summary>
         /// Control btnMenu.

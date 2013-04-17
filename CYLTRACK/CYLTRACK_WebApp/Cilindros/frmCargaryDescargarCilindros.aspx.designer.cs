@@ -7,10 +7,10 @@
 // </generado automáticamente>
 //------------------------------------------------------------------------------
 
-namespace Unisangil.CYLTRACK.CYLTRACK_WebApp.Cilindros {
+namespace CYLTRACK_WebApp.Cilindros {
     
     
-    public partial class frmAsignarUbicacion {
+    public partial class frmCargaryDescargarCilindros {
         
         /// <summary>
         /// Control FailureText.
@@ -31,13 +31,22 @@ namespace Unisangil.CYLTRACK.CYLTRACK_WebApp.Cilindros {
         protected global::System.Web.UI.WebControls.ValidationSummary LoginValidationSummary;
         
         /// <summary>
-        /// Control DivSeleccion.
+        /// Control DivCodigo.
         /// </summary>
         /// <remarks>
         /// Campo generado automáticamente.
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
-        protected global::System.Web.UI.HtmlControls.HtmlGenericControl DivSeleccion;
+        protected global::System.Web.UI.HtmlControls.HtmlGenericControl DivCodigo;
+        
+        /// <summary>
+        /// Control lstOpcion.
+        /// </summary>
+        /// <remarks>
+        /// Campo generado automáticamente.
+        /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.ListBox lstOpcion;
         
         /// <summary>
         /// Control DivUbicacionCil.
@@ -58,51 +67,6 @@ namespace Unisangil.CYLTRACK.CYLTRACK_WebApp.Cilindros {
         protected global::System.Web.UI.WebControls.Label lblPost;
         
         /// <summary>
-        /// Control lblUbicacionActual.
-        /// </summary>
-        /// <remarks>
-        /// Campo generado automáticamente.
-        /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.Label lblUbicacionActual;
-        
-        /// <summary>
-        /// Control txtUbicacionActual.
-        /// </summary>
-        /// <remarks>
-        /// Campo generado automáticamente.
-        /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox txtUbicacionActual;
-        
-        /// <summary>
-        /// Control DivNuevaUbicacion.
-        /// </summary>
-        /// <remarks>
-        /// Campo generado automáticamente.
-        /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
-        /// </remarks>
-        protected global::System.Web.UI.HtmlControls.HtmlGenericControl DivNuevaUbicacion;
-        
-        /// <summary>
-        /// Control lblUbicacion.
-        /// </summary>
-        /// <remarks>
-        /// Campo generado automáticamente.
-        /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.Label lblUbicacion;
-        
-        /// <summary>
-        /// Control lstUbica.
-        /// </summary>
-        /// <remarks>
-        /// Campo generado automáticamente.
-        /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.ListBox lstUbica;
-        
-        /// <summary>
         /// Control lblPlaca.
         /// </summary>
         /// <remarks>
@@ -112,49 +76,22 @@ namespace Unisangil.CYLTRACK.CYLTRACK_WebApp.Cilindros {
         protected global::System.Web.UI.WebControls.Label lblPlaca;
         
         /// <summary>
-        /// Control lstPlacaVehiculo.
+        /// Control lstPlaca.
         /// </summary>
         /// <remarks>
         /// Campo generado automáticamente.
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.ListBox lstPlacaVehiculo;
+        protected global::System.Web.UI.WebControls.ListBox lstPlaca;
         
         /// <summary>
-        /// Control LblConductor.
+        /// Control gvReporte.
         /// </summary>
         /// <remarks>
         /// Campo generado automáticamente.
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Label LblConductor;
-        
-        /// <summary>
-        /// Control TxtConductor.
-        /// </summary>
-        /// <remarks>
-        /// Campo generado automáticamente.
-        /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox TxtConductor;
-        
-        /// <summary>
-        /// Control LblRuta.
-        /// </summary>
-        /// <remarks>
-        /// Campo generado automáticamente.
-        /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.Label LblRuta;
-        
-        /// <summary>
-        /// Control LblRutaVehiculo.
-        /// </summary>
-        /// <remarks>
-        /// Campo generado automáticamente.
-        /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.Label LblRutaVehiculo;
+        protected global::System.Web.UI.WebControls.GridView gvReporte;
         
         /// <summary>
         /// Control BtnGuardar.
