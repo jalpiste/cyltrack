@@ -7,10 +7,10 @@
 // </generado automáticamente>
 //------------------------------------------------------------------------------
 
-namespace CYLTRACK_WebApp.Account.Clientes {
+namespace CYLTRACK_WebApp.Clientes {
     
     
-    public partial class frmConsultaClientes2 {
+    public partial class frmNuevaUbicacion {
         
         /// <summary>
         /// Control lblNuevaDireccion.
