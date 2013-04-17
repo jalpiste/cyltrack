@@ -81,7 +81,7 @@
                 </fieldset>
                 <p class="submitButton">
                 <asp:Button ID="btnNuevaConsulta" runat="server" Text="Nueva Consulta" visible="false"
-                        onclick="btnNuevaConsulta_Click" /> 
+                         /> 
                     &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; &nbsp; 
                     <asp:Button ID="btnMenuPrincipal" runat="server" Text="Menu Principal" 
                          />  

@@ -5,10 +5,10 @@ using System.Web;
 using System.Web.UI;
 using System.Web.UI.WebControls;
 
-namespace Unisangil.CYLTRACK.CYLTRACK_WebApp
+namespace Unisangil.CYLTRACK.CYLTRACK_WebApp.Cilindros
 {
 
-    public partial class AsignarUbicacion : System.Web.UI.Page
+    public partial class frmAsignarUbicacion : System.Web.UI.Page
     {
         protected void Page_Load(object sender, EventArgs e)
         {

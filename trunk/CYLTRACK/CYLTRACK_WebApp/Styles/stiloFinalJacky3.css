@@ -25,7 +25,7 @@ a:hover
 
 a:active
 {
-    color:  #BA2121;
+    color:  #AC3332;
 }
 
 p
@@ -140,7 +140,7 @@ first child of the left and right table columns */
   position: relative;/*Establece el posicionamiento utilizado para mostrar un elemento*/
     margin: 0px;/*Establece la anchura de los márgenes de los elementos*/
     padding: 0px;/*Establece la anchura de las zonas de relleno de los elementos*/
-    background: #BA2121;/* color parte de arriba*/
+    background: #AC3332;/* color parte de arriba*/
     width: 100%;/*Establece la anchura de los elementos de bloque*/
     top: 0px;/*Establece el desplazamiento superior de un elemento posicionado*/
     left: 0px;/*Establece el desplazamiento izquierdo de un elemento posicionado*/
@@ -215,7 +215,7 @@ div.menu ul li a, div.menu ul li a:visited
 div.menu ul li a:hover
 {
     background-color: #E8E5E5; /* color cuando pasa por encima de los cuadritos*/
-    color: #BA2121; /* no se*/
+    color: #AC3332; /* no se*/
     text-decoration: none;
 }
 
@@ -233,7 +233,7 @@ fieldset
 {
     margin: 1em 0px;
     padding: 1em;
-    border: 1px solid #BA2121;
+    border: 1px solid #AC3332;
     width: 100%;
 }
 
@@ -262,12 +262,12 @@ legend
 
 input.textEntry 
 {
-    border: 1px solid #BA2121; /* linea usuario*/
+    border: 1px solid #AC3332; /* linea usuario*/
 }
 
 input.passwordEntry 
 {
-    border: 1px solid #BA2121; /* linea contraseña*/
+    border: 1px solid #AC3332; /* linea contraseña*/
 }
 
 div.accountInfo
@@ -342,7 +342,7 @@ div.accountInfo
 	font-size: 16px;
 	font-weight:  600;
 	color:White;
-	background-color:#BA2121;
+	background-color:#AC3332;
 	width:100%;
     text-indent:9px;
     height: 23px;

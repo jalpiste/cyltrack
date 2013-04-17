@@ -7,7 +7,7 @@
 // </generado automáticamente>
 //------------------------------------------------------------------------------
 
-namespace Unisangil.CYLTRACK.CYLTRACK_WebApp.Reporte {
+namespace Unisangil.CYLTRACK.CYLTRACK_WebApp.Reportes {
     
     
     public partial class frmHistoricoCilindro {

@@ -37,7 +37,8 @@
                     <asp:ListItem>Seleccionar</asp:ListItem>
                     </asp:ListBox>
                      &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-                    <asp:ListBox ID="lstCiudad" runat="server" AutoPostBack="True" Rows="1" Width="170px"> 
+                    <asp:ListBox ID="lstCiudad" runat="server" AutoPostBack="True" Rows="1" 
+                            Width="170px" > 
                     <asp:ListItem>Seleccionar</asp:ListItem>
                     <asp:ListItem>Cali</asp:ListItem>
                     <asp:ListItem>Chiquinquirá</asp:ListItem>
