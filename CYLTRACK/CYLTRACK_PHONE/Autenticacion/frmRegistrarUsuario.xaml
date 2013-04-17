@@ -36,7 +36,7 @@
                 <TextBox Height="Auto" HorizontalAlignment="Left" Name="txtConfContrasena" Text="" VerticalAlignment="Top" Width="303" Style="{StaticResource textboxSolos}" Margin="0,269,0,0" />
                 <TextBox Height="Auto" HorizontalAlignment="Left" Name="txtCorreo" VerticalAlignment="Top" Width="303" Style="{StaticResource textboxSolos}" Margin="2,366,0,0" />
                 <TextBlock Height="30" Name="lblCorreo" Text="Correo Electrónico: " Margin="10,195,0,0" />
-                <Button Content="Atrás " Height="72" HorizontalAlignment="Left" Margin="5,450,0,0" Name="btnAtras" VerticalAlignment="Top" Width="209" Click="btnAtras_Click" />
+                <Button Content=" Atrás " Height="72" HorizontalAlignment="Left" Margin="5,450,0,0" Name="btnAtras" VerticalAlignment="Top" Width="209" Click="btnAtras_Click" />
                 <Button Content="Continuar " Height="72" HorizontalAlignment="Left" Margin="208,450,0,0" Name="btnContinuar" VerticalAlignment="Top" Width="229" Click="btnContinuar_Click" />
             </Grid>
 
