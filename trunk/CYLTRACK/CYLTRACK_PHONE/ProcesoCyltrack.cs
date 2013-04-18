@@ -9,7 +9,7 @@ using System.Windows.Media;
 using System.Windows.Media.Animation;
 using System.Windows.Shapes;
 
-namespace Unisangil.CYLTRACK.Cyltrack_phone
+namespace CYLTRACK_PHONE
 {
     /// <summary>
     /// Clase utilizada para identificar los links de acceso en el menu principal 

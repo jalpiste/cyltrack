@@ -13,7 +13,7 @@ using System.Windows.Shapes;
 using Microsoft.Phone.Controls;
 using Microsoft.Phone.Shell;
 
-namespace Unisangil.CYLTRACK.Cyltrack_phone
+namespace CYLTRACK_PHONE
 {
     public partial class App : Application
     {
