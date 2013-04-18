@@ -31,7 +31,7 @@ Project("{E24C65DC-7377-472B-9ABA-BC803B73C61A}") = "CYLTRACK_Services", "CYLTRA
 		Release.AspNetCompiler.ForceOverwrite = "true"
 		Release.AspNetCompiler.FixedNames = "false"
 		Release.AspNetCompiler.Debug = "False"
-		VWDPort = "4963"
+		VWDPort = "51651"
 		DefaultWebSiteLanguage = "Visual C#"
 	EndProjectSection
 	ProjectSection(SvnOrigin) = preProject
@@ -47,7 +47,7 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "AppTest", "CYLTRACK_Test\Ap
 		{AD98270E-AF3B-4DEE-BDC9-6E41FA303508} = {AD98270E-AF3B-4DEE-BDC9-6E41FA303508}
 	EndProjectSection
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CYLTRACK_APPPHONE", "CYLTRACK_PHONE\CYLTRACK_APPPHONE.csproj", "{56CF2EC4-B32A-41A0-A78A-812279376579}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CYLTRACK_APPPHONE", "..\..\Users\JACKY\Desktop\movil viviana\CYLTRACK_PHONE\CYLTRACK_APPPHONE.csproj", "{56CF2EC4-B32A-41A0-A78A-812279376579}"
 EndProject
 Global
 	GlobalSection(SubversionScc) = preSolution
