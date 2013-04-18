@@ -1,5 +1,5 @@
 ﻿<phone:PhoneApplicationPage 
-    x:Class="CYLTRACK_PHONE.MainPage"
+    x:Class="Cyltrack_phone.MainPage"
     xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
     xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
     xmlns:phone="clr-namespace:Microsoft.Phone.Controls;assembly=Microsoft.Phone"
@@ -24,8 +24,7 @@
         <StackPanel x:Name="nuevo" Margin="12,17,0,28"  Style="{StaticResource fondo}">
             <StackPanel Name="barra" Width="467"  Style= "{StaticResource encabezado}">
                 <Grid Height="85" Name="grid1" Margin="12,12,0,656">
-                    <TextBlock Height="50" Name="textBlock1" Text="CYLTRACK" Style="{StaticResource h1}" Margin="0,34,0,1" />
-                    <HyperlinkButton Content="[ Iniciar Sesión ]" Height="30" HorizontalAlignment="Right" Margin="0,4,-7,0" Name="hprInicioSesion" VerticalAlignment="Top" Width="200" Click="hprInicioSesion_Click" />
+                    <TextBlock Height="50" Name="textBlock1" Text="CYLTRACK" Style="{StaticResource h1}" Grid.ColumnSpan="2" Margin="0,25" />
                 </Grid>
             </StackPanel>
      

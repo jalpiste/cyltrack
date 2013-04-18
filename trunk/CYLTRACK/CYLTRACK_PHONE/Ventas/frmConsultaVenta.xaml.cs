@@ -11,7 +11,7 @@ using System.Windows.Media.Animation;
 using System.Windows.Shapes;
 using Microsoft.Phone.Controls;
 
-namespace CYLTRACK_PHONE.Ventas
+namespace Cyltrack_phone.Ventas
 {
     public partial class frmConsultaVenta : PhoneApplicationPage
     {
@@ -56,50 +56,13 @@ namespace CYLTRACK_PHONE.Ventas
         }
 
         
-        private void hplDevCil_Click(object sender, RoutedEventArgs e)
-        {
-            ContentCilindro.Visibility = System.Windows.Visibility.Collapsed;
-            ContentCambioCil.Visibility = System.Windows.Visibility.Visible;
-            ContentObserv.Visibility = System.Windows.Visibility.Visible;
-            PageTitle.Text = "MODIFICAR VENTA";
-        }
-
         
-
-        private void btnGuardar_Click(object sender, RoutedEventArgs e)
-        {
-            MessageBox.Show("Los datos fueron enviados satisfactoriamente");
-            grdDevCil.Visibility = System.Windows.Visibility.Collapsed;
-            ContentCambioCil.Visibility = System.Windows.Visibility.Collapsed;
-            ContentObserv.Visibility = System.Windows.Visibility.Collapsed;
-            ContentBusq.Visibility = System.Windows.Visibility.Visible;
-
-
-        }
-
-        private void btnAtrasDev_Click(object sender, RoutedEventArgs e)
-        {
-            ContentCambioCil.Visibility = System.Windows.Visibility.Collapsed;
-            ContentObserv.Visibility = System.Windows.Visibility.Collapsed;
-            ContentCilindro.Visibility = System.Windows.Visibility.Visible;
-            PageTitle.Text = "CONSULTAR VENTA";
-            btnMenu.Visibility = System.Windows.Visibility.Visible;
-            btnNvConsulta.Visibility = System.Windows.Visibility.Visible;
-        }
-
-        private void lstDevolucion_SelectionChanged(object sender, SelectionChangedEventArgs e)
-        {
-            if (lstDevolucion.SelectedIndex == 1) 
-            {
-                ContentCambioCil.Visibility = System.Windows.Visibility.Visible;
-                
-            }
-        }
-
         private void btnMenuPrincipal_Click(object sender, RoutedEventArgs e)
         {
             NavigationService.Navigate(new Uri("/MainPage.xaml", UriKind.Relative));
         }
+
+        
 
     }
 }

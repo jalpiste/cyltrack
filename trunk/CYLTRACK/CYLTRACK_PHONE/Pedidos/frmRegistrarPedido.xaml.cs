@@ -11,7 +11,7 @@ using System.Windows.Media.Animation;
 using System.Windows.Shapes;
 using Microsoft.Phone.Controls;
 
-namespace CYLTRACK_PHONE.Pedidos
+namespace Cyltrack_phone.Pedidos
 {
     public partial class frmRegistrarPedido : PhoneApplicationPage
     {
@@ -20,7 +20,7 @@ namespace CYLTRACK_PHONE.Pedidos
             InitializeComponent();
         }
 
-        private void btnBuscar_Click(object sender, RoutedEventArgs e)
+        private void btnRegistrar_Click(object sender, RoutedEventArgs e)
         {
             ContentBusq.Visibility = System.Windows.Visibility.Collapsed;
             ContentRegistrar.Visibility = System.Windows.Visibility.Visible;
@@ -34,7 +34,7 @@ namespace CYLTRACK_PHONE.Pedidos
      
         private void btnGuardar_Click(object sender, RoutedEventArgs e)
         {
-            MessageBox.Show("Los datos fueron guardados satisfactoriamente");
+            MessageBox.Show("Sus datos fueron enviados satisfactoriamente");
             ContentRegistrar.Visibility = System.Windows.Visibility.Collapsed;
             ContentBusq.Visibility = System.Windows.Visibility.Visible;
         }   
