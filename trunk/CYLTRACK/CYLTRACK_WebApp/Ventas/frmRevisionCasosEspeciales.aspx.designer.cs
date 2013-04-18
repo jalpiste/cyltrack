@@ -7,7 +7,7 @@
 // </generado automáticamente>
 //------------------------------------------------------------------------------
 
-namespace CYLTRACK_WebApp.Ventas {
+namespace Unisangil.CYLTRACK.CYLTRACK_WebApp.Ventas {
     
     
     public partial class frmRevisionCasosEspeciales {

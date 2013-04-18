@@ -1,4 +1,4 @@
-﻿<%@ Page Title="" Language="C#" MasterPageFile="~/Site.Master" AutoEventWireup="true" CodeBehind="frmRevisionCasosEspeciales.aspx.cs" Inherits="CYLTRACK_WebApp.Ventas.frmRevisionCasosEspeciales" %>
+﻿<%@ Page Title="" Language="C#" MasterPageFile="~/Site.Master" AutoEventWireup="true" CodeBehind="frmRevisionCasosEspeciales.aspx.cs" Inherits="Unisangil.CYLTRACK.CYLTRACK_WebApp.Ventas.frmRevisionCasosEspeciales" %>
 <asp:Content ID="Content1" ContentPlaceHolderID="HeadContent" runat="server">
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="MainContent" runat="server">
@@ -22,7 +22,19 @@
                            <br />
                            <br />
        <asp:GridView ID="gvReporte" runat="server" Visible="false" CellPadding="4" ForeColor="#333333" 
-        GridLines="None">
+        GridLines="None" AutoGenerateColumns="false">
+        <Columns>
+     <asp:TemplateField HeaderText="ID Caso"  />
+        </Columns>
+        <Columns>
+        <asp:ButtonField ButtonType="Link" Text="Escape" HeaderText="Tipo de Caso"/>
+        </Columns>
+        <Columns>
+        <asp:ButtonField ButtonType="Button" HeaderText="Aprobación" Text="Aprobar"/>
+        </Columns>
+        <Columns>
+        <asp:ButtonField ButtonType="Button" HeaderText="Rechazado" Text="Rechazado" />
+        </Columns>
         <AlternatingRowStyle BackColor="White" />
         <EditRowStyle BackColor="#7C6F57" />
         <FooterStyle BackColor="#1C5E55" Font-Bold="True" ForeColor="White" />
