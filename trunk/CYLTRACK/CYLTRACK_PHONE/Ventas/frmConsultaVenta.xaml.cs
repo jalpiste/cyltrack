@@ -84,9 +84,7 @@ namespace Unisangil.CYLTRACK.Cyltrack_phone.Ventas
             ContentCilindro.Visibility = System.Windows.Visibility.Visible;
             PageTitle.Text = "CONSULTAR VENTA";
             btnMenu.Visibility = System.Windows.Visibility.Visible;
-            btnAtrasMod.Visibility = System.Windows.Visibility.Collapsed;
             btnNvConsulta.Visibility = System.Windows.Visibility.Visible;
-            btnGuardarMod.Visibility = System.Windows.Visibility.Collapsed;
         }
 
         private void lstDevolucion_SelectionChanged(object sender, SelectionChangedEventArgs e)
@@ -102,44 +100,6 @@ namespace Unisangil.CYLTRACK.Cyltrack_phone.Ventas
         {
             NavigationService.Navigate(new Uri("/MainPage.xaml", UriKind.Relative));
         }
-
-        private void btnAtrasMod_Click(object sender, RoutedEventArgs e)
-        {
-            ContentCilindro.Visibility = System.Windows.Visibility.Collapsed;
-            ContentCilindro.Visibility = System.Windows.Visibility.Visible;
-            hplModVenta.Visibility = System.Windows.Visibility.Visible;
-            hplDevCil.Visibility = System.Windows.Visibility.Visible;
-            PageTitle.Text = "CONSULTAR VENTA";
-            btnMenu.Visibility = System.Windows.Visibility.Visible;
-            btnAtrasMod.Visibility = System.Windows.Visibility.Collapsed;
-            btnNvConsulta.Visibility = System.Windows.Visibility.Visible;
-            btnGuardarMod.Visibility = System.Windows.Visibility.Collapsed;
-            
-        }
-
-        private void btnGuardarMod_Click(object sender, RoutedEventArgs e)
-        {
-            MessageBox.Show("Sus datos fueron enviados satisfactoriamente");
-            ContentCilindro.Visibility = System.Windows.Visibility.Collapsed;
-            ContentObserv.Visibility = System.Windows.Visibility.Collapsed;
-            grdDevCil.Visibility = System.Windows.Visibility.Collapsed;
-            ContentBusq.Visibility = System.Windows.Visibility.Visible;
-            hplModVenta.Visibility = System.Windows.Visibility.Visible;
-            hplDevCil.Visibility = System.Windows.Visibility.Visible;
-
-        }
-        private void hplModVenta_Click(object sender, RoutedEventArgs e)
-        {
-            btnMenu.Visibility = System.Windows.Visibility.Collapsed;
-            btnAtrasMod.Visibility = System.Windows.Visibility.Visible;
-            btnNvConsulta.Visibility = System.Windows.Visibility.Collapsed;
-            btnGuardarMod.Visibility = System.Windows.Visibility.Visible;
-            hplModVenta.Visibility = System.Windows.Visibility.Collapsed;
-            hplDevCil.Visibility = System.Windows.Visibility.Collapsed;
-            PageTitle.Text = "MODIFICAR VENTA";
-        }
-
-               
 
     }
 }
