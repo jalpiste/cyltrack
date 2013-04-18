@@ -11,7 +11,7 @@ using System.Windows.Media.Animation;
 using System.Windows.Shapes;
 using Microsoft.Phone.Controls;
 
-namespace Unisangil.CYLTRACK.Cyltrack_phone.Pedidos
+namespace CYLTRACK_PHONE.Pedidos
 {
     public partial class frmRegistrarPedido : PhoneApplicationPage
     {
