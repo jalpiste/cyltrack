@@ -11,7 +11,7 @@ using System.Windows.Media.Animation;
 using System.Windows.Shapes;
 using Microsoft.Phone.Controls;
 
-namespace CYLTRACK_PHONE.Ventas
+namespace Cyltrack_phone.Ventas
 {
     public partial class frmConsultaCilindro : PhoneApplicationPage
     {
@@ -40,6 +40,7 @@ namespace CYLTRACK_PHONE.Ventas
                 ContentDatosP.Visibility = System.Windows.Visibility.Visible;
 
             }
+
         }
 
         private void btnCancelarConsul_Click(object sender, RoutedEventArgs e)

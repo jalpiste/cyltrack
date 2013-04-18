@@ -11,7 +11,7 @@ using System.Windows.Media.Animation;
 using System.Windows.Shapes;
 using Microsoft.Phone.Controls;
 
-namespace CYLTRACK_PHONE.Pedidos
+namespace Cyltrack_phone.Pedidos
 {
     public partial class frmModificarPedido : PhoneApplicationPage
     {
@@ -24,7 +24,7 @@ namespace CYLTRACK_PHONE.Pedidos
       
         private void btnGuardar_Click(object sender, RoutedEventArgs e)
         {
-            MessageBox.Show("Los datos fueron guardados satisfactoriamente ");
+            MessageBox.Show("Los datos fueron guardados satisfactoriamente");
             ContentModificar.Visibility = System.Windows.Visibility.Collapsed;
             NavigationService.Navigate(new Uri("/Pedidos/frmConsultarPedido.xaml", UriKind.Relative));
         }

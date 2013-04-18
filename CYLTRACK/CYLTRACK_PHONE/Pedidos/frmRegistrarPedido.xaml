@@ -1,5 +1,5 @@
 ﻿<phone:PhoneApplicationPage 
-    x:Class="CYLTRACK_PHONE.Pedidos.frmRegistrarPedido"
+    x:Class="Cyltrack_phone.Pedidos.frmRegistrarPedido"
     xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
     xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
     xmlns:phone="clr-namespace:Microsoft.Phone.Controls;assembly=Microsoft.Phone"
@@ -30,7 +30,7 @@
         <Grid x:Name="ContentBusq" Margin="14,101,12,0" Visibility="Visible" Grid.RowSpan="2" Background="White">
             <TextBlock Height="30" HorizontalAlignment="Left" Margin="25,66,0,0" Name="lblCedula" Text="Número de Cédula Cliente: " VerticalAlignment="Top" Style= "{StaticResource textArea}"/>
             <TextBox Height="Auto" HorizontalAlignment="Left" Margin="8,88,0,0" Name="txtCedula" Text="" VerticalAlignment="Top" Width="303" Style= "{StaticResource textboxSolos}" InputScope="TelephoneNumber"/>
-            <Button Content="Buscar" Height="72" HorizontalAlignment="Left" Margin="70,188,0,0" Name="btnBuscar" VerticalAlignment="Top" Width="160" Click="btnBuscar_Click" />
+            <Button Content="Registrar" Height="72" HorizontalAlignment="Left" Margin="70,188,0,0" Name="btnRegistrar" VerticalAlignment="Top" Width="160" Click="btnRegistrar_Click" />
             <Button Content="Menú" Height="72" HorizontalAlignment="Left" Margin="226,188,0,0" Name="btnMenu" VerticalAlignment="Top" Width="160" Click="btnMenu_Click" />
         </Grid>
 
@@ -40,7 +40,7 @@
 
                     <TextBlock Height="30" HorizontalAlignment="Left" Margin="231,10,0,0" Name="lblNumPedido" Text="Código Pedido:" VerticalAlignment="Top" Style= "{StaticResource textArea}"/>
                     <TextBlock Height="30" Margin="370,-31,0,629" Name="lblCod" Text="1234" Width="80" Style= "{StaticResource textArea}"/>
-                    <TextBlock Height="30" Margin="-150,-614,0,598" Name="lblDatos" Text="Datos Personales" Width="269" Style="{StaticResource h3}"/>
+                    <TextBlock Height="30" Margin="-150,-614,0,598" Name="lblDatos" Text="Datos Personales" Width="269" Style="{StaticResource h2}"/>
                     <TextBlock Height="30" HorizontalAlignment="Left" Margin="19,-587,0,0" Name="lblNombres" Text="Nombres: " VerticalAlignment="Top" Style= "{StaticResource textArea}"/>
                     <TextBox Height="Auto" HorizontalAlignment="Left" Margin="2,-574,0,0" Name="txtNombres" Text="" VerticalAlignment="Top" Width="320" Style= "{StaticResource textboxConsulta}" />
                     <TextBlock Height="30" HorizontalAlignment="Left" Margin="19,-510,0,0" Name="lblPrApellido" Text="Primer Apellido: " VerticalAlignment="Top" Style= "{StaticResource textArea}"/>
@@ -61,7 +61,7 @@
                     <TextBox Height="Auto" HorizontalAlignment="Left" Margin="0,-202,0,0" Name="txtCodCil" Text="" VerticalAlignment="Top" Width="226" Style= "{StaticResource textboxConsulta}" />
                     <TextBlock Height="30" HorizontalAlignment="Left" Margin="240,-216,0,0" Name="lblTamano" Text="Tamaño: " VerticalAlignment="Top" Style= "{StaticResource textArea}"/>
                     <TextBox Height="Auto" HorizontalAlignment="Left" Margin="228,-202,0,0" Name="txtTamano" Text="" VerticalAlignment="Top" Width="125" Style= "{StaticResource textboxConsulta}" />
-                    <TextBlock Height="30" HorizontalAlignment="Left" Margin="19,-130,0,0" Name="lblInfoPedido" Text="Información Pedido" VerticalAlignment="Top" Width="269" Style="{StaticResource h3}" />
+                    <TextBlock Height="30" HorizontalAlignment="Left" Margin="19,-130,0,0" Name="lblInfoPedido" Text="Información Pedido" VerticalAlignment="Top" Width="269" Style="{StaticResource h2}" />
                     <TextBlock Height="30" HorizontalAlignment="Left" Margin="19,-90,0,0" Name="lblVehiculo" Text="Vehículo: " VerticalAlignment="Top" Style= "{StaticResource textArea}"/>
                     <ListBox Height="38" HorizontalAlignment="Left" Margin="20,-73,0,0" Name="lstVehiculo" VerticalAlignment="Top" Width="162" Style= "{StaticResource listas}">
                         <ListBoxItem Content="Seleccionar..." />

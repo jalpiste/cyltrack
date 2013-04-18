@@ -11,7 +11,7 @@ using System.Windows.Media.Animation;
 using System.Windows.Shapes;
 using Microsoft.Phone.Controls;
 
-namespace CYLTRACK_PHONE.Pedidos
+namespace Cyltrack_phone.Pedidos
 {
     public partial class frmConsultarPedido : PhoneApplicationPage
     {
@@ -73,6 +73,7 @@ namespace CYLTRACK_PHONE.Pedidos
             MessageBox.Show("Sus datos fueron enviados satisfactoriamente");
             ContentCancelar.Visibility = System.Windows.Visibility.Collapsed;
             ContentBusq.Visibility = System.Windows.Visibility.Visible;
+            PageTitle.Text = "CONSULTAR PEDIDO";
         }  
         
         

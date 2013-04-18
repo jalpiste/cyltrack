@@ -11,7 +11,7 @@ using System.Windows.Media.Animation;
 using System.Windows.Shapes;
 using Microsoft.Phone.Controls;
 
-namespace CYLTRACK_PHONE.Clientes
+namespace Cyltrack_phone.Clientes
 {
     public partial class frmConsultarCliente : PhoneApplicationPage
     {
