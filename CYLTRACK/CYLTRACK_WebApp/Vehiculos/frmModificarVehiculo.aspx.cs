@@ -61,5 +61,10 @@ namespace Unisangil.CYLTRACK.CYLTRACK_WebApp.Vehiculos
         {
             Response.Redirect("~/Default.aspx");
         }
+
+        protected void btnLimpiar_Click(object sender, EventArgs e)
+        {
+
+        }
     }
 }

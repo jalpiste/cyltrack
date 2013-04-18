@@ -78,8 +78,7 @@
                    <%-- <asp:Button ID="BtnCambiar" runat="server" Text="Cambiar Ubicación" Width="140px" 
                     onclick="BtnCambiar_Click"/> --%>
                     &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; &nbsp; 
-                    <asp:Button ID="BtnGuardar" runat="server" Text="Guardar" 
-                    Width="140px" Visible="false" onclick="BtnGuardar_Click" />  
+                    <asp:Button ID="BtnGuardar" runat="server" Text="Guardar" Width="140px" Visible="false" onclick="BtnGuardar_Click" />  
                     &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; &nbsp;  
                     <asp:Button ID="BtnMenu" runat="server" Text="Menú Principal" Width="140px"     /> 
                     </p>

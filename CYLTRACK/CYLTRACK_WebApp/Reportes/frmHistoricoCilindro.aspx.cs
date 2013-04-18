@@ -27,15 +27,16 @@ namespace Unisangil.CYLTRACK.CYLTRACK_WebApp.Reportes
         }
 
 
-        protected void btnMenu_Click(object sender, EventArgs e)
+        protected void btnMenuPrincipal_Click(object sender, EventArgs e)
         {
-            //Response.Redirect("~/Default.aspx");
+            Response.Redirect("~/Default.aspx");
         }
 
         protected void txtCodigoCil_TextChanged(object sender, EventArgs e)
         {
             DivHistoricoCilindro.Visible = true;
             btnImp.Visible = true;
+            btnMenuPrincipal.Visible = true;
         }
 
 
@@ -56,6 +57,11 @@ namespace Unisangil.CYLTRACK.CYLTRACK_WebApp.Reportes
                 get { return prueba2; }
                 set { prueba2 = value; }
             }
+        }
+
+        protected void btnBuscar_Click(object sender, EventArgs e)
+        {
+
         }
 
 

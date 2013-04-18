@@ -116,11 +116,11 @@
           </fieldset>
         </div>
                 <p class="submitButton">
-                    <asp:Button ID="btnGuardar" runat="server" Text="Guardar" Width="115px" visible="false"
-                        />  
+                    <asp:Button ID="btnGuardar" runat="server" Text="Guardar" Width="115px" 
+                        visible="false" onclick="btnGuardar_Click1"/>  
                     &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; &nbsp;  
                     <asp:Button ID="btnMenu" runat="server" Text="Menú Principal" Width="115px" 
-                         />
+                        onclick="btnMenu_Click" />
                </p>
            
 </asp:Content>

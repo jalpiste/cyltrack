@@ -45,8 +45,8 @@ namespace Unisangil.CYLTRACK.CYLTRACK_WebApp.Cilindros
 
         protected void BtnGuardar_Click(object sender, EventArgs e)
         {
-            //Response.Write("<script type='text/javascript'> alert('Sus datos fueron enviados satisfactoriamente') </script>");
-            //txtCodeCilindro.Text = "";
+            Response.Write("<script type='text/javascript'> alert('Sus datos fueron enviados satisfactoriamente') </script>");
+            txtCodeCilindro.Text = "";
             //DivUbicacionCil.Visible = false;
             //DivNuevaUbicacion.Visible = false;
         }

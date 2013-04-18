@@ -31,13 +31,40 @@ namespace Unisangil.CYLTRACK.CYLTRACK_WebApp.Cilindros {
         protected global::System.Web.UI.WebControls.ValidationSummary LoginValidationSummary;
         
         /// <summary>
-        /// Control DivSeleccion.
+        /// Control DivCodigo.
         /// </summary>
         /// <remarks>
         /// Campo generado automáticamente.
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
-        protected global::System.Web.UI.HtmlControls.HtmlGenericControl DivSeleccion;
+        protected global::System.Web.UI.HtmlControls.HtmlGenericControl DivCodigo;
+        
+        /// <summary>
+        /// Control lblCodeCil.
+        /// </summary>
+        /// <remarks>
+        /// Campo generado automáticamente.
+        /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Label lblCodeCil;
+        
+        /// <summary>
+        /// Control txtCodeCilindro.
+        /// </summary>
+        /// <remarks>
+        /// Campo generado automáticamente.
+        /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.TextBox txtCodeCilindro;
+        
+        /// <summary>
+        /// Control CodeCilindroRequired.
+        /// </summary>
+        /// <remarks>
+        /// Campo generado automáticamente.
+        /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.RequiredFieldValidator CodeCilindroRequired;
         
         /// <summary>
         /// Control DivUbicacionCil.

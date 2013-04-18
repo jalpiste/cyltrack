@@ -29,7 +29,8 @@
        <br />
      <p class="submitButton">                 
        <asp:Button ID="btnEnvíoInformación" runat="server" Text="Enviar" Width="115px" 
-       ValidationGroup="RegisterUserValidationGroup" />
+       ValidationGroup="RegisterUserValidationGroup" 
+             onclick="btnEnvíoInformación_Click" />
        </p>
        <br />
        </div>

@@ -29,10 +29,13 @@ namespace Unisangil.CYLTRACK.CYLTRACK_WebApp.Account.Clientes
 
         protected void btnMenuPrincipal_Click(object sender, EventArgs e)
         {
-            //Response.Redirect("~/Default.aspx");
+            Response.Redirect("~/Default.aspx");
         }
 
+        protected void btnLimpiar_Click(object sender, EventArgs e)
+        {
 
+        }
 
     }
 }

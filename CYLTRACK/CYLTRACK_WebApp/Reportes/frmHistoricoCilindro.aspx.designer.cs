@@ -58,13 +58,13 @@ namespace Unisangil.CYLTRACK.CYLTRACK_WebApp.Reportes {
         protected global::System.Web.UI.WebControls.RequiredFieldValidator HistorialRequired;
         
         /// <summary>
-        /// Control btnMenu.
+        /// Control btnBuscar.
         /// </summary>
         /// <remarks>
         /// Campo generado automáticamente.
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Button btnMenu;
+        protected global::System.Web.UI.WebControls.Button btnBuscar;
         
         /// <summary>
         /// Control DivHistoricoCilindro.
@@ -128,5 +128,14 @@ namespace Unisangil.CYLTRACK.CYLTRACK_WebApp.Reportes {
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
         protected global::System.Web.UI.WebControls.Button btnImp;
+        
+        /// <summary>
+        /// Control btnMenuPrincipal.
+        /// </summary>
+        /// <remarks>
+        /// Campo generado automáticamente.
+        /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Button btnMenuPrincipal;
     }
 }

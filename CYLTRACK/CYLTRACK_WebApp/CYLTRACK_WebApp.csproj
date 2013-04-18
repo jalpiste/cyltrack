@@ -53,6 +53,7 @@
   <ItemGroup>
     <Content Include="About.aspx" />
     <Content Include="Autenticacion\frmAutenticacion.aspx" />
+    <Content Include="Clientes\frmNuevaUbicacion.aspx" />
     <Content Include="Cilindros\frmCargaryDescargarCilindros.aspx" />
     <Content Include="frmRecuperarContrasena.aspx" />
     <Content Include="Imagenes\banner_01.png" />
@@ -64,7 +65,6 @@
     <Content Include="Clientes\frmConsultarCliente.aspx" />
     <Content Include="Cilindros\frmRegistrarCilindro.aspx" />
     <Content Include="Clientes\frmRegistrarCliente.aspx" />
-    <Content Include="Cilindros\frmmodificarcil.aspx" />
     <Content Include="Clientes\frmModificarCliente.aspx" />
     <Content Include="Reportes\Fabiancito.aspx" />
     <Content Include="Reportes\frmHistoricoCilindro.aspx" />
@@ -87,7 +87,6 @@
     <Content Include="Vehiculos\frmRegistrarVehiculo.aspx" />
     <Content Include="Ventas\frmCasosEspeciales.aspx" />
     <Content Include="Ventas\frmConsultarVenta.aspx" />
-    <Content Include="Ventas\frmDevolucionCilindro.aspx" />
     <Content Include="Ventas\frmRevisionCasosEspeciales.aspx" />
     <Content Include="Ventas\frmVentaCilindro.aspx" />
     <Content Include="Web.config" />
@@ -112,6 +111,13 @@
     </Compile>
     <Compile Include="Autenticacion\frmAutenticacion.aspx.designer.cs">
       <DependentUpon>frmAutenticacion.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Clientes\frmNuevaUbicacion.aspx.cs">
+      <DependentUpon>frmNuevaUbicacion.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Clientes\frmNuevaUbicacion.aspx.designer.cs">
+      <DependentUpon>frmNuevaUbicacion.aspx</DependentUpon>
     </Compile>
     <Compile Include="Cilindros\frmCargaryDescargarCilindros.aspx.cs">
       <DependentUpon>frmCargaryDescargarCilindros.aspx</DependentUpon>
@@ -175,13 +181,6 @@
     </Compile>
     <Compile Include="Clientes\frmRegistrarCliente.aspx.designer.cs">
       <DependentUpon>frmRegistrarCliente.aspx</DependentUpon>
-    </Compile>
-    <Compile Include="Cilindros\frmmodificarcil.aspx.cs">
-      <DependentUpon>frmmodificarcil.aspx</DependentUpon>
-      <SubType>ASPXCodeBehind</SubType>
-    </Compile>
-    <Compile Include="Cilindros\frmmodificarcil.aspx.designer.cs">
-      <DependentUpon>frmmodificarcil.aspx</DependentUpon>
     </Compile>
     <Compile Include="Clientes\frmModificarCliente.aspx.cs">
       <DependentUpon>frmModificarCliente.aspx</DependentUpon>
@@ -313,13 +312,6 @@
     </Compile>
     <Compile Include="Ventas\frmConsultarVenta.aspx.designer.cs">
       <DependentUpon>frmConsultarVenta.aspx</DependentUpon>
-    </Compile>
-    <Compile Include="Ventas\frmDevolucionCilindro.aspx.cs">
-      <DependentUpon>frmDevolucionCilindro.aspx</DependentUpon>
-      <SubType>ASPXCodeBehind</SubType>
-    </Compile>
-    <Compile Include="Ventas\frmDevolucionCilindro.aspx.designer.cs">
-      <DependentUpon>frmDevolucionCilindro.aspx</DependentUpon>
     </Compile>
     <Compile Include="Ventas\frmRevisionCasosEspeciales.aspx.cs">
       <DependentUpon>frmRevisionCasosEspeciales.aspx</DependentUpon>

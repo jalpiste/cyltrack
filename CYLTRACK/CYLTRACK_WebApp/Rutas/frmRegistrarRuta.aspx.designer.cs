@@ -139,13 +139,13 @@ namespace Unisangil.CYLTRACK.CYLTRACK_WebApp.Autenticacion {
         protected global::System.Web.UI.WebControls.Button btnRemover;
         
         /// <summary>
-        /// Control btnRegistrar.
+        /// Control btnGuardar.
         /// </summary>
         /// <remarks>
         /// Campo generado automáticamente.
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Button btnRegistrar;
+        protected global::System.Web.UI.WebControls.Button btnGuardar;
         
         /// <summary>
         /// Control btnMenu.

@@ -35,5 +35,10 @@ namespace Unisangil.CYLTRACK.CYLTRACK_WebApp.Pedido
             Response.Write("<script type='text/javascript'> alert('Sus datos fueron enviados satisfactoriamente') </script>");
             //Response.Redirect("~/Pedido/frmCancelarPedido.aspx");
         }
+
+        protected void btnLimpiar_Click(object sender, EventArgs e)
+        {
+
+        }
     }
 }

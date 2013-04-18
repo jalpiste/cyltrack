@@ -66,7 +66,11 @@
                    <div id="DivCiudad" runat ="server" visible ="false" >
                    
                      <asp:Label ID="lblCiudades" runat="server" Text="Ciudades: " ></asp:Label><br />
-                     <asp:ListBox ID="lstCiudades" runat="server" Height="55px" Width="120px" enabled="false"></asp:ListBox>    
+                     <asp:ListBox ID="lstCiudades" runat="server" Height="55px" Width="120px" enabled="false">
+                     <asp:ListItem>Simijaca</asp:ListItem>
+                     <asp:ListItem>Buenavista</asp:ListItem>
+                     <asp:ListItem>Chiquinquirá</asp:ListItem>
+                     </asp:ListBox>    
                      
                      &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
                      <asp:Button ID="btnModificar" runat="server" Text="Modificar" Width="115px" 
@@ -76,7 +80,8 @@
                     </div>
                 </fieldset> 
                 <p class="submitButton">
-                <asp:Button ID="btnGuardar" runat="server" Text="Guardar" Visible="false" Width="115px"/> 
+                <asp:Button ID="btnGuardar" runat="server" Text="Guardar" 
+                        visible="false" Width="115px" onclick="btnGuardar_Click"/> 
                     &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; &nbsp; 
                     <asp:Button ID="btnMenu" runat="server" Text="Menú Principal" Width="115px" 
                     onclick="btnMenu_Click"/>  

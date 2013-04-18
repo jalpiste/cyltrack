@@ -32,13 +32,18 @@ namespace Unisangil.CYLTRACK.CYLTRACK_WebApp.Cilindros
 
         protected void BtnNuevaConsulta_Click(object sender, EventArgs e)
         {
-            //DivDatosCilindro.Visible = false;
-            //DivInfoCilindro.Visible = false;
+            DivDatosCilindro.Visible = false;
+            DivInfoCilindro.Visible = false;
         }
 
         protected void BtnMenuPrincipal_Click(object sender, EventArgs e)
         {
             //Response.Redirect("~/Default.aspx");
+        }
+
+        protected void BtnMenuPrincipal_Click1(object sender, EventArgs e)
+        {
+
         }
 
 

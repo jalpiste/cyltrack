@@ -18,7 +18,7 @@ namespace Unisangil.CYLTRACK.CYLTRACK_WebApp.Autenticacion
 
         protected void btnMenu_Click(object sender, EventArgs e)
         {
-            Response.Redirect("~/Default.aspx");
+            //Response.Redirect("~/Default.aspx");
         }
 
         protected void btnRemover_Click(object sender, EventArgs e)
@@ -32,7 +32,12 @@ namespace Unisangil.CYLTRACK.CYLTRACK_WebApp.Autenticacion
         protected void txtNombreRuta_TextChanged(object sender, EventArgs e)
         {
             DivSelCiudades.Visible = true;
-            btnRegistrar.Visible = true;
+            btnGuardar.Visible = true;
+        }
+
+        protected void btnGuardar_Click(object sender, EventArgs e)
+        {
+            Response.Write("<script type='text/javascript'> alert('Sus datos fueron enviados satisfactoriamente') </script>");
         }
 
        

@@ -148,13 +148,13 @@ namespace Unisangil.CYLTRACK.CYLTRACK_WebApp.Ventas {
         protected global::System.Web.UI.WebControls.Label lblPrimerApellido;
         
         /// <summary>
-        /// Control SegundoApellidoLabel.
+        /// Control lblSegundoApellido.
         /// </summary>
         /// <remarks>
         /// Campo generado automáticamente.
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Label SegundoApellidoLabel;
+        protected global::System.Web.UI.WebControls.Label lblSegundoApellido;
         
         /// <summary>
         /// Control txtPrimerApellido.
@@ -407,15 +407,6 @@ namespace Unisangil.CYLTRACK.CYLTRACK_WebApp.Ventas {
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
         protected global::System.Web.UI.WebControls.TextBox txtRuta;
-        
-        /// <summary>
-        /// Control chckCasoEspecial.
-        /// </summary>
-        /// <remarks>
-        /// Campo generado automáticamente.
-        /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.CheckBox chckCasoEspecial;
         
         /// <summary>
         /// Control divCilCorrecto.

@@ -33,7 +33,7 @@ namespace Unisangil.CYLTRACK.CYLTRACK_WebApp.Ventas
         }
 
         
-        protected void btnMenuPrincipal_Click1(object sender, EventArgs e)
+        protected void btnMenuPrincipal_Click(object sender, EventArgs e)
         {
             //Response.Redirect("~/Default.aspx");
         }

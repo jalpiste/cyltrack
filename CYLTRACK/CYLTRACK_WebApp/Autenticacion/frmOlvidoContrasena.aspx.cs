@@ -15,6 +15,11 @@ namespace Unisangil.CYLTRACK.CYLTRACK_WebApp.Autenticacion
 
         }
 
+        protected void btnEnvíoInformación_Click(object sender, EventArgs e)
+        {
+            Response.Write("<script type='text/javascript'> alert('La contraseña ha sido enviada a su correo electrónico') </script>");
+        }
+
 
 
 

@@ -21,5 +21,17 @@ namespace Unisangil.CYLTRACK.CYLTRACK_WebApp.Reporte
                 lstPlacaVehículo.Visible = true;
             }
         }
+
+        protected void btnBuscar_Click(object sender, EventArgs e)
+        {
+            DivReporte.Visible = true;
+            divBotones.Visible = true;
+
+        }
+
+        protected void btnMenu_Click(object sender, EventArgs e)
+        {
+            Response.Redirect("~/Default.aspx");
+        }
     }
 }

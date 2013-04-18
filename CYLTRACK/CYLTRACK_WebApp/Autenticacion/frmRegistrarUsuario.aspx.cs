@@ -22,6 +22,11 @@ namespace Unisangil.CYLTRACK.CYLTRACK_WebApp.Autenticacion
             //Response.Redirect("~/Autenticacion/frmRegistrarUsuario.aspx");
         }
 
+        protected void btnMenu_Click(object sender, EventArgs e)
+        {
+            Response.Redirect("~/Default.aspx");
+        }
+
 
     }
 }

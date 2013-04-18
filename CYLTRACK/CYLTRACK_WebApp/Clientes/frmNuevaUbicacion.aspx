@@ -42,13 +42,14 @@
 
                 </fieldset>
                 <p class="submitButton">
-                <asp:Button ID="btnLimpiar" runat="server" Text="Limpiar" Width="115px"/> 
+                <asp:Button ID="btnLimpiar" runat="server" Text="Limpiar" Width="115px" 
+                        onclick="btnLimpiar_Click"/> 
                     &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; &nbsp; 
                     <asp:Button ID="btnGuardar" runat="server" Text="Guardar" 
-                        Width="115px" />  
+                        Width="115px" onclick="btnGuardar_Click" />  
                     &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; &nbsp;  
                     <asp:Button ID="btnAtras" runat="server" Text="Atrás" 
-                        Width="115px" /> 
+                        Width="115px" onclick="btnAtras_Click" /> 
                     </p>
             </div>
 </asp:Content>

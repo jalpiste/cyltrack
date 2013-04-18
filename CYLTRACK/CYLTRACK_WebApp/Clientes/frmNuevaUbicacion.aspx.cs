@@ -13,5 +13,20 @@ namespace Unisangil.CYLTRACK.CYLTRACK_WebApp.Clientes
         {
 
         }
+
+        protected void btnLimpiar_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        protected void btnGuardar_Click(object sender, EventArgs e)
+        {
+            Response.Write("<script type='text/javascript'> alert('Sus datos fueron enviados satisfactoriamente') </script>");
+        }
+
+        protected void btnAtras_Click(object sender, EventArgs e)
+        {
+            Response.Redirect("~/Clientes/frmModificarCliente.aspx");
+        }
     }
 }
