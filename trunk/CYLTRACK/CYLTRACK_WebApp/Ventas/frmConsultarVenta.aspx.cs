@@ -23,8 +23,8 @@ namespace Unisangil.CYLTRACK.CYLTRACK_WebApp.Ventas
 
         protected void btnNuevaConsulta_Click(object sender, EventArgs e)
         {
-            //DivInfoVenta.Visible = false;
-            //btnNuevaConsulta.Visible = false;
+            DivInfoVenta.Visible = false;
+            btnNuevaConsulta.Visible = false;
         }
 
         protected void txtCedulaCliente_TextChanged(object sender, EventArgs e)

@@ -25,7 +25,7 @@
                      <br />
                 </fieldset>
                  <p class="submitButton">
-                    <asp:Button ID="btnMenu" runat="server" Text="Menú Principal" Width="115px" onclick="btnMenu_Click"/>  
+                    <asp:Button ID="btnBuscar" runat="server" Text="Buscar" Width="115px" onclick="btnBuscar_Click"/>  
                &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;  
                </p>
 
@@ -60,7 +60,9 @@
              </div>
                  <p class="submitButton">
              <asp:Button ID="btnImp" runat="server" Text="Imprimir" Width="115px" Visible="false"/>
-              &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;  
+              &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+              <asp:Button ID="btnMenuPrincipal" runat="server" Text="Menú Principal" Width="115px" 
+                         Visible="false" onclick="btnMenuPrincipal_Click" />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;  
              </p>
         </div> 
         

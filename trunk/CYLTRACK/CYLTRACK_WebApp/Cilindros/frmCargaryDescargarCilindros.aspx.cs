@@ -47,16 +47,10 @@ namespace CYLTRACK_WebApp.Cilindros
           
         }
 
-       
-        protected void BtnGuardar_Click(object sender, EventArgs e)
-        {
-
-        }
-
         protected void lstOpcion_SelectedIndexChanged(object sender, EventArgs e)
         {
             DivUbicacionCil.Visible = true;
-                                        
+            BtnGuardar.Visible = true;                            
         }
 
         protected void gvReporte_SelectedIndexChanged(object sender, EventArgs e)
@@ -70,6 +64,16 @@ namespace CYLTRACK_WebApp.Cilindros
                 gvReporte.DataBind();
             }
 
+        }
+
+        protected void BtnMenu_Click(object sender, EventArgs e)
+        {
+            //Response.Redirect("~/Default.aspx");
+        }
+
+        protected void BtnGuardar_Click1(object sender, EventArgs e)
+        {
+            Response.Write("<script type='text/javascript'> alert('Sus datos fueron enviados satisfactoriamente') </script>");
         }
 
                        

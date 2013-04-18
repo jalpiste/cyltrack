@@ -43,7 +43,12 @@ namespace Unisangil.CYLTRACK.CYLTRACK_WebApp.Ventas
             }
         }
 
-                      
-      
+        protected void btnGuardar_Click1(object sender, EventArgs e)
+        {
+            Response.Write("<script type='text/javascript'> alert('Sus datos fueron enviados satisfactoriamente') </script>");
+        }
+
+        
+
     }
 }

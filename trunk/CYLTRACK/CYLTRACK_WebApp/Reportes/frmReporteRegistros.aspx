@@ -61,9 +61,10 @@
                              ValidationGroup="ReporteValidationGroup">*</asp:RequiredFieldValidator>
        </fieldset>
         <p class="submitButton">
-            <asp:Button ID="btnBuscar" runat="server" Text="Buscar" Width="115px" />
+            <asp:Button ID="btnBuscar" runat="server" Text="Buscar" Width="115px" 
+                onclick="btnBuscar_Click" />
         </p>
-        <div id= "DivReporte" runat = "server" class="InfoInventarios">
+        <div id= "DivReporte" runat = "server" class="InfoInventarios" visible="false">
        <fieldset class ="login">
             <legend>Reporte</legend>
             <div style="height: 1468px; width: 477px; margin-right: 4px;">
@@ -87,11 +88,13 @@
             </div> 
         </fieldset>
         </div> 
+         <div class="submitButton" id="divBotones" runat="server" visible="false">
         <p class="submitButton">
             <asp:Button ID="btnImp" runat="server" Text="Imprimir" Width="115px" />
             &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; &nbsp;
-            <asp:Button ID="btnCancel" runat="server" Text="Cancelar" Width="115px" 
-                onclick="btnCancel_Click" />
+            <asp:Button ID="btnMenu" runat="server" Text="Menú Principal" Width="115px" 
+                onclick="btnMenu_Click" />
         </p>
+        </div>
     </div>
 </asp:Content>

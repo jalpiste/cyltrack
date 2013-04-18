@@ -67,9 +67,10 @@
                  
                     &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; &nbsp; 
                     <asp:Button ID="BtnGuardar" runat="server" Text="Guardar" 
-                    Width="140px" Visible="false" />  
+                    Width="140px" Visible="false" onclick="BtnGuardar_Click1" />  
                     &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; &nbsp;  
-                    <asp:Button ID="BtnMenu" runat="server" Text="Menú Principal" Width="140px"     /> 
+                    <asp:Button ID="BtnMenu" runat="server" Text="Menú Principal" Width="140px" 
+                        onclick="BtnMenu_Click"     /> 
                     </p>
        </div>
   </div> 

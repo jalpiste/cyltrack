@@ -18,7 +18,7 @@ namespace Unisangil.CYLTRACK.CYLTRACK_WebApp.Account
         protected void txtCedula_TextChanged(object sender, EventArgs e)
         {
             divInfoCliente.Visible = true;
-           // btnNuevaConsulta.Visible = true;
+           btnNuevaConsulta.Visible = true;
         }
 
         protected void btnMenuPrincipal_Click(object sender, EventArgs e)
@@ -28,7 +28,8 @@ namespace Unisangil.CYLTRACK.CYLTRACK_WebApp.Account
 
         protected void btnNuevaConsulta_Click(object sender, EventArgs e)
         {
-          // Response.Redirect("~/Clientes/frmConsultarCliente.aspx");
+            divInfoCliente.Visible = false;
+            btnNuevaConsulta.Visible = false;
         }
 
 

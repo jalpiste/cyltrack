@@ -30,5 +30,10 @@ namespace Unisangil.CYLTRACK.CYLTRACK_WebApp.Account
             Response.Write("<script type='text/javascript'> alert('Sus datos fueron enviados satisfactoriamente') </script>");
             //Response.Redirect("~/Cliente/frmRegistrarCliente.aspx");
         }
+
+        protected void btnLimpiar_Click(object sender, EventArgs e)
+        {
+
+        }
     }
 }

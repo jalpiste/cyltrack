@@ -41,7 +41,6 @@ namespace Unisangil.CYLTRACK.CYLTRACK_WebApp.Pedido
         {
             txtCantidadCilindro.Text = " ";
             txtCedulaCliente.Text = " ";
-
         }
 
         protected void btnAgregar_Click(object sender, EventArgs e)

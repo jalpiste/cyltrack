@@ -143,7 +143,8 @@
                 <asp:Button ID="BtnNuevaConsulta" runat="server" Text="Nueva Consulta" Visible="false" onclick="BtnNuevaConsulta_Click" 
                        /> 
                     &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; &nbsp; 
-                    <asp:Button ID="BtnMenuPrincipal" runat="server" Text="Menú Principal" />  
+                    <asp:Button ID="BtnMenuPrincipal" runat="server" Text="Menú Principal" 
+                        onclick="BtnMenuPrincipal_Click" />  
                     &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; &nbsp; &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; &nbsp; 
                </p>
             </div>

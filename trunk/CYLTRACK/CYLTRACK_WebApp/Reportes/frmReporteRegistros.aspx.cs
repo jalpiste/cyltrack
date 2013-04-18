@@ -14,9 +14,15 @@ namespace Unisangil.CYLTRACK.CYLTRACK_WebApp.Reporte
 
         }
 
-        protected void btnCancel_Click(object sender, EventArgs e)
+        protected void btnMenu_Click(object sender, EventArgs e)
         {
             Response.Redirect("~/Default.aspx");
+        }
+
+        protected void btnBuscar_Click(object sender, EventArgs e)
+        {
+            DivReporte.Visible = true;
+            divBotones.Visible = true;
         }
     }
 }

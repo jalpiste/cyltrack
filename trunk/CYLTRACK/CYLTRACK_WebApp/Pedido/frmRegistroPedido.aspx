@@ -130,7 +130,7 @@
                     <asp:Button ID="btnGuardar" runat="server" Text="Guardar" Width="121px" Visible="false" 
                         onclick="btnGuardar_Click" />  
                     &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; &nbsp;  
-                    <asp:Button ID="btnMenuPrincipal" runat="server" Text="Menu Principal" 
+                    <asp:Button ID="btnMenuPrincipal" runat="server" Text="Menú Principal" 
                         Width="121px" onclick="btnMenuPrincipal_Click" />  
                     
                     </p>

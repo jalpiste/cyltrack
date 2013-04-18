@@ -33,7 +33,7 @@
                       </div>
                       <asp:Label ID="lblIdVehiculo" runat="server" Text="Placa: "></asp:Label>                       
                       <br />
-                      <asp:TextBox ID="txtIdVehiculo" runat="server" CssClass="textEntry" Width="100px" Enabled="false"></asp:TextBox>
+                      <asp:TextBox ID="txtIdVehiculo" runat="server" CssClass="textEntry" Width="100px" Text="XHB365"></asp:TextBox>
                       <br /><br />
                       <asp:Label ID="lblMarca" runat="server" Text="Marca: "></asp:Label>
                     &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
@@ -41,19 +41,19 @@
                     &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
                     <asp:Label ID="lblModelo" runat="server" Text="Modelo: "></asp:Label>
                     <br />
-                    <asp:TextBox ID="txtMarca" runat="server" CssClass= "textEntry" enabled="false"></asp:TextBox>
+                    <asp:TextBox ID="txtMarca" runat="server" CssClass= "textEntry" Text="KIA"></asp:TextBox>
                     &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-                    <asp:TextBox ID="txtCilindraje" runat="server" CssClass= "textEntry" Width="90px" enabled="false"></asp:TextBox>
+                    <asp:TextBox ID="txtCilindraje" runat="server" CssClass= "textEntry" Width="90px" Text="2700"></asp:TextBox>
                     &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-                    <asp:TextBox ID="txtModelo" runat="server" CssClass= "textEntry" Width="90px" enabled="false"></asp:TextBox>
+                    <asp:TextBox ID="txtModelo" runat="server" CssClass= "textEntry" Width="90px" Text="2010"></asp:TextBox>
                     <br /><br />
                     <asp:Label ID="lblMotor" runat="server" Text="No. Motor: "></asp:Label>
                     &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
                     <asp:Label ID="lblChasis" runat="server" Text="No. Chasis: "></asp:Label>
                     <br />
-                    <asp:TextBox ID="txtMotor" runat="server" CssClass= "textEntry" enabled="false"></asp:TextBox>
+                    <asp:TextBox ID="txtMotor" runat="server" CssClass= "textEntry"  Text="13464GDE245DF12"></asp:TextBox>
                     &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-                    <asp:TextBox ID="txtChasis" runat="server" CssClass= "textEntry" enabled="false"></asp:TextBox>
+                    <asp:TextBox ID="txtChasis" runat="server" CssClass= "textEntry" Text="45043DXN22C220"></asp:TextBox>
                 </div> 
 
                 <div id = "DivPropietario" runat ="server" visible="false" >
@@ -62,7 +62,7 @@
                 </div> 
                     <asp:Label ID="lblCedula" runat="server" Text="Número de Cédula: "></asp:Label>                
                     <br />
-                    <asp:TextBox ID="txtCedula" runat="server" CssClass= "textEntry" Width="160px" enabled="false"></asp:TextBox>
+                    <asp:TextBox ID="txtCedula" runat="server" CssClass= "textEntry" Width="160px" Text="19824617"></asp:TextBox>
                     <br />
                     <asp:Label ID="lblNombre" runat="server" Text="Nombre " ></asp:Label>
                     &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
@@ -70,11 +70,11 @@
                     &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
                     <asp:Label ID="lblSegundoApellido" runat="server" Text="Segundo Apellido " ></asp:Label><br />                  
 
-                    <asp:TextBox ID="txtNombre" runat="server" CssClass= "textEntry" Width="160px" enabled="false"></asp:TextBox>                                       
+                    <asp:TextBox ID="txtNombre" runat="server" CssClass= "textEntry" Width="160px" Text="Alirio"></asp:TextBox>                                       
                     &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-                    <asp:TextBox ID="txtPrimerApellido" runat="server" CssClass= "textEntry" Width="160px" enabled="false"></asp:TextBox>                                       
+                    <asp:TextBox ID="txtPrimerApellido" runat="server" CssClass= "textEntry" Width="160px" Text="Guerrero"></asp:TextBox>                                       
                     &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-                    <asp:TextBox ID="txtSegundoApellido" runat="server" CssClass= "textEntry" Width="160px" enabled="false"></asp:TextBox>                                       
+                    <asp:TextBox ID="txtSegundoApellido" runat="server" CssClass= "textEntry" Width="160px" Text="Montero"></asp:TextBox>                                       
                       </div>
                         <%-------------------------------%>
                          <div id="DivConductorAsignado" class="post" runat="server" visible="false">
@@ -82,7 +82,7 @@
                       </div> 
                       <div id = "DivConductor" runat ="server" visible="false">
                     <asp:Label ID="lblCedulaCond" runat="server" Text="Número de Cédula: "></asp:Label><br />
-                    <asp:TextBox ID="txtCedulaCond" runat="server" CssClass= "textEntry" Width="160px" enabled="false"></asp:TextBox>                                       
+                    <asp:TextBox ID="txtCedulaCond" runat="server" CssClass= "textEntry" Width="160px" Text="7320840"></asp:TextBox>                                       
                     <asp:RequiredFieldValidator ID="CedulaConductorRequired" runat="server" 
                      ControlToValidate="txtCedulaCond" CssClass="failureNotification" 
                      ErrorMessage="El número de cédula es obligatoria." ToolTip="El número de cédula es obligatoria." 
@@ -94,11 +94,11 @@
                     &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
                     <asp:Label ID="lblSegundoApellidoCond" runat="server" Text="Segundo Apellido " ></asp:Label><br />                  
 
-                    <asp:TextBox ID="txtNombreCond" runat="server" CssClass= "textEntry" Width="160px" enabled="false"></asp:TextBox>                                       
+                    <asp:TextBox ID="txtNombreCond" runat="server" CssClass= "textEntry" Width="160px" enabled="false" Text="Edgar"></asp:TextBox>                                       
                     &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-                    <asp:TextBox ID="txtPrimerApellidoCond" runat="server" CssClass= "textEntry" Width="160px" enabled="false"></asp:TextBox>                                       
+                    <asp:TextBox ID="txtPrimerApellidoCond" runat="server" CssClass= "textEntry" Width="160px" enabled="false" Text="Rodriguez"></asp:TextBox>                                       
                     &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-                    <asp:TextBox ID="txtSegundoApellidoCond" runat="server" CssClass= "textEntry" Width="160px" enabled="false"></asp:TextBox>                                       
+                    <asp:TextBox ID="txtSegundoApellidoCond" runat="server" CssClass= "textEntry" Width="160px" enabled="false" text="Sarmiento"></asp:TextBox>                                       
                     
                       </div> 
                  <div id= "DivAsigRuta" class="post" runat ="server" visible="false">
@@ -111,20 +111,21 @@
                        
                      <asp:Label ID="lblRuta" runat="server" Text="Ruta: " Visible="false"></asp:Label>
                      <br />
-                     <asp:TextBox ID="txtRuta" runat="server" CssClass= "textEntry" Width="160px" enabled="false" Visible="false"></asp:TextBox>
+                     <asp:TextBox ID="txtRuta" runat="server" CssClass= "textEntry" Width="160px" Visible="true" Text="Occidente"></asp:TextBox>
                 
-                 <asp:ListBox ID="lstRuta" runat="server" AutoPostBack="True" Rows="1" visible="false">
+                 <asp:ListBox ID="lstRuta" runat="server" AutoPostBack="True" Rows="1" visible="true">
                             <asp:ListItem>Seleccionar</asp:ListItem>
                      </asp:ListBox>
                   </div>  
                 </fieldset>
                 <p class="submitButton">
-                <asp:Button ID="btnLimpiar" runat="server" Text="Limpiar" Width="121px" /> 
+                <asp:Button ID="btnLimpiar" runat="server" Text="Limpiar" Width="121px" 
+                        onclick="btnLimpiar_Click" /> 
                     &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; &nbsp; 
                     <asp:Button ID="btnGuardar" runat="server" Text="Guardar" Width="121px" visible="false"
                         onclick="btnGuardar_Click"/> 
                     &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; &nbsp; 
-                    <asp:Button ID="btnMenuPrincipal" runat="server" Text="Menu Principal" 
+                    <asp:Button ID="btnMenuPrincipal" runat="server" Text="Menú Principal" 
                         Width="121px" onclick="btnMenuPrincipal_Click"/>
                </p>
               </div>

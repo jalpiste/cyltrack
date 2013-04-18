@@ -175,6 +175,15 @@ namespace Unisangil.CYLTRACK.CYLTRACK_WebApp.Reporte {
         protected global::System.Web.UI.WebControls.GridView gvReporte;
         
         /// <summary>
+        /// Control divBotones.
+        /// </summary>
+        /// <remarks>
+        /// Campo generado automáticamente.
+        /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
+        /// </remarks>
+        protected global::System.Web.UI.HtmlControls.HtmlGenericControl divBotones;
+        
+        /// <summary>
         /// Control btnImp.
         /// </summary>
         /// <remarks>
@@ -184,12 +193,12 @@ namespace Unisangil.CYLTRACK.CYLTRACK_WebApp.Reporte {
         protected global::System.Web.UI.WebControls.Button btnImp;
         
         /// <summary>
-        /// Control btnCancel.
+        /// Control btnMenu.
         /// </summary>
         /// <remarks>
         /// Campo generado automáticamente.
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Button btnCancel;
+        protected global::System.Web.UI.WebControls.Button btnMenu;
     }
 }
