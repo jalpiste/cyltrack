@@ -27,16 +27,28 @@ namespace Unisangil.CYLTRACK.CYLTRACK_BE
         public String fecha { get; set; }
 
         /// <summary>
-        /// Descripcion del cambio de ubicación
+        /// Descripción del cambio de ubicación
         /// </summary>
         public String Descripcion { get; set; }
 
         /// <summary>
-        /// Direccion del cambio de ubicación
+        /// Dirección de nueva de ubicación
         /// </summary>
         public String Direccion { get; set; }
 
+        /// <summary>
+        /// Teléfono N.1 de nueva de ubicación
+        /// </summary>
+        public String Telefono_1 { get; set; }
 
+        /// <summary>
+        /// Teléfono N.2 de nueva de ubicación
+        /// </summary>
+        public String Telefono_2 { get; set; }
 
+        /// <summary>
+        /// Barrio de nueva de ubicación
+        /// </summary>
+        public String Barrio { get; set; }
     }
 }
