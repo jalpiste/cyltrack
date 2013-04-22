@@ -13,7 +13,7 @@ namespace Unisangil.CYLTRACK.WCF_Services
     public interface IService1
     {
         [OperationContract]
-        long Prueba(Cilindro cilindro);
+        long Prueba(CilindroBE cilindro);
     }
 
     

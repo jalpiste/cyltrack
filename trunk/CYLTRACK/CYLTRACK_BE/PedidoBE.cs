@@ -15,7 +15,7 @@ namespace Unisangil.CYLTRACK.CYLTRACK_BE
     /// <summary>
     /// Clase utilizada para representar la entidad Pedido
     /// </summary>
-    public class Pedido
+    public class PedidoBE
     {
         /// <summary>
         /// Identificador del pedido

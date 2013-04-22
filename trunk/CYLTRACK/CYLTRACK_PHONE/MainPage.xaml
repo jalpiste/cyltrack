@@ -25,6 +25,7 @@
             <StackPanel Name="barra" Width="467"  Style= "{StaticResource encabezado}">
                 <Grid Height="85" Name="grid1" Margin="12,12,0,656">
                     <TextBlock Height="50" Name="textBlock1" Text="CYLTRACK" Style="{StaticResource h1}" Grid.ColumnSpan="2" Margin="0,25" />
+                    <HyperlinkButton  Content="[ Iniciar Sesión]" HorizontalAlignment="Right" Margin="0,-13,0,13" Click="HyperlinkButton_Click" />
                 </Grid>
             </StackPanel>
      

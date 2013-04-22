@@ -61,6 +61,15 @@
     <Compile Include="App.xaml.cs">
       <DependentUpon>App.xaml</DependentUpon>
     </Compile>
+    <Compile Include="Autenticacion\frmAutenticacion.xaml.cs">
+      <DependentUpon>frmAutenticacion.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Autenticacion\frmRegistrarUsuario.xaml.cs">
+      <DependentUpon>frmRegistrarUsuario.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Autenticacion\OlvidoContrasena.xaml.cs">
+      <DependentUpon>OlvidoContrasena.xaml</DependentUpon>
+    </Compile>
     <Compile Include="Clientes\frmConsultarCliente.xaml.cs">
       <DependentUpon>frmConsultarCliente.xaml</DependentUpon>
     </Compile>
@@ -96,6 +105,18 @@
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </ApplicationDefinition>
+    <Page Include="Autenticacion\frmAutenticacion.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Autenticacion\frmRegistrarUsuario.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Autenticacion\OlvidoContrasena.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
     <Page Include="Clientes\frmConsultarCliente.xaml">
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>

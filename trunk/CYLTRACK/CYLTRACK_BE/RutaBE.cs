@@ -4,7 +4,6 @@
  * Director: Fabián Lancheros Currea
  * Derechos reservados
  * */
-
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -13,28 +12,19 @@ using System.Text;
 namespace Unisangil.CYLTRACK.CYLTRACK_BE
 {
     /// <summary>
-    /// Clase utilizada para representar la entidad Tipo de ubicación
+    /// Clase utilizada para representar la entidad Ruta
     /// </summary>
-    public class Tipo_Ubicacion
+    public class RutaBE
     {
         /// <summary>
-        /// Identificador de Ubicacion
+        /// Identificador ruta 
         /// </summary>
-        public String Id_Ubica { get; set; }
+        public String Id_Ruta { get; set; }
 
         /// <summary>
-        /// Nombre de la ubicación
+        /// Nombre de la ruta 
         /// </summary>
         public String Nombre { get; set; }
 
-        /// <summary>
-        /// Descripción de la ubicación
-        /// </summary>
-        public String Descripcion { get; set; }
-
-        /// <summary>
-        /// Categoria de la ubicación
-        /// </summary>
-        public String Categoria { get; set; }
     }
 }

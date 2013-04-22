@@ -4,7 +4,6 @@
  * Director: Fabián Lancheros Currea
  * Derechos reservados
  * */
-
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -13,23 +12,28 @@ using System.Text;
 namespace Unisangil.CYLTRACK.CYLTRACK_BE
 {
     /// <summary>
-    /// Clase utilizada para representar la entidad vehiculo
+    /// Clase utilizada para representar la entidad venta
     /// </summary>
-    public class Vehiculo
+    public class VentaBE
     {
         /// <summary>
-        /// Identificador del vehiculo, (placa)
+        /// Identificador de venta
         /// </summary>
-        public String Id_Vehiculo { get; set; }
+        public String Id_Venta { get; set; }
 
         /// <summary>
-        /// Identificador de la ruta
+        /// Identificador de detalle de venta
         /// </summary>
-        public String Id_Ruta { get; set; }
+        public String Id_Detalle_Venta { get; set; }
 
         /// <summary>
-        /// Caracteristicas del vehículo
+        /// identificador de conductor vehiculo
         /// </summary>
-        public String Caracteristicas { get; set; }
+        public String Id_Conductor_Vehiculo { get; set; }
+
+        /// <summary>
+        /// Fecha de la venta
+        /// </summary>
+        public String Fecha { get; set; }
     }
 }

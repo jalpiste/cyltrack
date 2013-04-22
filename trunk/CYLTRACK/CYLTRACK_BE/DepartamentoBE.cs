@@ -11,20 +11,21 @@ using System.Text;
 
 namespace Unisangil.CYLTRACK.CYLTRACK_BE
 {
-    /// <summary>
-    /// Clase utilizada para representar la entidad Ciudad
+    // <summary>
+    /// Clase utilizada para representar la entidad Departamento
     /// </summary>
-    public class Ciudad
+    
+    public class DepartamentoBE
     {
         /// <summary>
-        /// Identificador de la ciudad
+        /// Identificador de un departamento
         /// </summary>
-        public String Id_Ciudad { get; set; }
-        
+        public String Id_Departamento { get; set; }
+
         /// <summary>
-        /// Nombre de la ciudad
+        /// Nombre de un departamento
         /// </summary>
         public String Nombre { get; set; }
-        
+
     }
 }

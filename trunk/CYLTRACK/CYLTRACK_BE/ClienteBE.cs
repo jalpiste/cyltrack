@@ -15,7 +15,7 @@ namespace Unisangil.CYLTRACK.CYLTRACK_BE
     /// Clase utilizada para representar la entidad Cliente
     /// </summary>
     
-    public class Cliente
+    public class ClienteBE
     {
         /// <summary>
         /// Identificador de un cliente
