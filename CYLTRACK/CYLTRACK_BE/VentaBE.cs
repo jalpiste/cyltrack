@@ -22,16 +22,6 @@ namespace Unisangil.CYLTRACK.CYLTRACK_BE
         public String Id_Venta { get; set; }
 
         /// <summary>
-        /// Identificador de detalle de venta
-        /// </summary>
-        public String Id_Detalle_Venta { get; set; }
-
-        /// <summary>
-        /// identificador de conductor vehiculo
-        /// </summary>
-        public String Id_Conductor_Vehiculo { get; set; }
-
-        /// <summary>
         /// Fecha de la venta
         /// </summary>
         public String Fecha { get; set; }

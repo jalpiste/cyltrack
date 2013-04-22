@@ -25,7 +25,7 @@ namespace Unisangil.CYLTRACK.CYLTRACK_BE
         /// <summary>
         /// Nombre del Error
         /// </summary>
-        public String Id_Error { get; set; }
+        public String Error { get; set; }
 
         /// <summary>
         /// Tipo de error

@@ -20,7 +20,7 @@ namespace Unisangil.CYLTRACK.CYLTRACK_BE
         /// <summary>
         /// Identificador de Ubicacion
         /// </summary>
-        public String Id_Ubica { get; set; }
+        public String Id_Tipo_Ubica { get; set; }
 
         /// <summary>
         /// Nombre de la ubicación
@@ -31,10 +31,6 @@ namespace Unisangil.CYLTRACK.CYLTRACK_BE
         /// Descripción de la ubicación
         /// </summary>
         public String Descripcion { get; set; }
-
-        /// <summary>
-        /// Categoria de la ubicación
-        /// </summary>
-        public String Categoria { get; set; }
+        
     }
 }
