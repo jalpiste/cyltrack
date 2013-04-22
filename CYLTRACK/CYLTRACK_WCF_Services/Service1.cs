@@ -11,7 +11,7 @@ namespace Unisangil.CYLTRACK.WCF_Services
     // NOTA: puede usar el comando "Rename" del menú "Refactorizar" para cambiar el nombre de clase "Service1" en el código y en el archivo de configuración a la vez.
     public class Service1 : IService1
     {
-        public long Prueba(Cilindro cilindro)
+        public long Prueba(CilindroBE cilindro)
         {
 
             return 1;

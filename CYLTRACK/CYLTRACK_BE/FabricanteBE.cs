@@ -8,7 +8,7 @@ namespace Unisangil.CYLTRACK.CYLTRACK_BE
     /// <summary>
     /// Clase utilizada para representar la entidad Fabricante
     /// </summary>
-    public class Fabricante
+    public class FabricanteBE
     {
         /// <summary>
         /// Identificador fabricante

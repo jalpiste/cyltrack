@@ -54,5 +54,10 @@ namespace Cyltrack_phone
                 NavigationService.Navigate(new Uri("/Ventas/frmConsultaCilindro.xaml", UriKind.Relative));
 
         }
+
+        private void HyperlinkButton_Click(object sender, RoutedEventArgs e)
+        {
+            NavigationService.Navigate(new Uri("/Autenticacion/frmAutenticacion.xaml", UriKind.Relative));
+        }
     }
 }

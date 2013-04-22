@@ -21,7 +21,7 @@ namespace Unisangil.CYLTRACK.AppTest
 
         public long CrearPrueba()
         {
-            Cilindro cilindro = new Cilindro();
+            CilindroBE cilindro = new CilindroBE();
             cilindro.Tamano = "40";
             cilindro.Tipo_Cilindro = "GPL";
             cilindro.Id_Fabricante = "123455556";

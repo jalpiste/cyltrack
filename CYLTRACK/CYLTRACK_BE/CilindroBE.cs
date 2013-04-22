@@ -14,7 +14,7 @@ namespace Unisangil.CYLTRACK.CYLTRACK_BE
     /// <summary>
     /// Clase utilizada para representar la entidad Cilindro
     /// </summary>
-    public class Cilindro
+    public class CilindroBE
     {
         /// <summary>
         /// Identificador del cilindro
@@ -50,5 +50,7 @@ namespace Unisangil.CYLTRACK.CYLTRACK_BE
         /// Tipo de cilindro, universal o de marca
         /// </summary>
         public String Tipo_Cilindro { get; set; }
+
+        
     }
 }

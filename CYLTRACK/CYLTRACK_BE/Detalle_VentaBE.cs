@@ -15,7 +15,7 @@ namespace Unisangil.CYLTRACK.CYLTRACK_BE
     /// Clase utilizada para representar la entidad Detalle_Venta
     /// </summary>
     /// 
-    public class Detalle_Venta
+    public class Detalle_VentaBE
     {
         /// <summary>
         /// Identificador de un detalle de venta

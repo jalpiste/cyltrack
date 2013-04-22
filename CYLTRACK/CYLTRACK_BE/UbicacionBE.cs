@@ -14,7 +14,7 @@ namespace Unisangil.CYLTRACK.CYLTRACK_BE
     /// <summary>
     /// Clase utilizada para representar la entidad Ubicación
     /// </summary>
-    public class Ubicacion
+    public class UbicacionBE
     {
         /// <summary>
         /// Identificador de la ubicacion del cilindro

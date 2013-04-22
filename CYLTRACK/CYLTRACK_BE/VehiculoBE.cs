@@ -2,8 +2,9 @@
  * Proyecto de grado: Trazabilidad de Cilindros CYLTRACK
  * Integrantes: Viviana Camacho y Jackelyne Padilla
  * Director: Fabián Lancheros Currea
- * Deerechos reservados
+ * Derechos reservados
  * */
+
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -12,25 +13,23 @@ using System.Text;
 namespace Unisangil.CYLTRACK.CYLTRACK_BE
 {
     /// <summary>
-    /// Clase utilizada para representar la entidad Conductor_Vehículo
+    /// Clase utilizada para representar la entidad vehiculo
     /// </summary>
-    
-    public class Conductor_VehiculoBE
+    public class VehiculoBE
     {
         /// <summary>
-        /// Identificador de conductor_vehículo
+        /// Identificador del vehiculo, (placa)
         /// </summary>
-        public String Id_Conductor_Vehiculo { get; set; }
+        public String Id_Vehiculo { get; set; }
 
         /// <summary>
-        /// fecha de inicio de la ruta en un vehículo
+        /// Identificador de la ruta
         /// </summary>
-        public DateTime  Fecha_Inicio { get; set; }
+        public String Id_Ruta { get; set; }
 
         /// <summary>
-        /// fecha de finalización de la ruta en un vehículo
+        /// Caracteristicas del vehículo
         /// </summary>
-        public DateTime Fecha_Fin { get; set; }
-
+        public String Caracteristicas { get; set; }
     }
 }

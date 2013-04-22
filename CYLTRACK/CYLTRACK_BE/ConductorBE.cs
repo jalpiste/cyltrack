@@ -15,7 +15,7 @@ namespace Unisangil.CYLTRACK.CYLTRACK_BE
     /// Clase utilizada para representar la entidad Conductor
     /// </summary>
     
-    public class Conductor
+    public class ConductorBE
     {
         /// <summary>
         /// Identificador de un conductor

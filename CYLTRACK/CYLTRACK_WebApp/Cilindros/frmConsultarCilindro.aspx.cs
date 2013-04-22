@@ -4,6 +4,7 @@ using System.Linq;
 using System.Web;
 using System.Web.UI;
 using System.Web.UI.WebControls;
+using Unisangil.CYLTRACK.CYLTRACK_BE;
 
 namespace Unisangil.CYLTRACK.CYLTRACK_WebApp.Cilindros
 {
@@ -17,6 +18,21 @@ namespace Unisangil.CYLTRACK.CYLTRACK_WebApp.Cilindros
 
         protected void txtCodigoCilindro_TextChanged(object sender, EventArgs e)
         {
+            CilindroBE consulta = new CilindroBE();
+            Ubicacion_CilindroBE ubicacion = new Ubicacion_CilindroBE();
+
+            consulta.Codigo_Cilindro = Convert.ToString(txtCodigoCilindro);
+             
+            //llamar al servicio y validar en bd
+
+            //Service1Cilindro serv = new Service1Cilindro();
+            //consulta = Server.ConsultarCilindro();
+            //TxtAno.Text = Convert.ToString(serv.ConsultarCilindro(consulta.Ano));
+            //TxtEmpresa.Text = Convert.ToString(serv.ConsultarCilindro(consulta.Id_Fabricante));
+            //TxtCodigo.Text = Convert.ToString(serv.ConsultarCilindro(consulta.Codigo_Cilindro));
+            //TxtUbicacion.Text = Convert.ToString(serv.ConsultarCilindro(ubicacion.Nombre));
+            //TxtCodigo.Text = Convert.ToString(serv.ConsultarCilindro(consulta.Codigo_Cilindro));
+      
             DivDatosCilindro.Visible = true;
             BtnNuevaConsulta.Visible = true;
             if (TxtUbicacion.Text == "Vehiculo") 

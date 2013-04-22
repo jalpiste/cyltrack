@@ -11,7 +11,7 @@ using System.Windows.Media.Animation;
 using System.Windows.Shapes;
 using Microsoft.Phone.Controls;
 
-namespace CYLTRACK_PHONE.Autenticacion
+namespace Unisangil.CYLTRACK.CYLTRACK_PHONE.Autenticacion
 {
     public partial class OlvidoContrasena : PhoneApplicationPage
     {

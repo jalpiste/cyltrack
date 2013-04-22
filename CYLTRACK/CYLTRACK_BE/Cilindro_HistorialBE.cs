@@ -14,7 +14,7 @@ namespace Unisangil.CYLTRACK.CYLTRACK_BE
     /// <summary>
     /// Clase utilizada para representar la entidad Cilindro_Historial
     /// </summary>
-    public class Cilindro_Historial
+    public class Cilindro_HistorialBE
     {
         /// <summary>
         /// Identificador del historico

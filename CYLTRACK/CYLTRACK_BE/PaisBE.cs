@@ -8,7 +8,7 @@ namespace Unisangil.CYLTRACK.CYLTRACK_BE
     /// <summary>
     /// Clase utilizada para representar la entidad Pais
     /// </summary>
-    public class Pais
+    public class PaisBE
     {
         /// <summary>
         /// Identificador del pais
