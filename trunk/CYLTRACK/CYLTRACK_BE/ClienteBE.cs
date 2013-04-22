@@ -43,24 +43,19 @@ namespace Unisangil.CYLTRACK.CYLTRACK_BE
         public String Apellido_2 { get; set; }
 
         /// <summary>
-        /// Primera dirección de un cliente
-        /// </summary>
-        public String Direccion_1 { get; set; }
+        /// ubicación de un cliente
+        /// </summary>              
+        public UbicacionBE Ubicacion { get; set; }
 
         /// <summary>
-        /// Segunda dirección de un cliente
-        /// </summary>
-        public String Direccion_2 { get; set; }
+        /// ciudad de ubicación de un cliente
+        /// </summary>              
+        public CiudadBE Ciudad { get; set; }
 
         /// <summary>
-        /// Primer número de teléfono de un cliente
-        /// </summary>
-        public String Telefono_1 { get; set; }
+        /// departamento de ubicación de un cliente
+        /// </summary>              
+        public DepartamentoBE Departamento { get; set; }
 
-        /// <summary>
-        /// Segundo número de teléfono de un cliente
-        /// </summary>
-        public String Telefono_2 { get; set; }
-        
     }
 }
