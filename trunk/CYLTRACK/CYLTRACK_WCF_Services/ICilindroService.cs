@@ -14,9 +14,7 @@ namespace Unisangil.CYLTRACK.CYLTRACK_WCF_Services
     [ServiceContract]
     public interface ICilindroService
     {
-        [OperationContract]
-        string Prueba(int i);
-
+       
         [OperationContract]
         long CrearCilindro(CilindroBE cilindro);
 

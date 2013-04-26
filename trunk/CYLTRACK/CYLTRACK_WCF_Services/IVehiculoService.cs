@@ -5,23 +5,24 @@ using System.Text;
 using System.ServiceModel;
 using Unisangil.CYLTRACK.CYLTRACK_BE;
 
+
 namespace Unisangil.CYLTRACK.CYLTRACK_WCF_Services
-{
+{ 
     // NOTA: puede usar el comando "Rename" del menú "Refactorizar" para cambiar el nombre de interfaz "IClienteService" en el código y en el archivo de configuración a la vez.
     [ServiceContract]
-    public interface IClienteService
+    public interface IVehiculoService
     {
         [OperationContract]
-        long Registrar_Cliente(ClienteBE registrar_cli);
+        long Registrar_Vehiculo(VehiculoBE registrar_vehiculo);
 
         [OperationContract]
-        long Agregar_Ubicacion(ClienteBE registrar_ubi);
+        long Consultar_Vehiculo(VehiculoBE consultar_vehiculo);
 
         [OperationContract]
-        long Consultar_Cliente(ClienteBE consultar_cli);
+        long Modificar_Vehiculo(VehiculoBE modificar_vehiculo);
 
         [OperationContract]
-        long Modificar_Cliente(ClienteBE modificar_cli);
+        long Consultar_Conductor(VehiculoBE consultar_conductor);
+
     }
-
 }
