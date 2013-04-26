@@ -220,13 +220,13 @@ namespace Unisangil.CYLTRACK.CYLTRACK_WebApp.Account {
         protected global::System.Web.UI.WebControls.Label lblCiudad;
         
         /// <summary>
-        /// Control LstCiudad.
+        /// Control lstCiudad.
         /// </summary>
         /// <remarks>
         /// Campo generado automáticamente.
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.ListBox LstCiudad;
+        protected global::System.Web.UI.WebControls.ListBox lstCiudad;
         
         /// <summary>
         /// Control lstCiudadRequired.

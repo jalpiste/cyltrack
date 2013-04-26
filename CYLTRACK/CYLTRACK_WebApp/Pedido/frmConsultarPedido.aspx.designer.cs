@@ -103,13 +103,13 @@ namespace Unisangil.CYLTRACK.CYLTRACK_WebApp.Account.Pedido {
         protected global::System.Web.UI.WebControls.TextBox txtCedulaCliente;
         
         /// <summary>
-        /// Control ModificarPedidoRequired.
+        /// Control ConsultarPedidoRequired.
         /// </summary>
         /// <remarks>
         /// Campo generado automáticamente.
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.RequiredFieldValidator ModificarPedidoRequired;
+        protected global::System.Web.UI.WebControls.RequiredFieldValidator ConsultarPedidoRequired;
         
         /// <summary>
         /// Control lblNombreCliente.
@@ -310,13 +310,22 @@ namespace Unisangil.CYLTRACK.CYLTRACK_WebApp.Account.Pedido {
         protected global::System.Web.UI.WebControls.TextBox txtPlaca;
         
         /// <summary>
-        /// Control lblPlaca.
+        /// Control lblRuta.
         /// </summary>
         /// <remarks>
         /// Campo generado automáticamente.
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Label lblPlaca;
+        protected global::System.Web.UI.WebControls.Label lblRuta;
+        
+        /// <summary>
+        /// Control lblRutaAsignada.
+        /// </summary>
+        /// <remarks>
+        /// Campo generado automáticamente.
+        /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Label lblRutaAsignada;
         
         /// <summary>
         /// Control lblTamanoCil.

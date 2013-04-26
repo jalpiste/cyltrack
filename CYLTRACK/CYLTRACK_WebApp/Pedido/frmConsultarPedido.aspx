@@ -32,45 +32,45 @@
                     </h5>                    
                     <p>
                         <asp:Label ID="lblCedulaCliente" runat="server" AssociatedControlID="txtCedulaCliente" Text="Cedula: "></asp:Label><br />
-                        <asp:TextBox ID="txtCedulaCliente" CssClass="textEntry" enabled = "false" runat="server" Text="1053445676"></asp:TextBox>
-                        <asp:RequiredFieldValidator ID="ModificarPedidoRequired" runat="server" ControlToValidate="txtCedula" 
+                        <asp:TextBox ID="txtCedulaCliente" CssClass="textEntry" enabled = "false" runat="server" ></asp:TextBox>
+                        <asp:RequiredFieldValidator ID="ConsultarPedidoRequired" runat="server" ControlToValidate="txtCedula" 
                              CssClass="failureNotification" ErrorMessage="La cedula del cliente es obligatorio." ToolTip="La cedula del cliente es obligatorio." 
                              ValidationGroup="LoginUserValidationGroup">*</asp:RequiredFieldValidator>
                     </p>                   
                     <p>
                         <asp:Label ID="lblNombreCliente" runat="server" AssociatedControlID="txtNombreCliente">Nombres del cliente:</asp:Label><br />
-                        <asp:TextBox ID="txtNombreCliente" runat="server" CssClass="textEntry" Width="197px" Enabled="False" Text="Diego Alejandro"></asp:TextBox>
+                        <asp:TextBox ID="txtNombreCliente" runat="server" CssClass="textEntry" Width="197px" Enabled="False" ></asp:TextBox>
                     </p>  
                     <p>
-                        <asp:Label ID="lblPrimerApellido" runat="server" text="Primer Apellido:"></asp:Label>
+                        <asp:Label ID="lblPrimerApellido" runat="server" Text="Primer Apellido:"></asp:Label>
                         &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 
                                <asp:Label ID="SegundoApellidoLabel" runat="server" Text="Segundo Apellido:"></asp:Label><br />
-                        <asp:TextBox ID="txtPrimerApellido" runat="server" CssClass="textEntry" Width="197px" Enabled="False" Text ="Martinez"></asp:TextBox>
+                        <asp:TextBox ID="txtPrimerApellido" runat="server" CssClass="textEntry" Width="197px" Enabled="False" ></asp:TextBox>
                             &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-                            <asp:TextBox ID="txtSegundoApellido" runat="server" CssClass="textEntry" Width="197px" Enabled="False" Text="Giraldo"></asp:TextBox>
+                            <asp:TextBox ID="txtSegundoApellido" runat="server" CssClass="textEntry" Width="197px" Enabled="False" ></asp:TextBox>
                     </p> 
                     <p>
                         <asp:Label ID="lblDireccion" runat="server" Text="Dirección:  "></asp:Label>
                         &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 
                         <asp:Label ID="lblBarrio" runat="server" Text="Barrio:" ></asp:Label>
                         <br />
-                        <asp:TextBox ID="txtDireccion" runat="server" Enabled="false" CssClass="textEntry" Text="Calle 12 N 10-88"></asp:TextBox>
+                        <asp:TextBox ID="txtDireccion" runat="server" Enabled="false" CssClass="textEntry" ></asp:TextBox>
                           &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;
-                          <asp:TextBox ID="txtBarrio" runat="server" CssClass="textEntry" Width="197px" Enabled="False" Text="Las Ferias"></asp:TextBox>
+                          <asp:TextBox ID="txtBarrio" runat="server" CssClass="textEntry" Width="197px" Enabled="False" ></asp:TextBox>
                     </p> 
                     <p><asp:Label ID="lblCiudad" runat="server" Width="685px">Ciudad:</asp:Label><br />
-                    <asp:TextBox ID="txtCiudad" runat="server" CssClass="textEntry" Width="197px" Enabled="False" Text="Chiquinquirá"></asp:TextBox>
+                    <asp:TextBox ID="txtCiudad" runat="server" CssClass="textEntry" Width="197px" Enabled="False" ></asp:TextBox>
                     <br/>
                     <asp:Label ID="lblDepartamento" runat="server" Width="679px">Departamento:</asp:Label>
                     <br />
-                    <asp:TextBox ID="txtDepartamento" runat="server" CssClass="textEntry" Width="197px" Enabled="False" Text="Boyacá"></asp:TextBox>
+                    <asp:TextBox ID="txtDepartamento" runat="server" CssClass="textEntry" Width="197px" Enabled="False" ></asp:TextBox>
                          
                         </p>
                     
                      <p> 
                          <asp:Label ID="lblTelefono" runat="server" Text="Telefono:"></asp:Label>
                     <br />
-                           <asp:TextBox ID="txtTelefono" runat="server" CssClass="textEntry" Enabled="False" Text="3005228612"></asp:TextBox>
+                           <asp:TextBox ID="txtTelefono" runat="server" CssClass="textEntry" Enabled="False" ></asp:TextBox>
                     </p>
                   <div class="post">Información Cilindro Cliente</div>
                   <p>
@@ -79,9 +79,9 @@
                       &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
                       <asp:Label ID="lblTamano" runat="server" Text="Tamaño: "></asp:Label>
                   <br />
-                      <asp:TextBox ID="txtCilindro" runat="server" CssClass="textEntry" Enabled="False" Text ="101583762024"></asp:TextBox>
+                      <asp:TextBox ID="txtCilindro" runat="server" CssClass="textEntry" Enabled="False" ></asp:TextBox>
                       &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-                      <asp:TextBox ID="txtTamano" Enabled="false" CssClass="textEntry" runat="server" text="30" Width="48px"></asp:TextBox>
+                      <asp:TextBox ID="txtTamano" Enabled="false" CssClass="textEntry" runat="server" Width="48px"></asp:TextBox>
                   &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 
                   
                   </p>
@@ -90,9 +90,10 @@
 
                         <asp:Label ID="lblVehiculo" runat="server" Text="Vehiculo zona: "></asp:Label>
                     &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-                    <asp:TextBox ID="txtPlaca"  CssClass="textEntry" runat="server" enabled = "false" Width="50px" Text="ADR744"></asp:TextBox>
+                    <asp:TextBox ID="txtPlaca"  CssClass="textEntry" runat="server" enabled = "false" Width="50px" ></asp:TextBox>
                         &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; &nbsp;
-                        <asp:Label ID="lblPlaca" runat="server"  Text="Ruta Chiquinquirá"></asp:Label>
+                        <asp:Label ID="lblRuta" runat="server"  Text="Ruta: "></asp:Label>
+                        <asp:Label ID="lblRutaAsignada" runat="server"  Text="xxxxxxx"></asp:Label>
                       </p>
                       <p>
                           <asp:Label ID="lblTamanoCil" runat="server" Text="Tamaño Cilindro:"></asp:Label>
@@ -109,20 +110,18 @@
                     <br />
                     <br />
                      <asp:ListBox ID="lstAgregar" runat="server" Height="62px" Width="120px" enabled ="false">
-                     <asp:ListItem>30 1</asp:ListItem>
-                     <asp:ListItem>100   1</asp:ListItem>
                      </asp:ListBox>    
                       </p>
                         <p>
                       
                           <asp:Label ID="lblFecha" runat="server" Text="Fecha de Registro de Pedido:   "></asp:Label>
                           &nbsp;
-                          <asp:Label ID="lblFechaPedido" runat="server" Text=" 01/12/2012 17:45:10"></asp:Label>
+                          <asp:Label ID="lblFechaPedido" runat="server" Text=" dd/mm/aaaa 00:00:00"></asp:Label>
                       </p>
                       <p>
                           <asp:Label ID="lblFechaEntrega" runat="server" Text="Fecha de Entrega del Pedido:"></asp:Label>
                           &nbsp;&nbsp;
-                          <asp:Label ID="lblFechaEntregaCilindro" runat="server" Text="01/12/2012 18:10:00"></asp:Label>
+                          <asp:Label ID="lblFechaEntregaCilindro" runat="server" Text="dd/mm/aaaa 00:00:00"></asp:Label>
                       </p>
                    </div>
                 </fieldset>
