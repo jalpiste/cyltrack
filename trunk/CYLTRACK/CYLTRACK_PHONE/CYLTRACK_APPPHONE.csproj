@@ -64,9 +64,6 @@
     <Compile Include="Autenticacion\frmAutenticacion.xaml.cs">
       <DependentUpon>frmAutenticacion.xaml</DependentUpon>
     </Compile>
-    <Compile Include="Autenticacion\frmRegistrarUsuario.xaml.cs">
-      <DependentUpon>frmRegistrarUsuario.xaml</DependentUpon>
-    </Compile>
     <Compile Include="Autenticacion\OlvidoContrasena.xaml.cs">
       <DependentUpon>OlvidoContrasena.xaml</DependentUpon>
     </Compile>
@@ -106,10 +103,6 @@
       <Generator>MSBuild:Compile</Generator>
     </ApplicationDefinition>
     <Page Include="Autenticacion\frmAutenticacion.xaml">
-      <Generator>MSBuild:Compile</Generator>
-      <SubType>Designer</SubType>
-    </Page>
-    <Page Include="Autenticacion\frmRegistrarUsuario.xaml">
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </Page>

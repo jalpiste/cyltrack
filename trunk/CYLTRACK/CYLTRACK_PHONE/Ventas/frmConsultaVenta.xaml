@@ -1,5 +1,5 @@
 ﻿<phone:PhoneApplicationPage 
-    x:Class="Cyltrack_phone.Ventas.frmConsultaVenta"
+    x:Class="Unisangil.CYLTRACK.CYLTRACK_PHONE.Ventas.frmConsultaVenta"
     xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
     xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
     xmlns:phone="clr-namespace:Microsoft.Phone.Controls;assembly=Microsoft.Phone"
@@ -22,6 +22,18 @@
                 <TextBlock x:Name="PageTitle" Text="CONSULTA DE VENTA" Margin="9,-7,0,0" Style="{StaticResource PhoneTextExtraLargeStyle}" />
             </StackPanel>
             <!--ContentPanel. Colocar aquí el contenido adicional-->
+
+            <Grid x:Name="ContentBusq" Visibility="Visible" Height="284" Width="437">
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="40*" />
+                    <RowDefinition Height="244*" />
+                </Grid.RowDefinitions>
+                <TextBlock Height="30" HorizontalAlignment="Left" Name="lblCedula" Text="Número de Cédula: " Margin="7,26,0,188" Grid.Row="1" />
+                <TextBox Height="Auto" HorizontalAlignment="Left" Name="txtCedula" Text="" VerticalAlignment="Top" Width="303" Style="{StaticResource textboxSolos}" Margin="-4,54,0,0" InputScope="TelephoneNumber" Grid.Row="1" />
+                <Button Content="Consultar" Height="72" HorizontalAlignment="Left" Name="btnConsultar" VerticalAlignment="Top" Width="160" Margin="35,132,0,0" Click="btnConsultar_Click" Grid.Row="1" />
+                <TextBlock Height="50" HorizontalAlignment="Left" Name="lblConsulta" Text="Consultar Venta" VerticalAlignment="Top" Style="{StaticResource h2}" Width="373" Margin="0,6,0,0" Grid.RowSpan="2" />
+                <Button Content="Menú" Height="72" HorizontalAlignment="Left" Margin="225,132,0,0" Name="btnMenuPrincipal" VerticalAlignment="Top" Width="160" Click="btnMenuPrincipal_Click" Grid.Row="1" />
+            </Grid>
 
             <Grid x:Name="ContentBusq" Visibility="Visible" Height="284" Width="437">
                 <Grid.RowDefinitions>

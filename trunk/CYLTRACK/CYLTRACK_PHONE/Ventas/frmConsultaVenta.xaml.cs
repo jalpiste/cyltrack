@@ -11,7 +11,7 @@ using System.Windows.Media.Animation;
 using System.Windows.Shapes;
 using Microsoft.Phone.Controls;
 
-namespace Cyltrack_phone.Ventas
+namespace Unisangil.CYLTRACK.CYLTRACK_PHONE.Ventas
 {
     public partial class frmConsultaVenta : PhoneApplicationPage
     {
@@ -55,14 +55,14 @@ namespace Cyltrack_phone.Ventas
             ContentBusq.Visibility = System.Windows.Visibility.Visible;
         }
 
-        
-        
+
+
         private void btnMenuPrincipal_Click(object sender, RoutedEventArgs e)
         {
             NavigationService.Navigate(new Uri("/MainPage.xaml", UriKind.Relative));
         }
 
-        
+
 
     }
 }
