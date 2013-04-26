@@ -90,13 +90,14 @@
 
                         <asp:Label ID="lblVehiculo" runat="server" Text="Vehiculo zona: "></asp:Label>
                     &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-                        &nbsp;<asp:ListBox ID="LstPlaca" runat="server" AutoPostBack="True" Rows="1">
+                        &nbsp;<asp:ListBox ID="lstPlaca" runat="server" AutoPostBack="True" Rows="1">
                             <asp:ListItem>UZK201</asp:ListItem>
                             <asp:ListItem>UZK270</asp:ListItem>
                             <asp:ListItem>XHA940</asp:ListItem>
                         </asp:ListBox>
                         &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; &nbsp;
-                        <asp:Label ID="lblPlaca" runat="server"  Text="Ruta Chiquinquirá"></asp:Label>
+                        <asp:Label ID="lblRuta" runat="server"  Text="Ruta: "></asp:Label>
+                        <asp:Label ID="lblRutaAsignada" runat="server"  Text="xxxxx"></asp:Label>
                       </p>
                       <p>
                           <asp:Label ID="lblTamanoCil" runat="server" Text="Tamaño Cilindro:"></asp:Label>

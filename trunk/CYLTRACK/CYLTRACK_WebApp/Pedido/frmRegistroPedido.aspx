@@ -97,7 +97,9 @@
                             <asp:ListItem>XHA940</asp:ListItem>
                         </asp:ListBox>
                         &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-                        <asp:Label ID="lblPlaca" runat="server" Text="Ruta Chiquinquirá"></asp:Label>
+                        <asp:Label ID="lblRuta" runat="server" Text="Ruta: "></asp:Label>
+                        &nbsp;
+                        <asp:Label ID="lblRutaAsignada" runat="server" Text="xxxxxxx"></asp:Label>
                       </p>
                       <p>
                           <asp:Label ID="lblTamanoCil" runat="server" Text="Tamaño Cilindro:"></asp:Label>

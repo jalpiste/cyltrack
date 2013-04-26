@@ -33,7 +33,7 @@
                         <br />
                <asp:Label ID="lblCiudad" runat="server" AssociatedControlID="LstCiudad" Width="685px" >Ciudad:</asp:Label>
                         <br />
-                        <asp:ListBox ID="LstCiudad" runat="server" Rows="1">
+                        <asp:ListBox ID="lstCiudad" runat="server" Rows="1">
                             <asp:ListItem>Chiquinquirá</asp:ListItem>
                             <asp:ListItem>Bogotá</asp:ListItem>
                             <asp:ListItem>Tunja</asp:ListItem>

@@ -74,7 +74,7 @@
                             <br />
                             
                              
-                             <asp:Label ID="lblNombre" runat="server" Text="Nombres: "></asp:Label>
+                             <asp:Label ID="lblNombre" runat="server" Text="Nombre: "></asp:Label>
                              <br />
                              <asp:TextBox ID="txtNombre" runat="server" CssClass="textEntry" Width="320px"></asp:TextBox>
                              <asp:RequiredFieldValidator ID="NombreRequired" runat="server" 
@@ -83,7 +83,7 @@
                                  ToolTip="El nombre es obligatorio." 
                                  ValidationGroup="RegisterUserValidationGroup">*</asp:RequiredFieldValidator>
                              <br />
-                             <asp:Label ID="lblApellidos" runat="server" Text="Apellidos: "></asp:Label>
+                             <asp:Label ID="lblApellidos" runat="server" Text="Apellido: "></asp:Label>
                              <br />
                              <asp:TextBox ID="txtApellidos" runat="server" CssClass="textEntry" Width="320px"></asp:TextBox>
                              <asp:RequiredFieldValidator ID="RequiredFieldValidator1" runat="server" 
