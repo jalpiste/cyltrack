@@ -3,13 +3,19 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.ServiceModel;
+using System.Runtime.Serialization;
+using Unisangil.CYLTRACK.CYLTRACK_BE;
 
 namespace Unisangil.CYLTRACK.CYLTRACK_WCF_Services
 {
-    [ServiceContract (Namespace = "http://servicios.cyltrack.com.co/cyltrack/")]
+    /// <summary>
+    /// Interface 
+    /// </summary>
+    [ServiceContract]
     public interface IUsuarioService
+
     {
         [OperationContract]
-        string Prueba(int i); 
+        long Registrar_Usuario(UsuarioBE registrar_usuario);
     }
 }
