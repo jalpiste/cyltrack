@@ -8,6 +8,7 @@ using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
+using Unisangil.CYLTRACK.CYLTRACK_BE;
 
 namespace Unisangil.CYLTRACK.CYLTRACK_BE
 {
@@ -50,5 +51,6 @@ namespace Unisangil.CYLTRACK.CYLTRACK_BE
         /// Barrio de nueva de ubicación
         /// </summary>
         public String Barrio { get; set; }
-    }
+
+       }
 }

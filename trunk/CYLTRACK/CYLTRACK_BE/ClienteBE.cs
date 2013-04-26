@@ -8,6 +8,7 @@ using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
+using Unisangil.CYLTRACK.CYLTRACK_BE;
 
 namespace Unisangil.CYLTRACK.CYLTRACK_BE
 {
@@ -53,9 +54,10 @@ namespace Unisangil.CYLTRACK.CYLTRACK_BE
         public CiudadBE Ciudad { get; set; }
 
         /// <summary>
-        /// departamento de ubicación de un cliente
+        /// cilindro de un cliente
         /// </summary>              
-        public DepartamentoBE Departamento { get; set; }
+        public CilindroBE Cilindro { get; set; }
 
+       
     }
 }

@@ -48,7 +48,7 @@ namespace Unisangil.CYLTRACK.CYLTRACK_BE
         public String Contrasena_1 { get; set; }
 
         /// <summary>
-        /// Contraseña N.2 del Usuario
+        /// Confirmación de contraeña del Usuario
         /// </summary>
         public String Contrasena_2 { get; set; }
 
@@ -131,6 +131,11 @@ namespace Unisangil.CYLTRACK.CYLTRACK_BE
         /// Teléfono del Usuario
         /// </summary>
         public String Telefono { get; set; }
+
+        /// <summary>
+        /// Perfil de Usuario
+        /// </summary>
+        public PerfilBE Perfil { get; set; }
 
     }
 }

@@ -9,6 +9,7 @@ using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
+using Unisangil.CYLTRACK.CYLTRACK_BE;
 
 namespace Unisangil.CYLTRACK.CYLTRACK_BE
 {
@@ -77,5 +78,14 @@ namespace Unisangil.CYLTRACK.CYLTRACK_BE
         /// </summary>
         public String Apellido_2_Prop { get; set; }
 
+        /// <summary>
+        /// Ruta del Vehículo 
+        /// </summary>
+        public RutaBE Ruta { get; set; }
+
+        /// <summary>
+        /// Conductor asignado al Vehículo 
+        /// </summary>
+        public Conductor_VehiculoBE Conductor_Vehiculo { get; set; }
     }
 }
