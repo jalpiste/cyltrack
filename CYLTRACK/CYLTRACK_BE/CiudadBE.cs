@@ -8,6 +8,7 @@ using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
+using Unisangil.CYLTRACK.CYLTRACK_BE;
 
 namespace Unisangil.CYLTRACK.CYLTRACK_BE
 {
@@ -24,7 +25,12 @@ namespace Unisangil.CYLTRACK.CYLTRACK_BE
         /// <summary>
         /// Nombre de la ciudad
         /// </summary>
-        public String Nombre { get; set; }
-        
+        public String Nombre_Ciudad { get; set; }
+
+        /// <summary>
+        /// Departamento
+        /// </summary>
+        public DepartamentoBE Departamento { get; set; }
+
     }
 }
