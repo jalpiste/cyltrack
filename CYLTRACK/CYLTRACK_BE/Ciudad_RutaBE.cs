@@ -20,5 +20,10 @@ namespace Unisangil.CYLTRACK.CYLTRACK_BE
         /// Identificador de la Ciudad_Ruta
         /// </summary>
         public String Id_Ciudad_Ruta { get; set; }
+
+        /// <summary>
+        /// Ciudad_Ruta
+        /// </summary>
+        public CiudadBE Ciudad { get; set; }
     }
 }

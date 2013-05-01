@@ -8,6 +8,8 @@ using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
+using Unisangil.CYLTRACK.CYLTRACK_BE;
+
 
 namespace Unisangil.CYLTRACK.CYLTRACK_BE
 {
@@ -33,14 +35,20 @@ namespace Unisangil.CYLTRACK.CYLTRACK_BE
         public String Cod_Cil_Nuevo { get; set; }
 
         /// <summary>
-        /// Tipo de cilindro 
+        /// Cilindro entregado
         /// </summary>
-        public String Tipo_Cilindro { get; set; }
+        public CilindroBE Cilindro { get; set; }
 
         /// <summary>
-        /// Tamaño del cilindro
+        /// Casos especiales
         /// </summary>
-        public String Tamano { get; set; }
+        public CasosBE Casos_Especiales { get; set; }
+
+        /// <summary>
+        /// Venta
+        /// </summary>
+        public VentaBE Venta { get; set; }
+
 
     }
 }

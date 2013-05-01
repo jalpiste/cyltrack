@@ -52,5 +52,16 @@ namespace Unisangil.CYLTRACK.CYLTRACK_BE
         /// </summary>
         public String Barrio { get; set; }
 
+
+        /// <summary>
+        /// Ciudad 
+        /// </summary>
+        public CiudadBE Ciudad { get; set; }
+
+        /// <summary>
+        /// Vehiculo 
+        /// </summary>
+        public VehiculoBE Vehiculo { get; set; }
+
        }
 }

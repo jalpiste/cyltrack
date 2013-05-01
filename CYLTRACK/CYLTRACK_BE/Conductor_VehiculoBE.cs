@@ -33,18 +33,13 @@ namespace Unisangil.CYLTRACK.CYLTRACK_BE
         public DateTime Fecha_Fin { get; set; }
 
         /// <summary>
-        /// nombre de conductor asignado al vehículo
+        /// Vehiculo del conductor
         /// </summary>
-        public String Nombre_Cond { get; set; }
+        public VehiculoBE Vehiculo { get; set; }
 
         /// <summary>
-        /// primer apellido de conductor asignado al vehículo
+        /// Conductor del vehículo
         /// </summary>
-        public String Apellido_1_Cond { get; set; }
-
-        /// <summary>
-        /// segundo apellido de conductor asignado al vehículo
-        /// </summary>
-        public String Apellido_2_Cond { get; set; }
+        public ConductorBE Conductor { get; set; }
     }
 }

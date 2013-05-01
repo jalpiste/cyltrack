@@ -8,13 +8,15 @@ using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
+using Unisangil.CYLTRACK.CYLTRACK_BE;
+
 
 namespace Unisangil.CYLTRACK.CYLTRACK_BE
 {
     /// <summary>
     /// Clase utilizada para representar la entidad Conductor
     /// </summary>
-    
+
     public class ConductorBE
     {
         /// <summary>
@@ -25,7 +27,7 @@ namespace Unisangil.CYLTRACK.CYLTRACK_BE
         /// <summary>
         /// nombres de un conductor
         /// </summary>
-        public String Nombres { get; set; }
+        public String Nombres_Conductor { get; set; }
 
         /// <summary>
         /// Primer apellido de un conductor

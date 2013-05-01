@@ -14,7 +14,7 @@ namespace Unisangil.CYLTRACK.CYLTRACK_BE
     /// <summary>
     /// Clase utilizada para representar la entidad Parámetros
     /// </summary>
-    
+
     public class ParametroBE
     {
         /// <summary>

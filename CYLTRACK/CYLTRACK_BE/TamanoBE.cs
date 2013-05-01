@@ -13,25 +13,23 @@ using Unisangil.CYLTRACK.CYLTRACK_BE;
 namespace Unisangil.CYLTRACK.CYLTRACK_BE
 {
     /// <summary>
-    /// Clase utilizada para representar la entidad Casos
+    /// Clase utilizada para representar la entidad Tamaño
     /// </summary>
-
-    public class CasosBE
+    public class TamanoBE
     {
         /// <summary>
-        /// Identificador del Caso
+        /// Identificador del tamaño del cilindro
         /// </summary>
-        public String Id_Casos { get; set; }
+        public String Id_Tamano { get; set; }
 
         /// <summary>
-        /// Observaciones del caso
+        /// Valor del tamaño del cilindro
         /// </summary>
-        public String Observaciones { get; set; }
+        public String Tamano { get; set; }
 
         /// <summary>
-        /// Tipo de caso
+        /// Descripcion del tamano del cilindro
         /// </summary>
-        public Tipo_CasoBE Tipo_Caso { get; set; }
-
+        public String Descripcion { get; set; }
     }
 }
