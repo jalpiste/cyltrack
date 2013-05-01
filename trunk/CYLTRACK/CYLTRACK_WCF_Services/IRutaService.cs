@@ -16,34 +16,34 @@ namespace Unisangil.CYLTRACK.CYLTRACK_WCF_Services
     /// <summary>
     /// Interface que contiene la agrupación de métodos para la implementación del servicio.
     /// </summary>
-    [ServiceContract(Namespace = "http://servicios.cyltrack.com.co/cyltrack/")]
-    public interface IUsuarioService
+    [ServiceContract]
+    public interface IRutaServices
     {
         /// <summary>
-        /// Método encargado del registro de usuarios en el sistema. Permite
+        /// Método encargado del registro de rutas en el sistema. Permite
         /// que las aplicaciones llamen a los objetos de negocio directamente.
         /// </summary>
-        /// <param name="usuario">Objeto de negocio usuario</param>
-        /// <returns>nombre de usuario</returns>
+        /// <param name="ruta">Objeto de negocio ruta</param>
+        /// <returns>nombre de la ruta</returns>
         [OperationContract]
-        long RegistrarUsuario(UsuarioBE usuario);
+        long RegistrarRuta(RutaBE ruta);
 
         /// <summary>
-        /// Método encargado de la autenticaciòn de usuarios en el sistema. Permite
+        /// Método encargado de la modificaciòn de rutas en el sistema. Permite
         /// que las aplicaciones llamen a los objetos de negocio directamente.
         /// </summary>
-        /// <param name="usuario">Objeto de negocio usuario</param>
-        /// <returns>nombre de usuario</returns>
+        /// <param name="ruta">Objeto de negocio ruta</param> 
+        /// <returns>nombre de la ruta</returns>
         [OperationContract]
-        long Autenticacion(UsuarioBE usuario);
+        long ModificarRuta(RutaBE ruta);
 
         /// <summary>
-        /// Método encargado de la recuperaciòn de contraseña de los usuarios en el sistema. Permite
+        /// Método encargado de la consulta de rutas en el sistema. Permite
         /// que las aplicaciones llamen a los objetos de negocio directamente.
         /// </summary>
-        /// <param name="usuario">Objeto de negocio usuario</param>
-        /// <returns>nombre de usuario</returns>
+        /// <param name="ruta">Objeto de negocio ruta</param> 
+        /// <returns>nombre de la ruta</returns>
         [OperationContract]
-        long RecuperarContrasena(UsuarioBE usuario);
+        long ConsultarRuta(RutaBE ruta);
     }
 }
