@@ -1,4 +1,10 @@
-﻿using System;
+﻿/*
+ * Proyecto de grado: Trazabilidad de Cilindros CYLTRACK
+ * Integrantes: Viviana Camacho y Jackelyne Padilla
+ * Director: Fabián Lancheros Currea
+ * Derechos reservados
+ * */
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -16,8 +22,20 @@ namespace Unisangil.CYLTRACK.CYLTRACK_BL
         {
             return 0;
         }
+
+        public long Autenticacion(UsuarioBE usuario)
+        {
+            return 0;
+        }
+
+        public long RecuperarContrasena(UsuarioBE usuario)
+        {
+            return 0;
+        }
+
         #endregion
         #region Metodos privados
         #endregion
     }
 }
+
