@@ -57,10 +57,10 @@ namespace Unisangil.CYLTRACK.CYLTRACK_WebApp.Rutas
             //registrar_vehiculo.Nombres_Prop = txtNombre.Text;
             //registrar_vehiculo.Apellido_1_Prop = txtPrimerApellido.Text;
             //registrar_vehiculo.Apellido_2_Prop = txtSegundoApellido.Text;
-            //registrar_vehiculo.Ruta.Nombre = lstRuta.SelectedValue; // donde asignarle el valor de la ruta seleccionada. en que tabla o que campo
-            //registrar_vehiculo.Conductor_Vehiculo.Nombre_Cond = txtNombreCond.Text;
-            //registrar_vehiculo.Conductor_Vehiculo.Apellido_1_Cond = txtPrimerApellidoCond.Text;
-            //registrar_vehiculo.Conductor_Vehiculo.Apellido_2_Cond = txtSegundoApellidoCond.Text;
+            //registrar_vehiculo.Ruta.Nombre_Ruta = lstRuta.SelectedValue; // donde asignarle el valor de la ruta seleccionada. en que tabla o que campo
+            //registrar_vehiculo.Conductor_Vehiculo.Conductor.Nombres_Conductor = txtNombreCond.Text;
+            //registrar_vehiculo.Conductor_Vehiculo.Conductor.Apellido_1 = txtPrimerApellidoCond.Text;
+            //registrar_vehiculo.Conductor_Vehiculo.Conductor.Apellido_2 = txtSegundoApellidoCond.Text;
 
 
             Response.Write("<script type='text/javascript'> alert('Los datos fueron enviados satisfactoriamente') </script>");

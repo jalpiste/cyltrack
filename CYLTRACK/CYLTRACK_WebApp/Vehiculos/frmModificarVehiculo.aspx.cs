@@ -35,7 +35,7 @@ namespace Unisangil.CYLTRACK.CYLTRACK_WebApp.Vehiculos
             //txtNombre.Text = consultar_vehiculo.Nombres_Prop;
             //txtPrimerApellido.Text = consultar_vehiculo.Apellido_1_Prop;
             //txtSegundoApellido.Text = consultar_vehiculo.Apellido_2_Prop;
-            //txtRuta.Text = consultar_vehiculo.Ruta.Nombre;
+            //txtRuta.Text = consultar_vehiculo.Ruta.Nombre_Ruta;
 
             DivDatosVehiculo.Visible = true;
             DivPropietario.Visible = true;
@@ -82,10 +82,10 @@ namespace Unisangil.CYLTRACK.CYLTRACK_WebApp.Vehiculos
             //modificar_vehiculo.Nombres_Prop = txtNombre.Text;
             //modificar_vehiculo.Apellido_1_Prop = txtPrimerApellido.Text;
             //modificar_vehiculo.Apellido_2_Prop = txtSegundoApellido.Text;
-            //modificar_vehiculo.Conductor_Vehiculo.Nombre_Cond = txtNombreCond.Text;
-            //modificar_vehiculo.Conductor_Vehiculo.Apellido_1_Cond = txtPrimerApellidoCond.Text;
-            //modificar_vehiculo.Conductor_Vehiculo.Apellido_2_Cond = txtSegundoApellidoCond.Text;
-            //modificar_vehiculo.Ruta.Nombre = txtRuta.Text; // donde asignarle el valor de la ruta seleccionada. en que tabla o que campo
+            //modificar_vehiculo.Conductor_Vehiculo.Conductor.Nombres_Conductor = txtNombreCond.Text;
+            //modificar_vehiculo.Conductor_Vehiculo.Conductor.Apellido_1 = txtPrimerApellidoCond.Text;
+            //modificar_vehiculo.Conductor_Vehiculo.Conductor.Apellido_2 = txtSegundoApellidoCond.Text;
+            //modificar_vehiculo.Ruta.Nombre_Ruta = txtRuta.Text; // donde asignarle el valor de la ruta seleccionada. en que tabla o que campo
 
             Response.Write("<script type='text/javascript'> alert('Sus datos fueron enviados satisfactoriamente') </script>");
             //Response.Redirect("~/Vehiculos/frmModificarVehiculo.aspx");
@@ -105,7 +105,7 @@ namespace Unisangil.CYLTRACK.CYLTRACK_WebApp.Vehiculos
         {
             //ConductorBE consultar_conductor = new ConductorBE();
 
-            //txtNombreCond.Text = consultar_conductor.Nombres;
+            //txtNombreCond.Text = consultar_conductor.Nombres_Conductor;
             //txtPrimerApellidoCond.Text = consultar_conductor.Apellido_1;
             //txtSegundoApellidoCond.Text = consultar_conductor.Apellido_2;
 

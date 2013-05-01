@@ -55,7 +55,8 @@
                 <br />
                 <asp:TextBox ID="txtDireccion" runat="server" CssClass="textEntry" Width="197px" enabled ="false" ></asp:TextBox>                
                 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;
-                <asp:TextBox ID="Barrio" runat="server" CssClass="textEntry" Width="197px" enabled ="false" ></asp:TextBox>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 
+                <asp:TextBox ID="txtBarrio" runat="server" CssClass="textEntry" Width="197px" 
+                    enabled ="false" ></asp:TextBox>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 
                 <br/><br/>
                 <asp:Label ID="lblCiudad" runat="server" Text="Ciudad:"></asp:Label>
                 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; &nbsp; &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; &nbsp; 
@@ -101,15 +102,6 @@
              <br />
              
            </div> 
-           <div id="divCilCorrecto" runat="server" visible="false">
-           <br />
-           <div class="post">Datos Cilindro</div> 
-               <h3>Digite el código del cilindro correcto entregado al cliente:</h3>
-               <br />
-               <asp:Label ID="lblCilindroCorrecto" runat="server" Text="Código Cilindro:"></asp:Label>
-               <br />
-               <asp:TextBox ID="txtCilCorrecto" runat="server" CssClass="textEntry"></asp:TextBox>
-           </div>
         </fieldset>
         <p class="submitButton">
                      

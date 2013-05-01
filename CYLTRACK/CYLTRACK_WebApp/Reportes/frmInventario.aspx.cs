@@ -5,6 +5,7 @@ using System.Web;
 using System.Web.UI;
 using System.Web.UI.WebControls;
 using Unisangil.CYLTRACK.CYLTRACK_WebApp.Reportes;
+using Unisangil.CYLTRACK.CYLTRACK_BE;
 
 namespace Unisangil.CYLTRACK.CYLTRACK_WebApp
 {
@@ -24,7 +25,14 @@ namespace Unisangil.CYLTRACK.CYLTRACK_WebApp
             pps[1] = pp1;
             gvReporte.DataSource = pps;
             gvReporte.DataBind();
+
+            //lstDesdeMes.Text = reporte.Mes_Reporte;
+            //lstUbicacion.Text = reporte.Ubicacion_Cilindro.Nombre;
+            //lstPlacaVehículo.Text = reporte.Vehiculo.Placa;
+
         }
+
+        ReportesBE reporte = new ReportesBE();
 
         protected void Ubicacion_SelectedIndexChanged(object sender, EventArgs e)
         {
@@ -33,8 +41,6 @@ namespace Unisangil.CYLTRACK.CYLTRACK_WebApp
             {
                 divPlaca.Visible = true;
             }
-
-
 
         }
 
@@ -45,6 +51,10 @@ namespace Unisangil.CYLTRACK.CYLTRACK_WebApp
 
         protected void btnBuscar_Click(object sender, EventArgs e)
         {
+            //reporte.Fecha_Reporte = Convert.ToDateTime(txtDesdeDia.Text + "." + lstDesdeMes.SelectedValue + "." + txtDesdeAño.Text);
+            //reporte.Ubicacion_Cilindro.Nombre = lstUbicacion.SelectedValue;
+            //reporte.Vehiculo.Placa = lstPlacaVehículo.SelectedValue;
+
             divInventario.Visible = true;
             divBotones.Visible = true;
 
@@ -67,5 +77,6 @@ namespace Unisangil.CYLTRACK.CYLTRACK_WebApp
                 set { prueba2 = value; }
             }
         }
+
     }
 }

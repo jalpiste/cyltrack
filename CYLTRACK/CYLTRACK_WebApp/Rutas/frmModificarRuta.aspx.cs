@@ -4,6 +4,7 @@ using System.Linq;
 using System.Web;
 using System.Web.UI;
 using System.Web.UI.WebControls;
+using Unisangil.CYLTRACK.CYLTRACK_BE;
 
 namespace Unisangil.CYLTRACK.CYLTRACK_WebApp.Rutas
 {
@@ -14,6 +15,7 @@ namespace Unisangil.CYLTRACK.CYLTRACK_WebApp.Rutas
 
         }
 
+        
         protected void btnMenu_Click(object sender, EventArgs e)
         {
             //Response.Redirect("~/Default.aspx");
@@ -26,6 +28,9 @@ namespace Unisangil.CYLTRACK.CYLTRACK_WebApp.Rutas
 
         protected void btnModificar_Click(object sender, EventArgs e)
         {
+            //RutaBE ruta = new RutaBE();
+            //lstDepartamento.Text = ruta.Departamento.Nombre_Departamento;
+            //lstCiudad.Text = ruta.Ciudad_Ruta.Ciudad.Nombre_Ciudad;
             DivModificarDatos.Visible = true;
             btnModificar.Visible = false;
             txtNuevoNombre.Enabled = true;
@@ -34,8 +39,12 @@ namespace Unisangil.CYLTRACK.CYLTRACK_WebApp.Rutas
 
         protected void txtNombreRuta_TextChanged(object sender, EventArgs e)
         {
-            txtNuevoNombre.Text = txtNombreRuta.Text;
-            txtNombreRuta.Text = "";
+
+            //RutaBE ruta = new RutaBE();
+            //ruta.Nombre_Ruta = txtNombreRuta.Text;
+            //txtNuevoNombre.Text = txtNombreRuta.Text;
+            //lstCiudades.Text = ruta.Ciudad_Ruta.Ciudad.Nombre_Ciudad;
+
             DivPost.Visible = true;
             DivDatos.Visible = true;
             DivCiudad.Visible = true;
@@ -44,8 +53,7 @@ namespace Unisangil.CYLTRACK.CYLTRACK_WebApp.Rutas
 
         protected void btnRemover_Click(object sender, EventArgs e)
         {
-
-            if (lstCiudades.SelectedIndex > -1)
+             if (lstCiudades.SelectedIndex > -1)
             {
                 lstCiudades.Items.Remove(lstCiudades.Text);
             }
@@ -59,7 +67,11 @@ namespace Unisangil.CYLTRACK.CYLTRACK_WebApp.Rutas
 
         protected void btnGuardar_Click(object sender, EventArgs e)
         {
+            //RutaBE ruta = new RutaBE();
+            //ruta.Ciudad_Ruta.Ciudad.Nombre_Ciudad = lstCiudades.Text;//no estoy segura que guarde todos los datos de la lista
             Response.Write("<script type='text/javascript'> alert('Sus datos fueron enviados satisfactoriamente') </script>");
         }
+
+        
     }
 }

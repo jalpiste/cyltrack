@@ -7,7 +7,7 @@
 // </generado automáticamente>
 //------------------------------------------------------------------------------
 
-namespace Unisangil.CYLTRACK.CYLTRACK_WebApp.Autenticacion {
+namespace Unisangil.CYLTRACK.CYLTRACK_WebApp.Rutas {
     
     
     public partial class frmRegistrarRuta {

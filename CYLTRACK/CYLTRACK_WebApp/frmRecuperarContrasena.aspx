@@ -22,19 +22,17 @@
        <div id="DivCodigo" runat="server" visible="true">
            <asp:Label ID="lblNombreUsuario" runat="server" Text="Nombre de Usuario:"></asp:Label>
            <br /> 
-           <asp:TextBox ID="txtCorreoElectronico" runat="server" CssClass="textEntry" Width="197px"  
+           <asp:TextBox ID="txtNombreUsuario" runat="server" CssClass="textEntry" Width="197px"  
            ValidationGroup = "LoginValidationGroup"></asp:TextBox>
-           <asp:RequiredFieldValidator ID="CorreoElectronicoRequired" runat="server" 
-           ControlToValidate="txtCorreoElectronico" CssClass="failureNotification" 
-           ErrorMessage="El correo electrónico es obligatorio." ToolTip="El correo electrónico es obligatorio." 
+           <asp:RequiredFieldValidator ID="NombreUsuarioRequired" runat="server" 
+           ControlToValidate="txtNombreUsuario" CssClass="failureNotification" 
+           ErrorMessage="El nombre de usuario es obligatorio" ToolTip="El nombre de usuario es obligatorio" 
            ValidationGroup="LoginValidationGroup">*</asp:RequiredFieldValidator>          
                          
        </div> 
        
                   
        </fieldset><p class="submitButton">
-                   <%-- <asp:Button ID="BtnCambiar" runat="server" Text="Cambiar Ubicación" Width="140px" 
-                    onclick="BtnCambiar_Click"/> --%>
                     &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; &nbsp; 
                     <asp:Button ID="btnEnviar" runat="server" Text="Enviar" 
                     Width="140px" onclick="btnEnviar_Click" />  

@@ -202,13 +202,13 @@ namespace Unisangil.CYLTRACK.CYLTRACK_WebApp.Ventas {
         protected global::System.Web.UI.WebControls.TextBox txtDireccion;
         
         /// <summary>
-        /// Control Barrio.
+        /// Control txtBarrio.
         /// </summary>
         /// <remarks>
         /// Campo generado automáticamente.
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox Barrio;
+        protected global::System.Web.UI.WebControls.TextBox txtBarrio;
         
         /// <summary>
         /// Control lblCiudad.
@@ -407,33 +407,6 @@ namespace Unisangil.CYLTRACK.CYLTRACK_WebApp.Ventas {
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
         protected global::System.Web.UI.WebControls.TextBox txtRuta;
-        
-        /// <summary>
-        /// Control divCilCorrecto.
-        /// </summary>
-        /// <remarks>
-        /// Campo generado automáticamente.
-        /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
-        /// </remarks>
-        protected global::System.Web.UI.HtmlControls.HtmlGenericControl divCilCorrecto;
-        
-        /// <summary>
-        /// Control lblCilindroCorrecto.
-        /// </summary>
-        /// <remarks>
-        /// Campo generado automáticamente.
-        /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.Label lblCilindroCorrecto;
-        
-        /// <summary>
-        /// Control txtCilCorrecto.
-        /// </summary>
-        /// <remarks>
-        /// Campo generado automáticamente.
-        /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox txtCilCorrecto;
         
         /// <summary>
         /// Control btnNuevaConsulta.

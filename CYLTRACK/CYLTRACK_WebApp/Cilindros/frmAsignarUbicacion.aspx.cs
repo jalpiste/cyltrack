@@ -4,6 +4,7 @@ using System.Linq;
 using System.Web;
 using System.Web.UI;
 using System.Web.UI.WebControls;
+using Unisangil.CYLTRACK.CYLTRACK_BE;
 
 namespace Unisangil.CYLTRACK.CYLTRACK_WebApp.Cilindros
 {
@@ -15,8 +16,16 @@ namespace Unisangil.CYLTRACK.CYLTRACK_WebApp.Cilindros
 
         }
 
+        CilindroBE cilindro = new CilindroBE();
         protected void txtCodeCilindro_TextChanged(object sender, EventArgs e)
         {
+            //valida datos a BD
+            //llamar servicio metodo Asignar ubicacion
+
+
+            cilindro.Codigo_Cilindro = txtCodeCilindro.Text;
+
+            //txtUbicacionActual.Text = cilindro.Ubicacion.Nombre_Ubicacion; 
             DivUbicacionCil.Visible = true;
             DivNuevaUbicacion.Visible = true;
             BtnGuardar.Visible = true;
@@ -24,8 +33,14 @@ namespace Unisangil.CYLTRACK.CYLTRACK_WebApp.Cilindros
 
         protected void Ubica_SelectedIndexChanged(object sender, EventArgs e)
         {
-            if (lstUbica.SelectedIndex == 4)
+            if (lstUbica.SelectedValue == "Vehiculo")
             {
+
+
+                //lstPlacaVehiculo.SelectedValue =  cilindro.Vehiculo.Placa;
+                //TxtConductor.Text = cilindro.Vehiculo.Conductor_Vehiculo.Conductor.Nombres_Conductor;
+                //LblRutaVehiculo.Text = cilindro.Vehiculo.Ruta.Nombre_Ruta;
+
                 lblPlaca.Visible = true;
                 lstPlacaVehiculo.Visible = true;
                 LblConductor.Visible = true;
@@ -36,7 +51,6 @@ namespace Unisangil.CYLTRACK.CYLTRACK_WebApp.Cilindros
 
         }
 
-        public string ValidationGroup { get; set; }
 
         protected void BtnMenu_Click(object sender, EventArgs e)
         {
@@ -45,12 +59,14 @@ namespace Unisangil.CYLTRACK.CYLTRACK_WebApp.Cilindros
 
         protected void BtnGuardar_Click(object sender, EventArgs e)
         {
+
+            //cilindro.Ubicacion.Nombre_Ubicacion = lstUbica.SelectedValue;
+            //cilindro.Vehiculo.Placa = lstPlacaVehiculo.SelectedValue;
             Response.Write("<script type='text/javascript'> alert('Sus datos fueron enviados satisfactoriamente') </script>");
-            txtCodeCilindro.Text = "";
             //DivUbicacionCil.Visible = false;
             //DivNuevaUbicacion.Visible = false;
         }
-       
-        
+
+
     }
 }
