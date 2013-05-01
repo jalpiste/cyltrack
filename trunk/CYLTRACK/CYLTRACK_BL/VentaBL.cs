@@ -12,33 +12,28 @@ using Unisangil.CYLTRACK.CYLTRACK_BE;
 
 namespace Unisangil.CYLTRACK.CYLTRACK_BL
 {
-    public class CilindroBL
+    public class VentaBL
     {
         #region Variables
 
         #endregion
         #region Metodos publicos
-        /// <summary>
-        /// Método para el registro de cilindros en el sistema
-        /// </summary>
-        /// <param name="cilindro"></param>
-        /// <returns></returns>
-        public long CrearCilindro(CilindroBE cilindro)
-        {
-            return 0;
-        }
-        
-        public long ConsultarCilindro(CilindroBE cilindro)
+        public long VentaCilindro(VentaBE ventas)
         {
             return 0;
         }
 
-        public long AsignarUbicacion(CilindroBE cilindro)
+        public long ConsultarVenta(VentaBE ventas)
         {
             return 0;
         }
 
-        public long CargueyDescargueCilindro(CilindroBE cilindro)
+        public long RevisionCasosEspeciales(VentaBE ventas)
+        {
+            return 0;
+        }
+
+        public long CasosEspeciales(VentaBE ventas)
         {
             return 0;
         }
