@@ -1,4 +1,10 @@
-﻿using System;
+﻿/*
+ * Proyecto de grado: Trazabilidad de Cilindros CYLTRACK
+ * Integrantes: Viviana Camacho y Jackelyne Padilla
+ * Director: Fabián Lancheros Currea
+ * Derechos reservados
+ * */
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -14,10 +20,11 @@ namespace Unisangil.CYLTRACK.CYLTRACK_WCF_Services
     public class VehiculoService : IVehiculoService
     {
         /// <summary>
-        /// Encargado de recibir un vehículo de los canales front de registro y llamar
-        /// al metodo de negocio para crear un registro de vehículo
+        /// Encargado de recibir un vehículo de los canales front de venta y llamar
+        /// al metodo de negocio para crear un registrar vehículo
         /// </summary>
-
+        /// <param name="registrar_vehiculo">Objeto de negocio vehículo</param>
+        /// <returns>Placa del vehículo</returns>
         public long Registrar_Vehiculo(VehiculoBE registrar_vehiculo)
         {
             long resp = 0;
@@ -25,7 +32,12 @@ namespace Unisangil.CYLTRACK.CYLTRACK_WCF_Services
             resp = RegisVehiculo.RegistrarVehiculo(registrar_vehiculo);
             return resp;
         }
-
+        /// <summary>
+        /// Encargado de recibir un vehículo de los canales front de venta y llamar
+        /// al metodo de negocio para consultar un vehículo
+        /// </summary>
+        /// <param name="consultar_vehiculo">Objeto de negocio vehículo</param>
+        /// <returns>Placa del vehículo</returns>
         public long Consultar_Vehiculo(VehiculoBE consultar_vehiculo)
         {
             long resp = 0;
@@ -33,7 +45,12 @@ namespace Unisangil.CYLTRACK.CYLTRACK_WCF_Services
             resp = ConVehiculo.ConsultarVehiculo(consultar_vehiculo);
             return resp;
         }
-
+        /// <summary>
+        /// Encargado de recibir un vehículo de los canales front de venta y llamar
+        /// al metodo de negocio para modificar un vehículo
+        /// </summary>
+        /// <param name="modificar_vehiculo">Objeto de negocio vehículo</param>
+        /// <returns>Placa del vehículo</returns>
         public long Modificar_Vehiculo(VehiculoBE modificar_vehiculo)
         {
             long resp = 0;
@@ -41,7 +58,12 @@ namespace Unisangil.CYLTRACK.CYLTRACK_WCF_Services
             resp = ModVehiculo.ModificarVehiculo(modificar_vehiculo);
             return resp;
         }
-
+        /// <summary>
+        /// Encargado de recibir un conductor de los canales front de venta y llamar
+        /// al metodo de negocio para consultar un vehículo
+        /// </summary>
+        /// <param name="consultar_conductor">Objeto de negocio vehículo</param>
+        /// <returns>cedula conductor</returns>
         public long Consultar_Conductor(VehiculoBE consultar_conductor)
         {
             long resp = 0;

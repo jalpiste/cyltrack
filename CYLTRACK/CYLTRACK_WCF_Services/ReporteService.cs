@@ -1,16 +1,48 @@
-﻿using System;
+﻿/*
+ * Proyecto de grado: Trazabilidad de Cilindros CYLTRACK
+ * Integrantes: Viviana Camacho y Jackelyne Padilla
+ * Director: Fabián Lancheros Currea
+ * Derechos reservados
+ * */
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
+using Unisangil.CYLTRACK.CYLTRACK_BE;
+using Unisangil.CYLTRACK.CYLTRACK_BL;
 
 namespace Unisangil.CYLTRACK.CYLTRACK_WCF_Services
 {
     public class ReporteService : IReporteService
     {
-        public string Prueba(int i)
+        /// <summary>
+        /// Encargado de recibir el código del cilindro de los canales front de venta y llamar
+        /// al metodo de negocio para consultar el historico del cilindro
+        /// </summary>
+        /// <param name="reporte">Objeto de negocio Reporte</param>
+        /// <returns>codigo cilindro</returns>
+        public long HistoricoCilindro(ReportesBE reporte)
         {
-            string pp = "Hola Mundo" + i;
-            return pp;
-        } 
+            long resp = 0;
+            ReporteBL historicoCil = new ReporteBL();
+            resp = historicoCil.HistoricoCilindro(reporte);
+            return resp;
+
+        }
+
+        /// <summary>
+        /// Encargado de recibir el código del cilindro de los canales front de venta y llamar
+        /// al metodo de negocio para consultar el inventario de cilindros
+        /// </summary>
+        /// <param name="reporte">Objeto de negocio Reporte</param>
+        /// <returns>Datos Cilindros</returns>
+        public long Inventario(ReportesBE reporte)
+        {
+            long resp = 0;
+            ReporteBL inventario = new ReporteBL();
+            resp = inventario.Inventario(reporte);
+            return resp;
+
+        }
     }
 }

@@ -1,32 +1,62 @@
-﻿using System;
+﻿/*
+ * Proyecto de grado: Trazabilidad de Cilindros CYLTRACK
+ * Integrantes: Viviana Camacho y Jackelyne Padilla
+ * Director: Fabián Lancheros Currea
+ * Derechos reservados
+ * */
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using Unisangil.CYLTRACK.CYLTRACK_BE;
 using Unisangil.CYLTRACK.CYLTRACK_BL;
-using System.ServiceModel;
 
 namespace Unisangil.CYLTRACK.CYLTRACK_WCF_Services
 {
-
-    /// <summary>
-    /// Clase que implementa el contrato de servicio.
-    /// </summary>
-
-   public class UsuarioService : IUsuarioService
+    public class UsuarioService : IUsuarioService
     {
         /// <summary>
-        /// Encargado de recibir un usuario de los canales front de autenticación y llamar
-        /// al metodo de negocio para crear un registro de usuario
+        /// Encargado de recibir el nombre de usuario de los canales front de venta y llamar
+        /// al metodo de negocio para crear un registro del usuario
         /// </summary>
-      
-        public long Registrar_Usuario(UsuarioBE registrar_usuario)
+        /// <param name="usuario">Objeto de negocio Usuario</param>
+        /// <returns>Código interno del cilindro</returns>
+        public long RegistrarUsuario(UsuarioBE usuario)
         {
             long resp = 0;
-            UsuarioBL RegisUsu = new UsuarioBL();
-            resp = RegisUsu.RegistrarUsuario(registrar_usuario);
+            UsuarioBL regUsuario = new UsuarioBL();
+            resp = regUsuario.RegistrarUsuario(usuario);
             return resp;
         }
 
+        /// <summary>
+        /// Encargado de recibir el nombre de usuario de los canales front de venta y llamar
+        /// al metodo de negocio para realizar la autenticación
+        /// </summary>
+        /// <param name="usuario">Objeto de negocio Usuario</param>
+        /// <returns>nombre de usuario</returns>
+        public long Autenticacion(UsuarioBE usuario)
+        {
+            long resp = 0;
+            UsuarioBL autenticarUsuario = new UsuarioBL();
+            resp = autenticarUsuario.Autenticacion(usuario);
+            return resp;
+        }
+
+        /// <summary>
+        /// Encargado de recibir el nombre de usuario de los canales front de venta y llamar
+        /// al metodo de negocio para realizar la autenticación
+        /// </summary>
+        /// <param name="usuario">Objeto de negocio Usuario</param>
+        /// <returns>Nombre de usuario</returns>
+        public long RecuperarContrasena(UsuarioBE usuario)
+        {
+            long resp = 0;
+            UsuarioBL recuperarContrasena = new UsuarioBL();
+            resp = recuperarContrasena.RecuperarContrasena(usuario);
+            return resp;
+        }
     }
+
 }
+

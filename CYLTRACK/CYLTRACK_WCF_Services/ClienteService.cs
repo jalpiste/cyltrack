@@ -1,4 +1,10 @@
-﻿using System;
+﻿/*
+ * Proyecto de grado: Trazabilidad de Cilindros CYLTRACK
+ * Integrantes: Viviana Camacho y Jackelyne Padilla
+ * Director: Fabián Lancheros Currea
+ * Derechos reservados
+ * */
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -9,7 +15,7 @@ using System.ServiceModel;
 namespace Unisangil.CYLTRACK.CYLTRACK_WCF_Services
 {
     /// <summary>
-    /// Clase que implementa el contrato de servicio.
+    /// Clase creada para implementar el contrato de servicio de la interfaz.
     /// </summary>
 
     public class ClienteService : IClienteService
@@ -18,6 +24,8 @@ namespace Unisangil.CYLTRACK.CYLTRACK_WCF_Services
         /// Encargado de recibir un cliente de los canales front de venta y llamar
         /// al metodo de negocio para crear un registro de cliente
         /// </summary>
+        /// <param name="registrar_cli">Objeto de negocio cliente</param>
+        /// <returns>cédula del cliente</returns>
         
         public long Registrar_Cliente(ClienteBE registrar_cli)
         {
@@ -27,6 +35,13 @@ namespace Unisangil.CYLTRACK.CYLTRACK_WCF_Services
             return resp;
         }
 
+        /// <summary>
+        /// Encargado de recibir una nueva ubicación del cliente de los canales front de venta y llamar
+        /// al metodo de negocio para agregar una ubicación
+        /// </summary>
+        /// <param name="registrar_cli">Objeto de negocio cliente</param>
+        /// <returns>cédula del cliente</returns>
+
         public long Agregar_Ubicacion (ClienteBE registrar_ubi)
         {
             long resp = 0;
@@ -34,6 +49,12 @@ namespace Unisangil.CYLTRACK.CYLTRACK_WCF_Services
             resp = RegisUbicacion.RegistrarUbicacion(registrar_ubi);
             return resp;
         }
+        /// <summary>
+        /// Encargado de recibir un cliente de los canales front de venta y llamar
+        /// al metodo de negocio para realizar la consulta de un cliente
+        /// </summary>
+        /// <param name="registrar_cli">Objeto de negocio cliente</param>
+        /// <returns>cédula del cliente</returns>
 
         public long Consultar_Cliente (ClienteBE consultar_cli)
         {
@@ -43,6 +64,12 @@ namespace Unisangil.CYLTRACK.CYLTRACK_WCF_Services
             return resp;
         }
 
+        /// <summary>
+        /// Encargado de recibir un cliente de los canales front de venta y llamar
+        /// al metodo de negocio para modificar el registro de cliente
+        /// </summary>
+        /// <param name="registrar_cli">Objeto de negocio cliente</param>
+        /// <returns>cédula del cliente</returns>
         public long Modificar_Cliente(ClienteBE modificar_cli)
         {
             long resp = 0;
