@@ -23,7 +23,7 @@ namespace Unisangil.CYLTRACK.CYLTRACK_WebApp.Cilindros
             //llamar servicio metodo Asignar ubicacion
 
 
-            cilindro.Codigo_Cilindro = txtCodeCilindro.Text;
+            //cilindro.Codigo_Cilindro = txtCodeCilindro.Text;
 
             //txtUbicacionActual.Text = cilindro.Ubicacion.Nombre_Ubicacion; 
             DivUbicacionCil.Visible = true;

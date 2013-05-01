@@ -20,7 +20,7 @@ namespace Unisangil.CYLTRACK.CYLTRACK_WebApp.Cilindros
         {
 
 
-            cilindro.Codigo_Cilindro = Convert.ToString(txtCodigoCilindro);
+            //cilindro.Codigo_Cilindro = txtCodigoCilindro.Text;
 
             //llamar al servicio y validar en bd
 
@@ -43,9 +43,9 @@ namespace Unisangil.CYLTRACK.CYLTRACK_WebApp.Cilindros
             {
 
 
-                //TxtPlaca.Text = cilindro.Vehiculo.Placa;
-                //TxtConductor.Text = cilindro.Vehiculo.Conductor_Vehiculo.Conductor.Nombres_Conductor;
-                //TxtRuta.Text = cilindro.Vehiculo.Ruta.Nombre_Ruta;
+                ////TxtPlaca.Text = cilindro.Vehiculo.Placa;
+                ////TxtConductor.Text = cilindro.Vehiculo.Conductor_Vehiculo.Conductor.Nombres_Conductor;
+                ////TxtRuta.Text = cilindro.Vehiculo.Ruta.Nombre_Ruta;
 
                 DivInfoVehiculo.Visible = true;
             }
@@ -53,7 +53,7 @@ namespace Unisangil.CYLTRACK.CYLTRACK_WebApp.Cilindros
             if (TxtUbicacion.Text == "Cliente")
             {
 
-                //se le debe cambia la instancia venta por el nombre de la instancia del servicio
+               // se le debe cambia la instancia venta por el nombre de la instancia del servicio
                 //txtCedula.Text = Convert.ToString(cilindro.Venta.Cliente.Cedula);
                 //TxtNombreCliente.Text = Convert.ToString(cilindro.Venta.Cliente.Nombres_Cliente);
                 //TxtPrimerApellido.Text = Convert.ToString(cilindro.Venta.Cliente.Apellido_1);
@@ -61,7 +61,7 @@ namespace Unisangil.CYLTRACK.CYLTRACK_WebApp.Cilindros
                 //TxtDireccion.Text = Convert.ToString(cilindro.Venta.Cliente.Ubicacion.Direccion);
                 //TxtBarrio.Text = Convert.ToString(cilindro.Venta.Cliente.Ubicacion.Barrio);
                 //TxtCiudad.Text = Convert.ToString(cilindro.Venta.Cliente.Ciudad.Nombre_Ciudad);
-                //TxtDepartamento.Text = Convert.ToString(cilindro.Venta.Cliente.Ciudad.Nombre_Departamento);
+                //TxtDepartamento.Text = Convert.ToString(cilindro.Venta.Cliente.Ciudad.Departamento.Nombre_Departamento);
                 //TxtTelefono.Text = Convert.ToString(cilindro.Venta.Cliente.Ubicacion.Telefono_1);
                 //Txtentrega.Text = Convert.ToString(cilindro.Venta.Fecha);
 
