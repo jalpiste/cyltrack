@@ -15,7 +15,7 @@ namespace Unisangil.CYLTRACK.CYLTRACK_BE
     // <summary>
     /// Clase utilizada para representar la entidad Departamento
     /// </summary>
-    
+
     public class DepartamentoBE
     {
         /// <summary>
@@ -28,5 +28,9 @@ namespace Unisangil.CYLTRACK.CYLTRACK_BE
         /// </summary>
         public String Nombre_Departamento { get; set; }
 
+        /// <summary>
+        /// Nombre de la ciudad
+        /// </summary>
+        public CiudadBE Ciudad { get; set; }
     }
 }

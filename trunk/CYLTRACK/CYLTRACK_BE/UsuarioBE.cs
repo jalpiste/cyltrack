@@ -8,13 +8,14 @@ using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
+using Unisangil.CYLTRACK.CYLTRACK_BE;
 
 namespace Unisangil.CYLTRACK.CYLTRACK_BE
 {
     /// <summary>
     /// Clase utilizada para representar la entidad Usuario
     /// </summary>
-    
+
     public class UsuarioBE
     {
         /// <summary>
@@ -95,7 +96,7 @@ namespace Unisangil.CYLTRACK.CYLTRACK_BE
         /// <summary>
         /// Estado del Usuario
         /// </summary>
-        public String Estadp { get; set; }
+        public String Estado { get; set; }
 
         /// <summary>
         /// Fecha de modificacion de la contraseña del Usuario

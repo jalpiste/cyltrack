@@ -31,7 +31,7 @@ namespace Unisangil.CYLTRACK.CYLTRACK_BE
         /// <summary>
         /// Nombres de un cliente
         /// </summary>
-        public String Nombres { get; set; }
+        public String Nombres_Cliente { get; set; }
 
         /// <summary>
         /// Primer apellido de un cliente
@@ -58,6 +58,20 @@ namespace Unisangil.CYLTRACK.CYLTRACK_BE
         /// </summary>              
         public CilindroBE Cilindro { get; set; }
 
-       
+        /// <summary>
+        /// Detalle Venta
+        /// </summary> 
+        public Detalle_VentaBE Detalle_Venta { get; set; }
+        
+        /// <summary>
+        /// Pedido
+        /// </summary>              
+        public PedidoBE Pedido { get; set; }
+
+        /// <summary>
+        /// venta de un cilindro a un cliente
+        /// </summary>              
+        public VentaBE Venta { get; set; }
+
     }
 }

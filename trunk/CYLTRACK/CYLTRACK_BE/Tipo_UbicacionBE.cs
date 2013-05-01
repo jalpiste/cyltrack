@@ -25,12 +25,12 @@ namespace Unisangil.CYLTRACK.CYLTRACK_BE
         /// <summary>
         /// Nombre de la ubicación
         /// </summary>
-        public String Nombre { get; set; }
+        public String Nombre_Ubicacion { get; set; }
 
         /// <summary>
         /// Descripción de la ubicación
         /// </summary>
         public String Descripcion { get; set; }
-        
+
     }
 }

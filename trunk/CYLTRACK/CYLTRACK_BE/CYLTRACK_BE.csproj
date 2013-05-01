@@ -58,8 +58,11 @@
     <Compile Include="PedidoBE.cs" />
     <Compile Include="PerfilBE.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="ReportesBE.cs" />
     <Compile Include="RutaBE.cs" />
     <Compile Include="Ruta_VehiculoBE.cs" />
+    <Compile Include="TamanoBE.cs" />
+    <Compile Include="Tipo_CasoBE.cs" />
     <Compile Include="Tipo_UbicacionBE.cs" />
     <Compile Include="UbicacionBE.cs" />
     <Compile Include="Ubicacion_CilindroBE.cs" />

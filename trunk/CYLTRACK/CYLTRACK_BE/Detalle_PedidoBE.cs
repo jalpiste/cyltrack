@@ -14,7 +14,7 @@ namespace Unisangil.CYLTRACK.CYLTRACK_BE
     /// <summary>
     /// Clase utilizada para representar la entidad Detalle_Pedido
     /// </summary>
-    
+
     public class Detalle_PedidoBE
     {
         /// <summary>
@@ -30,7 +30,7 @@ namespace Unisangil.CYLTRACK.CYLTRACK_BE
         /// <summary>
         /// Tamaño del cilindro del pedido
         /// </summary>
-        public String Tamaño { get; set; }
+        public TamanoBE Tamano { get; set; }
 
     }
 }
