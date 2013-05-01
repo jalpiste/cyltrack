@@ -4,6 +4,7 @@ using System.Linq;
 using System.Web;
 using System.Web.UI;
 using System.Web.UI.WebControls;
+using Unisangil.CYLTRACK.CYLTRACK_BE;
 
 namespace Unisangil.CYLTRACK.CYLTRACK_WebApp.Ventas
 {
@@ -25,7 +26,7 @@ namespace Unisangil.CYLTRACK.CYLTRACK_WebApp.Ventas
             gvReporte.DataSource = pps;
             gvReporte.DataBind();
         }
-
+        VentaBE ventas = new VentaBE();
         public class prueba
         {
             private string prueba1;
@@ -46,6 +47,7 @@ namespace Unisangil.CYLTRACK.CYLTRACK_WebApp.Ventas
 
         protected void lstCaso_SelectedIndexChanged(object sender, EventArgs e)
         {
+            //lstCaso.Text= ventas.Casos_Especiales.Tipo_Caso.Nombre_Caso;
             gvReporte.Visible = true;
         }
 

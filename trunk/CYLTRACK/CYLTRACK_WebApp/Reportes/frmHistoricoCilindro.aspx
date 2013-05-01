@@ -16,7 +16,7 @@
                      <asp:Label ID="lblCodigoCil" runat="server" Text="Código Cilindro: "></asp:Label>           
                      <br />
                      <asp:TextBox ID="txtCodigoCil" runat="server" CssClass="textEntry" Width="197px" 
-                            ontextchanged="txtCodigoCil_TextChanged" ></asp:TextBox>
+                            ></asp:TextBox>
                      <asp:RequiredFieldValidator ID="HistorialRequired" runat="server" 
                      ControlToValidate="txtCodigoCil" CssClass="failureNotification" 
                      ErrorMessage="El código del cilindro es obligatorio." ToolTip="El código del cilindro es obligatorio." 

@@ -15,7 +15,8 @@
                 <div style="width: 425px; margin-bottom: 0px; margin-left: 40px;">
                     <asp:Label ID="lblUserName" runat="server" Text="Nombre de usuario:"
                         Width="124px"></asp:Label>
-                    <asp:TextBox ID="txtUserName" runat="server" CssClass="textEntry" Width="320px"></asp:TextBox>
+                    <asp:TextBox ID="txtUserName" runat="server" CssClass="textEntry" Width="320px" 
+                        ></asp:TextBox>
                     <asp:RequiredFieldValidator ID="UserNameRequired" runat="server" ControlToValidate="txtUserName"
                         CssClass="failureNotification" ErrorMessage="El nombre de usuario es obligatorio."
                         ToolTip="El nombre de usuario es obligatorio." ValidationGroup="LoginUserValidationGroup">*</asp:RequiredFieldValidator>
@@ -23,7 +24,7 @@
                     <asp:Label ID="lblPass" runat="server" Text="Contraseña:"></asp:Label>
                     <br />
                     <asp:TextBox ID="txtPassword" runat="server" CssClass="passwordEntry" TextMode="Password"
-                        Width="320px" ontextchanged="txtPassword_TextChanged"></asp:TextBox>
+                        Width="320px" ></asp:TextBox>
                     <asp:RequiredFieldValidator ID="PasswordRequired" runat="server" ControlToValidate="txtPassword"
                         CssClass="failureNotification" ErrorMessage="La contraseña es obligatoria." ToolTip="La contraseña es obligatoria."
                         ValidationGroup="LoginUserValidationGroup">*</asp:RequiredFieldValidator>
@@ -42,7 +43,8 @@
                     <asp:Label ID="lblNewPassword" runat="server" Text="Nueva contraseña:" Visible="False"></asp:Label>
                     <br />
                     <asp:TextBox ID="txtNuevaContraseña" runat="server" CssClass="passwordEntry" TextMode="Password"
-                        Width="320px" Visible="False"></asp:TextBox>
+                        Width="320px" Visible="False" 
+                        ></asp:TextBox>
                     <asp:RequiredFieldValidator ID="PasswordRequired1" runat="server" ControlToValidate="txtNuevaContraseña"
                         CssClass="failureNotification" ErrorMessage="La nueva contraseña es obligatoria."
                         ValidationGroup="LoginUserValidationGroup" Visible="False">*</asp:RequiredFieldValidator>
@@ -52,7 +54,8 @@
                         Visible="False"></asp:Label>
                     <br />
                     <asp:TextBox ID="txtConfirmPassword" runat="server" CssClass="passwordEntry" TextMode="Password"
-                        Width="320px" Visible="False"></asp:TextBox>
+                        Width="320px" Visible="False" 
+                        ></asp:TextBox>
                     <asp:CompareValidator ID="PasswordCompare" runat="server" ControlToCompare="txtConfirmPassword"
                         ControlToValidate="ConfirmPassword" CssClass="failureNotification" Display="Dynamic"
                         ErrorMessage="Contraseña y Confirmar contraseña deben coincidir." ValidationGroup="RegisterUserValidationGroup"
@@ -65,7 +68,8 @@
             </fieldset>
             <p class="submitButton">
                 <asp:Button ID="btnLoginButton" runat="server" CommandName="Login" Text="Iniciar sesión"
-                    Width="115px" ValidationGroup="LoginUserValidationGroup" />
+                    Width="115px" ValidationGroup="LoginUserValidationGroup" 
+                    onclick="btnLoginButton_Click" />
             </p>
         </div>
     </asp:Content>

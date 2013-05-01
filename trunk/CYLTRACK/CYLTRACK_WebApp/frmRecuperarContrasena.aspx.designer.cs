@@ -49,22 +49,22 @@ namespace Unisangil.CYLTRACK.CYLTRACK_WebApp {
         protected global::System.Web.UI.WebControls.Label lblNombreUsuario;
         
         /// <summary>
-        /// Control txtCorreoElectronico.
+        /// Control txtNombreUsuario.
         /// </summary>
         /// <remarks>
         /// Campo generado automáticamente.
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox txtCorreoElectronico;
+        protected global::System.Web.UI.WebControls.TextBox txtNombreUsuario;
         
         /// <summary>
-        /// Control CorreoElectronicoRequired.
+        /// Control NombreUsuarioRequired.
         /// </summary>
         /// <remarks>
         /// Campo generado automáticamente.
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.RequiredFieldValidator CorreoElectronicoRequired;
+        protected global::System.Web.UI.WebControls.RequiredFieldValidator NombreUsuarioRequired;
         
         /// <summary>
         /// Control btnEnviar.

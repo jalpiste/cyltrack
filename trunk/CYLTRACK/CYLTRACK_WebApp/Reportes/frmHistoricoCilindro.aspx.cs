@@ -4,6 +4,7 @@ using System.Linq;
 using System.Web;
 using System.Web.UI;
 using System.Web.UI.WebControls;
+using Unisangil.CYLTRACK.CYLTRACK_BE;
 
 namespace Unisangil.CYLTRACK.CYLTRACK_WebApp.Reportes
 {
@@ -26,19 +27,12 @@ namespace Unisangil.CYLTRACK.CYLTRACK_WebApp.Reportes
             gvReporte.DataBind();
         }
 
+        ReportesBE reporte = new ReportesBE();
 
         protected void btnMenuPrincipal_Click(object sender, EventArgs e)
         {
             Response.Redirect("~/Default.aspx");
         }
-
-        protected void txtCodigoCil_TextChanged(object sender, EventArgs e)
-        {
-            DivHistoricoCilindro.Visible = true;
-            btnImp.Visible = true;
-            btnMenuPrincipal.Visible = true;
-        }
-
 
 
         public class prueba
@@ -61,7 +55,13 @@ namespace Unisangil.CYLTRACK.CYLTRACK_WebApp.Reportes
 
         protected void btnBuscar_Click(object sender, EventArgs e)
         {
-
+            //reporte.Cilindro.Codigo_Cilindro = txtCodigoCil.Text;
+            //txtCódigo.Text = reporte.Cilindro.Codigo_Cilindro;
+            //txtTamano.Text = reporte.Cilindro.NTamano.Tamano;
+            DivHistoricoCilindro.Visible = true;
+            btnImp.Visible = true;
+            btnMenuPrincipal.Visible = true;
+                        
         }
 
 

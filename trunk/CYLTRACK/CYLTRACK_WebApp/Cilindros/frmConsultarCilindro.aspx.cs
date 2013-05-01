@@ -15,35 +15,59 @@ namespace Unisangil.CYLTRACK.CYLTRACK_WebApp.Cilindros
 
         }
 
-
+        CilindroBE cilindro = new CilindroBE();
         protected void txtCodigoCilindro_TextChanged(object sender, EventArgs e)
         {
-            CilindroBE consulta = new CilindroBE();
-            Ubicacion_CilindroBE ubicacion = new Ubicacion_CilindroBE();
 
-            consulta.Codigo_Cilindro = Convert.ToString(txtCodigoCilindro);
-             
+
+            cilindro.Codigo_Cilindro = Convert.ToString(txtCodigoCilindro);
+
             //llamar al servicio y validar en bd
 
             //Service1Cilindro serv = new Service1Cilindro();
-            //consulta = Server.ConsultarCilindro();
-            //TxtAno.Text = Convert.ToString(serv.ConsultarCilindro(consulta.Ano));
-            //TxtEmpresa.Text = Convert.ToString(serv.ConsultarCilindro(consulta.Id_Fabricante));
-            //TxtCodigo.Text = Convert.ToString(serv.ConsultarCilindro(consulta.Codigo_Cilindro));
-            //TxtUbicacion.Text = Convert.ToString(serv.ConsultarCilindro(ubicacion.Nombre));
-            //TxtCodigo.Text = Convert.ToString(serv.ConsultarCilindro(consulta.Codigo_Cilindro));
-      
+            //consulta = serv.ConsultarCilindro();
+            //se le debe cambia la instancia cilindro por el nombre de la instancia del servicio
+            //TxtAno.Text = Convert.ToString(cilindro.Ano);
+            //TxtEmpresa.Text = Convert.ToString((cilindro.Fabricante.Nombre_Fabricante));
+            //TxtCodigo.Text = Convert.ToString((cilindro.Serial_Cilindro));
+            //TxtUbicacion.Text = Convert.ToString((cilindro.Ubicacion.Nombre_Ubicacion));
+            //TxtTamano.Text = Convert.ToString((cilindro.NTamano.Tamano));
+            //LblTotal.Text = Convert.ToString((cilindro.Codigo_Cilindro));
+            //TxtRegistro.Text = Convert.ToString((cilindro.Fecha));
+
             DivDatosCilindro.Visible = true;
             BtnNuevaConsulta.Visible = true;
-            if (TxtUbicacion.Text == "Vehiculo") 
+
+
+            if (TxtUbicacion.Text == "Vehiculo")
             {
+
+
+                //TxtPlaca.Text = cilindro.Vehiculo.Placa;
+                //TxtConductor.Text = cilindro.Vehiculo.Conductor_Vehiculo.Conductor.Nombres_Conductor;
+                //TxtRuta.Text = cilindro.Vehiculo.Ruta.Nombre_Ruta;
+
                 DivInfoVehiculo.Visible = true;
             }
-            if (TxtUbicacion.Text == "Cliente") 
+
+            if (TxtUbicacion.Text == "Cliente")
             {
+
+                //se le debe cambia la instancia venta por el nombre de la instancia del servicio
+                //txtCedula.Text = Convert.ToString(cilindro.Venta.Cliente.Cedula);
+                //TxtNombreCliente.Text = Convert.ToString(cilindro.Venta.Cliente.Nombres_Cliente);
+                //TxtPrimerApellido.Text = Convert.ToString(cilindro.Venta.Cliente.Apellido_1);
+                //TxtSegundoApellido.Text = Convert.ToString(cilindro.Venta.Cliente.Apellido_2);
+                //TxtDireccion.Text = Convert.ToString(cilindro.Venta.Cliente.Ubicacion.Direccion);
+                //TxtBarrio.Text = Convert.ToString(cilindro.Venta.Cliente.Ubicacion.Barrio);
+                //TxtCiudad.Text = Convert.ToString(cilindro.Venta.Cliente.Ciudad.Nombre_Ciudad);
+                //TxtDepartamento.Text = Convert.ToString(cilindro.Venta.Cliente.Ciudad.Nombre_Departamento);
+                //TxtTelefono.Text = Convert.ToString(cilindro.Venta.Cliente.Ubicacion.Telefono_1);
+                //Txtentrega.Text = Convert.ToString(cilindro.Venta.Fecha);
+
                 DivInfoCilindro.Visible = true;
             }
-            
+
         }
 
         protected void BtnNuevaConsulta_Click(object sender, EventArgs e)

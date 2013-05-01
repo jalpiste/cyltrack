@@ -17,27 +17,24 @@ namespace Unisangil.CYLTRACK.CYLTRACK_WebApp.Autenticacion
 
         }
 
+           UsuarioBE usuario = new UsuarioBE();
         protected void btnCreateUserButton_Click(object sender, EventArgs e)
         {
-           
-            //UsuarioBE registrar_usuario = new UsuarioBE();
+            // usuario.Usuario = txtUserName.Text;
+            // usuario.Contrasena_1 = txtPassword.Text;
+            // usuario.Contrasena_2 = txtConfirmPassword.Text; // no si asi se compara
+            // usuario.Correo = txtEmail.Text;
+            // usuario.Cedula = txtCedula.Text;
+            // usuario.Nombre = txtNombre.Text;
+            // usuario.Apellido = txtApellidos.Text;
+            // usuario.Direccion = txtDireccion.Text;
+            // usuario.Telefono = txtTelefono.Text;
+            // usuario.Genero = lstGenero.SelectedValue;
+            // usuario.Fecha_Nacim = lstDia.SelectedValue +","+ lstMes.SelectedValue+","+lstAno.SelectedValue;
+            //usuario.cargo// el cargo 
 
-            //registrar_usuario.Usuario = txtUserName.Text;
-            //registrar_usuario.Contrasena_1 = txtPassword.Text;
-            //registrar_usuario.Contrasena_2 = txtConfirmPassword.Text;
-            //registrar_usuario.Correo = txtEmail.Text;
 
-            //registrar_usuario.Cedula = txtCedula.Text;
-            //registrar_usuario.Nombre = txtNombre.Text;
-            //registrar_usuario.Apellido = txtApellidos.Text;
-            //registrar_usuario.Direccion = txtDireccion.Text;
-            //registrar_usuario.Telefono = txtTelefono.Text;
-            //registrar_usuario.Genero = lstGenero.SelectedValue;
-            //registrar_usuario.Fecha_Nacim = lstDia.SelectedValue; // selección de la fecha de nacimiento
-            //registrar_usuario.Perfil.Perfil = lstCargo.SelectedValue;
-            
-
-            Response.Write("<script type='text/javascript'> alert('Sus datos fueron enviados satisfactoriamente') </script>");
+            Response.Write("<script type='text/javascript'> alert('') </script>");
             //Response.Redirect("~/Autenticacion/frmRegistrarUsuario.aspx");
         }
 
@@ -45,7 +42,6 @@ namespace Unisangil.CYLTRACK.CYLTRACK_WebApp.Autenticacion
         {
             Response.Redirect("~/Default.aspx");
         }
-
 
     }
 }

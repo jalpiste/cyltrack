@@ -16,7 +16,10 @@ namespace Unisangil.CYLTRACK.CYLTRACK_WebApp.Cilindros
         }
         protected void TxtCodigoCilindro_TextChanged(object sender, EventArgs e)
         {
+            //CilindroBE cilindro = new CilindroBE();
+            //cilindro.Codigo_Cilindro = TxtCodigoCilindro.Text;
             //ir a BD a vañlidar si existe
+            // si existe mostrar mensaje
             DivDatosCilindro.Visible = true;
             BtnGuardar.Visible = true;
         }
@@ -24,12 +27,13 @@ namespace Unisangil.CYLTRACK.CYLTRACK_WebApp.Cilindros
         protected void BtnGuardar_Click(object sender, EventArgs e)
         {
             //CilindroBE cilindro = new CilindroBE();
-            //cilindro.Ano = Convert.ToString(LstAno.SelectedValue);
-            //cilindro.Id_Fabricante = Convert.ToString(TxtEmpresa.Text);
-            //cilindro.Id_Cilindro = Convert.ToString(TxtCodigoCilindro.Text);
-            //cilindro.Ubicacion = Convert.ToString(LstUbicacion.SelectedValue);
-            //cilindro.Tamano = Convert.ToString(LstTamano.SelectedValue);
-                                
+            //cilindro.Ano = (LstAno.SelectedValue);
+            //cilindro.Fabricante.Codigo_Fabricante = (TxtEmpresa.Text);
+            //cilindro.Id_Cilindro = (TxtCodigoCilindro.Text);
+            //cilindro.Ubicacion.Nombre_Ubicacion = (LstUbicacion.SelectedValue);
+            //cilindro.NTamano.Tamano = (LstTamano.SelectedValue);
+
+
             ////llamar a Cilindro service metodo CrearCilindro
 
             Response.Write("<script type='text/javascript'> alert('Sus datos fueron enviados satisfactoriamente') </script>");

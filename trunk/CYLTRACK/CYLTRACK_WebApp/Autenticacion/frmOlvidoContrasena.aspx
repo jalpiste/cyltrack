@@ -19,7 +19,8 @@
        <br />
        <asp:Label ID="lblUsNa" runat="server" Text="Nombre de usuario:"></asp:Label>
        <br />
-       <asp:TextBox ID="txtUserName" runat="server" CssClass="textEntry" Width="320px"></asp:TextBox>
+       <asp:TextBox ID="txtUserName" runat="server" CssClass="textEntry" Width="320px" 
+          ></asp:TextBox>
        <asp:RequiredFieldValidator ID="UserRequired" runat="server" 
         ControlToValidate="txtUserName" CssClass="failureNotification" 
         ErrorMessage="El nombre de usuario es obligatorio." 

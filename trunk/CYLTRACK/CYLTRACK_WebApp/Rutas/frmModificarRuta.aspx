@@ -45,7 +45,8 @@
                         &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; &nbsp;
                     <asp:Label ID="lblCiudad" runat="server" Text="Ciudad: "></asp:Label>
                     <br />                
-                    <asp:ListBox ID="lstDepartamento" runat="server" AutoPostBack="True" Rows="1" Width="170px"> 
+                    <asp:ListBox ID="lstDepartamento" runat="server" AutoPostBack="True" Rows="1" 
+                            Width="170px"> 
                     <asp:ListItem>Seleccionar</asp:ListItem>
                     </asp:ListBox>
                      &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;

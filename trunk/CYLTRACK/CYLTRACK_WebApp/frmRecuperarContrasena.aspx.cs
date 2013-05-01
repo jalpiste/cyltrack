@@ -4,6 +4,7 @@ using System.Linq;
 using System.Web;
 using System.Web.UI;
 using System.Web.UI.WebControls;
+using Unisangil.CYLTRACK.CYLTRACK_BE;
 
 namespace Unisangil.CYLTRACK.CYLTRACK_WebApp
 {
@@ -13,7 +14,7 @@ namespace Unisangil.CYLTRACK.CYLTRACK_WebApp
         {
 
         }
-
+        UsuarioBE usuario = new UsuarioBE();
         protected void BtnMenu_Click(object sender, EventArgs e)
         {
             Response.Redirect("~/Default.aspx");
@@ -21,6 +22,7 @@ namespace Unisangil.CYLTRACK.CYLTRACK_WebApp
 
         protected void btnEnviar_Click(object sender, EventArgs e)
         {
+            //usuario.Usuario = txtUserName.Text;// 
             Response.Write("<script type='text/javascript'> alert('La contraseña ha sido enviada a su correo electrónico') </script>");
             
         }

@@ -49,7 +49,7 @@
                             <asp:ListItem>Bodega</asp:ListItem>
                             <asp:ListItem>Mantenimiento</asp:ListItem>
                             <asp:ListItem>Chatarra</asp:ListItem>
-                            <asp:ListItem>Vehículo</asp:ListItem>
+                            <asp:ListItem>Vehiculo</asp:ListItem>
                         </asp:ListBox>
                         &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; &nbsp;&nbsp; &nbsp;
                         <asp:Label ID="lblPlaca" runat="server" Text="Placa Vehículo:  " visible="false"></asp:Label>

@@ -18,10 +18,10 @@ namespace Unisangil.CYLTRACK.CYLTRACK_WebApp.Account.Clientes
 
         protected void txtCedula_TextChanged(object sender, EventArgs e)
         {
-            
-            //ClienteBE consultar_cli = new ClienteBE ();
 
-            //txtNombreCliente.Text = consultar_cli.Nombres;
+            //ClienteBE consultar_cli = new ClienteBE();
+
+            //txtNombreCliente.Text = consultar_cli.Nombres_Cliente;
             //txtPrimerApellido.Text = consultar_cli.Apellido_1;
             //txtSegundoApellido.Text = consultar_cli.Apellido_2;
             //txtDireccion.Text = consultar_cli.Ubicacion.Direccion;
@@ -41,7 +41,7 @@ namespace Unisangil.CYLTRACK.CYLTRACK_WebApp.Account.Clientes
 
             //ClienteBE modificar_cli = new ClienteBE();
 
-            //modificar_cli.Nombres = txtNombreCliente.Text;
+            //modificar_cli.Nombres_Cliente = txtNombreCliente.Text;
             //modificar_cli.Apellido_1 = txtPrimerApellido.Text;
             //modificar_cli.Apellido_2 = txtSegundoApellido.Text;
             //modificar_cli.Ubicacion.Direccion = txtDireccion.Text;

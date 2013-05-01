@@ -30,14 +30,14 @@ namespace Unisangil.CYLTRACK.CYLTRACK_WebApp.Account
         protected void btnGuardar_Click(object sender, EventArgs e)
         {
             //ClienteBE registrar_cli = new ClienteBE();
-            
+
             //registrar_cli.Cedula = Convert.ToString(txtCedula.Text);
-            //registrar_cli.Nombres = Convert.ToString(txtNombreCliente.Text);
+            //registrar_cli.Nombres_Cliente = Convert.ToString(txtNombreCliente.Text);
             //registrar_cli.Apellido_1 = Convert.ToString(txtPrimerApellido.Text);
             //registrar_cli.Apellido_2 = Convert.ToString(txtSegundoApellido.Text);
             //registrar_cli.Ubicacion.Direccion = Convert.ToString(txtDireccion.Text);
             //registrar_cli.Ubicacion.Barrio = Convert.ToString(txtBarrio.Text);
-            //registrar_cli.Ciudad.Departamento.Nombre_Departamento  = Convert.ToString(lstDepartamento.SelectedValue);
+            //registrar_cli.Ciudad.Departamento.Nombre_Departamento = Convert.ToString(lstDepartamento.SelectedValue);
             //registrar_cli.Ciudad.Nombre_Ciudad = Convert.ToString(lstCiudad.SelectedValue);
             //registrar_cli.Ubicacion.Telefono_1 = Convert.ToString(txtTelefono.Text);
 
