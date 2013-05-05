@@ -8,22 +8,27 @@ using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
+using System.ServiceModel;
+using System.Runtime.Serialization;
 
 namespace Unisangil.CYLTRACK.CYLTRACK_BE
 {
     /// <summary>
     /// Clase utilizada para representar la entidad Ciudad_Ruta
     /// </summary>
+    [DataContract]
     public class Ciudad_RutaBE
     {
         /// <summary>
         /// Identificador de la Ciudad_Ruta
         /// </summary>
+        [DataMember]
         public String Id_Ciudad_Ruta { get; set; }
 
         /// <summary>
         /// Ciudad_Ruta
         /// </summary>
+        [DataMember]
         public CiudadBE Ciudad { get; set; }
     }
 }
