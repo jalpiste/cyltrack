@@ -63,9 +63,9 @@ namespace Unisangil.CYLTRACK.CYLTRACK_WCF_Services
         /// </summary>
         /// <param name="ventas">Objeto de negocio Venta</param>
         /// <returns>ventas</returns>
-        public List<VentaBE> CasosEspeciales(VentaBE ventas)
+        public String CasosEspeciales(VentaBE ventas)
         {
-            List<VentaBE> resp ;
+            String resp;
             VentaBL casosEspeciles = new VentaBL();
             resp = casosEspeciles.CasosEspeciales(ventas);
             return resp;
