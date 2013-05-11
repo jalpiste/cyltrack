@@ -37,5 +37,11 @@ namespace Unisangil.CYLTRACK.CYLTRACK_BE
         /// </summary>
         [DataMember]
         public Tipo_CasoBE Tipo_Caso { get; set; }
+
+        /// <summary>
+        /// Venta de cilindros
+        /// </summary>
+        [DataMember]
+        public VentaBE Venta { get; set; }
       }
 }
