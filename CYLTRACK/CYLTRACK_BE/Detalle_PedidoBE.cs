@@ -19,12 +19,7 @@ namespace Unisangil.CYLTRACK.CYLTRACK_BE
     [DataContract]
     public class Detalle_PedidoBE
     {
-        /// <summary>
-        /// Identificador del Detalle del pedido
-        /// </summary>
-        [DataMember]
-        public String Id_Detalle_Venta { get; set; }
-
+     
         /// <summary>
         /// Cantidad de cilindros
         /// </summary>

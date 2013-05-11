@@ -57,5 +57,11 @@ namespace Unisangil.CYLTRACK.CYLTRACK_BE
          [DataMember]
         public String Telefono { get; set; }
 
+         /// <summary>
+         /// número de cédula de un conductor
+         /// </summary>
+         [DataMember]
+         public String Cedula { get; set; }
+
     }
 }

@@ -31,7 +31,7 @@ namespace Unisangil.CYLTRACK.CYLTRACK_BE
         /// Fecha de la realizacion del pedido 
         /// </summary>
         [DataMember]
-        public String Fecha { get; set; }
+        public DateTime Fecha { get; set; }
 
         /// <summary>
         /// Observaciones referentes a la entrega del pedido
