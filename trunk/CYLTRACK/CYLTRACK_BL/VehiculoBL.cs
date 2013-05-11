@@ -18,24 +18,72 @@ namespace Unisangil.CYLTRACK.CYLTRACK_BL
 
         #endregion
         #region Metodos publicos
-        public long RegistrarVehiculo(VehiculoBE registrar_vehiculo)
+        /// <summary>
+        /// Método para el registro de vehículos en el sistema
+        /// </summary>
+        /// <param name="registrar_vehiculo"></param>
+        /// <returns></returns>
+        public String RegistrarVehiculo(VehiculoBE registrar_vehiculo)
         {
-            return 0;
+            String resp = "1";
+            return resp;
         }
-
-        public long ConsultarVehiculo(VehiculoBE consultar_vehiculo)
+        /// <summary>
+        /// Método para la consulta de vehículos en el sistema
+        /// </summary>
+        /// <param name="consultar_vehiculo"></param>
+        /// <returns></returns>
+        public List<VehiculoBE> ConsultarVehiculo(VehiculoBE consultar_vehiculo)
         {
-            return 0;
+            List<VehiculoBE> lstVehiculo = new List<VehiculoBE>();
+            VehiculoBE vehiculo = new VehiculoBE();
+
+            vehiculo.Placa = "XHA767";
+            vehiculo.Marca = "Kia";
+            vehiculo.Cilindraje = "2800";
+            vehiculo.Modelo = "2010";
+            vehiculo.Motor = "ODJGDSJ335252VVDS";
+            vehiculo.Chasis = "ODJGDSJ335252VVDS111";
+            //--------------------------------
+            vehiculo.Ced_Prop = "7320591";
+            vehiculo.Nombres_Prop = "Cristobal";
+            vehiculo.Apellido_1_Prop = "Colón";
+            vehiculo.Apellido_2_Prop = "Mendieta";
+            //--------------------------------
+            vehiculo.Ruta.Nombre_Ruta = "Chiquinquirá-Ubaté";
+
+            lstVehiculo.Add(vehiculo);
+            return lstVehiculo;
         }
-
-        public long ModificarVehiculo(VehiculoBE modificar_vehiculo)
+        /// <summary>
+        /// Método para la modificación de vehículos en el sistema
+        /// </summary>
+        /// <param name="modificar_vehiculo"></param>
+        /// <returns></returns>
+        public String ModificarVehiculo(VehiculoBE modificar_vehiculo)
         {
-            return 0;
+            List<VehiculoBE> consulta = ConsultarVehiculo(modificar_vehiculo);
+            List<VehiculoBE> conductor = ConsultarConductor(modificar_vehiculo);
+            String resp = "Vehículo Modificado";
+            return resp;
         }
-
-        public long ConsultarConductor(VehiculoBE consultar_conductor)
+        /// <summary>
+        /// Método para la consulta de conductores en el sistema
+        /// </summary>
+        /// <param name="consultar_conductor"></param>
+        /// <returns></returns>
+        public List<VehiculoBE> ConsultarConductor(VehiculoBE consultar_conductor)
         {
-            return 0;
+            List<VehiculoBE> lstConductor = new List<VehiculoBE>();
+            VehiculoBE conductor = new VehiculoBE();
+
+            conductor.Conductor_Vehiculo.Conductor.Cedula = "11242779";
+            conductor.Conductor_Vehiculo.Conductor.Nombres_Conductor = "Daniel";
+            conductor.Conductor_Vehiculo.Conductor.Apellido_1 = "López";
+            conductor.Conductor_Vehiculo.Conductor.Apellido_2 = "Barinas";
+
+            lstConductor.Add(conductor);
+            return lstConductor;
         }
         #endregion
         #region Metodos privados
