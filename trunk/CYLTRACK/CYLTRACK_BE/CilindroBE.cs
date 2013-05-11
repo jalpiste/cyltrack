@@ -92,5 +92,10 @@ namespace Unisangil.CYLTRACK.CYLTRACK_BE
         [DataMember]
         public VentaBE Venta { get; set; }
 
+        /// <summary>
+        /// Ubicación del cilindro
+        /// </summary>
+        [DataMember]
+        public UbicacionBE Ubicacion { get; set; }
     }
 }
