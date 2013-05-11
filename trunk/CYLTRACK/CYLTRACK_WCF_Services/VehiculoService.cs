@@ -25,9 +25,9 @@ namespace Unisangil.CYLTRACK.CYLTRACK_WCF_Services
         /// </summary>
         /// <param name="registrar_vehiculo">Objeto de negocio vehículo</param>
         /// <returns>Placa del vehículo</returns>
-        public long Registrar_Vehiculo(VehiculoBE registrar_vehiculo)
+        public String Registrar_Vehiculo(VehiculoBE registrar_vehiculo)
         {
-            long resp = 0;
+            String resp;
             VehiculoBL RegisVehiculo = new VehiculoBL();
             resp = RegisVehiculo.RegistrarVehiculo(registrar_vehiculo);
             return resp;
@@ -38,9 +38,9 @@ namespace Unisangil.CYLTRACK.CYLTRACK_WCF_Services
         /// </summary>
         /// <param name="consultar_vehiculo">Objeto de negocio vehículo</param>
         /// <returns>Placa del vehículo</returns>
-        public long Consultar_Vehiculo(VehiculoBE consultar_vehiculo)
+        public List<VehiculoBE> Consultar_Vehiculo(VehiculoBE consultar_vehiculo)
         {
-            long resp = 0;
+            List<VehiculoBE> resp;
             VehiculoBL ConVehiculo = new VehiculoBL();
             resp = ConVehiculo.ConsultarVehiculo(consultar_vehiculo);
             return resp;
@@ -51,9 +51,9 @@ namespace Unisangil.CYLTRACK.CYLTRACK_WCF_Services
         /// </summary>
         /// <param name="modificar_vehiculo">Objeto de negocio vehículo</param>
         /// <returns>Placa del vehículo</returns>
-        public long Modificar_Vehiculo(VehiculoBE modificar_vehiculo)
+        public String Modificar_Vehiculo(VehiculoBE modificar_vehiculo)
         {
-            long resp = 0;
+            String resp;
             VehiculoBL ModVehiculo = new VehiculoBL();
             resp = ModVehiculo.ModificarVehiculo(modificar_vehiculo);
             return resp;
@@ -64,9 +64,9 @@ namespace Unisangil.CYLTRACK.CYLTRACK_WCF_Services
         /// </summary>
         /// <param name="consultar_conductor">Objeto de negocio vehículo</param>
         /// <returns>cedula conductor</returns>
-        public long Consultar_Conductor(VehiculoBE consultar_conductor)
+        public List<VehiculoBE> Consultar_Conductor(VehiculoBE consultar_conductor)
         {
-            long resp = 0;
+            List<VehiculoBE> resp;
             VehiculoBL ConConductor = new VehiculoBL();
             resp = ConConductor.ConsultarConductor(consultar_conductor);
             return resp;

@@ -28,7 +28,7 @@ namespace Unisangil.CYLTRACK.CYLTRACK_WCF_Services
         /// <param name="registrar_ped">Objeto de negocio pedido</param>
         /// <returns>cédula del cliente</returns>
         [OperationContract]
-        long Registrar_Pedido(PedidoBE registrar_ped);
+        String Registrar_Pedido(PedidoBE registrar_ped);
 
         /// <summary>
         /// Método encargado de la consulta de pedidos en el sistema. Permite
@@ -37,7 +37,7 @@ namespace Unisangil.CYLTRACK.CYLTRACK_WCF_Services
         /// <param name="consultar_ped">Objeto de negocio pedido</param>
         /// <returns>cédula del cliente,código pedido</returns>
         [OperationContract]
-        long Consultar_Pedido(PedidoBE consultar_ped);
+        List<PedidoBE> Consultar_Pedido(PedidoBE consultar_ped);
 
         /// <summary>
         /// Método encargado de la modificación de pedidos en el sistema. Permite
@@ -46,7 +46,7 @@ namespace Unisangil.CYLTRACK.CYLTRACK_WCF_Services
         /// <param name="consultar_ped">Objeto de negocio pedido</param>
         /// <returns>cédula del cliente,código pedido</returns>
         [OperationContract]
-        long Modificar_Pedido(PedidoBE modificar_ped);
+        String Modificar_Pedido(PedidoBE modificar_ped);
 
         /// <summary>
         /// Método encargado de la cancelación de pedidos en el sistema. Permite
@@ -55,6 +55,6 @@ namespace Unisangil.CYLTRACK.CYLTRACK_WCF_Services
         /// <param name="cancelar_ped">Objeto de negocio pedido</param>
         /// <returns>cédula del cliente,código pedido</returns>
         [OperationContract]
-        long Cancelar_Pedido(PedidoBE cancelar_ped);
+        String Cancelar_Pedido(PedidoBE cancelar_ped);
     }
 }
