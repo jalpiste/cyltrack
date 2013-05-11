@@ -25,9 +25,9 @@ namespace Unisangil.CYLTRACK.CYLTRACK_WCF_Services
         /// </summary>
         /// <param name="registrar_ped">Objeto de negocio pedido</param>
         /// <returns>cédula del cliente</returns>
-        public long Registrar_Pedido(PedidoBE registrar_ped)
+        public String Registrar_Pedido(PedidoBE registrar_ped)
         {
-            long resp = 0;
+            String resp;
             PedidoBL regisPedido = new PedidoBL();
             resp = regisPedido.RegistrarPedido(registrar_ped);
             return resp;
@@ -38,9 +38,9 @@ namespace Unisangil.CYLTRACK.CYLTRACK_WCF_Services
         /// </summary>
         /// <param name="consultar_ped">Objeto de negocio pedido</param>
         /// <returns>cédula del cliente</returns>
-        public long Consultar_Pedido(PedidoBE consultar_ped)
+        public List<PedidoBE> Consultar_Pedido(PedidoBE consultar_ped)
         {
-            long resp = 0;
+            List<PedidoBE> resp;
             PedidoBL ConPedido = new PedidoBL();
             resp = ConPedido.ConsultarPedido(consultar_ped);
             return resp;
@@ -51,9 +51,9 @@ namespace Unisangil.CYLTRACK.CYLTRACK_WCF_Services
         /// </summary>
         /// <param name="modificar_ped">Objeto de negocio pedido</param>
         /// <returns>cédula del cliente</returns>
-        public long Modificar_Pedido(PedidoBE modificar_ped)
+        public String Modificar_Pedido(PedidoBE modificar_ped)
         {
-            long resp = 0;
+            String resp;
             PedidoBL ModPedido = new PedidoBL();
             resp = ModPedido.ModificarPedido(modificar_ped);
             return resp;
@@ -64,9 +64,9 @@ namespace Unisangil.CYLTRACK.CYLTRACK_WCF_Services
         /// </summary>
         /// <param name="cancelar_ped">Objeto de negocio pedido</param>
         /// <returns>cédula del cliente</returns>
-        public long Cancelar_Pedido(PedidoBE cancelar_ped)
+        public String Cancelar_Pedido(PedidoBE cancelar_ped)
         {
-            long resp = 0;
+            String resp;
             PedidoBL CanPedido = new PedidoBL();
             resp = CanPedido.CancelarPedido(cancelar_ped);
             return resp;
