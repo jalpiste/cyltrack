@@ -30,7 +30,7 @@ namespace Unisangil.CYLTRACK.CYLTRACK_WebApp.Cilindros
             //cilindro.Ano = (LstAno.SelectedValue);
             //cilindro.Fabricante.Codigo_Fabricante = (TxtEmpresa.Text);
             //cilindro.Id_Cilindro = (TxtCodigoCilindro.Text);
-            //cilindro.Ubicacion.Nombre_Ubicacion = (LstUbicacion.SelectedValue);
+            //cilindro.Tipo_Ubicacion.Nombre_Ubicacion = (LstUbicacion.SelectedValue);
             //cilindro.NTamano.Tamano = (LstTamano.SelectedValue);
 
 

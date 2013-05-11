@@ -22,10 +22,8 @@ namespace Unisangil.CYLTRACK.CYLTRACK_WebApp.Cilindros
             //valida datos a BD
             //llamar servicio metodo Asignar ubicacion
 
-
             //cilindro.Codigo_Cilindro = txtCodeCilindro.Text;
-
-            //txtUbicacionActual.Text = cilindro.Ubicacion.Nombre_Ubicacion; 
+            //txtUbicacionActual.Text = cilindro.Tipo_Ubicacion.Nombre_Ubicacion; 
             DivUbicacionCil.Visible = true;
             DivNuevaUbicacion.Visible = true;
             BtnGuardar.Visible = true;
@@ -36,10 +34,10 @@ namespace Unisangil.CYLTRACK.CYLTRACK_WebApp.Cilindros
             if (lstUbica.SelectedValue == "Vehiculo")
             {
 
-
-                //lstPlacaVehiculo.SelectedValue =  cilindro.Vehiculo.Placa;
+                //lstPlacaVehiculo.SelectedValue = cilindro.Vehiculo.Placa;
                 //TxtConductor.Text = cilindro.Vehiculo.Conductor_Vehiculo.Conductor.Nombres_Conductor;
                 //LblRutaVehiculo.Text = cilindro.Vehiculo.Ruta.Nombre_Ruta;
+
 
                 lblPlaca.Visible = true;
                 lstPlacaVehiculo.Visible = true;
@@ -60,7 +58,7 @@ namespace Unisangil.CYLTRACK.CYLTRACK_WebApp.Cilindros
         protected void BtnGuardar_Click(object sender, EventArgs e)
         {
 
-            //cilindro.Ubicacion.Nombre_Ubicacion = lstUbica.SelectedValue;
+            //cilindro.Tipo_Ubicacion.Nombre_Ubicacion = lstUbica.SelectedValue;
             //cilindro.Vehiculo.Placa = lstPlacaVehiculo.SelectedValue;
             Response.Write("<script type='text/javascript'> alert('Sus datos fueron enviados satisfactoriamente') </script>");
             //DivUbicacionCil.Visible = false;
