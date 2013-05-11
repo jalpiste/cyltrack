@@ -25,9 +25,9 @@ namespace Unisangil.CYLTRACK.CYLTRACK_WCF_Services
         /// </summary>
         /// <param name="ruta">Objeto de negocio ruta</param>
         /// <returns>Nombre de Ruta</returns>
-        public long RegistrarRuta(RutaBE ruta)
+        public String RegistrarRuta(RutaBE ruta)
         {
-            long resp = 0;
+            String resp;
             RutaBL registrarRuta = new RutaBL();
             resp = registrarRuta.RegistrarRuta(ruta);
             return resp;
@@ -39,9 +39,9 @@ namespace Unisangil.CYLTRACK.CYLTRACK_WCF_Services
         /// </summary>
         /// <param name="ruta">Objeto de negocio ruta</param>
         /// <returns>Nombre de ruta</returns>
-        public long ModificarRuta(RutaBE ruta)
+        public String ModificarRuta(RutaBE ruta)
         {
-            long resp = 0;
+            String resp;
             RutaBL modificarRuta = new RutaBL();
             resp = modificarRuta.ModificarRuta(ruta);
             return resp;
@@ -53,9 +53,9 @@ namespace Unisangil.CYLTRACK.CYLTRACK_WCF_Services
         /// </summary>
         /// <param name="ruta">Objeto de negocio ruta</param>
         /// <returns>Nombre de ruta</returns>
-        public long ConsultarRuta(RutaBE ruta)
+        public List<RutaBE> ConsultarRuta(RutaBE ruta)
         {
-            long resp = 0;
+            List<RutaBE> resp ;
             RutaBL consultarRuta = new RutaBL();
             resp = consultarRuta.ConsultarRuta(ruta);
             return resp;

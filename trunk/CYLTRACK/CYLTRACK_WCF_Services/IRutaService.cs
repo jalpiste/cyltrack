@@ -26,7 +26,7 @@ namespace Unisangil.CYLTRACK.CYLTRACK_WCF_Services
         /// <param name="ruta">Objeto de negocio ruta</param>
         /// <returns>nombre de la ruta</returns>
         [OperationContract]
-        long RegistrarRuta(RutaBE ruta);
+        String RegistrarRuta(RutaBE ruta);
 
         /// <summary>
         /// Método encargado de la modificaciòn de rutas en el sistema. Permite
@@ -35,7 +35,7 @@ namespace Unisangil.CYLTRACK.CYLTRACK_WCF_Services
         /// <param name="ruta">Objeto de negocio ruta</param> 
         /// <returns>nombre de la ruta</returns>
         [OperationContract]
-        long ModificarRuta(RutaBE ruta);
+        String ModificarRuta(RutaBE ruta);
 
         /// <summary>
         /// Método encargado de la consulta de rutas en el sistema. Permite
@@ -44,6 +44,6 @@ namespace Unisangil.CYLTRACK.CYLTRACK_WCF_Services
         /// <param name="ruta">Objeto de negocio ruta</param> 
         /// <returns>nombre de la ruta</returns>
         [OperationContract]
-        long ConsultarRuta(RutaBE ruta);
+        List<RutaBE> ConsultarRuta(RutaBE ruta);
     }
 }

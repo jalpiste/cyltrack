@@ -27,9 +27,9 @@ namespace Unisangil.CYLTRACK.CYLTRACK_WCF_Services
         /// <param name="registrar_cli">Objeto de negocio cliente</param>
         /// <returns>cédula del cliente</returns>
         
-        public long Registrar_Cliente(ClienteBE registrar_cli)
+        public String Registrar_Cliente(ClienteBE registrar_cli)
         {
-            long resp = 0;
+            String resp ;
             ClienteBL RegisCliente = new ClienteBL();
             resp = RegisCliente.RegistrarCliente(registrar_cli);
             return resp;
@@ -42,9 +42,9 @@ namespace Unisangil.CYLTRACK.CYLTRACK_WCF_Services
         /// <param name="registrar_cli">Objeto de negocio cliente</param>
         /// <returns>cédula del cliente</returns>
 
-        public long Agregar_Ubicacion (ClienteBE registrar_ubi)
+        public String Agregar_Ubicacion (ClienteBE registrar_ubi)
         {
-            long resp = 0;
+            String resp ;
             ClienteBL RegisUbicacion = new ClienteBL();
             resp = RegisUbicacion.RegistrarUbicacion(registrar_ubi);
             return resp;
@@ -56,9 +56,9 @@ namespace Unisangil.CYLTRACK.CYLTRACK_WCF_Services
         /// <param name="registrar_cli">Objeto de negocio cliente</param>
         /// <returns>cédula del cliente</returns>
 
-        public long Consultar_Cliente (ClienteBE consultar_cli)
+        public List<ClienteBE> Consultar_Cliente (ClienteBE consultar_cli)
         {
-            long resp = 0;
+            List<ClienteBE> resp ;
             ClienteBL ConCliente = new ClienteBL();
             resp = ConCliente.ConsultarCliente(consultar_cli);
             return resp;
@@ -70,9 +70,9 @@ namespace Unisangil.CYLTRACK.CYLTRACK_WCF_Services
         /// </summary>
         /// <param name="registrar_cli">Objeto de negocio cliente</param>
         /// <returns>cédula del cliente</returns>
-        public long Modificar_Cliente(ClienteBE modificar_cli)
+        public String Modificar_Cliente(ClienteBE modificar_cli)
         {
-            long resp = 0;
+            String resp;
             ClienteBL ModCliente = new ClienteBL();
             resp = ModCliente.ModificarCliente(modificar_cli);
             return resp;

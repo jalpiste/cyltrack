@@ -21,9 +21,9 @@ namespace Unisangil.CYLTRACK.CYLTRACK_WCF_Services
         /// </summary>
         /// <param name="usuario">Objeto de negocio Usuario</param>
         /// <returns>Código interno del cilindro</returns>
-        public long RegistrarUsuario(UsuarioBE usuario)
+        public String RegistrarUsuario(UsuarioBE usuario)
         {
-            long resp = 0;
+            String resp;
             UsuarioBL regUsuario = new UsuarioBL();
             resp = regUsuario.RegistrarUsuario(usuario);
             return resp;
@@ -35,9 +35,9 @@ namespace Unisangil.CYLTRACK.CYLTRACK_WCF_Services
         /// </summary>
         /// <param name="usuario">Objeto de negocio Usuario</param>
         /// <returns>nombre de usuario</returns>
-        public long Autenticacion(UsuarioBE usuario)
+        public String Autenticacion(UsuarioBE usuario)
         {
-            long resp = 0;
+            String resp;
             UsuarioBL autenticarUsuario = new UsuarioBL();
             resp = autenticarUsuario.Autenticacion(usuario);
             return resp;
@@ -49,9 +49,9 @@ namespace Unisangil.CYLTRACK.CYLTRACK_WCF_Services
         /// </summary>
         /// <param name="usuario">Objeto de negocio Usuario</param>
         /// <returns>Nombre de usuario</returns>
-        public long RecuperarContrasena(UsuarioBE usuario)
+        public String RecuperarContrasena(UsuarioBE usuario)
         {
-            long resp = 0;
+            String resp;
             UsuarioBL recuperarContrasena = new UsuarioBL();
             resp = recuperarContrasena.RecuperarContrasena(usuario);
             return resp;
