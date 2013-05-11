@@ -18,24 +18,45 @@ namespace Unisangil.CYLTRACK.CYLTRACK_BL
 
         #endregion
         #region Metodos publicos
-        public long RegistrarCliente(ClienteBE registrar_cli)
+        public String RegistrarCliente(ClienteBE registrar_cli)
         {
-            return 0;
+            String resp = "cliente creado";
+            return resp;
         }
         
-        public long RegistrarUbicacion(ClienteBE registrar_ubi)
+        public String RegistrarUbicacion(ClienteBE registrar_ubi)
         {
-            return 0;
+            String resp = "ubicacion creada";
+            return resp;
         }
         
-        public long ConsultarCliente(ClienteBE consultar_cli)
+        public List<ClienteBE> ConsultarCliente(ClienteBE consultar_cli)
         {
-            return 0;
+            List<ClienteBE> lstCliente = new List<ClienteBE>();
+            ClienteBE cliente = new ClienteBE();
+            cliente.Nombres_Cliente = "jaime";
+            cliente.Apellido_1 = "Poveda";
+            cliente.Apellido_2 = "Sanchez";
+            cliente.Ubicacion.Direccion = "Calle 17 N 10-30";
+            cliente.Ubicacion.Barrio = "centro";
+            cliente.Ciudad.Nombre_Ciudad = "Chiquinquirá";
+            cliente.Ciudad.Departamento.Nombre_Departamento = "Boyacá";
+            cliente.Ubicacion.Telefono_1 = "3143456789";
+            cliente.Cilindro.Codigo_Cilindro = "8778687687687";
+            cliente.Cilindro.NTamano.Tamano = "40";
+            cliente.Cilindro.Tipo_Cilindro = "marcado";
+
+            lstCliente.Add(cliente);
+
+            return lstCliente;
         }
 
-        public long ModificarCliente(ClienteBE modificar_cli)
+        public String ModificarCliente(ClienteBE modificar_cli)
         {
-            return 0;
+            List<ClienteBE> modificar = ConsultarCliente(modificar_cli);
+            String resp = "ok";
+            
+            return resp;
         }
         #endregion
         #region Metodos privados
