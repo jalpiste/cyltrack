@@ -26,7 +26,7 @@ namespace Unisangil.CYLTRACK.CYLTRACK_WCF_Services
         /// <param name="ventas">Objeto de negocio ventas</param>
         /// <returns>cédula del cliente</returns>
         [OperationContract]
-        long VentaCilindro(VentaBE ventas);
+        String VentaCilindro(VentaBE ventas);
 
         /// <summary>
         /// Método encargado de la consulta de ventas de cilindros en el sistema. Permite
@@ -35,7 +35,7 @@ namespace Unisangil.CYLTRACK.CYLTRACK_WCF_Services
         /// <param name="ventas">Objeto de negocio ventas</param>
         /// <returns>cédula del cliente</returns>
         [OperationContract]
-        long ConsultarVenta(VentaBE ventas);
+        List<VentaBE> ConsultarVenta(VentaBE ventas);
 
         /// <summary>
         /// Método encargado de la revisión de casos especiales en el sistema. Permite
@@ -44,7 +44,7 @@ namespace Unisangil.CYLTRACK.CYLTRACK_WCF_Services
         /// <param name="ventas">Objeto de negocio ventas</param>
         /// <returns></returns>
         [OperationContract]
-        long RevisionCasosEspeciales(VentaBE ventas);
+        List<CasosBE> RevisionCasosEspeciales(CasosBE casos);
 
         /// <summary>
         /// Método encargado del registro de casos especiales en el sistema. Permite
@@ -53,7 +53,7 @@ namespace Unisangil.CYLTRACK.CYLTRACK_WCF_Services
         /// <param name="ventas">Objeto de negocio ventas</param>
         /// <returns>cédula del cliente</returns>
         [OperationContract]
-        long CasosEspeciales(VentaBE ventas);
+        List<VentaBE> CasosEspeciales(VentaBE ventas);
 
     }
 }

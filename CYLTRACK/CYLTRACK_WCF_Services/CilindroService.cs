@@ -25,9 +25,9 @@ namespace Unisangil.CYLTRACK.CYLTRACK_WCF_Services
         /// </summary>
         /// <param name="cilindro">Objeto de negocio cilindro</param>
         /// <returns>Código interno del cilindro</returns>
-        public long RegistrarCilindro(CilindroBE cilindro)
+        public String RegistrarCilindro(CilindroBE cilindro)
         {
-            long resp = 0;
+            String resp;
             CilindroBL crearCil = new CilindroBL();
             resp = crearCil.CrearCilindro(cilindro);
             return resp;
@@ -39,9 +39,9 @@ namespace Unisangil.CYLTRACK.CYLTRACK_WCF_Services
         /// </summary>
         /// <param name="cilindro">Objeto de negocio cilindro</param>
         /// <returns>Código interno del Cilindro</returns>
-        public long ConsultarCilindro(CilindroBE cilindro)
+        public List<CilindroBE> ConsultarCilindro(CilindroBE cilindro)
         {
-            long resp = 0;
+            List<CilindroBE> resp;
             CilindroBL consultarCil = new CilindroBL();
             resp = consultarCil.ConsultarCilindro(cilindro);
             return resp;
@@ -53,9 +53,9 @@ namespace Unisangil.CYLTRACK.CYLTRACK_WCF_Services
         /// </summary>
         /// <param name="cilindro">Objeto de negocio cilindro</param>
         /// <returns>Código interno del Cilindro</returns>
-        public long AsignarUbicacion(CilindroBE cilindro)
+        public String AsignarUbicacion(CilindroBE cilindro)
         {
-            long resp = 0;
+            String resp ;
             CilindroBL asignarUbica = new CilindroBL();
             resp = asignarUbica.AsignarUbicacion(cilindro);
             return resp;
@@ -67,9 +67,9 @@ namespace Unisangil.CYLTRACK.CYLTRACK_WCF_Services
         /// </summary>
         /// <param name="cilindro">Objeto de negocio cilindro</param>
         /// <returns>Código interno del Cilindro</returns>
-        public long CargueyDescargueCilindro(CilindroBE cilindro)
+        public List<CilindroBE> CargueyDescargueCilindro(CilindroBE cilindro)
         {
-            long resp = 0;
+            List<CilindroBE> resp ;
             CilindroBL cargueyDescargue = new CilindroBL();
             resp = cargueyDescargue.CargueyDescargueCilindro(cilindro);
             return resp;

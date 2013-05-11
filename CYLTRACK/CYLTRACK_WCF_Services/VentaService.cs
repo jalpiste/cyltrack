@@ -21,9 +21,9 @@ namespace Unisangil.CYLTRACK.CYLTRACK_WCF_Services
         /// </summary>
         /// <param name="ventas">Objeto de negocio Venta</param>
         /// <returns>Cédula del cliente</returns>
-        public long VentaCilindro(VentaBE ventas)
+        public String VentaCilindro(VentaBE ventas)
         {
-            long resp = 0;
+            String resp ;
             VentaBL ventaCil = new VentaBL();
             resp = ventaCil.VentaCilindro(ventas);
             return resp;
@@ -35,9 +35,9 @@ namespace Unisangil.CYLTRACK.CYLTRACK_WCF_Services
         /// </summary>
         /// <param name="ventas">Objeto de negocio Venta</param>
         /// <returns>Cédula del cliente</returns>
-        public long ConsultarVenta(VentaBE ventas)
+        public List<VentaBE> ConsultarVenta(VentaBE ventas)
         {
-            long resp = 0;
+            List<VentaBE>  resp ;
             VentaBL consulVenta = new VentaBL();
             resp = consulVenta.ConsultarVenta(ventas);
             return resp;
@@ -49,11 +49,11 @@ namespace Unisangil.CYLTRACK.CYLTRACK_WCF_Services
         /// </summary>
         /// <param name="ventas">Objeto de negocio Venta</param>
         /// <returns>ventas</returns>
-        public long RevisionCasosEspeciales(VentaBE ventas)
+        public List<CasosBE> RevisionCasosEspeciales(CasosBE casos)
         {
-            long resp = 0;
-            VentaBL consulVenta = new VentaBL();
-            resp = consulVenta.ConsultarVenta(ventas);
+            List<CasosBE> resp ;
+            VentaBL revisionCasos = new VentaBL();
+            resp = revisionCasos.RevisionCasosEspeciales(casos);
             return resp;
         }
 
@@ -63,9 +63,9 @@ namespace Unisangil.CYLTRACK.CYLTRACK_WCF_Services
         /// </summary>
         /// <param name="ventas">Objeto de negocio Venta</param>
         /// <returns>ventas</returns>
-        public long CasosEspeciales(VentaBE ventas)
+        public List<VentaBE> CasosEspeciales(VentaBE ventas)
         {
-            long resp = 0;
+            List<VentaBE> resp ;
             VentaBL casosEspeciles = new VentaBL();
             resp = casosEspeciles.CasosEspeciales(ventas);
             return resp;

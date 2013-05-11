@@ -27,7 +27,7 @@ namespace Unisangil.CYLTRACK.CYLTRACK_WCF_Services
         /// <param name="registrar_cli">Objeto de negocio cliente</param>
         /// <returns>cédula del cliente</returns>
         [OperationContract]
-        long Registrar_Cliente(ClienteBE registrar_cli);
+        String Registrar_Cliente(ClienteBE registrar_cli);
 
         /// <summary>
         /// Método encargado del registro una nueva ubicacón de clientes en el sistema. Permite
@@ -36,7 +36,7 @@ namespace Unisangil.CYLTRACK.CYLTRACK_WCF_Services
         /// <param name="registrar_ubi">Objeto de negocio cliente</param>
         /// <returns>cédula del cliente</returns>
         [OperationContract]
-        long Agregar_Ubicacion(ClienteBE registrar_ubi);
+        String Agregar_Ubicacion(ClienteBE registrar_ubi);
 
         /// <summary>
         /// Método encargado de la consulta de clientes en el sistema. Permite
@@ -45,7 +45,7 @@ namespace Unisangil.CYLTRACK.CYLTRACK_WCF_Services
         /// <param name="consultar_cli">Objeto de negocio cliente</param>
         /// <returns>cédula del cliente</returns>
         [OperationContract]
-        long Consultar_Cliente(ClienteBE consultar_cli);
+        List<ClienteBE> Consultar_Cliente(ClienteBE consultar_cli);
 
         /// <summary>
         /// Método encargado de la modificación de clientes en el sistema. Permite
@@ -54,7 +54,7 @@ namespace Unisangil.CYLTRACK.CYLTRACK_WCF_Services
         /// <param name="modificar_cli">Objeto de negocio cliente</param>
         /// <returns>cédula del cliente</returns>
         [OperationContract]
-        long Modificar_Cliente(ClienteBE modificar_cli);
+        String Modificar_Cliente(ClienteBE modificar_cli);
     }
 
 }

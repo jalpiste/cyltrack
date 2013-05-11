@@ -26,7 +26,7 @@ namespace Unisangil.CYLTRACK.CYLTRACK_WCF_Services
         /// <param name="cilindro">Objeto de negocio cilindro</param>
         /// <returns>código cilindro</returns>
         [OperationContract]
-        long RegistrarCilindro(CilindroBE cilindro);
+        String RegistrarCilindro(CilindroBE cilindro);
 
 
         /// <summary>
@@ -36,7 +36,7 @@ namespace Unisangil.CYLTRACK.CYLTRACK_WCF_Services
         /// <param name="cilindro">Objeto de negocio cilindro</param>
         /// <returns>código cilindro</returns>
         [OperationContract]
-        long ConsultarCilindro(CilindroBE cilindro);
+        List<CilindroBE> ConsultarCilindro(CilindroBE cilindro);
 
 
         /// <summary>
@@ -46,7 +46,7 @@ namespace Unisangil.CYLTRACK.CYLTRACK_WCF_Services
         /// <param name="cilindro">Objeto de negocio cilindro</param>
         /// <returns>código cilindro</returns>
         [OperationContract]
-        long AsignarUbicacion(CilindroBE cilindro);
+        String AsignarUbicacion(CilindroBE cilindro);
 
 
         /// <summary>
@@ -56,7 +56,7 @@ namespace Unisangil.CYLTRACK.CYLTRACK_WCF_Services
         /// <param name="cilindro">Objeto de negocio cilindro</param>
         /// <returns>código cilindro</returns>
         [OperationContract]
-        long CargueyDescargueCilindro(CilindroBE cilindro);
+        List<CilindroBE> CargueyDescargueCilindro(CilindroBE cilindro);
 
     }
 }
