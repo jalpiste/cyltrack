@@ -18,18 +18,28 @@ namespace Unisangil.CYLTRACK.CYLTRACK_BL
 
         #endregion
         #region Metodos publicos
-        public long RegistrarRuta(RutaBE ruta)
+        public String RegistrarRuta(RutaBE ruta)
         {
-            return 0;
+            String resp = "Ruta registrada";
+            return resp;
         }
 
-        public long ModificarRuta(RutaBE ruta)
+        public String ModificarRuta(RutaBE ruta)
         {
-            return 0;
+            String resp = "ruta modificada";
+            
+            return resp;
         }
-        public long ConsultarRuta(RutaBE consultar_Ruta)
+        public List<RutaBE> ConsultarRuta(RutaBE ruta)
         {
-            return 0;
+            List<RutaBE> lstRuta = new List<RutaBE>();
+            RutaBE dRuta = new RutaBE();
+            dRuta.Nombre_Ruta = "Zona Occidente";
+            dRuta.Departamento.Nombre_Departamento = "Boyacá";
+            dRuta.Ciudad_Ruta.Ciudad.Nombre_Ciudad = "Otanche";
+            dRuta.Ciudad_Ruta.Ciudad.Nombre_Ciudad = "Muzo";
+            lstRuta.Add(dRuta);
+            return lstRuta;
         }
         #endregion
         #region Metodos privados
