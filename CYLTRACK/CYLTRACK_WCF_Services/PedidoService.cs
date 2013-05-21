@@ -17,6 +17,7 @@ namespace Unisangil.CYLTRACK.CYLTRACK_WCF_Services
     /// <summary>
     /// Clase creada para implementar el contrato de servicio de la interfaz.
     /// </summary>
+    [ServiceBehavior(Namespace = "http://servicios.cyltrack.com.co/cyltrack/")]
     public class PedidoService : IPedidoService 
     {
         /// <summary>

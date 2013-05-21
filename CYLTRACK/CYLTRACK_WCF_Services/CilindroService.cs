@@ -14,6 +14,7 @@ using Unisangil.CYLTRACK.CYLTRACK_BE;
 
 namespace Unisangil.CYLTRACK.CYLTRACK_WCF_Services
 {
+    [ServiceBehavior(Namespace = "http://servicios.cyltrack.com.co/cyltrack/")]
     /// <summary>
     /// Clase creada para implementar el contrato de servicio de la interfaz.
     /// </summary>

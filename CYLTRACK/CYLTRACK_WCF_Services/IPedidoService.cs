@@ -18,7 +18,7 @@ namespace Unisangil.CYLTRACK.CYLTRACK_WCF_Services
     /// <summary>
     /// Interface que contiene la agrupación de métodos para la implementación del servicio.
     /// </summary>
-    [ServiceContract]
+    [ServiceContract(Namespace = "http://servicios.cyltrack.com.co/cyltrack/")]
     public interface IPedidoService
     {
         /// <summary>
