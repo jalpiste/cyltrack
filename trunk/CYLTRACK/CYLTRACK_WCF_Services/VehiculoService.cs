@@ -17,6 +17,7 @@ namespace Unisangil.CYLTRACK.CYLTRACK_WCF_Services
     /// <summary>
     /// Clase que implementa el contrato de servicio.
     /// </summary>
+    [ServiceBehavior(Namespace = "http://servicios.cyltrack.com.co/cyltrack/")]
     public class VehiculoService : IVehiculoService
     {
         /// <summary>

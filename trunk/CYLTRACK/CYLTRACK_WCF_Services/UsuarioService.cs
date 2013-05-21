@@ -10,9 +10,11 @@ using System.Linq;
 using System.Text;
 using Unisangil.CYLTRACK.CYLTRACK_BE;
 using Unisangil.CYLTRACK.CYLTRACK_BL;
+using System.ServiceModel;
 
 namespace Unisangil.CYLTRACK.CYLTRACK_WCF_Services
 {
+    [ServiceBehavior(Namespace = "http://servicios.cyltrack.com.co/cyltrack/")]
     public class UsuarioService : IUsuarioService
     {
         /// <summary>

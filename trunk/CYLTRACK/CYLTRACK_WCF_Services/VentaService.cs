@@ -10,9 +10,11 @@ using System.Linq;
 using System.Text;
 using Unisangil.CYLTRACK.CYLTRACK_BL;
 using Unisangil.CYLTRACK.CYLTRACK_BE;
+using System.ServiceModel;
 
 namespace Unisangil.CYLTRACK.CYLTRACK_WCF_Services
 {
+    [ServiceBehavior(Namespace = "http://servicios.cyltrack.com.co/cyltrack/")]
     public class VentaService : IVentaService
     {
         /// <summary>
@@ -23,7 +25,7 @@ namespace Unisangil.CYLTRACK.CYLTRACK_WCF_Services
         /// <returns>Cédula del cliente</returns>
         public String VentaCilindro(VentaBE ventas)
         {
-            String resp ;
+            String resp;
             VentaBL ventaCil = new VentaBL();
             resp = ventaCil.VentaCilindro(ventas);
             return resp;
@@ -37,7 +39,7 @@ namespace Unisangil.CYLTRACK.CYLTRACK_WCF_Services
         /// <returns>Cédula del cliente</returns>
         public List<VentaBE> ConsultarVenta(VentaBE ventas)
         {
-            List<VentaBE>  resp ;
+            List<VentaBE> resp;
             VentaBL consulVenta = new VentaBL();
             resp = consulVenta.ConsultarVenta(ventas);
             return resp;
@@ -51,7 +53,7 @@ namespace Unisangil.CYLTRACK.CYLTRACK_WCF_Services
         /// <returns>ventas</returns>
         public List<CasosBE> RevisionCasosEspeciales(CasosBE casos)
         {
-            List<CasosBE> resp ;
+            List<CasosBE> resp;
             VentaBL revisionCasos = new VentaBL();
             resp = revisionCasos.RevisionCasosEspeciales(casos);
             return resp;

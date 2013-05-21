@@ -13,10 +13,10 @@ using Unisangil.CYLTRACK.CYLTRACK_BE;
 
 namespace Unisangil.CYLTRACK.CYLTRACK_WCF_Services
 {
+    [ServiceContract(Namespace = "http://servicios.cyltrack.com.co/cyltrack/")]
     /// <summary>
     /// Interface que contiene la agrupación de métodos para la implementación del servicio.
     /// </summary>
-    [ServiceContract]
     public interface ICilindroService
     {
         /// <summary>
