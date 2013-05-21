@@ -1,1 +1,1 @@
-﻿<%@ ServiceHost Language="C#" Debug="true" Service="VentaService" CodeBehind="Unisangil.CYLTRACK.CYLTRACK_WCF_Services.VentaService.cs" %>
+﻿<%@ ServiceHost Language="C#" Debug="true" Service="VentaService" CodeBehind="Unisangil.CYLTRACK.CYLTRACK_WCF_Services.VentaService" %>
