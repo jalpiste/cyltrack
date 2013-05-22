@@ -1,0 +1,1 @@
+﻿<%@ ServiceHost Language="C#" Debug="true" Service="Unisangil.CYLTRACK.CYLTRACK_WCF_Services.RutaService"  %>
