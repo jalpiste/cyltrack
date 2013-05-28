@@ -40,11 +40,11 @@ namespace Unisangil.CYLTRACK.CYLTRACK_WCF_Services
         /// </summary>
         /// <param name="cilindro">Objeto de negocio cilindro</param>
         /// <returns>Código interno del Cilindro</returns>
-        public List<CilindroBE> ConsultarCilindro(CilindroBE cilindro)
+        public List<CilindroBE> ConsultarCilindro()
         {
             List<CilindroBE> resp;
             CilindroBL consultarCil = new CilindroBL();
-            resp = consultarCil.ConsultarCilindro(cilindro);
+            resp = consultarCil.ConsultarCilindro();
             return resp;
         }
 
