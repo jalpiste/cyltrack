@@ -3,13 +3,17 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Web;
 using System.Web.UI;
+using System.Text;
 using System.Web.UI.WebControls;
 using Unisangil.CYLTRACK.CYLTRACK_BE;
+using CYLTRACK_WebApp.CilindroService;
+
 
 namespace Unisangil.CYLTRACK.CYLTRACK_WebApp.Cilindros
 {
     public partial class frmRegistrarCilindro : System.Web.UI.Page
     {
+        
         protected void Page_Load(object sender, EventArgs e)
         {
 
@@ -26,18 +30,30 @@ namespace Unisangil.CYLTRACK.CYLTRACK_WebApp.Cilindros
 
         protected void BtnGuardar_Click(object sender, EventArgs e)
         {
-            //CilindroBE cilindro = new CilindroBE();
-            //cilindro.Ano = (LstAno.SelectedValue);
+            String resp;
+            CilindroServiceClient servCilindro = new CilindroServiceClient();
+            CilindroBE cilindro = new CilindroBE();
+            cilindro.Ano = (LstAno.SelectedValue);
             //cilindro.Fabricante.Codigo_Fabricante = (TxtEmpresa.Text);
-            //cilindro.Id_Cilindro = (TxtCodigoCilindro.Text);
+            cilindro.Id_Cilindro = (TxtCodigoCilindro.Text);
             //cilindro.Tipo_Ubicacion.Nombre_Ubicacion = (LstUbicacion.SelectedValue);
             //cilindro.NTamano.Tamano = (LstTamano.SelectedValue);
+           
+            resp = servCilindro.RegistrarCilindro(cilindro);
 
 
-            ////llamar a Cilindro service metodo CrearCilindro
+            if (resp == "Ok")
+            {
+                Response.Write("<script type='text/javascript'> alert('Sus datos fueron enviados satisfactoriamente') </script>");
+                DivDatosCilindro.Visible = false;
+            }
+            else
+            {
+                Response.Write("<script type='text/javascript'> alert('No se pudo crear el cilindro en el sistema') </script>");
+                DivDatosCilindro.Visible = false;
+            }
+            servCilindro.Close();
 
-            Response.Write("<script type='text/javascript'> alert('Sus datos fueron enviados satisfactoriamente') </script>");
-            DivDatosCilindro.Visible = false;
         }
 
         protected void BtnMenu_Click(object sender, EventArgs e)
