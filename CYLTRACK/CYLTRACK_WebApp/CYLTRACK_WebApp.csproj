@@ -38,6 +38,8 @@
     <Reference Include="System.Data" />
     <Reference Include="System.Core" />
     <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="System.Runtime.Serialization" />
+    <Reference Include="System.ServiceModel" />
     <Reference Include="System.Web.Extensions" />
     <Reference Include="System.Xml.Linq" />
     <Reference Include="System.Drawing" />
@@ -77,6 +79,59 @@
     <Content Include="Reportes\frmReporteSiembras.aspx" />
     <Content Include="Rutas\frmModificarRuta.aspx" />
     <Content Include="Rutas\frmRegistrarRuta.aspx" />
+    <None Include="Properties\DataSources\Unisangil.CYLTRACK.CYLTRACK_BE.CasosBE.datasource" />
+    <None Include="Properties\DataSources\Unisangil.CYLTRACK.CYLTRACK_BE.CilindroBE.datasource" />
+    <None Include="Properties\DataSources\Unisangil.CYLTRACK.CYLTRACK_BE.ClienteBE.datasource" />
+    <None Include="Properties\DataSources\Unisangil.CYLTRACK.CYLTRACK_BE.RutaBE1.datasource" />
+    <None Include="Properties\DataSources\Unisangil.CYLTRACK.CYLTRACK_BE.VentaBE.datasource" />
+    <None Include="Service References\CilindroService\CilindroService.disco" />
+    <None Include="Service References\CilindroService\configuration91.svcinfo" />
+    <None Include="Service References\CilindroService\configuration.svcinfo" />
+    <None Include="Service References\CilindroService\Reference.svcmap">
+      <Generator>WCF Proxy Generator</Generator>
+      <LastGenOutput>Reference.cs</LastGenOutput>
+    </None>
+    <None Include="Service References\ClienteService\ClienteService.wsdl" />
+    <None Include="Service References\ClienteService\ClienteService.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Service References\ClienteService\ClienteService1.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Service References\ClienteService\ClienteService2.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Service References\RutaService\RutaService.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Service References\RutaService\RutaService1.wsdl" />
+    <None Include="Service References\RutaService\RutaService1.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Service References\RutaService\RutaService2.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Service References\VentaService\VentaService.disco" />
+    <None Include="Service References\VentaService\configuration91.svcinfo" />
+    <None Include="Service References\VentaService\configuration.svcinfo" />
+    <None Include="Service References\VentaService\Reference.svcmap">
+      <Generator>WCF Proxy Generator</Generator>
+      <LastGenOutput>Reference.cs</LastGenOutput>
+    </None>
+    <None Include="Service References\ClienteService\ClienteService.disco" />
+    <None Include="Service References\ClienteService\configuration91.svcinfo" />
+    <None Include="Service References\ClienteService\configuration.svcinfo" />
+    <None Include="Service References\ClienteService\Reference.svcmap">
+      <Generator>WCF Proxy Generator</Generator>
+      <LastGenOutput>Reference.cs</LastGenOutput>
+    </None>
+    <None Include="Service References\RutaService\RutaService.disco" />
+    <None Include="Service References\RutaService\configuration91.svcinfo" />
+    <None Include="Service References\RutaService\configuration.svcinfo" />
+    <None Include="Service References\RutaService\Reference.svcmap">
+      <Generator>WCF Proxy Generator</Generator>
+      <LastGenOutput>Reference.cs</LastGenOutput>
+    </None>
     <Content Include="Styles\stiloFinalJacky3.css" />
     <Content Include="Default.aspx" />
     <Content Include="Global.asax" />
@@ -96,6 +151,26 @@
     <Content Include="Web.Release.config">
       <DependentUpon>Web.config</DependentUpon>
     </Content>
+    <None Include="Service References\CilindroService\CilindroService.wsdl" />
+    <None Include="Service References\CilindroService\CilindroService.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Service References\CilindroService\CilindroService1.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Service References\CilindroService\CilindroService2.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Service References\VentaService\VentaService.wsdl" />
+    <None Include="Service References\VentaService\VentaService.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Service References\VentaService\VentaService1.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Service References\VentaService\VentaService2.xsd">
+      <SubType>Designer</SubType>
+    </None>
   </ItemGroup>
   <ItemGroup>
     <Compile Include="About.aspx.cs">
@@ -278,6 +353,26 @@
     <Compile Include="Rutas\frmRegistrarRuta.aspx.designer.cs">
       <DependentUpon>frmRegistrarRuta.aspx</DependentUpon>
     </Compile>
+    <Compile Include="Service References\CilindroService\Reference.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </Compile>
+    <Compile Include="Service References\ClienteService\Reference.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </Compile>
+    <Compile Include="Service References\RutaService\Reference.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </Compile>
+    <Compile Include="Service References\VentaService\Reference.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </Compile>
     <Compile Include="Site.Master.cs">
       <DependentUpon>Site.Master</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
@@ -348,6 +443,12 @@
       <Project>{46D7E147-3BEC-4D66-9AE9-904256F04620}</Project>
       <Name>CYLTRACK_BE</Name>
     </ProjectReference>
+  </ItemGroup>
+  <ItemGroup>
+    <WCFMetadataStorage Include="Service References\CilindroService\" />
+    <WCFMetadataStorage Include="Service References\ClienteService\" />
+    <WCFMetadataStorage Include="Service References\RutaService\" />
+    <WCFMetadataStorage Include="Service References\VentaService\" />
   </ItemGroup>
   <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.targets" />
   <Import Project="$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v10.0\WebApplications\Microsoft.WebApplication.targets" />
