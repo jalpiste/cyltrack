@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ReferenceGroup xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema" ID="ecd05f46-ca0f-4e1f-9ee8-0b3517567d2d" xmlns="urn:schemas-microsoft-com:xml-wcfservicemap">
+  <ClientOptions>
+    <GenerateAsynchronousMethods>false</GenerateAsynchronousMethods>
+    <EnableDataBinding>true</EnableDataBinding>
+    <ExcludedTypes />
+    <ImportXmlTypes>false</ImportXmlTypes>
+    <GenerateInternalTypes>false</GenerateInternalTypes>
+    <GenerateMessageContracts>false</GenerateMessageContracts>
+    <NamespaceMappings />
+    <CollectionMappings />
+    <GenerateSerializableTypes>true</GenerateSerializableTypes>
+    <Serializer>Auto</Serializer>
+    <UseSerializerForFaults>true</UseSerializerForFaults>
+    <ReferenceAllAssemblies>true</ReferenceAllAssemblies>
+    <ReferencedAssemblies />
+    <ReferencedDataContractTypes />
+    <ServiceContractMappings />
+  </ClientOptions>
+  <MetadataSources>
+    <MetadataSource Address="http://localhost:51651/CYLTRACK_Services/VentaService.svc" Protocol="http" SourceId="1" />
+  </MetadataSources>
+  <Metadata>
+    <MetadataFile FileName="VentaService2.xsd" MetadataType="Schema" ID="fb2af5bf-b4cd-415f-b7ee-3a62e2a9046c" SourceId="1" SourceUrl="http://localhost:51651/CYLTRACK_Services/VentaService.svc?xsd=xsd1" />
+    <MetadataFile FileName="VentaService.disco" MetadataType="Disco" ID="bcfd6c78-899c-4a99-80ec-67ca18d6bda0" SourceId="1" SourceUrl="http://localhost:51651/CYLTRACK_Services/VentaService.svc?disco" />
+    <MetadataFile FileName="VentaService1.xsd" MetadataType="Schema" ID="a5e92598-2f37-4dcc-84ea-4f805f5d2e61" SourceId="1" SourceUrl="http://localhost:51651/CYLTRACK_Services/VentaService.svc?xsd=xsd0" />
+    <MetadataFile FileName="VentaService.wsdl" MetadataType="Wsdl" ID="2f47681c-76b9-4ca2-8643-1e0389090fe2" SourceId="1" SourceUrl="http://localhost:51651/CYLTRACK_Services/VentaService.svc?wsdl" />
+    <MetadataFile FileName="VentaService.xsd" MetadataType="Schema" ID="185835f7-4e16-493e-969d-88ce61b80271" SourceId="1" SourceUrl="http://localhost:51651/CYLTRACK_Services/VentaService.svc?xsd=xsd2" />
+  </Metadata>
+  <Extensions>
+    <ExtensionFile FileName="configuration91.svcinfo" Name="configuration91.svcinfo" />
+    <ExtensionFile FileName="configuration.svcinfo" Name="configuration.svcinfo" />
+  </Extensions>
+</ReferenceGroup>
