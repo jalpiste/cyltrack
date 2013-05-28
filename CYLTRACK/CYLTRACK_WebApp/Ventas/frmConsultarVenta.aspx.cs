@@ -5,6 +5,7 @@ using System.Web;
 using System.Web.UI;
 using System.Web.UI.WebControls;
 using Unisangil.CYLTRACK.CYLTRACK_BE;
+using CYLTRACK_WebApp.VentaService;
 
 namespace Unisangil.CYLTRACK.CYLTRACK_WebApp.Ventas
 {
@@ -14,7 +15,7 @@ namespace Unisangil.CYLTRACK.CYLTRACK_WebApp.Ventas
         {
 
         }
-        VentaBE ventas = new VentaBE();
+        
         protected void btnMenu_Click(object sender, EventArgs e)
         {
             //Response.Redirect("~/Default.aspx");
@@ -28,34 +29,45 @@ namespace Unisangil.CYLTRACK.CYLTRACK_WebApp.Ventas
 
         protected void txtCedulaCliente_TextChanged(object sender, EventArgs e)
         {
-            //ventas.Cliente.Cedula = txtCedulaCliente.Text;
-        
-            //txtFecha.Text = Convert.ToString(ventas.Fecha);
-            //txtHora.Text = Convert.ToString(ventas.Fecha);
-            //txtNumCedula.Text = ventas.Cliente.Cedula;
-            //txtNombreCliente.Text = ventas.Cliente.Nombres_Cliente;
-            //txtPrimerApellido.Text = ventas.Cliente.Apellido_1;
-            //txtSegundoApellido.Text = ventas.Cliente.Apellido_2;
-            //txtDireccion.Text = ventas.Ubicacion.Direccion;
-            //txtBarrio.Text = ventas.Ubicacion.Barrio;
-            //txtCiudad.Text = ventas.Ubicacion.Ciudad.Nombre_Ciudad;
-            //txtDepartamento.Text = ventas.Ubicacion.Ciudad.Departamento.Nombre_Departamento;
-            //txtTelefono.Text = ventas.Ubicacion.Telefono_1;
-            //txtCilindro.Text = ventas.Cilindro.Codigo_Cilindro;
-            //txtTamano.Text = ventas.Cilindro.NTamano.Id_Tamano;
-            //txtObservacion.Text = ventas.Observaciones;
 
-            ////-------------------------------------
+            VentaServiceClient serVenta = new VentaServiceClient();
+            VentaBE venta = new VentaBE();
+            VentaBE [] datosVenta = serVenta.ConsultarVenta(venta);
+            
+            var datos = from info in datosVenta
+                         select info;
 
-            //txtNombreConductor.Text = ventas.Vehiculo.Conductor_Vehiculo.Conductor.Nombres_Conductor;
-            //txtApellidoConductor.Text = ventas.Vehiculo.Conductor_Vehiculo.Conductor.Apellido_1;
-            //txtSegundoApellidoConductor.Text = ventas.Vehiculo.Conductor_Vehiculo.Conductor.Apellido_2;
-            //txtPlaca.Text = ventas.Vehiculo.Conductor_Vehiculo.Vehiculo.Placa;
-            //txtRuta.Text = ventas.Vehiculo.Ruta.Nombre_Ruta;
+            foreach (VentaBE info in datos)
+            {
+
+                txtFecha.Text = Convert.ToString(info.Fecha);
+                txtHora.Text = Convert.ToString(info.Fecha);
+                txtNumCedula.Text = info.Id_Venta;
+                //txtNombreCliente.Text = info.Cliente.Nombres_Cliente;
+                //txtPrimerApellido.Text = info.Cliente.Apellido_1;
+                //txtSegundoApellido.Text = info.Cliente.Apellido_2;
+                //txtDireccion.Text = info.Ubicacion.Direccion;
+                //txtBarrio.Text = info.Ubicacion.Barrio;
+                //txtCiudad.Text = info.Ubicacion.Ciudad.Nombre_Ciudad;
+                //txtDepartamento.Text = info.Ubicacion.Ciudad.Departamento.Nombre_Departamento;
+                //txtTelefono.Text = info.Ubicacion.Telefono_1;
+                //txtCilindro.Text = info.Cilindro.Codigo_Cilindro;
+                //txtTamano.Text = info.Cilindro.NTamano.Id_Tamano;
+                txtObservacion.Text = info.Observaciones;
+
+                ////-------------------------------------
+
+                //txtNombreConductor.Text = info.Vehiculo.Conductor_Vehiculo.Conductor.Nombres_Conductor;
+                //txtApellidoConductor.Text = info.Vehiculo.Conductor_Vehiculo.Conductor.Apellido_1;
+                //txtSegundoApellidoConductor.Text = info.Vehiculo.Conductor_Vehiculo.Conductor.Apellido_2;
+                //txtPlaca.Text = info.Vehiculo.Conductor_Vehiculo.Vehiculo.Placa;
+                //txtRuta.Text = info.Vehiculo.Ruta.Nombre_Ruta;
 
 
-            DivInfoVenta.Visible = true;
-            btnNuevaConsulta.Visible = true;
+                DivInfoVenta.Visible = true;
+                btnNuevaConsulta.Visible = true;
+
+            }
         }
 
         
