@@ -184,13 +184,13 @@ namespace Unisangil.CYLTRACK.CYLTRACK_WebApp.Rutas {
         protected global::System.Web.UI.WebControls.Label lblCiudades;
         
         /// <summary>
-        /// Control lstCiudades.
+        /// Control lstCiudades1.
         /// </summary>
         /// <remarks>
         /// Campo generado automáticamente.
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.ListBox lstCiudades;
+        protected global::System.Web.UI.WebControls.ListBox lstCiudades1;
         
         /// <summary>
         /// Control btnModificar.
@@ -202,13 +202,13 @@ namespace Unisangil.CYLTRACK.CYLTRACK_WebApp.Rutas {
         protected global::System.Web.UI.WebControls.Button btnModificar;
         
         /// <summary>
-        /// Control btnRemover.
+        /// Control btnRemoverCiudades.
         /// </summary>
         /// <remarks>
         /// Campo generado automáticamente.
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Button btnRemover;
+        protected global::System.Web.UI.WebControls.Button btnRemoverCiudades;
         
         /// <summary>
         /// Control btnGuardar.
