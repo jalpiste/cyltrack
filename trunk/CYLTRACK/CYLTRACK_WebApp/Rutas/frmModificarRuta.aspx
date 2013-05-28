@@ -51,9 +51,6 @@
                     </asp:ListBox>
                      &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
                     <asp:ListBox ID="lstCiudad" runat="server" AutoPostBack="True" Rows="1" Width="170px"> 
-                    <asp:ListItem>Seleccionar</asp:ListItem>
-                    <asp:ListItem>Cali</asp:ListItem>
-                    <asp:ListItem>Chiquinquirá</asp:ListItem>
                     </asp:ListBox>
                     &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
                     <asp:Button ID="btnAgregar" runat="server" Text="Agregar" Width="115px" 
@@ -67,17 +64,14 @@
                    <div id="DivCiudad" runat ="server" visible ="false" >
                    
                      <asp:Label ID="lblCiudades" runat="server" Text="Ciudades: " ></asp:Label><br />
-                     <asp:ListBox ID="lstCiudades" runat="server" Height="55px" Width="120px" enabled="false">
-                     <asp:ListItem>Simijaca</asp:ListItem>
-                     <asp:ListItem>Buenavista</asp:ListItem>
-                     <asp:ListItem>Chiquinquirá</asp:ListItem>
+                     <asp:ListBox ID="lstCiudades1" runat="server" Height="55px" Width="120px" enabled="false">
                      </asp:ListBox>    
                      
                      &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
                      <asp:Button ID="btnModificar" runat="server" Text="Modificar" Width="115px" 
                             onclick="btnModificar_Click"/>    
-                     <asp:Button ID="btnRemover" runat="server" Text="Remover" Width="115px" 
-                           Visible ="false" onclick="btnRemover_Click"/>                              
+                     <asp:Button ID="btnRemoverCiudades" runat="server" Text="Remover" Width="115px" 
+                           Visible ="false" onclick="btnRemoverCiudades_Click" />                              
                     </div>
                 </fieldset> 
                 <p class="submitButton">

@@ -40,9 +40,6 @@
                      &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
                     <asp:ListBox ID="lstCiudad" runat="server" AutoPostBack="True" Rows="1" 
                             Width="170px" > 
-                    <asp:ListItem>Seleccionar</asp:ListItem>
-                    <asp:ListItem>Cali</asp:ListItem>
-                    <asp:ListItem>Chiquinquirá</asp:ListItem>
                     </asp:ListBox>
                     &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
                     <asp:Button ID="btnAgregar" runat="server" Text="Agregar" Width="115px" 
