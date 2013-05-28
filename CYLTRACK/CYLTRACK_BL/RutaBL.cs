@@ -20,13 +20,13 @@ namespace Unisangil.CYLTRACK.CYLTRACK_BL
         #region Metodos publicos
         public String RegistrarRuta(RutaBE ruta)
         {
-            String resp = "Ruta registrada";
+            String resp = "Ok";
             return resp;
         }
 
         public String ModificarRuta(RutaBE ruta)
         {
-            String resp = "ruta modificada";
+            String resp = "Ok";
             
             return resp;
         }
@@ -35,9 +35,9 @@ namespace Unisangil.CYLTRACK.CYLTRACK_BL
             List<RutaBE> lstRuta = new List<RutaBE>();
             RutaBE dRuta = new RutaBE();
             dRuta.Nombre_Ruta = "Zona Occidente";
-            dRuta.Departamento.Nombre_Departamento = "Boyacá";
-            dRuta.Ciudad_Ruta.Ciudad.Nombre_Ciudad = "Otanche";
-            dRuta.Ciudad_Ruta.Ciudad.Nombre_Ciudad = "Muzo";
+            //dRuta.Departamento.Nombre_Departamento = "Boyacá";
+            //dRuta.Ciudad_Ruta.Ciudad.Nombre_Ciudad = "Otanche";
+            //dRuta.Ciudad_Ruta.Ciudad.Nombre_Ciudad = "Muzo";
             lstRuta.Add(dRuta);
             return lstRuta;
         }
