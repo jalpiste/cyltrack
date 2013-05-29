@@ -25,20 +25,11 @@ namespace Unisangil.CYLTRACK.CYLTRACK_WebApp.Reporte
             gvReporte.DataBind();
 
         }
-        protected void Ubicacion_SelectedIndexChanged(object sender, EventArgs e)
-        {
-            if (lstUbicacion.SelectedIndex == 1)
-            {
-                lblPlaca.Visible = true;
-                lstPlacaVehículo.Visible = true;
-            }
-        }
-
+       
         protected void btnBuscar_Click(object sender, EventArgs e)
         {
             DivReporte.Visible = true;
             divBotones.Visible = true;
-
         }
 
         protected void btnMenu_Click(object sender, EventArgs e)
