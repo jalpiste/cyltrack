@@ -115,13 +115,25 @@
                           <asp:TextBox ID="txtCantidadCilindro"  CssClass="textEntry" runat="server" 
                               Width="50px" Text=""></asp:TextBox>
                               &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-                    <asp:Button ID="btnAgregar" runat="server" Text="Agregar" Width="115px" 
-                         onclick="btnAgregar_Click"/>
+                    <asp:Button ID="btnModificar" runat="server" Text="Modificar" Width="115px" 
+                         onclick="btnModificar_Click"/>
                          
                     <br />
                     <br />
-                     <asp:ListBox ID="lstAgregar" runat="server" Height="62px" Width="120px" 
-                         visible ="false"></asp:ListBox>    
+
+                    <asp:GridView ID="gvPedido" runat="server" CellPadding="2" ForeColor="#333333" GridLines="None">
+                    <AlternatingRowStyle BackColor="White" />
+                    <EditRowStyle BackColor="#7C6F57" />
+                    <FooterStyle BackColor="#1C5E55" Font-Bold="True" ForeColor="White" />
+                    <HeaderStyle BackColor="#AC3332" Font-Bold="True" ForeColor="White" />
+                    <PagerStyle BackColor="#666666" ForeColor="White" HorizontalAlign="Center" />
+                    <RowStyle BackColor="#E3EAEB" />
+                    <SelectedRowStyle BackColor="#C5BBAF" Font-Bold="True" ForeColor="#333333" />
+                    <SortedAscendingCellStyle BackColor="#F8FAFA" />
+                    <SortedAscendingHeaderStyle BackColor="#246B61" />
+                    <SortedDescendingCellStyle BackColor="#D4DFE1" />
+                    <SortedDescendingHeaderStyle BackColor="#15524A" />
+                </asp:GridView>
                       </p>
                         <p>
                      <asp:Label ID="lblFecha" runat="server" Text="Fecha de Registro de Pedido:   "></asp:Label>

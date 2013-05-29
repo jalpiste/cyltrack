@@ -12,6 +12,18 @@ namespace Unisangil.CYLTRACK.CYLTRACK_WebApp.Pedido
     {
         protected void Page_Load(object sender, EventArgs e)
         {
+            prueba[] pps = new prueba[2];
+            prueba pp = new prueba();
+            pp.Prueba1 = "Hola";
+            pp.Prueba2 = "Tooo";
+            prueba pp1 = new prueba();
+            pp1.Prueba1 = "Hola 1";
+            pp1.Prueba2 = "Tooo 1";
+
+            pps[0] = pp;
+            pps[1] = pp1;
+            gvPedido.DataSource = pps;
+            gvPedido.DataBind();
 
         }
 
@@ -29,8 +41,6 @@ namespace Unisangil.CYLTRACK.CYLTRACK_WebApp.Pedido
             //txtDepartamento.Text = consultar_ped.Ciudad.Departamento.Nombre_Departamento;
             //txtTelefono.Text = consultar_ped.Ubicacion.Telefono_1;
 
-            //txtCilindro.Text = consultar_ped.Cilindro.Codigo_Cilindro;
-            //txtTamano.Text = consultar_ped.Cilindro.NTamano.Tamano;
 
             //txtZona.Text = consultar_ped.Vehiculo.Placa;
             //lblRutaAsignada.Text = consultar_ped.Ruta.Nombre_Ruta;
@@ -66,5 +76,24 @@ namespace Unisangil.CYLTRACK.CYLTRACK_WebApp.Pedido
         {
 
         }
+
+        public class prueba
+        {
+            private string prueba1;
+
+            public string Prueba1
+            {
+                get { return prueba1; }
+                set { prueba1 = value; }
+            }
+            private string prueba2;
+
+            public string Prueba2
+            {
+                get { return prueba2; }
+                set { prueba2 = value; }
+            }
+        }
+
     }
 }
