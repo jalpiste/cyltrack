@@ -18,12 +18,7 @@
     <div class="accountInfo">
         <fieldset class="login">
             <legend>Parámetros</legend>
-            <asp:CheckBoxList ID="parametroCheckBoxList" runat="server" AutoPostBack="True" Width="250px">
-                <asp:ListItem>Fecha</asp:ListItem>
-                <asp:ListItem>Ubicación</asp:ListItem>
-            </asp:CheckBoxList>
-            <br />
-            <asp:Label ID="lblDesde" runat="server" Text="Fecha: "></asp:Label>&nbsp;&nbsp;&nbsp;
+            <asp:Label ID="lblFechaDesde" runat="server" Text="Fecha Inicial: "></asp:Label>&nbsp;&nbsp;&nbsp;
             <asp:Calendar ID="cldFecha" runat="server" Height="20px" Width="20px" 
                 BackColor="#FFFFCC" BorderColor="#FFCC66" BorderWidth="1px" 
                 DayNameFormat="Shortest" Font-Names="Verdana" Font-Size="8pt" 
@@ -37,20 +32,47 @@
                     ForeColor="#FFFFCC" />
                 <TodayDayStyle BackColor="#FFCC66" ForeColor="White" />
             </asp:Calendar>
-             
-             <br />
-            <br />
-            <asp:Label ID="lblNota" runat="server" Text="Ubicación: "></asp:Label>
-            <asp:ListBox ID="lstUbicacion" runat="server" AutoPostBack="True" Rows="1" OnSelectedIndexChanged="Ubicacion_SelectedIndexChanged">
-                <asp:ListItem>Seleccionar</asp:ListItem>
-                <asp:ListItem>Vehiculo</asp:ListItem>
-                </asp:ListBox>
             <br />
             <br />
-            <asp:Label ID="lblPlaca" runat="server" Text="Placa Vehículo:  " Visible="False"></asp:Label>
-            <asp:ListBox ID="lstPlacaVehículo" runat="server" AutoPostBack="True" Rows="1" Visible="False">
-                <asp:ListItem>Seleccionar</asp:ListItem>
-            </asp:ListBox>
+            <asp:Label ID="lblFechaHasta" runat="server" Text="Fecha Final: "></asp:Label>
+            <asp:Calendar ID="Calendar1" runat="server" Height="20px" Width="20px" 
+                BackColor="#FFFFCC" BorderColor="#FFCC66" BorderWidth="1px" 
+                DayNameFormat="Shortest" Font-Names="Verdana" Font-Size="8pt" 
+                ForeColor="#663399" ShowGridLines="True">
+                <DayHeaderStyle BackColor="#FFCC66" Font-Bold="True" Height="1px" />
+                <NextPrevStyle Font-Size="9pt" ForeColor="#FFFFCC" />
+                <OtherMonthDayStyle ForeColor="#CC9966" />
+                <SelectedDayStyle BackColor="#CCCCFF" Font-Bold="True" />
+                <SelectorStyle BackColor="#FFCC66" />
+                <TitleStyle BackColor="#990000" Font-Bold="True" Font-Size="9pt" 
+                    ForeColor="#FFFFCC" />
+                <TodayDayStyle BackColor="#FFCC66" ForeColor="White" />
+            </asp:Calendar>
+            <h3>
+            <asp:Label ID="lblTipoRepSiembra" runat="server" Text="Reporte por: "></asp:Label>
+            </h3>
+        
+        <asp:ListBox ID="lstReportes" runat="server" Width="176px" AutoPostBack="True" Rows="1" >
+        <asp:ListItem>Seleccionar...</asp:ListItem>
+        <asp:ListItem>Ciudad</asp:ListItem>
+        <asp:ListItem>Tamaño Cilindro</asp:ListItem>
+        </asp:ListBox>
+        
+        <br />
+        <br />
+        <asp:Label ID="lblDepartamento" runat="server" Text="Departamento: "></asp:Label>
+        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+        <asp:Label ID="lblCiudad" runat="server" Text="Ciudad: "></asp:Label>
+        <br />
+        
+        <asp:ListBox ID="lstDepto" runat="server" Width="176px" AutoPostBack="True" Rows="1" >
+        <asp:ListItem>Seleccionar...</asp:ListItem>
+        </asp:ListBox>
+        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+        <asp:ListBox ID="lstCiudad" runat="server" Width="176px" AutoPostBack="True" Rows="1" >
+        <asp:ListItem>Seleccionar...</asp:ListItem>
+        </asp:ListBox>
+        
         </fieldset>
         <p class="submitButton">
             <asp:Button ID="btnBuscar" runat="server" Text="Buscar" Width="115px" 
