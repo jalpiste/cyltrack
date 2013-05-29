@@ -30,7 +30,7 @@
                         <asp:Label ID="lblCodigoPedido" runat="server" Text="2323432"></asp:Label>
                     </h5>                    
                     <p>
-                        <asp:Label ID="lblCedulaCliente" runat="server" AssociatedControlID="txtCedulaCliente" Text="Cedula: "></asp:Label><br />
+                        <asp:Label ID="lblCedulaCliente" runat="server" AssociatedControlID="txtCedulaCliente" Text="Cédula: "></asp:Label><br />
                         <asp:TextBox ID="txtCedulaCliente" CssClass="textEntry" Enabled="False" runat="server" ></asp:TextBox>
                         <asp:RequiredFieldValidator ID="ModificarPedidoRequired" runat="server" ControlToValidate="txtCedula" 
                              CssClass="failureNotification" ErrorMessage="La cedula del cliente es obligatorio." ToolTip="La cedula del cliente es obligatorio." 
@@ -71,17 +71,6 @@
                     <br />
                            <asp:TextBox ID="txtTelefono" runat="server" CssClass="textEntry" Enabled="False" ></asp:TextBox>
                     </p>
-                  <div class="post">Información Cilindro Cliente</div>
-                  <p>
-                      <asp:Label ID="lblCilindro" runat="server" Text="Cilindro:"></asp:Label>
-                  &nbsp;
-                      &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-                      <asp:Label ID="lblTamano" runat="server" Text="Tamaño: "></asp:Label>
-                  <br />
-                      <asp:TextBox ID="txtCilindro" runat="server" CssClass="textEntry" Enabled="False" ></asp:TextBox>
-                      &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-                      <asp:TextBox ID="txtTamano" Enabled="false" CssClass="textEntry" runat="server" Width="48px"></asp:TextBox>
-                  </p>
                    <div class="post">Información Pedido</div>
                     <p>
 
@@ -101,9 +90,22 @@
                           &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; &nbsp;&nbsp; &nbsp;&nbsp;
                           <asp:TextBox ID="txtCantidadCilindro" Enabled="false" CssClass="textEntry" runat="server" Width="50px" Text=""></asp:TextBox>
                           <br />
-                          <br /><br />
-                      <asp:ListBox ID="lstAgregar" runat="server" Height="62px" Width="120px" Enabled ="false">
-                      </asp:ListBox>    
+                          <br />
+                          <asp:GridView ID="gvPedido" runat="server" CellPadding="2" ForeColor="#333333" 
+                              GridLines="None">
+                              <AlternatingRowStyle BackColor="White" />
+                              <EditRowStyle BackColor="#7C6F57" />
+                              <FooterStyle BackColor="#1C5E55" Font-Bold="True" ForeColor="White" />
+                              <HeaderStyle BackColor="#AC3332" Font-Bold="True" ForeColor="White" />
+                              <PagerStyle BackColor="#666666" ForeColor="White" HorizontalAlign="Center" />
+                              <RowStyle BackColor="#E3EAEB" />
+                              <SelectedRowStyle BackColor="#C5BBAF" Font-Bold="True" ForeColor="#333333" />
+                              <SortedAscendingCellStyle BackColor="#F8FAFA" />
+                              <SortedAscendingHeaderStyle BackColor="#246B61" />
+                              <SortedDescendingCellStyle BackColor="#D4DFE1" />
+                              <SortedDescendingHeaderStyle BackColor="#15524A" />
+                          </asp:GridView>
+                          <br />
                       
                       </p>
                       <p>

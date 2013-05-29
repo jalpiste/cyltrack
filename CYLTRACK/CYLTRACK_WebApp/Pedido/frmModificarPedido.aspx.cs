@@ -10,8 +10,21 @@ namespace Unisangil.CYLTRACK.CYLTRACK_WebApp.Pedido
 {
     public partial class frmModificarPedido : System.Web.UI.Page
     {
+        List<Detalle_PedidoBE> lstDetail = new List<Detalle_PedidoBE>();
         protected void Page_Load(object sender, EventArgs e)
         {
+            prueba[] pps = new prueba[2];
+            prueba pp = new prueba();
+            pp.Prueba1 = "Hola";
+            pp.Prueba2 = "Tooo";
+            prueba pp1 = new prueba();
+            pp1.Prueba1 = "Hola 1";
+            pp1.Prueba2 = "Tooo 1";
+
+            pps[0] = pp;
+            pps[1] = pp1;
+            gvPedido.DataSource = pps;
+            gvPedido.DataBind();
 
         }
 
@@ -71,11 +84,38 @@ namespace Unisangil.CYLTRACK.CYLTRACK_WebApp.Pedido
             txtCedulaCliente.Text = " ";
         }
 
-        protected void btnAgregar_Click(object sender, EventArgs e)
+        protected void btnModificar_Click(object sender, EventArgs e)
         {
-            lstAgregar.Visible = true;
-            lstAgregar.Items.Add(lstTamano.Text + " " + txtCantidadCilindro.Text);
-            txtCantidadCilindro.Text = "";
+            Detalle_PedidoBE detail = new Detalle_PedidoBE();
+            detail.Cantidad = txtCantidadCilindro.Text;
+            detail.Tamano.Tamano = lstTamano.SelectedValue;
+            foreach (Detalle_PedidoBE det in lstDetail)
+            {
+                if (det.Tamano == detail.Tamano)
+                {
+                    lstDetail.Remove(det);
+                }
+
+            }
+            lstDetail.Add(detail);
+        }
+
+        public class prueba
+        {
+            private string prueba1;
+
+            public string Prueba1
+            {
+                get { return prueba1; }
+                set { prueba1 = value; }
+            }
+            private string prueba2;
+
+            public string Prueba2
+            {
+                get { return prueba2; }
+                set { prueba2 = value; }
+            }
         }
     }
 }

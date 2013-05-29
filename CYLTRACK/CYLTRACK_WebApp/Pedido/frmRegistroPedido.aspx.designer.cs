@@ -337,13 +337,13 @@ namespace Unisangil.CYLTRACK.CYLTRACK_WebApp.Account.Pedido {
         protected global::System.Web.UI.WebControls.Button btnAgregar;
         
         /// <summary>
-        /// Control lstAgregar.
+        /// Control gvPedido.
         /// </summary>
         /// <remarks>
         /// Campo generado automáticamente.
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.ListBox lstAgregar;
+        protected global::System.Web.UI.WebControls.GridView gvPedido;
         
         /// <summary>
         /// Control btnLimpiar.
