@@ -22,31 +22,31 @@ namespace Unisangil.CYLTRACK.CYLTRACK_WebApp.Autenticacion {
         protected global::System.Web.UI.WebControls.Literal ErrorMessage;
         
         /// <summary>
-        /// Control RegisterUserValidationSummary.
+        /// Control RegistrarUsuarios.
         /// </summary>
         /// <remarks>
         /// Campo generado automáticamente.
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.ValidationSummary RegisterUserValidationSummary;
+        protected global::System.Web.UI.WebControls.ValidationSummary RegistrarUsuarios;
         
         /// <summary>
-        /// Control lblUserName.
+        /// Control lblNombreUsuario.
         /// </summary>
         /// <remarks>
         /// Campo generado automáticamente.
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Label lblUserName;
+        protected global::System.Web.UI.WebControls.Label lblNombreUsuario;
         
         /// <summary>
-        /// Control txtUserName.
+        /// Control txtNombreUsuario.
         /// </summary>
         /// <remarks>
         /// Campo generado automáticamente.
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox txtUserName;
+        protected global::System.Web.UI.WebControls.TextBox txtNombreUsuario;
         
         /// <summary>
         /// Control UserRequired.
@@ -58,22 +58,22 @@ namespace Unisangil.CYLTRACK.CYLTRACK_WebApp.Autenticacion {
         protected global::System.Web.UI.WebControls.RequiredFieldValidator UserRequired;
         
         /// <summary>
-        /// Control lblPass.
+        /// Control lblContrasena.
         /// </summary>
         /// <remarks>
         /// Campo generado automáticamente.
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Label lblPass;
+        protected global::System.Web.UI.WebControls.Label lblContrasena;
         
         /// <summary>
-        /// Control txtPassword.
+        /// Control txtContrasena.
         /// </summary>
         /// <remarks>
         /// Campo generado automáticamente.
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox txtPassword;
+        protected global::System.Web.UI.WebControls.TextBox txtContrasena;
         
         /// <summary>
         /// Control PasswordRequired.
@@ -85,31 +85,31 @@ namespace Unisangil.CYLTRACK.CYLTRACK_WebApp.Autenticacion {
         protected global::System.Web.UI.WebControls.RequiredFieldValidator PasswordRequired;
         
         /// <summary>
-        /// Control lblConfirmPass.
+        /// Control lblConfirmarContrasena.
         /// </summary>
         /// <remarks>
         /// Campo generado automáticamente.
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Label lblConfirmPass;
+        protected global::System.Web.UI.WebControls.Label lblConfirmarContrasena;
         
         /// <summary>
-        /// Control txtConfirmPassword.
+        /// Control txtConfirmarContrasena.
         /// </summary>
         /// <remarks>
         /// Campo generado automáticamente.
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox txtConfirmPassword;
+        protected global::System.Web.UI.WebControls.TextBox txtConfirmarContrasena;
         
         /// <summary>
-        /// Control ConfirmPasswordRequired.
+        /// Control PasswordCompare.
         /// </summary>
         /// <remarks>
         /// Campo generado automáticamente.
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.RequiredFieldValidator ConfirmPasswordRequired;
+        protected global::System.Web.UI.WebControls.CompareValidator PasswordCompare;
         
         /// <summary>
         /// Control lblCorreo.
@@ -310,6 +310,15 @@ namespace Unisangil.CYLTRACK.CYLTRACK_WebApp.Autenticacion {
         protected global::System.Web.UI.WebControls.ListBox lstGenero;
         
         /// <summary>
+        /// Control validSexo.
+        /// </summary>
+        /// <remarks>
+        /// Campo generado automáticamente.
+        /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.RequiredFieldValidator validSexo;
+        
+        /// <summary>
         /// Control lblFechaNacimiento.
         /// </summary>
         /// <remarks>
@@ -328,6 +337,15 @@ namespace Unisangil.CYLTRACK.CYLTRACK_WebApp.Autenticacion {
         protected global::System.Web.UI.WebControls.ListBox lstDia;
         
         /// <summary>
+        /// Control validDia.
+        /// </summary>
+        /// <remarks>
+        /// Campo generado automáticamente.
+        /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.RequiredFieldValidator validDia;
+        
+        /// <summary>
         /// Control lstMes.
         /// </summary>
         /// <remarks>
@@ -337,13 +355,31 @@ namespace Unisangil.CYLTRACK.CYLTRACK_WebApp.Autenticacion {
         protected global::System.Web.UI.WebControls.ListBox lstMes;
         
         /// <summary>
-        /// Control ListAno.
+        /// Control validMes.
         /// </summary>
         /// <remarks>
         /// Campo generado automáticamente.
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.ListBox ListAno;
+        protected global::System.Web.UI.WebControls.RequiredFieldValidator validMes;
+        
+        /// <summary>
+        /// Control lstAno.
+        /// </summary>
+        /// <remarks>
+        /// Campo generado automáticamente.
+        /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.ListBox lstAno;
+        
+        /// <summary>
+        /// Control validAno.
+        /// </summary>
+        /// <remarks>
+        /// Campo generado automáticamente.
+        /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.RequiredFieldValidator validAno;
         
         /// <summary>
         /// Control lblCargo.
@@ -364,13 +400,22 @@ namespace Unisangil.CYLTRACK.CYLTRACK_WebApp.Autenticacion {
         protected global::System.Web.UI.WebControls.ListBox lstCargo;
         
         /// <summary>
-        /// Control btnCreateUserButton.
+        /// Control validCargo.
         /// </summary>
         /// <remarks>
         /// Campo generado automáticamente.
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Button btnCreateUserButton;
+        protected global::System.Web.UI.WebControls.RequiredFieldValidator validCargo;
+        
+        /// <summary>
+        /// Control btnCrearUsuario.
+        /// </summary>
+        /// <remarks>
+        /// Campo generado automáticamente.
+        /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Button btnCrearUsuario;
         
         /// <summary>
         /// Control btnMenu.
