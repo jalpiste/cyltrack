@@ -13,22 +13,40 @@ namespace Unisangil.CYLTRACK.CYLTRACK_WebApp.Autenticacion {
     public partial class frmAutenticacion {
         
         /// <summary>
-        /// Control lblUserName.
+        /// Control validacionAutenticacion.
         /// </summary>
         /// <remarks>
         /// Campo generado automáticamente.
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Label lblUserName;
+        protected global::System.Web.UI.WebControls.ValidationSummary validacionAutenticacion;
         
         /// <summary>
-        /// Control txtUserName.
+        /// Control divAutentica.
         /// </summary>
         /// <remarks>
         /// Campo generado automáticamente.
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox txtUserName;
+        protected global::System.Web.UI.HtmlControls.HtmlGenericControl divAutentica;
+        
+        /// <summary>
+        /// Control lblNombreUsuario.
+        /// </summary>
+        /// <remarks>
+        /// Campo generado automáticamente.
+        /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Label lblNombreUsuario;
+        
+        /// <summary>
+        /// Control txtNombreUsuario.
+        /// </summary>
+        /// <remarks>
+        /// Campo generado automáticamente.
+        /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.TextBox txtNombreUsuario;
         
         /// <summary>
         /// Control UserNameRequired.
@@ -40,22 +58,22 @@ namespace Unisangil.CYLTRACK.CYLTRACK_WebApp.Autenticacion {
         protected global::System.Web.UI.WebControls.RequiredFieldValidator UserNameRequired;
         
         /// <summary>
-        /// Control lblPass.
+        /// Control lblContrasena.
         /// </summary>
         /// <remarks>
         /// Campo generado automáticamente.
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Label lblPass;
+        protected global::System.Web.UI.WebControls.Label lblContrasena;
         
         /// <summary>
-        /// Control txtPassword.
+        /// Control txtContrasena.
         /// </summary>
         /// <remarks>
         /// Campo generado automáticamente.
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox txtPassword;
+        protected global::System.Web.UI.WebControls.TextBox txtContrasena;
         
         /// <summary>
         /// Control PasswordRequired.
@@ -76,49 +94,49 @@ namespace Unisangil.CYLTRACK.CYLTRACK_WebApp.Autenticacion {
         protected global::System.Web.UI.HtmlControls.HtmlAnchor lnkRecuperarContrasena;
         
         /// <summary>
-        /// Control RememberMe.
+        /// Control ckbSesionIniciada.
         /// </summary>
         /// <remarks>
         /// Campo generado automáticamente.
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.CheckBox RememberMe;
+        protected global::System.Web.UI.WebControls.CheckBox ckbSesionIniciada;
         
         /// <summary>
-        /// Control lblRememberMe.
+        /// Control lblSesionIniciada.
         /// </summary>
         /// <remarks>
         /// Campo generado automáticamente.
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Label lblRememberMe;
+        protected global::System.Web.UI.WebControls.Label lblSesionIniciada;
         
         /// <summary>
-        /// Control lblPrimeraVez.
+        /// Control divPrimeraVez.
         /// </summary>
         /// <remarks>
         /// Campo generado automáticamente.
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Label lblPrimeraVez;
+        protected global::System.Web.UI.HtmlControls.HtmlGenericControl divPrimeraVez;
         
         /// <summary>
-        /// Control lblNewPassword.
+        /// Control lblNuevaContrasena.
         /// </summary>
         /// <remarks>
         /// Campo generado automáticamente.
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Label lblNewPassword;
+        protected global::System.Web.UI.WebControls.Label lblNuevaContrasena;
         
         /// <summary>
-        /// Control txtNuevaContraseña.
+        /// Control txtNuevaContrasena.
         /// </summary>
         /// <remarks>
         /// Campo generado automáticamente.
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox txtNuevaContraseña;
+        protected global::System.Web.UI.WebControls.TextBox txtNuevaContrasena;
         
         /// <summary>
         /// Control PasswordRequired1.
@@ -130,22 +148,22 @@ namespace Unisangil.CYLTRACK.CYLTRACK_WebApp.Autenticacion {
         protected global::System.Web.UI.WebControls.RequiredFieldValidator PasswordRequired1;
         
         /// <summary>
-        /// Control lblConfirmPass.
+        /// Control lblConfirmarContrasena.
         /// </summary>
         /// <remarks>
         /// Campo generado automáticamente.
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Label lblConfirmPass;
+        protected global::System.Web.UI.WebControls.Label lblConfirmarContrasena;
         
         /// <summary>
-        /// Control txtConfirmPassword.
+        /// Control txtConfirmarContrasena.
         /// </summary>
         /// <remarks>
         /// Campo generado automáticamente.
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox txtConfirmPassword;
+        protected global::System.Web.UI.WebControls.TextBox txtConfirmarContrasena;
         
         /// <summary>
         /// Control PasswordCompare.
@@ -157,21 +175,21 @@ namespace Unisangil.CYLTRACK.CYLTRACK_WebApp.Autenticacion {
         protected global::System.Web.UI.WebControls.CompareValidator PasswordCompare;
         
         /// <summary>
-        /// Control lblNota.
+        /// Control btnPrimeraVez.
         /// </summary>
         /// <remarks>
         /// Campo generado automáticamente.
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Label lblNota;
+        protected global::System.Web.UI.WebControls.Button btnPrimeraVez;
         
         /// <summary>
-        /// Control btnLoginButton.
+        /// Control btnIniciarSesion.
         /// </summary>
         /// <remarks>
         /// Campo generado automáticamente.
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Button btnLoginButton;
+        protected global::System.Web.UI.WebControls.Button btnIniciarSesion;
     }
 }

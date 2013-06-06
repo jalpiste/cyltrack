@@ -1,7 +1,9 @@
-﻿using System;
+﻿using CYLTRACK_WebApp.UsuarioService;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Web;
+using System.Web.Security;
 using System.Web.UI;
 using System.Web.UI.WebControls;
 using Unisangil.CYLTRACK.CYLTRACK_BE;
@@ -12,24 +14,68 @@ namespace Unisangil.CYLTRACK.CYLTRACK_WebApp.Autenticacion
     {
         protected void Page_Load(object sender, EventArgs e)
         {
-
+            txtNombreUsuario.Focus();
         }
 
-        UsuarioBE usuario = new UsuarioBE();
-
-
-        protected void btnLoginButton_Click(object sender, EventArgs e)
+        protected void btnIniciarSesion_Click(object sender, EventArgs e)
         {
-            Response.Redirect("~/Default.aspx");
-            //usuario.Usuario = txtUserName.Text;
-            //usuario.Contrasena_1 = txtPassword.Text;
-            //usuario.Contrasena_2 = txtNuevaContraseña.Text;
-            //usuario.Contrasena_2 = txtConfirmPassword.Text;// no se en dato se coloca la confirmacion
+            UsuarioServiceClient servUsuario = new UsuarioServiceClient();
+            UsuarioBE usuario = new UsuarioBE();
+            try
+            {
+                String autentic;
+                usuario.Usuario = txtNombreUsuario.Text;
+                usuario.Contrasena_1 = txtContrasena.Text;
+
+                autentic = servUsuario.Autenticacion(usuario);
+                
+                if (autentic == "true")
+                {
+                    divAutentica.Visible = false;
+                    divPrimeraVez.Visible = true;
+                    btnIniciarSesion.Visible = false;
+                }
+            }
+            catch (Exception ex)
+             {
+                Response.Redirect("~/About.aspx");
+             }
+
+            finally
+            {
+                servUsuario.Close();
+            }
+ 
+           }
+       
+        protected void btnPrimeraVez_Click(object sender, EventArgs e)
+        {
+
+            UsuarioServiceClient serUser = new UsuarioServiceClient();
+            UsuarioBE user = new UsuarioBE();
+            try
+            {
+                if (txtNuevaContrasena.Text == txtConfirmarContrasena.Text)
+                {
+                    String primeraContrasena;
+                    user.Contrasena_1 = txtConfirmarContrasena.Text;
+                    primeraContrasena = serUser.Autenticacion(user);
+                }
+            }
+
+            catch (Exception ex)
+            {
+                Response.Redirect("~/About.aspx");
+            }
+
+            finally
+            {
+                serUser.Close();
+                Response.Redirect("~/Default.aspx");
+            }
+       
 
         }
-
-
-
 
     }
 }
