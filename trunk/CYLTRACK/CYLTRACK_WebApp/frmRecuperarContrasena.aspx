@@ -14,8 +14,8 @@
        <asp:Literal ID="FailureText" runat="server"></asp:Literal>
        </span>       
       
-       <asp:ValidationSummary ID="LoginValidationSummary" runat="server" CssClass="failureNotification" 
-                         ValidationGroup="LoginValidationGroup" Width="385px"/>
+       <asp:ValidationSummary ID="RecuperarContrasena" runat="server" CssClass="failureNotification" 
+                         ValidationGroup="OlvidoContrasena" Width="385px"/>
        <div class="accountInfo"> 
        <fieldset class="login">
        <legend>Olvidó Contraseña</legend>
@@ -23,11 +23,11 @@
            <asp:Label ID="lblNombreUsuario" runat="server" Text="Nombre de Usuario:"></asp:Label>
            <br /> 
            <asp:TextBox ID="txtNombreUsuario" runat="server" CssClass="textEntry" Width="197px"  
-           ValidationGroup = "LoginValidationGroup"></asp:TextBox>
+           ValidationGroup = "OlvidoContrasena"></asp:TextBox>
            <asp:RequiredFieldValidator ID="NombreUsuarioRequired" runat="server" 
            ControlToValidate="txtNombreUsuario" CssClass="failureNotification" 
            ErrorMessage="El nombre de usuario es obligatorio" ToolTip="El nombre de usuario es obligatorio" 
-           ValidationGroup="LoginValidationGroup">*</asp:RequiredFieldValidator>          
+           ValidationGroup="OlvidoContrasena">*</asp:RequiredFieldValidator>          
                          
        </div> 
        
@@ -35,7 +35,7 @@
        </fieldset><p class="submitButton">
                     &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; &nbsp; 
                     <asp:Button ID="btnEnviar" runat="server" Text="Enviar" 
-                    Width="140px" onclick="btnEnviar_Click" />  
+                    Width="140px" onclick="btnEnviar_Click" ValidationGroup="OlvidoContrasena"/>  
                     &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; &nbsp;  
                     <asp:Button ID="BtnMenu" runat="server" Text="Menú Principal" Width="140px" onclick="BtnMenu_Click" 
                     /> 

@@ -22,13 +22,13 @@ namespace Unisangil.CYLTRACK.CYLTRACK_WebApp {
         protected global::System.Web.UI.WebControls.Literal FailureText;
         
         /// <summary>
-        /// Control LoginValidationSummary.
+        /// Control RecuperarContrasena.
         /// </summary>
         /// <remarks>
         /// Campo generado automáticamente.
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.ValidationSummary LoginValidationSummary;
+        protected global::System.Web.UI.WebControls.ValidationSummary RecuperarContrasena;
         
         /// <summary>
         /// Control DivCodigo.
