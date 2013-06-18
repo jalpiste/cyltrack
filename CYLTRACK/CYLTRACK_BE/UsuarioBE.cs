@@ -126,7 +126,7 @@ namespace Unisangil.CYLTRACK.CYLTRACK_BE
         /// Primera vez que ingresa al sistema con esa contraseña
         /// </summary>
         [DataMember]
-        public String Primera_Vez { get; set; }
+        public Boolean Primera_Vez { get; set; }
 
         /// <summary>
         /// Género del Usuario

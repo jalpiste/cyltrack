@@ -92,7 +92,41 @@ namespace Unisangil.CYLTRACK.CYLTRACK_BE
         [DataMember]
         public ReportesBE Reportes { get; set; }
 
+        /// <summary>
+        /// Departamento
+        /// </summary>
+        [DataMember]
+        public DepartamentoBE Departamento { get; set; }
 
+        /// <summary>
+        /// Ciudad
+        /// </summary>
+        [DataMember]
+        public CiudadBE Ciudad { get; set; }
+
+        /// <summary>
+        /// Tamaño del cilindro
+        /// </summary>
+        [DataMember]
+        public TamanoBE Tamano { get; set; }
+
+        /// <summary>
+        /// Conductor
+        /// </summary>
+        [DataMember]
+        public ConductorBE Conductor { get; set; }
+
+        /// <summary>
+        /// Ruta
+        /// </summary>
+        [DataMember]
+        public RutaBE Ruta { get; set; }
+
+        /// <summary>
+        /// Tipo de Casos
+        /// </summary>
+        [DataMember]
+        public Tipo_CasoBE Tipo_Casos { get; set; }
 
     }
 }
