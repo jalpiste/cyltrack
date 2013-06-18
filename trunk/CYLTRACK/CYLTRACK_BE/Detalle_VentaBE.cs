@@ -45,6 +45,18 @@ namespace Unisangil.CYLTRACK.CYLTRACK_BE
         public CilindroBE Cilindro { get; set; }
 
         /// <summary>
+        /// Cilindro entregado como prestamo al cliente
+        /// </summary>
+        [DataMember]
+        public String Id_Cilindro_Entrada { get; set; }
+
+        /// <summary>
+        /// Cilindro recibido como prestamo al cliente
+        /// </summary>
+        [DataMember]
+        public String Id_Cilindro_Salida { get; set; }
+
+        /// <summary>
         /// Casos especiales
         /// </summary>
         [DataMember]

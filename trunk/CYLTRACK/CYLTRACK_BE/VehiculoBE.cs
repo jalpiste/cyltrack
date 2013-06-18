@@ -105,5 +105,11 @@ namespace Unisangil.CYLTRACK.CYLTRACK_BE
         /// </summary>
         [DataMember]
         public Conductor_VehiculoBE Conductor_Vehiculo { get; set; }
+
+        /// <summary>
+        /// Datos conductor
+        /// </summary>
+        [DataMember]
+        public ConductorBE Conductor { get; set; }
     }
 }
