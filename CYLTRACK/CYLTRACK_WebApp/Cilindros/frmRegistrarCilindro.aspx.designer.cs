@@ -22,13 +22,13 @@ namespace Unisangil.CYLTRACK.CYLTRACK_WebApp.Cilindros {
         protected global::System.Web.UI.WebControls.Literal FailureText;
         
         /// <summary>
-        /// Control RegistrarCilindroValidationSummary.
+        /// Control RegistrarCilindro.
         /// </summary>
         /// <remarks>
         /// Campo generado automáticamente.
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.ValidationSummary RegistrarCilindroValidationSummary;
+        protected global::System.Web.UI.WebControls.ValidationSummary RegistrarCilindro;
         
         /// <summary>
         /// Control LblCodigoCilindro.
@@ -112,6 +112,15 @@ namespace Unisangil.CYLTRACK.CYLTRACK_WebApp.Cilindros {
         protected global::System.Web.UI.WebControls.ListBox LstAno;
         
         /// <summary>
+        /// Control ValidAno.
+        /// </summary>
+        /// <remarks>
+        /// Campo generado automáticamente.
+        /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.RequiredFieldValidator ValidAno;
+        
+        /// <summary>
         /// Control TxtEmpresa.
         /// </summary>
         /// <remarks>
@@ -121,6 +130,15 @@ namespace Unisangil.CYLTRACK.CYLTRACK_WebApp.Cilindros {
         protected global::System.Web.UI.WebControls.TextBox TxtEmpresa;
         
         /// <summary>
+        /// Control validEmpresa.
+        /// </summary>
+        /// <remarks>
+        /// Campo generado automáticamente.
+        /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.RequiredFieldValidator validEmpresa;
+        
+        /// <summary>
         /// Control TxtCodigo.
         /// </summary>
         /// <remarks>
@@ -128,6 +146,15 @@ namespace Unisangil.CYLTRACK.CYLTRACK_WebApp.Cilindros {
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
         protected global::System.Web.UI.WebControls.TextBox TxtCodigo;
+        
+        /// <summary>
+        /// Control validCodigo.
+        /// </summary>
+        /// <remarks>
+        /// Campo generado automáticamente.
+        /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.RequiredFieldValidator validCodigo;
         
         /// <summary>
         /// Control LblUbicacion.
@@ -157,6 +184,15 @@ namespace Unisangil.CYLTRACK.CYLTRACK_WebApp.Cilindros {
         protected global::System.Web.UI.WebControls.ListBox LstUbicacion;
         
         /// <summary>
+        /// Control validUbicacion.
+        /// </summary>
+        /// <remarks>
+        /// Campo generado automáticamente.
+        /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.RequiredFieldValidator validUbicacion;
+        
+        /// <summary>
         /// Control LstTamano.
         /// </summary>
         /// <remarks>
@@ -164,6 +200,15 @@ namespace Unisangil.CYLTRACK.CYLTRACK_WebApp.Cilindros {
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
         protected global::System.Web.UI.WebControls.ListBox LstTamano;
+        
+        /// <summary>
+        /// Control validTamano.
+        /// </summary>
+        /// <remarks>
+        /// Campo generado automáticamente.
+        /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.RequiredFieldValidator validTamano;
         
         /// <summary>
         /// Control Lbltotal.

@@ -6,6 +6,7 @@ using System.Web.UI;
 using System.Web.UI.WebControls;
 using Unisangil.CYLTRACK.CYLTRACK_BE;
 using CYLTRACK_WebApp.CilindroService;
+using System.Windows.Forms;
 
 namespace Unisangil.CYLTRACK.CYLTRACK_WebApp.Cilindros
 {
@@ -13,73 +14,93 @@ namespace Unisangil.CYLTRACK.CYLTRACK_WebApp.Cilindros
     {
         protected void Page_Load(object sender, EventArgs e)
         {
-
+            txtCodigoCilindro.Focus();
         }
-                
+
         protected void txtCodigoCilindro_TextChanged(object sender, EventArgs e)
         {
-            
-            //cilindro.Codigo_Cilindro = txtCodigoCilindro.Text;
-
-            
             CilindroServiceClient servCilindro = new CilindroServiceClient();
-            
-            //CilindroBE cilindro= new CilindroBE();
-            CilindroBE [] consulta = servCilindro.ConsultarCilindro();
+            CilindroBE cilindro = new CilindroBE();
+            CilindroBE[] resp;
 
-            var datos = from info in consulta
-                         select info;
-
-            foreach (CilindroBE info in datos)
+            try
             {
-                TxtAno.Text = info.Ano;
-                //TxtEmpresa.Text = info.Fabricante.Nombre_Fabricante;
-                TxtCodigo.Text = info.Serial_Cilindro;
-                //TxtUbicacion.Text = info.Tipo_Ubicacion.Nombre_Ubicacion;
-                //TxtTamano.Text = info.NTamano.Tamano;
-                LblTotal.Text = info.Codigo_Cilindro;
-                TxtRegistro.Text = Convert.ToString((info.Fecha));
+                cilindro.Codigo_Cilindro = txtCodigoCilindro.Text;
+                resp = servCilindro.ConsultarCilindro(cilindro);
+
+                foreach (CilindroBE datosCil in resp)
+                {
+                    if (datosCil.Codigo_Cilindro != txtCodigoCilindro.Text)
+                    {
+                        MessageBox.Show("El código digitado no esta registrado en el sistema", "Consulta de Cilindros");
+                    }
+                    else
+                    {
+                        TxtAno.Text = datosCil.Ano;
+                        TxtEmpresa.Text = datosCil.Fabricante.Nombre_Fabricante;
+                        TxtCodigo.Text = datosCil.Serial_Cilindro;
+                        TxtUbicacion.Text = datosCil.Tipo_Ubicacion.Nombre_Ubicacion;
+                        TxtTamano.Text = datosCil.NTamano.Tamano;
+                        LblTotal.Text = datosCil.Codigo_Cilindro;
+                        TxtRegistro.Text = Convert.ToString((datosCil.Fecha));
+
+                        DivDatosCilindro.Visible = true;
+                        BtnNuevaConsulta.Visible = true;
+
+                        if (TxtUbicacion.Text == "Vehiculo")
+                        {
+                            TxtPlaca.Text = datosCil.Vehiculo.Placa;
+                            TxtConductor.Text = datosCil.Vehiculo.Conductor.Nombres_Conductor;
+                            TxtRuta.Text = datosCil.Vehiculo.Ruta.Nombre_Ruta;
+
+                            DivInfoVehiculo.Visible = true;
+                        }
+
+                        if (TxtUbicacion.Text == "Cliente")
+                        {
+                            txtCedula.Text = datosCil.Cliente.Cedula;
+                            TxtNombreCliente.Text = datosCil.Cliente.Nombres_Cliente;
+                            TxtPrimerApellido.Text = datosCil.Cliente.Apellido_1;
+                            TxtSegundoApellido.Text = datosCil.Cliente.Apellido_2;
+                            TxtDireccion.Text = datosCil.Ubicacion.Direccion;
+                            TxtBarrio.Text = datosCil.Ubicacion.Barrio;
+                            TxtCiudad.Text = datosCil.Ciudad.Nombre_Ciudad;
+                            TxtDepartamento.Text = datosCil.Ciudad.Departamento.Nombre_Departamento;
+                            TxtTelefono.Text = datosCil.Ubicacion.Telefono_1;
+                            Txtentrega.Text = Convert.ToString(datosCil.Fecha);
+
+                            DivInfoCilindro.Visible = true;
+                        }
+                    }
+
+                }
             }
 
-            
-
-            DivDatosCilindro.Visible = true;
-            BtnNuevaConsulta.Visible = true;
-
-
-            //if (TxtUbicacion.Text == "Vehiculo")
-            //{
-            //    //TxtPlaca.Text = cilindro.Vehiculo.Placa;
-                //TxtConductor.Text = cilindro.Vehiculo.Conductor_Vehiculo.Conductor.Nombres_Conductor;
-                //TxtRuta.Text = cilindro.Vehiculo.Ruta.Nombre_Ruta;
-
-            //    DivInfoVehiculo.Visible = true;
-            //}
-
-            //if (TxtUbicacion.Text == "Cliente")
-            //{
-
-               // se le debe cambia la instancia venta por el nombre de la instancia del servicio
-                //txtCedula.Text = cilindro.Venta.Cliente.Cedula;
-                //TxtNombreCliente.Text = cilindro.Venta.Cliente.Nombres_Cliente;
-                //TxtPrimerApellido.Text = cilindro.Venta.Cliente.Apellido_1;
-                //TxtSegundoApellido.Text = cilindro.Venta.Cliente.Apellido_2;
-                //TxtDireccion.Text = cilindro.Venta.Cliente.Ubicacion.Direccion;
-                //TxtBarrio.Text = cilindro.Venta.Cliente.Ubicacion.Barrio;
-                //TxtCiudad.Text = cilindro.Venta.Cliente.Ciudad.Nombre_Ciudad;
-                //TxtDepartamento.Text = cilindro.Venta.Cliente.Ciudad.Departamento.Nombre_Departamento;
-                //TxtTelefono.Text = cilindro.Venta.Cliente.Ubicacion.Telefono_1;
-                //Txtentrega.Text = Convert.ToString(cilindro.Venta.Fecha);
-
-            //    DivInfoCilindro.Visible = true;
-            //}
+            catch (Exception ex)
+            {
+                Response.Redirect("~/About.aspx");
+            }
+            finally
+            {
+                servCilindro.Close();
+            }
 
         }
+
+
 
         protected void BtnNuevaConsulta_Click(object sender, EventArgs e)
         {
-            DivDatosCilindro.Visible = false;
-            DivInfoCilindro.Visible = false;
+            try
+            {
+                DivDatosCilindro.Visible = false;
+                DivInfoCilindro.Visible = false;
+            }
+            finally
+            {
+                Response.Redirect("~/Cilindros/frmConsultarCilindro.aspx");
+            }
+            
         }
 
         protected void BtnMenuPrincipal_Click(object sender, EventArgs e)
@@ -87,13 +108,5 @@ namespace Unisangil.CYLTRACK.CYLTRACK_WebApp.Cilindros
             //Response.Redirect("~/Default.aspx");
         }
 
-        protected void BtnMenuPrincipal_Click1(object sender, EventArgs e)
-        {
-
-        }
-
-
-
-
-    }
+      }
 }

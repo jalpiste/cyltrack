@@ -9,11 +9,8 @@
        <h1 style="margin-top: 75px">
         Consultar Cilindro
     </h1>
- <p>
-        Los campos marcados con asterisco (*) son obligatorios
-        </p>
-            <asp:ValidationSummary ID="ConsultaCilindroValidationSummary" runat="server" CssClass="failureNotification" 
-                 ValidationGroup="ConsultaCilindroValidationGroup"/>
+            <asp:ValidationSummary ID="ConsultaCilindro" runat="server" CssClass="failureNotification" 
+                 ValidationGroup="ConsultaCilindro"/>
             <div class="accountInfo">
              <fieldset class="login">
 
@@ -24,7 +21,7 @@
                             Width="197px" ontextchanged="txtCodigoCilindro_TextChanged"  ></asp:TextBox>
                     <asp:RequiredFieldValidator ID="txtCodigoCilindroRequired" runat="server" ControlToValidate="txtCodigoCilindro" 
                              CssClass="failureNotification" ErrorMessage="El codigo del cilindro es obligatorio." ToolTip="El Codigo del Cilindro es obligatorio." 
-                             ValidationGroup="ConsultaCilindroValidationGroup"> * </asp:RequiredFieldValidator>
+                             ValidationGroup="ConsultaCilindro"> * </asp:RequiredFieldValidator>
                                      
                         </p>
                     <div id="DivDatosCilindro" runat="server" visible="false">
@@ -50,7 +47,7 @@
                         <asp:Label ID="LblTamano" runat="server" Text="Tamaño: " ></asp:Label>
                         </p>
                         <p>
-                            <asp:TextBox ID="TxtUbicacion" runat="server" CssClass="textEntry" Width="80px" Enabled="False" Text = "Vehiculo" ></asp:TextBox>
+                            <asp:TextBox ID="TxtUbicacion" runat="server" CssClass="textEntry" Width="80px" Enabled="False" Text = "Cliente" ></asp:TextBox>
                             &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
                             <asp:TextBox ID="TxtTamano" runat="server" CssClass="textEntry" Width="80px" Enabled="False"></asp:TextBox>
                     </p>

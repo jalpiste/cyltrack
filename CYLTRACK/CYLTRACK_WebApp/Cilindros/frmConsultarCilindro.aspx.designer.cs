@@ -13,13 +13,13 @@ namespace Unisangil.CYLTRACK.CYLTRACK_WebApp.Cilindros {
     public partial class frmConsultarCilindro {
         
         /// <summary>
-        /// Control ConsultaCilindroValidationSummary.
+        /// Control ConsultaCilindro.
         /// </summary>
         /// <remarks>
         /// Campo generado automáticamente.
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.ValidationSummary ConsultaCilindroValidationSummary;
+        protected global::System.Web.UI.WebControls.ValidationSummary ConsultaCilindro;
         
         /// <summary>
         /// Control lblCodigoCilindro.
