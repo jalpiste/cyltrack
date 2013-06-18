@@ -14,7 +14,14 @@ namespace Unisangil.CYLTRACK.CYLTRACK_WebApp.Autenticacion
     {
         protected void Page_Load(object sender, EventArgs e)
         {
-            txtNombreUsuario.Focus();
+            if (!IsPostBack)
+            {
+                txtNombreUsuario.Focus();
+            }
+            else 
+            {
+                txtContrasena.Focus();
+            }
         }
 
         protected void btnIniciarSesion_Click(object sender, EventArgs e)

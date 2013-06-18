@@ -139,6 +139,15 @@ namespace Unisangil.CYLTRACK.CYLTRACK_WebApp.Autenticacion {
         protected global::System.Web.UI.WebControls.RequiredFieldValidator EmailRequired;
         
         /// <summary>
+        /// Control revEmail.
+        /// </summary>
+        /// <remarks>
+        /// Campo generado automáticamente.
+        /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.RegularExpressionValidator revEmail;
+        
+        /// <summary>
         /// Control DatosPersonales.
         /// </summary>
         /// <remarks>

@@ -9,6 +9,7 @@ using System.Web.UI.WebControls;
 using Unisangil.CYLTRACK.CYLTRACK_BE;
 using System.Windows.Forms;
 
+
 namespace Unisangil.CYLTRACK.CYLTRACK_WebApp.Autenticacion
 {
     public partial class frmRegistrarUsuario : System.Web.UI.Page
@@ -16,29 +17,88 @@ namespace Unisangil.CYLTRACK.CYLTRACK_WebApp.Autenticacion
 
         protected void Page_Load(object sender, EventArgs e)
         {
-            string mes = Meses.Abril.ToString();
-            int mesi = (int)Meses.Abril;
-            List<string> meses = Auxiliar.ConsultarMeses();
 
-            //UsuarioServiceClient servUsuario = new UsuarioServiceClient();
-            //UsuarioBE usuario = new UsuarioBE();
-            //UsuarioBE[] datosVenta = servUsuario.RegistrarUsuario(usuario);
+            if (IsPostBack)
+            {
+                lstCargo.Focus();
+            }
+            else
+            {
+                txtNombreUsuario.Focus();
+            }
 
-            //lstCargo.Items.Add(servUsuario.RegistrarUsuario(usuario));
-            txtNombreUsuario.Focus();
-           
+
+            if (!IsPostBack)
+            {
+                List<string> meses = Auxiliar.ConsultarMeses();
+                foreach (string datosMeses in meses)
+                {
+                    lstMes.Items.Add(datosMeses);
+                }
+            }
+
+            if (!IsPostBack)
+            {
+                Dias[] dias = Auxiliar.ConsultarDias();
+                foreach (Dias datosDias in dias)
+                {
+                    lstDia.Items.Add(datosDias.ToString());
+                }
+            }
+            if (!IsPostBack)
+            {
+                Anos[] anos = Auxiliar.ConsultarAnos();
+                foreach (Anos datosAnos in anos)
+                {
+                    lstAno.Items.Add(datosAnos.ToString());
+                }
+            }
+            if (!IsPostBack)
+            {
+                List<string> sexo = Auxiliar.ConsultarSexo();
+                foreach (string datosSexo in sexo)
+                {
+                    lstGenero.Items.Add(datosSexo);
+                }
+            }
+
+            if (!IsPostBack)
+            {
+                UsuarioServiceClient servUsuario = new UsuarioServiceClient();
+                UsuarioBE usuario = new UsuarioBE();
+                UsuarioBE[] lstPerfiles;
+
+                try
+                {
+                    lstPerfiles = servUsuario.RegistrarUsuario(usuario);
+
+                    foreach (UsuarioBE datuser in lstPerfiles)
+                    {
+                        lstCargo.Items.Add(datuser.Perfil.Perfil);
+                    }
+
+                }
+                catch (Exception ex)
+                {
+                    Response.Redirect("~/About.aspx");
+                }
+                finally
+                {
+                    servUsuario.Close();
+                }
+
+            }
+
         }
 
-       
         protected void btnCrearUsuario_Click(object sender, EventArgs e)
         {
             UsuarioServiceClient servUsuario = new UsuarioServiceClient();
             UsuarioBE usuario = new UsuarioBE();
-            String registrar;
-            
+            UsuarioBE[] registrar;
+
             try
             {
-                
                 usuario.Usuario = txtNombreUsuario.Text;
                 usuario.Contrasena_1 = txtContrasena.Text;
                 usuario.Correo = txtEmail.Text;
@@ -56,9 +116,9 @@ namespace Unisangil.CYLTRACK.CYLTRACK_WebApp.Autenticacion
                 registrar = servUsuario.RegistrarUsuario(usuario);
 
                 MessageBox.Show("El usuario ha sido creado satisfactoriamente", "Registrar Usuario");
-               
+
             }
-            catch(Exception ex)
+            catch (Exception ex)
             {
                 Response.Redirect("~/About.aspx");
             }
@@ -74,6 +134,8 @@ namespace Unisangil.CYLTRACK.CYLTRACK_WebApp.Autenticacion
         {
             Response.Redirect("~/Default.aspx");
         }
+
+
 
     }
 }

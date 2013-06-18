@@ -58,6 +58,8 @@
                                  ControlToValidate="txtEmail" CssClass="failureNotification" 
                                  ErrorMessage="El correo electrónico es obligatorio." 
                                  ValidationGroup="RegistrodeUsuarios">*</asp:RequiredFieldValidator>
+                                 <asp:regularexpressionvalidator ID="revEmail" runat="server" ControlToValidate="txtEmail" CssClass="failureNotification"
+                                 ErrorMessage="Formato de correo no valido" ValidationGroup="RegistrodeUsuarios" ValidationExpression="\w+([-+.]\w+)*@\w+([-.]\w+)*\.\w+([-.]\w+)*">**</asp:regularexpressionvalidator>
                             <br /><br />
                       <div id= "DatosPersonales" runat ="server"> 
                              <div class="post" >
@@ -113,11 +115,7 @@
                              <br />
                              <asp:Label ID="lblGenero" runat="server" Text="Sexo: "></asp:Label>
                              <br />
-                             <asp:ListBox ID="lstGenero" runat="server" AutoPostBack="True" Rows="1" >
-                             <asp:ListItem>Hombre</asp:ListItem>
-                             <asp:ListItem>Mujer</asp:ListItem>
-                             <asp:ListItem>Sin Especificar</asp:ListItem>
-                             </asp:ListBox>
+                             <asp:ListBox ID="lstGenero" runat="server" AutoPostBack="True" Rows="1" />
                              <asp:RequiredFieldValidator ID="validSexo" runat="server" 
                                  ControlToValidate="lstGenero" CssClass="failureNotification" 
                                  ErrorMessage="Elegir el sexo es obligatorio." 
@@ -126,9 +124,7 @@
                              <br />
                              <asp:Label ID="lblFechaNacimiento" runat="server" Text="Fecha de nacimiento: "></asp:Label>
                              <br />
-                             <asp:ListBox ID="lstDia" runat="server" AutoPostBack="True" Rows="1" Width="70px">
-                             <asp:ListItem>Día</asp:ListItem>
-                             </asp:ListBox>
+                             <asp:ListBox ID="lstDia" runat="server" AutoPostBack="True" Rows="1" Width="70px"/>
                             <asp:RequiredFieldValidator ID="validDia" runat="server" 
                                  ControlToValidate="lstDia" CssClass="failureNotification" 
                                  ErrorMessage="El dia de nacimiento es obligatorio." 
@@ -145,9 +141,8 @@
                                  ValidationGroup="RegistrodeUsuarios">*</asp:RequiredFieldValidator>
                            
                              &nbsp;&nbsp;&nbsp;
-                             <asp:ListBox ID="lstAno" runat="server" AutoPostBack="True" Rows="1" Width="70px">
-                             <asp:ListItem>Año</asp:ListItem>
-                             </asp:ListBox>
+                             <asp:ListBox ID="lstAno" runat="server" AutoPostBack="True" Rows="1" 
+                                 Width="70px" />
                              <asp:RequiredFieldValidator ID="validAno" runat="server" 
                                  ControlToValidate="lstAno" CssClass="failureNotification" 
                                  ErrorMessage="El año de nacimiento es obligatorio." 
