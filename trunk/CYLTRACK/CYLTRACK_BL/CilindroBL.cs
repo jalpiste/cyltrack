@@ -30,33 +30,53 @@ namespace Unisangil.CYLTRACK.CYLTRACK_BL
             String resp = "Ok";
             return resp;
         }
-        
-        public List<CilindroBE> ConsultarCilindro()
+
+        public List<CilindroBE> ConsultarCilindro(CilindroBE cilindro)
         {
             List<CilindroBE> lstCil = new List<CilindroBE>();
             CilindroBE cil = new CilindroBE();
             cil.Ano = "2012";
-            //cil.Fabricante.Nombre_Fabricante = "Cilgas";
+            FabricanteBE fab = new FabricanteBE();
+            fab.Nombre_Fabricante = "Cilgas";
+            cil.Fabricante = fab;
             cil.Serial_Cilindro = "51954";
-            //cil.Ubicacion.Tipo_Ubicacion.Nombre_Ubicacion = "Plataforma";
-            //cil.NTamano.Tamano = "30";
-            cil.Codigo_Cilindro = "12091751964";
+            Tipo_UbicacionBE tipoUbi = new Tipo_UbicacionBE();
+            tipoUbi.Nombre_Ubicacion = "Cliente";
+            cil.Tipo_Ubicacion = tipoUbi;
+            TamanoBE tam = new TamanoBE();
+            tam.Tamano = "30";
+            cil.NTamano = tam;
+            cil.Codigo_Cilindro = cilindro.Codigo_Cilindro;
             cil.Fecha = Convert.ToDateTime(DateTime.Now.ToShortDateString());
             //--------------------------------
-            //cil.Venta.Cliente.Cedula = "7309877";
-            //cil.Venta.Cliente.Nombres_Cliente = "Jaime Andres";
-            //cil.Venta.Cliente.Apellido_1 = "Ortiz";
-            //cil.Venta.Cliente.Apellido_2 = "León";
-            //cil.Venta.Cliente.Ubicacion.Direccion = "Calle 3 N 2-49";
-            //cil.Venta.Cliente.Ubicacion.Barrio = "El Bosque";
-            //cil.Venta.Cliente.Ciudad.Nombre_Ciudad = "Chiquinquirá";
-            //cil.Venta.Cliente.Ciudad.Departamento.Nombre_Departamento = "Boyacá";
-            //cil.Venta.Cliente.Ubicacion.Telefono_1 = "7266530";
-            //cil.Venta.Fecha = Convert.ToDateTime(DateTime.Now.ToShortDateString());
+            ClienteBE cli = new ClienteBE();
+            cli.Cedula= "7309877";
+            cli.Nombres_Cliente = "Jaime Andres";
+            cli.Apellido_1 = "Ortiz";
+            cli.Apellido_2 = "León";
+            UbicacionBE ubi = new UbicacionBE();
+            ubi.Direccion= "Calle 3 N 2-49";
+            ubi.Barrio = "El Bosque";
+            CiudadBE ciu = new CiudadBE();
+            ciu.Nombre_Ciudad = "Chiquinquirá";
+            DepartamentoBE dep = new DepartamentoBE();
+            dep.Nombre_Departamento = "Boyacá";
+            ciu.Departamento = dep;
+            ubi.Telefono_1 = "7266530";
+            cil.Fecha = Convert.ToDateTime(DateTime.Now.ToShortDateString());
+            cil.Cliente = cli;
+            cil.Ubicacion = ubi;
+            cil.Ciudad = ciu;
             //-----------------------------
-            //cil.Vehiculo.Placa = "XHA940";
-            //cil.Vehiculo.Conductor_Vehiculo.Conductor.Nombres_Conductor = "Juanito perez";
-            //cil.Vehiculo.Ruta.Nombre_Ruta = "Chiquinquirá-Ubaté";
+            VehiculoBE veh = new VehiculoBE();
+            veh.Placa = "XHA940";
+            RutaBE ruta = new RutaBE();
+            ruta.Nombre_Ruta= "Chiquinquirá-Ubaté";
+            ConductorBE cond = new ConductorBE();
+            cond.Nombres_Conductor= "Juanito perez";
+            cil.Vehiculo = veh;
+            cil.Vehiculo.Ruta = ruta;
+            cil.Vehiculo.Conductor = cond;
             
             lstCil.Add(cil);
             return lstCil;
@@ -69,12 +89,67 @@ namespace Unisangil.CYLTRACK.CYLTRACK_BL
 
         public List<CilindroBE> CargueyDescargueCilindro(CilindroBE cilindro)
         {
+
             List<CilindroBE> lstCod = new List<CilindroBE>();
             CilindroBE cil = new CilindroBE();
+            
             //cargue de cilindros
-            cil.Codigo_Cilindro = "87867675675";
-            cil.Codigo_Cilindro = "74875738658";
+            
+            VehiculoBE vehiculo = new VehiculoBE();
+            vehiculo.Placa = "xha769";
+            cil.Vehiculo = vehiculo;
+            
+            CilindroBE resp = cilindro;
+            //UbicacionBE ubi = new UbicacionBE();
+            //Tipo_UbicacionBE tip = new Tipo_UbicacionBE();
+            //ubi.Tipo_Ubicacion = tip;
+            //resp.Ubicacion = ubi;
+           
+                if (resp.Ubicacion.Tipo_Ubicacion.Nombre_Ubicacion == "Plataforma")
+                {
+                    CilindroBE[] lista = new CilindroBE[7];
+                    Random ran = new Random();
+                    for (int i = 0; i < 7; i++)
+                    {
+                        CilindroBE datCil= new CilindroBE();
+                        
+                        datCil.Codigo_Cilindro=((DateTime.Now.Hour + DateTime.Now.Second) * ran.Next(1, 10)).ToString();
+                        datCil.Tipo_Cilindro = "Universal";
+                        TamanoBE tam = new TamanoBE();
+                        tam.Tamano = "40";
+                        datCil.NTamano = tam;
+                        VehiculoBE veh = new VehiculoBE();
+                        veh.Placa = "CAD678";
+                        datCil.Vehiculo = veh;
+                        lista[i] = datCil;
 
+                    }
+
+                    lstCod = lista.ToList();
+            }
+                if (resp.Ubicacion.Tipo_Ubicacion.Nombre_Ubicacion == "Vehiculo")
+                {
+                    CilindroBE[] lista = new CilindroBE[7];
+                    Random ran = new Random();
+                    for (int i = 0; i < 7; i++)
+                    {
+                        CilindroBE datCil= new CilindroBE();
+                        
+                        datCil.Codigo_Cilindro=((DateTime.Now.Hour + DateTime.Now.Second) * ran.Next(1, 10)).ToString();
+                        datCil.Tipo_Cilindro = "Marcado";
+                        TamanoBE tam = new TamanoBE();
+                        tam.Tamano = "30";
+                        datCil.NTamano = tam;
+                        VehiculoBE veh = new VehiculoBE();
+                        veh.Placa = "UIZ987";
+                        datCil.Vehiculo = veh;
+                        lista[i] = datCil;
+
+                    }
+
+                    lstCod = lista.ToList();
+            }
+            
             return lstCod;
         }
         #endregion
