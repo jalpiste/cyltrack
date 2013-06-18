@@ -1,9 +1,13 @@
 ﻿<%@ Page Language="C#" MasterPageFile="~/Site.Master" AutoEventWireup="true" CodeBehind="frmCargaryDescargarCilindros.aspx.cs" Inherits="CYLTRACK_WebApp.Cilindros.frmCargaryDescargarCilindros" %>
 
+<%@ Register Assembly="AjaxControlToolkit" Namespace="AjaxControlToolkit" TagPrefix="asp" %>
+
 <asp:Content ID="Content1" ContentPlaceHolderID="HeadContent" runat="server">
 
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="MainContent" runat="server">
+    <asp:ToolkitScriptManager ID="ToolkitScriptManager1" runat="server">
+    </asp:ToolkitScriptManager>
     <div style="width: 837px; margin-right: 45px;">
        <h1> 
         Cargue o Descargue de Cilindros:
@@ -20,8 +24,8 @@
        <div id="DivCodigo" runat="server" visible="true">
        <h3>Seleccione la opción según corresponda</h3>
        <br />
-           <asp:ListBox ID="lstOpcion" AutoPostBack="True" runat="server" Rows="1" 
-               onselectedindexchanged="lstOpcion_SelectedIndexChanged">
+           <asp:ListBox ID="lstOpcion" AutoPostBack="True" runat="server" Rows="1" onselectedindexchanged="lstOpcion_SelectedIndexChanged" 
+              >
                <asp:ListItem>Seleccionar...</asp:ListItem>
                <asp:ListItem>Cargue de Cilindros al Vehiculo</asp:ListItem>
                <asp:ListItem>Descargue de Cilindros en Plataforma</asp:ListItem>
@@ -34,34 +38,72 @@
                       </div> 
                      <asp:Label ID="lblPlaca" runat="server" Text="Placa del vehículo:"></asp:Label>
                      <br />
-                     <asp:ListBox ID="lstPlaca" runat="server" Rows="1" >
-                         <asp:ListItem>XHA940</asp:ListItem>
-                         <asp:ListItem>UZK201</asp:ListItem>
-                         <asp:ListItem>UZK345</asp:ListItem>
+                     <asp:ListBox ID="lstPlaca" runat="server" Rows="1"   >
+                         <asp:ListItem>Seleccionar</asp:ListItem>
                      </asp:ListBox>
                      <br />
                      <br />
                      
        
        
-       <asp:GridView ID="gvReporte" runat="server" CellPadding="4" ForeColor="#333333" 
-        GridLines="None" >
-        <AlternatingRowStyle BackColor="White" />
-            <Columns>
-               <asp:CheckBoxField  DataField="" HeaderText="Seleccionar" Text="88098766"/>
-             </Columns>
-        <EditRowStyle BackColor="#7C6F57" />
-        <FooterStyle BackColor="#1C5E55" Font-Bold="True" ForeColor="White" />
-        <HeaderStyle BackColor="#AC3332" Font-Bold="True" ForeColor="White" />
-        <PagerStyle BackColor="#666666" ForeColor="White" HorizontalAlign="Center" />
-        <RowStyle BackColor="#E3EAEB" />
-        <SelectedRowStyle BackColor="#C5BBAF" Font-Bold="True" ForeColor="#333333" />
-        <SortedAscendingCellStyle BackColor="#F8FAFA" />
-        <SortedAscendingHeaderStyle BackColor="#246B61" />
-        <SortedDescendingCellStyle BackColor="#D4DFE1" />
-        <SortedDescendingHeaderStyle BackColor="#15524A" />
-    </asp:GridView>
-       
+      <asp:GridView ID="gvCargue" runat="server" AutoGenerateColumns="False" 
+                    CellPadding="5" ForeColor="#333333" GridLines="None" Visible="false">
+                    <AlternatingRowStyle BackColor="White" />
+                    <Columns>
+                        <asp:BoundField SortExpression="CodigosCilindros" DataField="CodigosCil" HeaderText="Códigos Cilindros"
+                            HeaderStyle-Width="100px">
+                            <HeaderStyle Width="130px" />
+                        </asp:BoundField>
+                        <asp:BoundField SortExpression="Tamamo" DataField="Tamano" HeaderText="Tamaño"
+                            HeaderStyle-Width="100px">
+                            <HeaderStyle Width="110px" />
+                        </asp:BoundField>
+                        <asp:BoundField SortExpression="TipoCil" DataField="TipoCil" HeaderText="Tipo de Cilindro"
+                            HeaderStyle-Width="100px">
+                            <HeaderStyle Width="130px" />
+                        </asp:BoundField>
+                        <asp:TemplateField HeaderText="Seleccionar">
+                            <ItemTemplate>
+                                <asp:Button ID="Agregar" runat="server" Text="Agregar" Width="100px"   
+                                AutoPostBack="true" value='<%# Eval("CodigosCil")%>' OnClick="Agregar_onClick"  />
+                            </ItemTemplate>
+                        </asp:TemplateField>
+                    </Columns>
+                    <EditRowStyle BackColor="#2461BF" />
+                    <FooterStyle BackColor="#507CD1" Font-Bold="True" ForeColor="White" />
+                    <HeaderStyle BackColor="#507CD1" Font-Bold="True" ForeColor="White" />
+                    <PagerStyle BackColor="#2461BF" ForeColor="White" HorizontalAlign="Center" />
+                    <RowStyle BackColor="#EFF3FB" />
+                    <SelectedRowStyle BackColor="#D1DDF1" Font-Bold="True" ForeColor="#333333" />
+                    <SortedAscendingCellStyle BackColor="#F5F7FB" />
+                    <SortedAscendingHeaderStyle BackColor="#6D95E1" />
+                    <SortedDescendingCellStyle BackColor="#E9EBEF" />
+                    <SortedDescendingHeaderStyle BackColor="#4870BE" />
+                </asp:GridView>
+                <br />
+                <br />
+                     <asp:GridView ID="gdAdd" runat="server" AutoGenerateColumns="False" 
+                    CellPadding="4" ForeColor="#333333" GridLines="None" Visible="false">
+                    <AlternatingRowStyle BackColor="White" />
+                    <Columns>
+                        <asp:BoundField SortExpression="CodigosAdd" DataField="CodigosAdd" HeaderText="Códigos Agregados"
+                            HeaderStyle-Width="100px">
+                            <HeaderStyle Width="130px" />
+                        </asp:BoundField>
+                    </Columns>
+                    <EditRowStyle BackColor="#2461BF" />
+                    <FooterStyle BackColor="#507CD1" Font-Bold="True" ForeColor="White" />
+                    <HeaderStyle BackColor="#507CD1" Font-Bold="True" ForeColor="White" />
+                    <PagerStyle BackColor="#2461BF" ForeColor="White" HorizontalAlign="Center" />
+                    <RowStyle BackColor="#EFF3FB" />
+                    <SelectedRowStyle BackColor="#D1DDF1" Font-Bold="True" ForeColor="#333333" />
+                    <SortedAscendingCellStyle BackColor="#F5F7FB" />
+                    <SortedAscendingHeaderStyle BackColor="#6D95E1" />
+                    <SortedDescendingCellStyle BackColor="#E9EBEF" />
+                    <SortedDescendingHeaderStyle BackColor="#4870BE" />
+                </asp:GridView>
+       <br />
+                     
       </div>
        </fieldset><p class="submitButton">
                  

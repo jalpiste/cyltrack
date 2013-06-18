@@ -13,6 +13,15 @@ namespace CYLTRACK_WebApp.Cilindros {
     public partial class frmCargaryDescargarCilindros {
         
         /// <summary>
+        /// Control ToolkitScriptManager1.
+        /// </summary>
+        /// <remarks>
+        /// Campo generado automáticamente.
+        /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
+        /// </remarks>
+        protected global::AjaxControlToolkit.ToolkitScriptManager ToolkitScriptManager1;
+        
+        /// <summary>
         /// Control FailureText.
         /// </summary>
         /// <remarks>
@@ -85,13 +94,22 @@ namespace CYLTRACK_WebApp.Cilindros {
         protected global::System.Web.UI.WebControls.ListBox lstPlaca;
         
         /// <summary>
-        /// Control gvReporte.
+        /// Control gvCargue.
         /// </summary>
         /// <remarks>
         /// Campo generado automáticamente.
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.GridView gvReporte;
+        protected global::System.Web.UI.WebControls.GridView gvCargue;
+        
+        /// <summary>
+        /// Control gdAdd.
+        /// </summary>
+        /// <remarks>
+        /// Campo generado automáticamente.
+        /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.GridView gdAdd;
         
         /// <summary>
         /// Control BtnGuardar.
