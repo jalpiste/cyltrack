@@ -4,10 +4,7 @@
 <asp:Content ID="HeaderContent" runat="server" ContentPlaceHolderID="HeadContent">
 </asp:Content>
 <asp:Content ID="BodyContent" runat="server" ContentPlaceHolderID="MainContent">
-    <h2 style="margin-top: 65px">
-        Acerca de
+    <h2>
+     Ha ocurrido un error, por favor comuniquese con el administrador.  
     </h2>
-    <p>
-        Coloque contenido aquí.
-    </p>
 </asp:Content>
