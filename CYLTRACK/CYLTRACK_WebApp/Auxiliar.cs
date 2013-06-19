@@ -77,6 +77,5 @@ namespace Unisangil.CYLTRACK.CYLTRACK_WebApp
         Indefinido = 3
     }
 
-   
-   
+    
 }
