@@ -26,7 +26,7 @@ namespace Unisangil.CYLTRACK.CYLTRACK_WCF_Services
         /// <param name="usuario">Objeto de negocio usuario</param>
         /// <returns>nombre de usuario</returns>
         [OperationContract]
-        String RegistrarUsuario(UsuarioBE usuario);
+        List<UsuarioBE> RegistrarUsuario(UsuarioBE usuario);
 
         /// <summary>
         /// Método encargado de la autenticaciòn de usuarios en el sistema. Permite

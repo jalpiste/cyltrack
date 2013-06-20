@@ -40,11 +40,11 @@ namespace Unisangil.CYLTRACK.CYLTRACK_WCF_Services
         /// </summary>
         /// <param name="cilindro">Objeto de negocio cilindro</param>
         /// <returns>Código interno del Cilindro</returns>
-        public List<CilindroBE> ConsultarCilindro()
+        public List<CilindroBE> ConsultarCilindro(CilindroBE cilindro)
         {
-            List<CilindroBE> resp;
+            List<CilindroBE> resp ;
             CilindroBL consultarCil = new CilindroBL();
-            resp = consultarCil.ConsultarCilindro();
+            resp = consultarCil.ConsultarCilindro(cilindro);
             return resp;
         }
 
@@ -54,9 +54,9 @@ namespace Unisangil.CYLTRACK.CYLTRACK_WCF_Services
         /// </summary>
         /// <param name="cilindro">Objeto de negocio cilindro</param>
         /// <returns>Código interno del Cilindro</returns>
-        public String AsignarUbicacion(CilindroBE cilindro)
+        public List<CilindroBE> AsignarUbicacion(CilindroBE cilindro)
         {
-            String resp ;
+            List<CilindroBE> resp ;
             CilindroBL asignarUbica = new CilindroBL();
             resp = asignarUbica.AsignarUbicacion(cilindro);
             return resp;
