@@ -36,7 +36,7 @@ namespace Unisangil.CYLTRACK.CYLTRACK_WCF_Services
         /// <param name="cilindro">Objeto de negocio cilindro</param>
         /// <returns>código cilindro</returns>
         [OperationContract]
-        List<CilindroBE> ConsultarCilindro();
+        List<CilindroBE> ConsultarCilindro(CilindroBE cilindro);
 
 
         /// <summary>
@@ -46,7 +46,7 @@ namespace Unisangil.CYLTRACK.CYLTRACK_WCF_Services
         /// <param name="cilindro">Objeto de negocio cilindro</param>
         /// <returns>código cilindro</returns>
         [OperationContract]
-        String AsignarUbicacion(CilindroBE cilindro);
+        List<CilindroBE> AsignarUbicacion(CilindroBE cilindro);
 
 
         /// <summary>
