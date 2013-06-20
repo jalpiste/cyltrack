@@ -82,9 +82,27 @@ namespace Unisangil.CYLTRACK.CYLTRACK_BL
             return lstCil;
         }
 
-        public String AsignarUbicacion(CilindroBE cilindro)
+        public List<CilindroBE> AsignarUbicacion(CilindroBE cilindro)
         {
-            return "Ok";
+            List<CilindroBE> lstAsig = new List<CilindroBE>();
+            CilindroBE cil = new CilindroBE();
+
+            Tipo_UbicacionBE tipUbi = new Tipo_UbicacionBE();
+            tipUbi.Nombre_Ubicacion = "Vehiculo";
+            cil.Tipo_Ubicacion = tipUbi;
+            ConductorBE cond = new ConductorBE();
+            cond.Nombres_Conductor = "Jaime Niño";
+            VehiculoBE veh = new VehiculoBE();
+            veh.Conductor = cond;
+            cil.Vehiculo = veh;            
+            cil.Vehiculo.Placa = "CHE987";
+            RutaBE ruta = new RutaBE();
+            ruta.Nombre_Ruta = "Chiqqrá-Ubate";
+            cil.Vehiculo.Ruta = ruta;
+            lstAsig.Add(cil);
+           
+
+            return lstAsig;
         }
 
         public List<CilindroBE> CargueyDescargueCilindro(CilindroBE cilindro)
