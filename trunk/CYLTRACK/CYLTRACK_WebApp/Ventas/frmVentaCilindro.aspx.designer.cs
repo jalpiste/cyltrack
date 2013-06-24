@@ -319,58 +319,22 @@ namespace Unisangil.CYLTRACK.CYLTRACK_WebApp.Ventas {
         protected global::System.Web.UI.WebControls.TextBox txtTipoCil;
         
         /// <summary>
-        /// Control lblCilindroPedido.
+        /// Control gvCargue.
         /// </summary>
         /// <remarks>
         /// Campo generado automáticamente.
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Label lblCilindroPedido;
+        protected global::System.Web.UI.WebControls.GridView gvCargue;
         
         /// <summary>
-        /// Control lblTamanoCil.
+        /// Control gdAdd.
         /// </summary>
         /// <remarks>
         /// Campo generado automáticamente.
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Label lblTamanoCil;
-        
-        /// <summary>
-        /// Control LstCodigos.
-        /// </summary>
-        /// <remarks>
-        /// Campo generado automáticamente.
-        /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.ListBox LstCodigos;
-        
-        /// <summary>
-        /// Control LstCodigosRequired.
-        /// </summary>
-        /// <remarks>
-        /// Campo generado automáticamente.
-        /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.RequiredFieldValidator LstCodigosRequired;
-        
-        /// <summary>
-        /// Control TxtTamanoCil.
-        /// </summary>
-        /// <remarks>
-        /// Campo generado automáticamente.
-        /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox TxtTamanoCil;
-        
-        /// <summary>
-        /// Control TxtTamanoCilRequired.
-        /// </summary>
-        /// <remarks>
-        /// Campo generado automáticamente.
-        /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.RequiredFieldValidator TxtTamanoCilRequired;
+        protected global::System.Web.UI.WebControls.GridView gdAdd;
         
         /// <summary>
         /// Control lblObservacion.
