@@ -9,6 +9,12 @@
                 <fieldset class="login">
                     <legend>Agregar Nueva Ubicación Cliente</legend>
                    <p>
+
+                       &nbsp;<asp:ValidationSummary ID="NuevaUbicValidationSummary" runat="server" CssClass="failureNotification" 
+                 ValidationGroup="NuevaUbic" Font-Size = "Small"/>
+
+                       <p>
+
                        <asp:Label ID="lblNuevaDireccion" runat="server" Text="Nueva Dirección: "></asp:Label>
                        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
                       <asp:Label ID="lblNuevoBarrio" runat="server" Text="Barrio:"></asp:Label>
@@ -16,20 +22,48 @@
                       <asp:Label ID="lblTelefono" runat="server" Text="Teléfono:"></asp:Label>
                       <br />
                       <asp:TextBox ID="txtNuevaDireccion" CssClass="textEntry"  runat="server"></asp:TextBox>
-               
+                      <asp:RequiredFieldValidator ID="ValidarDir" runat="server" ControlToValidate="txtNuevaDireccion" CssClass="failureNotification" 
+                     ErrorMessage="La nueva dirección del cliente es obligatoria." ToolTip="La nueva dirección del cliente es obligatoria." 
+                     ValidationGroup="NuevaUbic">*</asp:RequiredFieldValidator>
+                     <asp:RegularExpressionValidator ID="ValidarDatosDir" runat="server" ControlToValidate="txtNuevaDireccion" 
+                    CssClass="failureNotification" ErrorMessage="La dirección debe contener sólo caracteres alfanuméricos. Ej, Calle 43 N 2 56"  
+                    ValidationGroup="NuevaUbic" ValidationExpression="\w" >*</asp:RegularExpressionValidator>
+                    
                        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+
                        <asp:TextBox ID="txtNuevoBarrio" CssClass="textEntry" runat="server"></asp:TextBox>
+                       <asp:RequiredFieldValidator ID="ValidarBarrio" runat="server" ControlToValidate="txtNuevoBarrio" CssClass="failureNotification" 
+                     ErrorMessage="El nombre del barrio es obligatorio." ToolTip="El nombre del barrio es obligatorio." 
+                     ValidationGroup="NuevaUbic">*</asp:RequiredFieldValidator>
+                    <asp:RegularExpressionValidator ID="ValidarDatosBarrio" runat="server" ControlToValidate="txtNuevoBarrio" 
+                    CssClass="failureNotification" ErrorMessage="El barrio debe contener sólo caracteres alfabéticos." 
+                        ValidationExpression="^([A-Za-z]{0,20})$"  
+                    ValidationGroup="NuevaUbic" >*</asp:RegularExpressionValidator>
+                    
                        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
                        <asp:TextBox ID="txtTelefono" CssClass="textEntry" runat="server"></asp:TextBox>
+                        <asp:RequiredFieldValidator ID="ValidarTel" runat="server" ControlToValidate="txtTelefono" CssClass="failureNotification" 
+                     ErrorMessage="El teléfono del cliente es obligatorio." ToolTip="El teléfono del cliente es obligatorio." 
+                     ValidationGroup="NuevaUbic"> * </asp:RequiredFieldValidator>
+                     <asp:RegularExpressionValidator ID="ValidarDatosTel" runat="server" ControlToValidate="txtTelefono" 
+                    CssClass="failureNotification" ErrorMessage="El número de teléfono (fijo o móvil) debe contener entre 7 y 10 dígitos." 
+                        ValidationExpression="^([\d]{7,10})$"  ToolTip="Sólo caractéres numéricos." 
+                    ValidationGroup="NuevaUbic" >*</asp:RegularExpressionValidator>
+                     
                </p>
                <p>
                <asp:Label ID="lblDepartamento" runat="server" AssociatedControlID="lstDepartamento" 
                             Width="679px">Departamento:</asp:Label>
                             <br />
-               <asp:ListBox ID="lstDepartamento" runat="server" Rows="1">
+               <asp:ListBox ID="lstDepartamento" runat="server" Rows="1" 
+                       onselectedindexchanged="lstDepartamento_SelectedIndexChanged">
                             <asp:ListItem>Boyacá</asp:ListItem>
                             <asp:ListItem>Cundinamarca</asp:ListItem>
                         </asp:ListBox>
+                           <asp:RequiredFieldValidator ID="ValidarDep" runat="server" ControlToValidate="lstDepartamento" CssClass="failureNotification" 
+                     ErrorMessage="La selección del departamento es obligatoria." ToolTip="La selección del departamento es obligatoria." 
+                     ValidationGroup="NuevaUbic"> * </asp:RequiredFieldValidator>
+                     
                         <br />
                <asp:Label ID="lblCiudad" runat="server" AssociatedControlID="LstCiudad" Width="685px" >Ciudad:</asp:Label>
                         <br />
@@ -38,6 +72,10 @@
                             <asp:ListItem>Bogotá</asp:ListItem>
                             <asp:ListItem>Tunja</asp:ListItem>
                         </asp:ListBox>
+                     <asp:RequiredFieldValidator ID="ValidarCiudad" runat="server" ControlToValidate="lstCiudad" CssClass="failureNotification" 
+                     ErrorMessage="La selección de la ciudad es obligatoria." ToolTip="La selección de la ciudad es obligatoria." 
+                     ValidationGroup="NuevaUbic"> * </asp:RequiredFieldValidator>
+                     
               </p> 
 
                 </fieldset>
@@ -46,7 +84,7 @@
                         onclick="btnLimpiar_Click"/> 
                     &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; &nbsp; 
                     <asp:Button ID="btnGuardar" runat="server" Text="Guardar" 
-                        Width="115px" onclick="btnGuardar_Click" />  
+                        Width="115px" onclick="btnGuardar_Click" ValidationGroup="NuevaUbic"/>  
                     &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; &nbsp;  
                     <asp:Button ID="btnAtras" runat="server" Text="Atrás" 
                         Width="115px" onclick="btnAtras_Click" /> 

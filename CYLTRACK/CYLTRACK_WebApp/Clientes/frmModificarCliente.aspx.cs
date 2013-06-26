@@ -5,6 +5,8 @@ using System.Web;
 using System.Web.UI;
 using System.Web.UI.WebControls;
 using Unisangil.CYLTRACK.CYLTRACK_BE;
+using CYLTRACK_WebApp.ClienteService;
+using System.Windows.Forms;
 
 namespace Unisangil.CYLTRACK.CYLTRACK_WebApp.Account.Clientes
 {
@@ -12,47 +14,114 @@ namespace Unisangil.CYLTRACK.CYLTRACK_WebApp.Account.Clientes
     {
         protected void Page_Load(object sender, EventArgs e)
         {
+            txtCedula.Focus();
             hprNuevaUbicacion.NavigateUrl = "frmNuevaUbicacion.aspx?ReturnUrl=" + HttpUtility.UrlEncode(Request.QueryString["ReturnUrl"]);
+
         }
 
 
         protected void txtCedula_TextChanged(object sender, EventArgs e)
         {
+            txtCedulaCli.Focus();
+           
+            ClienteServiceClient servCliente = new ClienteServiceClient();
+            ClienteBE consultar_cli = new ClienteBE();
+           
+           
+            try
+            {
+                consultar_cli.Cedula = txtCedula.Text;
+                ClienteBE[] consulta = servCliente.Consultar_Cliente(consultar_cli);
 
-            //ClienteBE consultar_cli = new ClienteBE();
+               foreach (ClienteBE info in consulta)
+               {
 
-            //txtNombreCliente.Text = consultar_cli.Nombres_Cliente;
-            //txtPrimerApellido.Text = consultar_cli.Apellido_1;
-            //txtSegundoApellido.Text = consultar_cli.Apellido_2;
-            //txtDireccion.Text = consultar_cli.Ubicacion.Direccion;
-            //txtBarrio.Text = consultar_cli.Ubicacion.Barrio;
-            //lstDepartamento.Text = consultar_cli.Ciudad.Departamento.Nombre_Departamento;
-            //lstCiudad.Text = consultar_cli.Ciudad.Nombre_Ciudad;
-            //txtTelefono.Text = consultar_cli.Ubicacion.Telefono_1;
+                   if(info.Cedula != txtCedula.Text)
+                   {
 
-            divInfoCliente.Visible = true;
-            btnGuardar.Visible = true;
+                   txtCedulaCli.Text = info.Cedula;
+                   txtNombreCliente.Text = info.Nombres_Cliente;
+                   txtPrimerApellido.Text = info.Apellido_1;
+                   txtSegundoApellido.Text = info.Apellido_2;
+                   txtDireccion.Text = info.Ubicacion.Direccion;
+                   txtBarrio.Text = info.Ubicacion.Barrio;
+                   lstDepartamento.Items.Add(info.Ciudad.Departamento.Nombre_Departamento);
+                   lstCiudad.Items.Add(info.Ciudad.Nombre_Ciudad);
+                   txtTelefono.Text = info.Ubicacion.Telefono_1;
+
+
+                   divInfoCliente.Visible = true;
+                   btnGuardar.Visible = true;
+                   txtCedula.Text = "";
+                   }
+                   else
+                   {
+                       MessageBox.Show("El cliente no se encuentra registrado en el sistema", "Modificar Cliente");
+                   }
+             
+               }
+           }
+           catch (Exception ex)
+           {
+               Response.Redirect("~/About.aspx");
+           }
+           finally
+            {
+                servCliente.Close();
+            }
         }
+
+        
 
         protected void btnGuardar_Click(object sender, EventArgs e)
         {
+            ClienteServiceClient servCliente = new ClienteServiceClient();
+            String resp;
 
+            ClienteBE modificar_cli = new ClienteBE();
 
+            try
+            {
 
-            //ClienteBE modificar_cli = new ClienteBE();
+                modificar_cli.Nombres_Cliente = txtNombreCliente.Text;
+                modificar_cli.Apellido_1 = txtPrimerApellido.Text;
+                modificar_cli.Apellido_2 = txtSegundoApellido.Text;
 
-            //modificar_cli.Nombres_Cliente = txtNombreCliente.Text;
-            //modificar_cli.Apellido_1 = txtPrimerApellido.Text;
-            //modificar_cli.Apellido_2 = txtSegundoApellido.Text;
-            //modificar_cli.Ubicacion.Direccion = txtDireccion.Text;
-            //modificar_cli.Ubicacion.Barrio = txtBarrio.Text;
-            //modificar_cli.Ciudad.Departamento.Nombre_Departamento = lstDepartamento.Text;
-            //modificar_cli.Ciudad.Nombre_Ciudad = lstCiudad.Text;
-            //modificar_cli.Ubicacion.Telefono_1 = txtTelefono.Text; 
+                UbicacionBE ubicli = new UbicacionBE();
+                ubicli.Direccion = txtDireccion.Text;
+                ubicli.Barrio = txtBarrio.Text;
+                ubicli.Telefono_1 = txtTelefono.Text;
+                modificar_cli.Ubicacion = ubicli;
+
+                CiudadBE ciucli = new CiudadBE();
+                ciucli.Nombre_Ciudad = lstCiudad.SelectedValue;
+                modificar_cli.Ciudad = ciucli;
+
+                DepartamentoBE depcli = new DepartamentoBE();
+                depcli.Nombre_Departamento = lstDepartamento.SelectedValue;
+                ciucli.Departamento = depcli;
             
+                divInfoCliente.Visible = false;
+                btnGuardar.Visible = false;
+                txtCedula.Text = "";
+                
+                resp = servCliente.Modificar_Cliente(modificar_cli);
 
-            Response.Write("<script type='text/javascript'> alert('Sus datos fueron enviados satisfactoriamente') </script>");
-            //Response.Redirect("~/Cliente/frmModificarCliente.aspx");
+                if (resp == "Ok")
+                {
+                    MessageBox.Show("El cliente fue modificado satisfactoriamente", "Modificar Cliente");
+                }
+            }
+            catch (Exception ex)
+            {
+                Response.Redirect("~/About.aspx");
+            }
+
+            finally
+            {
+                servCliente.Close();
+                Response.Redirect("~/Clientes/frmModificarCliente.aspx");
+            }
         }
 
         protected void btnMenuPrincipal_Click(object sender, EventArgs e)
@@ -62,7 +131,25 @@ namespace Unisangil.CYLTRACK.CYLTRACK_WebApp.Account.Clientes
 
         protected void btnLimpiar_Click(object sender, EventArgs e)
         {
+            //txtNombreCliente.Focus();
+            //txtNombreCliente.Text = "";
+            //txtPrimerApellido.Text = "";
+            //txtSegundoApellido.Text = "";
+            //txtDireccion.Text = "";
+            //txtBarrio.Text = "";
+            //lstDepartamento.Text = "Seleccionar...";
+            //lstCiudad.Text = "Seleccionar...";
+            //txtTelefono.Text = "";
+        }
 
+        protected void lstDepartamento_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            lstCiudad.Focus();
+        }
+
+        protected void lstCiudad_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            txtTelefono.Focus();
         }
 
     }

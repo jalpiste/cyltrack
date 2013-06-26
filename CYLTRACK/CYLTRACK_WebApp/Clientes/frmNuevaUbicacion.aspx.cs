@@ -4,7 +4,9 @@ using System.Linq;
 using System.Web;
 using System.Web.UI;
 using System.Web.UI.WebControls;
-using Unisangil.CYLTRACK.CYLTRACK_BE; 
+using Unisangil.CYLTRACK.CYLTRACK_BE;
+using CYLTRACK_WebApp.ClienteService;
+using System.Windows.Forms;
 
 namespace Unisangil.CYLTRACK.CYLTRACK_WebApp.Clientes
 {
@@ -12,7 +14,7 @@ namespace Unisangil.CYLTRACK.CYLTRACK_WebApp.Clientes
     {
         protected void Page_Load(object sender, EventArgs e)
         {
-
+            txtNuevaDireccion.Focus();
         }
 
         protected void btnLimpiar_Click(object sender, EventArgs e)
@@ -22,21 +24,55 @@ namespace Unisangil.CYLTRACK.CYLTRACK_WebApp.Clientes
 
         protected void btnGuardar_Click(object sender, EventArgs e)
         {
-            //ClienteBE registrar_ubi = new ClienteBE();
 
-            //registrar_ubi.Ubicacion.Direccion = Convert.ToString(txtNuevaDireccion.Text);
-            //registrar_ubi.Ubicacion.Barrio = Convert.ToString(txtNuevoBarrio.Text);
-            //registrar_ubi.Ubicacion.Telefono_2 = Convert.ToString(txtTelefono.Text);
-            //registrar_ubi.Ciudad.Departamento.Nombre_Departamento = Convert.ToString(lstDepartamento.SelectedValue);
-            //registrar_ubi.Ciudad.Nombre_Ciudad = Convert.ToString(lstCiudad.SelectedValue);
+            ClienteServiceClient servCliente = new ClienteServiceClient();
+            String resp;
+            ClienteBE registrar_ubi = new ClienteBE();
 
+            try
+            {
+                UbicacionBE ubi = new UbicacionBE();
+                ubi.Direccion = txtNuevaDireccion.Text;
+                ubi.Barrio = txtNuevoBarrio.Text;
+                ubi.Telefono_2 = txtTelefono.Text;
+                registrar_ubi.Ubicacion = ubi;
 
-            Response.Write("<script type='text/javascript'> alert('Sus datos fueron enviados satisfactoriamente') </script>");
+                CiudadBE ciucli = new CiudadBE();
+                ciucli.Nombre_Ciudad = lstCiudad.SelectedValue;
+                registrar_ubi.Ciudad = ciucli;
+
+                DepartamentoBE depcli = new DepartamentoBE();
+                depcli.Nombre_Departamento = lstDepartamento.SelectedValue;
+                ciucli.Departamento = depcli;
+                
+                resp = servCliente.Agregar_Ubicacion(registrar_ubi);
+
+                if (resp == "Ok")
+                {
+                    MessageBox.Show("La nueva ubicación fue registrada satisfactoriamente", "Registrar Nueva Ubicación");
+                }
+                
+            }
+            catch (Exception ex)
+            {
+                Response.Redirect("~/About.aspx");
+            }
+            finally
+            {
+                servCliente.Close();
+                Response.Redirect("~/Clientes/frmNuevaUbicacion.aspx");
+            }
+
         }
 
         protected void btnAtras_Click(object sender, EventArgs e)
         {
             Response.Redirect("~/Clientes/frmModificarCliente.aspx");
+        }
+
+        protected void lstDepartamento_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            lstCiudad.Focus();
         }
     }
 }

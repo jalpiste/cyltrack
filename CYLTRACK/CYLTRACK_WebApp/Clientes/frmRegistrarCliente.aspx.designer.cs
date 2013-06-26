@@ -22,6 +22,15 @@ namespace Unisangil.CYLTRACK.CYLTRACK_WebApp.Account {
         protected global::System.Web.UI.WebControls.ValidationSummary RegistrarClienteValidationSummary;
         
         /// <summary>
+        /// Control ValidarCedulaValidationSummary.
+        /// </summary>
+        /// <remarks>
+        /// Campo generado automáticamente.
+        /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.ValidationSummary ValidarCedulaValidationSummary;
+        
+        /// <summary>
         /// Control lblCedula.
         /// </summary>
         /// <remarks>
@@ -49,6 +58,15 @@ namespace Unisangil.CYLTRACK.CYLTRACK_WebApp.Account {
         protected global::System.Web.UI.WebControls.RequiredFieldValidator txtCedulaRequired;
         
         /// <summary>
+        /// Control ValidarDatosCedula.
+        /// </summary>
+        /// <remarks>
+        /// Campo generado automáticamente.
+        /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.RegularExpressionValidator ValidarDatosCedula;
+        
+        /// <summary>
         /// Control divInfoCliente.
         /// </summary>
         /// <remarks>
@@ -56,6 +74,33 @@ namespace Unisangil.CYLTRACK.CYLTRACK_WebApp.Account {
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
         protected global::System.Web.UI.HtmlControls.HtmlGenericControl divInfoCliente;
+        
+        /// <summary>
+        /// Control lblCedulaCli.
+        /// </summary>
+        /// <remarks>
+        /// Campo generado automáticamente.
+        /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Label lblCedulaCli;
+        
+        /// <summary>
+        /// Control txtCedulaCli.
+        /// </summary>
+        /// <remarks>
+        /// Campo generado automáticamente.
+        /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.TextBox txtCedulaCli;
+        
+        /// <summary>
+        /// Control ValidarCedulaCli.
+        /// </summary>
+        /// <remarks>
+        /// Campo generado automáticamente.
+        /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.RequiredFieldValidator ValidarCedulaCli;
         
         /// <summary>
         /// Control lblNombreCliente.
@@ -83,6 +128,15 @@ namespace Unisangil.CYLTRACK.CYLTRACK_WebApp.Account {
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
         protected global::System.Web.UI.WebControls.RequiredFieldValidator txtNombreClienteRequired;
+        
+        /// <summary>
+        /// Control ValidarDatosNom.
+        /// </summary>
+        /// <remarks>
+        /// Campo generado automáticamente.
+        /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.RegularExpressionValidator ValidarDatosNom;
         
         /// <summary>
         /// Control lblPrimerApellido.
@@ -121,6 +175,15 @@ namespace Unisangil.CYLTRACK.CYLTRACK_WebApp.Account {
         protected global::System.Web.UI.WebControls.RequiredFieldValidator txtPrimerApellidoRequired;
         
         /// <summary>
+        /// Control ValidarDatosApe.
+        /// </summary>
+        /// <remarks>
+        /// Campo generado automáticamente.
+        /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.RegularExpressionValidator ValidarDatosApe;
+        
+        /// <summary>
         /// Control txtSegundoApellido.
         /// </summary>
         /// <remarks>
@@ -128,6 +191,15 @@ namespace Unisangil.CYLTRACK.CYLTRACK_WebApp.Account {
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
         protected global::System.Web.UI.WebControls.TextBox txtSegundoApellido;
+        
+        /// <summary>
+        /// Control ValidarDatosApe2.
+        /// </summary>
+        /// <remarks>
+        /// Campo generado automáticamente.
+        /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.RegularExpressionValidator ValidarDatosApe2;
         
         /// <summary>
         /// Control lblDireccion.
@@ -166,6 +238,15 @@ namespace Unisangil.CYLTRACK.CYLTRACK_WebApp.Account {
         protected global::System.Web.UI.WebControls.RequiredFieldValidator txtDirecciónRequired;
         
         /// <summary>
+        /// Control ValidarDatosDir.
+        /// </summary>
+        /// <remarks>
+        /// Campo generado automáticamente.
+        /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.RegularExpressionValidator ValidarDatosDir;
+        
+        /// <summary>
         /// Control txtBarrio.
         /// </summary>
         /// <remarks>
@@ -182,6 +263,15 @@ namespace Unisangil.CYLTRACK.CYLTRACK_WebApp.Account {
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
         protected global::System.Web.UI.WebControls.RequiredFieldValidator txtBarrioRequired;
+        
+        /// <summary>
+        /// Control ValidarDatosBarrio.
+        /// </summary>
+        /// <remarks>
+        /// Campo generado automáticamente.
+        /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.RegularExpressionValidator ValidarDatosBarrio;
         
         /// <summary>
         /// Control lblDepartamento.
@@ -263,6 +353,15 @@ namespace Unisangil.CYLTRACK.CYLTRACK_WebApp.Account {
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
         protected global::System.Web.UI.WebControls.RequiredFieldValidator txtTelefonoRequiredField;
+        
+        /// <summary>
+        /// Control ValidarDatosTel.
+        /// </summary>
+        /// <remarks>
+        /// Campo generado automáticamente.
+        /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.RegularExpressionValidator ValidarDatosTel;
         
         /// <summary>
         /// Control btnLimpiar.
