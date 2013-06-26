@@ -8,7 +8,7 @@
         Consultar Cliente
     </h1>
        <asp:ValidationSummary ID="ConsultarClienteValidationSummary" runat="server" CssClass="failureNotification" 
-                 ValidationGroup="ConsultarClienteValidationGroup"/>
+                 ValidationGroup="ConsultarClienteValidationGroup" Font-Size = "Small"/>
             <div class="accountInfo">
                 <fieldset class="login">
                     <legend>Consulta de Clientes</legend>
@@ -16,13 +16,22 @@
                         <asp:Label ID="lblCedula" runat="server" AssociatedControlID="txtCedula" Width="725px">Número de Cédula:</asp:Label><br />
                         <asp:TextBox ID="txtCedula" runat="server" CssClass="textEntry" Width="197px" 
                                            ontextchanged="txtCedula_TextChanged"></asp:TextBox>
-                        <asp:RequiredFieldValidator ID="txtCedulaRequired" runat="server" ControlToValidate="txtCedula" 
-                             CssClass="failureNotification" ErrorMessage="La cedula del cliente es obligatorio." ToolTip="La cedula del cliente es obligatorio." 
-                             ValidationGroup="ConsultarClienteValidationGroup">*</asp:RequiredFieldValidator>
- 
+              <asp:RequiredFieldValidator ID="txtCedulaRequired" runat="server" ControlToValidate="txtCedula" 
+                             CssClass="failureNotification" ErrorMessage="El número de cédula del cliente es obligatorio." ToolTip="El número de cédula del cliente es obligatorio." 
+                             ValidationGroup="ConsultarClienteValidationGroup" Font-Size = "Small" Display ="Dynamic"></asp:RequiredFieldValidator>
+                        <asp:RegularExpressionValidator ID="ValidarDatosCedula" runat="server" ControlToValidate="txtCedula" 
+                            CssClass="failureNotification" ErrorMessage="El número de cédula debe contener entre 6 y 10 dígitos." 
+                            ValidationExpression="^([\d]{6,10})$"  Font-Size = "Small" Display ="Dynamic"
+                            ValidationGroup="ConsultarClienteValidationGroup" ></asp:RegularExpressionValidator>
+                    
                     </p>
                     <div id="divInfoCliente" runat="server" visible="false">
                  <div class="post">Datos Personales del Cliente</div>   
+                 <p>
+                        <asp:Label ID="lblCedulaCli" runat="server" >Número de Cédula:</asp:Label><br />
+                        <asp:TextBox ID="txtCedulaCli" runat="server" CssClass="textEntry" enabled="false" Width="197px"></asp:TextBox>
+                    
+                    </p>
                     <p>
                         <asp:Label ID="lblNombreCliente" runat="server" AssociatedControlID="txtNombreCliente">Nombres del cliente:</asp:Label><br />
                         <asp:TextBox ID="txtNombreCliente" runat="server" CssClass="textEntry" Width="197px" Enabled="False"></asp:TextBox>
@@ -30,8 +39,7 @@
                     <p>
                         <asp:Label ID="lblPrimerApellido" runat="server" text="Primer Apellido:"></asp:Label>
                         &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;<asp:Label ID="SegundoApellidoLabel" runat="server" Text="Segundo Apellido:"></asp:Label>
-                    </p>
-                        <p>
+                    <br />
                         <asp:TextBox ID="txtPrimerApellido" runat="server" CssClass="textEntry" Width="197px" Enabled="False"></asp:TextBox>
                             &nbsp;&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;&nbsp;
                             <asp:TextBox ID="txtSegundoApellido" runat="server" CssClass="textEntry" Width="197px" Enabled="False" ></asp:TextBox>
@@ -40,26 +48,25 @@
                         <asp:Label ID="lblDireccion" runat="server" Text="Dirección:  "></asp:Label>
                     &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;
                         <asp:Label ID="lblBarrio" runat="server" Text="Barrio:" ></asp:Label>
-                        </p> 
-                   
-                      <p>
+                        <br />
                         <asp:TextBox ID="txtDireccion" runat="server" CssClass="textEntry"  Width="197px" Enabled="False"></asp:TextBox>
                           &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
                           <asp:TextBox ID="txtBarrio" runat="server" CssClass="textEntry" Width="197px" Enabled="False" ></asp:TextBox>
                     </p> 
-                    <p><asp:Label ID="lblCiudad" runat="server"  >Ciudad:</asp:Label></p>
-                    <p><asp:TextBox ID="txtCiudad" runat="server" CssClass="textEntry" Width="197px" Enabled="False"></asp:TextBox>
+                    <p><asp:Label ID="lblCiudad" runat="server"  >Ciudad:</asp:Label>
+                    <br />
+                    <asp:TextBox ID="txtCiudad" runat="server" CssClass="textEntry" Width="197px" Enabled="False"></asp:TextBox>
                       
                         </p>  
-                        <p><asp:Label ID="lblDepartamento" runat="server" >Departamento:</asp:Label></p>
-                    <p><asp:TextBox ID="txtDepartamento" runat="server" CssClass="textEntry" Width="197px" Enabled="False"></asp:TextBox>
+                        <p><asp:Label ID="lblDepartamento" runat="server" >Departamento:</asp:Label>
+                        <br />
+                        <asp:TextBox ID="txtDepartamento" runat="server" CssClass="textEntry" Width="197px" Enabled="False"></asp:TextBox>
                            
                         </p>
                     
                      <p> 
-                         <asp:Label ID="lblTelefono" runat="server" Text="Telefono:"></asp:Label>
-                    </p>
-                        <p>
+                         <asp:Label ID="lblTelefono" runat="server" Text="Teléfono:"></asp:Label>
+                    <br />
                             <asp:TextBox ID="txtTelefono" runat="server" CssClass="textEntry" Enabled="False"></asp:TextBox>
                     </p>
                     <p>
@@ -69,8 +76,7 @@
                         <asp:Label ID="lblTamano" runat="server" Text="Tamaño: "></asp:Label>
                     &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; &nbsp;&nbsp; &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
                         <asp:Label ID="lblTipoCilindro" runat="server" Text="Tipo de Cilindro: "></asp:Label>
-                    </p>
-                    <p>
+                    <br />
                         <asp:TextBox ID="txtCodigoCilindro" CssClass="textEntry" Enabled="false" runat="server" ></asp:TextBox>
                     &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;
                         <asp:TextBox ID="txtTamano" runat="server" CssClass="textEntry" Enabled="false" ></asp:TextBox>
