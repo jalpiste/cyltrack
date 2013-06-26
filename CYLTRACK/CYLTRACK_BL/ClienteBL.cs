@@ -20,13 +20,13 @@ namespace Unisangil.CYLTRACK.CYLTRACK_BL
         #region Metodos publicos
         public String RegistrarCliente(ClienteBE registrar_cli)
         {
-            String resp = "cliente creado";
+            String resp = "Ok";
             return resp;
         }
         
         public String RegistrarUbicacion(ClienteBE registrar_ubi)
         {
-            String resp = "ubicacion creada";
+            String resp = "Ok";
             return resp;
         }
         
@@ -34,17 +34,33 @@ namespace Unisangil.CYLTRACK.CYLTRACK_BL
         {
             List<ClienteBE> lstCliente = new List<ClienteBE>();
             ClienteBE cliente = new ClienteBE();
-            cliente.Nombres_Cliente = "jaime";
+            cliente.Cedula = "11234238";
+            cliente.Nombres_Cliente = "Jaime";
             cliente.Apellido_1 = "Poveda";
             cliente.Apellido_2 = "Sanchez";
-            cliente.Ubicacion.Direccion = "Calle 17 N 10-30";
-            cliente.Ubicacion.Barrio = "centro";
-            cliente.Ciudad.Nombre_Ciudad = "Chiquinquirá";
-            cliente.Ciudad.Departamento.Nombre_Departamento = "Boyacá";
-            cliente.Ubicacion.Telefono_1 = "3143456789";
-            cliente.Cilindro.Codigo_Cilindro = "8778687687687";
-            cliente.Cilindro.NTamano.Tamano = "40";
-            cliente.Cilindro.Tipo_Cilindro = "marcado";
+
+            UbicacionBE ubi_cli = new UbicacionBE();
+            ubi_cli.Direccion  = "Calle 17 N 10-30";
+            ubi_cli.Barrio = "Centro";
+            ubi_cli.Telefono_1 = "3143456789";
+            cliente.Ubicacion = ubi_cli;
+
+            CiudadBE ciu_cli = new CiudadBE();
+            ciu_cli.Nombre_Ciudad = "Chiquinquirá";
+            cliente.Ciudad = ciu_cli;
+
+            DepartamentoBE dep_cli = new DepartamentoBE();
+            dep_cli.Nombre_Departamento = "Boyacá";
+            ciu_cli.Departamento = dep_cli;
+            
+            CilindroBE cil_cli = new CilindroBE();
+            cil_cli.Codigo_Cilindro = "8778687687687";
+            cil_cli.Tipo_Cilindro = "marcado";
+            cliente.Cilindro = cil_cli;
+
+            TamanoBE tam_cil = new TamanoBE();
+            tam_cil.Tamano = "40";
+            cil_cli.NTamano = tam_cil; 
 
             lstCliente.Add(cliente);
 
@@ -54,7 +70,7 @@ namespace Unisangil.CYLTRACK.CYLTRACK_BL
         public String ModificarCliente(ClienteBE modificar_cli)
         {
             List<ClienteBE> modificar = ConsultarCliente(modificar_cli);
-            String resp = "ok";
+            String resp = "Ok";
             
             return resp;
         }
