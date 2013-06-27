@@ -25,7 +25,7 @@ namespace Unisangil.CYLTRACK.CYLTRACK_BL
         /// <returns></returns>
         public String RegistrarVehiculo(VehiculoBE registrar_vehiculo)
         {
-            String resp = "1";
+            String resp = "Ok";
             return resp;
         }
         /// <summary>
@@ -50,7 +50,20 @@ namespace Unisangil.CYLTRACK.CYLTRACK_BL
             vehiculo.Apellido_1_Prop = "Colón";
             vehiculo.Apellido_2_Prop = "Mendieta";
             //--------------------------------
-            vehiculo.Ruta.Nombre_Ruta = "Chiquinquirá-Ubaté";
+            Conductor_VehiculoBE cond = new Conductor_VehiculoBE();
+            vehiculo.Conductor_Vehiculo = cond;
+
+            ConductorBE conductor = new ConductorBE();
+            conductor.Cedula = "19080347";
+            conductor.Nombres_Conductor = "Pablo";
+            conductor.Apellido_1 = "Pérez";
+            conductor.Apellido_2 = "Pinto";
+            cond.Conductor = conductor;
+
+            //--------------------------------
+            RutaBE ruta = new RutaBE();
+            ruta.Nombre_Ruta = "Chiquinquirá-Ubaté";
+            vehiculo.Ruta = ruta;
 
             lstVehiculo.Add(vehiculo);
             return lstVehiculo;
@@ -64,7 +77,7 @@ namespace Unisangil.CYLTRACK.CYLTRACK_BL
         {
             List<VehiculoBE> consulta = ConsultarVehiculo(modificar_vehiculo);
             List<VehiculoBE> conductor = ConsultarConductor(modificar_vehiculo);
-            String resp = "Vehículo Modificado";
+            String resp = "Ok";
             return resp;
         }
         /// <summary>
@@ -77,10 +90,16 @@ namespace Unisangil.CYLTRACK.CYLTRACK_BL
             List<VehiculoBE> lstConductor = new List<VehiculoBE>();
             VehiculoBE conductor = new VehiculoBE();
 
-            conductor.Conductor_Vehiculo.Conductor.Cedula = "11242779";
-            conductor.Conductor_Vehiculo.Conductor.Nombres_Conductor = "Daniel";
-            conductor.Conductor_Vehiculo.Conductor.Apellido_1 = "López";
-            conductor.Conductor_Vehiculo.Conductor.Apellido_2 = "Barinas";
+
+            Conductor_VehiculoBE cond_veh = new Conductor_VehiculoBE();
+            conductor.Conductor_Vehiculo = cond_veh;
+
+            ConductorBE cond = new ConductorBE();
+            cond.Cedula = "11242779";
+            cond.Nombres_Conductor = "Daniel";
+            cond.Apellido_1 = "López";
+            cond.Apellido_2 = "Barinas";
+            cond_veh.Conductor = cond;
 
             lstConductor.Add(conductor);
             return lstConductor;
