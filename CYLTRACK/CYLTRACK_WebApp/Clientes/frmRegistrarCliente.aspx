@@ -39,7 +39,7 @@
                              ValidationGroup="RegistrarClienteValidationGroup">*</asp:RequiredFieldValidator>
                      </p>
                     <p>
-                        <asp:Label ID="lblNombreCliente" runat="server" AssociatedControlID="txtNombreCliente" >Nombres del cliente:</asp:Label><br />
+                        <asp:Label ID="lblNombreCliente" runat="server" AssociatedControlID="txtNombreCliente" >Nombre del cliente:</asp:Label><br />
                         <asp:TextBox ID="txtNombreCliente" runat="server" CssClass="textEntry" Width="197px" ></asp:TextBox>
                         <asp:RequiredFieldValidator ID="txtNombreClienteRequired" runat="server" ControlToValidate="txtNombreCliente" 
                              CssClass="failureNotification" ErrorMessage="El nombre del cliente es obligatorio." ToolTip="El nombre del cliente es obligatorio." 
