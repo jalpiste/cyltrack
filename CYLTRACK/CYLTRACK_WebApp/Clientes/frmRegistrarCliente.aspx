@@ -76,7 +76,7 @@
                     
                             
                     </p> 
-                    <p>
+                    <p validationexpression="\w">
                         <asp:Label ID="lblDireccion" runat="server" Text="Dirección:  " ></asp:Label>
                     &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; &nbsp; &nbsp;
                         <asp:Label ID="lblBarrio" runat="server" Text="Barrio:"  ></asp:Label>
@@ -88,7 +88,7 @@
                     <asp:RegularExpressionValidator ID="ValidarDatosDir" runat="server" ControlToValidate="txtDireccion" 
                     CssClass="failureNotification" ErrorMessage="La dirección debe contener sólo caracteres alfanuméricos. Ej, Calle 43 N 2 56"  
                     ValidationGroup="RegistrarClienteValidationGroup" 
-                            ValidationExpression="\w" >*</asp:RegularExpressionValidator>
+                            ValidationExpression="\w{1,20}\ \d{1,3}\ N \d{1,3}\ \d{1,3}">*</asp:RegularExpressionValidator>
                     
                           &nbsp;&nbsp;&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;
                           <asp:TextBox ID="txtBarrio" runat="server" CssClass="textEntry" 
