@@ -53,7 +53,7 @@ namespace Unisangil.CYLTRACK.CYLTRACK_WCF_Services
         /// <param name="ventas">Objeto de negocio ventas</param>
         /// <returns>cédula del cliente</returns>
         [OperationContract]
-        String CasosEspeciales(VentaBE ventas);
+        String CasosEspeciales(CasosBE casos);
 
     }
 }

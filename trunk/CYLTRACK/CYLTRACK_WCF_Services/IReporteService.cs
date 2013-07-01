@@ -26,7 +26,7 @@ namespace Unisangil.CYLTRACK.CYLTRACK_WCF_Services
         /// <param name="reporte">Objeto de negocio reporte</param>
         /// <returns>código del cilindro</returns>
         [OperationContract]
-        long HistoricoCilindro(ReportesBE reporte);
+        List<ReportesBE> HistoricoCilindro(ReportesBE reporte);
 
         /// <summary>
         /// Método encargado de la consulta del inventario de cilindros en el sistema. Permite
@@ -34,7 +34,7 @@ namespace Unisangil.CYLTRACK.CYLTRACK_WCF_Services
         /// </summary>
         /// <param name="reporte">Objeto de negocio reporte</param>
         [OperationContract]
-        long Inventario(ReportesBE reporte);
+        List<ReportesBE> Inventario(ReportesBE reporte);
 
     }
 }

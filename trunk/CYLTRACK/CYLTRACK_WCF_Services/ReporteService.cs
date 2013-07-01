@@ -23,9 +23,9 @@ namespace Unisangil.CYLTRACK.CYLTRACK_WCF_Services
         /// </summary>
         /// <param name="reporte">Objeto de negocio Reporte</param>
         /// <returns>codigo cilindro</returns>
-        public long HistoricoCilindro(ReportesBE reporte)
+        public List<ReportesBE> HistoricoCilindro(ReportesBE reporte)
         {
-            long resp = 0;
+            List<ReportesBE> resp ;
             ReporteBL historicoCil = new ReporteBL();
             resp = historicoCil.HistoricoCilindro(reporte);
             return resp;
@@ -38,9 +38,9 @@ namespace Unisangil.CYLTRACK.CYLTRACK_WCF_Services
         /// </summary>
         /// <param name="reporte">Objeto de negocio Reporte</param>
         /// <returns>Datos Cilindros</returns>
-        public long Inventario(ReportesBE reporte)
+        public List<ReportesBE> Inventario(ReportesBE reporte)
         {
-            long resp = 0;
+            List<ReportesBE> resp;
             ReporteBL inventario = new ReporteBL();
             resp = inventario.Inventario(reporte);
             return resp;
