@@ -1,10 +1,6 @@
 ﻿<%@ Page Language="C#" AutoEventWireup="true"  MasterPageFile="~/Site.Master" CodeBehind="frmConsultarCilindro.aspx.cs" Inherits="Unisangil.CYLTRACK.CYLTRACK_WebApp.Cilindros.frmConsultarCilindro" %>
-
-
 <asp:Content ID="HeaderContent" runat="server" ContentPlaceHolderID="HeadContent">
-
 </asp:Content>
-
 <asp:Content ID="BodyContent" runat="server" ContentPlaceHolderID="MainContent">
        <h1 style="margin-top: 75px">
         Consultar Cilindro
@@ -13,16 +9,17 @@
                  ValidationGroup="ConsultaCilindro"/>
             <div class="accountInfo">
              <fieldset class="login">
-
-                    <legend>Consulta de Cilindros</legend>
-                                   <p>
+                  <legend>Consulta de Cilindros</legend>
+                     <p>
                         <asp:Label ID="lblCodigoCilindro" runat="server" AssociatedControlID="txtCodigoCilindro">Código Cilindro:</asp:Label><br />
                         <asp:TextBox ID="txtCodigoCilindro" runat="server" CssClass="textEntry" 
                             Width="197px" ontextchanged="txtCodigoCilindro_TextChanged"  ></asp:TextBox>
-                    <asp:RequiredFieldValidator ID="txtCodigoCilindroRequired" runat="server" ControlToValidate="txtCodigoCilindro" 
-                             CssClass="failureNotification" ErrorMessage="El codigo del cilindro es obligatorio." ToolTip="El Codigo del Cilindro es obligatorio." 
-                             ValidationGroup="ConsultaCilindro"> * </asp:RequiredFieldValidator>
-                                     
+                    <asp:RequiredFieldValidator ID="validadorCodigo" runat="server" ControlToValidate="txtCodigoCilindro" 
+                       CssClass="failureNotification" ErrorMessage="El codigo del cilindro es obligatorio" ToolTip="El Codigo del Cilindro es obligatorio" 
+                             ValidationGroup="ConsultaCilindro">*</asp:RequiredFieldValidator>
+                       <asp:RegularExpressionValidator ID="validCodigo" runat="server" ControlToValidate="txtCodigoCilindro" 
+                       ValidationExpression="^([\d]{11,12})$" CssClass="failureNotification" Display="Static" Font-Size="Small" ErrorMessage=" El codigo del cilindro debe contener entre 11 y 12 dígitos" ToolTip="El Codigo del Cilindro es obligatorio" 
+                             ValidationGroup="ConsultaCilindro"></asp:RegularExpressionValidator>              
                         </p>
                     <div id="DivDatosCilindro" runat="server" visible="false">
                      <div class="post" >
@@ -57,7 +54,7 @@
                  </p>
                  <p>
                      &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-                        <asp:TextBox ID="TxtRegistro" runat="server" CssClass="textEntry" Enabled="false" Width="80px" ></asp:TextBox>
+                        <asp:TextBox ID="TxtRegistro" runat="server" CssClass="textEntry" Enabled="false"  ></asp:TextBox>
                         </p>
                         <div id="DivInfoCilindro" runat="server" visible="false">
                         <div class="post" >

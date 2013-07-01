@@ -23,19 +23,26 @@ namespace Unisangil.CYLTRACK.CYLTRACK_WebApp.Cilindros
         {
             CilindroServiceClient servCilindro = new CilindroServiceClient();
             CilindroBE cilindro = new CilindroBE();
-            String codigo;
+            CilindroBE [] codigo;
             try {
 
                 cilindro.Codigo_Cilindro = TxtCodigoCilindro.Text;
-                codigo = servCilindro.RegistrarCilindro(cilindro);
-                if (codigo != "Ok")
+                codigo = servCilindro.ConsultarCilindro(cilindro);
+                foreach(CilindroBE datosList in codigo)
                 {
-                    MessageBox.Show("El cilindro ya se encuentra creado en el sistema", "Registrar Cilindro");
+                    if (datosList.Codigo_Cilindro == TxtCodigoCilindro.Text)
+                    {
+                        MessageBox.Show("El cilindro ya se encuentra creado en el sistema", "Registrar Cilindro");
+                    }
+                    else 
+                    {
+                        txtCil.Text = TxtCodigoCilindro.Text;
+                        DivDatosCilindro.Visible = true;
+                        BtnGuardar.Visible = true;
+                    }
+                    
                 }
-
-                DivDatosCilindro.Visible = true;
-                BtnGuardar.Visible = true;
-            }
+           }
             catch (Exception ex)
             {
                 Response.Redirect("~/About.aspx");
@@ -61,7 +68,9 @@ namespace Unisangil.CYLTRACK.CYLTRACK_WebApp.Cilindros
                 cilindro.Id_Cilindro = TxtCodigoCilindro.Text;
                 Tipo_UbicacionBE tipUbica = new Tipo_UbicacionBE();
                 tipUbica.Nombre_Ubicacion= LstUbicacion.SelectedValue;
-                cilindro.Tipo_Ubicacion = tipUbica;
+                UbicacionBE ubi = new UbicacionBE();
+                ubi.Tipo_Ubicacion = tipUbica;
+                cilindro.Ubicacion = ubi;
                 TamanoBE tam = new TamanoBE();
                 tam.Tamano= LstTamano.SelectedValue;
                 cilindro.NTamano = tam;

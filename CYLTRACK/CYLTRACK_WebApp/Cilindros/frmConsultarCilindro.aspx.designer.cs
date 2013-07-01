@@ -40,13 +40,22 @@ namespace Unisangil.CYLTRACK.CYLTRACK_WebApp.Cilindros {
         protected global::System.Web.UI.WebControls.TextBox txtCodigoCilindro;
         
         /// <summary>
-        /// Control txtCodigoCilindroRequired.
+        /// Control validadorCodigo.
         /// </summary>
         /// <remarks>
         /// Campo generado automáticamente.
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.RequiredFieldValidator txtCodigoCilindroRequired;
+        protected global::System.Web.UI.WebControls.RequiredFieldValidator validadorCodigo;
+        
+        /// <summary>
+        /// Control validCodigo.
+        /// </summary>
+        /// <remarks>
+        /// Campo generado automáticamente.
+        /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.RegularExpressionValidator validCodigo;
         
         /// <summary>
         /// Control DivDatosCilindro.

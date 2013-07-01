@@ -43,9 +43,7 @@
                      </asp:ListBox>
                      <br />
                      <br />
-                     
-       
-       
+                      
       <asp:GridView ID="gvCargue" runat="server" AutoGenerateColumns="False" 
                     CellPadding="5" ForeColor="#333333" GridLines="None" Visible="false">
                     <AlternatingRowStyle BackColor="White" />
