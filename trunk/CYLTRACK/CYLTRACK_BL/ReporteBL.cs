@@ -18,14 +18,58 @@ namespace Unisangil.CYLTRACK.CYLTRACK_BL
 
         #endregion
         #region Metodos publicos
-        public long HistoricoCilindro(ReportesBE reporte)
+        public List<ReportesBE> HistoricoCilindro(ReportesBE reporte)
         {
-            return 0;
+            List<ReportesBE> resp = new List<ReportesBE>();
+            ReportesBE report = new ReportesBE();
+            CilindroBE cil = new CilindroBE();
+            TamanoBE tam = new TamanoBE();
+            cil.NTamano = tam;
+            report.Cilindro = cil;
+            report.Cilindro.Codigo_Cilindro = reporte.Cilindro.Codigo_Cilindro;
+            report.Cilindro.NTamano.Tamano = "30";
+            report.Fecha_Reporte = DateTime.Now;
+            UbicacionBE ubi = new UbicacionBE();
+            Tipo_UbicacionBE tipoUbica = new Tipo_UbicacionBE();
+            ubi.Tipo_Ubicacion= tipoUbica;            
+            report.Ubicacion = ubi;
+            report.Ubicacion.Tipo_Ubicacion.Nombre_Ubicacion = "Vehiculo";
+
+            resp.Add(report);
+
+            return resp;
         }
 
-        public long Inventario(ReportesBE reporte)
+        public List<ReportesBE> Inventario(ReportesBE reporte)
         {
-            return 0;
+            List<ReportesBE> resp= new List<ReportesBE>();
+            ReportesBE report = new ReportesBE();
+
+            Tipo_UbicacionBE tipoUbica = new Tipo_UbicacionBE();
+            UbicacionBE ubi = new UbicacionBE();
+            ubi.Tipo_Ubicacion = tipoUbica;
+            report.Ubicacion = ubi;
+            VehiculoBE veh = new VehiculoBE();
+            report.Vehiculo = veh;
+            CilindroBE cil = new CilindroBE();
+            report.Cilindro = cil;
+            if (reporte.Ubicacion.Tipo_Ubicacion.Nombre_Ubicacion == "Vehiculo")
+            {
+                report.Ubicacion.Tipo_Ubicacion.Nombre_Ubicacion = "XHA940";
+                report.Cilindro.Tipo_Cilindro = "Universal";
+                report.Cilindro.Cantidad = 5;
+            } 
+            else 
+            {
+                report.Ubicacion.Tipo_Ubicacion.Nombre_Ubicacion = reporte.Ubicacion.Tipo_Ubicacion.Nombre_Ubicacion;
+                report.Cilindro.Tipo_Cilindro = reporte.Cilindro.Tipo_Cilindro;
+                report.Cilindro.Cantidad = 5;
+            }
+            
+            
+            
+            resp.Add(report);
+            return resp;
         }
 
         #endregion

@@ -33,8 +33,13 @@ namespace Unisangil.CYLTRACK.CYLTRACK_BL
         public List<ClienteBE> ConsultarCliente(ClienteBE consultar_cli)
         {
             List<ClienteBE> lstCliente = new List<ClienteBE>();
+
+            ClienteBE[] lista = new ClienteBE[4];
+            Random ran = new Random();
+            for (int i = 0; i < 4; i++)
+            {
             ClienteBE cliente = new ClienteBE();
-            cliente.Cedula = "11234238";
+            cliente.Cedula = "56235624";
             cliente.Nombres_Cliente = "Jaime";
             cliente.Apellido_1 = "Poveda";
             cliente.Apellido_2 = "Sanchez";
@@ -53,16 +58,19 @@ namespace Unisangil.CYLTRACK.CYLTRACK_BL
             dep_cli.Nombre_Departamento = "Boyacá";
             ciu_cli.Departamento = dep_cli;
             
-            CilindroBE cil_cli = new CilindroBE();
-            cil_cli.Codigo_Cilindro = "8778687687687";
-            cil_cli.Tipo_Cilindro = "marcado";
-            cliente.Cilindro = cil_cli;
+            CilindroBE cilindro = new CilindroBE();
+            cilindro.Codigo_Cilindro = ((DateTime.Now.Hour + DateTime.Now.Second) * ran.Next(1, 10)).ToString();
+            cilindro.Tipo_Cilindro = "Universal";
+            cliente.Cilindro = cilindro;
+            
+            TamanoBE tamano = new TamanoBE();
+            tamano.Tamano = "40";
+            cliente.Cilindro.NTamano = tamano;
 
-            TamanoBE tam_cil = new TamanoBE();
-            tam_cil.Tamano = "40";
-            cil_cli.NTamano = tam_cil; 
+            lista[i] = cliente;
+            }
 
-            lstCliente.Add(cliente);
+            lstCliente = lista.ToList();
 
             return lstCliente;
         }
