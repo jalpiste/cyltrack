@@ -63,13 +63,13 @@ namespace Unisangil.CYLTRACK.CYLTRACK_WCF_Services
         /// Encargado de recibir la cédula del cliente de los canales front de venta y llamar
         /// al metodo de negocio registrar casos especiales
         /// </summary>
-        /// <param name="ventas">Objeto de negocio Venta</param>
+        /// <param name="casos">Objeto de negocio Venta</param>
         /// <returns>ventas</returns>
-        public String CasosEspeciales(VentaBE ventas)
+        public String CasosEspeciales(CasosBE casos)
         {
             String resp;
             VentaBL casosEspeciles = new VentaBL();
-            resp = casosEspeciles.CasosEspeciales(ventas);
+            resp = casosEspeciles.CasosEspeciales(casos);
             return resp;
         }
     }
