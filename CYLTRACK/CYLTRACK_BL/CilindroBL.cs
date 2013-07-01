@@ -42,11 +42,10 @@ namespace Unisangil.CYLTRACK.CYLTRACK_BL
             cil.Serial_Cilindro = "51954";
             Tipo_UbicacionBE tipoUbi = new Tipo_UbicacionBE();
             tipoUbi.Nombre_Ubicacion = "Cliente";
-            cil.Tipo_Ubicacion = tipoUbi;
             TamanoBE tam = new TamanoBE();
             tam.Tamano = "30";
             cil.NTamano = tam;
-            cil.Codigo_Cilindro = cilindro.Codigo_Cilindro;
+            cil.Codigo_Cilindro = "68768754";
             cil.Fecha = Convert.ToDateTime(DateTime.Now.ToShortDateString());
             //--------------------------------
             ClienteBE cli = new ClienteBE();
@@ -64,9 +63,11 @@ namespace Unisangil.CYLTRACK.CYLTRACK_BL
             ciu.Departamento = dep;
             ubi.Telefono_1 = "7266530";
             cil.Fecha = Convert.ToDateTime(DateTime.Now.ToShortDateString());
-            cil.Cliente = cli;
-            cil.Ubicacion = ubi;
-            cil.Ciudad = ciu;
+            ubi.Ciudad = ciu;
+            ubi.Cliente = cli;
+            ubi.Tipo_Ubicacion = tipoUbi;
+            
+        
             //-----------------------------
             VehiculoBE veh = new VehiculoBE();
             veh.Placa = "XHA940";
@@ -74,10 +75,10 @@ namespace Unisangil.CYLTRACK.CYLTRACK_BL
             ruta.Nombre_Ruta= "Chiquinquirá-Ubaté";
             ConductorBE cond = new ConductorBE();
             cond.Nombres_Conductor= "Juanito perez";
-            cil.Vehiculo = veh;
-            cil.Vehiculo.Ruta = ruta;
-            cil.Vehiculo.Conductor = cond;
-            
+            veh.Ruta = ruta;
+            veh.Conductor = cond;
+            ubi.Vehiculo = veh;
+            cil.Ubicacion = ubi;
             lstCil.Add(cil);
             return lstCil;
         }
@@ -87,21 +88,21 @@ namespace Unisangil.CYLTRACK.CYLTRACK_BL
             List<CilindroBE> lstAsig = new List<CilindroBE>();
             CilindroBE cil = new CilindroBE();
 
+            UbicacionBE ubi = new UbicacionBE();
             Tipo_UbicacionBE tipUbi = new Tipo_UbicacionBE();
             tipUbi.Nombre_Ubicacion = "Vehiculo";
-            cil.Tipo_Ubicacion = tipUbi;
+            ubi.Tipo_Ubicacion = tipUbi;
             ConductorBE cond = new ConductorBE();
             cond.Nombres_Conductor = "Jaime Niño";
             VehiculoBE veh = new VehiculoBE();
             veh.Conductor = cond;
-            cil.Vehiculo = veh;            
-            cil.Vehiculo.Placa = "CHE987";
+            veh.Placa = "CHE987";
             RutaBE ruta = new RutaBE();
             ruta.Nombre_Ruta = "Chiqqrá-Ubate";
-            cil.Vehiculo.Ruta = ruta;
+            veh.Ruta = ruta;
+            ubi.Vehiculo = veh;
+            cil.Ubicacion = ubi;
             lstAsig.Add(cil);
-           
-
             return lstAsig;
         }
 
@@ -115,13 +116,10 @@ namespace Unisangil.CYLTRACK.CYLTRACK_BL
             
             VehiculoBE vehiculo = new VehiculoBE();
             vehiculo.Placa = "xha769";
-            cil.Vehiculo = vehiculo;
-            
+            UbicacionBE ubi= new UbicacionBE();
+            ubi.Vehiculo= vehiculo;
+            cil.Ubicacion = ubi;
             CilindroBE resp = cilindro;
-            //UbicacionBE ubi = new UbicacionBE();
-            //Tipo_UbicacionBE tip = new Tipo_UbicacionBE();
-            //ubi.Tipo_Ubicacion = tip;
-            //resp.Ubicacion = ubi;
            
                 if (resp.Ubicacion.Tipo_Ubicacion.Nombre_Ubicacion == "Plataforma")
                 {
@@ -138,7 +136,9 @@ namespace Unisangil.CYLTRACK.CYLTRACK_BL
                         datCil.NTamano = tam;
                         VehiculoBE veh = new VehiculoBE();
                         veh.Placa = "CAD678";
-                        datCil.Vehiculo = veh;
+                        UbicacionBE ubicacion = new UbicacionBE();
+                        ubicacion.Vehiculo = veh;
+                        datCil.Ubicacion = ubicacion;
                         lista[i] = datCil;
 
                     }
@@ -160,9 +160,10 @@ namespace Unisangil.CYLTRACK.CYLTRACK_BL
                         datCil.NTamano = tam;
                         VehiculoBE veh = new VehiculoBE();
                         veh.Placa = "UIZ987";
-                        datCil.Vehiculo = veh;
+                        UbicacionBE ubicacion = new UbicacionBE();
+                        ubicacion.Vehiculo = veh;
+                        datCil.Ubicacion = ubicacion;
                         lista[i] = datCil;
-
                     }
 
                     lstCod = lista.ToList();

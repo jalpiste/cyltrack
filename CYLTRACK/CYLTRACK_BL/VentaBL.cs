@@ -27,66 +27,97 @@ namespace Unisangil.CYLTRACK.CYLTRACK_BL
         public List<VentaBE> ConsultarVenta(VentaBE ventas)
         {
             List<VentaBE> lstVenta = new List<VentaBE>();
-            VentaBE venta = new VentaBE();
-            venta.Fecha = Convert.ToDateTime(DateTime.Now.ToShortDateString());
-            ClienteBE cli = new ClienteBE();
-            cli.Cedula = "7302834";
-            cli.Nombres_Cliente = "Pablo";
-            cli.Apellido_1 = "Paez";
-            cli.Apellido_2 = "Veloza";
-            venta.Cliente = cli;
-            UbicacionBE ubi = new UbicacionBE();
-            ubi.Direccion= "Cra 9 N° 8 34";
-            ubi.Barrio = "Boyacá";
-            ubi.Telefono_1 = "7266617";
-            venta.Ubicacion = ubi;
-            DepartamentoBE dep = new DepartamentoBE();
-            dep.Nombre_Departamento = "Boyacá";
-            venta.Departamento = dep;
-            CiudadBE ciu = new CiudadBE();
-            ciu.Nombre_Ciudad = "Chiquinquirá";
-            venta.Ciudad = ciu;
-            CilindroBE cil = new CilindroBE();
-            cil.Codigo_Cilindro = "67865675678";
-            venta.Cilindro = cil;
-            TamanoBE tam = new TamanoBE();
-            tam.Tamano = "40";
-            venta.Tamano = tam;
-            venta.Observaciones = "error en el codigo del cilindro del cliente";
+           
+            VentaBE[] lista = new VentaBE[7];
+            Random ran = new Random();
+            for (int i = 0; i < 7; i++)
+            {
+                VentaBE datVenta = new VentaBE();
 
-            //------------------------
-            ConductorBE cond = new ConductorBE();
-            cond.Nombres_Conductor = "carlos";
-            cond.Apellido_1 = "Pineda";
-            cond.Apellido_2 = "Poveda";
-            venta.Conductor = cond;
-            VehiculoBE veh = new VehiculoBE();
-            veh.Placa = "XHA940";
-            venta.Vehiculo = veh;
-            RutaBE ruta = new RutaBE();
-            ruta.Nombre_Ruta = "Zona centro";
-            venta.Ruta = ruta;
-            Tipo_CasoBE tipCasos = new Tipo_CasoBE();
-            tipCasos.Nombre_Caso = "Escape de Cilindro";
-            tipCasos.Nombre_Caso = "Terminacion contrato";
-            tipCasos.Nombre_Caso = "Error en el codigo entregado";
-            venta.Tipo_Casos = tipCasos;
-            lstVenta.Add(venta);
+                Detalle_VentaBE detVenta = new Detalle_VentaBE();
+                detVenta.Cod_Cil_Actual = ((DateTime.Now.Hour + DateTime.Now.Second) * ran.Next(1, 10)).ToString();
+                detVenta.Cod_Cil_Nuevo = ((DateTime.Now.Hour + DateTime.Now.Second) * ran.Next(1, 10)).ToString();
+                detVenta.Tamano = "30";
+                detVenta.Tipo_Cilindro = "Universal";
+                CasosBE casos = new CasosBE();
+                Tipo_CasoBE tipCasos = new Tipo_CasoBE();
+                tipCasos.Nombre_Caso = "Escape";
+                casos.Tipo_Caso = tipCasos;
+                casos.Id_Casos = "189238";
+                detVenta.Casos_Especiales = casos;
+                datVenta.Detalle_Venta = detVenta;
+                datVenta.Fecha = Convert.ToDateTime(DateTime.Now.ToShortDateString());
+                ClienteBE cli = new ClienteBE();
+                cli.Cedula = "2345678";
+                cli.Nombres_Cliente = "Pablo";
+                cli.Apellido_1 = "Paez";
+                cli.Apellido_2 = "Veloza";
+                datVenta.Cliente = cli;
+                UbicacionBE ubi = new UbicacionBE();
+                ubi.Direccion = "Cra 9 N° 8 34";
+                ubi.Barrio = "Boyacá";
+                ubi.Telefono_1 = "7266617";
+                cli.Ubicacion = ubi;
+                CiudadBE ciu = new CiudadBE();
+                ciu.Nombre_Ciudad = "Chiquinquirá";
+                DepartamentoBE dep = new DepartamentoBE();
+                dep.Nombre_Departamento = "Boyacá";
+                ciu.Departamento = dep;
+                ubi.Ciudad = ciu;
+                datVenta.Observaciones = "error en el codigo del cilindro del cliente";
+
+                //------------------------
+                VehiculoBE veh = new VehiculoBE();
+                veh.Placa = "XHA940";
+                ConductorBE cond = new ConductorBE();
+                cond.Nombres_Conductor = "carlos";
+                cond.Apellido_1 = "Pineda";
+                cond.Apellido_2 = "Poveda";
+                veh.Conductor = cond;
+                RutaBE ruta = new RutaBE();
+                ruta.Nombre_Ruta = "Zona centro";
+                veh.Ruta = ruta;
+                datVenta.Vehiculo = veh;
+                lista[i] = datVenta;
+            }
+
+            lstVenta = lista.ToList();
+           
+            //---------------------
+   
             return lstVenta;
         }
 
         public List<CasosBE> RevisionCasosEspeciales(CasosBE casos)
         {
             List<CasosBE> lstCaso = new List<CasosBE>();
-            CasosBE caso = new CasosBE();
-            caso.Id_Casos="98989";
-            caso.Tipo_Caso.Nombre_Caso = "Escape";
-            lstCaso.Add(caso);
 
+            CasosBE[] lista = new CasosBE[7];
+            Random ran = new Random();
+            for (int i = 0; i < 7; i++)
+            {
+                CasosBE caso = new CasosBE();
+                Tipo_CasoBE tipCaso = new Tipo_CasoBE();
+                caso.Id_Casos = ((DateTime.Now.Hour + DateTime.Now.Second) * ran.Next(1, 10)).ToString();
+                tipCaso.Nombre_Caso = "Escape";
+                caso.Tipo_Caso = tipCaso;
+                VentaBE venta = new VentaBE();
+                Detalle_VentaBE detVenta = new Detalle_VentaBE();
+                detVenta.Casos_Especiales = caso;
+                venta.Detalle_Venta = detVenta;
+                List<VentaBE> consultaVenta = ConsultarVenta(venta);
+                foreach(VentaBE datos in consultaVenta)
+                {
+                    caso.Venta = datos;
+                }
+                lista[i] = caso;
+            }
+
+            lstCaso = lista.ToList();           
             return lstCaso;
         }
 
-        public String CasosEspeciales(VentaBE ventas)
+        public String CasosEspeciales(CasosBE casos)
         {
             String resp = "Ok";
             return resp;
