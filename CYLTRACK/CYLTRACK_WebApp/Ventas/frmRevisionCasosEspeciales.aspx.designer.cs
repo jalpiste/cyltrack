@@ -22,6 +22,15 @@ namespace Unisangil.CYLTRACK.CYLTRACK_WebApp.Ventas {
         protected global::System.Web.UI.WebControls.ListBox lstCaso;
         
         /// <summary>
+        /// Control lblSeleccionGrid.
+        /// </summary>
+        /// <remarks>
+        /// Campo generado automáticamente.
+        /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Label lblSeleccionGrid;
+        
+        /// <summary>
         /// Control gvReporte.
         /// </summary>
         /// <remarks>

@@ -1,4 +1,4 @@
-﻿<%@ Page Title="" Language="C#" MasterPageFile="~/Site.Master" AutoEventWireup="true" CodeBehind="frmVentaCilindro.aspx.cs" Inherits="Unisangil.CYLTRACK.CYLTRACK_WebApp.Ventas.frmVentaCilindro" %>
+﻿<%@ Page Title="" EnableEventValidation="true" Language="C#" MasterPageFile="~/Site.Master" AutoEventWireup="true" CodeBehind="frmVentaCilindro.aspx.cs" Inherits="Unisangil.CYLTRACK.CYLTRACK_WebApp.Ventas.frmVentaCilindro" %>
 <asp:Content ID="Content1" ContentPlaceHolderID="HeadContent" runat="server">
 </asp:Content>
 <asp:Content ID="BodyContent" runat="server" ContentPlaceHolderID="MainContent">
@@ -35,6 +35,12 @@
                         <asp:Label ID="lblPedido" runat="server" Text="Pedido N°: "></asp:Label>
                         <asp:Label ID="lblCodigoPedido" runat="server" Text="2323432"></asp:Label>
                     </h5>
+                                       <p>
+                        <asp:Label ID="lblCedulaCliente" runat="server" text="Cédula del cliente:"></asp:Label></p>
+                       <p>
+                        <asp:TextBox ID="txtCedulaCliente" runat="server" CssClass="textEntry" Width="197px" Enabled="False" ></asp:TextBox>
+                       
+                             </p>
                     <p>
                         <asp:Label ID="lblNombreCliente" runat="server" text="Nombres del cliente:"></asp:Label></p>
                        <p>
@@ -82,27 +88,35 @@
                                          
                    <div class="post">Información Cilindro Cliente</div>
                   <p>
-                      <asp:Label ID="lblCilindro" runat="server" Text="Cilindro:"></asp:Label>
-                      &nbsp; &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;&nbsp;
-                      <asp:Label ID="lblTamano" runat="server" Text="Tamaño: "></asp:Label>
-                  &nbsp;&nbsp;
-                      &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;
-                      <asp:Label ID="lblCantidad" runat="server" Text="Cantidad: "></asp:Label>
-                      &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; &nbsp;&nbsp; &nbsp;&nbsp;
-                      <asp:Label ID="lblTipo" runat="server" Enabled="false" Text="Tipo Cilindro:"></asp:Label>
-                        </p>
-                  <p>
-                  
-                      <asp:TextBox ID="txtCilindro" runat="server" CssClass="textEntry" Enabled="False"></asp:TextBox>
-                      &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-                      <asp:TextBox ID="txtTamano" runat="server" Enabled="false" CssClass="textEntry" Width="51px"></asp:TextBox>
-                  
-                      &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 
-                  <asp:TextBox ID="txtCantidadCil" runat="server" CssClass="textEntry" Width="49px" Enabled="False"></asp:TextBox>
-                  
-                      &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-                      <asp:TextBox ID="txtTipoCil" Enabled="false" CssClass="textEntry" runat="server"></asp:TextBox>
-                  
+                   <asp:GridView ID="gdCilindrosCli" runat="server" AutoGenerateColumns="False" 
+                    CellPadding="5" ForeColor="#333333" GridLines="None" >
+                    <AlternatingRowStyle BackColor="White" />
+                    <Columns>
+                        <asp:BoundField SortExpression="CodigosCilindros" DataField="CodigosCil" HeaderText="Códigos Cilindros"
+                            HeaderStyle-Width="100px">
+                            <HeaderStyle Width="130px" />
+                        </asp:BoundField>
+                        <asp:BoundField SortExpression="Tamamo" DataField="Tamano" HeaderText="Tamaño"
+                            HeaderStyle-Width="100px">
+                            <HeaderStyle Width="110px" />
+                        </asp:BoundField>
+                        <asp:BoundField SortExpression="TipoCil" DataField="TipoCil" HeaderText="Tipo de Cilindro"
+                            HeaderStyle-Width="100px">
+                            <HeaderStyle Width="130px" />
+                        </asp:BoundField>
+                    </Columns>                   
+                    <EditRowStyle BackColor="#7C6F57" />
+                    <FooterStyle BackColor="#1C5E55" Font-Bold="True" ForeColor="White" />
+                    <HeaderStyle BackColor="#AC3332" Font-Bold="True" ForeColor="White" />
+                    <PagerStyle BackColor="#666666" ForeColor="White" HorizontalAlign="Center" />
+                    <RowStyle BackColor="#EFF3FB" />
+                    <SelectedRowStyle BackColor="#C5BBAF" Font-Bold="True" ForeColor="#333333" />
+                    <SortedAscendingCellStyle BackColor="#F8FAFA" />
+                    <SortedAscendingHeaderStyle BackColor="#246B61" />
+                    <SortedDescendingCellStyle BackColor="#D4DFE1" />
+                    <SortedDescendingHeaderStyle BackColor="#15524A" />
+                </asp:GridView>
+        
                   </p>
                    <div class="post">Información Cilindro a entregar</div>
                     <p>
