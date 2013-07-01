@@ -24,14 +24,23 @@
            <asp:RequiredFieldValidator ID="CodeCilindroRequired" runat="server" 
            ControlToValidate="txtCodeCilindro" CssClass="failureNotification" 
            ErrorMessage="El código del cilindro es obligatorio." ToolTip="El Código del Cilindro es obligatorio." 
-           ValidationGroup="LoginValidationGroup">*</asp:RequiredFieldValidator>          
-                         
-       </div> 
+           ValidationGroup="LoginValidationGroup" Display="Static" Font-Size="Small"></asp:RequiredFieldValidator>          
+            <asp:RegularExpressionValidator ID="ValidarDatosCilindro" runat="server" ControlToValidate="txtCodeCilindro" 
+             CssClass="failureNotification" ErrorMessage="El código del cilindro debe contener entre 11 y 12 dígitos." 
+             ValidationExpression="^([\d]{11,12})$"  Font-Size = "Small" Display ="Static"
+             ValidationGroup="RegistrodeCilindro" ></asp:RegularExpressionValidator>
        
+            </div> 
                   <div id="DivUbicacionCil" runat="server" visible="false">
                   <div class="post" >
                       <asp:Label ID="lblPost" runat="server" Text="Información Ubicación Cilindro"></asp:Label>
                       </div> 
+                   <asp:Label ID="lblCodigo" runat="server" Text="Código Cilindro:"></asp:Label>
+           <br /> 
+           <asp:TextBox ID="txtCodigo" runat="server" CssClass="textEntry" Width="197px" Enabled="false" ontextchanged="txtCodeCilindro_TextChanged" 
+           ValidationGroup = "LoginValidationGroup"></asp:TextBox>
+           <br />
+           <br />
                         <asp:Label ID="lblUbicacionActual" runat="server" Text="Ubicación Actual:  " 
                             Enabled="False"></asp:Label>
                         &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
@@ -45,38 +54,29 @@
                         &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
                         <asp:ListBox ID="lstUbica" runat="server" AutoPostBack="True" Rows="1" 
                             onselectedindexchanged="Ubica_SelectedIndexChanged">
-                            <asp:ListItem>Plataforma</asp:ListItem>
-                            <asp:ListItem>Bodega</asp:ListItem>
-                            <asp:ListItem>Mantenimiento</asp:ListItem>
-                            <asp:ListItem>Chatarra</asp:ListItem>
-                            <asp:ListItem>Vehiculo</asp:ListItem>
-                        </asp:ListBox>
-                        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; &nbsp;&nbsp; &nbsp;
-                        <asp:Label ID="lblPlaca" runat="server" Text="Placa Vehículo:  " visible="false"></asp:Label>
-                        <asp:ListBox ID="lstPlacaVehiculo" runat="server" AutoPostBack="True" Rows="1" visible="false">
-                            <asp:ListItem>XHA913</asp:ListItem>
-                            <asp:ListItem>XHA123</asp:ListItem>
-                            <asp:ListItem>ABC1000</asp:ListItem>
-                            <asp:ListItem>VBG456</asp:ListItem>
-                            <asp:ListItem>LDEO650</asp:ListItem>
-                            <asp:ListItem>AWA789</asp:ListItem>
-                        </asp:ListBox><br /><br />
+                            <asp:ListItem>Seleccionar...</asp:ListItem>                            
+                         </asp:ListBox>
+                          
+                        <div id="diVehiculo" runat="server" visible="false">
+                        <br />
+                        <asp:Label ID="lblPlaca" runat="server" Text="Placa Vehículo:  " ></asp:Label>
+                        <asp:ListBox ID="lstPlacaVehiculo" runat="server" AutoPostBack="True" Rows="1" /><br /><br />
 
-                        <asp:Label ID="LblConductor" runat="server" Text="Conductor Vehiculo:" Visible="false"></asp:Label>
+                        <asp:Label ID="LblConductor" runat="server" Text="Conductor Vehiculo:" ></asp:Label>
 
                         &nbsp;&nbsp;&nbsp;
 
-                        <asp:TextBox ID="TxtConductor" runat="server" CssClass="textEntry" Visible="false" Enabled="false"></asp:TextBox>
+                        <asp:TextBox ID="TxtConductor" runat="server" CssClass="textEntry" Enabled="false"></asp:TextBox>
                        
                             &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
                        
-                            <asp:Label ID="LblRuta" runat="server" Text="Ruta:" Visible="false"></asp:Label>
+                            <asp:Label ID="LblRuta" runat="server" Text="Ruta:" ></asp:Label>
                         &nbsp;&nbsp;&nbsp;
-                                    <asp:Label ID="LblRutaVehiculo" runat="server" Text="Chiquinquirá-Simijaca" Visible="false"></asp:Label>
+                                    <asp:Label ID="LblRutaVehiculo" runat="server" Text="Chiquinquirá-Simijaca" ></asp:Label>
+                        </div>
                         </div>
        </fieldset><p class="submitButton">
-                   <%-- <asp:Button ID="BtnCambiar" runat="server" Text="Cambiar Ubicación" Width="140px" 
-                    onclick="BtnCambiar_Click"/> --%>
+          
                     &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; &nbsp; 
                     <asp:Button ID="BtnGuardar" runat="server" Text="Guardar" Width="140px" Visible="false" onclick="BtnGuardar_Click" />  
                     &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; &nbsp;  

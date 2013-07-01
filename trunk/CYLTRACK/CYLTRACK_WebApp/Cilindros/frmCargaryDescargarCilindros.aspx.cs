@@ -59,7 +59,7 @@ namespace CYLTRACK_WebApp.Cilindros
                     foreach (CilindroBE datos in datosCod)
                     {
                         table.Rows.Add(datos.Codigo_Cilindro, datos.NTamano.Tamano, datos.Tipo_Cilindro);
-                        lstPlaca.Items.Add(datos.Vehiculo.Placa);
+                        lstPlaca.Items.Add(datos.Ubicacion.Vehiculo.Placa);
                     }
                     gvCargue.DataSource = table;
                     gvCargue.DataBind();

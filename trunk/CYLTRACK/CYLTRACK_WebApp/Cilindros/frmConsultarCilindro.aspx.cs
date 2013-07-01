@@ -30,7 +30,7 @@ namespace Unisangil.CYLTRACK.CYLTRACK_WebApp.Cilindros
 
                 foreach (CilindroBE datosCil in resp)
                 {
-                    if (datosCil.Codigo_Cilindro != txtCodigoCilindro.Text)
+                    if (datosCil.Codigo_Cilindro == txtCodigoCilindro.Text)
                     {
                         MessageBox.Show("El código digitado no esta registrado en el sistema", "Consulta de Cilindros");
                     }
@@ -39,7 +39,7 @@ namespace Unisangil.CYLTRACK.CYLTRACK_WebApp.Cilindros
                         TxtAno.Text = datosCil.Ano;
                         TxtEmpresa.Text = datosCil.Fabricante.Nombre_Fabricante;
                         TxtCodigo.Text = datosCil.Serial_Cilindro;
-                        TxtUbicacion.Text = datosCil.Tipo_Ubicacion.Nombre_Ubicacion;
+                        TxtUbicacion.Text = datosCil.Ubicacion.Tipo_Ubicacion.Nombre_Ubicacion;
                         TxtTamano.Text = datosCil.NTamano.Tamano;
                         LblTotal.Text = datosCil.Codigo_Cilindro;
                         TxtRegistro.Text = Convert.ToString((datosCil.Fecha));
@@ -49,23 +49,23 @@ namespace Unisangil.CYLTRACK.CYLTRACK_WebApp.Cilindros
 
                         if (TxtUbicacion.Text == "Vehiculo")
                         {
-                            TxtPlaca.Text = datosCil.Vehiculo.Placa;
-                            TxtConductor.Text = datosCil.Vehiculo.Conductor.Nombres_Conductor;
-                            TxtRuta.Text = datosCil.Vehiculo.Ruta.Nombre_Ruta;
+                            TxtPlaca.Text = datosCil.Ubicacion.Vehiculo.Placa;
+                            TxtConductor.Text = datosCil.Ubicacion.Vehiculo.Conductor.Nombres_Conductor;
+                            TxtRuta.Text = datosCil.Ubicacion.Vehiculo.Ruta.Nombre_Ruta;
 
                             DivInfoVehiculo.Visible = true;
                         }
 
                         if (TxtUbicacion.Text == "Cliente")
                         {
-                            txtCedula.Text = datosCil.Cliente.Cedula;
-                            TxtNombreCliente.Text = datosCil.Cliente.Nombres_Cliente;
-                            TxtPrimerApellido.Text = datosCil.Cliente.Apellido_1;
-                            TxtSegundoApellido.Text = datosCil.Cliente.Apellido_2;
+                            txtCedula.Text = datosCil.Ubicacion.Cliente.Cedula;
+                            TxtNombreCliente.Text = datosCil.Ubicacion.Cliente.Nombres_Cliente;
+                            TxtPrimerApellido.Text = datosCil.Ubicacion.Cliente.Apellido_1;
+                            TxtSegundoApellido.Text = datosCil.Ubicacion.Cliente.Apellido_2;
                             TxtDireccion.Text = datosCil.Ubicacion.Direccion;
                             TxtBarrio.Text = datosCil.Ubicacion.Barrio;
-                            TxtCiudad.Text = datosCil.Ciudad.Nombre_Ciudad;
-                            TxtDepartamento.Text = datosCil.Ciudad.Departamento.Nombre_Departamento;
+                            TxtCiudad.Text = datosCil.Ubicacion.Ciudad.Nombre_Ciudad;
+                            TxtDepartamento.Text = datosCil.Ubicacion.Ciudad.Departamento.Nombre_Departamento;
                             TxtTelefono.Text = datosCil.Ubicacion.Telefono_1;
                             Txtentrega.Text = Convert.ToString(datosCil.Fecha);
 

@@ -22,13 +22,22 @@
                     &nbsp;&nbsp;&nbsp;&nbsp;<asp:RequiredFieldValidator ID="TxtCodigoCilindroRequired" runat="server" ControlToValidate="TxtCodigoCilindro" 
                              CssClass="failureNotification" ErrorMessage="El codigo del cilindro es obligatorio." ToolTip="El Codigo del Cilindro es obligatorio." 
                              ValidationGroup="RegistrodeCilindro">*</asp:RequiredFieldValidator>
+                              <asp:RegularExpressionValidator ID="ValidarDatosCilindro" runat="server" ControlToValidate="TxtCodigoCilindro" 
+                            CssClass="failureNotification" ErrorMessage="El código del cilindro debe contener entre 11 y 12 dígitos." 
+                            ValidationExpression="^([\d]{11,12})$"  Font-Size = "Small" Display ="Dynamic"
+                            ValidationGroup="RegistrodeCilindro" ></asp:RegularExpressionValidator>
                                        &nbsp;&nbsp;&nbsp;&nbsp;
                         </p>
                     <div id="DivDatosCilindro" runat="server" visible="false">
                      <div class="post" >
                          <asp:Label ID="LblPoster" runat="server" Text="Datos del Cilindro" ></asp:Label>
                        </div>
+                    
                     <p>
+                    <asp:Label ID="lblCil" runat="server" AssociatedControlID="TxtCodigoCilindro">Código Cilindro:</asp:Label><br />
+                    <asp:TextBox ID="txtCil" runat="server" CssClass="textEntry" 
+                            Width="197px" Enabled="false"  ></asp:TextBox>
+                    </p><p>
                          <asp:Label ID="LblAno" runat="server" Text="Año Fabricación:" ></asp:Label>
                           &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
                           <asp:Label ID="LblEmpresa" runat="server" Text="Código Empresa:" ></asp:Label>
@@ -51,13 +60,20 @@
                          <asp:RequiredFieldValidator ID="validEmpresa" runat="server" ControlToValidate="TxtEmpresa" 
                              CssClass="failureNotification" ErrorMessage="El código de la empresa es obligatorio." ToolTip="El código de la empresa es obligatorio." 
                              ValidationGroup="RegistrodeCilindro">*</asp:RequiredFieldValidator>
+                             <asp:RegularExpressionValidator ID="validarDatosEmpresa" runat="server" ControlToValidate="TxtEmpresa" 
+                            CssClass="failureNotification" ErrorMessage="El código de la empresa debe contener entre 3 a 4 digitos." 
+                            ValidationExpression="^([\d]{3,4})$"  Font-Size = "Small" ValidationGroup="RegistrodeCilindro">*</asp:RegularExpressionValidator>
                          &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;
                         
                     &nbsp;&nbsp;
                          <asp:TextBox ID="TxtCodigo" runat="server" Width="80px" CssClass="textEntry" ></asp:TextBox>
-                           <asp:RequiredFieldValidator ID="validCodigo" runat="server" ControlToValidate="TxtCodigo" 
+                           <asp:RequiredFieldValidator ID="validSerial" runat="server" ControlToValidate="TxtCodigo" 
                              CssClass="failureNotification" ErrorMessage="El nuip del cilindro es obligatorio." ToolTip="El nuip del cilindro es obligatorio." 
                              ValidationGroup="RegistrodeCilindro">*</asp:RequiredFieldValidator>
+                             <asp:RegularExpressionValidator ID="ValidarSerialCil" runat="server" ControlToValidate="TxtCodigo" 
+                            CssClass="failureNotification" ErrorMessage="El identificador del cilindro debe contener entre 6 y 8 dígitos." 
+                            ValidationExpression="^([\d]{6,8})$"  Font-Size = "Small" 
+                            ValidationGroup="RegistrodeCilindro">*</asp:RegularExpressionValidator>
                     </p>
                     <p> 
                         <asp:Label ID="LblUbicacion" runat="server" Text="Ubicación: " ></asp:Label>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
