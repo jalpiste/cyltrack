@@ -69,28 +69,10 @@ namespace Unisangil.CYLTRACK.CYLTRACK_BE
         public String Serial_Cilindro { get; set; }
 
         /// <summary>
-        /// Nombre de la ubicación del cilindro
-        /// </summary>
-        [DataMember]
-        public Tipo_UbicacionBE Tipo_Ubicacion { get; set; }
-
-        /// <summary>
         /// Fecha de la creación del cilindro
         /// </summary>
         [DataMember]
         public DateTime Fecha { get; set; }
-
-        /// <summary>
-        /// Vehículo
-        /// </summary>
-        [DataMember]
-        public VehiculoBE Vehiculo { get; set; }
-
-        /// <summary>
-        /// Cliente
-        /// </summary>
-        [DataMember]
-        public ClienteBE Cliente { get; set; }
 
         /// <summary>
         /// Ubicación del cilindro
@@ -99,12 +81,10 @@ namespace Unisangil.CYLTRACK.CYLTRACK_BE
         public UbicacionBE Ubicacion { get; set; }
 
         /// <summary>
-        /// Ciudad del cliente
+        /// Cantidad de Cilindros
         /// </summary>
         [DataMember]
-        public CiudadBE Ciudad { get; set; }
-
-
+        public int Cantidad { get; set; }
 
     }
 }

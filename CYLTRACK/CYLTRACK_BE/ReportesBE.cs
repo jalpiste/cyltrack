@@ -21,7 +21,7 @@ namespace Unisangil.CYLTRACK.CYLTRACK_BE
         /// Ubiación del Cilindro
         /// </summary>
         [DataMember]
-        public Ubicacion_CilindroBE Ubicacion_Cilindro { get; set; }
+        public UbicacionBE Ubicacion { get; set; }
 
         /// <summary>
         /// Vehículo

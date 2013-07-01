@@ -62,6 +62,11 @@ namespace Unisangil.CYLTRACK.CYLTRACK_BE
         [DataMember]
         public String Barrio { get; set; }
 
+        /// <summary>
+        /// Cliente 
+        /// </summary>
+        [DataMember]
+        public ClienteBE Cliente { get; set; }
 
         /// <summary>
         /// Ciudad 
