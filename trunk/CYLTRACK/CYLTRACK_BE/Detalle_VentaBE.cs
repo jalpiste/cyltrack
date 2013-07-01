@@ -39,10 +39,16 @@ namespace Unisangil.CYLTRACK.CYLTRACK_BE
         public String Cod_Cil_Nuevo { get; set; }
 
         /// <summary>
-        /// Cilindro entregado
+        /// Tamaño del cilindro
         /// </summary>
         [DataMember]
-        public CilindroBE Cilindro { get; set; }
+        public String Tamano { get; set; }
+
+        /// <summary>
+        /// Tipo de Cilindro
+        /// </summary>
+        [DataMember]
+        public String Tipo_Cilindro { get; set; }
 
         /// <summary>
         /// Cilindro entregado como prestamo al cliente
@@ -67,7 +73,6 @@ namespace Unisangil.CYLTRACK.CYLTRACK_BE
         /// </summary>
         [DataMember]
         public VentaBE Venta { get; set; }
-
-
+        
     }
 }
