@@ -43,6 +43,20 @@ namespace Unisangil.CYLTRACK.CYLTRACK_WebApp
             return sexo;
         }
 
+        public static List<string> ConsultarTipoCaso()
+        {
+            List<string> tipoCaso = new List<string>();
+            tipoCaso = Enum.GetNames(typeof(Tipo_Casos)).ToList();
+            return tipoCaso;
+        }
+
+        public static List<string> ConsultarUbicacion()
+        {
+            List<string> Ubicacion = new List<string>();
+            Ubicacion = Enum.GetNames(typeof(Ubicacion)).ToList();
+            return Ubicacion;
+        }
+
       }
 
     public enum Meses
@@ -77,5 +91,20 @@ namespace Unisangil.CYLTRACK.CYLTRACK_WebApp
         Indefinido = 3
     }
 
+    public enum Tipo_Casos
+    {
+        Escape = 1,
+        Terminacion_Contrato = 2,
+        Codigo_Errado = 3,
+    }
+
+    public enum Ubicacion
+    {
+        Plataforma= 1,
+        Bodega =2,
+        Mantenimiento= 3,
+        Chatarra= 4,
+        Vehiculo=5
+    }
     
 }
