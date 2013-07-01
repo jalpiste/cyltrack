@@ -5,6 +5,8 @@ using System.Web;
 using System.Web.UI;
 using System.Web.UI.WebControls;
 using Unisangil.CYLTRACK.CYLTRACK_BE;
+using CYLTRACK_WebApp.VentaService;
+using System.Data;
 
 namespace Unisangil.CYLTRACK.CYLTRACK_WebApp.Ventas
 {
@@ -12,50 +14,64 @@ namespace Unisangil.CYLTRACK.CYLTRACK_WebApp.Ventas
     {
         protected void Page_Load(object sender, EventArgs e)
         {
-
-            prueba[] pps = new prueba[2];
-            prueba pp = new prueba();
-            pp.Id_Caso = "097";
-            pp.Tipo_Caso = "Escape";
-            prueba pp1 = new prueba();
-            pp1.Id_Caso = "098";
-            pp1.Tipo_Caso = "Cilindro Erroneo";
-
-            pps[0] = pp;
-            pps[1] = pp1;
-            gvReporte.DataSource = pps;
-            gvReporte.DataBind();
-        }
-        VentaBE ventas = new VentaBE();
-        public class prueba
-        {
-            private string prueba1;
-
-            public string Id_Caso
+            if (!IsPostBack)
             {
-                get { return prueba1; }
-                set { prueba1 = value; }
+                List<string> tiposCasos = Auxiliar.ConsultarTipoCaso();
+                foreach (string datosCasos in tiposCasos)
+                {
+                    lstCaso.Items.Add(datosCasos);
+                }
             }
-            private string prueba2;
-
-            public string Tipo_Caso
+            if(IsPostBack)
             {
-                get { return prueba2; }
-                set { prueba2 = value; }
+                gvReporte.Focus();
             }
         }
-
+       
         protected void lstCaso_SelectedIndexChanged(object sender, EventArgs e)
         {
-            //lstCaso.Text= ventas.Casos_Especiales.Tipo_Caso.Nombre_Caso;
-            gvReporte.Visible = true;
+            VentaServiceClient serVenta = new VentaServiceClient();
+            DataTable tabla = new DataTable();
+            
+            try
+            {
+                Tipo_CasoBE tipo = new Tipo_CasoBE();
+                tipo.Nombre_Caso= lstCaso.SelectedValue;
+                CasosBE casos = new CasosBE();
+                casos.Tipo_Caso = tipo;
+                List<CasosBE> lstDatCasos = new List<CasosBE>(serVenta.RevisionCasosEspeciales(casos));
+
+                tabla.Columns.Add("Id_Caso");
+                tabla.Columns.Add("Tipo_Caso");
+                foreach (CasosBE datos in lstDatCasos) 
+                {
+                    tabla.Rows.Add(datos.Id_Casos, datos.Tipo_Caso.Nombre_Caso);
+                    gvReporte.DataSource= tabla;
+                    gvReporte.DataBind();
+                }
+            }
+            catch (Exception ex)
+            {
+                Response.Redirect("~/About.aspx");
+            }
+            finally 
+            {
+                serVenta.Close();
+                gvReporte.Visible = true;
+            }           
         }
 
         protected void btnMenu_Click(object sender, EventArgs e)
         {
             //Response.Redirect("~/Default.aspx");
         }
+        protected void btnTipoCaso_OnClick(object sender, EventArgs e)
+        {
+            string registro = ((Button)sender).Attributes["value"].ToString();
+            lblSeleccionGrid.Text = registro;
+            Response.Redirect("~/Ventas/frmTiposdeCasos.aspx?Data=" + Server.UrlEncode(lblSeleccionGrid.Text)); 
+        }
 
-        
+               
     }
 }
