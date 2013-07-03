@@ -5,7 +5,12 @@
 <h1 style="margin-top: 75px">
         Cancelar Pedido
     </h1>
-            
+            <asp:ValidationSummary ID="CancelarPedidoValidationSummary" runat="server" CssClass="failureNotification" 
+                 ValidationGroup="CancelarPedido"  Font-Size = "Small"/>
+            <asp:ValidationSummary ID="ValidarCedulaValidationSummary" runat="server" CssClass="failureNotification" 
+                 ValidationGroup="ValidarCedula" Font-Size = "Small"/>
+
+
             <div class="accountInfo">
                 <fieldset class="login">
                     <legend>Cancelación de Pedidos</legend>
@@ -14,14 +19,26 @@
                         <asp:Label ID="lblNumPedido" runat="server" Text="Número de Pedido: "></asp:Label>
 <br />
                         <asp:TextBox ID="txtCedula" runat="server" CssClass="textEntry" 
-                            Width="112px" ontextchanged="txtCedula_TextChanged" ></asp:TextBox>
-                        <asp:RequiredFieldValidator ID="txtCedulaRequired" runat="server" ControlToValidate="txtCedula" 
-                             CssClass="failureNotification" ErrorMessage="La cedula del cliente es obligatorio." ToolTip="La cedula del cliente es obligatorio." 
-                             ValidationGroup="LoginUserValidationGroup">*</asp:RequiredFieldValidator>
-                                          &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;
-                        <asp:TextBox ID="NumPedidoTxt" CssClass="textEntry" runat="server" 
-                                              ontextchanged="NumPedidoTxt_TextChanged"></asp:TextBox><br />
-                        
+                            Width="197px" ontextchanged="txtCedula_TextChanged" ></asp:TextBox>
+                             <asp:RequiredFieldValidator ID="txtCedulaRequired" runat="server" ControlToValidate="txtCedula" 
+                             CssClass="failureNotification" ErrorMessage="El número de cédula del cliente es obligatorio." ToolTip="El número de cédula del cliente es obligatorio." 
+                             ValidationGroup="ValidarCedula" Font-Size = "Small" Display ="Dynamic"></asp:RequiredFieldValidator>
+                     <asp:RegularExpressionValidator ID="ValidarDatosCedula" runat="server" ControlToValidate="txtCedula" 
+                            CssClass="failureNotification" ErrorMessage="El número de cédula debe contener entre 6 y 10 dígitos." 
+                            ValidationExpression="^([\d]{6,10})$"  Font-Size = "Small" Display ="Dynamic"
+                            ValidationGroup="ValidarCedula" ></asp:RegularExpressionValidator>
+                   
+                             &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;
+                        <asp:TextBox ID="txtNumPedido" CssClass="textEntry" runat="server" 
+                              Width="112px" ontextchanged="txtNumPedido_TextChanged"></asp:TextBox><br />
+                             <asp:RequiredFieldValidator ID="ValidarDatosPedido" runat="server" ControlToValidate="txtNumPedido" 
+                             CssClass="failureNotification" ErrorMessage="El número del pedido es obligatorio." 
+                             ValidationGroup="ValidarCedula" Font-Size = "Small" Display ="Dynamic"></asp:RequiredFieldValidator>
+                     <asp:RegularExpressionValidator ID="ValidarPedido" runat="server" ControlToValidate="txtNumPedido" 
+                            CssClass="failureNotification" ErrorMessage="El número del pedido debe contener entre 3 y 5 dígitos." 
+                            ValidationExpression="^([\d]{3,5})$"  Font-Size = "Small" Display ="Dynamic"
+                            ValidationGroup="ValidarCedula" ></asp:RegularExpressionValidator>
+                   
                         </p>
                     <div id="divInfoCliente" runat="server" visible="false">
                  <div class="post">Información General del Cliente</div>   
@@ -30,11 +47,8 @@
                         <asp:Label ID="lblCodigoPedido" runat="server" Text="2323432"></asp:Label>
                     </h5>                    
                     <p>
-                        <asp:Label ID="lblCedulaCliente" runat="server" AssociatedControlID="txtCedulaCliente" Text="Cédula: "></asp:Label><br />
-                        <asp:TextBox ID="txtCedulaCliente" CssClass="textEntry" Enabled="False" runat="server" ></asp:TextBox>
-                        <asp:RequiredFieldValidator ID="ModificarPedidoRequired" runat="server" ControlToValidate="txtCedula" 
-                             CssClass="failureNotification" ErrorMessage="La cedula del cliente es obligatorio." ToolTip="La cedula del cliente es obligatorio." 
-                             ValidationGroup="LoginUserValidationGroup">*</asp:RequiredFieldValidator>
+                        <asp:Label ID="lblCedulaCliente" runat="server" AssociatedControlID="txtCedulaCliente" Text="Número de Cédula: "></asp:Label><br />
+                        <asp:TextBox ID="txtCedulaCliente" CssClass="textEntry" Enabled="False" runat="server" Width="197px" ></asp:TextBox>
                     </p>                   
                     <p>
                         <asp:Label ID="lblNombreCliente" runat="server" AssociatedControlID="txtNombreCliente">Nombres del cliente:</asp:Label><br />
@@ -82,14 +96,6 @@
                         <asp:Label ID="lblRutaAsignada" runat="server" Enabled="false" Text="xxxxxxx"></asp:Label>
                       </p>
                       <p>
-                          <asp:Label ID="lblTamanoCil" runat="server" Enabled="false" Text="Tamaño Cilindro:"></asp:Label>
-                      &nbsp;&nbsp;&nbsp;&nbsp;
-                          <asp:TextBox ID="txtTamanoCil" runat="server" CssClass="textEntry" Enabled="false" Width="50px" Text=""></asp:TextBox>
-                          &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-                          <asp:Label ID="lblCantidadCilindro" runat="server" Enabled="false" Text="Cantidad Cilindros: "></asp:Label>
-                          &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; &nbsp;&nbsp; &nbsp;&nbsp;
-                          <asp:TextBox ID="txtCantidadCilindro" Enabled="false" CssClass="textEntry" runat="server" Width="50px" Text=""></asp:TextBox>
-                          <br />
                           <br />
                           <asp:GridView ID="gvPedido" runat="server" CellPadding="2" ForeColor="#333333" 
                               GridLines="None">
@@ -115,8 +121,11 @@
                       </p>
                       <p>
                           <asp:Label ID="lblMotivoCancelacion" runat="server" Text="Motivo de la cancelación:"></asp:Label><br />
-                          <asp:TextBox ID="txtMotivoCancelacion"  runat="server" Height="109px" 
-                              Width="306px" ></asp:TextBox>
+                          <asp:TextBox ID="txtMotivoCancelacion"  runat="server" Height="71px" Width="306px" TextMode="MultiLine"></asp:TextBox>
+                    <asp:RequiredFieldValidator ID="ValidarMotivo" runat="server" ControlToValidate="txtMotivoCancelacion" 
+                             CssClass="failureNotification" ErrorMessage="El motivo de cancelación del pedido es obligatorio." ToolTip="El motivo de cancelación del pedido es obligatorio." 
+                             ValidationGroup="CancelarPedido">*</asp:RequiredFieldValidator>
+
                       </p>
                    </div>
                 </fieldset>
@@ -125,7 +134,7 @@
                         onclick="btnLimpiar_Click" /> 
                     &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; &nbsp; 
                     <asp:Button ID="btnGuardar" runat="server" Text="Guardar" Width="121px" Visible="false" 
-                        onclick="btnGuardar_Click"/> 
+                        onclick="btnGuardar_Click" ValidationGroup="CancelarPedido"/> 
                     &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; &nbsp; 
                     <asp:Button ID="btnMenuPrincipal" runat="server" Text="Menú Principal" 
                         Width="121px" onclick="btnMenuPrincipal_Click"/>  

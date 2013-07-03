@@ -5,6 +5,8 @@ using System.Web;
 using System.Web.UI;
 using System.Web.UI.WebControls;
 using Unisangil.CYLTRACK.CYLTRACK_BE;
+using CYLTRACK_WebApp.PedidoService;
+using System.Windows.Forms;
 
 namespace Unisangil.CYLTRACK.CYLTRACK_WebApp.Pedido
 {
@@ -12,6 +14,8 @@ namespace Unisangil.CYLTRACK.CYLTRACK_WebApp.Pedido
     {
         protected void Page_Load(object sender, EventArgs e)
         {
+            txtCedula.Focus();
+
             prueba[] pps = new prueba[2];
             prueba pp = new prueba();
             pp.Prueba1 = "Hola";
@@ -27,34 +31,121 @@ namespace Unisangil.CYLTRACK.CYLTRACK_WebApp.Pedido
 
         }
 
+
         protected void txtCedula_TextChanged(object sender, EventArgs e)
         {
-            //PedidoBE consultar_ped = new PedidoBE();
+            txtMotivoCancelacion.Focus();
+            txtCedula.Text = "";
 
-            //txtCedulaCliente.Text = consultar_ped.Cliente.Cedula;
-            //txtNombreCliente.Text = consultar_ped.Cliente.Nombres_Cliente;
-            //txtPrimerApellido.Text = consultar_ped.Cliente.Apellido_1;
-            //txtSegundoApellido.Text = consultar_ped.Cliente.Apellido_2;
-            //txtDireccion.Text = consultar_ped.Ubicacion.Direccion;
-            //txtBarrio.Text = consultar_ped.Ubicacion.Barrio;
-            //txtCiudad.Text = consultar_ped.Ciudad.Nombre_Ciudad;
-            //txtDepartamento.Text = consultar_ped.Ciudad.Departamento.Nombre_Departamento;
-            //txtTelefono.Text = consultar_ped.Ubicacion.Telefono_1;
+            PedidoServiceClient servPedido = new PedidoServiceClient();
+            PedidoBE consultar_ped = new PedidoBE();
 
 
-            //txtZona.Text = consultar_ped.Vehiculo.Placa;
-            //lblRutaAsignada.Text = consultar_ped.Ruta.Nombre_Ruta;
-            //lstAgregar.Text = consultar_ped.Detalle_Ped.Tamano.Tamano; // como obtener el valor del tamaño y ponerlo en la primera parte de la lista
-            //lstAgregar.Text = cancelar_ped.Detalle_Ped.Cantidad; // como obtener el valor de la cantidad y ponerlo en la segunda parte de la lista
-            //lblFechaPedido.Text = consultar_ped.Fecha;
+            try
+            {
+                ClienteBE cliente = new ClienteBE();
+                cliente.Cedula = txtCedula.Text;
+                consultar_ped.Cliente = cliente;
 
-            divInfoCliente.Visible = true;
-            btnGuardar.Visible = true;
+                consultar_ped.Cliente.Cedula = txtCedula.Text;
+                PedidoBE[] consulta = servPedido.Consultar_Pedido(consultar_ped);
+
+                foreach (PedidoBE info in consulta)
+                {
+                    if (info.Cliente.Cedula != txtCedula.Text)
+                    {
+
+                        txtCedulaCliente.Text = info.Cliente.Cedula;
+                        txtNombreCliente.Text = info.Cliente.Nombres_Cliente;
+                        txtPrimerApellido.Text = info.Cliente.Apellido_1;
+                        txtSegundoApellido.Text = info.Cliente.Apellido_2;
+                        txtDireccion.Text = info.Ubicacion.Direccion;
+                        txtBarrio.Text = info.Ubicacion.Barrio;
+                        txtCiudad.Text = info.Ciudad.Nombre_Ciudad;
+                        txtDepartamento.Text = info.Ciudad.Departamento.Nombre_Departamento;
+                        txtTelefono.Text = info.Ubicacion.Telefono_1;
+                        //----------------------------------------------------------
+                        txtZona.Text = info.Vehiculo.Placa;
+                        lblRutaAsignada.Text = info.Ruta.Nombre_Ruta;
+                        //GRIDVIEW lstAgregar.Text = info.Detalle_Ped.Tamano.Tamano; // como obtener el valor del tamaño y ponerlo en la primera parte de la lista
+                        //GRIDVIEWlstAgregar.Text = info.Detalle_Ped.Cantidad; // como obtener el valor de la cantidad y ponerlo en la segunda parte de la lista
+                        lblFechaPedido.Text = Convert.ToString(info.Fecha);
+
+                        divInfoCliente.Visible = true;
+                        btnGuardar.Visible = true;
+                    }
+                    else
+                    {
+                        MessageBox.Show("El cliente no se encuentra registrado en el sistema", "Cancelar Pedido");
+                    }
+                    }
+            }
+            catch (Exception ex)
+            {
+                Response.Redirect("~/About.aspx");
+            }
+            finally
+            {
+                servPedido.Close();
+            }
         }
 
-        protected void NumPedidoTxt_TextChanged(object sender, EventArgs e)
+        protected void txtNumPedido_TextChanged(object sender, EventArgs e)
         {
-            divInfoCliente.Visible = true;
+            txtMotivoCancelacion.Focus();
+            txtCedula.Text = "";
+
+            PedidoServiceClient servPedido = new PedidoServiceClient();
+            PedidoBE consultar_ped = new PedidoBE();
+
+
+            try
+            {
+                ClienteBE cliente = new ClienteBE();
+                cliente.Cedula = txtCedula.Text;
+                consultar_ped.Cliente = cliente;
+
+                consultar_ped.Cliente.Cedula = txtCedula.Text;
+                PedidoBE[] consulta = servPedido.Consultar_Pedido(consultar_ped);
+
+                foreach (PedidoBE info in consulta)
+                {
+                    if (info.Cliente.Cedula != txtCedula.Text)
+                    {
+
+                        txtCedulaCliente.Text = info.Cliente.Cedula;
+                        txtNombreCliente.Text = info.Cliente.Nombres_Cliente;
+                        txtPrimerApellido.Text = info.Cliente.Apellido_1;
+                        txtSegundoApellido.Text = info.Cliente.Apellido_2;
+                        txtDireccion.Text = info.Ubicacion.Direccion;
+                        txtBarrio.Text = info.Ubicacion.Barrio;
+                        txtCiudad.Text = info.Ciudad.Nombre_Ciudad;
+                        txtDepartamento.Text = info.Ciudad.Departamento.Nombre_Departamento;
+                        txtTelefono.Text = info.Ubicacion.Telefono_1;
+                        //----------------------------------------------------------
+                        txtZona.Text = info.Vehiculo.Placa;
+                        lblRutaAsignada.Text = info.Ruta.Nombre_Ruta;
+                        //GRIDVIEW lstAgregar.Text = info.Detalle_Ped.Tamano.Tamano; // como obtener el valor del tamaño y ponerlo en la primera parte de la lista
+                        //GRIDVIEWlstAgregar.Text = info.Detalle_Ped.Cantidad; // como obtener el valor de la cantidad y ponerlo en la segunda parte de la lista
+                        lblFechaPedido.Text = Convert.ToString(info.Fecha);
+
+                        divInfoCliente.Visible = true;
+                        btnGuardar.Visible = true;
+                    }
+                    else
+                    {
+                        MessageBox.Show("El pedido no se encuentra registrado en el sistema", "Cancelar Pedido");
+                    }
+                }
+            }
+            catch (Exception ex)
+            {
+                Response.Redirect("~/About.aspx");
+            }
+            finally
+            {
+                servPedido.Close();
+            }
         }
 
         protected void btnMenuPrincipal_Click(object sender, EventArgs e)
@@ -64,14 +155,41 @@ namespace Unisangil.CYLTRACK.CYLTRACK_WebApp.Pedido
 
         protected void btnGuardar_Click(object sender, EventArgs e)
         {
-            //PedidoBE cancelar_ped = new PedidoBE();
+            PedidoServiceClient servPedido = new PedidoServiceClient();
+            String resp;
+            PedidoBE cancelar_ped = new PedidoBE();
 
-            //cancelar_ped.Motivo_Cancel = txtMotivoCancelacion.Text;
+            try
+            {
+                
+                cancelar_ped.Motivo_Cancel = txtMotivoCancelacion.Text;
 
-            Response.Write("<script type='text/javascript'> alert('Sus datos fueron enviados satisfactoriamente') </script>");
-            //Response.Redirect("~/Pedido/frmCancelarPedido.aspx");
+                divInfoCliente.Visible = false;
+                btnGuardar.Visible = false;
+                txtMotivoCancelacion.Text = "";
+
+                resp = servPedido.Cancelar_Pedido(cancelar_ped);
+
+                if (resp == "Ok")
+                {
+
+                    MessageBox.Show("El pedido fue cancelado satisfactoriamente", "Cancelar Pedido");
+                }
+                
+                
+            }
+            catch (Exception ex)
+            {
+                Response.Redirect("~/About.aspx");
+            }
+            finally
+            {
+                servPedido.Close();
+                Response.Redirect("~/Pedido/frmCancelarPedido.aspx");
+            }
         }
 
+        
         protected void btnLimpiar_Click(object sender, EventArgs e)
         {
 
