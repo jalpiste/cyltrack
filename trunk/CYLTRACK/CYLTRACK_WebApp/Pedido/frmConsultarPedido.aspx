@@ -6,7 +6,9 @@
     <h1 style="margin-top: 75px">
         Consultar Pedido
     </h1>
-        
+         <asp:ValidationSummary ID="ValidarCedulaValidationSummary" runat="server" CssClass="failureNotification" 
+                 ValidationGroup="Validar" Font-Size = "Small"/>
+                 
             <div class="accountInfo">
                 <fieldset class="login">
                     <legend>Consulta de Pedidos</legend>
@@ -15,27 +17,36 @@
                         <asp:Label ID="lblNumPedido" runat="server" Text="Número de Pedido: "></asp:Label>
 &nbsp;&nbsp; <br />
                         <asp:TextBox ID="txtCedula" runat="server" CssClass="textEntry" 
-                            Width="112px" ontextchanged="txtCedula_TextChanged"></asp:TextBox>
-                        <asp:RequiredFieldValidator ID="txtCedulaRequired" runat="server" ControlToValidate="txtCedula" 
-                             CssClass="failureNotification" ErrorMessage="La cedula del cliente es obligatorio." ToolTip="La cedula del cliente es obligatorio." 
-                             ValidationGroup="LoginUserValidationGroup">*</asp:RequiredFieldValidator>
-                                          &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;
+                            Width="197px" ontextchanged="txtCedula_TextChanged"></asp:TextBox>
+                       <asp:RequiredFieldValidator ID="txtCedulaRequired" runat="server" ControlToValidate="txtCedula" 
+                             CssClass="failureNotification" ErrorMessage="El número de cédula del cliente es obligatorio." ToolTip="El número de cédula del cliente es obligatorio." 
+                             ValidationGroup="Validar" Font-Size = "Small" Display ="Dynamic"></asp:RequiredFieldValidator>
+                     <asp:RegularExpressionValidator ID="ValidarDatosCedula" runat="server" ControlToValidate="txtCedula" 
+                            CssClass="failureNotification" ErrorMessage="El número de cédula debe contener entre 6 y 10 dígitos." 
+                            ValidationExpression="^([\d]{6,10})$"  Font-Size = "Small" Display ="Dynamic"
+                            ValidationGroup="Validar" ></asp:RegularExpressionValidator>
+                 
+                                       &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;
                         <asp:TextBox ID="NumPedidoTxt" CssClass="textEntry" runat="server" 
-                                              ontextchanged="NumPedidoTxt_TextChanged"></asp:TextBox><br />
+                                  Width="112px" ontextchanged="NumPedidoTxt_TextChanged"></asp:TextBox><br />
+                        <asp:RequiredFieldValidator ID="ValidarDatosPedido" runat="server" ControlToValidate="NumPedidoTxt" 
+                             CssClass="failureNotification" ErrorMessage="El número del pedido es obligatorio." 
+                             ValidationGroup="Validar" Font-Size = "Small" Display ="Dynamic"></asp:RequiredFieldValidator>
+                     <asp:RegularExpressionValidator ID="ValidarPedido" runat="server" ControlToValidate="NumPedidoTxt" 
+                            CssClass="failureNotification" ErrorMessage="El número del pedido debe contener entre 3 y 5 dígitos." 
+                            ValidationExpression="^([\d]{3,5})$"  Font-Size = "Small" Display ="Dynamic"
+                            ValidationGroup="Validar" ></asp:RegularExpressionValidator>
                         
                         </p>
                     <div id="divInfoCliente" runat="server" visible="false">
                  <div class="post">Información General del Cliente</div>   
                     <h5>
                         <asp:Label ID="lblPedido" runat="server" Text="Pedido N°: "></asp:Label>
-                        <asp:Label ID="lblCodigoPedido" runat="server" Text="2323432"></asp:Label>
+                        <asp:Label ID="lblCodigoPedido" runat="server" ></asp:Label>
                     </h5>                    
                     <p>
-                        <asp:Label ID="lblCedulaCliente" runat="server" AssociatedControlID="txtCedulaCliente" Text="Cédula: "></asp:Label><br />
-                        <asp:TextBox ID="txtCedulaCliente" CssClass="textEntry" enabled = "false" runat="server" ></asp:TextBox>
-                        <asp:RequiredFieldValidator ID="ConsultarPedidoRequired" runat="server" ControlToValidate="txtCedula" 
-                             CssClass="failureNotification" ErrorMessage="La cedula del cliente es obligatorio." ToolTip="La cedula del cliente es obligatorio." 
-                             ValidationGroup="LoginUserValidationGroup">*</asp:RequiredFieldValidator>
+                        <asp:Label ID="lblCedulaCliente" runat="server" AssociatedControlID="txtCedulaCliente" Text="Número de Cédula: "></asp:Label><br />
+                        <asp:TextBox ID="txtCedulaCliente" CssClass="textEntry" enabled = "false" runat="server" Width="197px"></asp:TextBox>
                     </p>                   
                     <p>
                         <asp:Label ID="lblNombreCliente" runat="server" AssociatedControlID="txtNombreCliente">Nombres del cliente:</asp:Label><br />
@@ -68,7 +79,7 @@
                         </p>
                     
                      <p> 
-                         <asp:Label ID="lblTelefono" runat="server" Text="Telefono:"></asp:Label>
+                         <asp:Label ID="lblTelefono" runat="server" Text="Teléfono:"></asp:Label>
                     <br />
                            <asp:TextBox ID="txtTelefono" runat="server" CssClass="textEntry" Enabled="False" ></asp:TextBox>
                     </p>
@@ -83,20 +94,7 @@
                         <asp:Label ID="lblRutaAsignada" runat="server"  Text="xxxxxxx"></asp:Label>
                       </p>
                       <p>
-                          <asp:Label ID="lblTamanoCil" runat="server" Text="Tamaño Cilindro:"></asp:Label>
-                      &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-                           <asp:TextBox ID="txtTamanoCil"  CssClass="textEntry" runat="server" enabled = "false" Width="50px" Text=""></asp:TextBox>
-                   &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;
-                          <asp:Label ID="lblCantidadCilindro" runat="server" Text="Cantidad Cilindros: "></asp:Label>
-                          &nbsp;&nbsp;
-                          
-                          <asp:TextBox ID="txtCantidadCilindro"  CssClass="textEntry" runat="server" enabled = "false" Width="50px" Text=""></asp:TextBox>
-                          &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-                    <asp:Button ID="btnAgregar" runat="server" Text="Agregar" Width="115px" 
-                              enabled = "false" onclick="btnAgregar_Click" />
-                    <br />
-                    <br />
-
+                    
                     <asp:GridView ID="gvPedido" runat="server" CellPadding="2" ForeColor="#333333" GridLines="None">
                     <AlternatingRowStyle BackColor="White" />
                     <EditRowStyle BackColor="#7C6F57" />

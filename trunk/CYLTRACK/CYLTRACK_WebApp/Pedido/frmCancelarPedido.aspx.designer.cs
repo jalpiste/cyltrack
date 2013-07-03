@@ -13,6 +13,24 @@ namespace Unisangil.CYLTRACK.CYLTRACK_WebApp.Pedido {
     public partial class frmCancelarPedido {
         
         /// <summary>
+        /// Control CancelarPedidoValidationSummary.
+        /// </summary>
+        /// <remarks>
+        /// Campo generado automáticamente.
+        /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.ValidationSummary CancelarPedidoValidationSummary;
+        
+        /// <summary>
+        /// Control ValidarCedulaValidationSummary.
+        /// </summary>
+        /// <remarks>
+        /// Campo generado automáticamente.
+        /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.ValidationSummary ValidarCedulaValidationSummary;
+        
+        /// <summary>
         /// Control lblCedula.
         /// </summary>
         /// <remarks>
@@ -49,13 +67,40 @@ namespace Unisangil.CYLTRACK.CYLTRACK_WebApp.Pedido {
         protected global::System.Web.UI.WebControls.RequiredFieldValidator txtCedulaRequired;
         
         /// <summary>
-        /// Control NumPedidoTxt.
+        /// Control ValidarDatosCedula.
         /// </summary>
         /// <remarks>
         /// Campo generado automáticamente.
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox NumPedidoTxt;
+        protected global::System.Web.UI.WebControls.RegularExpressionValidator ValidarDatosCedula;
+        
+        /// <summary>
+        /// Control txtNumPedido.
+        /// </summary>
+        /// <remarks>
+        /// Campo generado automáticamente.
+        /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.TextBox txtNumPedido;
+        
+        /// <summary>
+        /// Control ValidarDatosPedido.
+        /// </summary>
+        /// <remarks>
+        /// Campo generado automáticamente.
+        /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.RequiredFieldValidator ValidarDatosPedido;
+        
+        /// <summary>
+        /// Control ValidarPedido.
+        /// </summary>
+        /// <remarks>
+        /// Campo generado automáticamente.
+        /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.RegularExpressionValidator ValidarPedido;
         
         /// <summary>
         /// Control divInfoCliente.
@@ -101,15 +146,6 @@ namespace Unisangil.CYLTRACK.CYLTRACK_WebApp.Pedido {
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
         protected global::System.Web.UI.WebControls.TextBox txtCedulaCliente;
-        
-        /// <summary>
-        /// Control ModificarPedidoRequired.
-        /// </summary>
-        /// <remarks>
-        /// Campo generado automáticamente.
-        /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.RequiredFieldValidator ModificarPedidoRequired;
         
         /// <summary>
         /// Control lblNombreCliente.
@@ -292,42 +328,6 @@ namespace Unisangil.CYLTRACK.CYLTRACK_WebApp.Pedido {
         protected global::System.Web.UI.WebControls.Label lblRutaAsignada;
         
         /// <summary>
-        /// Control lblTamanoCil.
-        /// </summary>
-        /// <remarks>
-        /// Campo generado automáticamente.
-        /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.Label lblTamanoCil;
-        
-        /// <summary>
-        /// Control txtTamanoCil.
-        /// </summary>
-        /// <remarks>
-        /// Campo generado automáticamente.
-        /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox txtTamanoCil;
-        
-        /// <summary>
-        /// Control lblCantidadCilindro.
-        /// </summary>
-        /// <remarks>
-        /// Campo generado automáticamente.
-        /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.Label lblCantidadCilindro;
-        
-        /// <summary>
-        /// Control txtCantidadCilindro.
-        /// </summary>
-        /// <remarks>
-        /// Campo generado automáticamente.
-        /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox txtCantidadCilindro;
-        
-        /// <summary>
         /// Control gvPedido.
         /// </summary>
         /// <remarks>
@@ -371,6 +371,15 @@ namespace Unisangil.CYLTRACK.CYLTRACK_WebApp.Pedido {
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
         protected global::System.Web.UI.WebControls.TextBox txtMotivoCancelacion;
+        
+        /// <summary>
+        /// Control ValidarMotivo.
+        /// </summary>
+        /// <remarks>
+        /// Campo generado automáticamente.
+        /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.RequiredFieldValidator ValidarMotivo;
         
         /// <summary>
         /// Control btnLimpiar.

@@ -13,6 +13,33 @@ namespace Unisangil.CYLTRACK.CYLTRACK_WebApp.Account.Pedido {
     public partial class frmRegistroPedido {
         
         /// <summary>
+        /// Control RegistroPedidoValidationSummary.
+        /// </summary>
+        /// <remarks>
+        /// Campo generado automáticamente.
+        /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.ValidationSummary RegistroPedidoValidationSummary;
+        
+        /// <summary>
+        /// Control ValidarCedulaValidationSummary.
+        /// </summary>
+        /// <remarks>
+        /// Campo generado automáticamente.
+        /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.ValidationSummary ValidarCedulaValidationSummary;
+        
+        /// <summary>
+        /// Control ValidarCantidadValidationSummary.
+        /// </summary>
+        /// <remarks>
+        /// Campo generado automáticamente.
+        /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.ValidationSummary ValidarCantidadValidationSummary;
+        
+        /// <summary>
         /// Control lblCodigoPedido.
         /// </summary>
         /// <remarks>
@@ -29,15 +56,6 @@ namespace Unisangil.CYLTRACK.CYLTRACK_WebApp.Account.Pedido {
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
         protected global::System.Web.UI.WebControls.Label lblNumeroPedido;
-        
-        /// <summary>
-        /// Control RegistroPedidoValidationSummary.
-        /// </summary>
-        /// <remarks>
-        /// Campo generado automáticamente.
-        /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.ValidationSummary RegistroPedidoValidationSummary;
         
         /// <summary>
         /// Control lblCedula.
@@ -67,6 +85,15 @@ namespace Unisangil.CYLTRACK.CYLTRACK_WebApp.Account.Pedido {
         protected global::System.Web.UI.WebControls.RequiredFieldValidator txtCedulaRequired;
         
         /// <summary>
+        /// Control ValidarDatosCedula.
+        /// </summary>
+        /// <remarks>
+        /// Campo generado automáticamente.
+        /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.RegularExpressionValidator ValidarDatosCedula;
+        
+        /// <summary>
         /// Control divInfoCliente.
         /// </summary>
         /// <remarks>
@@ -74,6 +101,24 @@ namespace Unisangil.CYLTRACK.CYLTRACK_WebApp.Account.Pedido {
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
         protected global::System.Web.UI.HtmlControls.HtmlGenericControl divInfoCliente;
+        
+        /// <summary>
+        /// Control lblCedulaCli.
+        /// </summary>
+        /// <remarks>
+        /// Campo generado automáticamente.
+        /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Label lblCedulaCli;
+        
+        /// <summary>
+        /// Control txtCedulaCli.
+        /// </summary>
+        /// <remarks>
+        /// Campo generado automáticamente.
+        /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.TextBox txtCedulaCli;
         
         /// <summary>
         /// Control lblNombreCliente.
@@ -157,6 +202,15 @@ namespace Unisangil.CYLTRACK.CYLTRACK_WebApp.Account.Pedido {
         protected global::System.Web.UI.WebControls.ListBox lstDireccion;
         
         /// <summary>
+        /// Control ValidarDir.
+        /// </summary>
+        /// <remarks>
+        /// Campo generado automáticamente.
+        /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.RequiredFieldValidator ValidarDir;
+        
+        /// <summary>
         /// Control txtBarrio.
         /// </summary>
         /// <remarks>
@@ -220,42 +274,6 @@ namespace Unisangil.CYLTRACK.CYLTRACK_WebApp.Account.Pedido {
         protected global::System.Web.UI.WebControls.TextBox txtTelefono;
         
         /// <summary>
-        /// Control lblCilindro.
-        /// </summary>
-        /// <remarks>
-        /// Campo generado automáticamente.
-        /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.Label lblCilindro;
-        
-        /// <summary>
-        /// Control lblTamano.
-        /// </summary>
-        /// <remarks>
-        /// Campo generado automáticamente.
-        /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.Label lblTamano;
-        
-        /// <summary>
-        /// Control txtCilindro.
-        /// </summary>
-        /// <remarks>
-        /// Campo generado automáticamente.
-        /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox txtCilindro;
-        
-        /// <summary>
-        /// Control txtTamano.
-        /// </summary>
-        /// <remarks>
-        /// Campo generado automáticamente.
-        /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox txtTamano;
-        
-        /// <summary>
         /// Control lblVehiculo.
         /// </summary>
         /// <remarks>
@@ -272,6 +290,15 @@ namespace Unisangil.CYLTRACK.CYLTRACK_WebApp.Account.Pedido {
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
         protected global::System.Web.UI.WebControls.ListBox lstPlaca;
+        
+        /// <summary>
+        /// Control ValidarPlaca.
+        /// </summary>
+        /// <remarks>
+        /// Campo generado automáticamente.
+        /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.RequiredFieldValidator ValidarPlaca;
         
         /// <summary>
         /// Control lblRuta.
@@ -328,6 +355,15 @@ namespace Unisangil.CYLTRACK.CYLTRACK_WebApp.Account.Pedido {
         protected global::System.Web.UI.WebControls.TextBox txtCantidadCilindro;
         
         /// <summary>
+        /// Control ValidarDatosCantidad.
+        /// </summary>
+        /// <remarks>
+        /// Campo generado automáticamente.
+        /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.RegularExpressionValidator ValidarDatosCantidad;
+        
+        /// <summary>
         /// Control btnAgregar.
         /// </summary>
         /// <remarks>
@@ -344,6 +380,15 @@ namespace Unisangil.CYLTRACK.CYLTRACK_WebApp.Account.Pedido {
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
         protected global::System.Web.UI.WebControls.GridView gvPedido;
+        
+        /// <summary>
+        /// Control btnRemover.
+        /// </summary>
+        /// <remarks>
+        /// Campo generado automáticamente.
+        /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Button btnRemover;
         
         /// <summary>
         /// Control btnLimpiar.
