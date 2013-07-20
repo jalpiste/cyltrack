@@ -85,33 +85,6 @@ namespace Unisangil.CYLTRACK.CYLTRACK_WebApp {
         protected global::AjaxControlToolkit.CalendarExtender calrExtFecha;
         
         /// <summary>
-        /// Control lblNota.
-        /// </summary>
-        /// <remarks>
-        /// Campo generado automáticamente.
-        /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.Label lblNota;
-        
-        /// <summary>
-        /// Control lstUbicacion.
-        /// </summary>
-        /// <remarks>
-        /// Campo generado automáticamente.
-        /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.ListBox lstUbicacion;
-        
-        /// <summary>
-        /// Control UbicacionRequerida.
-        /// </summary>
-        /// <remarks>
-        /// Campo generado automáticamente.
-        /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.RequiredFieldValidator UbicacionRequerida;
-        
-        /// <summary>
         /// Control lblTipoCil.
         /// </summary>
         /// <remarks>
@@ -137,6 +110,33 @@ namespace Unisangil.CYLTRACK.CYLTRACK_WebApp {
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
         protected global::System.Web.UI.WebControls.RequiredFieldValidator tipoCilRequerido;
+        
+        /// <summary>
+        /// Control lblNota.
+        /// </summary>
+        /// <remarks>
+        /// Campo generado automáticamente.
+        /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Label lblNota;
+        
+        /// <summary>
+        /// Control lstUbicacion.
+        /// </summary>
+        /// <remarks>
+        /// Campo generado automáticamente.
+        /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.ListBox lstUbicacion;
+        
+        /// <summary>
+        /// Control UbicacionRequerida.
+        /// </summary>
+        /// <remarks>
+        /// Campo generado automáticamente.
+        /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.RequiredFieldValidator UbicacionRequerida;
         
         /// <summary>
         /// Control divPlaca.

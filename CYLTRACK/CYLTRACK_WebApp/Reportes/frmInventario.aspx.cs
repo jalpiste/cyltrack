@@ -17,7 +17,7 @@ namespace Unisangil.CYLTRACK.CYLTRACK_WebApp
         {
             if (!IsPostBack)
             {
-                List<string> tipoCil = ProcesoInventario.ConsultaTipoCilindro();
+                List<string> tipoCil = Auxiliar.ConsultaTipoCilindro();
                 foreach (string tip in tipoCil)
                 {
                     lstTipoCil.Items.Add(tip);
@@ -51,6 +51,9 @@ namespace Unisangil.CYLTRACK.CYLTRACK_WebApp
                     UbicacionBE ubi = new UbicacionBE();
                     ubi.Tipo_Ubicacion = tipUbi;
                     reporte.Ubicacion = ubi;
+                    CilindroBE cil = new CilindroBE();
+                    cil.Tipo_Cilindro = lstTipoCil.SelectedValue;
+                    reporte.Cilindro = cil;
                     reporte.Ubicacion.Tipo_Ubicacion.Nombre_Ubicacion = lstUbicacion.SelectedValue;
                     List<ReportesBE> lstReporte = new List<ReportesBE>(servReport.Inventario(reporte));
 
