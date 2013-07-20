@@ -23,7 +23,16 @@
                      <asp:RequiredFieldValidator ID="RegistrarRutaRequired" runat="server" 
                      ControlToValidate="txtNombreRuta" CssClass="failureNotification" 
                      ErrorMessage="El nombre de la ruta es obligatorio." ToolTip="El nombre de la ruta es obligatorio." 
-                     ValidationGroup="RegistrarRutaValidationGroup"> * </asp:RequiredFieldValidator>
+                     ValidationGroup="RegistrarRutaValidationGroup" Font-Size="Small"></asp:RequiredFieldValidator>
+
+                     <br />
+                     <br />
+                     <div id= "divRuta" runat="server" visible="false">
+                     <asp:Label ID="lblNomRuta" runat="server" Text="Nombre de Ruta: "></asp:Label>           
+                     <br />
+                     <asp:TextBox ID="txtNomRuta" runat="server" CssClass="textEntry" Width="197px" 
+                      Enabled="false"></asp:TextBox>
+                      </div>
                      </div>
                     <div id="DivSelCiudades" runat="server" visible ="false">
                     <h3>
@@ -37,27 +46,59 @@
                             Width="170px" > 
                     <asp:ListItem>Seleccionar</asp:ListItem>
                     </asp:ListBox>
+                     <asp:RequiredFieldValidator ID="validadorDepart" runat="server" 
+                     ControlToValidate="lstDepartamento" CssClass="failureNotification" 
+                     ErrorMessage="El nombre del departamento es obligatorio." ToolTip="El nombre del departamento es obligatorio." 
+                     ValidationGroup="RegistrarRutaValidationGroup" Font-Size="Small">*</asp:RequiredFieldValidator>
+
                      &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
                     <asp:ListBox ID="lstCiudad" runat="server" AutoPostBack="True" Rows="1" 
                             Width="170px" > 
                     </asp:ListBox>
+                    <asp:RequiredFieldValidator ID="validadorCiudad" runat="server" 
+                     ControlToValidate="lstCiudad" CssClass="failureNotification" 
+                     ErrorMessage="El nombre de la ciudad es obligatorio." ToolTip="El nombre de la ciudad es obligatorio." 
+                     ValidationGroup="RegistrarRutaValidationGroup" Font-Size="Small">*</asp:RequiredFieldValidator>
+
                     &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
                     <asp:Button ID="btnAgregar" runat="server" Text="Agregar" Width="115px" 
                          onclick="btnAgregar_Click"/>
                          
                     <br />
                     <br />
-                     <asp:ListBox ID="lstAgregar" runat="server" Height="55px" Width="120px" 
-                         visible ="false"></asp:ListBox> 
-                         &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 
-                         <asp:Button ID="btnRemover" runat="server" Text="Remover" Width="115px" 
-                           onclick="btnRemover_Click"/>    
+                    <asp:GridView ID="gdAdd" runat="server" AutoGenerateColumns="False" 
+                    CellPadding="4" ForeColor="#333333" GridLines="None" Visible="false">
+                    <AlternatingRowStyle BackColor="White" />
+                    <Columns>
+                        <asp:BoundField SortExpression="CiudadesAdd" DataField="CiudadesAdd" HeaderText="Ciudades Agregadas"
+                            HeaderStyle-Width="100px">
+                            <HeaderStyle Width="130px" />
+                        </asp:BoundField>
+                        <asp:TemplateField HeaderText="Seleccionar">
+                            <ItemTemplate>
+                                <asp:Button ID="Remover" runat="server" Text="Remover" Width="100px"   
+                                AutoPostBack="true" value='<%# Eval("CiudadesAdd")%>' OnClick="btnRemover_Click"  />
+                            </ItemTemplate>
+                        </asp:TemplateField>
+                    </Columns>
+                    <EditRowStyle BackColor="#7C6F57" />
+                    <FooterStyle BackColor="#1C5E55" Font-Bold="True" ForeColor="White" />
+                    <HeaderStyle BackColor="#AC3332" Font-Bold="True" ForeColor="White" />
+                    <PagerStyle BackColor="#666666" ForeColor="White" HorizontalAlign="Center" />
+                    <RowStyle BackColor="#EFF3FB" />
+                    <SelectedRowStyle BackColor="#C5BBAF" Font-Bold="True" ForeColor="#333333" />
+                    <SortedAscendingCellStyle BackColor="#F8FAFA" />
+                    <SortedAscendingHeaderStyle BackColor="#246B61" />
+                    <SortedDescendingCellStyle BackColor="#D4DFE1" />
+                    <SortedDescendingHeaderStyle BackColor="#15524A" />
+                    </asp:GridView>                             
+ 
                     </div> 
                    
                  </fieldset>
                  <p class="submitButton">
                 <asp:Button ID="btnGuardar" runat="server" Text="Guardar" Visible="false" 
-                         Width="115px" onclick="btnGuardar_Click"/> 
+                         Width="115px" onclick="btnGuardar_Click" ValidationGroup="RegistrarRutaValidationGroup"/> 
                     &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; &nbsp; 
                     <asp:Button ID="btnMenu" runat="server" Text="Menú Principal" Width="115px" 
                     onclick="btnMenu_Click"/>  

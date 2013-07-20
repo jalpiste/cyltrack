@@ -6,6 +6,8 @@ using System.Web.UI;
 using System.Web.UI.WebControls;
 using Unisangil.CYLTRACK.CYLTRACK_BE;
 using CYLTRACK_WebApp.RutaService;
+using System.Windows.Forms;
+using System.Data;
 
 namespace Unisangil.CYLTRACK.CYLTRACK_WebApp.Rutas
 {
@@ -13,14 +15,59 @@ namespace Unisangil.CYLTRACK.CYLTRACK_WebApp.Rutas
     {
         protected void Page_Load(object sender, EventArgs e)
         {
-
+            if(!IsPostBack)
+            {
+                txtNombreRuta.Focus();
+            }
+            if(IsPostBack)
+            {
+                btnGuardar.Focus();
+            }
+            
         }
-        RutaServicesClient servRuta = new RutaServicesClient();
-        RutaBE ruta = new RutaBE();
+        List<RutaBE> lstCiudades = new List<RutaBE>();
           protected void btnAgregar_Click(object sender, EventArgs e)
         {
-            lstAgregar.Visible = true;
-            lstAgregar.Items.Add(lstCiudad.Text);
+            RutaBE ruta = new RutaBE();
+            DataTable tabla = new DataTable();
+
+            try
+            {
+                string registro = lstCiudad.SelectedValue;
+                Ciudad_RutaBE ciuRuta = new Ciudad_RutaBE();
+                CiudadBE ciu = new CiudadBE();
+                ciu.Nombre_Ciudad= registro;
+                ciuRuta.Ciudad = ciu;
+                ruta.Ciudad_Ruta = ciuRuta;
+                foreach (RutaBE datos in lstCiudades)
+                {
+                    if (datos.Ciudad_Ruta.Ciudad.Nombre_Ciudad == ruta.Ciudad_Ruta.Ciudad.Nombre_Ciudad)
+                    {
+                        ruta.Ciudad_Ruta.Ciudad.Nombre_Ciudad += datos.Ciudad_Ruta.Ciudad.Nombre_Ciudad;
+                        lstCiudades.Remove(datos);
+                    }
+                }
+                
+                lstCiudades.Add(ruta);
+
+                tabla.Columns.Add("CiudadesAdd");
+
+                foreach (RutaBE info in lstCiudades)
+                {
+                    tabla.Rows.Add(info.Ciudad_Ruta.Ciudad.Nombre_Ciudad);
+                    gdAdd.DataSource = tabla;
+                    gdAdd.DataBind();
+                }
+
+            }
+            catch (Exception ex)
+            {
+                Response.Redirect("~/About.aspx");
+            }
+            finally
+            {
+                gdAdd.Visible = true;
+            }
         }
 
         protected void btnMenu_Click(object sender, EventArgs e)
@@ -30,67 +77,114 @@ namespace Unisangil.CYLTRACK.CYLTRACK_WebApp.Rutas
 
         protected void btnRemover_Click(object sender, EventArgs e)
         {
-            if (lstAgregar.SelectedIndex > -1)
+            RutaBE ruta = new RutaBE();
+            DataTable tabla = new DataTable();
+
+            try
             {
-                lstAgregar.Items.Remove(lstAgregar.Text);
+                string registro = ((System.Web.UI.WebControls.Button)sender).Attributes["value"].ToString();
+                Ciudad_RutaBE ciuRuta = new Ciudad_RutaBE();
+                CiudadBE ciu = new CiudadBE();
+                ciu.Nombre_Ciudad = registro;
+                ciuRuta.Ciudad = ciu;
+                ruta.Ciudad_Ruta = ciuRuta;
+
+                foreach (RutaBE datos in lstCiudades)
+                {
+                   if(datos.Ciudad_Ruta.Ciudad.Nombre_Ciudad==ruta.Ciudad_Ruta.Ciudad.Nombre_Ciudad)
+                   {
+                       lstCiudades.Remove(ruta);
+                   } 
+                }
+                
+                tabla.Columns.Add("CiudadesAdd");
+
+                foreach (RutaBE info in lstCiudades)
+                {
+                    tabla.Rows.Add(info.Ciudad_Ruta.Ciudad.Nombre_Ciudad);
+                    gdAdd.DataSource = tabla;
+                    gdAdd.DataBind();
+                }
+
             }
+            catch (Exception ex)
+            {
+                Response.Redirect("~/About.aspx");
+            }
+            finally
+            {
+                gdAdd.Visible = true;
+            }
+            
         }
 
         protected void txtNombreRuta_TextChanged(object sender, EventArgs e)
         {
-            
-            //String nombreRuta;
-            //ruta.Nombre_Ruta = txtNombreRuta.Text;
-            //nombreRuta = servRuta.RegistrarRuta(ruta);
-
-            //if (nombreRuta == "Creada")
-            //{
-            //    Response.Write("<script type='text/javascript'> alert('El nombre de la ruta ya ha sido creada') </script>");
-            //}
-            //else
-            //{
-            RutaBE[] consulta = servRuta.ConsultarRuta(ruta);
-
-            var datos = from infoRuta in consulta
-                        select infoRuta;
-
-            foreach (RutaBE infoRuta in datos)
+            RutaServicesClient servRuta = new RutaServicesClient();
+            RutaBE ruta = new RutaBE();
+            RutaBE[] consulta ;
+            try 
             {
-                lstCiudad.Items.Add(infoRuta.Nombre_Ruta);
-                //lstDepartamento.Text = infoRuta.Departamento.Nombre_Departamento;
-            }
+                ruta.Nombre_Ruta = txtNombreRuta.Text;
+                consulta = servRuta.ConsultarRuta(ruta);
                 
-            //    }
-           DivSelCiudades.Visible = true;
-           btnGuardar.Visible = true;
-        }
+                foreach (RutaBE infoRuta in consulta)
+                {
+                    if (infoRuta.Nombre_Ruta == txtNombreRuta.Text)
+                    {
+                        MessageBox.Show("La ruta digitada ya se encuentra registrada", "Registrar Ruta");
+                    }
+                    else
+                    {
+                        divRuta.Visible = true;
+                        txtNomRuta.Text = txtNombreRuta.Text;
+                        lstCiudad.Items.Add(infoRuta.Ciudad_Ruta.Ciudad.Nombre_Ciudad);
+                        lstDepartamento.Items.Add(infoRuta.Ciudad_Ruta.Ciudad.Departamento.Nombre_Departamento);
+                        DivSelCiudades.Visible = true;
+                        btnGuardar.Visible = true;
+                   }
+                }               
+            }
+            catch (Exception ex)
+            {
+                Response.Redirect("~/About.aspx");
+            }
+            finally 
+            {
+                servRuta.Close();
+            }
+            
+          }
 
         protected void btnGuardar_Click(object sender, EventArgs e)
         {
-            RutaServicesClient servicioRuta = new RutaServicesClient();
+            RutaServicesClient servRuta = new RutaServicesClient();
             RutaBE ruta = new RutaBE();
-            String creacionRuta;
+            String registrarRuta;
 
-            ruta.Nombre_Ruta = txtNombreRuta.Text;
-            //ruta.Ciudad_Ruta.Ciudad.Nombre_Ciudad = lstAgregar.SelectedValue;
-
-            creacionRuta = servicioRuta.RegistrarRuta(ruta);
-
-            if (creacionRuta == "Ok") 
+            try 
             {
-                Response.Write("<script type='text/javascript'> alert('La ruta ha sido creada satisfactoriamente') </script>");
-                DivSelCiudades.Visible = false;
-                btnGuardar.Visible = false;
-            }
-            else
-            {
-                Response.Write("<script type='text/javascript'> alert('Error al tratar de crear la ruta') </script>");
-                DivSelCiudades.Visible = false;
-                btnGuardar.Visible = false;
-            }
+                ruta.Nombre_Ruta = txtNomRuta.Text;
+                foreach(RutaBE datos in lstCiudades)
+                {
+                    ruta.Ciudad_Ruta.Ciudad.Nombre_Ciudad = datos.Ciudad_Ruta.Ciudad.Nombre_Ciudad;
+                }
+                registrarRuta = servRuta.RegistrarRuta(ruta);
 
-        }
-  
+                MessageBox.Show("La ruta ingresada fue registrada satisfactoriamente","Registrar Ruta");
+                           
+              }
+            catch (Exception ex)
+            {
+                Response.Redirect("~/About.aspx");
+            }
+            finally 
+            {
+                servRuta.Close();
+                Response.Redirect("~/Rutas/frmRegistrarRuta.aspx");
+            }           
+            
+        } 
                
     }
 }

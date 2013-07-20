@@ -30,11 +30,13 @@
                           <asp:Label ID="lblPost" runat="server" Text="Información de Ruta"></asp:Label>
                       </div> 
                     <div id="DivDatos" runat ="server"  visible ="false" >
-                        <asp:Label ID="lblNuevoNombre" runat="server" Text="Nombre: "></asp:Label>               
+                        <asp:Label ID="lblNuevoNombre" runat="server" Text="Nombre : "></asp:Label>               
                         <br />
-                        <asp:TextBox ID="txtNuevoNombre" runat="server" CssClass="textEntry" Width="197px"
-                        Enabled ="false" ></asp:TextBox>
-                      </div>  
+                        <asp:TextBox ID="txtNuevoNombre" runat="server" CssClass="textEntry" 
+                            Width="197px" ontextchanged="txtNuevoNombre_TextChanged"
+                         ></asp:TextBox>
+                        <br />
+                        </div>  
                     
                     <div id="DivModificarDatos" runat ="server" visible ="false" >
                     <h3>
@@ -51,6 +53,7 @@
                     </asp:ListBox>
                      &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
                     <asp:ListBox ID="lstCiudad" runat="server" AutoPostBack="True" Rows="1" Width="170px"> 
+                    <asp:ListItem>Seleccionar</asp:ListItem>
                     </asp:ListBox>
                     &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
                     <asp:Button ID="btnAgregar" runat="server" Text="Agregar" Width="115px" 
@@ -62,16 +65,38 @@
                    </div>
                    <br /> 
                    <div id="DivCiudad" runat ="server" visible ="false" >
-                   
-                     <asp:Label ID="lblCiudades" runat="server" Text="Ciudades: " ></asp:Label><br />
-                     <asp:ListBox ID="lstCiudades1" runat="server" Height="55px" Width="120px" enabled="false">
-                     </asp:ListBox>    
+                   <asp:GridView ID="gdAdd" runat="server" AutoGenerateColumns="False" 
+                    CellPadding="4" ForeColor="#333333" GridLines="None" Visible="false" Enabled="false">
+                    <AlternatingRowStyle BackColor="White" />
+                    <Columns>
+                        <asp:BoundField SortExpression="CiudadesAdd" DataField="CiudadesAdd" HeaderText="Ciudades Agregadas"
+                            HeaderStyle-Width="100px">
+                            <HeaderStyle Width="130px" />
+                        </asp:BoundField>
+                        <asp:TemplateField HeaderText="Seleccionar">
+                            <ItemTemplate>
+                                <asp:Button ID="Remover" runat="server" Text="Remover" Width="100px"   
+                                AutoPostBack="true" value='<%# Eval("CiudadesAdd")%>' OnClick="btnRemover_Click"  />
+                            </ItemTemplate>
+                        </asp:TemplateField>
+                    </Columns>
+                    <EditRowStyle BackColor="#7C6F57" />
+                    <FooterStyle BackColor="#1C5E55" Font-Bold="True" ForeColor="White" />
+                    <HeaderStyle BackColor="#AC3332" Font-Bold="True" ForeColor="White" />
+                    <PagerStyle BackColor="#666666" ForeColor="White" HorizontalAlign="Center" />
+                    <RowStyle BackColor="#EFF3FB" />
+                    <SelectedRowStyle BackColor="#C5BBAF" Font-Bold="True" ForeColor="#333333" />
+                    <SortedAscendingCellStyle BackColor="#F8FAFA" />
+                    <SortedAscendingHeaderStyle BackColor="#246B61" />
+                    <SortedDescendingCellStyle BackColor="#D4DFE1" />
+                    <SortedDescendingHeaderStyle BackColor="#15524A" />
+                    </asp:GridView>                             
+ 
+                       <br />
                      
                      &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
                      <asp:Button ID="btnModificar" runat="server" Text="Modificar" Width="115px" 
                             onclick="btnModificar_Click"/>    
-                     <asp:Button ID="btnRemoverCiudades" runat="server" Text="Remover" Width="115px" 
-                           Visible ="false" onclick="btnRemoverCiudades_Click" />                              
                     </div>
                 </fieldset> 
                 <p class="submitButton">
