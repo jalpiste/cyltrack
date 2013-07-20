@@ -19,6 +19,7 @@ namespace Unisangil.CYLTRACK.CYLTRACK_WebApp.Cilindros
 
         protected void txtCodigoCilindro_TextChanged(object sender, EventArgs e)
         {
+            SetFocus(DivInfoCilindro);
             CilindroServiceClient servCilindro = new CilindroServiceClient();
             CilindroBE cilindro = new CilindroBE();
             CilindroBE[] resp;
@@ -30,7 +31,7 @@ namespace Unisangil.CYLTRACK.CYLTRACK_WebApp.Cilindros
 
                 foreach (CilindroBE datosCil in resp)
                 {
-                    if (datosCil.Codigo_Cilindro == txtCodigoCilindro.Text)
+                    if (datosCil.Codigo_Cilindro != txtCodigoCilindro.Text)
                     {
                         MessageBox.Show("El código digitado no esta registrado en el sistema", "Consulta de Cilindros");
                     }

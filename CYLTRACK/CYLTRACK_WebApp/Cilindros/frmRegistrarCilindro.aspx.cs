@@ -17,15 +17,53 @@ namespace Unisangil.CYLTRACK.CYLTRACK_WebApp.Cilindros
         
         protected void Page_Load(object sender, EventArgs e)
         {
-            TxtCodigoCilindro.Focus();
+            if (!IsPostBack)
+            {
+                TxtCodigoCilindro.Focus();
+            }
+            if(!IsPostBack)
+            {
+                List<string> listaUbicacion = Auxiliar.ConsultarUbicacion();
+                foreach(string datos in listaUbicacion)
+                {
+                    LstUbicacion.Items.Add(datos);
+                }
+
+                Anos[] anos = Auxiliar.ConsultarAnos();
+                foreach (Anos datosAnos in anos)
+                {
+                    LstAno.Items.Add(datosAnos.ToString());
+                }
+
+                CilindroServiceClient servCil = new CilindroServiceClient();
+                CilindroBE cil = new CilindroBE();
+                try
+                {
+                    List<CilindroBE> lstTam = new List<CilindroBE>(servCil.ConsultarCilindro(cil));
+                    foreach(CilindroBE datos in lstTam)
+                    {
+                        LstTamano.Items.Add(datos.NTamano.Tamano);
+                    }
+                }
+                catch (Exception ex)
+                {
+                    Response.Redirect("~/About.aspx");
+                }
+                finally 
+                {
+                    servCil.Close();
+                }
+
+            }
         }
         protected void TxtCodigoCilindro_TextChanged(object sender, EventArgs e)
         {
+            SetFocus(BtnGuardar);
             CilindroServiceClient servCilindro = new CilindroServiceClient();
             CilindroBE cilindro = new CilindroBE();
             CilindroBE [] codigo;
-            try {
-
+            try 
+            {
                 cilindro.Codigo_Cilindro = TxtCodigoCilindro.Text;
                 codigo = servCilindro.ConsultarCilindro(cilindro);
                 foreach(CilindroBE datosList in codigo)
@@ -37,6 +75,7 @@ namespace Unisangil.CYLTRACK.CYLTRACK_WebApp.Cilindros
                     else 
                     {
                         txtCil.Text = TxtCodigoCilindro.Text;
+                        TxtCodigoCilindro.Text = "";
                         DivDatosCilindro.Visible = true;
                         BtnGuardar.Visible = true;
                     }
@@ -65,7 +104,7 @@ namespace Unisangil.CYLTRACK.CYLTRACK_WebApp.Cilindros
                 FabricanteBE fab = new FabricanteBE();
                 fab.Id_Fabricante= TxtEmpresa.Text;
                 cilindro.Fabricante = fab;
-                cilindro.Id_Cilindro = TxtCodigoCilindro.Text;
+                cilindro.Id_Cilindro = txtCil.Text;
                 Tipo_UbicacionBE tipUbica = new Tipo_UbicacionBE();
                 tipUbica.Nombre_Ubicacion= LstUbicacion.SelectedValue;
                 UbicacionBE ubi = new UbicacionBE();
