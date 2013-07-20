@@ -76,49 +76,13 @@ namespace Unisangil.CYLTRACK.CYLTRACK_WebApp.Reportes {
         protected global::System.Web.UI.HtmlControls.HtmlGenericControl DivHistoricoCilindro;
         
         /// <summary>
-        /// Control lblCodigo.
+        /// Control gvCargue.
         /// </summary>
         /// <remarks>
         /// Campo generado automáticamente.
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Label lblCodigo;
-        
-        /// <summary>
-        /// Control lblTamaño.
-        /// </summary>
-        /// <remarks>
-        /// Campo generado automáticamente.
-        /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.Label lblTamaño;
-        
-        /// <summary>
-        /// Control txtCódigo.
-        /// </summary>
-        /// <remarks>
-        /// Campo generado automáticamente.
-        /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox txtCódigo;
-        
-        /// <summary>
-        /// Control txtTamano.
-        /// </summary>
-        /// <remarks>
-        /// Campo generado automáticamente.
-        /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox txtTamano;
-        
-        /// <summary>
-        /// Control gvReporte.
-        /// </summary>
-        /// <remarks>
-        /// Campo generado automáticamente.
-        /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.GridView gvReporte;
+        protected global::System.Web.UI.WebControls.GridView gvCargue;
         
         /// <summary>
         /// Control btnImp.
