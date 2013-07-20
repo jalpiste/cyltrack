@@ -67,6 +67,33 @@ namespace Unisangil.CYLTRACK.CYLTRACK_WebApp.Rutas {
         protected global::System.Web.UI.WebControls.RequiredFieldValidator RegistrarRutaRequired;
         
         /// <summary>
+        /// Control divRuta.
+        /// </summary>
+        /// <remarks>
+        /// Campo generado automáticamente.
+        /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
+        /// </remarks>
+        protected global::System.Web.UI.HtmlControls.HtmlGenericControl divRuta;
+        
+        /// <summary>
+        /// Control lblNomRuta.
+        /// </summary>
+        /// <remarks>
+        /// Campo generado automáticamente.
+        /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Label lblNomRuta;
+        
+        /// <summary>
+        /// Control txtNomRuta.
+        /// </summary>
+        /// <remarks>
+        /// Campo generado automáticamente.
+        /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.TextBox txtNomRuta;
+        
+        /// <summary>
         /// Control DivSelCiudades.
         /// </summary>
         /// <remarks>
@@ -103,6 +130,15 @@ namespace Unisangil.CYLTRACK.CYLTRACK_WebApp.Rutas {
         protected global::System.Web.UI.WebControls.ListBox lstDepartamento;
         
         /// <summary>
+        /// Control validadorDepart.
+        /// </summary>
+        /// <remarks>
+        /// Campo generado automáticamente.
+        /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.RequiredFieldValidator validadorDepart;
+        
+        /// <summary>
         /// Control lstCiudad.
         /// </summary>
         /// <remarks>
@@ -110,6 +146,15 @@ namespace Unisangil.CYLTRACK.CYLTRACK_WebApp.Rutas {
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
         protected global::System.Web.UI.WebControls.ListBox lstCiudad;
+        
+        /// <summary>
+        /// Control validadorCiudad.
+        /// </summary>
+        /// <remarks>
+        /// Campo generado automáticamente.
+        /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.RequiredFieldValidator validadorCiudad;
         
         /// <summary>
         /// Control btnAgregar.
@@ -121,22 +166,13 @@ namespace Unisangil.CYLTRACK.CYLTRACK_WebApp.Rutas {
         protected global::System.Web.UI.WebControls.Button btnAgregar;
         
         /// <summary>
-        /// Control lstAgregar.
+        /// Control gdAdd.
         /// </summary>
         /// <remarks>
         /// Campo generado automáticamente.
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.ListBox lstAgregar;
-        
-        /// <summary>
-        /// Control btnRemover.
-        /// </summary>
-        /// <remarks>
-        /// Campo generado automáticamente.
-        /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.Button btnRemover;
+        protected global::System.Web.UI.WebControls.GridView gdAdd;
         
         /// <summary>
         /// Control btnGuardar.

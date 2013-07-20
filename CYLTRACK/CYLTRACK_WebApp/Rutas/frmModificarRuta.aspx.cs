@@ -6,6 +6,8 @@ using System.Web.UI;
 using System.Web.UI.WebControls;
 using Unisangil.CYLTRACK.CYLTRACK_BE;
 using CYLTRACK_WebApp.RutaService;
+using System.Windows.Forms;
+using System.Data;
 
 namespace Unisangil.CYLTRACK.CYLTRACK_WebApp.Rutas
 {
@@ -13,96 +15,256 @@ namespace Unisangil.CYLTRACK.CYLTRACK_WebApp.Rutas
     {
         protected void Page_Load(object sender, EventArgs e)
         {
-     
+            if(!IsPostBack)
+            {
+                txtNombreRuta.Focus();
+            }
         }
 
-        
-        RutaBE ruta = new RutaBE();
-        RutaServicesClient servRuta = new RutaServicesClient();
         protected void btnMenu_Click(object sender, EventArgs e)
         {
             //Response.Redirect("~/Default.aspx");
         }
-
+        List<RutaBE> lstCiudades = new List<RutaBE>();
         protected void btnAgregar_Click(object sender, EventArgs e)
         {
-            lstCiudades1.Items.Add(lstCiudad.SelectedValue);
+            RutaBE ruta = new RutaBE();
+            DataTable tabla = new DataTable();
+
+            try
+            {
+                string registro = lstCiudad.SelectedValue;
+                Ciudad_RutaBE ciuRuta = new Ciudad_RutaBE();
+                CiudadBE ciu = new CiudadBE();
+                ciu.Nombre_Ciudad = registro;
+                ciuRuta.Ciudad = ciu;
+                ruta.Ciudad_Ruta = ciuRuta;
+                foreach (RutaBE datos in lstCiudades)
+                {
+                    if (datos.Ciudad_Ruta.Ciudad.Nombre_Ciudad == ruta.Ciudad_Ruta.Ciudad.Nombre_Ciudad)
+                    {
+                        ruta.Ciudad_Ruta.Ciudad.Nombre_Ciudad += datos.Ciudad_Ruta.Ciudad.Nombre_Ciudad;
+                        lstCiudades.Remove(datos);
+                    }
+                }
+
+                lstCiudades.Add(ruta);
+
+                tabla.Columns.Add("CiudadesAdd");
+
+                foreach (RutaBE info in lstCiudades)
+                {
+                    tabla.Rows.Add(info.Ciudad_Ruta.Ciudad.Nombre_Ciudad);
+                    gdAdd.DataSource = tabla;
+                    gdAdd.DataBind();
+                }
+
+            }
+            catch (Exception ex)
+            {
+                Response.Redirect("~/About.aspx");
+            }
+            finally
+            {
+                gdAdd.Visible = true;
+            }
         }
 
         protected void btnModificar_Click(object sender, EventArgs e)
         {
-                //lstCiudad.Text = ruta.Ciudad_Ruta.Ciudad.Nombre_Ciudad;
                 DivModificarDatos.Visible = true;
                 btnModificar.Visible = false;
                 txtNuevoNombre.Enabled = true;
-                btnRemoverCiudades.Visible = true;
-          }
-
+                gdAdd.Enabled = true;        
+        }
+        
         protected void txtNombreRuta_TextChanged(object sender, EventArgs e)
         {
-            RutaBE[] consulta = servRuta.ConsultarRuta(ruta);
+            RutaServicesClient servRuta = new RutaServicesClient();
+            RutaBE ruta = new RutaBE();
+            DataTable tabla = new DataTable();
 
-            var datos = from info in consulta
-                        select info;
-
-            foreach(RutaBE info in datos)
+            try 
             {
-            txtNuevoNombre.Text = txtNombreRuta.Text;
-            lstCiudades1.Items.Add(info.Nombre_Ruta);
-            lstCiudades1.Items.Add(info.Nombre_Ruta);
-            lstCiudad .Items.Add(info.Nombre_Ruta);
-            lstCiudad .Items.Add(info.Nombre_Ruta);
+                ruta.Nombre_Ruta = txtNombreRuta.Text;
+                RutaBE[] consulta = servRuta.ConsultarRuta(ruta);
 
-            DivPost.Visible = true;
-            DivDatos.Visible = true;
-            DivCiudad.Visible = true;
-            btnGuardar.Visible = true;
+                foreach (RutaBE info in consulta)
+                {
+                    if (info.Nombre_Ruta != txtNombreRuta.Text)
+                    {
+                        MessageBox.Show("La ruta digitada no se encuentra registrada", "Modificar Ruta");
+                    }
+                    else
+                    {
+                        txtNuevoNombre.Text = txtNombreRuta.Text;
+                        lstCiudad.Items.Add(info.Ciudad.Nombre_Ciudad);
+                        lstDepartamento.Items.Add(info.Ciudad.Departamento.Nombre_Departamento);
+                        
+                        DivPost.Visible = true;
+                        DivDatos.Visible = true;
+                        DivCiudad.Visible = true;
+                        btnGuardar.Visible = true;
+                        gdAdd.Visible = true;
+                        lstCiudades.Add(info);                                            
+                    }
+                }
+
+                tabla.Columns.Add("CiudadesAdd");
+
+                foreach(RutaBE datos in lstCiudades)
+                {
+                    tabla.Rows.Add(datos.Ciudad_Ruta.Ciudad.Nombre_Ciudad);
+                    gdAdd.DataSource = tabla;
+                    gdAdd.DataBind();
+
+                }
+
             }
-                     
-        }
-
-  
+            catch (Exception ex)
+            {
+                Response.Redirect("~/About.aspx");
+            }
+            finally 
+            {
+                servRuta.Close();
+                gdAdd.Visible = true;
+            }
+                    
+        } 
 
         protected void btnGuardar_Click(object sender, EventArgs e)
         {
+            RutaServicesClient servRuta = new RutaServicesClient();
             String datos;
             RutaBE ruta = new RutaBE();
-            ruta.Nombre_Ruta = lstCiudades1.Text;//no estoy segura que guarde todos los datos de la lista
-            datos = servRuta.ModificarRuta(ruta);
 
-            if (datos == "Ok")
+            try 
             {
-                Response.Write("<script type='text/javascript'> alert('Sus datos fueron enviados satisfactoriamente') </script>");
-                DivPost.Visible = false;
-                DivDatos.Visible = false;
-                DivCiudad.Visible = false;
-                btnGuardar.Visible = false;
-                DivModificarDatos.Visible = false;
-            }
-            else 
+                    ruta.Nombre_Ruta = txtNuevoNombre.Text;
+                    CiudadBE ciu = new CiudadBE();
+                    Ciudad_RutaBE ciuRuta = new Ciudad_RutaBE();
+                    ciuRuta.Ciudad = ciu;
+                    ruta.Ciudad_Ruta = ciuRuta;
+
+                    foreach (RutaBE info in lstCiudades)
+                    {
+                        ruta.Ciudad_Ruta.Ciudad.Nombre_Ciudad = info.Ciudad.Nombre_Ciudad;
+                    }
+
+                    datos = servRuta.ModificarRuta(ruta);
+
+                    MessageBox.Show("La ruta fue modificada satisfactoriamente", "Modificar Ruta");
+                }
+           
+            catch (Exception ex)
             {
-                Response.Write("<script type='text/javascript'> alert('Error al tratar de modificar la ruta') </script>");
-                DivPost.Visible = false;
-                DivDatos.Visible = false;
-                DivCiudad.Visible = false;
-                btnGuardar.Visible = false;
-                DivModificarDatos.Visible = false;
+                Response.Redirect("~/About.aspx");
             }
+            finally 
+            {
+                servRuta.Close();
+                Response.Redirect("~/Rutas/frmModificarRuta.aspx");
+            }
+            
+       }
 
-           }
-
-
-        protected void btnRemoverCiudades_Click(object sender, EventArgs e)
+        protected void btnRemover_Click(object sender, EventArgs e)
         {
-            if(lstCiudades1.Items.Count > 0 )
+            RutaBE ruta = new RutaBE();
+            DataTable tabla = new DataTable();
+
+            try
             {
-               // lstCiudades1.Items.Remove(lstCiudades1.Text);
-                lstCiudades1.Items.Remove(Convert.ToString(lstCiudades1.SelectedIndex));
-              
+                string registro = ((System.Web.UI.WebControls.Button)sender).Attributes["value"].ToString();
+                Ciudad_RutaBE ciuRuta = new Ciudad_RutaBE();
+                CiudadBE ciu = new CiudadBE();
+                ciu.Nombre_Ciudad = registro;
+                ciuRuta.Ciudad = ciu;
+                ruta.Ciudad_Ruta = ciuRuta;
+
+                foreach (RutaBE datos in lstCiudades)
+                {
+                    if (datos.Ciudad_Ruta.Ciudad.Nombre_Ciudad == ruta.Ciudad_Ruta.Ciudad.Nombre_Ciudad)
+                    {
+                        lstCiudades.Remove(ruta);
+                    }
+                }
+
+                tabla.Columns.Add("CiudadesAdd");
+
+                foreach (RutaBE info in lstCiudades)
+                {
+                    tabla.Rows.Add(info.Ciudad_Ruta.Ciudad.Nombre_Ciudad);
+                    gdAdd.DataSource = tabla;
+                    gdAdd.DataBind();
+                }
+
+            }
+            catch (Exception ex)
+            {
+                Response.Redirect("~/About.aspx");
+            }
+            finally
+            {
+                gdAdd.Visible = true;
             }
         }
 
-      
+        protected void txtNuevoNombre_TextChanged(object sender, EventArgs e)
+        {
+            RutaServicesClient servRuta = new RutaServicesClient();
+            RutaBE ruta = new RutaBE();
+            DataTable tabla = new DataTable();
+
+            try
+            {
+                ruta.Nombre_Ruta = txtNuevoNombre.Text;
+                RutaBE[] consulta = servRuta.ConsultarRuta(ruta);
+
+                foreach (RutaBE info in consulta)
+                {
+                    if (info.Nombre_Ruta == txtNuevoNombre.Text)
+                    {
+                        MessageBox.Show("El nombre de la ruta digitada ya se encuentra registrada", "Modificar Ruta");
+                    }
+                    else
+                    {
+                        txtNuevoNombre.Text = txtNombreRuta.Text;
+                        lstCiudad.Items.Add(info.Ciudad.Nombre_Ciudad);
+                        lstDepartamento.Items.Add(info.Ciudad.Departamento.Nombre_Departamento);
+
+                        DivPost.Visible = true;
+                        DivDatos.Visible = true;
+                        DivCiudad.Visible = true;
+                        btnGuardar.Visible = true;
+                        gdAdd.Visible = true;
+                        lstCiudades.Add(info);
+                    }
+                }
+
+                tabla.Columns.Add("CiudadesAdd");
+
+                foreach (RutaBE datos in lstCiudades)
+                {
+                    tabla.Rows.Add(datos.Ciudad_Ruta.Ciudad.Nombre_Ciudad);
+                    gdAdd.DataSource = tabla;
+                    gdAdd.DataBind();
+
+                }
+
+            }
+            catch (Exception ex)
+            {
+                Response.Redirect("~/About.aspx");
+            }
+            finally
+            {
+                servRuta.Close();
+                gdAdd.Visible = true;
+            }
+           
+        }                
         
     }
 }
