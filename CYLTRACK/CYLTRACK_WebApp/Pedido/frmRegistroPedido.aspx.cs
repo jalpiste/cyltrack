@@ -190,10 +190,6 @@ namespace Unisangil.CYLTRACK.CYLTRACK_WebApp.Account.Pedido
 
         private void CrearTabla()
         { 
-        
-            PedidoServiceClient servPedido = new PedidoServiceClient();
-            Detalle_PedidoBE detail = new Detalle_PedidoBE();
-            
                 objdtLista.Columns.Add("TamanoCil");
                 objdtLista.Columns.Add("CantidadPedido");
      
@@ -217,13 +213,13 @@ namespace Unisangil.CYLTRACK.CYLTRACK_WebApp.Account.Pedido
                 detail.Tamano = tamanocil;
 
 
-                foreach (DataRow det in objdtTabla.Rows)
+                foreach (Detalle_PedidoBE det in lstDetail)
                 {
-                    //det.Tamano.Tamano = (Convert.ToString(row["TamanoCil"]));
-                    if (det.ItemArray.GetValue(0) == detail.Tamano.Tamano)
+                    
+                    if (det.Tamano.Tamano == detail.Tamano.Tamano)
                     {
-                        detail.Cantidad += det.ItemArray.GetValue(0);
-                      //  lstDetail.Remove(det);
+                        detail.Cantidad += det.Tamano.Tamano;
+                        lstDetail.Remove(det);
                     }
                 }
 
@@ -251,11 +247,6 @@ namespace Unisangil.CYLTRACK.CYLTRACK_WebApp.Account.Pedido
             }
      
     }
-        protected void btnRemover_Click(object sender, EventArgs e)
-        {
-            //gvPedido.DeleteRow(gvPedido.SelectedIndex);
-        }
-
         protected void lstDireccion_SelectedIndexChanged(object sender, EventArgs e)
         {
             lstDireccion.Focus();
@@ -263,7 +254,11 @@ namespace Unisangil.CYLTRACK.CYLTRACK_WebApp.Account.Pedido
 
         protected void gvPedido_RowDeleting(Object sender, GridViewDeleteEventArgs e)
         {
-           // DataTable tabla = new DataTable();
+            objdtTabla.Rows.RemoveAt(e.RowIndex);
+            gvPedido.DataSource = objdtTabla;
+            gvPedido.DataBind();
+            btnGuardar.Focus();
+            // DataTable tabla = new DataTable();
            // ////gvPedido.DeleteRow(gvPedido.SelectedIndex);
            // tabla = tblGridRow();
            // tabla.Rows.RemoveAt(e.RowIndex);

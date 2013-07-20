@@ -15,12 +15,19 @@
                 <fieldset class="login">
                     <legend>Cancelación de Pedidos</legend>
                                       <p>
-                        <asp:Label ID="lblCedula" runat="server" AssociatedControlID="txtCedula" >Número de Cédula:</asp:Label>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; &nbsp;
+                        <asp:Label ID="lblCedula" runat="server" AssociatedControlID="txtCedula" >Número de Cédula:</asp:Label>
+                        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
                         <asp:Label ID="lblNumPedido" runat="server" Text="Número de Pedido: "></asp:Label>
 <br />
                         <asp:TextBox ID="txtCedula" runat="server" CssClass="textEntry" 
                             Width="197px" ontextchanged="txtCedula_TextChanged" ></asp:TextBox>
-                             <asp:RequiredFieldValidator ID="txtCedulaRequired" runat="server" ControlToValidate="txtCedula" 
+                        
+                             &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;
+                        <asp:TextBox ID="txtNumPedido" CssClass="textEntry" runat="server" 
+                              Width="112px" ontextchanged="txtNumPedido_TextChanged"></asp:TextBox><br />
+                        
+                        
+                     <asp:RequiredFieldValidator ID="txtCedulaRequired" runat="server" ControlToValidate="txtCedula" 
                              CssClass="failureNotification" ErrorMessage="El número de cédula del cliente es obligatorio." ToolTip="El número de cédula del cliente es obligatorio." 
                              ValidationGroup="ValidarCedula" Font-Size = "Small" Display ="Dynamic"></asp:RequiredFieldValidator>
                      <asp:RegularExpressionValidator ID="ValidarDatosCedula" runat="server" ControlToValidate="txtCedula" 
@@ -28,10 +35,9 @@
                             ValidationExpression="^([\d]{6,10})$"  Font-Size = "Small" Display ="Dynamic"
                             ValidationGroup="ValidarCedula" ></asp:RegularExpressionValidator>
                    
-                             &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;
-                        <asp:TextBox ID="txtNumPedido" CssClass="textEntry" runat="server" 
-                              Width="112px" ontextchanged="txtNumPedido_TextChanged"></asp:TextBox><br />
-                             <asp:RequiredFieldValidator ID="ValidarDatosPedido" runat="server" ControlToValidate="txtNumPedido" 
+                        
+                        
+                     <asp:RequiredFieldValidator ID="ValidarDatosPedido" runat="server" ControlToValidate="txtNumPedido" 
                              CssClass="failureNotification" ErrorMessage="El número del pedido es obligatorio." 
                              ValidationGroup="ValidarCedula" Font-Size = "Small" Display ="Dynamic"></asp:RequiredFieldValidator>
                      <asp:RegularExpressionValidator ID="ValidarPedido" runat="server" ControlToValidate="txtNumPedido" 
@@ -97,20 +103,31 @@
                       </p>
                       <p>
                           <br />
-                          <asp:GridView ID="gvPedido" runat="server" CellPadding="2" ForeColor="#333333" 
-                              GridLines="None">
-                              <AlternatingRowStyle BackColor="White" />
-                              <EditRowStyle BackColor="#7C6F57" />
-                              <FooterStyle BackColor="#1C5E55" Font-Bold="True" ForeColor="White" />
-                              <HeaderStyle BackColor="#AC3332" Font-Bold="True" ForeColor="White" />
-                              <PagerStyle BackColor="#666666" ForeColor="White" HorizontalAlign="Center" />
-                              <RowStyle BackColor="#E3EAEB" />
-                              <SelectedRowStyle BackColor="#C5BBAF" Font-Bold="True" ForeColor="#333333" />
-                              <SortedAscendingCellStyle BackColor="#F8FAFA" />
-                              <SortedAscendingHeaderStyle BackColor="#246B61" />
-                              <SortedDescendingCellStyle BackColor="#D4DFE1" />
-                              <SortedDescendingHeaderStyle BackColor="#15524A" />
-                          </asp:GridView>
+                          <asp:GridView ID="gvPedido" runat="server" AutoGenerateColumns="False" 
+                    CellPadding="3" ForeColor="#333333" GridLines="None" enabled="false"> 
+                              
+                    <AlternatingRowStyle BackColor="White"  />
+                    <Columns>
+                        <asp:BoundField SortExpression="TamanoCil" DataField="TamanoCil" HeaderText="Tamaño Cilindro"
+                            HeaderStyle-Width="100px">
+                            <HeaderStyle Width="130px" />
+                        </asp:BoundField>
+                        <asp:BoundField SortExpression="CantidadPedido" DataField="CantidadPedido" HeaderText="Cantidad"
+                            HeaderStyle-Width="100px">
+                            <HeaderStyle Width="130px" />
+                        </asp:BoundField>
+                    </Columns>
+                    <EditRowStyle BackColor="#7C6F57" />
+                    <FooterStyle BackColor="#1C5E55" Font-Bold="True" ForeColor="White" />
+                    <HeaderStyle BackColor="#AC3332" Font-Bold="True" ForeColor="White" />
+                    <PagerStyle BackColor="#666666" ForeColor="White" HorizontalAlign="Center" />
+                    <RowStyle BackColor="#EFF3FB" />
+                    <SelectedRowStyle BackColor="#C5BBAF" Font-Bold="True" ForeColor="#333333" />
+                    <SortedAscendingCellStyle BackColor="#F8FAFA" />
+                    <SortedAscendingHeaderStyle BackColor="#246B61" />
+                    <SortedDescendingCellStyle BackColor="#D4DFE1" />
+                    <SortedDescendingHeaderStyle BackColor="#15524A" />
+                    </asp:GridView>
                           <br />
                       
                       </p>
