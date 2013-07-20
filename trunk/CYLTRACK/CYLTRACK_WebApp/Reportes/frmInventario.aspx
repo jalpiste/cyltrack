@@ -38,7 +38,19 @@
     </span>
     <br />
     <br />
-             <asp:Label ID="lblNota" runat="server" Text="Ubicación: "></asp:Label>
+    <asp:Label ID="lblTipoCil" runat="server" Text="Tipo de Cilindro: "></asp:Label>
+            &nbsp;&nbsp;
+            <asp:ListBox ID="lstTipoCil" runat="server" AutoPostBack="True" Rows="1" >
+                <asp:ListItem>Seleccionar...</asp:ListItem>
+               </asp:ListBox>
+               <asp:RequiredFieldValidator ID="tipoCilRequerido" runat="server" ControlToValidate="lstTipoCil" 
+               CssClass="failureNotification" ErrorMessage="El tipo de cilindro del reporte es obligatorio" ToolTip="El tipo de cilindro del reporte es obligatorio" 
+               ValidationGroup="Inventario">*</asp:RequiredFieldValidator>
+               
+            
+                <br />
+                <br />
+                <asp:Label ID="lblNota" runat="server" Text="Ubicación: "></asp:Label>
             &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
             <asp:ListBox ID="lstUbicacion" runat="server" AutoPostBack="True" Rows="1" OnSelectedIndexChanged="Ubicacion_SelectedIndexChanged">
                 <asp:ListItem>Seleccionar...</asp:ListItem>
@@ -48,17 +60,7 @@
                ValidationGroup="Inventario">*</asp:RequiredFieldValidator>
                <br />
             <br />
-            <asp:Label ID="lblTipoCil" runat="server" Text="Tipo de Cilindro: "></asp:Label>
-            &nbsp;&nbsp;
-            <asp:ListBox ID="lstTipoCil" runat="server" AutoPostBack="True" Rows="1" >
-                <asp:ListItem>Seleccionar...</asp:ListItem>
-               </asp:ListBox>
-               <asp:RequiredFieldValidator ID="tipoCilRequerido" runat="server" ControlToValidate="lstTipoCil" 
-               CssClass="failureNotification" ErrorMessage="El tipo de cilindro del reporte es obligatorio" ToolTip="El tipo de cilindro del reporte es obligatorio" 
-               ValidationGroup="Inventario">*</asp:RequiredFieldValidator>
                
-                <br />
-                <br />  
             <div id="divPlaca" runat="server" visible="false">
             <asp:Label ID="lblPlaca" runat="server" Text="Placa Vehículo:  " Visible="true"></asp:Label>
             &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
