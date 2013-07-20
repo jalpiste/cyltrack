@@ -6,6 +6,8 @@ using System.Web.UI;
 using System.Web.UI.WebControls;
 using Unisangil.CYLTRACK.CYLTRACK_WebApp.Reportes;
 using Unisangil.CYLTRACK.CYLTRACK_BE;
+using CYLTRACK_WebApp.ReporteService;
+using System.Data;
 
 namespace Unisangil.CYLTRACK.CYLTRACK_WebApp
 {
@@ -13,35 +15,67 @@ namespace Unisangil.CYLTRACK.CYLTRACK_WebApp
     {
         protected void Page_Load(object sender, EventArgs e)
         {
-            prueba[] pps = new prueba[2];
-            prueba pp = new prueba();
-            pp.Prueba1 = "Hola";
-            pp.Prueba2 = "Tooo";
-            prueba pp1 = new prueba();
-            pp1.Prueba1 = "Hola 1";
-            pp1.Prueba2 = "Tooo 1";
+            if (!IsPostBack)
+            {
+                List<string> tipoCil = ProcesoInventario.ConsultaTipoCilindro();
+                foreach (string tip in tipoCil)
+                {
+                    lstTipoCil.Items.Add(tip);
+                }
+            }
 
-            pps[0] = pp;
-            pps[1] = pp1;
-            gvReporte.DataSource = pps;
-            gvReporte.DataBind();
+            if (!IsPostBack)
+            {
+                List<string> lstUbica = Auxiliar.ConsultarUbicacion();
 
-            //lstDesdeMes.Text = reporte.Mes_Reporte;
-            //lstUbicacion.Text = reporte.Ubicacion_Cilindro.Nombre;
-            //lstPlacaVehículo.Text = reporte.Vehiculo.Placa;
-
+                lstUbica.Add("Todos");
+                foreach (string datos in lstUbica)
+                {
+                    lstUbicacion.Items.Add(datos);
+                }
+                
+            }
         }
-
-        ReportesBE reporte = new ReportesBE();
 
         protected void Ubicacion_SelectedIndexChanged(object sender, EventArgs e)
         {
-
-            if (lstUbicacion.SelectedIndex == 5)
+            ReporteServiceClient servReport = new ReporteServiceClient();
+            ReportesBE reporte = new ReportesBE();
+            
+            try 
             {
-                divPlaca.Visible = true;
-            }
 
+                if (lstUbicacion.SelectedIndex == 5)
+                {
+                    Tipo_UbicacionBE tipUbi = new Tipo_UbicacionBE();
+                    UbicacionBE ubi = new UbicacionBE();
+                    ubi.Tipo_Ubicacion = tipUbi;
+                    reporte.Ubicacion = ubi;
+                    reporte.Ubicacion.Tipo_Ubicacion.Nombre_Ubicacion = lstUbicacion.SelectedValue;
+                    List<ReportesBE> lstReporte = new List<ReportesBE>(servReport.Inventario(reporte));
+
+                    foreach (ReportesBE datos in lstReporte)
+                    {
+                        lstPlacaVehículo.Items.Add(datos.Ubicacion.Tipo_Ubicacion.Nombre_Ubicacion);
+                    }
+                    divPlaca.Visible = true;
+                }
+                else
+                {
+                    divPlaca.Visible = false;
+                    lstPlacaVehículo.ClearSelection();
+                }
+                               
+            }
+            catch (Exception ex)
+            {
+                Response.Redirect("~/About.aspx");
+            }
+            finally 
+            {
+                servReport.Close();
+            }
+            
         }
 
         protected void btnMenu_Click(object sender, EventArgs e)
@@ -51,32 +85,55 @@ namespace Unisangil.CYLTRACK.CYLTRACK_WebApp
 
         protected void btnBuscar_Click(object sender, EventArgs e)
         {
-            //reporte.Fecha_Reporte = Convert.ToDateTime(txtDesdeDia.Text + "." + lstDesdeMes.SelectedValue + "." + txtDesdeAño.Text);
-            //reporte.Ubicacion_Cilindro.Nombre = lstUbicacion.SelectedValue;
-            //reporte.Vehiculo.Placa = lstPlacaVehículo.SelectedValue;
+            ReporteServiceClient servReporte = new ReporteServiceClient();
+            ReportesBE reporte = new ReportesBE();
+            DataTable tabla = new DataTable();
+            try 
+            {
+                reporte.Fecha_Reporte = Convert.ToDateTime(txtFecha.Text);
+                Tipo_UbicacionBE tipoUbica = new Tipo_UbicacionBE();
+                tipoUbica.Nombre_Ubicacion = lstUbicacion.SelectedValue;
+                UbicacionBE ubi = new UbicacionBE();
+                ubi.Tipo_Ubicacion = tipoUbica;
+                reporte.Ubicacion = ubi;
+                VehiculoBE veh = new VehiculoBE();
+                veh.Placa = lstPlacaVehículo.SelectedValue;
+                reporte.Vehiculo = veh;
+                CilindroBE cil = new CilindroBE();
+                cil.Tipo_Cilindro = lstTipoCil.SelectedValue;
+                reporte.Cilindro = cil;
+                List<ReportesBE> lstInventario = new List<ReportesBE>(servReporte.Inventario(reporte));
 
-            divInventario.Visible = true;
-            divBotones.Visible = true;
+                tabla.Columns.Add("Ubicacion");
+                tabla.Columns.Add("Cil30");
+                tabla.Columns.Add("Cil40");
+                tabla.Columns.Add("Cil80");
+                tabla.Columns.Add("Cil100");
+                tabla.Columns.Add("TipoCil");
+
+                foreach (ReportesBE datos in lstInventario)
+                {
+                    tabla.Rows.Add(datos.Ubicacion.Tipo_Ubicacion.Nombre_Ubicacion, datos.Cilindro.Cantidad, datos.Cilindro.Cantidad,
+                    datos.Cilindro.Cantidad, datos.Cilindro.Cantidad, datos.Cilindro.Tipo_Cilindro);
+                    gvInventario.DataSource = tabla;
+                    gvInventario.DataBind();
+         
+                }
+
+                divInventario.Visible = true;
+                divBotones.Visible = true;
+            
+            }
+            catch (Exception ex) 
+            {
+                Response.Redirect("~/About.aspx");
+            }
+            finally 
+            {
+                servReporte.Close();
+            }       
+            
 
         }
-
-        public class prueba
-        {
-            private string prueba1;
-
-            public string Prueba1
-            {
-                get { return prueba1; }
-                set { prueba1 = value; }
-            }
-            private string prueba2;
-
-            public string Prueba2
-            {
-                get { return prueba2; }
-                set { prueba2 = value; }
-            }
-        }
-
-    }
+     }
 }
