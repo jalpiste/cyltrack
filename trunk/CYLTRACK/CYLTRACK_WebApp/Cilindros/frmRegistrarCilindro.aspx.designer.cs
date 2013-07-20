@@ -31,6 +31,15 @@ namespace Unisangil.CYLTRACK.CYLTRACK_WebApp.Cilindros {
         protected global::System.Web.UI.WebControls.ValidationSummary RegistrarCilindro;
         
         /// <summary>
+        /// Control validarCodigo.
+        /// </summary>
+        /// <remarks>
+        /// Campo generado automáticamente.
+        /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.ValidationSummary validarCodigo;
+        
+        /// <summary>
         /// Control LblCodigoCilindro.
         /// </summary>
         /// <remarks>

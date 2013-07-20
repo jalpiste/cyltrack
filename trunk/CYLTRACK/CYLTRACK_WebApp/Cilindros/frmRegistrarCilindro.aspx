@@ -12,6 +12,8 @@
         </span> 
             <asp:ValidationSummary ID="RegistrarCilindro" runat="server" CssClass="failureNotification" 
                  ValidationGroup="RegistrodeCilindro" />
+                             <asp:ValidationSummary ID="validarCodigo" runat="server" CssClass="failureNotification" 
+                 ValidationGroup="validarCodigo" />
             <div class="accountInfo">
                 <fieldset class="login">
                     <legend>Registro de Cilindros</legend>
@@ -21,11 +23,11 @@
                             Width="197px" ontextchanged="TxtCodigoCilindro_TextChanged"  ></asp:TextBox>
                     &nbsp;&nbsp;&nbsp;&nbsp;<asp:RequiredFieldValidator ID="TxtCodigoCilindroRequired" runat="server" ControlToValidate="TxtCodigoCilindro" 
                              CssClass="failureNotification" ErrorMessage="El codigo del cilindro es obligatorio." ToolTip="El Codigo del Cilindro es obligatorio." 
-                             ValidationGroup="RegistrodeCilindro">*</asp:RequiredFieldValidator>
+                             ValidationGroup="validarCodigo">*</asp:RequiredFieldValidator>
                               <asp:RegularExpressionValidator ID="ValidarDatosCilindro" runat="server" ControlToValidate="TxtCodigoCilindro" 
                             CssClass="failureNotification" ErrorMessage="El código del cilindro debe contener entre 11 y 12 dígitos." 
                             ValidationExpression="^([\d]{11,12})$"  Font-Size = "Small" Display ="Dynamic"
-                            ValidationGroup="RegistrodeCilindro" ></asp:RegularExpressionValidator>
+                            ValidationGroup="validarCodigo" ></asp:RegularExpressionValidator>
                                        &nbsp;&nbsp;&nbsp;&nbsp;
                         </p>
                     <div id="DivDatosCilindro" runat="server" visible="false">
@@ -46,16 +48,12 @@
                     </p>
                     <p>
                          <asp:ListBox ID="LstAno" runat="server" AutoPostBack="True" Rows="1" >
-                             <asp:ListItem>1990</asp:ListItem>
-                             <asp:ListItem>1991</asp:ListItem>
-                             <asp:ListItem>1992</asp:ListItem>
-                             <asp:ListItem>1993</asp:ListItem>
-                             <asp:ListItem></asp:ListItem>
+                             <asp:ListItem>seleccionar...</asp:ListItem>
                              </asp:ListBox>
                              <asp:RequiredFieldValidator ID="ValidAno" runat="server" ControlToValidate="LstAno" 
                              CssClass="failureNotification" ErrorMessage="El año de fabricación es obligatorio." ToolTip="El año de fabricacion es obligatorio." 
                              ValidationGroup="RegistrodeCilindro">*</asp:RequiredFieldValidator>
-                         &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 
+                         &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 
                          <asp:TextBox ID="TxtEmpresa" runat="server" Width="80px" CssClass="textEntry"></asp:TextBox>
                          <asp:RequiredFieldValidator ID="validEmpresa" runat="server" ControlToValidate="TxtEmpresa" 
                              CssClass="failureNotification" ErrorMessage="El código de la empresa es obligatorio." ToolTip="El código de la empresa es obligatorio." 
@@ -64,8 +62,6 @@
                             CssClass="failureNotification" ErrorMessage="El código de la empresa debe contener entre 3 a 4 digitos." 
                             ValidationExpression="^([\d]{3,4})$"  Font-Size = "Small" ValidationGroup="RegistrodeCilindro">*</asp:RegularExpressionValidator>
                          &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;
-                        
-                    &nbsp;&nbsp;
                          <asp:TextBox ID="TxtCodigo" runat="server" Width="80px" CssClass="textEntry" ></asp:TextBox>
                            <asp:RequiredFieldValidator ID="validSerial" runat="server" ControlToValidate="TxtCodigo" 
                              CssClass="failureNotification" ErrorMessage="El nuip del cilindro es obligatorio." ToolTip="El nuip del cilindro es obligatorio." 
@@ -81,21 +77,15 @@
                         </p>
                         <p>
                         <asp:ListBox ID="LstUbicacion" runat="server" AutoPostBack="True" Rows="1" >
-                            <asp:ListItem>Plataforma</asp:ListItem>
-                            <asp:ListItem>Chatarra</asp:ListItem>
-                            <asp:ListItem>Bodega</asp:ListItem>
-                            <asp:ListItem>Vehiculo</asp:ListItem>
+                            <asp:ListItem>Seleccionar...</asp:ListItem>
                         </asp:ListBox>
                            <asp:RequiredFieldValidator ID="validUbicacion" runat="server" ControlToValidate="LstUbicacion" 
                              CssClass="failureNotification" ErrorMessage="La ubicacion del cilindro es obligatorio." ToolTip="La ubicacion del cilindro es obligatorio." 
                              ValidationGroup="RegistrodeCilindro">*</asp:RequiredFieldValidator>
                         
-                        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
                         <asp:ListBox ID="LstTamano" runat="server" AutoPostBack="True" Rows="1" >
-                            <asp:ListItem>30</asp:ListItem>
-                            <asp:ListItem>40</asp:ListItem>
-                            <asp:ListItem>80</asp:ListItem>
-                            <asp:ListItem>100</asp:ListItem>
+                            <asp:ListItem>Seleccionar...</asp:ListItem>
                         </asp:ListBox>
                             <asp:RequiredFieldValidator ID="validTamano" runat="server" ControlToValidate="LstTamano" 
                              CssClass="failureNotification" ErrorMessage="El tamaño del cilindro es obligatorio." ToolTip="El tamaño del cilindro es obligatorio." 

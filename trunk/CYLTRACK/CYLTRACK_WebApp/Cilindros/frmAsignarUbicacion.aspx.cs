@@ -16,6 +16,15 @@ namespace Unisangil.CYLTRACK.CYLTRACK_WebApp.Cilindros
         protected void Page_Load(object sender, EventArgs e)
         {
             txtCodeCilindro.Focus();
+
+            if(!IsPostBack)
+            {
+                List<string> listaUbica = Auxiliar.ConsultarUbicacion();
+                foreach(string datos in listaUbica)
+                {
+                    lstUbica.Items.Add(datos);
+                }
+            }
         }
 
         
@@ -27,14 +36,25 @@ namespace Unisangil.CYLTRACK.CYLTRACK_WebApp.Cilindros
             try 
             {
                 cil.Codigo_Cilindro = txtCodeCilindro.Text;
-                lstAsig = servAsig.AsignarUbicacion(cil);
-                txtCodigo.Text = txtCodeCilindro.Text;
-                foreach (CilindroBE datos in lstAsig) 
+                lstAsig = servAsig.ConsultarCilindro(cil);
+
+                foreach (CilindroBE datos in lstAsig)
                 {
-                    lstUbica.Items.Add(datos.Ubicacion.Tipo_Ubicacion.Nombre_Ubicacion);
-                    lstPlacaVehiculo.Items.Add(datos.Ubicacion.Vehiculo.Placa);
-                    TxtConductor.Text = datos.Ubicacion.Vehiculo.Conductor.Nombres_Conductor;
-                    LblRutaVehiculo.Text = datos.Ubicacion.Vehiculo.Ruta.Nombre_Ruta;
+                    if (datos.Codigo_Cilindro != cil.Codigo_Cilindro)
+                    {
+                        MessageBox.Show("El cilindro digitado no se encuentra registrado en el sistema", "Asignación de ubicación");
+                    }
+                    else
+                    {
+                        txtCodigo.Text = txtCodeCilindro.Text;
+                        txtUbicacionActual.Text = datos.Ubicacion.Tipo_Ubicacion.Nombre_Ubicacion;
+                        lstPlacaVehiculo.Items.Add(datos.Ubicacion.Vehiculo.Placa);
+                        TxtConductor.Text = datos.Ubicacion.Vehiculo.Conductor.Nombres_Conductor;
+                        LblRutaVehiculo.Text = datos.Ubicacion.Vehiculo.Ruta.Nombre_Ruta;
+                        DivUbicacionCil.Visible = true;
+                        DivNuevaUbicacion.Visible = true;
+                        BtnGuardar.Visible = true;
+                    }
                 }
             }
 
@@ -45,9 +65,7 @@ namespace Unisangil.CYLTRACK.CYLTRACK_WebApp.Cilindros
             finally 
             {
                 servAsig.Close();
-                DivUbicacionCil.Visible = true;
-                DivNuevaUbicacion.Visible = true;
-                BtnGuardar.Visible = true;
+                
             }
      }
 
@@ -97,7 +115,7 @@ namespace Unisangil.CYLTRACK.CYLTRACK_WebApp.Cilindros
             }
             catch (Exception ex) 
             {
-                Response.Redirect("~/Default.aspx");
+                Response.Redirect("~/About.aspx");
             }
             finally 
             {
