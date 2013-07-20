@@ -45,7 +45,7 @@ namespace Unisangil.CYLTRACK.CYLTRACK_BL
             TamanoBE tam = new TamanoBE();
             tam.Tamano = "30";
             cil.NTamano = tam;
-            cil.Codigo_Cilindro = "68768754";
+            cil.Codigo_Cilindro = "88091751954";
             cil.Fecha = Convert.ToDateTime(DateTime.Now.ToShortDateString());
             //--------------------------------
             ClienteBE cli = new ClienteBE();
