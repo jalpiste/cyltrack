@@ -13,12 +13,47 @@ namespace Unisangil.CYLTRACK.CYLTRACK_WebApp.Pedido
 {
     public partial class frmModificarPedido : System.Web.UI.Page
     {
-        List<Detalle_PedidoBE> lstDetail = new List<Detalle_PedidoBE>();
+        List<Detalle_PedidoBE> lstDetail;
+        
         protected void Page_Load(object sender, EventArgs e)
         {
             txtCedula.Focus();
-        }
 
+            if (!Page.IsPostBack)
+            {
+                lstDetail = new List<Detalle_PedidoBE>();
+                CrearLista();
+          
+            }
+        }
+        //------------------------------inicio de lista acumulada y asignación de valor
+        protected List<Detalle_PedidoBE> lista
+        {
+            get
+            {
+                if (ViewState["lista"] != null)
+                {
+                    return (List<Detalle_PedidoBE>)ViewState["lista"];
+                }
+                else
+                {
+                    return lstDetail;
+                }
+            }
+
+            set
+            {
+
+                ViewState["lista"] = value;
+            }
+        }
+        //        ------------------------- fin de lista acumulada y asignación de valor
+
+        private void CrearLista()
+        {
+
+            lista = lstDetail;
+        }
 
         protected void txtCedula_TextChanged(object sender, EventArgs e)
         {
@@ -207,21 +242,23 @@ namespace Unisangil.CYLTRACK.CYLTRACK_WebApp.Pedido
                 tamanocil.Tamano = lstTamano.SelectedValue;
                 detail.Tamano = tamanocil;
 
-                foreach (Detalle_PedidoBE det in lstDetail)
+                foreach (Detalle_PedidoBE det in lista)
                 {
                     if (det.Tamano.Tamano == detail.Tamano.Tamano)
                     {
-                        lstDetail.Remove(det);
+                        detail.Cantidad += det.Tamano.Tamano;
+                        lista.Remove(det);
                     }
 
                 }
-                lstDetail.Add(detail);
+                lista.Add(detail);
+                
 
                 tabla.Columns.Add("TamanoCil");
                 tabla.Columns.Add("CantidadPedido");
 
 
-                foreach (Detalle_PedidoBE info in lstDetail)
+                foreach (Detalle_PedidoBE info in lista)
                 {
                     tabla.Rows.Add(info.Tamano.Tamano, info.Cantidad);
 
@@ -238,9 +275,11 @@ namespace Unisangil.CYLTRACK.CYLTRACK_WebApp.Pedido
             finally
             {
                 servPedido.Close();
+                btnGuardar.Focus();
             }
         }
 
+        
         protected void txtCedulaCliente_TextChanged(object sender, EventArgs e)
         {
             lstDireccion.Focus();
