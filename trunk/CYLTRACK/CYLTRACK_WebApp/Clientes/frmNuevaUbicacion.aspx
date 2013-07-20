@@ -57,8 +57,7 @@
                             <br />
                <asp:ListBox ID="lstDepartamento" runat="server" Rows="1" 
                        onselectedindexchanged="lstDepartamento_SelectedIndexChanged">
-                            <asp:ListItem>Boyacá</asp:ListItem>
-                            <asp:ListItem>Cundinamarca</asp:ListItem>
+                            <asp:ListItem>Seleccionar...</asp:ListItem>
                         </asp:ListBox>
                            <asp:RequiredFieldValidator ID="ValidarDep" runat="server" ControlToValidate="lstDepartamento" CssClass="failureNotification" 
                      ErrorMessage="La selección del departamento es obligatoria." ToolTip="La selección del departamento es obligatoria." 
@@ -68,9 +67,7 @@
                <asp:Label ID="lblCiudad" runat="server" AssociatedControlID="LstCiudad" Width="685px" >Ciudad:</asp:Label>
                         <br />
                         <asp:ListBox ID="lstCiudad" runat="server" Rows="1">
-                            <asp:ListItem>Chiquinquirá</asp:ListItem>
-                            <asp:ListItem>Bogotá</asp:ListItem>
-                            <asp:ListItem>Tunja</asp:ListItem>
+                            <asp:ListItem>Seleccionar...</asp:ListItem>
                         </asp:ListBox>
                      <asp:RequiredFieldValidator ID="ValidarCiudad" runat="server" ControlToValidate="lstCiudad" CssClass="failureNotification" 
                      ErrorMessage="La selección de la ciudad es obligatoria." ToolTip="La selección de la ciudad es obligatoria." 
