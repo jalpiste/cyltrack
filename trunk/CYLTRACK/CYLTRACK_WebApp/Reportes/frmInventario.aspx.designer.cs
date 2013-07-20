@@ -13,6 +13,15 @@ namespace Unisangil.CYLTRACK.CYLTRACK_WebApp {
     public partial class Inventario {
         
         /// <summary>
+        /// Control ToolkitScriptManager1.
+        /// </summary>
+        /// <remarks>
+        /// Campo generado automáticamente.
+        /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
+        /// </remarks>
+        protected global::AjaxControlToolkit.ToolkitScriptManager ToolkitScriptManager1;
+        
+        /// <summary>
         /// Control FailureText.
         /// </summary>
         /// <remarks>
@@ -22,49 +31,58 @@ namespace Unisangil.CYLTRACK.CYLTRACK_WebApp {
         protected global::System.Web.UI.WebControls.Literal FailureText;
         
         /// <summary>
-        /// Control LoginUserValidationSummary.
+        /// Control InventarioCilindros.
         /// </summary>
         /// <remarks>
         /// Campo generado automáticamente.
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.ValidationSummary LoginUserValidationSummary;
+        protected global::System.Web.UI.WebControls.ValidationSummary InventarioCilindros;
         
         /// <summary>
-        /// Control lblDesde.
+        /// Control txtFecha.
         /// </summary>
         /// <remarks>
         /// Campo generado automáticamente.
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Label lblDesde;
+        protected global::System.Web.UI.WebControls.TextBox txtFecha;
         
         /// <summary>
-        /// Control lblDesdeDia.
+        /// Control fechaRequerido.
         /// </summary>
         /// <remarks>
         /// Campo generado automáticamente.
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox lblDesdeDia;
+        protected global::System.Web.UI.WebControls.RequiredFieldValidator fechaRequerido;
         
         /// <summary>
-        /// Control lstDesdeMes.
+        /// Control imgFecha.
         /// </summary>
         /// <remarks>
         /// Campo generado automáticamente.
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.ListBox lstDesdeMes;
+        protected global::System.Web.UI.WebControls.ImageButton imgFecha;
         
         /// <summary>
-        /// Control txtDesdeAño.
+        /// Control MEEtxtFecha.
         /// </summary>
         /// <remarks>
         /// Campo generado automáticamente.
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox txtDesdeAño;
+        protected global::AjaxControlToolkit.MaskedEditExtender MEEtxtFecha;
+        
+        /// <summary>
+        /// Control calrExtFecha.
+        /// </summary>
+        /// <remarks>
+        /// Campo generado automáticamente.
+        /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
+        /// </remarks>
+        protected global::AjaxControlToolkit.CalendarExtender calrExtFecha;
         
         /// <summary>
         /// Control lblNota.
@@ -83,6 +101,42 @@ namespace Unisangil.CYLTRACK.CYLTRACK_WebApp {
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
         protected global::System.Web.UI.WebControls.ListBox lstUbicacion;
+        
+        /// <summary>
+        /// Control UbicacionRequerida.
+        /// </summary>
+        /// <remarks>
+        /// Campo generado automáticamente.
+        /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.RequiredFieldValidator UbicacionRequerida;
+        
+        /// <summary>
+        /// Control lblTipoCil.
+        /// </summary>
+        /// <remarks>
+        /// Campo generado automáticamente.
+        /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Label lblTipoCil;
+        
+        /// <summary>
+        /// Control lstTipoCil.
+        /// </summary>
+        /// <remarks>
+        /// Campo generado automáticamente.
+        /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.ListBox lstTipoCil;
+        
+        /// <summary>
+        /// Control tipoCilRequerido.
+        /// </summary>
+        /// <remarks>
+        /// Campo generado automáticamente.
+        /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.RequiredFieldValidator tipoCilRequerido;
         
         /// <summary>
         /// Control divPlaca.
@@ -112,6 +166,15 @@ namespace Unisangil.CYLTRACK.CYLTRACK_WebApp {
         protected global::System.Web.UI.WebControls.ListBox lstPlacaVehículo;
         
         /// <summary>
+        /// Control RequiredFieldValidator1.
+        /// </summary>
+        /// <remarks>
+        /// Campo generado automáticamente.
+        /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.RequiredFieldValidator RequiredFieldValidator1;
+        
+        /// <summary>
         /// Control btnBuscar.
         /// </summary>
         /// <remarks>
@@ -130,13 +193,13 @@ namespace Unisangil.CYLTRACK.CYLTRACK_WebApp {
         protected global::System.Web.UI.HtmlControls.HtmlGenericControl divInventario;
         
         /// <summary>
-        /// Control gvReporte.
+        /// Control gvInventario.
         /// </summary>
         /// <remarks>
         /// Campo generado automáticamente.
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.GridView gvReporte;
+        protected global::System.Web.UI.WebControls.GridView gvInventario;
         
         /// <summary>
         /// Control divBotones.
