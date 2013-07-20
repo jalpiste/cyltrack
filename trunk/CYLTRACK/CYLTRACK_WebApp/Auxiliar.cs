@@ -56,8 +56,19 @@ namespace Unisangil.CYLTRACK.CYLTRACK_WebApp
             Ubicacion = Enum.GetNames(typeof(Ubicacion)).ToList();
             return Ubicacion;
         }
+        public static List<string> ConsultaTipoCilindro ()
+        {
+            List<String> tipoCil = new List<string>();
+            tipoCil = Enum.GetNames(typeof(Tipo_Cilindro)).ToList();
+            return tipoCil;
+        }
+    }
 
-      }
+    public enum Tipo_Cilindro 
+    {
+        Universal = 1,
+        Marcado = 2,
+    }
 
     public enum Meses
     {
