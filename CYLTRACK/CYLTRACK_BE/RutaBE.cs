@@ -27,16 +27,22 @@ namespace Unisangil.CYLTRACK.CYLTRACK_BE
         public String Nombre_Ruta { get; set; }
 
         /// <summary>
-        /// Nombre de la ciudad de la ruta
+        /// Ruta vehiculo
+        /// </summary>
+        [DataMember]
+        public Ruta_VehiculoBE Ruta_Vehiculo { get; set; }
+
+        /// <summary>
+        /// Ciudad Ruta
         /// </summary>
         [DataMember]
         public Ciudad_RutaBE Ciudad_Ruta { get; set; }
 
         /// <summary>
-        /// Nombre del departamento de la ruta
+        /// Ciudades
         /// </summary>
         [DataMember]
-        public DepartamentoBE Departamento { get; set; }
+        public CiudadBE Ciudad { get; set; }
 
     }
 }
