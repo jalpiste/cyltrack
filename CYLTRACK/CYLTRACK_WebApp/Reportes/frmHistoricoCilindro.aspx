@@ -32,30 +32,42 @@
         <div id= "DivHistoricoCilindro" runat = "server" class="accountInfo" visible="false">
        <fieldset class ="login">
             <legend>Reporte</legend>
-              <asp:Label ID="lblCodigo" runat="server" Text="Código: "></asp:Label>
-                &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; &nbsp;
-                <asp:Label ID="lblTamaño" runat="server" Text="Tamaño: "></asp:Label><br />
-                <asp:TextBox ID="txtCódigo" runat="server" CssClass="textEntry" Enabled ="false" ></asp:TextBox>               
-                &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-                <asp:TextBox ID="txtTamano" runat="server" CssClass="textEntry" Width="97px" Enabled ="false" ></asp:TextBox>   
-                <br /> 
-               <p>  
+              <p>  
                <br />        
-             <asp:GridView ID="gvReporte" runat="server" CellPadding="4" ForeColor="#333333" 
-        GridLines="None">
-        <AlternatingRowStyle BackColor="White" />
-        <EditRowStyle BackColor="#7C6F57" />
-        <FooterStyle BackColor="#1C5E55" Font-Bold="True" ForeColor="White" />
-        <HeaderStyle BackColor="#AC3332" Font-Bold="True" ForeColor="White" />
-        <PagerStyle BackColor="#666666" ForeColor="White" HorizontalAlign="Center" />
-        <RowStyle BackColor="#E3EAEB" />
-        <SelectedRowStyle BackColor="#C5BBAF" Font-Bold="True" ForeColor="#333333" />
-        <SortedAscendingCellStyle BackColor="#F8FAFA" />
-        <SortedAscendingHeaderStyle BackColor="#246B61" />
-        <SortedDescendingCellStyle BackColor="#D4DFE1" />
-        <SortedDescendingHeaderStyle BackColor="#15524A" />
-    </asp:GridView>
-            </p>    
+             <asp:GridView ID="gvCargue" runat="server" AutoGenerateColumns="False" 
+                    CellPadding="5" ForeColor="#333333" GridLines="None"  >
+                    <AlternatingRowStyle BackColor="White" />
+                    <Columns>
+                        <asp:BoundField SortExpression="CodigoCilindro" DataField="CodigosCil" HeaderText="Código Cilindro"
+                           >
+                            <%--<HeaderStyle Width="130px" />--%>
+                        </asp:BoundField>
+                        <asp:BoundField SortExpression="Tamamo" DataField="Tamano" HeaderText="Tamaño"
+                           >
+                            <%--<HeaderStyle Width="110px" />--%>
+                        </asp:BoundField>
+                        <asp:BoundField SortExpression="Fecha" DataField="Fecha" HeaderText="Fecha/Hora"
+                            >
+                            <%--<HeaderStyle Width="130px" />--%>
+                        </asp:BoundField>
+                        <asp:BoundField SortExpression="Ubicacion" DataField="Ubicacion" HeaderText="Ubicación"
+                            >
+                            <%--<HeaderStyle Width="130px" />--%>
+                        </asp:BoundField>
+                    </Columns>
+                    <EditRowStyle BackColor="#7C6F57" />
+                    <FooterStyle BackColor="#1C5E55" Font-Bold="True" ForeColor="White" />
+                    <HeaderStyle BackColor="#AC3332" Font-Bold="True" ForeColor="White" />
+                    <PagerStyle BackColor="#666666"
+                     ForeColor="White" HorizontalAlign="Center" />
+                    <RowStyle BackColor="#EFF3FB" />
+                    <SelectedRowStyle BackColor="#C5BBAF" Font-Bold="True" ForeColor="#333333" />
+                    <SortedAscendingCellStyle BackColor="#F8FAFA" />
+                    <SortedAscendingHeaderStyle BackColor="#246B61" />
+                    <SortedDescendingCellStyle BackColor="#D4DFE1" />
+                    <SortedDescendingHeaderStyle BackColor="#15524A" />
+                </asp:GridView>
+                 </p>    
             </fieldset>
              </div>
                  <p class="submitButton">
