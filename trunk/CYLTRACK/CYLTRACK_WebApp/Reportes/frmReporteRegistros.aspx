@@ -1,7 +1,12 @@
 ﻿<%@ Page Title="" Language="C#" MasterPageFile="~/Site.Master" AutoEventWireup="true" CodeBehind="frmReporteRegistros.aspx.cs" Inherits="Unisangil.CYLTRACK.CYLTRACK_WebApp.Reporte.frmReporteRegistros" %>
+
+<%@ Register Assembly="AjaxControlToolkit" Namespace="AjaxControlToolkit" TagPrefix="asp" %>
 <asp:Content ID="Content1" ContentPlaceHolderID="HeadContent" runat="server">
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="MainContent" runat="server">
+<asp:ToolkitScriptManager ID="ToolkitScriptManager1" runat="server">
+    </asp:ToolkitScriptManager>
+
  <h1 style="margin-top: 75px">
         Reporte de Registros
     </h1>
@@ -33,19 +38,29 @@
     <div class="accountInfo">
         <fieldset class="login">
             <legend>Parámetros</legend>
-            <asp:CheckBoxList ID="parametroCheckBoxList" runat="server" AutoPostBack="True" Width="250px">
-                <asp:ListItem>Fecha</asp:ListItem>
-                <asp:ListItem>Vehículo</asp:ListItem>
-                <asp:ListItem>Conductor</asp:ListItem>
-            </asp:CheckBoxList>
             <br />
-            <asp:Label ID="lblDesde" runat="server" Text="Fecha: "></asp:Label>
-            &nbsp;&nbsp;&nbsp;
-            <asp:TextBox ID="lblDesdeDia" runat="server" Width="42px"></asp:TextBox>
-            <asp:ListBox ID="lstDesdeMes" runat="server" AutoPostBack="True" Rows="1">
-                <asp:ListItem>Mes</asp:ListItem>
-                </asp:ListBox>
-            <asp:TextBox ID="txtDesdeAño" runat="server" Width="100px"></asp:TextBox>
+            
+            <asp:Label ID="lblFechaDesde" runat="server" Text="Fecha Inicial: "></asp:Label>
+                <asp:TextBox ID="txtFechaIni" runat="server" Width="70px" MaxLength="10"></asp:TextBox>
+                <asp:ImageButton runat="Server" ID="imgFechaIni" ImageUrl="~/Imagenes/Calendar_scheduleHS.png"
+                AlternateText="Click para mostrar el calendario" Height="16px" />
+                <asp:MaskedEditExtender runat="server" ID="MEEtxtFechaIni" TargetControlID="txtFechaIni"
+                Mask="99/99/9999" MaskType="Date">
+                </asp:MaskedEditExtender>
+                <asp:CalendarExtender ID="calrExtFechaIni" runat="server" TargetControlID="txtFechaIni"
+                PopupButtonID="imgFecha" Format="dd/MM/yyyy" />
+                &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+
+            <asp:Label ID="lblFechaHasta" runat="server" Text="Fecha Final: "></asp:Label>
+                <asp:TextBox ID="txtFechaFin" runat="server" Width="70px" MaxLength="10"></asp:TextBox>
+                <asp:ImageButton runat="Server" ID="imgFechaFin" ImageUrl="~/Imagenes/Calendar_scheduleHS.png"
+                AlternateText="Click para mostrar el calendario" Height="16px" />
+                <asp:MaskedEditExtender runat="server" ID="MEEtxtFechaFin" TargetControlID="txtFechaFin"
+                Mask="99/99/9999" MaskType="Date">
+                </asp:MaskedEditExtender>
+                <asp:CalendarExtender ID="calrExtFechaFin" runat="server" TargetControlID="txtFechaFin"
+                PopupButtonID="imgFecha" Format="dd/MM/yyyy" />
+            
             <br />
             <br />
             <asp:Label ID="lblPlacaVehiculo" runat="server" Text="Placa Vehículo: "></asp:Label>            
@@ -73,19 +88,31 @@
             <br />
             <br />
                       
-                <asp:GridView ID="gvReporte" runat="server" CellPadding="4" ForeColor="#333333" GridLines="None">
-                    <AlternatingRowStyle BackColor="White" />
+                <asp:GridView ID="gvRegistro" runat="server" AutoGenerateColumns="False" 
+                    CellPadding="3" ForeColor="#333333" GridLines="None" Visible="false"> 
+                              
+                    <AlternatingRowStyle BackColor="White"  />
+                    <Columns>
+                        <asp:BoundField SortExpression="TamanoCil" DataField="TamanoCil" HeaderText="Tamaño Cilindro"
+                            HeaderStyle-Width="100px">
+                            <HeaderStyle Width="130px" />
+                        </asp:BoundField>
+                        <asp:BoundField SortExpression="CantidadPedido" DataField="CantidadPedido" HeaderText="Cantidad"
+                            HeaderStyle-Width="100px">
+                            <HeaderStyle Width="130px" />
+                        </asp:BoundField>
+                    </Columns>
                     <EditRowStyle BackColor="#7C6F57" />
                     <FooterStyle BackColor="#1C5E55" Font-Bold="True" ForeColor="White" />
                     <HeaderStyle BackColor="#AC3332" Font-Bold="True" ForeColor="White" />
                     <PagerStyle BackColor="#666666" ForeColor="White" HorizontalAlign="Center" />
-                    <RowStyle BackColor="#E3EAEB" />
+                    <RowStyle BackColor="#EFF3FB" />
                     <SelectedRowStyle BackColor="#C5BBAF" Font-Bold="True" ForeColor="#333333" />
                     <SortedAscendingCellStyle BackColor="#F8FAFA" />
                     <SortedAscendingHeaderStyle BackColor="#246B61" />
                     <SortedDescendingCellStyle BackColor="#D4DFE1" />
                     <SortedDescendingHeaderStyle BackColor="#15524A" />
-                </asp:GridView>
+                    </asp:GridView>
            
 
             </div> 
