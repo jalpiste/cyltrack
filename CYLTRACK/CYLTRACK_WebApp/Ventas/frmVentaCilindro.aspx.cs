@@ -27,6 +27,7 @@ namespace Unisangil.CYLTRACK.CYLTRACK_WebApp.Ventas
         }
 
         
+
         protected void txtCedula_TextChanged(object sender, EventArgs e)
         {
             VentaServiceClient serVentas = new VentaServiceClient();
@@ -225,5 +226,6 @@ namespace Unisangil.CYLTRACK.CYLTRACK_WebApp.Ventas
 
         }
 
+ 
     }
 }
