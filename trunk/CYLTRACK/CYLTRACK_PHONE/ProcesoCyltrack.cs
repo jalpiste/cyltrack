@@ -36,14 +36,14 @@ namespace Unisangil.CYLTRACK.Cyltrack_phone
             switch (menu)
             {
                 case "Cliente":
-                    this.Activity = "Images/registroCilindros.png";
+                    this.Activity = "Images/cliente.png";
                     break;
                 case "Venta":
-                    this.Activity = "Images/actividad03.png";
+                    this.Activity = "Images/venta.png";
                     this.Titulo3 = "Consultar Cilindro";
                     break;
                 case "Pedido":
-                    this.Activity = "Images/ventas.png";
+                    this.Activity = "Images/pedido.png";
                     break;
             }
         }
