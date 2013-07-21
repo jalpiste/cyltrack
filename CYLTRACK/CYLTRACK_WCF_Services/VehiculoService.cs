@@ -39,7 +39,7 @@ namespace Unisangil.CYLTRACK.CYLTRACK_WCF_Services
         /// </summary>
         /// <param name="consultar_vehiculo">Objeto de negocio vehículo</param>
         /// <returns>Placa del vehículo</returns>
-        public List<VehiculoBE> Consultar_Vehiculo(VehiculoBE consultar_vehiculo)
+        public List<VehiculoBE> Consultar_Vehiculo(String consultar_vehiculo)
         {
             List<VehiculoBE> resp;
             VehiculoBL ConVehiculo = new VehiculoBL();
@@ -52,7 +52,7 @@ namespace Unisangil.CYLTRACK.CYLTRACK_WCF_Services
         /// </summary>
         /// <param name="modificar_vehiculo">Objeto de negocio vehículo</param>
         /// <returns>Placa del vehículo</returns>
-        public String Modificar_Vehiculo(VehiculoBE modificar_vehiculo)
+        public String Modificar_Vehiculo(String modificar_vehiculo)
         {
             String resp;
             VehiculoBL ModVehiculo = new VehiculoBL();
@@ -65,7 +65,7 @@ namespace Unisangil.CYLTRACK.CYLTRACK_WCF_Services
         /// </summary>
         /// <param name="consultar_conductor">Objeto de negocio vehículo</param>
         /// <returns>cedula conductor</returns>
-        public List<VehiculoBE> Consultar_Conductor(VehiculoBE consultar_conductor)
+        public List<VehiculoBE> Consultar_Conductor(String consultar_conductor)
         {
             List<VehiculoBE> resp;
             VehiculoBL ConConductor = new VehiculoBL();

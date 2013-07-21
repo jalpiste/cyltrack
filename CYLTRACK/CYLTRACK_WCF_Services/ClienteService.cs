@@ -56,9 +56,9 @@ namespace Unisangil.CYLTRACK.CYLTRACK_WCF_Services
         /// <param name="registrar_cli">Objeto de negocio cliente</param>
         /// <returns>cédula del cliente</returns>
 
-        public List<ClienteBE> Consultar_Cliente (ClienteBE consultar_cli)
+        public List<ClienteBE> Consultar_Cliente (String consultar_cli)
         {
-            List<ClienteBE> resp ;
+            List<ClienteBE> resp;
             ClienteBL ConCliente = new ClienteBL();
             resp = ConCliente.ConsultarCliente(consultar_cli);
             return resp;
@@ -70,7 +70,7 @@ namespace Unisangil.CYLTRACK.CYLTRACK_WCF_Services
         /// </summary>
         /// <param name="registrar_cli">Objeto de negocio cliente</param>
         /// <returns>cédula del cliente</returns>
-        public String Modificar_Cliente(ClienteBE modificar_cli)
+        public String Modificar_Cliente(String modificar_cli)
         {
             String resp;
             ClienteBL ModCliente = new ClienteBL();

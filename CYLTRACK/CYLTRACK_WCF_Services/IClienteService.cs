@@ -45,7 +45,7 @@ namespace Unisangil.CYLTRACK.CYLTRACK_WCF_Services
         /// <param name="consultar_cli">Objeto de negocio cliente</param>
         /// <returns>cédula del cliente</returns>
         [OperationContract]
-        List<ClienteBE> Consultar_Cliente(ClienteBE consultar_cli);
+        List<ClienteBE> Consultar_Cliente(String consultar_cli);
 
         /// <summary>
         /// Método encargado de la modificación de clientes en el sistema. Permite
@@ -54,7 +54,7 @@ namespace Unisangil.CYLTRACK.CYLTRACK_WCF_Services
         /// <param name="modificar_cli">Objeto de negocio cliente</param>
         /// <returns>cédula del cliente</returns>
         [OperationContract]
-        String Modificar_Cliente(ClienteBE modificar_cli);
+        String Modificar_Cliente(String modificar_cli);
     }
 
 }
