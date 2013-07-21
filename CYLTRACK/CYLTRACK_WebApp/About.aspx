@@ -5,6 +5,6 @@
 </asp:Content>
 <asp:Content ID="BodyContent" runat="server" ContentPlaceHolderID="MainContent">
     <h2>
-     Ha ocurrido un error, por favor comuniquese con el administrador.  
+     Ha ocurrido un error. Por favor comuníquese con el administrador.  
     </h2>
 </asp:Content>
