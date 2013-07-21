@@ -1,8 +1,17 @@
 ﻿<%@ Page Title="" Language="C#" MasterPageFile="~/Site.Master" AutoEventWireup="true" CodeBehind="frmReporteSiembras.aspx.cs" Inherits="Unisangil.CYLTRACK.CYLTRACK_WebApp.Reporte.frmReporteSiembras" %>
+
+<%@ Register Assembly="Microsoft.ReportViewer.WebForms, Version=10.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a"
+    Namespace="Microsoft.Reporting.WebForms" TagPrefix="rsweb" %>
+
+<%@ Register Assembly="AjaxControlToolKit" Namespace="AjaxControlToolkit" TagPrefix="asp" %>
+
 <asp:Content ID="Content1" ContentPlaceHolderID="HeadContent" runat="server">
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="MainContent" runat="server">
-<h1 style="margin-top: 75px">
+    <asp:ToolkitScriptManager ID="ToolkitScriptManager1" runat="server">
+    </asp:ToolkitScriptManager>
+
+    <h1 style="margin-top: 75px">
         Reporte de Siembras
     </h1>
     <br />
@@ -18,58 +27,64 @@
     <div class="accountInfo">
         <fieldset class="login">
             <legend>Parámetros</legend>
-            <asp:Label ID="lblFechaDesde" runat="server" Text="Fecha Inicial: "></asp:Label>&nbsp;&nbsp;&nbsp;
-            <asp:Calendar ID="cldFecha" runat="server" Height="20px" Width="20px" 
-                BackColor="#FFFFCC" BorderColor="#FFCC66" BorderWidth="1px" 
-                DayNameFormat="Shortest" Font-Names="Verdana" Font-Size="8pt" 
-                ForeColor="#663399" ShowGridLines="True">
-                <DayHeaderStyle BackColor="#FFCC66" Font-Bold="True" Height="1px" />
-                <NextPrevStyle Font-Size="9pt" ForeColor="#FFFFCC" />
-                <OtherMonthDayStyle ForeColor="#CC9966" />
-                <SelectedDayStyle BackColor="#CCCCFF" Font-Bold="True" />
-                <SelectorStyle BackColor="#FFCC66" />
-                <TitleStyle BackColor="#990000" Font-Bold="True" Font-Size="9pt" 
-                    ForeColor="#FFFFCC" />
-                <TodayDayStyle BackColor="#FFCC66" ForeColor="White" />
-            </asp:Calendar>
-            <br />
-            <br />
+            <asp:Label ID="lblFechaDesde" runat="server" Text="Fecha Inicial: "></asp:Label>
+            <asp:TextBox ID="txtFechaIni" runat="server" Width="70px" MaxLength="10"></asp:TextBox>
+            <asp:ImageButton runat="Server" ID="imgFechaIni" ImageUrl="~/Imagenes/Calendar_scheduleHS.png"
+            AlternateText="Click para mostrar el calendario" Height="16px" />
+            <asp:MaskedEditExtender runat="server" ID="MEEtxtFechaIni" TargetControlID="txtFechaIni"
+            Mask="99/99/9999" MaskType="Date">
+            </asp:MaskedEditExtender>
+            <asp:CalendarExtender ID="calrExtFechaIni" runat="server" TargetControlID="txtFechaIni"
+            PopupButtonID="imgFechaIni" Format="dd/MM/yyyy" />
+            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+            
             <asp:Label ID="lblFechaHasta" runat="server" Text="Fecha Final: "></asp:Label>
-            <asp:Calendar ID="Calendar1" runat="server" Height="20px" Width="20px" 
-                BackColor="#FFFFCC" BorderColor="#FFCC66" BorderWidth="1px" 
-                DayNameFormat="Shortest" Font-Names="Verdana" Font-Size="8pt" 
-                ForeColor="#663399" ShowGridLines="True">
-                <DayHeaderStyle BackColor="#FFCC66" Font-Bold="True" Height="1px" />
-                <NextPrevStyle Font-Size="9pt" ForeColor="#FFFFCC" />
-                <OtherMonthDayStyle ForeColor="#CC9966" />
-                <SelectedDayStyle BackColor="#CCCCFF" Font-Bold="True" />
-                <SelectorStyle BackColor="#FFCC66" />
-                <TitleStyle BackColor="#990000" Font-Bold="True" Font-Size="9pt" 
-                    ForeColor="#FFFFCC" />
-                <TodayDayStyle BackColor="#FFCC66" ForeColor="White" />
-            </asp:Calendar>
+            <asp:TextBox ID="txtFechaFin" runat="server" Width="70px" MaxLength="10" 
+                ontextchanged="txtFechaFin_TextChanged"></asp:TextBox>
+            <asp:ImageButton runat="Server" ID="imgFechaFin" ImageUrl="~/Imagenes/Calendar_scheduleHS.png"
+            AlternateText="Click para mostrar el calendario" Height="16px" />
+            <asp:MaskedEditExtender runat="server" ID="MEEtxtFechaFin" TargetControlID="txtFechaFin"
+            Mask="99/99/9999" MaskType="Date">
+            </asp:MaskedEditExtender>
+            <asp:CalendarExtender ID="calrExtFechaFin" runat="server" TargetControlID="txtFechaFin"
+            PopupButtonID="imgFechaFin" Format="dd/MM/yyyy" />
+            
             <h3>
             <asp:Label ID="lblTipoRepSiembra" runat="server" Text="Reporte por: "></asp:Label>
             </h3>
-        
-        <asp:ListBox ID="lstReportes" runat="server" Width="176px" AutoPostBack="True" Rows="1" >
+            
+        <asp:ListBox ID="lstReportes" runat="server" Width="176px" AutoPostBack="True" 
+                Rows="1" onselectedindexchanged="lstReportes_SelectedIndexChanged" >
         <asp:ListItem>Seleccionar...</asp:ListItem>
         <asp:ListItem>Ciudad</asp:ListItem>
         <asp:ListItem>Tamaño Cilindro</asp:ListItem>
+        <asp:ListItem>Vehículo</asp:ListItem>
+        </asp:ListBox>
+        <br />
+        <br />
+        <asp:Label ID="lblVehiculo" runat="server" Text="Placa: "></asp:Label>      
+        <br />
+        <asp:ListBox ID="lstPlaca" runat="server" Width="98px" AutoPostBack="True" 
+                Rows="1" onselectedindexchanged="lstReportes_SelectedIndexChanged" 
+                Height="17px" visible ="false">
+        <asp:ListItem>Seleccionar...</asp:ListItem>
+        <asp:ListItem>XHN322</asp:ListItem>
+        <asp:ListItem>ADD455</asp:ListItem>
+        <asp:ListItem>SWE215</asp:ListItem>
         </asp:ListBox>
         
         <br />
         <br />
-        <asp:Label ID="lblDepartamento" runat="server" Text="Departamento: "></asp:Label>
+        <asp:Label ID="lblDepartamento" runat="server" Text="Departamento: " visible ="false"></asp:Label>
         &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-        <asp:Label ID="lblCiudad" runat="server" Text="Ciudad: "></asp:Label>
+        <asp:Label ID="lblCiudad" runat="server" Text="Ciudad: " visible ="false"></asp:Label>
         <br />
         
-        <asp:ListBox ID="lstDepto" runat="server" Width="176px" AutoPostBack="True" Rows="1" >
+        <asp:ListBox ID="lstDepto" runat="server" Width="176px" AutoPostBack="True" Rows="1" visible ="false">
         <asp:ListItem>Seleccionar...</asp:ListItem>
         </asp:ListBox>
         &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-        <asp:ListBox ID="lstCiudad" runat="server" Width="176px" AutoPostBack="True" Rows="1" >
+        <asp:ListBox ID="lstCiudad" runat="server" Width="176px" AutoPostBack="True" Rows="1" visible ="false">
         <asp:ListItem>Seleccionar...</asp:ListItem>
         </asp:ListBox>
         
@@ -87,19 +102,80 @@
             <asp:Label ID="lblImpresionFecha" runat="server" Text="xxxxxxxxx"></asp:Label>
             <br />
             <br />
-            <asp:GridView ID="gvReporte" runat="server" CellPadding="4" ForeColor="#333333" GridLines="None">
-                    <AlternatingRowStyle BackColor="White" />
+            <asp:GridView ID="gvReporteCiudad" runat="server" AutoGenerateColumns="False" 
+                    CellPadding="3" ForeColor="#333333" GridLines="None" Visible="false"> 
+                              
+                    <AlternatingRowStyle BackColor="White"  />
+                    <Columns>
+                        <asp:BoundField SortExpression="CiudadSiembra" DataField="CiudadSiembra" HeaderText="Ciudad"
+                            HeaderStyle-Width="100px">
+                            <HeaderStyle Width="130px" />
+                        </asp:BoundField>
+                        <asp:BoundField SortExpression="Cil30" DataField="Cil30" HeaderText="Cil 30"
+                            HeaderStyle-Width="70px">
+                            <HeaderStyle Width="70px" />
+                        </asp:BoundField>
+                        <asp:BoundField SortExpression="Cil40" DataField="Cil40" HeaderText="Cil 40"
+                            HeaderStyle-Width="70px">
+                            <HeaderStyle Width="70px" />
+                        </asp:BoundField>
+                        <asp:BoundField SortExpression="Cil80" DataField="Cil80" HeaderText="Cil 80"
+                            HeaderStyle-Width="70px">
+                            <HeaderStyle Width="70px" />
+                        </asp:BoundField>
+                        <asp:BoundField SortExpression="Cil100" DataField="Cil100" HeaderText="Cil 100"
+                            HeaderStyle-Width="70px">
+                            <HeaderStyle Width="70px" />
+                        </asp:BoundField>
+                        <asp:BoundField SortExpression="Total" DataField="Total" HeaderText="Total Siembra"
+                            HeaderStyle-Width="70px">
+                            <HeaderStyle Width="70px" />
+                        </asp:BoundField>
+                    </Columns>
                     <EditRowStyle BackColor="#7C6F57" />
                     <FooterStyle BackColor="#1C5E55" Font-Bold="True" ForeColor="White" />
                     <HeaderStyle BackColor="#AC3332" Font-Bold="True" ForeColor="White" />
                     <PagerStyle BackColor="#666666" ForeColor="White" HorizontalAlign="Center" />
-                    <RowStyle BackColor="#E3EAEB" />
+                    <RowStyle BackColor="#EFF3FB" />
                     <SelectedRowStyle BackColor="#C5BBAF" Font-Bold="True" ForeColor="#333333" />
                     <SortedAscendingCellStyle BackColor="#F8FAFA" />
                     <SortedAscendingHeaderStyle BackColor="#246B61" />
                     <SortedDescendingCellStyle BackColor="#D4DFE1" />
                     <SortedDescendingHeaderStyle BackColor="#15524A" />
-                </asp:GridView>
+                    </asp:GridView>
+                    <br />
+           <%----------------------------------------------------%>
+           <asp:GridView ID="gvReporteTamano" runat="server" AutoGenerateColumns="False" 
+                    CellPadding="3" ForeColor="#333333" GridLines="None" Visible="false"> 
+                              
+                    <AlternatingRowStyle BackColor="White"  />
+                    <Columns>
+                        <asp:BoundField SortExpression="Tamano" DataField="Tamano" HeaderText="Tamaño Cilindro"
+                            HeaderStyle-Width="70px">
+                            <HeaderStyle Width="70px" />
+                        </asp:BoundField>
+                        <asp:BoundField SortExpression="Cantidad" DataField="Cantidad" HeaderText="Cantidad"
+                            HeaderStyle-Width="70px">
+                            <HeaderStyle Width="70px" />
+                        </asp:BoundField>
+                    </Columns>
+                    <EditRowStyle BackColor="#7C6F57" />
+                    <FooterStyle BackColor="#1C5E55" Font-Bold="True" ForeColor="White" />
+                    <HeaderStyle BackColor="#AC3332" Font-Bold="True" ForeColor="White" />
+                    <PagerStyle BackColor="#666666" ForeColor="White" HorizontalAlign="Center" />
+                    <RowStyle BackColor="#EFF3FB" />
+                    <SelectedRowStyle BackColor="#C5BBAF" Font-Bold="True" ForeColor="#333333" />
+                    <SortedAscendingCellStyle BackColor="#F8FAFA" />
+                    <SortedAscendingHeaderStyle BackColor="#246B61" />
+                    <SortedDescendingCellStyle BackColor="#D4DFE1" />
+                    <SortedDescendingHeaderStyle BackColor="#15524A" />
+                    </asp:GridView>
+
+
+
+                <rsweb:ReportViewer ID="ReportViewer1" runat="server" 
+                    style="margin-right: 94px" ProcessingMode="Remote">
+                </rsweb:ReportViewer>
             </div>
               <div class="submitButton" id="divBotones" runat="server" visible="false">
         <p class="submitButton">

@@ -11,21 +11,9 @@ namespace Unisangil.CYLTRACK.CYLTRACK_WebApp.Reporte
     {
         protected void Page_Load(object sender, EventArgs e)
         {
-            prueba[] pps = new prueba[2];
-            prueba pp = new prueba();
-            pp.Prueba1 = "Hola";
-            pp.Prueba2 = "Tooo";
-            prueba pp1 = new prueba();
-            pp1.Prueba1 = "Hola 1";
-            pp1.Prueba2 = "Tooo 1";
-
-            pps[0] = pp;
-            pps[1] = pp1;
-            gvReporte.DataSource = pps;
-            gvReporte.DataBind();
-
+            
         }
-       
+        
         protected void btnBuscar_Click(object sender, EventArgs e)
         {
             DivReporte.Visible = true;
@@ -37,21 +25,36 @@ namespace Unisangil.CYLTRACK.CYLTRACK_WebApp.Reporte
             Response.Redirect("~/Default.aspx");
         }
 
-        public class prueba
+        protected void txtFechaFin_TextChanged(object sender, EventArgs e)
         {
-            private string prueba1;
+            DateTime fechaFin = new DateTime();
+            fechaFin = DateTime.Parse(txtFechaFin.Text);
 
-            public string Prueba1
+            DateTime fechaInicio = new DateTime();
+            fechaInicio = DateTime.Parse(txtFechaIni.Text);
+
+            if (fechaFin < fechaInicio)
             {
-                get { return prueba1; }
-                set { prueba1 = value; }
+                txtFechaFin.Text = "";
+                Response.Write("<script type='text/javascript'> alert('La fecha final debe ser mayor o igual a la fecha inicial') </script>");
             }
-            private string prueba2;
+        }
 
-            public string Prueba2
+        protected void lstReportes_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            if (lstReportes.SelectedIndex ==1)
             {
-                get { return prueba2; }
-                set { prueba2 = value; }
+                lstDepto.Visible = true;
+                lstCiudad.Visible = true;
+                gvReporteCiudad.Visible = true;
+            }
+            if (lstReportes.SelectedIndex == 2)
+            {
+                gvReporteTamano.Visible = true;
+            }
+            if (lstReportes.SelectedIndex == 3)
+            {
+                lstPlaca.Visible = true;
             }
         }
 
