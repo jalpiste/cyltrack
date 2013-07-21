@@ -27,7 +27,7 @@
         </StackPanel>
 
         <!--ContentPanel. Colocar aquí el contenido adicional-->
-        <Grid x:Name="ContentBusq" Margin="14,101,12,0" Visibility="Visible" Grid.RowSpan="2" Background="White">
+        <Grid x:Name="ContentBusq" Margin="14,101,12,0" Visibility="Collapsed" Grid.RowSpan="2" Background="White">
             <TextBlock Height="30" HorizontalAlignment="Left" Margin="25,11,0,0" Name="lblAviso" Text="Seleccione un parámetro de búsqueda: " VerticalAlignment="Top" Style= "{StaticResource textArea}"/>
             <TextBlock Height="30" HorizontalAlignment="Left" Margin="25,105,0,0" Name="lblNumero" Text="Número: " VerticalAlignment="Top" Style= "{StaticResource textArea}"/>
             <TextBox Height="Auto" HorizontalAlignment="Left" Margin="8,116,0,0" Name="txtCedula" Text="" VerticalAlignment="Top" Width="303" Style= "{StaticResource textboxSolos}" InputScope="TelephoneNumber"/>
@@ -60,10 +60,8 @@
                     <TextBox Height="Auto" HorizontalAlignment="Left" Margin="2,-155,0,0" Name="txtVehiculo" Text="" VerticalAlignment="Top" Width="125" Style= "{StaticResource textboxConsulta}"  />
                     <TextBlock Height="30" HorizontalAlignment="Left" Margin="233,-166,0,0" Text="Ruta:" Name="lblRuta" VerticalAlignment="Top" Width="125" Style= "{StaticResource textArea}"/>
                     <TextBox Height="auto" HorizontalAlignment="Left" Margin="220,-155,0,0" Name="txtRuta" VerticalAlignment="Top" Width="236" Style= "{StaticResource textboxConsulta}"/>
-                    <TextBlock Height="30" HorizontalAlignment="Left" Margin="19,-86,0,0" Name="lblTamano" Text="Tamaño: " VerticalAlignment="Top" Style= "{StaticResource textArea}"/>
-                    <TextBox Height="Auto" HorizontalAlignment="Left" Margin="2,-75,0,0" Name="txtTamano" Text="" VerticalAlignment="Top" Width="125" Style= "{StaticResource textboxConsulta}" />
-                    <TextBlock Height="30" HorizontalAlignment="Left" Margin="233,-86,0,0" Name="lblCantidad" Text="Cantidad:" VerticalAlignment="Top" Width="189" Style= "{StaticResource textArea}"/>
-                    <TextBox Height="Auto" HorizontalAlignment="Left" Margin="220,-75,0,0" Name="txtCantidad" Text="" VerticalAlignment="Top" Width="125" Style= "{StaticResource textboxSolos}" />
+                    <TextBlock Height="30" HorizontalAlignment="Left" Margin="19,-96,0,0" Text="Fecha de Pedido: " Name="lblFechaPed" VerticalAlignment="Top" Width="230" Style= "{StaticResource textArea}"/>
+                    <TextBlock Height="30" HorizontalAlignment="Left" Margin="169,-96,0,0" Text="dd/mm/aaa  00:00:00" Name="lblFechaPedido" VerticalAlignment="Top" Width="230" Style= "{StaticResource textArea}"/>
                     <HyperlinkButton Content="Modificar Pedido" Height="30" HorizontalAlignment="Left" Margin="-21,0,0,0" Name="hplModificarPedido" VerticalAlignment="Top" Width="276" Style="{StaticResource link}" Click="hplModificarPedido_Click"/>
                     <HyperlinkButton Content="Cancelar Pedido" Height="30" HorizontalAlignment="Left" Margin="-21,20,0,0" Name="hplCancelarPedido" VerticalAlignment="Top" Width="276" Style="{StaticResource link}" Click="hplCancelarPedido_Click"/>
                     <Button Content="Menú" Height="72" HorizontalAlignment="Left" Margin="243,0,0,0" Name="btnMenuConsul" VerticalAlignment="Top" Width="212" Click="btnMenuConsul_Click" />
@@ -72,7 +70,7 @@
             </ScrollViewer>
         </Grid>
 
-        <Grid x:Name="ContentCancelar" Grid.Row="1" Margin="14,0,10,-2" Visibility="Collapsed" Background="White">
+        <Grid x:Name="ContentCancelar" Grid.Row="1" Margin="14,0,10,-2" Visibility="Visible" Background="White">
             <ScrollViewer HorizontalScrollBarVisibility="Auto">
                 <StackPanel Margin="0,0,6,6">
                     <TextBlock Height="30" HorizontalAlignment="Left" Margin="231,10,0,0" Name="lblNumPedidoCancel" Text="Código Pedido:" VerticalAlignment="Top" Style= "{StaticResource textArea}"/>
@@ -82,13 +80,9 @@
                     <TextBlock Height="30" HorizontalAlignment="Left" Margin="219,-587,0,0" Name="lblRutaCancel" Text="Ruta: " VerticalAlignment="Top" Style= "{StaticResource textArea}"/>
                     <TextBox Height="Auto" HorizontalAlignment="Left" Margin="2,-574,0,0" Name="txtVehiculoCancel" Text="" VerticalAlignment="Top" Width="125" Style= "{StaticResource textboxConsulta}" />
                     <TextBox Height="Auto" HorizontalAlignment="Left" Margin="202,-574,0,0" Name="txtRutaCancel" Text="" VerticalAlignment="Top" Width="234" Style= "{StaticResource textboxConsulta}" />
-                    <TextBlock Height="30" HorizontalAlignment="Left" Margin="19,-510,0,0"  Name="lblTamanoCancel" Text="Tamaño: " VerticalAlignment="Top" Style= "{StaticResource textArea}"/>
-                    <TextBox Height="Auto" HorizontalAlignment="Left" Margin="2,-497,0,0" Name="txtTamanoCancel" Text="" VerticalAlignment="Top" Width="125" Style= "{StaticResource textboxConsulta}" />
-                    <TextBlock Height="30" HorizontalAlignment="Left" Margin="219,-510,0,0"  Name="lblCantidadCancel" Text="Cantidad:" VerticalAlignment="Top" Width="189" Style= "{StaticResource textArea}"/>
-                    <TextBox Height="Auto" HorizontalAlignment="Left" Margin="202,-497,0,0" Name="txtCantidadCancel" Text="" VerticalAlignment="Top" Width="125" Style= "{StaticResource textboxSolos}" />
+                    <TextBlock Height="30" HorizontalAlignment="Left" Margin="19,-510,0,0"  Name="lblCantidadCancel" Text="*****espacio para la tabla de pedido****" VerticalAlignment="Top" Width="374" Style= "{StaticResource textArea}"/>
                     <TextBlock Height="30" HorizontalAlignment="Left" Margin="19,-404,0,0" Name="lblFechayhora" Text="Fecha y hora de Registro de Pedido: " VerticalAlignment="Top" Style= "{StaticResource textArea}"/>
-                    <TextBlock Height="30" HorizontalAlignment="Left" Margin="19,-372,0,0"  Name="lblFecha" Text="06/01/2013" VerticalAlignment="Top" Width="129" Style= "{StaticResource textArea}"/>
-                    <TextBlock Height="30" HorizontalAlignment="Left" Margin="170,-372,0,0"  Name="lblHora" Text="15:34:22" VerticalAlignment="Top" Width="129" Style= "{StaticResource textArea}"/>
+                    <TextBlock Height="30" HorizontalAlignment="Left" Margin="19,-372,0,0"  Name="lblFecha" Text="dd/mm/aaaa  00:00:00" VerticalAlignment="Top" Width="227" Style= "{StaticResource textArea}"/>
                     <TextBlock Height="28" HorizontalAlignment="Left" Margin="19,-331,0,0" Name="lblMotivo" Text="Escriba el motivo de cancelación del pedido:" VerticalAlignment="Top" Width="auto" Style= "{StaticResource textArea}"/>
                     <TextBox Height="100" HorizontalAlignment="Left" Margin="8,-310,0,0" Name="txtObservaciones" VerticalAlignment="Top" Width="414" Style= "{StaticResource textboxSolos}" TextWrapping="Wrap" />
                     <Button Content="Guardar" Height="72" HorizontalAlignment="Left" Margin="18,-210,0,0" Name="btnGuardar" VerticalAlignment="Top" Width="209" Click="btnGuardarCancel_Click" />

@@ -27,14 +27,14 @@
         </StackPanel>
 
         <!--ContentPanel. Colocar aquí el contenido adicional-->
-        <Grid x:Name="ContentBusq" Margin="14,101,12,0" Visibility="Visible" Grid.RowSpan="2" Background="White">
+        <Grid x:Name="ContentBusq" Margin="14,101,12,0" Visibility="Collapsed" Grid.RowSpan="2" Background="White">
             <TextBlock Height="30" HorizontalAlignment="Left" Margin="25,66,0,0" Name="lblCedula" Text="Número de Cédula Cliente: " VerticalAlignment="Top" Style= "{StaticResource textArea}"/>
             <TextBox Height="Auto" HorizontalAlignment="Left" Margin="8,88,0,0" Name="txtCedula" Text="" VerticalAlignment="Top" Width="303" Style= "{StaticResource textboxSolos}" InputScope="TelephoneNumber"/>
             <Button Content="Registrar" Height="72" HorizontalAlignment="Left" Margin="70,188,0,0" Name="btnRegistrar" VerticalAlignment="Top" Width="160" Click="btnRegistrar_Click" />
             <Button Content="Menú" Height="72" HorizontalAlignment="Left" Margin="226,188,0,0" Name="btnMenu" VerticalAlignment="Top" Width="160" Click="btnMenu_Click" />
         </Grid>
 
-        <Grid x:Name="ContentRegistrar" Grid.Row="1" Margin="14,0,10,-2" Visibility="Collapsed" Background="White">
+        <Grid x:Name="ContentRegistrar" Grid.Row="1" Margin="14,0,10,-2" Visibility="Visible" Background="White">
             <ScrollViewer HorizontalScrollBarVisibility="Auto">
                 <StackPanel Margin="0,0,6,6">
 
@@ -56,28 +56,15 @@
                         <ListBoxItem Content="Seleccionar..." />
                     </ListBox>
                     <TextBlock Height="30" HorizontalAlignment="Left" Margin="267,-341,0,0" Name="lblCiudad" Text="Ciudad" VerticalAlignment="Top" Width="146" Style= "{StaticResource textArea}"/>
-                    <TextBlock Height="30" HorizontalAlignment="Left" Margin="19,-256,0,0" Name="lblDatosCil" Text="Datos Cilindro" VerticalAlignment="Top" Width="269" Style="{StaticResource h3}" />
-                    <TextBlock Height="30" HorizontalAlignment="Left" Margin="19,-216,0,0" Name="lblCodCilindro" Text="Código Cilindro: " VerticalAlignment="Top" Style= "{StaticResource textArea}"/>
-                    <TextBox Height="Auto" HorizontalAlignment="Left" Margin="0,-202,0,0" Name="txtCodCil" Text="" VerticalAlignment="Top" Width="226" Style= "{StaticResource textboxConsulta}" />
-                    <TextBlock Height="30" HorizontalAlignment="Left" Margin="240,-216,0,0" Name="lblTamano" Text="Tamaño: " VerticalAlignment="Top" Style= "{StaticResource textArea}"/>
-                    <TextBox Height="Auto" HorizontalAlignment="Left" Margin="228,-202,0,0" Name="txtTamano" Text="" VerticalAlignment="Top" Width="125" Style= "{StaticResource textboxConsulta}" />
-                    <TextBlock Height="30" HorizontalAlignment="Left" Margin="19,-130,0,0" Name="lblInfoPedido" Text="Información Pedido" VerticalAlignment="Top" Width="269" Style="{StaticResource h2}" />
-                    <TextBlock Height="30" HorizontalAlignment="Left" Margin="19,-90,0,0" Name="lblVehiculo" Text="Vehículo: " VerticalAlignment="Top" Style= "{StaticResource textArea}"/>
-                    <ListBox Height="38" HorizontalAlignment="Left" Margin="20,-73,0,0" Name="lstVehiculo" VerticalAlignment="Top" Width="162" Style= "{StaticResource listas}">
+                    <TextBlock Height="30" HorizontalAlignment="Left" Margin="19,-250,0,0" Name="lblInfoPedido" Text="Información Pedido" VerticalAlignment="Top" Width="269" Style="{StaticResource h2}" />
+                    <TextBlock Height="30" HorizontalAlignment="Left" Margin="19,-215,0,0" Name="lblVehiculo" Text="Vehículo: " VerticalAlignment="Top" Style= "{StaticResource textArea}"/>
+                    <ListBox Height="38" HorizontalAlignment="Left" Margin="20,-190,0,0" Name="lstVehiculo" VerticalAlignment="Top" Width="162" Style= "{StaticResource listas}">
                         <ListBoxItem Content="Seleccionar..." />
                     </ListBox>
-                    <TextBlock Height="30" HorizontalAlignment="Left" Margin="267,-80,0,0" Name="lblRuta" Text="Ruta Chiquinquirá" VerticalAlignment="Top" Width="189" Style= "{StaticResource textArea}"/>
-                    <TextBlock Height="30" HorizontalAlignment="Left" Margin="19,-40,0,0" Name="lblTamanoPedido" Text="Tamaño/Cantidad " VerticalAlignment="Top" Style= "{StaticResource textArea}"/>
-                    <TextBlock Height="30" HorizontalAlignment="Left" Margin="19,0,0,0" Name="lbl30" Text="30" VerticalAlignment="Top" Style= "{StaticResource textArea}"/>
-                    <TextBox Height="59" HorizontalAlignment="Left" Margin="30,-46,0,0" Name="txt30" Text="" VerticalAlignment="Top" Width="80" Style= "{StaticResource textboxConsulta}" />
-                    <TextBlock Height="30" HorizontalAlignment="Left" Margin="119,-46,0,0" Name="lbl40" Text="40" VerticalAlignment="Top" Style= "{StaticResource textArea}"/>
-                    <TextBox Height="59" HorizontalAlignment="Left" Margin="130,-60,0,0" Name="txt40" Text="" VerticalAlignment="Top" Width="80" Style= "{StaticResource textboxConsulta}" />
-                    <TextBlock Height="30" HorizontalAlignment="Left" Margin="219,-45,0,0" Name="lbl80" Text="80" VerticalAlignment="Top" Style= "{StaticResource textArea}"/>
-                    <TextBox Height="59" HorizontalAlignment="Left" Margin="230,-60,0,0" Name="txt80" Text="" VerticalAlignment="Top" Width="80" Style= "{StaticResource textboxConsulta}" />
-                    <TextBlock Height="30" HorizontalAlignment="Left" Margin="319,-46,0,0" Name="lbl100" Text="100" VerticalAlignment="Top" Style= "{StaticResource textArea}"/>
-                    <TextBox Height="59" HorizontalAlignment="Left" Margin="342,-60,0,0" Name="txt100" Text="" VerticalAlignment="Top" Width="80" Style= "{StaticResource textboxConsulta}" />
-                    <Button Content="Guardar" Height="72" HorizontalAlignment="Left" Margin="18,28,0,0" Name="btnGuardar" VerticalAlignment="Top" Width="209"  Click="btnGuardar_Click" />
-                    <Button Content="Menú" Height="72" HorizontalAlignment="Left" Margin="224,-72,0,0" Name="btnCancelar" VerticalAlignment="Top" Width="209"  Click="btnMenu_Click" />
+                    <TextBlock Height="30" HorizontalAlignment="Left" Margin="267,-190,0,0" Name="lblRuta" Text="Ruta Chiquinquirá" VerticalAlignment="Top" Width="189" Style= "{StaticResource textArea}"/>
+                    
+                    <Button Content="Guardar" Height="72" HorizontalAlignment="Left" Margin="18,-99,0,0" Name="btnGuardar" VerticalAlignment="Top" Width="209"  Click="btnGuardar_Click" />
+                    <Button Content="Menú" Height="72" HorizontalAlignment="Left" Margin="224,-99,0,0" Name="btnCancelar" VerticalAlignment="Top" Width="209"  Click="btnMenu_Click" />
 
                 </StackPanel>
             </ScrollViewer>

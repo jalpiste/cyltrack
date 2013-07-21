@@ -57,15 +57,8 @@
                         <ListBoxItem Content="Seleccionar..." />
                     </ListBox>
                     <TextBlock Height="30" HorizontalAlignment="Left" Margin="267,-200,0,0" Name="lblRuta" Text="Ruta " VerticalAlignment="Top" Width="189" Style= "{StaticResource textArea}"/>
-                    <TextBlock Height="30" HorizontalAlignment="Left" Margin="19,-154,0,0" Name="lblTamanoNuevo" Text="Tamaño: " VerticalAlignment="Top" Style= "{StaticResource textArea}"/>
-                    <ListBox Height="38" HorizontalAlignment="Left" Margin="32,-127,0,0" Name="lstTamano" VerticalAlignment="Top" Width="162" Style= "{StaticResource listas}">
-                        <ListBoxItem Content="40" />
-                        <ListBoxItem Content="80" />
-                    </ListBox>
-                    <TextBlock Height="30" HorizontalAlignment="Left" Margin="240,-154,0,0" Name="lblCantidad" Text="Cantidad: " VerticalAlignment="Top" Style= "{StaticResource textArea}"/>
-                    <TextBox Height="74" HorizontalAlignment="Left" Margin="230,-141,0,0" Name="txtCantidad" Text="" VerticalAlignment="Top" Width="125" Style= "{StaticResource textboxSolos}" InputScope="TelephoneNumber"/>
-                    <Button Content="Guardar" Height="72" HorizontalAlignment="Left" Margin="18,-41,0,0" Name="btnGuardar" VerticalAlignment="Top" Width="209" Click="btnGuardar_Click" />
-                    <Button Content="Atrás" Height="72" HorizontalAlignment="Left" Margin="224,-72,0,0" Name="btnAtras" VerticalAlignment="Top" Width="209" Click="btnAtras_Click"/>
+                    <Button Content="Guardar" Height="72" HorizontalAlignment="Left" Margin="18,-99,0,0" Name="btnGuardar" VerticalAlignment="Top" Width="209" Click="btnGuardar_Click" />
+                    <Button Content="Atrás" Height="72" HorizontalAlignment="Left" Margin="224,-99,0,0" Name="btnAtras" VerticalAlignment="Top" Width="209" Click="btnAtras_Click"/>
                 </StackPanel>
             </ScrollViewer>
         </Grid>
