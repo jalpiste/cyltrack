@@ -22,50 +22,50 @@ namespace Unisangil.CYLTRACK.CYLTRACK_WebApp.Account
         {
             btnNuevaConsulta.Focus();
 
-           ClienteServiceClient servCliente = new ClienteServiceClient();
-           ClienteBE consultar_cli = new ClienteBE();
-                
-           try
-           {
-               consultar_cli.Cedula = txtCedula.Text;
-               ClienteBE[] consulta = servCliente.Consultar_Cliente(consultar_cli);
+            ClienteServiceClient servCliente = new ClienteServiceClient();
+            
 
-               foreach (ClienteBE info in consulta)
-               {
-                   if (info.Cedula != txtCedula.Text)
-                   {
+            try
+            {
 
-                       txtCedulaCli.Text = info.Cedula;
-                       txtNombreCliente.Text = info.Nombres_Cliente;
-                       txtPrimerApellido.Text = info.Apellido_1;
-                       txtSegundoApellido.Text = info.Apellido_2;
-                       txtDireccion.Text = info.Ubicacion.Direccion;
-                       txtBarrio.Text = info.Ubicacion.Barrio;
-                       txtCiudad.Text = info.Ciudad.Nombre_Ciudad;
-                       txtDepartamento.Text = info.Ciudad.Departamento.Nombre_Departamento;
-                       txtTelefono.Text = info.Ubicacion.Telefono_1;
-                       txtCodigoCilindro.Text = info.Cilindro.Codigo_Cilindro;
-                       txtTamano.Text = info.Cilindro.NTamano.Tamano;
-                       txtTipoCilindro.Text = info.Cilindro.Tipo_Cilindro;
+                ClienteBE[] consulta = servCliente.Consultar_Cliente(txtCedula.Text);
 
-                       divInfoCliente.Visible = true;
-                       btnNuevaConsulta.Visible = true;
-                   }
-                   else
-                   {
-                       MessageBox.Show("El cliente no se encuentra registrado en el sistema", "Consultar Cliente");
-                   }
-               }
-              
-           }
-           catch (Exception ex)
-           {
-               Response.Redirect("~/About.aspx");
-           }
-           finally
-           {
-               servCliente.Close();
-           }
+                foreach (ClienteBE info in consulta)
+                {
+                    if (info.Cedula != txtCedula.Text)
+                    {
+
+                        txtCedulaCli.Text = info.Cedula;
+                        txtNombreCliente.Text = info.Nombres_Cliente;
+                        txtPrimerApellido.Text = info.Apellido_1;
+                        txtSegundoApellido.Text = info.Apellido_2;
+                        txtDireccion.Text = info.Ubicacion.Direccion;
+                        txtBarrio.Text = info.Ubicacion.Barrio;
+                        txtCiudad.Text = info.Ciudad.Nombre_Ciudad;
+                        txtDepartamento.Text = info.Ciudad.Departamento.Nombre_Departamento;
+                        txtTelefono.Text = info.Ubicacion.Telefono_1;
+                        //txtCodigoCilindro.Text = info.Cilindro.Codigo_Cilindro;
+                        //txtTamano.Text = info.Cilindro.NTamano.Tamano;
+                        //txtTipoCilindro.Text = info.Cilindro.Tipo_Cilindro;
+
+                        divInfoCliente.Visible = true;
+                        btnNuevaConsulta.Visible = true;
+                    }
+                    else
+                    {
+                        MessageBox.Show("El cliente no se encuentra registrado en el sistema", "Consultar Cliente");
+                    }
+                }
+
+            }
+            catch (Exception ex)
+            {
+                Response.Redirect("~/About.aspx");
+            }
+            finally
+            {
+                servCliente.Close();
+            }
 
            
         }

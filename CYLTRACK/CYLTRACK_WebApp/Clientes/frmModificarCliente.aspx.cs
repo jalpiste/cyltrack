@@ -30,8 +30,7 @@ namespace Unisangil.CYLTRACK.CYLTRACK_WebApp.Account.Clientes
            
             try
             {
-                consultar_cli.Cedula = txtCedula.Text;
-                ClienteBE[] consulta = servCliente.Consultar_Cliente(consultar_cli);
+                ClienteBE[] consulta = servCliente.Consultar_Cliente(txtCedula.Text);
 
                foreach (ClienteBE info in consulta)
                {
@@ -77,7 +76,6 @@ namespace Unisangil.CYLTRACK.CYLTRACK_WebApp.Account.Clientes
         {
             ClienteServiceClient servCliente = new ClienteServiceClient();
             String resp;
-
             ClienteBE modificar_cli = new ClienteBE();
 
             try
@@ -105,7 +103,7 @@ namespace Unisangil.CYLTRACK.CYLTRACK_WebApp.Account.Clientes
                 btnGuardar.Visible = false;
                 txtCedula.Text = "";
                 
-                resp = servCliente.Modificar_Cliente(modificar_cli);
+                resp = servCliente.Modificar_Cliente(Convert.ToString(modificar_cli));
 
                 if (resp == "Ok")
                 {
