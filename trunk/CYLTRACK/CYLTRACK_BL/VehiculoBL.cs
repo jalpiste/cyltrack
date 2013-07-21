@@ -33,7 +33,7 @@ namespace Unisangil.CYLTRACK.CYLTRACK_BL
         /// </summary>
         /// <param name="consultar_vehiculo"></param>
         /// <returns></returns>
-        public List<VehiculoBE> ConsultarVehiculo(VehiculoBE consultar_vehiculo)
+        public List<VehiculoBE> ConsultarVehiculo(String consultar_vehiculo)
         {
             List<VehiculoBE> lstVehiculo = new List<VehiculoBE>();
             VehiculoBE vehiculo = new VehiculoBE();
@@ -73,7 +73,7 @@ namespace Unisangil.CYLTRACK.CYLTRACK_BL
         /// </summary>
         /// <param name="modificar_vehiculo"></param>
         /// <returns></returns>
-        public String ModificarVehiculo(VehiculoBE modificar_vehiculo)
+        public String ModificarVehiculo(String modificar_vehiculo)
         {
             List<VehiculoBE> consulta = ConsultarVehiculo(modificar_vehiculo);
             List<VehiculoBE> conductor = ConsultarConductor(modificar_vehiculo);
@@ -85,7 +85,7 @@ namespace Unisangil.CYLTRACK.CYLTRACK_BL
         /// </summary>
         /// <param name="consultar_conductor"></param>
         /// <returns></returns>
-        public List<VehiculoBE> ConsultarConductor(VehiculoBE consultar_conductor)
+        public List<VehiculoBE> ConsultarConductor(String consultar_conductor)
         {
             List<VehiculoBE> lstConductor = new List<VehiculoBE>();
             VehiculoBE conductor = new VehiculoBE();
