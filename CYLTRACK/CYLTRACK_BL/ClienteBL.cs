@@ -30,7 +30,7 @@ namespace Unisangil.CYLTRACK.CYLTRACK_BL
             return resp;
         }
         
-        public List<ClienteBE> ConsultarCliente(ClienteBE consultar_cli)
+        public List<ClienteBE> ConsultarCliente(String consultar_cli)
         {
             List<ClienteBE> lstCliente = new List<ClienteBE>();
 
@@ -75,7 +75,7 @@ namespace Unisangil.CYLTRACK.CYLTRACK_BL
             return lstCliente;
         }
 
-        public String ModificarCliente(ClienteBE modificar_cli)
+        public String ModificarCliente(String modificar_cli)
         {
             List<ClienteBE> modificar = ConsultarCliente(modificar_cli);
             String resp = "Ok";
