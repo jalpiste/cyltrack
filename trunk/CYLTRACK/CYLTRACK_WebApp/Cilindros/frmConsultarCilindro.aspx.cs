@@ -22,59 +22,59 @@ namespace Unisangil.CYLTRACK.CYLTRACK_WebApp.Cilindros
             SetFocus(DivInfoCilindro);
             CilindroServiceClient servCilindro = new CilindroServiceClient();
             CilindroBE cilindro = new CilindroBE();
-            CilindroBE[] resp;
+            string respConsultaExistencias;
+            CilindroBE respConsultaCilindro;
 
             try
             {
-                cilindro.Codigo_Cilindro = txtCodigoCilindro.Text;
-                resp = servCilindro.ConsultarCilindro(cilindro);
+                respConsultaExistencias = servCilindro.ConsultarExistencias(txtCodigoCilindro.Text);
 
-                foreach (CilindroBE datosCil in resp)
-                {
-                    if (datosCil.Codigo_Cilindro != txtCodigoCilindro.Text)
+                 if (respConsultaExistencias == null)
                     {
-                        MessageBox.Show("El código digitado no esta registrado en el sistema", "Consulta de Cilindros");
+                        MessageBox.Show("El código digitado no se encuentra registrado en el sistema", "Consulta de Cilindros");
                     }
                     else
                     {
-                        TxtAno.Text = datosCil.Ano;
-                        TxtEmpresa.Text = datosCil.Fabricante.Nombre_Fabricante;
-                        TxtCodigo.Text = datosCil.Serial_Cilindro;
-                        TxtUbicacion.Text = datosCil.Ubicacion.Tipo_Ubicacion.Nombre_Ubicacion;
-                        TxtTamano.Text = datosCil.NTamano.Tamano;
-                        LblTotal.Text = datosCil.Codigo_Cilindro;
-                        TxtRegistro.Text = Convert.ToString((datosCil.Fecha));
+                        respConsultaCilindro = servCilindro.ConsultarCilindro(txtCodigoCilindro.Text);
+
+                        TxtAno.Text = respConsultaCilindro.Ano;
+                        TxtEmpresa.Text = respConsultaCilindro.Fabricante.Nombre_Fabricante;
+                        TxtCodigo.Text = respConsultaCilindro.Serial_Cilindro;
+                        TxtUbicacion.Text = respConsultaCilindro.Ubicacion.Tipo_Ubicacion.Nombre_Ubicacion;
+                        TxtTamano.Text = respConsultaCilindro.NTamano.Tamano;
+                        txtCodigoTotal.Text = respConsultaCilindro.Codigo_Cilindro;
+                        TxtRegistro.Text = Convert.ToString((respConsultaCilindro.Fecha));
 
                         DivDatosCilindro.Visible = true;
                         BtnNuevaConsulta.Visible = true;
 
-                        if (TxtUbicacion.Text == "Vehiculo")
+                        if (TxtUbicacion.Text == Ubicacion.Vehiculo.ToString())
                         {
-                            TxtPlaca.Text = datosCil.Ubicacion.Vehiculo.Placa;
-                            TxtConductor.Text = datosCil.Ubicacion.Vehiculo.Conductor.Nombres_Conductor;
-                            TxtRuta.Text = datosCil.Ubicacion.Vehiculo.Ruta.Nombre_Ruta;
+                            TxtPlaca.Text = respConsultaCilindro.Ubicacion.Vehiculo.Placa;
+                            TxtConductor.Text = respConsultaCilindro.Ubicacion.Vehiculo.Conductor.Nombres_Conductor;
+                            TxtRuta.Text = respConsultaCilindro.Ubicacion.Vehiculo.Ruta.Nombre_Ruta;
 
                             DivInfoVehiculo.Visible = true;
                         }
 
-                        if (TxtUbicacion.Text == "Cliente")
+                        if (TxtUbicacion.Text == Ubicacion.Cliente.ToString())
                         {
-                            txtCedula.Text = datosCil.Ubicacion.Cliente.Cedula;
-                            TxtNombreCliente.Text = datosCil.Ubicacion.Cliente.Nombres_Cliente;
-                            TxtPrimerApellido.Text = datosCil.Ubicacion.Cliente.Apellido_1;
-                            TxtSegundoApellido.Text = datosCil.Ubicacion.Cliente.Apellido_2;
-                            TxtDireccion.Text = datosCil.Ubicacion.Direccion;
-                            TxtBarrio.Text = datosCil.Ubicacion.Barrio;
-                            TxtCiudad.Text = datosCil.Ubicacion.Ciudad.Nombre_Ciudad;
-                            TxtDepartamento.Text = datosCil.Ubicacion.Ciudad.Departamento.Nombre_Departamento;
-                            TxtTelefono.Text = datosCil.Ubicacion.Telefono_1;
-                            Txtentrega.Text = Convert.ToString(datosCil.Fecha);
+                            txtCedula.Text = respConsultaCilindro.Ubicacion.Cliente.Cedula;
+                            TxtNombreCliente.Text = respConsultaCilindro.Ubicacion.Cliente.Nombres_Cliente;
+                            TxtPrimerApellido.Text = respConsultaCilindro.Ubicacion.Cliente.Apellido_1;
+                            TxtSegundoApellido.Text = respConsultaCilindro.Ubicacion.Cliente.Apellido_2;
+                            TxtDireccion.Text = respConsultaCilindro.Ubicacion.Direccion;
+                            TxtBarrio.Text = respConsultaCilindro.Ubicacion.Barrio;
+                            TxtCiudad.Text = respConsultaCilindro.Ubicacion.Ciudad.Nombre_Ciudad;
+                            TxtDepartamento.Text = respConsultaCilindro.Ubicacion.Ciudad.Departamento.Nombre_Departamento;
+                            TxtTelefono.Text = respConsultaCilindro.Ubicacion.Telefono_1;
+                            Txtentrega.Text = Convert.ToString(respConsultaCilindro.Fecha);
 
                             DivInfoCilindro.Visible = true;
                         }
                     }
 
-                }
+                
             }
 
             catch (Exception ex)

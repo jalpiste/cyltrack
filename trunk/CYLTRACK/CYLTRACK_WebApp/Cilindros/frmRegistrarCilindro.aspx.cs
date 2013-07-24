@@ -35,25 +35,14 @@ namespace Unisangil.CYLTRACK.CYLTRACK_WebApp.Cilindros
                     LstAno.Items.Add(datosAnos.ToString());
                 }
 
-                CilindroServiceClient servCil = new CilindroServiceClient();
-                CilindroBE cil = new CilindroBE();
-                try
+                if (!IsPostBack)
                 {
-                    List<CilindroBE> lstTam = new List<CilindroBE>(servCil.ConsultarCilindro(cil));
-                    foreach(CilindroBE datos in lstTam)
+                    List<string> tamanos = Auxiliar.ConsultarTamanos();
+                    foreach (string datosTamanos in tamanos)
                     {
-                        LstTamano.Items.Add(datos.NTamano.Tamano);
+                        LstTamano.Items.Add((datosTamanos).Substring(3));
                     }
                 }
-                catch (Exception ex)
-                {
-                    Response.Redirect("~/About.aspx");
-                }
-                finally 
-                {
-                    servCil.Close();
-                }
-
             }
         }
         protected void TxtCodigoCilindro_TextChanged(object sender, EventArgs e)
@@ -61,16 +50,14 @@ namespace Unisangil.CYLTRACK.CYLTRACK_WebApp.Cilindros
             SetFocus(BtnGuardar);
             CilindroServiceClient servCilindro = new CilindroServiceClient();
             CilindroBE cilindro = new CilindroBE();
-            CilindroBE [] codigo;
+            string codigo;
             try 
             {
-                cilindro.Codigo_Cilindro = TxtCodigoCilindro.Text;
-                codigo = servCilindro.ConsultarCilindro(cilindro);
-                foreach(CilindroBE datosList in codigo)
-                {
-                    if (datosList.Codigo_Cilindro == TxtCodigoCilindro.Text)
+                codigo = servCilindro.ConsultarExistencias(TxtCodigoCilindro.Text);
+               
+                    if (codigo != "Ok")
                     {
-                        MessageBox.Show("El cilindro ya se encuentra creado en el sistema", "Registrar Cilindro");
+                        MessageBox.Show("El cilindro ya se encuentra creado en el sistema", "Registrar Cilindro");                        
                     }
                     else 
                     {
@@ -79,9 +66,8 @@ namespace Unisangil.CYLTRACK.CYLTRACK_WebApp.Cilindros
                         DivDatosCilindro.Visible = true;
                         BtnGuardar.Visible = true;
                     }
-                    
                 }
-           }
+          
             catch (Exception ex)
             {
                 Response.Redirect("~/About.aspx");
@@ -116,11 +102,8 @@ namespace Unisangil.CYLTRACK.CYLTRACK_WebApp.Cilindros
 
                 resp = servCilindro.RegistrarCilindro(cilindro);
                 
-                if (resp == "Ok")
-                {
-                    MessageBox.Show("El cilindro fue registrado satisfactoriamente", "Registrar Cilindro");
-                }
-               
+                MessageBox.Show("El cilindro fue registrado satisfactoriamente", "Registrar Cilindro");
+                            
             }
             catch (Exception ex) {
 
