@@ -18,30 +18,31 @@ namespace Unisangil.CYLTRACK.CYLTRACK_BL
 
         #endregion
         #region Metodos publicos
-        public List<UsuarioBE> RegistrarUsuario(UsuarioBE usuario)
+        public UsuarioBE RegistrarUsuario(UsuarioBE usuario)
         {
             UsuarioBE user = new UsuarioBE();
-            List<UsuarioBE> resp = new List<UsuarioBE>();
-            PerfilBE per = new PerfilBE();
-            per.Perfil= "Jefe de Plataforma";
-            per.Perfil= "Vendedor";
-            per.Perfil= "Administrador";
-            user.Perfil = per;
-            resp.Add(user);
-
-        return resp;
+            
+            for (int i = 0; i < 4; i++) 
+            {
+                PerfilBE per = new PerfilBE()
+                {
+                   Perfil= "Opciones" 
+                };
+                user.Perfil[i] = per;                
+            }
+               return user;
         }
 
-        public String Autenticacion(UsuarioBE usuario)
+        public bool Autenticacion(UsuarioBE usuario)
         {
-            String resp ;
-            resp = "true";
+            bool resp ;
+            resp = true;
             return resp;            
         }
 
-        public String RecuperarContrasena(UsuarioBE usuario)
+        public string RecuperarContrasena(string usuario)
         {
-            String resp = "contraseña enviada a correo electronico";
+            string resp = "contraseña enviada a correo electronico";
             return resp;
         }
 

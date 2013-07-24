@@ -25,15 +25,20 @@ namespace Unisangil.CYLTRACK.CYLTRACK_BL
         /// </summary>
         /// <param name="cilindro"></param>
         /// <returns></returns>
-        public String CrearCilindro(CilindroBE cilindro)
+        public string CrearCilindro(CilindroBE cilindro)
         {
-            String resp = "Ok";
+            string resp = "Ok";
             return resp;
         }
 
-        public List<CilindroBE> ConsultarCilindro(CilindroBE cilindro)
+        public string ConsultarExistencias(string cilindro)
         {
-            List<CilindroBE> lstCil = new List<CilindroBE>();
+            string resp = "Ok";
+            return resp;
+        }
+
+         public CilindroBE ConsultarCilindro(string cilindro)
+        {
             CilindroBE cil = new CilindroBE();
             cil.Ano = "2012";
             FabricanteBE fab = new FabricanteBE();
@@ -79,31 +84,15 @@ namespace Unisangil.CYLTRACK.CYLTRACK_BL
             veh.Conductor = cond;
             ubi.Vehiculo = veh;
             cil.Ubicacion = ubi;
-            lstCil.Add(cil);
-            return lstCil;
+            
+            return cil;
         }
 
-        public List<CilindroBE> AsignarUbicacion(CilindroBE cilindro)
+        public string AsignarUbicacion(CilindroBE cilindro)
         {
-            List<CilindroBE> lstAsig = new List<CilindroBE>();
-            CilindroBE cil = new CilindroBE();
-
-            UbicacionBE ubi = new UbicacionBE();
-            Tipo_UbicacionBE tipUbi = new Tipo_UbicacionBE();
-            tipUbi.Nombre_Ubicacion = "Vehiculo";
-            ubi.Tipo_Ubicacion = tipUbi;
-            ConductorBE cond = new ConductorBE();
-            cond.Nombres_Conductor = "Jaime Niño";
-            VehiculoBE veh = new VehiculoBE();
-            veh.Conductor = cond;
-            veh.Placa = "CHE987";
-            RutaBE ruta = new RutaBE();
-            ruta.Nombre_Ruta = "Chiqqrá-Ubate";
-            veh.Ruta = ruta;
-            ubi.Vehiculo = veh;
-            cil.Ubicacion = ubi;
-            lstAsig.Add(cil);
-            return lstAsig;
+            string resp;
+            resp = "Ok";
+            return resp;
         }
 
         public List<CilindroBE> CargueyDescargueCilindro(CilindroBE cilindro)

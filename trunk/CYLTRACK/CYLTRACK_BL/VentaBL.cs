@@ -24,7 +24,7 @@ namespace Unisangil.CYLTRACK.CYLTRACK_BL
             return resp;
         }
 
-        public List<VentaBE> ConsultarVenta(VentaBE ventas)
+        public List<VentaBE> ConsultarVenta(string ventas)
         {
             List<VentaBE> lstVenta = new List<VentaBE>();
            
@@ -91,7 +91,7 @@ namespace Unisangil.CYLTRACK.CYLTRACK_BL
         public List<CasosBE> RevisionCasosEspeciales(CasosBE casos)
         {
             List<CasosBE> lstCaso = new List<CasosBE>();
-
+            string datos;
             CasosBE[] lista = new CasosBE[7];
             Random ran = new Random();
             for (int i = 0; i < 7; i++)
@@ -105,10 +105,11 @@ namespace Unisangil.CYLTRACK.CYLTRACK_BL
                 Detalle_VentaBE detVenta = new Detalle_VentaBE();
                 detVenta.Casos_Especiales = caso;
                 venta.Detalle_Venta = detVenta;
-                List<VentaBE> consultaVenta = ConsultarVenta(venta);
-                foreach(VentaBE datos in consultaVenta)
+                datos = Convert.ToString(venta);
+                List<VentaBE> consultaVenta = ConsultarVenta(datos);
+                foreach(VentaBE info in consultaVenta)
                 {
-                    caso.Venta = datos;
+                    caso.Venta = info;
                 }
                 lista[i] = caso;
             }
