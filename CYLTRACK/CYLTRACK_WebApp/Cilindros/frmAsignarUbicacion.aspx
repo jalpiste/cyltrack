@@ -60,8 +60,10 @@
                         <div id="diVehiculo" runat="server" visible="false">
                         <br />
                         <asp:Label ID="lblPlaca" runat="server" Text="Placa Vehículo:  " ></asp:Label>
-                        <asp:ListBox ID="lstPlacaVehiculo" runat="server" AutoPostBack="True" Rows="1" /><br /><br />
-
+                        <asp:ListBox ID="lstPlacaVehiculo" runat="server" AutoPostBack="True" Rows="1">
+                          <asp:ListItem>Seleccionar...</asp:ListItem>                            
+                         </asp:ListBox>
+                         <br /><br />
                         <asp:Label ID="LblConductor" runat="server" Text="Conductor Vehiculo:" ></asp:Label>
 
                         &nbsp;&nbsp;&nbsp;
@@ -72,7 +74,7 @@
                        
                             <asp:Label ID="LblRuta" runat="server" Text="Ruta:" ></asp:Label>
                         &nbsp;&nbsp;&nbsp;
-                                    <asp:Label ID="LblRutaVehiculo" runat="server" Text="Chiquinquirá-Simijaca" ></asp:Label>
+                                    <asp:Label ID="LblRutaVehiculo" runat="server" ></asp:Label>
                         </div>
                         </div>
        </fieldset><p class="submitButton">

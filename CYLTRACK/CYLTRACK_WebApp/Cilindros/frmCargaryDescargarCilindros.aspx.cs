@@ -22,11 +22,12 @@ namespace CYLTRACK_WebApp.Cilindros
         List<CilindroBE> lstCodigos = new List<CilindroBE>();
 
         protected void lstOpcion_SelectedIndexChanged(object sender, EventArgs e)
-        {
-           
+        {           
             {
                 CilindroServiceClient servCilindro = new CilindroServiceClient();
                 CilindroBE cil = new CilindroBE();
+                string ubica1 = "Plataforma";
+                string ubica2 = "Vehiculo";
                 DataTable table = new DataTable();
 
                 try
@@ -38,7 +39,7 @@ namespace CYLTRACK_WebApp.Cilindros
                     if (lstOpcion.SelectedIndex == 1)
                     {
                         Tipo_UbicacionBE tipUbi = new Tipo_UbicacionBE();
-                        tipUbi.Nombre_Ubicacion = "Plataforma";
+                        tipUbi.Nombre_Ubicacion = ubica1;
                         UbicacionBE ubi = new UbicacionBE();
                         ubi.Tipo_Ubicacion = tipUbi;
                         cil.Ubicacion = ubi;
@@ -47,7 +48,7 @@ namespace CYLTRACK_WebApp.Cilindros
                     if (lstOpcion.SelectedIndex == 2)
                     {
                         Tipo_UbicacionBE tipUbi = new Tipo_UbicacionBE();
-                        tipUbi.Nombre_Ubicacion = "Vehiculo";
+                        tipUbi.Nombre_Ubicacion = ubica2;
                         UbicacionBE ubi = new UbicacionBE();
                         ubi.Tipo_Ubicacion = tipUbi;
                         cil.Ubicacion = ubi;

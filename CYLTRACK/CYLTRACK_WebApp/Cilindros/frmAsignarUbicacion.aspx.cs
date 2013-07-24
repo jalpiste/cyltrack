@@ -1,5 +1,4 @@
 ﻿using System;
-
 using System.Collections.Generic;
 using System.Linq;
 using System.Web;
@@ -26,36 +25,33 @@ namespace Unisangil.CYLTRACK.CYLTRACK_WebApp.Cilindros
                 }
             }
         }
-
         
         protected void txtCodeCilindro_TextChanged(object sender, EventArgs e)
         {
             CilindroServiceClient servAsig = new CilindroServiceClient();
             CilindroBE cil = new CilindroBE();
-            CilindroBE[] lstAsig;
+            CilindroBE ConsultarCilindro;
+            string consultarExistencia;
             try 
             {
-                cil.Codigo_Cilindro = txtCodeCilindro.Text;
-                lstAsig = servAsig.ConsultarCilindro(cil);
+                consultarExistencia = servAsig.ConsultarExistencias(txtCodeCilindro.Text);
 
-                foreach (CilindroBE datos in lstAsig)
-                {
-                    if (datos.Codigo_Cilindro != cil.Codigo_Cilindro)
+                if (consultarExistencia == null)
                     {
                         MessageBox.Show("El cilindro digitado no se encuentra registrado en el sistema", "Asignación de ubicación");
                     }
                     else
                     {
-                        txtCodigo.Text = txtCodeCilindro.Text;
-                        txtUbicacionActual.Text = datos.Ubicacion.Tipo_Ubicacion.Nombre_Ubicacion;
-                        lstPlacaVehiculo.Items.Add(datos.Ubicacion.Vehiculo.Placa);
-                        TxtConductor.Text = datos.Ubicacion.Vehiculo.Conductor.Nombres_Conductor;
-                        LblRutaVehiculo.Text = datos.Ubicacion.Vehiculo.Ruta.Nombre_Ruta;
+                        ConsultarCilindro = servAsig.ConsultarCilindro(txtCodeCilindro.Text);
+                        txtCodigo.Text = ConsultarCilindro.Codigo_Cilindro;
+                        txtUbicacionActual.Text = ConsultarCilindro.Ubicacion.Tipo_Ubicacion.Nombre_Ubicacion;
+                        lstPlacaVehiculo.Items.Add(ConsultarCilindro.Ubicacion.Vehiculo.Placa);
+                        TxtConductor.Text = ConsultarCilindro.Ubicacion.Vehiculo.Conductor.Nombres_Conductor;
+                        LblRutaVehiculo.Text = ConsultarCilindro.Ubicacion.Vehiculo.Ruta.Nombre_Ruta;
                         DivUbicacionCil.Visible = true;
                         DivNuevaUbicacion.Visible = true;
                         BtnGuardar.Visible = true;
-                    }
-                }
+                    }               
             }
 
             catch (Exception ex) 
@@ -64,8 +60,7 @@ namespace Unisangil.CYLTRACK.CYLTRACK_WebApp.Cilindros
             }
             finally 
             {
-                servAsig.Close();
-                
+                servAsig.Close();                
             }
      }
 
@@ -74,7 +69,7 @@ namespace Unisangil.CYLTRACK.CYLTRACK_WebApp.Cilindros
 
             try
             {
-                if (lstUbica.SelectedValue == "Vehiculo")
+                if (lstUbica.SelectedValue == Ubicacion.Vehiculo.ToString())
                 {
                     diVehiculo.Visible = true;
                 }
@@ -95,7 +90,7 @@ namespace Unisangil.CYLTRACK.CYLTRACK_WebApp.Cilindros
 
         protected void BtnGuardar_Click(object sender, EventArgs e)
         {
-            CilindroBE [] resp;
+            string resp;
             CilindroServiceClient servAsig = new CilindroServiceClient();
             CilindroBE cilindro = new CilindroBE();
             try 
