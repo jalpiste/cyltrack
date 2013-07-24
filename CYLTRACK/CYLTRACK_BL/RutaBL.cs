@@ -30,7 +30,7 @@ namespace Unisangil.CYLTRACK.CYLTRACK_BL
             
             return resp;
         }
-        public List<RutaBE> ConsultarRuta(RutaBE Ruta)
+        public List<RutaBE> ConsultarRuta(string Ruta)
         {
             List<RutaBE> lstRuta = new List<RutaBE>();
             
