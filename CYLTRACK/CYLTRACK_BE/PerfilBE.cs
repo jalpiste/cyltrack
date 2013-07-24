@@ -17,7 +17,7 @@ namespace Unisangil.CYLTRACK.CYLTRACK_BE
     /// Clase utilizada para representar la entidad Perfil
     /// </summary>
     [DataContract]
-    public class PerfilBE
+    public class PerfilBE 
     {
         /// <summary>
         /// Identificador del Perfil
