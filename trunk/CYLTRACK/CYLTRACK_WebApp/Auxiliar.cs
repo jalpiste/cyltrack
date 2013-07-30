@@ -62,6 +62,12 @@ namespace Unisangil.CYLTRACK.CYLTRACK_WebApp
             tipoCil = Enum.GetNames(typeof(Tipo_Cilindro)).ToList();
             return tipoCil;
         }
+        public static List<string> ConsultarTamanos()
+        {
+            List<String> tam = new List<string>();
+            tam = Enum.GetNames(typeof(Tamanos)).ToList();
+            return tam;
+        }
     }
 
     public enum Tipo_Cilindro 
@@ -115,7 +121,18 @@ namespace Unisangil.CYLTRACK.CYLTRACK_WebApp
         Bodega =2,
         Mantenimiento= 3,
         Chatarra= 4,
-        Vehiculo=5
+        Vehiculo=5,
+        Cliente = 6
     }
+
+    public enum Tamanos 
+    {
+    Cil30  = 1,
+    Cil40  = 2,
+    Cil80  = 3,
+    Cil100 = 4,
+    
+    }
+    
     
 }
