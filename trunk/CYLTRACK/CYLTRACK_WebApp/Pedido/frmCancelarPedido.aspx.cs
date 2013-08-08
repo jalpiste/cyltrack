@@ -6,6 +6,7 @@ using System.Web.UI;
 using System.Web.UI.WebControls;
 using Unisangil.CYLTRACK.CYLTRACK_BE;
 using CYLTRACK_WebApp.PedidoService;
+using CYLTRACK_WebApp.ClienteService;
 using System.Windows.Forms;
 
 namespace Unisangil.CYLTRACK.CYLTRACK_WebApp.Pedido
@@ -17,15 +18,17 @@ namespace Unisangil.CYLTRACK.CYLTRACK_WebApp.Pedido
             txtCedula.Focus();
         }
 
-
         protected void txtCedula_TextChanged(object sender, EventArgs e)
         {
             txtMotivoCancelacion.Focus();
             txtCedula.Text = "";
 
             PedidoServiceClient servPedido = new PedidoServiceClient();
-            PedidoBE consultar_ped = new PedidoBE();
+            ClienteServiceClient servCliente = new ClienteServiceClient();
 
+            PedidoBE consultar_ped = new PedidoBE();
+            PedidoBE objPed = new PedidoBE();
+            String resp;
 
             try
             {
@@ -33,37 +36,35 @@ namespace Unisangil.CYLTRACK.CYLTRACK_WebApp.Pedido
                 cliente.Cedula = txtCedula.Text;
                 consultar_ped.Cliente = cliente;
 
-                consultar_ped.Cliente.Cedula = txtCedula.Text;
-                PedidoBE[] consulta = servPedido.Consultar_Pedido(consultar_ped);
-
-                foreach (PedidoBE info in consulta)
+                resp = servCliente.Consultar_Existencia(txtCedula.Text);
+                
+                if (resp == null)
                 {
-                    if (info.Cliente.Cedula != txtCedula.Text)
+                    MessageBox.Show("El cliente no se encuentra registrado en el sistema", "Cancelar Pedido");
+                }
+                    else
                     {
+                    ClienteBE objCliente = servCliente.Consultar_Cliente(txtCedula.Text);
 
-                        txtCedulaCliente.Text = info.Cliente.Cedula;
-                        txtNombreCliente.Text = info.Cliente.Nombres_Cliente;
-                        txtPrimerApellido.Text = info.Cliente.Apellido_1;
-                        txtSegundoApellido.Text = info.Cliente.Apellido_2;
-                        txtDireccion.Text = info.Ubicacion.Direccion;
-                        txtBarrio.Text = info.Ubicacion.Barrio;
-                        txtCiudad.Text = info.Ciudad.Nombre_Ciudad;
-                        txtDepartamento.Text = info.Ciudad.Departamento.Nombre_Departamento;
-                        txtTelefono.Text = info.Ubicacion.Telefono_1;
+                        lblCodigoPedido.Text = objPed.Id_Pedido;
+                        txtCedulaCliente.Text = objCliente.Cedula;
+                        txtNombreCliente.Text = objCliente.Nombres_Cliente;
+                        txtPrimerApellido.Text = objCliente.Apellido_1;
+                        txtSegundoApellido.Text = objCliente.Apellido_2;
+                        txtDireccion.Text = objCliente.Ubicacion.Direccion;
+                        txtBarrio.Text = objCliente.Ubicacion.Barrio;
+                        txtCiudad.Text = objCliente.Ciudad.Nombre_Ciudad;
+                        txtDepartamento.Text = objCliente.Ciudad.Departamento.Nombre_Departamento;
+                        txtTelefono.Text = objCliente.Ubicacion.Telefono_1;
                         //----------------------------------------------------------
-                        txtZona.Text = info.Vehiculo.Placa;
-                        lblRutaAsignada.Text = info.Ruta.Nombre_Ruta;
+                        txtZona.Text = objPed.Vehiculo.Placa;
+                        lblRutaAsignada.Text = objPed.Ruta.Nombre_Ruta;
                         //GRIDVIEW lstAgregar.Text = info.Detalle_Ped.Tamano.Tamano; // como obtener el valor del tamaño y ponerlo en la primera parte de la lista
                         //GRIDVIEWlstAgregar.Text = info.Detalle_Ped.Cantidad; // como obtener el valor de la cantidad y ponerlo en la segunda parte de la lista
-                        lblFechaPedido.Text = Convert.ToString(info.Fecha);
+                        lblFechaPedido.Text = Convert.ToString(objPed.Fecha);
 
                         divInfoCliente.Visible = true;
                         btnGuardar.Visible = true;
-                    }
-                    else
-                    {
-                        MessageBox.Show("El cliente no se encuentra registrado en el sistema", "Cancelar Pedido");
-                    }
                     }
             }
             catch (Exception ex)
@@ -73,6 +74,7 @@ namespace Unisangil.CYLTRACK.CYLTRACK_WebApp.Pedido
             finally
             {
                 servPedido.Close();
+                servCliente.Close();
             }
         }
 
@@ -82,8 +84,11 @@ namespace Unisangil.CYLTRACK.CYLTRACK_WebApp.Pedido
             txtCedula.Text = "";
 
             PedidoServiceClient servPedido = new PedidoServiceClient();
-            PedidoBE consultar_ped = new PedidoBE();
+            ClienteServiceClient servCliente = new ClienteServiceClient();
 
+            PedidoBE consultar_ped = new PedidoBE();
+            PedidoBE objPed = new PedidoBE();
+            String resp;
 
             try
             {
@@ -91,37 +96,35 @@ namespace Unisangil.CYLTRACK.CYLTRACK_WebApp.Pedido
                 cliente.Cedula = txtCedula.Text;
                 consultar_ped.Cliente = cliente;
 
-                consultar_ped.Cliente.Cedula = txtCedula.Text;
-                PedidoBE[] consulta = servPedido.Consultar_Pedido(consultar_ped);
+                resp = servPedido.Consultar_Existencia(txtNumPedido.Text);
 
-                foreach (PedidoBE info in consulta)
+                if (resp == null)
                 {
-                    if (info.Cliente.Cedula != txtCedula.Text)
-                    {
+                    MessageBox.Show("El cliente no se encuentra registrado en el sistema", "Cancelar Pedido");
+                }
+                else
+                {
+                    ClienteBE objCliente = servCliente.Consultar_Cliente(txtCedula.Text);
 
-                        txtCedulaCliente.Text = info.Cliente.Cedula;
-                        txtNombreCliente.Text = info.Cliente.Nombres_Cliente;
-                        txtPrimerApellido.Text = info.Cliente.Apellido_1;
-                        txtSegundoApellido.Text = info.Cliente.Apellido_2;
-                        txtDireccion.Text = info.Ubicacion.Direccion;
-                        txtBarrio.Text = info.Ubicacion.Barrio;
-                        txtCiudad.Text = info.Ciudad.Nombre_Ciudad;
-                        txtDepartamento.Text = info.Ciudad.Departamento.Nombre_Departamento;
-                        txtTelefono.Text = info.Ubicacion.Telefono_1;
-                        //----------------------------------------------------------
-                        txtZona.Text = info.Vehiculo.Placa;
-                        lblRutaAsignada.Text = info.Ruta.Nombre_Ruta;
-                        //GRIDVIEW lstAgregar.Text = info.Detalle_Ped.Tamano.Tamano; // como obtener el valor del tamaño y ponerlo en la primera parte de la lista
-                        //GRIDVIEWlstAgregar.Text = info.Detalle_Ped.Cantidad; // como obtener el valor de la cantidad y ponerlo en la segunda parte de la lista
-                        lblFechaPedido.Text = Convert.ToString(info.Fecha);
+                    lblCodigoPedido.Text = objPed.Id_Pedido;
+                    txtCedulaCliente.Text = objCliente.Cedula;
+                    txtNombreCliente.Text = objCliente.Nombres_Cliente;
+                    txtPrimerApellido.Text = objCliente.Apellido_1;
+                    txtSegundoApellido.Text = objCliente.Apellido_2;
+                    txtDireccion.Text = objCliente.Ubicacion.Direccion;
+                    txtBarrio.Text = objCliente.Ubicacion.Barrio;
+                    txtCiudad.Text = objCliente.Ciudad.Nombre_Ciudad;
+                    txtDepartamento.Text = objCliente.Ciudad.Departamento.Nombre_Departamento;
+                    txtTelefono.Text = objCliente.Ubicacion.Telefono_1;
+                    //----------------------------------------------------------
+                    txtZona.Text = objPed.Vehiculo.Placa;
+                    lblRutaAsignada.Text = objPed.Ruta.Nombre_Ruta;
+                    //GRIDVIEW lstAgregar.Text = info.Detalle_Ped.Tamano.Tamano; // como obtener el valor del tamaño y ponerlo en la primera parte de la lista
+                    //GRIDVIEWlstAgregar.Text = info.Detalle_Ped.Cantidad; // como obtener el valor de la cantidad y ponerlo en la segunda parte de la lista
+                    lblFechaPedido.Text = Convert.ToString(objPed.Fecha);
 
-                        divInfoCliente.Visible = true;
-                        btnGuardar.Visible = true;
-                    }
-                    else
-                    {
-                        MessageBox.Show("El pedido no se encuentra registrado en el sistema", "Cancelar Pedido");
-                    }
+                    divInfoCliente.Visible = true;
+                    btnGuardar.Visible = true;
                 }
             }
             catch (Exception ex)
@@ -131,6 +134,7 @@ namespace Unisangil.CYLTRACK.CYLTRACK_WebApp.Pedido
             finally
             {
                 servPedido.Close();
+                servCliente.Close();
             }
         }
 
@@ -147,22 +151,15 @@ namespace Unisangil.CYLTRACK.CYLTRACK_WebApp.Pedido
 
             try
             {
-                
                 cancelar_ped.Motivo_Cancel = txtMotivoCancelacion.Text;
 
                 divInfoCliente.Visible = false;
                 btnGuardar.Visible = false;
                 txtMotivoCancelacion.Text = "";
 
-                resp = servPedido.Cancelar_Pedido(cancelar_ped);
+                resp = servPedido.Cancelar_Pedido(Convert.ToString(cancelar_ped));
 
-                if (resp == "Ok")
-                {
-
-                    MessageBox.Show("El pedido fue cancelado satisfactoriamente", "Cancelar Pedido");
-                }
-                
-                
+                MessageBox.Show("El pedido fue cancelado satisfactoriamente", "Cancelar Pedido");
             }
             catch (Exception ex)
             {
@@ -175,7 +172,6 @@ namespace Unisangil.CYLTRACK.CYLTRACK_WebApp.Pedido
             }
         }
 
-        
         protected void btnLimpiar_Click(object sender, EventArgs e)
         {
 
