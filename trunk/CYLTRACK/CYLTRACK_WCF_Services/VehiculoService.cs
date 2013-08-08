@@ -26,7 +26,7 @@ namespace Unisangil.CYLTRACK.CYLTRACK_WCF_Services
         /// </summary>
         /// <param name="registrar_vehiculo">Objeto de negocio vehículo</param>
         /// <returns>Placa del vehículo</returns>
-        public String Registrar_Vehiculo(VehiculoBE registrar_vehiculo)
+        public string Registrar_Vehiculo(VehiculoBE registrar_vehiculo)
         {
             String resp;
             VehiculoBL RegisVehiculo = new VehiculoBL();
@@ -39,11 +39,24 @@ namespace Unisangil.CYLTRACK.CYLTRACK_WCF_Services
         /// </summary>
         /// <param name="consultar_vehiculo">Objeto de negocio vehículo</param>
         /// <returns>Placa del vehículo</returns>
-        public List<VehiculoBE> Consultar_Vehiculo(String consultar_vehiculo)
+        public VehiculoBE Consultar_Vehiculo(string consultar_vehiculo)
         {
-            List<VehiculoBE> resp;
+            VehiculoBE resp;
             VehiculoBL ConVehiculo = new VehiculoBL();
             resp = ConVehiculo.ConsultarVehiculo(consultar_vehiculo);
+            return resp;
+        }
+        /// <summary>
+        /// Encargado de recibir la confirmación de existencia de vehículo de los canales front de venta y llamar
+        /// al metodo de negocio para consultar la existencia de un vehículo
+        /// </summary>
+        /// <param name="consultar_existencia"></param>
+        /// <returns></returns>
+        public string Consultar_Existencia(string consultar_existencia)
+        {
+            String resp;
+            VehiculoBL ConExis = new VehiculoBL();
+            resp = ConExis.ConsultarExistencia(consultar_existencia);
             return resp;
         }
         /// <summary>
@@ -52,7 +65,7 @@ namespace Unisangil.CYLTRACK.CYLTRACK_WCF_Services
         /// </summary>
         /// <param name="modificar_vehiculo">Objeto de negocio vehículo</param>
         /// <returns>Placa del vehículo</returns>
-        public String Modificar_Vehiculo(String modificar_vehiculo)
+        public string Modificar_Vehiculo(string modificar_vehiculo)
         {
             String resp;
             VehiculoBL ModVehiculo = new VehiculoBL();
@@ -65,9 +78,9 @@ namespace Unisangil.CYLTRACK.CYLTRACK_WCF_Services
         /// </summary>
         /// <param name="consultar_conductor">Objeto de negocio vehículo</param>
         /// <returns>cedula conductor</returns>
-        public List<VehiculoBE> Consultar_Conductor(String consultar_conductor)
+        public VehiculoBE Consultar_Conductor(string consultar_conductor)
         {
-            List<VehiculoBE> resp;
+            VehiculoBE resp;
             VehiculoBL ConConductor = new VehiculoBL();
             resp = ConConductor.ConsultarConductor(consultar_conductor);
             return resp;

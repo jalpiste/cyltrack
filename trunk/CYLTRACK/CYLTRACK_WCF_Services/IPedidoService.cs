@@ -25,36 +25,45 @@ namespace Unisangil.CYLTRACK.CYLTRACK_WCF_Services
         /// Método encargado del registro de pedidos en el sistema. Permite
         /// que las aplicaciones llamen a los objetos de negocio directamente.
         /// </summary>
-        /// <param name="registrar_ped">Objeto de negocio pedido</param>
+        /// <param name="pedido">Objeto de negocio pedido</param>
         /// <returns>cédula del cliente</returns>
         [OperationContract]
-        String Registrar_Pedido(PedidoBE registrar_ped);
+        string Registrar_Pedido(PedidoBE pedido);
 
         /// <summary>
         /// Método encargado de la consulta de pedidos en el sistema. Permite
         /// que las aplicaciones llamen a los objetos de negocio directamente.
         /// </summary>
-        /// <param name="consultar_ped">Objeto de negocio pedido</param>
-        /// <returns>cédula del cliente,código pedido</returns>
+        /// <param name="pedido">Objeto de negocio pedido</param>
+        /// <returns>cédula del cliente</returns>
         [OperationContract]
-        List<PedidoBE> Consultar_Pedido(PedidoBE consultar_ped);
+        PedidoBE Consultar_Pedido(string pedido);
+
+        /// <summary>
+        /// Método encargado de la consulta para la confirmación de existencia de pedido o conductores en el sistema. Permite
+        /// que las aplicaciones llamen a los objetos de negocio directamente.
+        /// </summary>
+        /// <param name="consultar_existencia"></param>
+        /// <returns></returns>
+        [OperationContract]
+        string Consultar_Existencia(string consultar_existencia);
 
         /// <summary>
         /// Método encargado de la modificación de pedidos en el sistema. Permite
         /// que las aplicaciones llamen a los objetos de negocio directamente.
         /// </summary>
-        /// <param name="consultar_ped">Objeto de negocio pedido</param>
+        /// <param name="pedido">Objeto de negocio pedido</param>
         /// <returns>cédula del cliente,código pedido</returns>
         [OperationContract]
-        String Modificar_Pedido(PedidoBE modificar_ped);
+        string Modificar_Pedido(string pedido);
 
         /// <summary>
         /// Método encargado de la cancelación de pedidos en el sistema. Permite
         /// que las aplicaciones llamen a los objetos de negocio directamente.
         /// </summary>
-        /// <param name="cancelar_ped">Objeto de negocio pedido</param>
+        /// <param name="pedido">Objeto de negocio pedido</param>
         /// <returns>cédula del cliente,código pedido</returns>
         [OperationContract]
-        String Cancelar_Pedido(PedidoBE cancelar_ped);
+        string Cancelar_Pedido(string pedido);
     }
 }

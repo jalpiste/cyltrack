@@ -24,37 +24,46 @@ namespace Unisangil.CYLTRACK.CYLTRACK_WCF_Services
         /// Método encargado del registro de clientes en el sistema. Permite
         /// que las aplicaciones llamen a los objetos de negocio directamente.
         /// </summary>
-        /// <param name="registrar_cli">Objeto de negocio cliente</param>
+        /// <param name="cliente">Objeto de negocio cliente</param>
         /// <returns>cédula del cliente</returns>
         [OperationContract]
-        String Registrar_Cliente(ClienteBE registrar_cli);
+        string Registrar_Cliente(ClienteBE cliente);
 
         /// <summary>
         /// Método encargado del registro una nueva ubicacón de clientes en el sistema. Permite
         /// que las aplicaciones llamen a los objetos de negocio directamente.
         /// </summary>
-        /// <param name="registrar_ubi">Objeto de negocio cliente</param>
+        /// <param name="ubicacion">Objeto de negocio cliente</param>
         /// <returns>cédula del cliente</returns>
         [OperationContract]
-        String Agregar_Ubicacion(ClienteBE registrar_ubi);
+        string Agregar_Ubicacion(ClienteBE ubicacion);
 
         /// <summary>
         /// Método encargado de la consulta de clientes en el sistema. Permite
         /// que las aplicaciones llamen a los objetos de negocio directamente.
         /// </summary>
-        /// <param name="consultar_cli">Objeto de negocio cliente</param>
+        /// <param name="cliente">Objeto de negocio cliente</param>
         /// <returns>cédula del cliente</returns>
         [OperationContract]
-        List<ClienteBE> Consultar_Cliente(String consultar_cli);
+        ClienteBE Consultar_Cliente(string cliente);
+
+        /// <summary>
+        /// Método encargado de la consulta para la confirmación de existencia de cliente en el sistema. Permite
+        /// que las aplicaciones llamen a los objetos de negocio directamente.
+        /// </summary>
+        /// <param name="consultar_existencia"></param>
+        /// <returns></returns>
+        [OperationContract]
+        string Consultar_Existencia(string consultar_existencia);
 
         /// <summary>
         /// Método encargado de la modificación de clientes en el sistema. Permite
         /// que las aplicaciones llamen a los objetos de negocio directamente.
         /// </summary>
-        /// <param name="modificar_cli">Objeto de negocio cliente</param>
+        /// <param name="cliente">Objeto de negocio cliente</param>
         /// <returns>cédula del cliente</returns>
         [OperationContract]
-        String Modificar_Cliente(String modificar_cli);
+        string Modificar_Cliente(string cliente);
     }
 
 }

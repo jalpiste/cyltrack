@@ -28,16 +28,25 @@ namespace Unisangil.CYLTRACK.CYLTRACK_WCF_Services
         /// <param name="registrar_vehiculo">Objeto de negocio vehículo</param>
         /// <returns>placa vehículo</returns>
         [OperationContract]
-        String Registrar_Vehiculo(VehiculoBE registrar_vehiculo);
+        String Registrar_Vehiculo(VehiculoBE vehiculo);
 
         /// <summary>
-        /// Método encargado de la consulta de vehículos en el sistema. Permite
-        /// que las aplicaciones llamen a los objetos de negocio directamente.
+        /// Método encargado de la consulta de vehículos en el sistema y su posterior impresión en los controles de texto.
+        /// Permite que las aplicaciones llamen a los objetos de negocio directamente.
         /// </summary>
         /// <param name="consultar_vehiculo">Objeto de negocio vehículo</param>
         /// <returns>placa vehículo</returns>
         [OperationContract]
-        List<VehiculoBE> Consultar_Vehiculo(String consultar_vehiculo);
+        VehiculoBE Consultar_Vehiculo(string vehiculo);
+
+        /// <summary>
+        /// Método encargado de la consulta para la confirmación de existencia de vehículo en el sistema. Permite
+        /// que las aplicaciones llamen a los objetos de negocio directamente.
+        /// </summary>
+        /// <param name="consultar_existencia"></param>
+        /// <returns></returns>
+        [OperationContract]
+        string Consultar_Existencia(string consultar_existencia);
 
         /// <summary>
         /// Método encargado de la modificación de vehículos en el sistema. Permite
@@ -46,7 +55,7 @@ namespace Unisangil.CYLTRACK.CYLTRACK_WCF_Services
         /// <param name="modificar_vehiculo">Objeto de negocio vehículo</param>
         /// <returns>placa vehículo</returns>
         [OperationContract]
-        String Modificar_Vehiculo(String modificar_vehiculo);
+        string Modificar_Vehiculo(string vehiculo);
 
         /// <summary>
         /// Método encargado de la consulta de conductor del vehículo en el sistema. Permite
@@ -55,7 +64,7 @@ namespace Unisangil.CYLTRACK.CYLTRACK_WCF_Services
         /// <param name="consultar_conductor">Objeto de negocio vehículo</param>
         /// <returns>cédula conductor</returns>
         [OperationContract]
-        List<VehiculoBE> Consultar_Conductor(String consultar_conductor);
+        VehiculoBE Consultar_Conductor(string conductor);
 
     }
 }
