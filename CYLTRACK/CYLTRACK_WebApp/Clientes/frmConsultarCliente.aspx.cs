@@ -17,33 +17,33 @@ namespace Unisangil.CYLTRACK.CYLTRACK_WebApp.Account
             txtCedula.Focus();
         }
 
-
         protected void txtCedula_TextChanged(object sender, EventArgs e)
         {
             btnNuevaConsulta.Focus();
-
             ClienteServiceClient servCliente = new ClienteServiceClient();
-            
+            string resp;
 
             try
             {
+                resp = servCliente.Consultar_Existencia(txtCedula.Text);
 
-                ClienteBE[] consulta = servCliente.Consultar_Cliente(txtCedula.Text);
-
-                foreach (ClienteBE info in consulta)
+                if (resp == null)
                 {
-                    if (info.Cedula != txtCedula.Text)
+                    MessageBox.Show("El cliente no se encuentra registrado en el sistema", "Consultar Cliente");
+                }
+                    else
                     {
-
-                        txtCedulaCli.Text = info.Cedula;
-                        txtNombreCliente.Text = info.Nombres_Cliente;
-                        txtPrimerApellido.Text = info.Apellido_1;
-                        txtSegundoApellido.Text = info.Apellido_2;
-                        txtDireccion.Text = info.Ubicacion.Direccion;
-                        txtBarrio.Text = info.Ubicacion.Barrio;
-                        txtCiudad.Text = info.Ciudad.Nombre_Ciudad;
-                        txtDepartamento.Text = info.Ciudad.Departamento.Nombre_Departamento;
-                        txtTelefono.Text = info.Ubicacion.Telefono_1;
+                        ClienteBE consulta = servCliente.Consultar_Cliente(txtCedula.Text);
+                    
+                        txtCedulaCli.Text = consulta.Cedula;
+                        txtNombreCliente.Text = consulta.Nombres_Cliente;
+                        txtPrimerApellido.Text = consulta.Apellido_1;
+                        txtSegundoApellido.Text = consulta.Apellido_2;
+                        txtDireccion.Text = consulta.Ubicacion.Direccion;
+                        txtBarrio.Text = consulta.Ubicacion.Barrio;
+                        txtCiudad.Text = consulta.Ciudad.Nombre_Ciudad;
+                        txtDepartamento.Text = consulta.Ciudad.Departamento.Nombre_Departamento;
+                        txtTelefono.Text = consulta.Ubicacion.Telefono_1;
                         //txtCodigoCilindro.Text = info.Cilindro.Codigo_Cilindro;
                         //txtTamano.Text = info.Cilindro.NTamano.Tamano;
                         //txtTipoCilindro.Text = info.Cilindro.Tipo_Cilindro;
@@ -51,12 +51,6 @@ namespace Unisangil.CYLTRACK.CYLTRACK_WebApp.Account
                         divInfoCliente.Visible = true;
                         btnNuevaConsulta.Visible = true;
                     }
-                    else
-                    {
-                        MessageBox.Show("El cliente no se encuentra registrado en el sistema", "Consultar Cliente");
-                    }
-                }
-
             }
             catch (Exception ex)
             {

@@ -1,4 +1,4 @@
-﻿<%@ Page Language="C#" AutoEventWireup="true" MasterPageFile="~/Site.Master"  CodeBehind="frmModificarCliente.aspx.cs" Inherits="Unisangil.CYLTRACK.CYLTRACK_WebApp.Account.Clientes.frmModificarCliente" %>
+﻿<%@ Page Language="C#" AutoEventWireup="true" MasterPageFile="~/Site.Master"  CodeBehind="frmModificarCliente.aspx.cs" Inherits="Unisangil.CYLTRACK.CYLTRACK_WebApp.Account.Clientes.frmModificarCliente" EnableViewState ="true"%>
 
 <asp:Content ID="HeaderContent" runat="server" ContentPlaceHolderID="HeadContent">
     
@@ -89,7 +89,7 @@
                    <asp:RegularExpressionValidator ID="ValidarDatosDir" runat="server" ControlToValidate="txtDireccion" 
                     CssClass="failureNotification" ErrorMessage="La dirección debe contener sólo caracteres alfanuméricos. Ej, Calle 43 N 2 56"  
                     ValidationGroup="ModificarCliente" 
-                            ValidationExpression="\w" >*</asp:RegularExpressionValidator>
+                            ValidationExpression="\w{1,20}\ \d{1,3}\ N \d{1,3}\ \d{1,3}" >*</asp:RegularExpressionValidator>
                     
                           &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; &nbsp;
                           <asp:TextBox ID="txtBarrio" runat="server" CssClass="textEntry" Width="197px" ></asp:TextBox>

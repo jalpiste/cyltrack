@@ -21,25 +21,24 @@ namespace Unisangil.CYLTRACK.CYLTRACK_WebApp.Account
         protected void txtCedula_TextChanged(object sender, EventArgs e)
         {
             ClienteServiceClient servCliente = new ClienteServiceClient();
-            ClienteBE cliente = new ClienteBE();
+            
             String resp;
             try
             {
-
-                cliente.Cedula = txtCedula.Text;
-                resp = servCliente.Registrar_Cliente(cliente);
+                resp = servCliente.Consultar_Existencia(txtCedula.Text);
 
                 if (resp != "Ok")
                 {
                     MessageBox.Show("El cliente ya se encuentra registrado en el sistema", "Registrar Cliente");
                 }
-
-
-                divInfoCliente.Visible = true;
-                btnGuardar.Visible = true;
-                txtNombreCliente.Focus();
-                txtCedulaCli.Text = txtCedula.Text;
-                txtCedula.Text = "";
+                else
+                {
+                    divInfoCliente.Visible = true;
+                    btnGuardar.Visible = true;
+                    txtNombreCliente.Focus();
+                    txtCedulaCli.Text = txtCedula.Text;
+                    txtCedula.Text = "";
+                }
             }
             catch (Exception ex)
             {
@@ -58,14 +57,12 @@ namespace Unisangil.CYLTRACK.CYLTRACK_WebApp.Account
         protected void btnGuardar_Click(object sender, EventArgs e)
         {
             ClienteServiceClient servCliente = new ClienteServiceClient();
-
             String resp;
 
             ClienteBE registrar_cli = new ClienteBE();
 
             try
             {
-                
                 registrar_cli.Cedula = txtCedulaCli.Text;
                 registrar_cli.Nombres_Cliente = txtNombreCliente.Text;
                 registrar_cli.Apellido_1 = txtPrimerApellido.Text;
@@ -87,12 +84,8 @@ namespace Unisangil.CYLTRACK.CYLTRACK_WebApp.Account
                 
                 resp = servCliente.Registrar_Cliente(registrar_cli);
 
-                if (resp == "Ok")
-                {
-                    MessageBox.Show("El cliente fue registrado satisfactoriamente", "Registrar Cliente");
-
-                }
-           
+                MessageBox.Show("El cliente fue registrado satisfactoriamente", "Registrar Cliente");
+                
             }
             catch (Exception ex)
             {
@@ -103,7 +96,6 @@ namespace Unisangil.CYLTRACK.CYLTRACK_WebApp.Account
                 servCliente.Close();
                 Response.Redirect("~/Clientes/frmRegistrarCliente.aspx");
             }
-
         }
 
         protected void btnLimpiar_Click(object sender, EventArgs e)
