@@ -1,4 +1,4 @@
-﻿<%@ Page Language="C#" AutoEventWireup="true" MasterPageFile="~/Site.Master" CodeBehind="frmRegistroPedido.aspx.cs" Inherits="Unisangil.CYLTRACK.CYLTRACK_WebApp.Account.Pedido.frmRegistroPedido" %>
+﻿<%@ Page Language="C#" AutoEventWireup="true" MasterPageFile="~/Site.Master" CodeBehind="frmRegistroPedido.aspx.cs" Inherits="Unisangil.CYLTRACK.CYLTRACK_WebApp.Account.Pedido.frmRegistroPedido" EnableViewState="true" %>
 
 <asp:Content ID="HeaderContent" runat="server" ContentPlaceHolderID="HeadContent">
  </asp:Content>
@@ -12,10 +12,12 @@
                  ValidationGroup="ValidarCedula" Font-Size = "Small"/>
                  <asp:ValidationSummary ID="ValidarCantidadValidationSummary" runat="server" CssClass="failureNotification" 
                  ValidationGroup="RegistrarCantidad" Font-Size = "Small"/>
+                 <asp:ValidationSummary ID="ValidarOrdenPedidoValidationSummary" runat="server" CssClass="failureNotification" 
+                 ValidationGroup="ValidarPedido" Font-Size = "Small"/>
 
        <h5>
                 <asp:Label ID="lblCodigoPedido" runat="server" Text="Código Pedido:   " visible="false"></asp:Label>
-                <asp:Label ID="lblNumeroPedido" runat="server" Text="342342" visible="false"></asp:Label>
+                <asp:Label ID="lblNumeroPedido" runat="server" Text="" visible="false"></asp:Label>
             </h5>
              
             <div class="accountInfo">
@@ -68,7 +70,7 @@
                      ErrorMessage="La selección de la dirección del cliente es obligatoria." ToolTip="La selección de la dirección del cliente es obligatoria." 
                      ValidationGroup="RegistroPedido"> * </asp:RequiredFieldValidator>
                     
-                          &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                          &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; &nbsp;
                           <asp:TextBox ID="txtBarrio"  runat="server" CssClass="textEntry" 
                                 Width="197px" Enabled="False" ></asp:TextBox>
                     </p> 
@@ -96,10 +98,7 @@
                         <asp:Label ID="lblVehiculo" runat="server" Text="Placa Vehículo: "></asp:Label>
                     &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
                         <asp:ListBox ID="lstPlaca" runat="server" Rows="1">
-                            <asp:ListItem>UZK201</asp:ListItem>
-                            <asp:ListItem>UZK270</asp:ListItem>
-                            <asp:ListItem>UZK271</asp:ListItem>
-                            <asp:ListItem>XHA940</asp:ListItem>
+                            <asp:ListItem>Seleccionar...</asp:ListItem>
                         </asp:ListBox>
                         <asp:RequiredFieldValidator ID="ValidarPlaca" runat="server" ControlToValidate="lstPlaca" CssClass="failureNotification" 
                      ErrorMessage="La selección de la placa del vehículo es obligatoria." ToolTip="La selección de la placa del vehículo es obligatoria." 
@@ -114,28 +113,29 @@
                           <asp:Label ID="lblTamanoCil" runat="server" Text="Tamaño Cilindro:"></asp:Label>
                       &nbsp;&nbsp;&nbsp;&nbsp;
                           <asp:ListBox ID="lstTamano" runat="server" Rows="1">
-                              <asp:ListItem>30</asp:ListItem>
-                              <asp:ListItem>40</asp:ListItem>
-                              <asp:ListItem>80</asp:ListItem>
-                              <asp:ListItem>100</asp:ListItem>
                           </asp:ListBox>
                           &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<asp:Label ID="lblCantidadCilindro" runat="server" Text="Cantidad Cilindros: "></asp:Label>
                           &nbsp;&nbsp;&nbsp;
                           <asp:TextBox ID="txtCantidadCilindro" CssClass="textEntry" runat="server" Width="50px"></asp:TextBox>
+                    
+                        <asp:RequiredFieldValidator ID="ValidarCantidad" runat="server" 
+                          ControlToValidate="txtCantidadCilindro" CssClass="failureNotification" 
+                          ErrorMessage="La cantidad de cilindros es obligatoria." ToolTip="La cantidad de cilindros es obligatoria." 
+                          ValidationGroup="RegistrarCantidad" Display="Dynamic">*</asp:RequiredFieldValidator>
+                          
                     <asp:RegularExpressionValidator ID="ValidarDatosCantidad" runat="server" ControlToValidate="txtCantidadCilindro" 
-                    CssClass="failureNotification" ErrorMessage="La cantidad de cilindros debe contener como mínimo 1 dígito." 
+                    CssClass="failureNotification" ErrorMessage="La cantidad de cilindros debe contener entre 1 y 5 dígitos." 
                         ValidationExpression="^([\d]{1,6})$"  ToolTip="Sólo caractéres numéricos." 
                     ValidationGroup="RegistrarCantidad" >*</asp:RegularExpressionValidator>
                    
                                &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
                     <asp:Button ID="btnAgregar" runat="server" Text="Agregar" Width="115px" 
-                         onclick="btnAgregar_Click" ValidationGroup="RegistrarCantidad" />
-
+                         onclick="btnAgregar_Click" />
                     <br />
                     <br />
                     <asp:GridView ID="gvPedido" runat="server" AutoGenerateColumns="False" 
                     CellPadding="3" ForeColor="#333333" GridLines="None" Visible="false" 
-                              AutoGenerateDeleteButton = "true" onrowdeleting="gvPedido_RowDeleting"> 
+                    AutoGenerateDeleteButton = "true" onrowdeleting="gvPedido_RowDeleting"> 
                               
                     <AlternatingRowStyle BackColor="White"  />
                     <Columns>
@@ -160,7 +160,6 @@
                     <SortedDescendingHeaderStyle BackColor="#15524A" />
                     </asp:GridView>
                     <br />
-                &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
                      </p>
                    </div>
                 </fieldset>

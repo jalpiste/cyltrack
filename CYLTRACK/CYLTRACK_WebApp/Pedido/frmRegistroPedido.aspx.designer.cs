@@ -40,6 +40,15 @@ namespace Unisangil.CYLTRACK.CYLTRACK_WebApp.Account.Pedido {
         protected global::System.Web.UI.WebControls.ValidationSummary ValidarCantidadValidationSummary;
         
         /// <summary>
+        /// Control ValidarOrdenPedidoValidationSummary.
+        /// </summary>
+        /// <remarks>
+        /// Campo generado automáticamente.
+        /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.ValidationSummary ValidarOrdenPedidoValidationSummary;
+        
+        /// <summary>
         /// Control lblCodigoPedido.
         /// </summary>
         /// <remarks>
@@ -353,6 +362,15 @@ namespace Unisangil.CYLTRACK.CYLTRACK_WebApp.Account.Pedido {
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
         protected global::System.Web.UI.WebControls.TextBox txtCantidadCilindro;
+        
+        /// <summary>
+        /// Control ValidarCantidad.
+        /// </summary>
+        /// <remarks>
+        /// Campo generado automáticamente.
+        /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.RequiredFieldValidator ValidarCantidad;
         
         /// <summary>
         /// Control ValidarDatosCantidad.
