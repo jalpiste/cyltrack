@@ -29,15 +29,29 @@ namespace Unisangil.CYLTRACK.CYLTRACK_BL
             String resp = "Ok";
             return resp;
         }
-        
-        public List<ClienteBE> ConsultarCliente(String consultar_cli)
+        /// <summary>
+        /// Método para la consulta de existencia de clientes en el sistema
+        /// </summary>
+        /// <param name="consultar_existencia"></param>
+        /// <returns></returns>
+        public string ConsultarExistencia(string consultar_existencia)
         {
-            List<ClienteBE> lstCliente = new List<ClienteBE>();
+            string resp = "Ok";
+            return resp;
+        }
+        /// <summary>
+        /// Método para la consulta de clientes en el sistema y muestra de información 
+        /// </summary>
+        /// <param name="consultar_cli"></param>
+        /// <returns></returns>
+        public ClienteBE ConsultarCliente(String consultar_cli)
+        {
+            //List<ClienteBE> objCliente = new List<ClienteBE>();
 
-            ClienteBE[] lista = new ClienteBE[4];
-            Random ran = new Random();
-            for (int i = 0; i < 4; i++)
-            {
+            //ClienteBE[] lista = new ClienteBE[4];
+            //Random ran = new Random();
+            //for (int i = 0; i < 4; i++)
+            //{
             ClienteBE cliente = new ClienteBE();
             cliente.Cedula = "56235624";
             cliente.Nombres_Cliente = "Jaime";
@@ -45,7 +59,7 @@ namespace Unisangil.CYLTRACK.CYLTRACK_BL
             cliente.Apellido_2 = "Sanchez";
 
             UbicacionBE ubi_cli = new UbicacionBE();
-            ubi_cli.Direccion  = "Calle 17 N 10-30";
+            ubi_cli.Direccion  = "Calle 17 N 10 30";
             ubi_cli.Barrio = "Centro";
             ubi_cli.Telefono_1 = "3143456789";
             cliente.Ubicacion = ubi_cli;
@@ -59,7 +73,7 @@ namespace Unisangil.CYLTRACK.CYLTRACK_BL
             ciu_cli.Departamento = dep_cli;
             
             CilindroBE cilindro = new CilindroBE();
-            cilindro.Codigo_Cilindro = ((DateTime.Now.Hour + DateTime.Now.Second) * ran.Next(1, 10)).ToString();
+            //cilindro.Codigo_Cilindro = ((DateTime.Now.Hour + DateTime.Now.Second) * ran.Next(1, 10)).ToString();
             cilindro.Tipo_Cilindro = "Universal";
             cliente.Cilindro = cilindro;
             
@@ -67,17 +81,17 @@ namespace Unisangil.CYLTRACK.CYLTRACK_BL
             tamano.Tamano = "40";
             cliente.Cilindro.NTamano = tamano;
 
-            lista[i] = cliente;
-            }
+            //lista[i] = cliente;
+            //}
 
-            lstCliente = lista.ToList();
+            //objCliente = lista.ToString();
 
-            return lstCliente;
+            return cliente;
         }
 
         public String ModificarCliente(String modificar_cli)
         {
-            List<ClienteBE> modificar = ConsultarCliente(modificar_cli);
+            ClienteBE modificar = ConsultarCliente(modificar_cli);
             String resp = "Ok";
             
             return resp;

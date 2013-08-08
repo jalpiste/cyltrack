@@ -23,19 +23,29 @@ namespace Unisangil.CYLTRACK.CYLTRACK_BL
         /// </summary>
         /// <param name="registrar_vehiculo"></param>
         /// <returns></returns>
-        public String RegistrarVehiculo(VehiculoBE registrar_vehiculo)
+        public string RegistrarVehiculo(VehiculoBE registrar_vehiculo)
         {
             String resp = "Ok";
             return resp;
         }
         /// <summary>
-        /// Método para la consulta de vehículos en el sistema
+        /// Método para la consulta de existencia de vehículos en el sistema 
+        /// </summary>
+        /// <param name="consultar_existencia"></param>
+        /// <returns></returns>
+        public string ConsultarExistencia(string consultar_existencia)
+        {
+            string resp = "Ok";
+            return resp;
+        }
+        /// <summary>
+        /// Método para la consulta de vehículos en el sistema y muestra de información
         /// </summary>
         /// <param name="consultar_vehiculo"></param>
         /// <returns></returns>
-        public List<VehiculoBE> ConsultarVehiculo(String consultar_vehiculo)
+        public VehiculoBE ConsultarVehiculo(string consultar_vehiculo)
         {
-            List<VehiculoBE> lstVehiculo = new List<VehiculoBE>();
+            
             VehiculoBE vehiculo = new VehiculoBE();
 
             vehiculo.Placa = "XHA767";
@@ -65,18 +75,17 @@ namespace Unisangil.CYLTRACK.CYLTRACK_BL
             ruta.Nombre_Ruta = "Chiquinquirá-Ubaté";
             vehiculo.Ruta = ruta;
 
-            lstVehiculo.Add(vehiculo);
-            return lstVehiculo;
+            return vehiculo;
         }
         /// <summary>
         /// Método para la modificación de vehículos en el sistema
         /// </summary>
         /// <param name="modificar_vehiculo"></param>
         /// <returns></returns>
-        public String ModificarVehiculo(String modificar_vehiculo)
+        public string ModificarVehiculo(string modificar_vehiculo)
         {
-            List<VehiculoBE> consulta = ConsultarVehiculo(modificar_vehiculo);
-            List<VehiculoBE> conductor = ConsultarConductor(modificar_vehiculo);
+            VehiculoBE consulta = ConsultarVehiculo(modificar_vehiculo);
+            VehiculoBE conductor = ConsultarConductor(modificar_vehiculo);
             String resp = "Ok";
             return resp;
         }
@@ -85,9 +94,9 @@ namespace Unisangil.CYLTRACK.CYLTRACK_BL
         /// </summary>
         /// <param name="consultar_conductor"></param>
         /// <returns></returns>
-        public List<VehiculoBE> ConsultarConductor(String consultar_conductor)
+        public VehiculoBE ConsultarConductor(string consultar_conductor)
         {
-            List<VehiculoBE> lstConductor = new List<VehiculoBE>();
+            
             VehiculoBE conductor = new VehiculoBE();
 
 
@@ -101,8 +110,7 @@ namespace Unisangil.CYLTRACK.CYLTRACK_BL
             cond.Apellido_2 = "Barinas";
             cond_veh.Conductor = cond;
 
-            lstConductor.Add(conductor);
-            return lstConductor;
+            return conductor;
         }
         #endregion
         #region Metodos privados

@@ -23,7 +23,7 @@ namespace Unisangil.CYLTRACK.CYLTRACK_BL
         /// </summary>
         /// <param name="registrar_ped"></param>
         /// <returns></returns>
-        public String RegistrarPedido(PedidoBE registrar_ped)
+        public string RegistrarPedido(PedidoBE registrar_ped)
         {
             String resp = "Ok";
             return resp;
@@ -31,58 +31,34 @@ namespace Unisangil.CYLTRACK.CYLTRACK_BL
         /// <summary>
         /// Método para la consulta de pedidos en el sistema
         /// </summary>
-        /// <param name="consultar_ped"></param>
+        /// <param name="pedido"></param>
         /// <returns></returns>
-        public List<PedidoBE> ConsultarPedido(PedidoBE consultar_ped)
+        public PedidoBE ConsultarPedido(string pedido)
         {
-            List<PedidoBE> lstPedido = new List<PedidoBE>();
-            PedidoBE pedido = new PedidoBE();
-
-            pedido.Id_Pedido = "45532";
-
-            ClienteBE ped = new ClienteBE();
-            ped.Cedula = "33134665";
-            ped.Nombres_Cliente = "María Clara";
-            ped.Apellido_1 = "Guzmán";
-            ped.Apellido_2 = "Díaz";
-            pedido.Cliente = ped;
-
-            UbicacionBE ubi_cli = new UbicacionBE();
-            ubi_cli.Direccion = "Calle 13 N 4-47";
-            ubi_cli.Barrio = "Las Ferias";
-            ubi_cli.Telefono_1 = "3214768823";
-            pedido.Ubicacion = ubi_cli;
-
-            CiudadBE ciu_cli = new CiudadBE();
-            ciu_cli.Nombre_Ciudad = "Chiquinquirá";
-            pedido.Ciudad = ciu_cli;
-
-            DepartamentoBE dep_cli = new DepartamentoBE();
-            dep_cli.Nombre_Departamento = "Boyacá";
-            ciu_cli.Departamento = dep_cli;
-
-            ////--------------------------------
-            VehiculoBE veh_ped = new VehiculoBE();
-            veh_ped.Placa = "XHA768";
-            pedido.Vehiculo = veh_ped;
-
-            RutaBE ruta_ped = new RutaBE();
-            ruta_ped.Nombre_Ruta = "Chiquinquirá-Ubaté";
-            pedido.Ruta = ruta_ped;
-
-            pedido.Fecha = Convert.ToDateTime(DateTime.Now.ToShortDateString());
-
-            lstPedido.Add(pedido);
-            return lstPedido;
+            PedidoBE conPedido = new PedidoBE();
+            conPedido.Id_Pedido = "0023";
+            ///cargar el pedido en interfaces de modificar y consultar
+            return conPedido;
+        }
+        /// <summary>
+        /// Método para la consulta de existencia de pedido en el sistema
+        /// </summary>
+        /// <param name="consultar_existencia"></param>
+        /// <returns></returns>
+        public string ConsultarExistencia(string consultar_existencia)
+        {
+            //string Id_Pedido = "0023";
+            string resp = "Ok";
+            return resp;
         }
         /// <summary>
         /// Método para la modificación de pedidos en el sistema
         /// </summary>
         /// <param name="modificar_ped"></param>
         /// <returns></returns>
-        public String ModificarPedido(PedidoBE modificar_ped)
+        public string ModificarPedido(string pedido)
         {
-            List<PedidoBE> consulta = ConsultarPedido(modificar_ped);
+            PedidoBE consulta = ConsultarPedido(pedido);
             String resp = "Ok";
             return resp;
         }
@@ -91,9 +67,9 @@ namespace Unisangil.CYLTRACK.CYLTRACK_BL
         /// </summary>
         /// <param name="cancelar_ped"></param>
         /// <returns></returns>
-        public String CancelarPedido(PedidoBE cancelar_ped)
+        public string CancelarPedido(string motivo)
         {
-            List<PedidoBE> consulta = ConsultarPedido(cancelar_ped);
+            PedidoBE consulta = ConsultarPedido(motivo);
             String resp = "Ok";
             return resp;
         }
