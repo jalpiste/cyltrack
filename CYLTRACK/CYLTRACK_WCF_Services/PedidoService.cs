@@ -26,37 +26,52 @@ namespace Unisangil.CYLTRACK.CYLTRACK_WCF_Services
         /// </summary>
         /// <param name="registrar_ped">Objeto de negocio pedido</param>
         /// <returns>cédula del cliente</returns>
-        public String Registrar_Pedido(PedidoBE registrar_ped)
+        public string Registrar_Pedido(PedidoBE pedido)
         {
             String resp;
             PedidoBL regisPedido = new PedidoBL();
-            resp = regisPedido.RegistrarPedido(registrar_ped);
+            resp = regisPedido.RegistrarPedido(pedido);
             return resp;
         }
         /// <summary>
-        /// Encargado de recibir un pedido de los canales front de venta y llamar
-        /// al metodo de negocio para consultar un pedido de cilindro
+        /// Encargado de consultar un pedido de los canales front de venta y llamar
+        /// al metodo de negocio para consultar un pedido
         /// </summary>
-        /// <param name="consultar_ped">Objeto de negocio pedido</param>
-        /// <returns>cédula del cliente</returns>
-        public List<PedidoBE> Consultar_Pedido(PedidoBE consultar_ped)
+        /// <param name="consultar_vehiculo"></param>
+        /// <returns></returns>
+        public PedidoBE Consultar_Pedido(string pedido)
         {
-            List<PedidoBE> resp;
-            PedidoBL ConPedido = new PedidoBL();
-            resp = ConPedido.ConsultarPedido(consultar_ped);
+            PedidoBE resp;
+            PedidoBL ConPed = new PedidoBL();
+            resp = ConPed.ConsultarPedido(pedido);
             return resp;
         }
+
+        /// <summary>
+        /// Encargado de recibir la confirmación de existencia de pedidos, clientes o conductores de los canales front de venta y llamar
+        /// al metodo de negocio para consultar la existencia de un pedido
+        /// </summary>
+        /// <param name="consultar_vehiculo"></param>
+        /// <returns></returns>
+        public string Consultar_Existencia(string consultar_existencia)
+        {
+            string resp;
+            PedidoBL ConExis = new PedidoBL();
+            resp = ConExis.ConsultarExistencia(consultar_existencia);
+            return resp;
+        }
+
         /// <summary>
         /// Encargado de recibir un pedido de los canales front de venta y llamar
         /// al metodo de negocio para modificar un pedido de cilindro
         /// </summary>
         /// <param name="modificar_ped">Objeto de negocio pedido</param>
         /// <returns>cédula del cliente</returns>
-        public String Modificar_Pedido(PedidoBE modificar_ped)
+        public string Modificar_Pedido(string pedido)
         {
             String resp;
             PedidoBL ModPedido = new PedidoBL();
-            resp = ModPedido.ModificarPedido(modificar_ped);
+            resp = ModPedido.ModificarPedido(pedido);
             return resp;
         }
         /// <summary>
@@ -65,11 +80,11 @@ namespace Unisangil.CYLTRACK.CYLTRACK_WCF_Services
         /// </summary>
         /// <param name="cancelar_ped">Objeto de negocio pedido</param>
         /// <returns>cédula del cliente</returns>
-        public String Cancelar_Pedido(PedidoBE cancelar_ped)
+        public string Cancelar_Pedido(string motivo)
         {
             String resp;
             PedidoBL CanPedido = new PedidoBL();
-            resp = CanPedido.CancelarPedido(cancelar_ped);
+            resp = CanPedido.CancelarPedido(motivo);
             return resp;
         }
     }
