@@ -47,11 +47,7 @@ namespace Unisangil.CYLTRACK.CYLTRACK_WebApp.Clientes
                 
                 resp = servCliente.Agregar_Ubicacion(registrar_ubi);
 
-                if (resp == "Ok")
-                {
-                    MessageBox.Show("La nueva ubicación fue registrada satisfactoriamente", "Registrar Nueva Ubicación");
-                }
-                
+                MessageBox.Show("La nueva ubicación fue registrada satisfactoriamente", "Registrar Nueva Ubicación");
             }
             catch (Exception ex)
             {
@@ -62,7 +58,6 @@ namespace Unisangil.CYLTRACK.CYLTRACK_WebApp.Clientes
                 servCliente.Close();
                 Response.Redirect("~/Clientes/frmNuevaUbicacion.aspx");
             }
-
         }
 
         protected void btnAtras_Click(object sender, EventArgs e)

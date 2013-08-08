@@ -16,49 +16,40 @@ namespace Unisangil.CYLTRACK.CYLTRACK_WebApp.Account.Clientes
         {
             txtCedula.Focus();
             hprNuevaUbicacion.NavigateUrl = "frmNuevaUbicacion.aspx?ReturnUrl=" + HttpUtility.UrlEncode(Request.QueryString["ReturnUrl"]);
-
         }
-
 
         protected void txtCedula_TextChanged(object sender, EventArgs e)
         {
             txtCedulaCli.Focus();
-           
             ClienteServiceClient servCliente = new ClienteServiceClient();
-            ClienteBE consultar_cli = new ClienteBE();
-           
+            string resp;
            
             try
             {
-                ClienteBE[] consulta = servCliente.Consultar_Cliente(txtCedula.Text);
+                resp = servCliente.Consultar_Existencia(txtCedula.Text);
 
-               foreach (ClienteBE info in consulta)
-               {
-
-                   if(info.Cedula != txtCedula.Text)
-                   {
-
-                   txtCedulaCli.Text = info.Cedula;
-                   txtNombreCliente.Text = info.Nombres_Cliente;
-                   txtPrimerApellido.Text = info.Apellido_1;
-                   txtSegundoApellido.Text = info.Apellido_2;
-                   txtDireccion.Text = info.Ubicacion.Direccion;
-                   txtBarrio.Text = info.Ubicacion.Barrio;
-                   lstDepartamento.Items.Add(info.Ciudad.Departamento.Nombre_Departamento);
-                   lstCiudad.Items.Add(info.Ciudad.Nombre_Ciudad);
-                   txtTelefono.Text = info.Ubicacion.Telefono_1;
-
-
-                   divInfoCliente.Visible = true;
-                   btnGuardar.Visible = true;
-                   txtCedula.Text = "";
-                   }
+                if (resp == null)
+                {
+                    MessageBox.Show("El cliente no se encuentra registrado en el sistema", "Modificar Cliente");
+                }
                    else
                    {
-                       MessageBox.Show("El cliente no se encuentra registrado en el sistema", "Modificar Cliente");
+                       ClienteBE consulta = servCliente.Consultar_Cliente(txtCedula.Text);
+
+                       txtCedulaCli.Text = consulta.Cedula;
+                       txtNombreCliente.Text = consulta.Nombres_Cliente;
+                       txtPrimerApellido.Text = consulta.Apellido_1;
+                       txtSegundoApellido.Text = consulta.Apellido_2;
+                       txtDireccion.Text = consulta.Ubicacion.Direccion;
+                       txtBarrio.Text = consulta.Ubicacion.Barrio;
+                       lstDepartamento.Items.Add(consulta.Ciudad.Departamento.Nombre_Departamento);
+                       lstCiudad.Items.Add(consulta.Ciudad.Nombre_Ciudad);
+                       txtTelefono.Text = consulta.Ubicacion.Telefono_1;
+
+                       divInfoCliente.Visible = true;
+                       btnGuardar.Visible = true;
+                       txtCedula.Text = "";
                    }
-             
-               }
            }
            catch (Exception ex)
            {
@@ -70,8 +61,6 @@ namespace Unisangil.CYLTRACK.CYLTRACK_WebApp.Account.Clientes
             }
         }
 
-        
-
         protected void btnGuardar_Click(object sender, EventArgs e)
         {
             ClienteServiceClient servCliente = new ClienteServiceClient();
@@ -80,7 +69,6 @@ namespace Unisangil.CYLTRACK.CYLTRACK_WebApp.Account.Clientes
 
             try
             {
-
                 modificar_cli.Nombres_Cliente = txtNombreCliente.Text;
                 modificar_cli.Apellido_1 = txtPrimerApellido.Text;
                 modificar_cli.Apellido_2 = txtSegundoApellido.Text;
@@ -104,11 +92,8 @@ namespace Unisangil.CYLTRACK.CYLTRACK_WebApp.Account.Clientes
                 txtCedula.Text = "";
                 
                 resp = servCliente.Modificar_Cliente(Convert.ToString(modificar_cli));
-
-                if (resp == "Ok")
-                {
-                    MessageBox.Show("El cliente fue modificado satisfactoriamente", "Modificar Cliente");
-                }
+                
+                MessageBox.Show("El cliente fue modificado satisfactoriamente", "Modificar Cliente");
             }
             catch (Exception ex)
             {

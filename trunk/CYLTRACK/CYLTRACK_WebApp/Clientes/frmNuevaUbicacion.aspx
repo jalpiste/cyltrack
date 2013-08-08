@@ -27,7 +27,7 @@
                      ValidationGroup="NuevaUbic">*</asp:RequiredFieldValidator>
                      <asp:RegularExpressionValidator ID="ValidarDatosDir" runat="server" ControlToValidate="txtNuevaDireccion" 
                     CssClass="failureNotification" ErrorMessage="La dirección debe contener sólo caracteres alfanuméricos. Ej, Calle 43 N 2 56"  
-                    ValidationGroup="NuevaUbic" ValidationExpression="\w" >*</asp:RegularExpressionValidator>
+                    ValidationGroup="NuevaUbic" ValidationExpression="\w{1,20}\ \d{1,3}\ N \d{1,3}\ \d{1,3}" >*</asp:RegularExpressionValidator>
                     
                        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
 
