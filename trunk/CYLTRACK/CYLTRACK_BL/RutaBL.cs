@@ -30,27 +30,43 @@ namespace Unisangil.CYLTRACK.CYLTRACK_BL
             
             return resp;
         }
-        public List<RutaBE> ConsultarRuta(string Ruta)
+
+        public string ConsultarExistencias(string ruta)
         {
-            List<RutaBE> lstRuta = new List<RutaBE>();
-            
+            string resp = "Ok";
+
+            return resp;
+        }
+        public RutaBE ConsultarRuta(string Ruta)
+        {
                 RutaBE rutaConsulta = new RutaBE();
-                rutaConsulta.Nombre_Ruta = "Zona Occidente";
+                CiudadBE ciu = new CiudadBE();
+                ciu.Nombre_Ciudad = "Chiquinquirá";
+                rutaConsulta.Ciudad = ciu;
+                DepartamentoBE dep = new DepartamentoBE();
+                dep.Nombre_Departamento = "Boyacá";
+                ciu.Departamento = dep;
                 Ciudad_RutaBE ciuRuta = new Ciudad_RutaBE();
+                ciuRuta.Ciudad[0] = ciu;
+                ciuRuta.Ciudad[0].Nombre_Ciudad = "pesca";
+                rutaConsulta.Ciudad_Ruta = ciuRuta;
+                rutaConsulta.Nombre_Ruta = "Zona Occidente";               
+
+             return rutaConsulta;
+        }
+        public CiudadBE[] ConsultaDepartamentoyCiudades(string Ruta)
+        {
+            CiudadBE[] lstCiudades = new CiudadBE[4];
+            for (int i = 0; i < 4; i++ )
+            {
                 CiudadBE ciu = new CiudadBE();
                 ciu.Nombre_Ciudad = "Chiquinquirá";
                 DepartamentoBE dep = new DepartamentoBE();
                 dep.Nombre_Departamento = "Boyacá";
                 ciu.Departamento = dep;
-                ciuRuta.Ciudad = ciu;
-                ciu.Nombre_Ciudad = "Simijaca";
-                rutaConsulta.Ciudad = ciu;
-                
-                rutaConsulta.Ciudad_Ruta = ciuRuta;
-
-                lstRuta.Add(rutaConsulta);
-
-             return lstRuta;
+                lstCiudades[i] = ciu;
+            }           
+            return lstCiudades;
         }
         #endregion
         #region Metodos privados
