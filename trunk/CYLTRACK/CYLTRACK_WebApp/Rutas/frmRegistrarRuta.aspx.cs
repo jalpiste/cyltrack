@@ -23,9 +23,31 @@ namespace Unisangil.CYLTRACK.CYLTRACK_WebApp.Rutas
             {
                 btnGuardar.Focus();
             }
-            
+            if (!IsPostBack)
+            {
+                RutaServicesClient servRuta = new RutaServicesClient();
+                string dato = "nada por ahora";
+                try
+                {
+                    CiudadBE[] datosCiudades = new CiudadBE[(servRuta.ConsultaDepartamentoyCiudades(dato)).Count()];
+                    datosCiudades = servRuta.ConsultaDepartamentoyCiudades(dato);
+                    foreach (CiudadBE datos in datosCiudades)
+                    {
+                        lstCiudad.Items.Add(datos.Nombre_Ciudad);
+                        lstDepartamento.Items.Add(datos.Departamento.Nombre_Departamento);
+                    }
+                }
+                catch (Exception ex)
+                {
+                    Response.Redirect("~/About.aspx");
+                }
+                finally
+                {
+                    servRuta.Close();
+                }
+            }            
         }
-        List<RutaBE> lstCiudades = new List<RutaBE>();
+        List<string> lstCiudades = new List<string>();
           protected void btnAgregar_Click(object sender, EventArgs e)
         {
             RutaBE ruta = new RutaBE();
@@ -34,27 +56,21 @@ namespace Unisangil.CYLTRACK.CYLTRACK_WebApp.Rutas
             try
             {
                 string registro = lstCiudad.SelectedValue;
-                Ciudad_RutaBE ciuRuta = new Ciudad_RutaBE();
-                CiudadBE ciu = new CiudadBE();
-                ciu.Nombre_Ciudad= registro;
-                ciuRuta.Ciudad = ciu;
-                ruta.Ciudad_Ruta = ciuRuta;
-                foreach (RutaBE datos in lstCiudades)
-                {
-                    if (datos.Ciudad_Ruta.Ciudad.Nombre_Ciudad == ruta.Ciudad_Ruta.Ciudad.Nombre_Ciudad)
+               
+                   foreach(string datos in lstCiudades)
                     {
-                        ruta.Ciudad_Ruta.Ciudad.Nombre_Ciudad += datos.Ciudad_Ruta.Ciudad.Nombre_Ciudad;
-                        lstCiudades.Remove(datos);
+                       if(datos==registro){
+                        lstCiudades.Remove(registro);
                     }
-                }
-                
-                lstCiudades.Add(ruta);
+                   }
 
-                tabla.Columns.Add("CiudadesAdd");
+                    lstCiudades.Add(registro);
 
-                foreach (RutaBE info in lstCiudades)
+               tabla.Columns.Add("CiudadesAdd");
+
+                foreach (string info in lstCiudades)
                 {
-                    tabla.Rows.Add(info.Ciudad_Ruta.Ciudad.Nombre_Ciudad);
+                    tabla.Rows.Add(info);
                     gdAdd.DataSource = tabla;
                     gdAdd.DataBind();
                 }
@@ -83,25 +99,19 @@ namespace Unisangil.CYLTRACK.CYLTRACK_WebApp.Rutas
             try
             {
                 string registro = ((System.Web.UI.WebControls.Button)sender).Attributes["value"].ToString();
-                Ciudad_RutaBE ciuRuta = new Ciudad_RutaBE();
-                CiudadBE ciu = new CiudadBE();
-                ciu.Nombre_Ciudad = registro;
-                ciuRuta.Ciudad = ciu;
-                ruta.Ciudad_Ruta = ciuRuta;
-
-                foreach (RutaBE datos in lstCiudades)
+                foreach (string datos in lstCiudades)
                 {
-                   if(datos.Ciudad_Ruta.Ciudad.Nombre_Ciudad==ruta.Ciudad_Ruta.Ciudad.Nombre_Ciudad)
+                   if(datos==registro)
                    {
-                       lstCiudades.Remove(ruta);
+                       lstCiudades.Remove(registro);
                    } 
                 }
                 
                 tabla.Columns.Add("CiudadesAdd");
 
-                foreach (RutaBE info in lstCiudades)
+                foreach (string info in lstCiudades)
                 {
-                    tabla.Rows.Add(info.Ciudad_Ruta.Ciudad.Nombre_Ciudad);
+                    tabla.Rows.Add(info);
                     gdAdd.DataSource = tabla;
                     gdAdd.DataBind();
                 }
@@ -122,28 +132,23 @@ namespace Unisangil.CYLTRACK.CYLTRACK_WebApp.Rutas
         {
             RutaServicesClient servRuta = new RutaServicesClient();
             RutaBE ruta = new RutaBE();
-            RutaBE[] consulta ;
+            
             try 
             {
-                ruta.Nombre_Ruta = txtNombreRuta.Text;
-                consulta = servRuta.ConsultarRuta(ruta);
+                string consultaExistencia = servRuta.ConsultarExistencias(txtNombreRuta.Text);
                 
-                foreach (RutaBE infoRuta in consulta)
-                {
-                    if (infoRuta.Nombre_Ruta == txtNombreRuta.Text)
+                 if (consultaExistencia == "Ok")
                     {
-                        MessageBox.Show("La ruta digitada ya se encuentra registrada", "Registrar Ruta");
+                        txtNomRuta.Text = txtNombreRuta.Text;
+                        DivSelCiudades.Visible = true;
+                        btnGuardar.Visible = true;
+                        divRuta.Visible = true;
                     }
                     else
                     {
-                        divRuta.Visible = true;
-                        txtNomRuta.Text = txtNombreRuta.Text;
-                        lstCiudad.Items.Add(infoRuta.Ciudad_Ruta.Ciudad.Nombre_Ciudad);
-                        lstDepartamento.Items.Add(infoRuta.Ciudad_Ruta.Ciudad.Departamento.Nombre_Departamento);
-                        DivSelCiudades.Visible = true;
-                        btnGuardar.Visible = true;
-                   }
-                }               
+                        MessageBox.Show("La ruta digitada ya se encuentra registrada", "Registrar Ruta"); 
+                    }
+                             
             }
             catch (Exception ex)
             {
@@ -165,9 +170,9 @@ namespace Unisangil.CYLTRACK.CYLTRACK_WebApp.Rutas
             try 
             {
                 ruta.Nombre_Ruta = txtNomRuta.Text;
-                foreach(RutaBE datos in lstCiudades)
+                foreach(string datos in lstCiudades)
                 {
-                    ruta.Ciudad_Ruta.Ciudad.Nombre_Ciudad = datos.Ciudad_Ruta.Ciudad.Nombre_Ciudad;
+                    ruta.Ciudad_Ruta.Ciudad[lstCiudades.Count()].Nombre_Ciudad = datos;
                 }
                 registrarRuta = servRuta.RegistrarRuta(ruta);
 
