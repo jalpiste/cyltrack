@@ -35,20 +35,20 @@ namespace Unisangil.CYLTRACK.CYLTRACK_WebApp.Reportes
             
             try 
             {
-                CilindroBE cil = new CilindroBE();
-                cil.Codigo_Cilindro= txtCodigoCil.Text;
-                reporte.Cilindro = cil;
-                List<ReportesBE> resp = new List<ReportesBE>(serReporte.HistoricoCilindro(reporte));
+                string codigo = txtCodigoCil.Text;
+                
+                List<ReportesBE> resp = new List<ReportesBE>(serReporte.HistoricoCilindro(codigo));
                 
                  tabla.Columns.Add("CodigosCil");
                  tabla.Columns.Add("Tamano");
                  tabla.Columns.Add("Fecha");
                  tabla.Columns.Add("Ubicacion");
-                foreach(ReportesBE datos in resp)
-                {
-                    tabla.Rows.Add(datos.Cilindro.Codigo_Cilindro, datos.Cilindro.NTamano.Tamano, datos.Fecha_Reporte, datos.Ubicacion.Tipo_Ubicacion.Nombre_Ubicacion);
-                    gvCargue.DataSource = tabla;
-                    gvCargue.DataBind();
+
+                 foreach (ReportesBE datos in resp)
+                 {
+                     tabla.Rows.Add(datos.Cilindro.Codigo_Cilindro, datos.Cilindro.NTamano.Tamano, datos.Fecha_Reporte, datos.Ubicacion.Tipo_Ubicacion.Nombre_Ubicacion);
+                     gvCargue.DataSource = tabla;
+                     gvCargue.DataBind();
 
                  }
 
