@@ -16,8 +16,7 @@ namespace Unisangil.CYLTRACK.CYLTRACK_WebApp
         {
             txtNombreUsuario.Focus();
         }
-
-
+        
         protected void BtnMenu_Click(object sender, EventArgs e)
         {
             Response.Redirect("~/Default.aspx");
@@ -27,30 +26,23 @@ namespace Unisangil.CYLTRACK.CYLTRACK_WebApp
         {
             UsuarioServiceClient servUsuario = new UsuarioServiceClient();
             UsuarioBE usuario = new UsuarioBE();
-            String datosUsuario;
+            string datosUsuario;
 
             try
             {
-                usuario.Usuario = txtNombreUsuario.Text;
-
-                datosUsuario = servUsuario.RecuperarContrasena(usuario);
+                datosUsuario = servUsuario.RecuperarContrasena(txtNombreUsuario.Text);
                 MessageBox.Show("La contraseña ha sido enviada a su correo electronico", "Olvido Contraseña");
             }
             catch (Exception ex)
             {
                 Response.Redirect("~/About.aspx");
             }
+            
             finally
             {
                 servUsuario.Close();
                 Response.Redirect("~/Default.aspx");
-            }
-
-
-
-        }
-
-
-
+            }            
+        }        
     }
 }
