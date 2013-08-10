@@ -19,44 +19,34 @@ namespace CYLTRACK_WebApp.Cilindros
                           
         }
 
-        List<CilindroBE> lstCodigos = new List<CilindroBE>();
+        List<string> lstCodigos = new List<string>();
 
         protected void lstOpcion_SelectedIndexChanged(object sender, EventArgs e)
         {           
-            {
+            
                 CilindroServiceClient servCilindro = new CilindroServiceClient();
                 CilindroBE cil = new CilindroBE();
-                string ubica1 = "Plataforma";
-                string ubica2 = "Vehiculo";
+                string datoUbica= null ;
                 DataTable table = new DataTable();
-
-                try
+        
+            try
                 {
                     table.Columns.Add("CodigosCil");
                     table.Columns.Add("Tamano");
                     table.Columns.Add("TipoCil");
-
+                    
                     if (lstOpcion.SelectedIndex == 1)
                     {
-                        Tipo_UbicacionBE tipUbi = new Tipo_UbicacionBE();
-                        tipUbi.Nombre_Ubicacion = ubica1;
-                        UbicacionBE ubi = new UbicacionBE();
-                        ubi.Tipo_Ubicacion = tipUbi;
-                        cil.Ubicacion = ubi;
-
+                        datoUbica= "Plataforma";                       
                     }
-                    if (lstOpcion.SelectedIndex == 2)
+                    else 
                     {
-                        Tipo_UbicacionBE tipUbi = new Tipo_UbicacionBE();
-                        tipUbi.Nombre_Ubicacion = ubica2;
-                        UbicacionBE ubi = new UbicacionBE();
-                        ubi.Tipo_Ubicacion = tipUbi;
-                        cil.Ubicacion = ubi;
-
+                        datoUbica = "Vehiculo";
                     }
+                                    
                     CilindroBE[] datosCod = new CilindroBE[7];
 
-                    datosCod = servCilindro.CargueyDescargueCilindro(cil);
+                    datosCod = servCilindro.CargueyDescargueCilindro(datoUbica);
                     foreach (CilindroBE datos in datosCod)
                     {
                         table.Rows.Add(datos.Codigo_Cilindro, datos.NTamano.Tamano, datos.Tipo_Cilindro);
@@ -77,28 +67,7 @@ namespace CYLTRACK_WebApp.Cilindros
                     servCilindro.Close();
 
                 }
-            }     
-               //CilindroServiceClient servCilindro = new CilindroServiceClient();
-                //CilindroBE cil = new CilindroBE();
-                //try
-                //{
-                //    CilindroBE[] datosCod = servCilindro.CargueyDescargueCilindro(cil);
-                //    foreach (CilindroBE datos in datosCod)
-                //    {
-                //        lstPlaca.Items.Add(datos.Vehiculo.Placa);
-                //    }
-                //    DivUbicacionCil.Visible = true;
-                //    BtnGuardar.Visible = true;
-                //}
-                //catch (Exception ex)
-                //{
-                //    Response.Redirect("~/About.aspx");
-                //}
-                //finally
-                //{
-                //    servCilindro.Close();
-                //}
-                        
+                                 
         }
 
         protected void gvReporte_SelectedIndexChanged(object sender, EventArgs e)
@@ -172,30 +141,25 @@ namespace CYLTRACK_WebApp.Cilindros
 
         protected void Agregar_onClick(object sender, EventArgs e)
         {
-                
-                CilindroBE cil = new CilindroBE();
-                DataTable tabla = new DataTable();
+              DataTable tabla = new DataTable();
                
                 try
                 {
                         string registro = ((Button)sender).Attributes["value"].ToString();
-                        cil.Codigo_Cilindro = registro;
-                        foreach (CilindroBE detalle in lstCodigos)
-                        {
-                            if (detalle.Codigo_Cilindro == cil.Codigo_Cilindro)
-                            {
-                                cil.Codigo_Cilindro += detalle.Codigo_Cilindro;
-                                lstCodigos.Remove(detalle);
-                            }
 
-                        }
-                        lstCodigos.Add(cil);
+                        lstCodigos.ForEach(delegate(String registros)
+                            {
+                                lstCodigos.Remove(registros);
+                            });
+
+                       
+                        lstCodigos.Add(registro);
 
                         tabla.Columns.Add("CodigosAdd");
 
-                        foreach (CilindroBE info in lstCodigos)
+                        foreach (string info in lstCodigos)
                         {
-                            tabla.Rows.Add(info.Codigo_Cilindro);
+                            tabla.Rows.Add(info);
                         }
 
                         gdAdd.DataSource = tabla;
@@ -210,10 +174,8 @@ namespace CYLTRACK_WebApp.Cilindros
                 {
                     gdAdd.Visible = true;
                 }
-            
-        }
-
-        
+           }
+         
                              
     }
 }
