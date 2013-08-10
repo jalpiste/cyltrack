@@ -18,7 +18,7 @@ namespace Unisangil.CYLTRACK.CYLTRACK_BL
 
         #endregion
         #region Metodos publicos
-        public List<ReportesBE> HistoricoCilindro(ReportesBE reporte)
+        public List<ReportesBE> HistoricoCilindro(string reporte)
         {
             List<ReportesBE> resp = new List<ReportesBE>();
             ReportesBE report = new ReportesBE();
@@ -26,7 +26,7 @@ namespace Unisangil.CYLTRACK.CYLTRACK_BL
             TamanoBE tam = new TamanoBE();
             cil.NTamano = tam;
             report.Cilindro = cil;
-            report.Cilindro.Codigo_Cilindro = reporte.Cilindro.Codigo_Cilindro;
+            report.Cilindro.Codigo_Cilindro = reporte;
             report.Cilindro.NTamano.Tamano = "30";
             report.Fecha_Reporte = DateTime.Now;
             UbicacionBE ubi = new UbicacionBE();
