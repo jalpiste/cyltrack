@@ -52,7 +52,7 @@
                             HeaderStyle-Width="100px">
                             <HeaderStyle Width="130px" />
                         </asp:BoundField>
-                        <asp:BoundField SortExpression="Tamamo" DataField="Tamano" HeaderText="Tamaño"
+                        <asp:BoundField SortExpression="Tamamo" DataField="Tamano"  HeaderText="Tamaño"
                             HeaderStyle-Width="100px">
                             <HeaderStyle Width="110px" />
                         </asp:BoundField>
