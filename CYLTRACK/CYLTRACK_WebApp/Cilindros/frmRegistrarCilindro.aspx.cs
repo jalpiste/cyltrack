@@ -53,7 +53,7 @@ namespace Unisangil.CYLTRACK.CYLTRACK_WebApp.Cilindros
             string codigo;
             try 
             {
-                codigo = servCilindro.ConsultarExistencias(TxtCodigoCilindro.Text);
+                codigo = servCilindro.consultadeExistencia(TxtCodigoCilindro.Text);
                
                     if (codigo != "Ok")
                     {

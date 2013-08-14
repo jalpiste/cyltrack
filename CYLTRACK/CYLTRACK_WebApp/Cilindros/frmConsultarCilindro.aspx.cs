@@ -27,7 +27,7 @@ namespace Unisangil.CYLTRACK.CYLTRACK_WebApp.Cilindros
 
             try
             {
-                respConsultaExistencias = servCilindro.ConsultarExistencias(txtCodigoCilindro.Text);
+                respConsultaExistencias = servCilindro.consultadeExistencia(txtCodigoCilindro.Text);
 
                  if (respConsultaExistencias == null)
                     {
