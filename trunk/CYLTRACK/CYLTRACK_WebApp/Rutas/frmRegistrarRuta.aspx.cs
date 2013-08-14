@@ -135,7 +135,7 @@ namespace Unisangil.CYLTRACK.CYLTRACK_WebApp.Rutas
             
             try 
             {
-                string consultaExistencia = servRuta.ConsultarExistencias(txtNombreRuta.Text);
+                string consultaExistencia = servRuta.ConsultaExistencia(txtNombreRuta.Text);
                 
                  if (consultaExistencia == "Ok")
                     {

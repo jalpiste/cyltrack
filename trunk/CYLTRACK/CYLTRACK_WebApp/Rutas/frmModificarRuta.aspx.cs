@@ -106,7 +106,7 @@ namespace Unisangil.CYLTRACK.CYLTRACK_WebApp.Rutas
 
             try 
             {
-                string consultarExistencia = servRuta.ConsultarExistencias(txtNombreRuta.Text);
+                string consultarExistencia = servRuta.ConsultaExistencia(txtNombreRuta.Text);
                                
                     if (consultarExistencia==null)
                     {
@@ -232,7 +232,7 @@ namespace Unisangil.CYLTRACK.CYLTRACK_WebApp.Rutas
 
             try
             {
-                string consultaExistencia = servRuta.ConsultarExistencias(txtNuevoNombre.Text);
+                string consultaExistencia = servRuta.ConsultaExistencia(txtNuevoNombre.Text);
                                 
                     if (consultaExistencia!=null)
                     {
