@@ -29,7 +29,7 @@ namespace Unisangil.CYLTRACK.CYLTRACK_BL
             return resp;
         }
 
-        public string ConsultarExistencias(string cilindro)
+        public string consultadeExistencia(string cilindro)
         {
             string resp = "Ok";
             return resp;
