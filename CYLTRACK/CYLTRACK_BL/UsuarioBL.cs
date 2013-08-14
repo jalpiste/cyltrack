@@ -20,17 +20,23 @@ namespace Unisangil.CYLTRACK.CYLTRACK_BL
         #region Metodos publicos
         public UsuarioBE RegistrarUsuario(UsuarioBE usuario)
         {
-            UsuarioBE user = new UsuarioBE();
-            
-            for (int i = 0; i < 4; i++) 
+            UsuarioBE resp = new UsuarioBE();
+           for (int i = 0; i < 4; i++) 
             {
-                PerfilBE per = new PerfilBE()
-                {
-                   Perfil= "Opciones" 
-                };
-                user.Perfil[i] = per;                
+                UsuarioBE user = new UsuarioBE();
+                PerfilBE per = new PerfilBE();
+                per.Perfil = "Opciones";
+                user.Perfil[i] = per;
+                resp = user;                            
             }
-               return user;
+               return resp;
+        }
+
+        public string ConsultarExistencia(string usuario)
+        {
+            string resp;
+            resp = "Ok";
+            return resp;
         }
 
         public bool Autenticacion(UsuarioBE usuario)

@@ -44,7 +44,7 @@ namespace Unisangil.CYLTRACK.CYLTRACK_BL
         /// </summary>
         /// <param name="consultar_cli"></param>
         /// <returns></returns>
-        public ClienteBE ConsultarCliente(String consultar_cli)
+        public ClienteBE ConsultarCliente(string consultar_cli)
         {
             //List<ClienteBE> objCliente = new List<ClienteBE>();
 

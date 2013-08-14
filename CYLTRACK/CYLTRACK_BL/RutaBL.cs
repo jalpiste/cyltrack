@@ -47,8 +47,8 @@ namespace Unisangil.CYLTRACK.CYLTRACK_BL
                 dep.Nombre_Departamento = "Boyacá";
                 ciu.Departamento = dep;
                 Ciudad_RutaBE ciuRuta = new Ciudad_RutaBE();
-                ciuRuta.Ciudad[0] = ciu;
-                ciuRuta.Ciudad[0].Nombre_Ciudad = "pesca";
+                ciuRuta.Ciudad[0].Nombre_Ciudad = ciu.Nombre_Ciudad;
+                //ciuRuta.Ciudad[0].Nombre_Ciudad = "pesca";
                 rutaConsulta.Ciudad_Ruta = ciuRuta;
                 rutaConsulta.Nombre_Ruta = "Zona Occidente";               
 
