@@ -65,9 +65,7 @@ namespace Unisangil.CYLTRACK.CYLTRACK_WebApp.Reportes
             {
                 serReporte.Close();
                 
-            }
-
-            
+            }          
             
                         
         }
