@@ -34,7 +34,7 @@ namespace Unisangil.CYLTRACK.CYLTRACK_WebApp.Cilindros
             string consultarExistencia;
             try 
             {
-                consultarExistencia = servAsig.ConsultarExistencias(txtCodeCilindro.Text);
+                consultarExistencia = servAsig.consultadeExistencia(txtCodeCilindro.Text);
 
                 if (consultarExistencia == null)
                     {
@@ -119,7 +119,6 @@ namespace Unisangil.CYLTRACK.CYLTRACK_WebApp.Cilindros
             }
             
         }
-
 
     }
 }
