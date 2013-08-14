@@ -26,8 +26,18 @@ namespace Unisangil.CYLTRACK.CYLTRACK_WCF_Services
         /// <param name="usuario">Objeto de negocio usuario</param>
         /// <returns>nombre de usuario</returns>
         [OperationContract]
-        List<UsuarioBE> RegistrarUsuario(UsuarioBE usuario);
+        UsuarioBE RegistrarUsuario(UsuarioBE usuario);
 
+        /// <summary>
+        /// Método encargado del registro de usuarios en el sistema. Permite
+        /// que las aplicaciones llamen a los objetos de negocio directamente.
+        /// </summary>
+        /// <param name="usuario">Objeto de negocio usuario</param>
+        /// <returns>nombre de usuario</returns>
+        [OperationContract]
+        string ConsultarExistencia(string usuario);
+
+        
         /// <summary>
         /// Método encargado de la autenticaciòn de usuarios en el sistema. Permite
         /// que las aplicaciones llamen a los objetos de negocio directamente.
@@ -35,7 +45,7 @@ namespace Unisangil.CYLTRACK.CYLTRACK_WCF_Services
         /// <param name="usuario">Objeto de negocio usuario</param>
         /// <returns>nombre de usuario</returns>
         [OperationContract]
-        String Autenticacion(UsuarioBE usuario);
+        bool Autenticacion(UsuarioBE usuario);
 
         /// <summary>
         /// Método encargado de la recuperaciòn de contraseña de los usuarios en el sistema. Permite
@@ -44,6 +54,6 @@ namespace Unisangil.CYLTRACK.CYLTRACK_WCF_Services
         /// <param name="usuario">Objeto de negocio usuario</param>
         /// <returns>nombre de usuario</returns>
         [OperationContract]
-        String RecuperarContrasena(UsuarioBE usuario);
+        string RecuperarContrasena(string usuario);
     }
 }

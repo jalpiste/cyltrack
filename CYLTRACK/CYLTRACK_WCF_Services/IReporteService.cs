@@ -26,7 +26,7 @@ namespace Unisangil.CYLTRACK.CYLTRACK_WCF_Services
         /// <param name="reporte">Objeto de negocio reporte</param>
         /// <returns>código del cilindro</returns>
         [OperationContract]
-        List<ReportesBE> HistoricoCilindro(ReportesBE reporte);
+        List<ReportesBE> HistoricoCilindro(string reporte);
 
         /// <summary>
         /// Método encargado de la consulta del inventario de cilindros en el sistema. Permite
