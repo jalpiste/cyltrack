@@ -30,17 +30,21 @@ namespace Unisangil.CYLTRACK.CYLTRACK_WebApp.Autenticacion
             UsuarioBE usuario = new UsuarioBE();
             try
             {
-                String autentic;
+                bool autentic;
                 usuario.Usuario = txtNombreUsuario.Text;
                 usuario.Contrasena_1 = txtContrasena.Text;
 
                 autentic = servUsuario.Autenticacion(usuario);
-                
-                if (autentic == "true")
+
+                if (autentic)
                 {
                     divAutentica.Visible = false;
                     divPrimeraVez.Visible = true;
                     btnIniciarSesion.Visible = false;
+                }
+                else
+                {
+                    Response.Redirect("~/Default.aspx");
                 }
             }
             catch (Exception ex)
@@ -64,7 +68,7 @@ namespace Unisangil.CYLTRACK.CYLTRACK_WebApp.Autenticacion
             {
                 if (txtNuevaContrasena.Text == txtConfirmarContrasena.Text)
                 {
-                    String primeraContrasena;
+                    bool primeraContrasena;
                     user.Contrasena_1 = txtConfirmarContrasena.Text;
                     primeraContrasena = serUser.Autenticacion(user);
                 }

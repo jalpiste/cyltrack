@@ -61,22 +61,22 @@ namespace Unisangil.CYLTRACK.CYLTRACK_WebApp.Autenticacion
                     lstGenero.Items.Add(datosSexo);
                 }
             }
+            
 
             if (!IsPostBack)
             {
                 UsuarioServiceClient servUsuario = new UsuarioServiceClient();
                 UsuarioBE usuario = new UsuarioBE();
-                UsuarioBE[] lstPerfiles;
+                UsuarioBE lstPerfiles;
 
                 try
                 {
                     lstPerfiles = servUsuario.RegistrarUsuario(usuario);
 
-                    foreach (UsuarioBE datuser in lstPerfiles)
+                    foreach(PerfilBE datos in lstPerfiles.Perfil)
                     {
-                        lstCargo.Items.Add(datuser.Perfil.Perfil);
-                    }
-
+                        lstCargo.Items.Add(datos.Perfil);
+                    }                    
                 }
                 catch (Exception ex)
                 {
@@ -95,10 +95,19 @@ namespace Unisangil.CYLTRACK.CYLTRACK_WebApp.Autenticacion
         {
             UsuarioServiceClient servUsuario = new UsuarioServiceClient();
             UsuarioBE usuario = new UsuarioBE();
-            UsuarioBE[] registrar;
-
+            UsuarioBE registrar;
+            
             try
             {
+                string consultaUsuario = servUsuario.ConsultarExistencia(txtNombreUsuario.Text);
+
+                if(consultaUsuario!="Ok")
+                {
+                    MessageBox.Show("El usuario digitado ya se encuentra registrado en el sistema", "Registrar Usuario");
+                }
+
+                else
+                {
                 usuario.Usuario = txtNombreUsuario.Text;
                 usuario.Contrasena_1 = txtContrasena.Text;
                 usuario.Correo = txtEmail.Text;
@@ -111,12 +120,12 @@ namespace Unisangil.CYLTRACK.CYLTRACK_WebApp.Autenticacion
                 usuario.Fecha_Nacim = lstDia.SelectedValue + "," + lstMes.SelectedValue + "," + lstAno.SelectedValue;
                 PerfilBE pp = new PerfilBE();
                 pp.Perfil = lstCargo.SelectedValue;
-                usuario.Perfil = pp;
+                usuario.Perfil[0] = pp;
 
                 registrar = servUsuario.RegistrarUsuario(usuario);
 
                 MessageBox.Show("El usuario ha sido creado satisfactoriamente", "Registrar Usuario");
-
+                }
             }
             catch (Exception ex)
             {
@@ -134,8 +143,5 @@ namespace Unisangil.CYLTRACK.CYLTRACK_WebApp.Autenticacion
         {
             Response.Redirect("~/Default.aspx");
         }
-
-
-
     }
 }
