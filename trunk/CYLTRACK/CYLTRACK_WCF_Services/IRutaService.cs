@@ -26,7 +26,7 @@ namespace Unisangil.CYLTRACK.CYLTRACK_WCF_Services
         /// <param name="ruta">Objeto de negocio ruta</param>
         /// <returns>nombre de la ruta</returns>
         [OperationContract]
-        String RegistrarRuta(RutaBE ruta);
+        string RegistrarRuta(RutaBE ruta);
 
         /// <summary>
         /// Método encargado de la modificaciòn de rutas en el sistema. Permite
@@ -35,8 +35,8 @@ namespace Unisangil.CYLTRACK.CYLTRACK_WCF_Services
         /// <param name="ruta">Objeto de negocio ruta</param> 
         /// <returns>nombre de la ruta</returns>
         [OperationContract]
-        String ModificarRuta(RutaBE ruta);
-
+        string ModificarRuta(RutaBE ruta);
+        
         /// <summary>
         /// Método encargado de la consulta de rutas en el sistema. Permite
         /// que las aplicaciones llamen a los objetos de negocio directamente.
@@ -44,6 +44,25 @@ namespace Unisangil.CYLTRACK.CYLTRACK_WCF_Services
         /// <param name="ruta">Objeto de negocio ruta</param> 
         /// <returns>nombre de la ruta</returns>
         [OperationContract]
-        List<RutaBE> ConsultarRuta(RutaBE ruta);
+        RutaBE ConsultarRuta(string ruta);
+
+        /// <summary>
+        /// Método encargado de la consulta de ciudades y/o departamentos en el sistema. Permite
+        /// que las aplicaciones llamen a los objetos de negocio directamente.
+        /// </summary>
+        /// <param name="ruta">Objeto de negocio ciudad</param> 
+        /// <returns>nombre de ciudades y/o departamentos</returns>
+        [OperationContract]
+        CiudadBE[] ConsultaDepartamentoyCiudades(string DatoCiu);
+
+        /// <summary>
+        /// Método encargado de la consulta de existencia de rutas en el sistema. Permite
+        /// que las aplicaciones llamen a los objetos de negocio directamente.
+        /// </summary>
+        /// <param name="ruta">Objeto de negocio ciudad</param> 
+        /// <returns>existencia de ruta</returns>
+        [OperationContract]
+        string ConsultaExistencia(string ruta);
+        
     }
 }

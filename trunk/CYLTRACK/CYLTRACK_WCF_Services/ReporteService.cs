@@ -23,7 +23,7 @@ namespace Unisangil.CYLTRACK.CYLTRACK_WCF_Services
         /// </summary>
         /// <param name="reporte">Objeto de negocio Reporte</param>
         /// <returns>codigo cilindro</returns>
-        public List<ReportesBE> HistoricoCilindro(ReportesBE reporte)
+        public List<ReportesBE> HistoricoCilindro(string reporte)
         {
             List<ReportesBE> resp ;
             ReporteBL historicoCil = new ReporteBL();

@@ -35,7 +35,7 @@ namespace Unisangil.CYLTRACK.CYLTRACK_WCF_Services
         /// <param name="ventas">Objeto de negocio ventas</param>
         /// <returns>cédula del cliente</returns>
         [OperationContract]
-        List<VentaBE> ConsultarVenta(VentaBE ventas);
+        List<VentaBE> ConsultarVenta(string ventas);
 
         /// <summary>
         /// Método encargado de la revisión de casos especiales en el sistema. Permite

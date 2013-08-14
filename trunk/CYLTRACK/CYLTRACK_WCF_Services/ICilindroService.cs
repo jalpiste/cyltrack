@@ -26,8 +26,7 @@ namespace Unisangil.CYLTRACK.CYLTRACK_WCF_Services
         /// <param name="cilindro">Objeto de negocio cilindro</param>
         /// <returns>código cilindro</returns>
         [OperationContract]
-        String RegistrarCilindro(CilindroBE cilindro);
-
+        string RegistrarCilindro(CilindroBE cilindro);
 
         /// <summary>
         /// Método encargado de la consulta de cilindros en el sistema. Permite
@@ -36,7 +35,7 @@ namespace Unisangil.CYLTRACK.CYLTRACK_WCF_Services
         /// <param name="cilindro">Objeto de negocio cilindro</param>
         /// <returns>código cilindro</returns>
         [OperationContract]
-        List<CilindroBE> ConsultarCilindro(CilindroBE cilindro);
+        CilindroBE ConsultarCilindro(string cilindro);
 
 
         /// <summary>
@@ -46,7 +45,7 @@ namespace Unisangil.CYLTRACK.CYLTRACK_WCF_Services
         /// <param name="cilindro">Objeto de negocio cilindro</param>
         /// <returns>código cilindro</returns>
         [OperationContract]
-        List<CilindroBE> AsignarUbicacion(CilindroBE cilindro);
+        string AsignarUbicacion(CilindroBE cilindro);
 
 
         /// <summary>
@@ -56,7 +55,15 @@ namespace Unisangil.CYLTRACK.CYLTRACK_WCF_Services
         /// <param name="cilindro">Objeto de negocio cilindro</param>
         /// <returns>código cilindro</returns>
         [OperationContract]
-        List<CilindroBE> CargueyDescargueCilindro(CilindroBE cilindro);
+        List<CilindroBE> CargueyDescargueCilindro(string cilindro);
 
+        /// <summary>
+        /// Método encargado de la asignación de ubicación de cilindros dentro de la planta en el sistema. Permite
+        /// que las aplicaciones llamen a los objetos de negocio directamente.
+        /// </summary>
+        /// <param name="cilindro">Objeto de negocio cilindro</param>
+        /// <returns>código cilindro</returns>
+        [OperationContract]
+        string consultadeExistencia(string cilindro);
     }
 }
