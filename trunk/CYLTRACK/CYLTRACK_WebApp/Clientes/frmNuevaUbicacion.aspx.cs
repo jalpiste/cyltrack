@@ -27,7 +27,7 @@ namespace Unisangil.CYLTRACK.CYLTRACK_WebApp.Clientes
 
             ClienteServiceClient servCliente = new ClienteServiceClient();
             String resp;
-            ClienteBE registrar_ubi = new ClienteBE();
+            ClienteBE cliente = new ClienteBE();
 
             try
             {
@@ -35,17 +35,17 @@ namespace Unisangil.CYLTRACK.CYLTRACK_WebApp.Clientes
                 ubi.Direccion = txtNuevaDireccion.Text;
                 ubi.Barrio = txtNuevoBarrio.Text;
                 ubi.Telefono_2 = txtTelefono.Text;
-                registrar_ubi.Ubicacion = ubi;
+                cliente.Ubicacion = ubi;
 
                 CiudadBE ciucli = new CiudadBE();
                 ciucli.Nombre_Ciudad = lstCiudad.SelectedValue;
-                registrar_ubi.Ciudad = ciucli;
+                ubi.Ciudad = ciucli;
 
                 DepartamentoBE depcli = new DepartamentoBE();
                 depcli.Nombre_Departamento = lstDepartamento.SelectedValue;
                 ciucli.Departamento = depcli;
                 
-                resp = servCliente.Agregar_Ubicacion(registrar_ubi);
+                resp = servCliente.Agregar_Ubicacion(cliente);
 
                 MessageBox.Show("La nueva ubicación fue registrada satisfactoriamente", "Registrar Nueva Ubicación");
             }

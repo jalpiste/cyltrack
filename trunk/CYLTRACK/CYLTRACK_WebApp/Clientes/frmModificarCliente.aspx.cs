@@ -42,8 +42,8 @@ namespace Unisangil.CYLTRACK.CYLTRACK_WebApp.Account.Clientes
                        txtSegundoApellido.Text = consulta.Apellido_2;
                        txtDireccion.Text = consulta.Ubicacion.Direccion;
                        txtBarrio.Text = consulta.Ubicacion.Barrio;
-                       lstDepartamento.Items.Add(consulta.Ciudad.Departamento.Nombre_Departamento);
-                       lstCiudad.Items.Add(consulta.Ciudad.Nombre_Ciudad);
+                       lstDepartamento.Items.Add(consulta.Ubicacion.Ciudad.Departamento.Nombre_Departamento);
+                       lstCiudad.Items.Add(consulta.Ubicacion.Ciudad.Nombre_Ciudad);
                        txtTelefono.Text = consulta.Ubicacion.Telefono_1;
 
                        divInfoCliente.Visible = true;
@@ -65,23 +65,23 @@ namespace Unisangil.CYLTRACK.CYLTRACK_WebApp.Account.Clientes
         {
             ClienteServiceClient servCliente = new ClienteServiceClient();
             String resp;
-            ClienteBE modificar_cli = new ClienteBE();
+            ClienteBE cliente = new ClienteBE();
 
             try
             {
-                modificar_cli.Nombres_Cliente = txtNombreCliente.Text;
-                modificar_cli.Apellido_1 = txtPrimerApellido.Text;
-                modificar_cli.Apellido_2 = txtSegundoApellido.Text;
+                cliente.Nombres_Cliente = txtNombreCliente.Text;
+                cliente.Apellido_1 = txtPrimerApellido.Text;
+                cliente.Apellido_2 = txtSegundoApellido.Text;
 
                 UbicacionBE ubicli = new UbicacionBE();
                 ubicli.Direccion = txtDireccion.Text;
                 ubicli.Barrio = txtBarrio.Text;
                 ubicli.Telefono_1 = txtTelefono.Text;
-                modificar_cli.Ubicacion = ubicli;
-
+                
                 CiudadBE ciucli = new CiudadBE();
                 ciucli.Nombre_Ciudad = lstCiudad.SelectedValue;
-                modificar_cli.Ciudad = ciucli;
+                ubicli.Ciudad = ciucli;
+                cliente.Ubicacion = ubicli;
 
                 DepartamentoBE depcli = new DepartamentoBE();
                 depcli.Nombre_Departamento = lstDepartamento.SelectedValue;
@@ -91,7 +91,7 @@ namespace Unisangil.CYLTRACK.CYLTRACK_WebApp.Account.Clientes
                 btnGuardar.Visible = false;
                 txtCedula.Text = "";
                 
-                resp = servCliente.Modificar_Cliente(Convert.ToString(modificar_cli));
+                resp = servCliente.Modificar_Cliente(Convert.ToString(cliente));
                 
                 MessageBox.Show("El cliente fue modificado satisfactoriamente", "Modificar Cliente");
             }
