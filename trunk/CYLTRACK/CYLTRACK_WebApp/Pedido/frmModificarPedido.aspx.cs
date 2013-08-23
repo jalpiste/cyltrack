@@ -91,8 +91,8 @@ namespace Unisangil.CYLTRACK.CYLTRACK_WebApp.Pedido
                         txtSegundoApellido.Text = objCliente.Apellido_2;
                         lstDireccion.Items.Add(objCliente.Ubicacion.Direccion);// como llamar todas las direcciones disponibles para el cliente???
                         txtBarrio.Text = objCliente.Ubicacion.Barrio;
-                        txtCiudad.Text = objCliente.Ciudad.Nombre_Ciudad;
-                        txtDepartamento.Text = objCliente.Ciudad.Departamento.Nombre_Departamento;
+                        txtCiudad.Text = objCliente.Ubicacion.Ciudad.Nombre_Ciudad;
+                        txtDepartamento.Text = objCliente.Ubicacion.Ciudad.Departamento.Nombre_Departamento;
                         txtTelefono.Text = objCliente.Ubicacion.Telefono_1;
                        // lblFechaPedido.Text = Convert.ToString(objCliente.Detalle_Venta.Venta.Fecha);
                         
@@ -158,8 +158,8 @@ namespace Unisangil.CYLTRACK.CYLTRACK_WebApp.Pedido
                     txtSegundoApellido.Text = objCliente.Apellido_2;
                     lstDireccion.Items.Add(objCliente.Ubicacion.Direccion);// como llamar todas las direcciones disponibles para el cliente???
                     txtBarrio.Text = objCliente.Ubicacion.Barrio;
-                    txtCiudad.Text = objCliente.Ciudad.Nombre_Ciudad;
-                    txtDepartamento.Text = objCliente.Ciudad.Departamento.Nombre_Departamento;
+                    txtCiudad.Text = objCliente.Ubicacion.Ciudad.Nombre_Ciudad;
+                    txtDepartamento.Text = objCliente.Ubicacion.Ciudad.Departamento.Nombre_Departamento;
                     txtTelefono.Text = objCliente.Ubicacion.Telefono_1;
                     //lblFechaPedido.Text = Convert.ToString(objCliente.Detalle_Venta.Venta.Fecha);
                     
@@ -353,8 +353,8 @@ namespace Unisangil.CYLTRACK.CYLTRACK_WebApp.Pedido
                         txtSegundoApellido.Text = objCliente.Apellido_2;
                         lstDireccion.Items.Add(objCliente.Ubicacion.Direccion);
                         txtBarrio.Text = objCliente.Ubicacion.Barrio;
-                        txtCiudad.Text = objCliente.Ciudad.Nombre_Ciudad;
-                        txtDepartamento.Text = objCliente.Ciudad.Departamento.Nombre_Departamento;
+                        txtCiudad.Text = objCliente.Ubicacion.Ciudad.Nombre_Ciudad;
+                        txtDepartamento.Text = objCliente.Ubicacion.Ciudad.Departamento.Nombre_Departamento;
                         txtTelefono.Text = objCliente.Ubicacion.Telefono_1;
                     }
             }

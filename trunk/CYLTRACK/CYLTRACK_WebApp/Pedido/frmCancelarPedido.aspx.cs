@@ -53,8 +53,8 @@ namespace Unisangil.CYLTRACK.CYLTRACK_WebApp.Pedido
                         txtSegundoApellido.Text = objCliente.Apellido_2;
                         txtDireccion.Text = objCliente.Ubicacion.Direccion;
                         txtBarrio.Text = objCliente.Ubicacion.Barrio;
-                        txtCiudad.Text = objCliente.Ciudad.Nombre_Ciudad;
-                        txtDepartamento.Text = objCliente.Ciudad.Departamento.Nombre_Departamento;
+                        txtCiudad.Text = objCliente.Ubicacion.Ciudad.Nombre_Ciudad;
+                        txtDepartamento.Text = objCliente.Ubicacion.Ciudad.Departamento.Nombre_Departamento;
                         txtTelefono.Text = objCliente.Ubicacion.Telefono_1;
                         //----------------------------------------------------------
                         txtZona.Text = objPed.Vehiculo.Placa;
@@ -113,8 +113,8 @@ namespace Unisangil.CYLTRACK.CYLTRACK_WebApp.Pedido
                     txtSegundoApellido.Text = objCliente.Apellido_2;
                     txtDireccion.Text = objCliente.Ubicacion.Direccion;
                     txtBarrio.Text = objCliente.Ubicacion.Barrio;
-                    txtCiudad.Text = objCliente.Ciudad.Nombre_Ciudad;
-                    txtDepartamento.Text = objCliente.Ciudad.Departamento.Nombre_Departamento;
+                    txtCiudad.Text = objCliente.Ubicacion.Ciudad.Nombre_Ciudad;
+                    txtDepartamento.Text = objCliente.Ubicacion.Ciudad.Departamento.Nombre_Departamento;
                     txtTelefono.Text = objCliente.Ubicacion.Telefono_1;
                     //----------------------------------------------------------
                     txtZona.Text = objPed.Vehiculo.Placa;
