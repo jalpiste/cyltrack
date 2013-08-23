@@ -47,16 +47,17 @@ namespace Unisangil.CYLTRACK.CYLTRACK_BL
                 dep.Nombre_Departamento = "Boyacá";
                 ciu.Departamento = dep;
                 Ciudad_RutaBE ciuRuta = new Ciudad_RutaBE();
-                ciuRuta.Ciudad[0].Nombre_Ciudad = ciu.Nombre_Ciudad;
-                //ciuRuta.Ciudad[0].Nombre_Ciudad = "pesca";
+                List<CiudadBE> lstCiudades = new List<CiudadBE>();
+                lstCiudades.Add(ciu);
+                ciuRuta.Ciudad = lstCiudades;
                 rutaConsulta.Ciudad_Ruta = ciuRuta;
                 rutaConsulta.Nombre_Ruta = "Zona Occidente";               
 
              return rutaConsulta;
         }
-        public CiudadBE[] ConsultaDepartamentoyCiudades(string Ruta)
+        public List<CiudadBE> ConsultaDepartamentoyCiudades()
         {
-            CiudadBE[] lstCiudades = new CiudadBE[4];
+           List<CiudadBE> lstCiudades = new List<CiudadBE>();
             for (int i = 0; i < 4; i++ )
             {
                 CiudadBE ciu = new CiudadBE();
@@ -64,7 +65,7 @@ namespace Unisangil.CYLTRACK.CYLTRACK_BL
                 DepartamentoBE dep = new DepartamentoBE();
                 dep.Nombre_Departamento = "Boyacá";
                 ciu.Departamento = dep;
-                lstCiudades[i] = ciu;
+                lstCiudades.Add(ciu);
             }           
             return lstCiudades;
         }
