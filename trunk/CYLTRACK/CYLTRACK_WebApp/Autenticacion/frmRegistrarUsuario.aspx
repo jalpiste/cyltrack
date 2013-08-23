@@ -115,7 +115,8 @@
                              <br />
                              <asp:Label ID="lblGenero" runat="server" Text="Sexo: "></asp:Label>
                              <br />
-                             <asp:ListBox ID="lstGenero" runat="server" AutoPostBack="True" Rows="1" />
+                             <asp:ListBox ID="lstGenero" runat="server" AutoPostBack="True" Rows="1" 
+                                 onselectedindexchanged="lstGenero_SelectedIndexChanged" />
                              <asp:RequiredFieldValidator ID="validSexo" runat="server" 
                                  ControlToValidate="lstGenero" CssClass="failureNotification" 
                                  ErrorMessage="Elegir el sexo es obligatorio." 
@@ -124,14 +125,16 @@
                              <br />
                              <asp:Label ID="lblFechaNacimiento" runat="server" Text="Fecha de nacimiento: "></asp:Label>
                              <br />
-                             <asp:ListBox ID="lstDia" runat="server" AutoPostBack="True" Rows="1" Width="70px"/>
+                             <asp:ListBox ID="lstDia" runat="server" AutoPostBack="True" Rows="1" 
+                                 Width="70px" onselectedindexchanged="lstDia_SelectedIndexChanged"/>
                             <asp:RequiredFieldValidator ID="validDia" runat="server" 
                                  ControlToValidate="lstDia" CssClass="failureNotification" 
                                  ErrorMessage="El dia de nacimiento es obligatorio." 
                                  ToolTip="El dia de nacimiento es obligatorio." 
                                  ValidationGroup="RegistrodeUsuarios">*</asp:RequiredFieldValidator>
                              &nbsp;&nbsp;&nbsp;
-                             <asp:ListBox ID="lstMes" runat="server" AutoPostBack="True" Rows="1" Width="100px">
+                             <asp:ListBox ID="lstMes" runat="server" AutoPostBack="True" Rows="1" 
+                                 Width="100px" onselectedindexchanged="lstMes_SelectedIndexChanged">
                              <asp:ListItem>Mes</asp:ListItem>
                              </asp:ListBox>
                               <asp:RequiredFieldValidator ID="validMes" runat="server" 
@@ -142,7 +145,7 @@
                            
                              &nbsp;&nbsp;&nbsp;
                              <asp:ListBox ID="lstAno" runat="server" AutoPostBack="True" Rows="1" 
-                                 Width="70px" />
+                                 Width="70px" onselectedindexchanged="lstAno_SelectedIndexChanged" />
                              <asp:RequiredFieldValidator ID="validAno" runat="server" 
                                  ControlToValidate="lstAno" CssClass="failureNotification" 
                                  ErrorMessage="El año de nacimiento es obligatorio." 
@@ -151,7 +154,8 @@
                              <br />
                           <asp:Label ID="lblCargo" runat="server" Text="Perfil: "></asp:Label>
                           <br />
-                          <asp:ListBox ID="lstCargo" runat="server" AutoPostBack="True" Rows="1" Width="200px">
+                          <asp:ListBox ID="lstCargo" runat="server" AutoPostBack="True" Rows="1" 
+                                 Width="200px" onselectedindexchanged="lstCargo_SelectedIndexChanged">
                              <asp:ListItem>Seleccione un cargo</asp:ListItem>
                              </asp:ListBox>
                              <asp:RequiredFieldValidator ID="validCargo" runat="server" 
