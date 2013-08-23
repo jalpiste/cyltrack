@@ -16,13 +16,10 @@ namespace Unisangil.CYLTRACK.CYLTRACK_WebApp.Ventas
         protected void Page_Load(object sender, EventArgs e)
         {
             VentaServiceClient serVenta = new VentaServiceClient();
-            CasosBE Casos = new CasosBE();
             try 
             {
                 var dato = Server.UrlDecode(Request.QueryString["Data"]);
-                Casos.Id_Casos = dato;
-                //id_Caso.Id_Casos = dato; marca error al realizar la asignacion
-                List<CasosBE> lstCasos = new List<CasosBE>(serVenta.RevisionCasosEspeciales(Casos));
+                List<CasosBE> lstCasos = new List<CasosBE>(serVenta.RevisionCasosEspeciales(dato));
                 foreach(CasosBE consulta in lstCasos)
                 {
                     txtNumCedula.Text = consulta.Venta.Cliente.Cedula; 

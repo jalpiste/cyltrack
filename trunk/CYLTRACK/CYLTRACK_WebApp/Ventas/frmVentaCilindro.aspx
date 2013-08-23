@@ -1,4 +1,4 @@
-﻿<%@ Page Title="" EnableEventValidation="true" Language="C#" MasterPageFile="~/Site.Master" AutoEventWireup="true" CodeBehind="frmVentaCilindro.aspx.cs" Inherits="Unisangil.CYLTRACK.CYLTRACK_WebApp.Ventas.frmVentaCilindro" %>
+﻿<%@ Page Title="" EnableEventValidation="true" Language="C#" MasterPageFile="~/Site.Master" AutoEventWireup="true" CodeBehind="frmVentaCilindro.aspx.cs" Inherits="Unisangil.CYLTRACK.CYLTRACK_WebApp.Ventas.frmVentaCilindro" EnableViewState="true" %>
 <asp:Content ID="Content1" ContentPlaceHolderID="HeadContent" runat="server">
 </asp:Content>
 <asp:Content ID="BodyContent" runat="server" ContentPlaceHolderID="MainContent">
@@ -33,7 +33,7 @@
                  <div class="post">Información General del Cliente</div>   
                     <h5>
                         <asp:Label ID="lblPedido" runat="server" Text="Pedido N°: "></asp:Label>
-                        <asp:Label ID="lblCodigoPedido" runat="server" Text="2323432"></asp:Label>
+                        <asp:Label ID="lblCodigoPedido" runat="server" ></asp:Label>
                     </h5>
                                        <p>
                         <asp:Label ID="lblCedulaCliente" runat="server" text="Cédula del cliente:"></asp:Label></p>
@@ -72,9 +72,7 @@
                        <asp:TextBox ID="txtBarrio" runat="server" CssClass="textEntry" Width="197px" Enabled="False" ></asp:TextBox>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
                        <asp:TextBox ID="txtTelefono" runat="server" CssClass="textEntry" Enabled="False" ></asp:TextBox>
                     &nbsp;</p>
-                   
-
-                   
+        
                     <p>
                     <asp:Label ID="lblCiudad" runat="server" Text="Ciudad:"></asp:Label>
                         &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; &nbsp;&nbsp; 
@@ -140,7 +138,7 @@
                         <asp:TemplateField HeaderText="Seleccionar">
                             <ItemTemplate>
                                 <asp:Button ID="Agregar" runat="server" Text="Agregar" Width="100px"   
-                                AutoPostBack="true" value='<%# Eval("CodigosCil")%>' OnClick="Agregar_onClick"  />
+                                AutoPostBack="false" value='<%# Eval("CodigosCil")%>' OnClick="Agregar_onClick"  />
                             </ItemTemplate>
                         </asp:TemplateField>
                     </Columns>                   
@@ -179,8 +177,7 @@
                     </asp:GridView>
        <br />
                     </p>    
-                    <p>
-                    
+                    <p>                    
                         <asp:Label ID="lblObservacion" runat="server" Text="Observación: "></asp:Label><br />
                         <asp:TextBox ID="txtObservacion" runat="server" Height="77px" Width="306px"></asp:TextBox>
                     </p>

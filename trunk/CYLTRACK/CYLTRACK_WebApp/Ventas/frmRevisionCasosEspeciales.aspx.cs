@@ -35,11 +35,9 @@ namespace Unisangil.CYLTRACK.CYLTRACK_WebApp.Ventas
             
             try
             {
-                Tipo_CasoBE tipo = new Tipo_CasoBE();
-                tipo.Nombre_Caso= lstCaso.SelectedValue;
-                CasosBE casos = new CasosBE();
-                casos.Tipo_Caso = tipo;
-                List<CasosBE> lstDatCasos = new List<CasosBE>(serVenta.RevisionCasosEspeciales(casos));
+                string casoEspecial = lstCaso.SelectedValue;
+
+                List<CasosBE> lstDatCasos = new List<CasosBE>(serVenta.RevisionCasosEspeciales(casoEspecial));
 
                 tabla.Columns.Add("Id_Caso");
                 tabla.Columns.Add("Tipo_Caso");
