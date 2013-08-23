@@ -44,6 +44,18 @@ namespace Unisangil.CYLTRACK.CYLTRACK_BE
         [DataMember]
         public String Actual { get; set; }
 
+        /// <summary>
+        ///Entidad Cilindro
+        /// </summary> 
+        [DataMember]
+        public CilindroBE Cilindro { get; set; }
+
+        /// <summary>
+        ///Entidad Ubicación
+        /// </summary> 
+        [DataMember]
+        public UbicacionBE Ubicacion { get; set; }
+
     }
 }
 

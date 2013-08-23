@@ -86,5 +86,10 @@ namespace Unisangil.CYLTRACK.CYLTRACK_BE
         [DataMember]
         public Tipo_UbicacionBE Tipo_Ubicacion { get; set; }
 
+        /// <summary>
+        /// Entidad Ubicacion_Cilindro 
+        /// </summary>
+        [DataMember]
+        public Ubicacion_CilindroBE Ubicacion_Cilindro { get; set; }
        }
 }

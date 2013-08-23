@@ -162,7 +162,7 @@ namespace Unisangil.CYLTRACK.CYLTRACK_BE
         /// Perfil de Usuario
         /// </summary>
         [DataMember]
-        public PerfilBE [] Perfil { get; set; }
+        public List<PerfilBE> Perfil { get; set; }
 
     }
 }
