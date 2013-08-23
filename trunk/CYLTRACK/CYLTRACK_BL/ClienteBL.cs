@@ -46,46 +46,40 @@ namespace Unisangil.CYLTRACK.CYLTRACK_BL
         /// <returns></returns>
         public ClienteBE ConsultarCliente(string consultar_cli)
         {
-            //List<ClienteBE> objCliente = new List<ClienteBE>();
+            Random ran = new Random();
 
-            //ClienteBE[] lista = new ClienteBE[4];
-            //Random ran = new Random();
-            //for (int i = 0; i < 4; i++)
-            //{
             ClienteBE cliente = new ClienteBE();
             cliente.Cedula = "56235624";
             cliente.Nombres_Cliente = "Jaime";
             cliente.Apellido_1 = "Poveda";
             cliente.Apellido_2 = "Sanchez";
 
-            UbicacionBE ubi_cli = new UbicacionBE();
-            ubi_cli.Direccion  = "Calle 17 N 10 30";
-            ubi_cli.Barrio = "Centro";
-            ubi_cli.Telefono_1 = "3143456789";
-            cliente.Ubicacion = ubi_cli;
-
+            UbicacionBE ubicacion = new UbicacionBE();
+            ubicacion.Direccion  = "Calle 17 N 10 30";
+            ubicacion.Barrio = "Centro";
+            ubicacion.Telefono_1 = "3143456789";
+            
             CiudadBE ciu_cli = new CiudadBE();
             ciu_cli.Nombre_Ciudad = "Chiquinquirá";
-            cliente.Ciudad = ciu_cli;
+            ubicacion.Ciudad = ciu_cli;
 
             DepartamentoBE dep_cli = new DepartamentoBE();
             dep_cli.Nombre_Departamento = "Boyacá";
             ciu_cli.Departamento = dep_cli;
             
             CilindroBE cilindro = new CilindroBE();
-            //cilindro.Codigo_Cilindro = ((DateTime.Now.Hour + DateTime.Now.Second) * ran.Next(1, 10)).ToString();
+            cilindro.Codigo_Cilindro = ((DateTime.Now.Hour + DateTime.Now.Second) * ran.Next(1, 10)).ToString();
             cilindro.Tipo_Cilindro = "Universal";
-            cliente.Cilindro = cilindro;
             
             TamanoBE tamano = new TamanoBE();
             tamano.Tamano = "40";
-            cliente.Cilindro.NTamano = tamano;
+            cilindro.NTamano = tamano;
 
-            //lista[i] = cliente;
-            //}
-
-            //objCliente = lista.ToString();
-
+            Ubicacion_CilindroBE ubi_cilindro = new Ubicacion_CilindroBE();
+            ubi_cilindro.Cilindro = cilindro;
+            ubicacion.Ubicacion_Cilindro = ubi_cilindro;
+            cliente.Ubicacion = ubicacion;
+            
             return cliente;
         }
 

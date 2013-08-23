@@ -18,22 +18,22 @@ namespace Unisangil.CYLTRACK.CYLTRACK_BL
 
         #endregion
         #region Metodos publicos
-        public String VentaCilindro(VentaBE ventas)
+        public string VentaCilindro(VentaBE ventas)
         {
-            String resp = "Ok";
+            string resp = "Ok";
             return resp;
         }
 
-        public List<VentaBE> ConsultarVenta(string ventas)
+        public string ConsultarExistencia(string ventas)
         {
-            List<VentaBE> lstVenta = new List<VentaBE>();
-           
-            VentaBE[] lista = new VentaBE[7];
-            Random ran = new Random();
-            for (int i = 0; i < 7; i++)
-            {
-                VentaBE datVenta = new VentaBE();
+            string resp = "Ok";
+            return resp;
+        }
 
+        public VentaBE ConsultarVenta(string ventas)
+        {
+                Random ran = new Random();
+                VentaBE datVenta = new VentaBE();
                 Detalle_VentaBE detVenta = new Detalle_VentaBE();
                 detVenta.Cod_Cil_Actual = ((DateTime.Now.Hour + DateTime.Now.Second) * ran.Next(1, 10)).ToString();
                 detVenta.Cod_Cil_Nuevo = ((DateTime.Now.Hour + DateTime.Now.Second) * ran.Next(1, 10)).ToString();
@@ -52,7 +52,7 @@ namespace Unisangil.CYLTRACK.CYLTRACK_BL
                 cli.Nombres_Cliente = "Pablo";
                 cli.Apellido_1 = "Paez";
                 cli.Apellido_2 = "Veloza";
-                datVenta.Cliente = cli;
+               
                 UbicacionBE ubi = new UbicacionBE();
                 ubi.Direccion = "Cra 9 N° 8 34";
                 ubi.Barrio = "Boyacá";
@@ -64,8 +64,9 @@ namespace Unisangil.CYLTRACK.CYLTRACK_BL
                 dep.Nombre_Departamento = "Boyacá";
                 ciu.Departamento = dep;
                 ubi.Ciudad = ciu;
+                cli.Ubicacion = ubi;
                 datVenta.Observaciones = "error en el codigo del cilindro del cliente";
-
+                datVenta.Cliente = cli;
                 //------------------------
                 VehiculoBE veh = new VehiculoBE();
                 veh.Placa = "XHA940";
@@ -78,49 +79,51 @@ namespace Unisangil.CYLTRACK.CYLTRACK_BL
                 ruta.Nombre_Ruta = "Zona centro";
                 veh.Ruta = ruta;
                 datVenta.Vehiculo = veh;
-                lista[i] = datVenta;
-            }
 
-            lstVenta = lista.ToList();
-           
-            //---------------------
-   
-            return lstVenta;
+                return datVenta;
         }
 
-        public List<CasosBE> RevisionCasosEspeciales(CasosBE casos)
+        public List<CilindroBE> ConsultarCarguePlaca() 
+        {
+            List<CilindroBE> lstCod = new List<CilindroBE>();
+            Random ran = new Random();
+                for (int i = 0; i < 7; i++)
+                {
+                    CilindroBE datCil = new CilindroBE();
+                    datCil.Codigo_Cilindro = ((DateTime.Now.Hour + DateTime.Now.Second) * ran.Next(1, 10)).ToString();
+                    datCil.Tipo_Cilindro = "Universal";
+                    TamanoBE tam = new TamanoBE();
+                    tam.Tamano = "40";
+                    datCil.NTamano = tam;                    
+                    lstCod.Add(datCil);
+                 }
+
+            return lstCod;
+        }
+
+        public List<CasosBE> RevisionCasosEspeciales(string casos)
         {
             List<CasosBE> lstCaso = new List<CasosBE>();
-            string datos;
-            CasosBE[] lista = new CasosBE[7];
             Random ran = new Random();
             for (int i = 0; i < 7; i++)
             {
-                CasosBE caso = new CasosBE();
-                Tipo_CasoBE tipCaso = new Tipo_CasoBE();
-                caso.Id_Casos = ((DateTime.Now.Hour + DateTime.Now.Second) * ran.Next(1, 10)).ToString();
-                tipCaso.Nombre_Caso = "Escape";
-                caso.Tipo_Caso = tipCaso;
-                VentaBE venta = new VentaBE();
-                Detalle_VentaBE detVenta = new Detalle_VentaBE();
-                detVenta.Casos_Especiales = caso;
-                venta.Detalle_Venta = detVenta;
-                datos = Convert.ToString(venta);
-                List<VentaBE> consultaVenta = ConsultarVenta(datos);
-                foreach(VentaBE info in consultaVenta)
-                {
-                    caso.Venta = info;
-                }
-                lista[i] = caso;
+                 VentaBE datosVenta= new VentaBE();
+                 datosVenta = ConsultarVenta(casos);
+                 CasosBE casosEspeciales = new CasosBE();
+                 casosEspeciales.Venta = datosVenta;
+                 casosEspeciales.Id_Casos = ((DateTime.Now.Hour + DateTime.Now.Second) * ran.Next(1, 10)).ToString();
+                 Tipo_CasoBE tipCaso = new Tipo_CasoBE();
+                 tipCaso.Nombre_Caso = "Escape";
+                 casosEspeciales.Tipo_Caso = tipCaso;
+                 lstCaso.Add(casosEspeciales);
             }
-
-            lstCaso = lista.ToList();           
+                      
             return lstCaso;
         }
 
-        public String CasosEspeciales(CasosBE casos)
+        public string CasosEspeciales(CasosBE casos)
         {
-            String resp = "Ok";
+            string resp = "Ok";
             return resp;
         }
         #endregion

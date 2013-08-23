@@ -10,6 +10,7 @@ using System.Linq;
 using System.Text;
 using Unisangil.CYLTRACK.CYLTRACK_BE;
 
+
 namespace Unisangil.CYLTRACK.CYLTRACK_BL
 {
     public class CilindroBL
@@ -37,6 +38,7 @@ namespace Unisangil.CYLTRACK.CYLTRACK_BL
 
          public CilindroBE ConsultarCilindro(string cilindro)
         {
+            Random ran = new Random();
             CilindroBE cil = new CilindroBE();
             cil.Ano = "2012";
             FabricanteBE fab = new FabricanteBE();
@@ -48,7 +50,8 @@ namespace Unisangil.CYLTRACK.CYLTRACK_BL
             TamanoBE tam = new TamanoBE();
             tam.Tamano = "30";
             cil.NTamano = tam;
-            cil.Codigo_Cilindro = "88091751954";
+            cil.Tipo_Cilindro = "Universal";
+            cil.Codigo_Cilindro = ((DateTime.Now.Hour + DateTime.Now.Second) * ran.Next(1, 10)).ToString();
             cil.Fecha = Convert.ToDateTime(DateTime.Now.ToShortDateString());
             //--------------------------------
             ClienteBE cli = new ClienteBE();
@@ -93,24 +96,12 @@ namespace Unisangil.CYLTRACK.CYLTRACK_BL
             return resp;
         }
 
-        public List<CilindroBE> CargueyDescargueCilindro(string cilindro)
+        public List<CilindroBE> ConsultarCilUbicacion(string ubica)
         {
-
             List<CilindroBE> lstCod = new List<CilindroBE>();
-            CilindroBE cil = new CilindroBE();
-            
-            //cargue de cilindros
-            
-            VehiculoBE vehiculo = new VehiculoBE();
-            //vehiculo.Placa = "xha769";
-            UbicacionBE ubi= new UbicacionBE();
-            ubi.Vehiculo= vehiculo;
-            cil.Ubicacion = ubi;
-            string resp = cilindro;
            
-                if (resp == "Plataforma")
+                if (ubica == "Plataforma")
                 {
-                    CilindroBE[] lista = new CilindroBE[7];
                     Random ran = new Random();
                     for (int i = 0; i < 7; i++)
                     {
@@ -126,15 +117,11 @@ namespace Unisangil.CYLTRACK.CYLTRACK_BL
                         UbicacionBE ubicacion = new UbicacionBE();
                         ubicacion.Vehiculo = veh;
                         datCil.Ubicacion = ubicacion;
-                        lista[i] = datCil;
-
+                        lstCod.Add(datCil);
                     }
-
-                    lstCod = lista.ToList();
             }
-                if (resp == "Vehiculo")
+                if (ubica == "Vehiculo")
                 {
-                    CilindroBE[] lista = new CilindroBE[7];
                     Random ran = new Random();
                     for (int i = 0; i < 7; i++)
                     {
@@ -150,12 +137,17 @@ namespace Unisangil.CYLTRACK.CYLTRACK_BL
                         UbicacionBE ubicacion = new UbicacionBE();
                         ubicacion.Vehiculo = veh;
                         datCil.Ubicacion = ubicacion;
-                        lista[i] = datCil;
-                    }
-                    lstCod = lista.ToList();
+                        lstCod.Add(datCil);
+                    }                   
             }
             
             return lstCod;
+        }
+
+        public string CargueyDescargueCilindros(List<CilindroBE> cilindro)
+        {
+            string resp = "Ok";
+            return resp;
         }
         #endregion
         #region Metodos privados
