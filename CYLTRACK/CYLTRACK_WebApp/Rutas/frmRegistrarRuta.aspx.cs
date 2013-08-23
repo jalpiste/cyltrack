@@ -29,8 +29,7 @@ namespace Unisangil.CYLTRACK.CYLTRACK_WebApp.Rutas
                 string dato = "nada por ahora";
                 try
                 {
-                    CiudadBE[] datosCiudades = new CiudadBE[(servRuta.ConsultaDepartamentoyCiudades(dato)).Count()];
-                    datosCiudades = servRuta.ConsultaDepartamentoyCiudades(dato);
+                    List<CiudadBE> datosCiudades = new List<CiudadBE>(servRuta.ConsultaDepartamentoyCiudades());
                     foreach (CiudadBE datos in datosCiudades)
                     {
                         lstCiudad.Items.Add(datos.Nombre_Ciudad);

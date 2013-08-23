@@ -23,11 +23,9 @@ namespace Unisangil.CYLTRACK.CYLTRACK_WebApp.Rutas
             if (!IsPostBack)
             {
                 RutaServicesClient servRuta = new RutaServicesClient();
-                string dato = "nada por ahora";
                 try
                 {
-                    CiudadBE[] datosCiudades = new CiudadBE[(servRuta.ConsultaDepartamentoyCiudades(dato)).Count()];
-                    datosCiudades = servRuta.ConsultaDepartamentoyCiudades(dato);
+                    List<CiudadBE> datosCiudades = new List<CiudadBE>(servRuta.ConsultaDepartamentoyCiudades());
                     foreach (CiudadBE datos in datosCiudades)
                     {
                         lstCiudad.Items.Add(datos.Nombre_Ciudad);
@@ -116,28 +114,23 @@ namespace Unisangil.CYLTRACK.CYLTRACK_WebApp.Rutas
                     {
                         RutaBE consultaRuta = servRuta.ConsultarRuta(txtNombreRuta.Text);
                         txtNuevoNombre.Text = txtNombreRuta.Text;
-                        gdAdd.DataSource= consultaRuta.Ciudad_Ruta.Ciudad[consultaRuta.Ciudad_Ruta.Ciudad.Count()].Nombre_Ciudad;
-                        gdAdd.DataBind();
+                        List<CiudadBE> lstCiudades = servRuta.ConsultarRuta(txtNombreRuta.Text).Ciudad_Ruta.Ciudad;
+
+                        tabla.Columns.Add("CiudadesAdd");
+
+                        foreach (CiudadBE datos in lstCiudades)
+                        {
+                            tabla.Rows.Add(datos);
+                            gdAdd.DataSource = tabla;
+                            gdAdd.DataBind();
+                        }
  
                         DivPost.Visible = true;
                         DivDatos.Visible = true;
                         DivCiudad.Visible = true;
                         btnGuardar.Visible = true;
-                        gdAdd.Visible = true;
-                                                                 
+                        gdAdd.Visible = true;                                                              
                     }
-                
-
-                tabla.Columns.Add("CiudadesAdd");
-
-                //foreach(RutaBE datos in lstCiudades)
-                //{
-                //    tabla.Rows.Add(datos.Ciudad_Ruta.Ciudad.Nombre_Ciudad);
-                //    gdAdd.DataSource = tabla;
-                //    gdAdd.DataBind();
-
-                //}
-
             }
             catch (Exception ex)
             {
