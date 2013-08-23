@@ -66,7 +66,7 @@
                  <div class="post">Verificación de Información</div> 
                <asp:Label ID="lblNombreCaso" runat="server" Text="Caso Registrado:"></asp:Label>
                      <br />
-                     <asp:TextBox ID="txtCasoEspecial" CssClass="textEntry" runat="server"></asp:TextBox>
+                     <asp:TextBox ID="txtCasoEspecial" CssClass="textEntry" runat="server" Enabled="false"></asp:TextBox>
                      <br />
                      <br />
                  <div id ="divCodErroneo" runat ="server" visible="false">

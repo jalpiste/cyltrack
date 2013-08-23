@@ -88,7 +88,7 @@
                     <asp:Label ID="lblMsn" runat="server" Visible="False"></asp:Label>
                     <br />
                     <asp:GridView ID="gvCargue" runat="server" AutoGenerateColumns="False" 
-                    CellPadding="5" ForeColor="#333333" GridLines="None"  >
+                    CellPadding="5" ForeColor="#333333" GridLines="None" >
                     <AlternatingRowStyle BackColor="White" />
                     <Columns>
                         <asp:BoundField SortExpression="CodigosCilindros" DataField="CodigosCil" HeaderText="Códigos Cilindros"
