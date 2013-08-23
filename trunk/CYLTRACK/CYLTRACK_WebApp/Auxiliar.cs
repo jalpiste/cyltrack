@@ -28,8 +28,8 @@ namespace Unisangil.CYLTRACK.CYLTRACK_WebApp
         public static Anos[] ConsultarAnos()
         {
             int aux=(DateTime.Now.Year)-91;
-            Anos[] Ano = new Anos[77];
-            for (int i = 1; i < 77; i++)
+            Anos[] Ano = new Anos[92];
+            for (int i = 1; i < 92; i++)
             {
                 Ano[i]+= aux+i;
             }
@@ -117,12 +117,12 @@ namespace Unisangil.CYLTRACK.CYLTRACK_WebApp
 
     public enum Ubicacion
     {
-        Plataforma= 1,
-        Bodega =2,
+        Cliente = 1,
+        Vehiculo = 2,
         Mantenimiento= 3,
         Chatarra= 4,
-        Vehiculo=5,
-        Cliente = 6
+        Bodega = 5,
+        Plataforma= 6
     }
 
     public enum Tamanos 
