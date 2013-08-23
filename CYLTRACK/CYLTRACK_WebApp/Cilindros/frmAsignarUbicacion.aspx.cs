@@ -14,20 +14,26 @@ namespace Unisangil.CYLTRACK.CYLTRACK_WebApp.Cilindros
         {
         protected void Page_Load(object sender, EventArgs e)
         {
-            txtCodeCilindro.Focus();
+
+            if (!IsPostBack)
+            {
+                txtCodeCilindro.Focus();
+            }
 
             if(!IsPostBack)
             {
                 List<string> listaUbica = Auxiliar.ConsultarUbicacion();
-                foreach(string datos in listaUbica)
+                IEnumerable<string> listaUbicacion = listaUbica.Skip(1);
+                foreach (string datosUbica in listaUbicacion)
                 {
-                    lstUbica.Items.Add(datos);
+                    lstUbica.Items.Add(datosUbica.ToString());
                 }
             }
         }
         
         protected void txtCodeCilindro_TextChanged(object sender, EventArgs e)
         {
+            lstUbica.Focus();
             CilindroServiceClient servAsig = new CilindroServiceClient();
             CilindroBE cil = new CilindroBE();
             CilindroBE ConsultarCilindro;
@@ -50,7 +56,7 @@ namespace Unisangil.CYLTRACK.CYLTRACK_WebApp.Cilindros
                         LblRutaVehiculo.Text = ConsultarCilindro.Ubicacion.Vehiculo.Ruta.Nombre_Ruta;
                         DivUbicacionCil.Visible = true;
                         DivNuevaUbicacion.Visible = true;
-                        BtnGuardar.Visible = true;
+                        
                     }               
             }
 
@@ -66,14 +72,14 @@ namespace Unisangil.CYLTRACK.CYLTRACK_WebApp.Cilindros
 
         protected void Ubica_SelectedIndexChanged(object sender, EventArgs e)
         {
-
             try
             {
+                BtnGuardar.Visible = true;
                 if (lstUbica.SelectedValue == Ubicacion.Vehiculo.ToString())
                 {
                     diVehiculo.Visible = true;
+                    lstPlacaVehiculo.Focus();
                 }
-
             }
             catch (Exception ex)
             {

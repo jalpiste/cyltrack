@@ -92,7 +92,7 @@
                              ValidationGroup="RegistrodeCilindro">*</asp:RequiredFieldValidator>
                     </p>
                         <p>
-                        <asp:Label ID="Lbltotal" runat="server" text="codigo total" Width="30%" ></asp:Label>
+                        <asp:Label ID="Lbltotal" runat="server" Width="30%" ></asp:Label>
                 </p>
                 </div>
                 </fieldset>

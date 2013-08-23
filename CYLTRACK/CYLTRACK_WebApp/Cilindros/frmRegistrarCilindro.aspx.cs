@@ -24,13 +24,15 @@ namespace Unisangil.CYLTRACK.CYLTRACK_WebApp.Cilindros
             if(!IsPostBack)
             {
                 List<string> listaUbicacion = Auxiliar.ConsultarUbicacion();
-                foreach(string datos in listaUbicacion)
+                IEnumerable<string> lstUbica = listaUbicacion.Skip(2);
+                foreach (string datos in lstUbica)
                 {
                     LstUbicacion.Items.Add(datos);
                 }
 
                 Anos[] anos = Auxiliar.ConsultarAnos();
-                foreach (Anos datosAnos in anos)
+                IEnumerable<Anos> listaAnos = anos.Skip(1);
+                foreach (Anos datosAnos in listaAnos)
                 {
                     LstAno.Items.Add(datosAnos.ToString());
                 }
