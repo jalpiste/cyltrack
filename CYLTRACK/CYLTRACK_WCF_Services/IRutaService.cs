@@ -53,7 +53,7 @@ namespace Unisangil.CYLTRACK.CYLTRACK_WCF_Services
         /// <param name="ruta">Objeto de negocio ciudad</param> 
         /// <returns>nombre de ciudades y/o departamentos</returns>
         [OperationContract]
-        CiudadBE[] ConsultaDepartamentoyCiudades(string DatoCiu);
+        List<CiudadBE> ConsultaDepartamentoyCiudades();
 
         /// <summary>
         /// Método encargado de la consulta de existencia de rutas en el sistema. Permite

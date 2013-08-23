@@ -68,11 +68,11 @@ namespace Unisangil.CYLTRACK.CYLTRACK_WCF_Services
         ///</summary>
         ///<param name="ruta">valor de negocio ruta</param>
         ///<returns>existencia de ruta</returns>
-        public CiudadBE[] ConsultaDepartamentoyCiudades(string DatoCiu)
+        public List<CiudadBE> ConsultaDepartamentoyCiudades()
         {
-            CiudadBE[] resp;
+            List<CiudadBE> resp;
             RutaBL consultarDepyCiudad = new RutaBL();
-            resp = consultarDepyCiudad.ConsultaDepartamentoyCiudades(DatoCiu);
+            resp = consultarDepyCiudad.ConsultaDepartamentoyCiudades();
             return resp;
         }
 
