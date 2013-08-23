@@ -26,7 +26,16 @@ namespace Unisangil.CYLTRACK.CYLTRACK_WCF_Services
         /// <param name="ventas">Objeto de negocio ventas</param>
         /// <returns>cédula del cliente</returns>
         [OperationContract]
-        String VentaCilindro(VentaBE ventas);
+        string VentaCilindro(VentaBE ventas);
+
+        /// <summary>
+        /// Método encargado de la consulta de existencia de ventas de cilindros en el sistema. Permite
+        /// que las aplicaciones llamen a los objetos de negocio directamente.
+        /// </summary>
+        /// <param name="ventas">Id_Venta</param>
+        /// <returns>Existencia</returns>
+        [OperationContract]
+        string ConsultarExistencia(string ventas);
 
         /// <summary>
         /// Método encargado de la consulta de ventas de cilindros en el sistema. Permite
@@ -35,7 +44,16 @@ namespace Unisangil.CYLTRACK.CYLTRACK_WCF_Services
         /// <param name="ventas">Objeto de negocio ventas</param>
         /// <returns>cédula del cliente</returns>
         [OperationContract]
-        List<VentaBE> ConsultarVenta(string ventas);
+        VentaBE ConsultarVenta(string ventas);
+
+        /// <summary>
+        /// Método encargado de la consulta de cilindros por placa en el sistema. Permite
+        /// que las aplicaciones llamen a los objetos de negocio directamente.
+        /// </summary>
+        /// <param name="ventas">ciudad del cliente</param>
+        /// <returns>codigos cilindros</returns>
+        [OperationContract]
+        List<CilindroBE> ConsultarCarguePlaca();
 
         /// <summary>
         /// Método encargado de la revisión de casos especiales en el sistema. Permite
@@ -44,7 +62,7 @@ namespace Unisangil.CYLTRACK.CYLTRACK_WCF_Services
         /// <param name="ventas">Objeto de negocio ventas</param>
         /// <returns></returns>
         [OperationContract]
-        List<CasosBE> RevisionCasosEspeciales(CasosBE casos);
+        List<CasosBE> RevisionCasosEspeciales(string casos);
 
         /// <summary>
         /// Método encargado del registro de casos especiales en el sistema. Permite
@@ -53,7 +71,7 @@ namespace Unisangil.CYLTRACK.CYLTRACK_WCF_Services
         /// <param name="ventas">Objeto de negocio ventas</param>
         /// <returns>cédula del cliente</returns>
         [OperationContract]
-        String CasosEspeciales(CasosBE casos);
+        string CasosEspeciales(CasosBE casos);
 
     }
 }

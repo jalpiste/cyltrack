@@ -63,16 +63,30 @@ namespace Unisangil.CYLTRACK.CYLTRACK_WCF_Services
         }
 
         /// <summary>
-        /// Encargado de recibir el codigo_Cilindro de los canales front de venta y llamar
-        /// al metodo de negocio para el cargue y descargue de cilindro
+        /// Encargado de recibir la ubicacion de los canales front de venta y llamar
+        /// al metodo de negocio para la consulta de cilindros en dicha ubicacion
         /// </summary>
-        /// <param name="cilindro">Objeto de negocio cilindro</param>
-        /// <returns>Código interno del Cilindro</returns>
-        public List<CilindroBE> CargueyDescargueCilindro(string cilindro)
+        /// <param name="ubicacion">Objeto de negocio cilindro</param>
+        /// <returns>Códigos de Cilindros</returns>
+        public List<CilindroBE> ConsultarCilUbicacion(string ubicacion)
         {
             List<CilindroBE> resp;
-            CilindroBL cargueyDescargue = new CilindroBL();
-            resp = cargueyDescargue.CargueyDescargueCilindro(cilindro);
+            CilindroBL consultaUbicacion = new CilindroBL();
+            resp = consultaUbicacion.ConsultarCilUbicacion(ubicacion);
+            return resp;
+        }
+
+        /// <summary>
+        /// Encargado de recibir la lista de objetos de los canales front de venta y llamar
+        /// al metodo de negocio para guardar las nuevas ubicaciones de los cilindros
+        /// </summary>
+        /// <param name="cilindros">Objetos de negocio cilindro</param>
+        /// <returns>respuesta</returns>
+        public string CargueyDescargueCilindros(List<CilindroBE> cilindros)
+        {
+            string resp;
+            CilindroBL consultaUbicacion = new CilindroBL();
+            resp = consultaUbicacion.CargueyDescargueCilindros(cilindros);
             return resp;
         }
 

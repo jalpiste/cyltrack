@@ -23,11 +23,25 @@ namespace Unisangil.CYLTRACK.CYLTRACK_WCF_Services
         /// </summary>
         /// <param name="ventas">Objeto de negocio Venta</param>
         /// <returns>Cédula del cliente</returns>
-        public String VentaCilindro(VentaBE ventas)
+        public string VentaCilindro(VentaBE ventas)
         {
-            String resp;
+            string resp;
             VentaBL ventaCil = new VentaBL();
             resp = ventaCil.VentaCilindro(ventas);
+            return resp;
+        }
+
+        /// <summary>
+        /// Encargado de recibir el id_venta de los canales front de venta y llamar
+        /// al metodo de negocio para consultar ventas
+        /// </summary>
+        /// <param name="ventas">Id_Venta</param>
+        /// <returns>Objeto de Negocio venta</returns>
+        public string ConsultarExistencia(string ventas)
+        {
+            string resp;
+            VentaBL ventaCil = new VentaBL();
+            resp = ventaCil.ConsultarExistencia(ventas);
             return resp;
         }
 
@@ -37,11 +51,25 @@ namespace Unisangil.CYLTRACK.CYLTRACK_WCF_Services
         /// </summary>
         /// <param name="ventas">Objeto de negocio Venta</param>
         /// <returns>Cédula del cliente</returns>
-        public List<VentaBE> ConsultarVenta(string ventas)
+        public VentaBE ConsultarVenta(string ventas)
         {
-            List<VentaBE> resp;
+            VentaBE resp;
             VentaBL consulVenta = new VentaBL();
             resp = consulVenta.ConsultarVenta(ventas);
+            return resp;
+        }
+
+        /// <summary>
+        /// Encargado de recibir una ciudad de los canales front de venta y llamar
+        /// al metodo de negocio para consultar cargue de vehiculo
+        /// </summary>
+        /// <param name="ventas">ciudad de ubicacion del cliente</param>
+        /// <returns>codigos de cilindros</returns>
+        public List<CilindroBE> ConsultarCarguePlaca()
+        {
+            List<CilindroBE> resp;
+            VentaBL consultaPlaca = new VentaBL();
+            resp = consultaPlaca.ConsultarCarguePlaca();
             return resp;
         }
 
@@ -51,7 +79,7 @@ namespace Unisangil.CYLTRACK.CYLTRACK_WCF_Services
         /// </summary>
         /// <param name="ventas">Objeto de negocio Venta</param>
         /// <returns>ventas</returns>
-        public List<CasosBE> RevisionCasosEspeciales(CasosBE casos)
+        public List<CasosBE> RevisionCasosEspeciales(string casos)
         {
             List<CasosBE> resp;
             VentaBL revisionCasos = new VentaBL();
