@@ -68,15 +68,15 @@ namespace Unisangil.CYLTRACK.CYLTRACK_WebApp.Account
                 registrar_cli.Apellido_1 = txtPrimerApellido.Text;
                 registrar_cli.Apellido_2 = txtSegundoApellido.Text;
                 
-                UbicacionBE ubicli = new UbicacionBE();
-                ubicli.Direccion = txtDireccion.Text;
-                ubicli.Barrio = txtBarrio.Text;
-                ubicli.Telefono_1 = txtTelefono.Text;
-                registrar_cli.Ubicacion = ubicli;
-
+                UbicacionBE ubicacion = new UbicacionBE();
+                ubicacion.Direccion = txtDireccion.Text;
+                ubicacion.Barrio = txtBarrio.Text;
+                ubicacion.Telefono_1 = txtTelefono.Text;
+                
                 CiudadBE ciucli = new CiudadBE();
                 ciucli.Nombre_Ciudad = lstCiudad.SelectedValue;
-                registrar_cli.Ciudad = ciucli;
+                ubicacion.Ciudad = ciucli;
+                registrar_cli.Ubicacion = ubicacion;
 
                 DepartamentoBE depcli = new DepartamentoBE();
                 depcli.Nombre_Departamento = lstDepartamento.SelectedValue;

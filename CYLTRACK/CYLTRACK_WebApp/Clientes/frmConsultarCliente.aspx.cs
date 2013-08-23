@@ -41,8 +41,8 @@ namespace Unisangil.CYLTRACK.CYLTRACK_WebApp.Account
                         txtSegundoApellido.Text = consulta.Apellido_2;
                         txtDireccion.Text = consulta.Ubicacion.Direccion;
                         txtBarrio.Text = consulta.Ubicacion.Barrio;
-                        txtCiudad.Text = consulta.Ciudad.Nombre_Ciudad;
-                        txtDepartamento.Text = consulta.Ciudad.Departamento.Nombre_Departamento;
+                        txtCiudad.Text = consulta.Ubicacion.Ciudad.Nombre_Ciudad;
+                        txtDepartamento.Text = consulta.Ubicacion.Ciudad.Departamento.Nombre_Departamento;
                         txtTelefono.Text = consulta.Ubicacion.Telefono_1;
                         //txtCodigoCilindro.Text = info.Cilindro.Codigo_Cilindro;
                         //txtTamano.Text = info.Cilindro.NTamano.Tamano;
