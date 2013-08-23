@@ -9,7 +9,7 @@ using CYLTRACK_WebApp.PedidoService;
 using CYLTRACK_WebApp.ClienteService;
 using System.Windows.Forms;
 
-namespace Unisangil.CYLTRACK.CYLTRACK_WebApp.Account.Pedido
+namespace Unisangil.CYLTRACK.CYLTRACK_WebApp.Pedido
 {
     public partial class frmConsultarPedido : System.Web.UI.Page
     {
@@ -47,8 +47,8 @@ namespace Unisangil.CYLTRACK.CYLTRACK_WebApp.Account.Pedido
                         txtSegundoApellido.Text = objCliente.Apellido_2;
                         txtDireccion.Text = objCliente.Ubicacion.Direccion;
                         txtBarrio.Text = objCliente.Ubicacion.Barrio;
-                        txtCiudad.Text = objCliente.Ciudad.Nombre_Ciudad;
-                        txtDepartamento.Text = objCliente.Ciudad.Departamento.Nombre_Departamento;
+                        txtCiudad.Text = objCliente.Ubicacion.Ciudad.Nombre_Ciudad;
+                        txtDepartamento.Text = objCliente.Ubicacion.Ciudad.Departamento.Nombre_Departamento;
                         txtTelefono.Text = objCliente.Ubicacion.Telefono_1;
 
                         //txtPlaca.Text = objPed.Vehiculo.Placa;
@@ -100,8 +100,8 @@ namespace Unisangil.CYLTRACK.CYLTRACK_WebApp.Account.Pedido
                         txtSegundoApellido.Text = objCliente.Apellido_2;
                         txtDireccion.Text = objCliente.Ubicacion.Direccion;
                         txtBarrio.Text = objCliente.Ubicacion.Barrio;
-                        txtCiudad.Text = objCliente.Ciudad.Nombre_Ciudad;
-                        txtDepartamento.Text = objCliente.Ciudad.Departamento.Nombre_Departamento;
+                        txtCiudad.Text = objCliente.Ubicacion.Ciudad.Nombre_Ciudad;
+                        txtDepartamento.Text = objCliente.Ubicacion.Ciudad.Departamento.Nombre_Departamento;
                         txtTelefono.Text = objCliente.Ubicacion.Telefono_1;
 
                         //txtPlaca.Text = objPed.Vehiculo.Placa;
