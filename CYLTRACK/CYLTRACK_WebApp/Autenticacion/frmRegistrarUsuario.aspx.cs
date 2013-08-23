@@ -18,13 +18,9 @@ namespace Unisangil.CYLTRACK.CYLTRACK_WebApp.Autenticacion
         protected void Page_Load(object sender, EventArgs e)
         {
 
-            if (IsPostBack)
+            if (!IsPostBack)
             {
-                lstCargo.Focus();
-            }
-            else
-            {
-                txtNombreUsuario.Focus();
+                txtNombreUsuario.Focus();                
             }
 
 
@@ -48,10 +44,12 @@ namespace Unisangil.CYLTRACK.CYLTRACK_WebApp.Autenticacion
             if (!IsPostBack)
             {
                 Anos[] anos = Auxiliar.ConsultarAnos();
-                foreach (Anos datosAnos in anos)
+                IEnumerable<Anos> listaAnos = anos.OrderByDescending(g => g).Skip(15);
+                foreach (Anos datosAnos in listaAnos)
                 {
                     lstAno.Items.Add(datosAnos.ToString());
                 }
+
             }
             if (!IsPostBack)
             {
@@ -67,13 +65,11 @@ namespace Unisangil.CYLTRACK.CYLTRACK_WebApp.Autenticacion
             {
                 UsuarioServiceClient servUsuario = new UsuarioServiceClient();
                 UsuarioBE usuario = new UsuarioBE();
-                UsuarioBE lstPerfiles;
-
                 try
                 {
-                    lstPerfiles = servUsuario.RegistrarUsuario(usuario);
-
-                    foreach(PerfilBE datos in lstPerfiles.Perfil)
+                    List<PerfilBE> lstPerfiles = new List<PerfilBE>(servUsuario.ConsultarCargos());
+                   
+                    foreach(PerfilBE datos in lstPerfiles)
                     {
                         lstCargo.Items.Add(datos.Perfil);
                     }                    
@@ -95,7 +91,7 @@ namespace Unisangil.CYLTRACK.CYLTRACK_WebApp.Autenticacion
         {
             UsuarioServiceClient servUsuario = new UsuarioServiceClient();
             UsuarioBE usuario = new UsuarioBE();
-            UsuarioBE registrar;
+            string registrar;
             
             try
             {
@@ -120,7 +116,9 @@ namespace Unisangil.CYLTRACK.CYLTRACK_WebApp.Autenticacion
                 usuario.Fecha_Nacim = lstDia.SelectedValue + "," + lstMes.SelectedValue + "," + lstAno.SelectedValue;
                 PerfilBE pp = new PerfilBE();
                 pp.Perfil = lstCargo.SelectedValue;
-                usuario.Perfil[0] = pp;
+                List<PerfilBE> perfiles = new List<PerfilBE>();
+                perfiles.Add(pp);
+                usuario.Perfil = perfiles;
 
                 registrar = servUsuario.RegistrarUsuario(usuario);
 
@@ -142,6 +140,31 @@ namespace Unisangil.CYLTRACK.CYLTRACK_WebApp.Autenticacion
         protected void btnMenu_Click(object sender, EventArgs e)
         {
             Response.Redirect("~/Default.aspx");
+        }
+
+        protected void lstGenero_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            SetFocus(lstDia);
+        }
+
+        protected void lstDia_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            SetFocus(lstMes);
+        }
+
+        protected void lstMes_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            SetFocus(lstAno);
+        }
+
+        protected void lstAno_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            SetFocus(lstCargo);
+        }
+
+        protected void lstCargo_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            SetFocus(btnCrearUsuario);
         }
     }
 }
