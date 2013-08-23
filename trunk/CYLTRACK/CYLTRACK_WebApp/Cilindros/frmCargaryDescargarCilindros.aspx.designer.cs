@@ -7,7 +7,7 @@
 // </generado automáticamente>
 //------------------------------------------------------------------------------
 
-namespace CYLTRACK_WebApp.Cilindros {
+namespace Unisangil.CYLTRACK.CYLTRACK_WebApp.Cilindros {
     
     
     public partial class frmCargaryDescargarCilindros {
