@@ -7,6 +7,7 @@ using System.Text;
 using System.Web.UI.WebControls;
 using Unisangil.CYLTRACK.CYLTRACK_BE;
 using CYLTRACK_WebApp.ClienteService;
+using CYLTRACK_WebApp.RutaService;
 using System.Windows.Forms;
 
 namespace Unisangil.CYLTRACK.CYLTRACK_WebApp.Account
@@ -15,7 +16,32 @@ namespace Unisangil.CYLTRACK.CYLTRACK_WebApp.Account
     {
         protected void Page_Load(object sender, EventArgs e)
         {
-            txtCedula.Focus();
+            if(!IsPostBack)
+            {
+                txtCedula.Focus();
+            }
+            
+            if (!IsPostBack)
+            {
+                RutaServicesClient servRuta = new RutaServicesClient();
+                try
+                {
+                    List<CiudadBE> datosCiudades = new List<CiudadBE>(servRuta.ConsultaDepartamentoyCiudades());
+                    foreach (CiudadBE datos in datosCiudades)
+                    {
+                        lstCiudad.Items.Add(datos.Nombre_Ciudad);
+                        lstDepartamento.Items.Add(datos.Departamento.Nombre_Departamento);
+                    }
+                }
+                catch (Exception ex)
+                {
+                    Response.Redirect("~/About.aspx");
+                }
+                finally
+                {
+                    servRuta.Close();
+                }
+            }
         }
 
         protected void txtCedula_TextChanged(object sender, EventArgs e)
@@ -69,7 +95,9 @@ namespace Unisangil.CYLTRACK.CYLTRACK_WebApp.Account
                 registrar_cli.Apellido_2 = txtSegundoApellido.Text;
                 
                 UbicacionBE ubicacion = new UbicacionBE();
-                ubicacion.Direccion = txtDireccion.Text;
+                List<string> lstDatoDireccion = new List<string>();
+                lstDatoDireccion.Add(txtDireccion.Text);
+                ubicacion.Direccion = lstDatoDireccion;
                 ubicacion.Barrio = txtBarrio.Text;
                 ubicacion.Telefono_1 = txtTelefono.Text;
                 

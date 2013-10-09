@@ -109,7 +109,6 @@
                         <asp:ListBox ID="lstDepartamento" runat="server" Rows="1" 
                                  onselectedindexchanged="lstDepartamento_SelectedIndexChanged">
                             <asp:ListItem>Seleccionar...</asp:ListItem>
-                            <asp:ListItem>Boyacá</asp:ListItem>
                         </asp:ListBox>
                             <asp:RequiredFieldValidator ID="lstDepartamentoRequired" runat="server" ControlToValidate="lstDepartamento" 
                              CssClass="failureNotification" ErrorMessage="El departamento es obligatorio." ToolTip="El departamento es obligatorio." 
@@ -122,7 +121,6 @@
                         <asp:ListBox ID="lstCiudad" runat="server" Rows="1" 
                             onselectedindexchanged="lstCiudad_SelectedIndexChanged">
                             <asp:ListItem>Seleccionar...</asp:ListItem>
-                            <asp:ListItem>Chiquinquirá</asp:ListItem>
                         </asp:ListBox>
                      <asp:RequiredFieldValidator ID="lstCiudadRequired" runat="server" ControlToValidate="LstCiudad" 
                              CssClass="failureNotification" ErrorMessage="La ciudad es obligatorio." ToolTip="La ciudad es obligatorio." 
