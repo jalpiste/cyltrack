@@ -96,7 +96,7 @@
                     <asp:TextBox ID="txtPlaca"  CssClass="textEntry" runat="server" enabled = "false" Width="50px" ></asp:TextBox>
                         &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; &nbsp;
                         <asp:Label ID="lblRuta" runat="server"  Text="Ruta: "></asp:Label>
-                        <asp:Label ID="lblRutaAsignada" runat="server"  Text="xxxxxxx"></asp:Label>
+                        <asp:Label ID="lblRutaAsignada" runat="server" ></asp:Label>
                       </p>
                       <p>
                     
@@ -130,12 +130,12 @@
                       
                           <asp:Label ID="lblFecha" runat="server" Text="Fecha de Registro de Pedido:   "></asp:Label>
                           &nbsp;
-                          <asp:Label ID="lblFechaPedido" runat="server" Text=" dd/mm/aaaa 00:00:00"></asp:Label>
+                          <asp:Label ID="lblFechaPedido" runat="server"></asp:Label>
                       </p>
                       <p>
                           <asp:Label ID="lblFechaEntrega" runat="server" Text="Fecha de Entrega del Pedido:"></asp:Label>
                           &nbsp;&nbsp;
-                          <asp:Label ID="lblFechaEntregaCilindro" runat="server" Text="dd/mm/aaaa 00:00:00"></asp:Label>
+                          <asp:Label ID="lblFechaEntregaCilindro" runat="server" ></asp:Label>
                       </p>
                    </div>
                 </fieldset>

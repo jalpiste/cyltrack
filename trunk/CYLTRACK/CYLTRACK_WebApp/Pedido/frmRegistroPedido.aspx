@@ -1,4 +1,4 @@
-﻿<%@ Page Language="C#" AutoEventWireup="true" MasterPageFile="~/Site.Master" CodeBehind="frmRegistroPedido.aspx.cs" Inherits="Unisangil.CYLTRACK.CYLTRACK_WebApp.Account.Pedido.frmRegistroPedido" EnableViewState="true" %>
+﻿<%@ Page Language="C#" AutoEventWireup="true" MasterPageFile="~/Site.Master" CodeBehind="frmRegistroPedido.aspx.cs" Inherits="Unisangil.CYLTRACK.CYLTRACK_WebApp.Pedido.frmRegistroPedido" EnableViewState="true" %>
 
 <asp:Content ID="HeaderContent" runat="server" ContentPlaceHolderID="HeadContent">
  </asp:Content>
@@ -63,8 +63,7 @@
                         <asp:Label ID="lblBarrio" runat="server" Text="Barrio:" ></asp:Label>
                         <br />
                         <asp:ListBox ID="lstDireccion" runat="server" Width="176px" AutoPostBack="True" 
-                              Rows="1" onselectedindexchanged="lstDireccion_SelectedIndexChanged" >
-                              <asp:ListItem>Seleccionar</asp:ListItem>
+                              Rows="1" onselectedindexchanged="lstDireccion_SelectedIndexChanged" >                             
                         </asp:ListBox>
                            <asp:RequiredFieldValidator ID="ValidarDir" runat="server" ControlToValidate="lstDireccion" CssClass="failureNotification" 
                      ErrorMessage="La selección de la dirección del cliente es obligatoria." ToolTip="La selección de la dirección del cliente es obligatoria." 
@@ -98,7 +97,6 @@
                         <asp:Label ID="lblVehiculo" runat="server" Text="Placa Vehículo: "></asp:Label>
                     &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
                         <asp:ListBox ID="lstPlaca" runat="server" Rows="1">
-                            <asp:ListItem>Seleccionar...</asp:ListItem>
                         </asp:ListBox>
                         <asp:RequiredFieldValidator ID="ValidarPlaca" runat="server" ControlToValidate="lstPlaca" CssClass="failureNotification" 
                      ErrorMessage="La selección de la placa del vehículo es obligatoria." ToolTip="La selección de la placa del vehículo es obligatoria." 
@@ -107,7 +105,7 @@
                         &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
                         <asp:Label ID="lblRuta" runat="server" Text="Ruta: "></asp:Label>
                         &nbsp;
-                        <asp:Label ID="lblRutaAsignada" runat="server" Text="xxxxxxx"></asp:Label>
+                        <asp:Label ID="lblRutaAsignada" runat="server" ></asp:Label>
                       </p>
                       <p>
                           <asp:Label ID="lblTamanoCil" runat="server" Text="Tamaño Cilindro:"></asp:Label>
@@ -141,11 +139,9 @@
                     <Columns>
                         <asp:BoundField SortExpression="TamanoCil" DataField="TamanoCil" HeaderText="Tamaño Cilindro"
                             HeaderStyle-Width="100px">
-                            <HeaderStyle Width="130px" />
-                        </asp:BoundField>
+                            </asp:BoundField>
                         <asp:BoundField SortExpression="CantidadPedido" DataField="CantidadPedido" HeaderText="Cantidad"
-                            HeaderStyle-Width="100px">
-                            <HeaderStyle Width="130px" />
+                            HeaderStyle-Width="100px">                            
                         </asp:BoundField>
                     </Columns>
                     <EditRowStyle BackColor="#7C6F57" />

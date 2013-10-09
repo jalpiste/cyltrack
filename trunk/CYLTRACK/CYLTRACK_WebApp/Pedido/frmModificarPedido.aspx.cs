@@ -16,7 +16,6 @@ namespace Unisangil.CYLTRACK.CYLTRACK_WebApp.Pedido
     {
         List<Detalle_PedidoBE> lstDetail = new List<Detalle_PedidoBE>();
         DataTable objdtLista;
-        string aux;
         
         protected void Page_Load(object sender, EventArgs e)
         {
@@ -66,56 +65,49 @@ namespace Unisangil.CYLTRACK.CYLTRACK_WebApp.Pedido
         protected void txtCedula_TextChanged(object sender, EventArgs e)
         {
             txtCedulaCliente.Focus();
-            ClienteServiceClient servCliente = new ClienteServiceClient();
             PedidoServiceClient servPedido = new PedidoServiceClient();
-            
             PedidoBE consultar_ped = new PedidoBE();
             String resp;
 
             try
             {
-                resp = servCliente.Consultar_Existencia(txtCedula.Text);
-                aux = txtCedula.Text;
-
+                resp = servPedido.Consultar_Existencia(txtCedula.Text);
+                
                 if (resp == null)
                 {
-                    MessageBox.Show("El cliente no se encuentra registrado en el sistema", "Modificar Pedido");
+                    MessageBox.Show("El pedido no se encuentra registrado en el sistema", "Modificar Pedido");
                 }
                 else
-                    {
-                        ClienteBE objCliente = servCliente.Consultar_Cliente(txtCedula.Text);
+                    {                       
+                        consultar_ped = servPedido.Consultar_Pedido(txtCedula.Text);
+                        DataTable tabla = new DataTable();
 
-                        txtCedulaCliente.Text = objCliente.Cedula;
-                        txtNombreCliente.Text = objCliente.Nombres_Cliente;
-                        txtPrimerApellido.Text = objCliente.Apellido_1;
-                        txtSegundoApellido.Text = objCliente.Apellido_2;
-                        lstDireccion.Items.Add(objCliente.Ubicacion.Direccion);// como llamar todas las direcciones disponibles para el cliente???
-                        txtBarrio.Text = objCliente.Ubicacion.Barrio;
-                        txtCiudad.Text = objCliente.Ubicacion.Ciudad.Nombre_Ciudad;
-                        txtDepartamento.Text = objCliente.Ubicacion.Ciudad.Departamento.Nombre_Departamento;
-                        txtTelefono.Text = objCliente.Ubicacion.Telefono_1;
-                       // lblFechaPedido.Text = Convert.ToString(objCliente.Detalle_Venta.Venta.Fecha);
-                        
-                        foreach (DataRow row in objdtTabla.Rows)
+                        tabla.Columns.Add("CantidadPedido");
+                        tabla.Columns.Add("TamanoCil");
+
+                        txtCedulaCliente.Text = consultar_ped.Cliente.Cedula;
+                        txtNombreCliente.Text = consultar_ped.Cliente.Nombres_Cliente;
+                        txtPrimerApellido.Text = consultar_ped.Cliente.Apellido_1;
+                        txtSegundoApellido.Text = consultar_ped.Cliente.Apellido_2;
+                        foreach (string datos in consultar_ped.Ubicacion.Direccion)
                         {
-                            Detalle_PedidoBE det = new Detalle_PedidoBE();
-                            TamanoBE tamanito = new TamanoBE();
-                            det.Tamano = tamanito;
-                            det.Tamano.Tamano = (Convert.ToString(row["TamanoCil"]));
-                            det.Cantidad = (Convert.ToString(row["CantidadPedido"]));
-                            lstDetail.Add(det);
+                            lstDireccion.Items.Add(datos);
+                        }
+                        txtBarrio.Text = consultar_ped.Ubicacion.Barrio;
+                        txtCiudad.Text = consultar_ped.Ubicacion.Ciudad.Nombre_Ciudad;
+                        txtDepartamento.Text = consultar_ped.Ubicacion.Ciudad.Departamento.Nombre_Departamento;
+                        txtTelefono.Text = consultar_ped.Ubicacion.Telefono_1;
+                        lblFechaPedido.Text = Convert.ToString(consultar_ped.Fecha);
+                        lblCodigoPedido.Text = consultar_ped.Id_Pedido;
+                        lstPlaca.Items.Add(consultar_ped.Vehiculo.Placa);
+                        lblRutaAsignada.Text = consultar_ped.Ruta.Nombre_Ruta;
+                        foreach(CilindroBE datos in consultar_ped.Cilindro)
+                        {
+                            objdtTabla.Rows.Add(datos.NTamano.Tamano, datos.Cantidad);
+                            gvPedido.DataSource = objdtTabla;
+                            gvPedido.DataBind();
                         }
 
-                        Detalle_PedidoBE detalle = new Detalle_PedidoBE();
-                        TamanoBE tam = new TamanoBE();
-                        detalle.Tamano = tam;
-
-                        foreach (Detalle_PedidoBE datos in lstDetail)
-                        {
-                            detalle.Tamano.Tamano = datos.Tamano.Tamano;
-                            detalle.Cantidad = datos.Cantidad;
-                        } 
-                  
                         divInfoCliente.Visible = true;
                         btnGuardar.Visible = true;
                     }
@@ -126,17 +118,14 @@ namespace Unisangil.CYLTRACK.CYLTRACK_WebApp.Pedido
             }
             finally
             {
-                servCliente.Close();
-                servPedido.Close();
+               servPedido.Close();
             }
         }
 
         protected void TxtNumPedido_TextChanged(object sender, EventArgs e)
         {
             txtCedulaCliente.Focus();
-            ClienteServiceClient servCliente = new ClienteServiceClient();
             PedidoServiceClient servPedido = new PedidoServiceClient();
-
             PedidoBE consultar_ped = new PedidoBE();
             String resp;
 
@@ -150,38 +139,35 @@ namespace Unisangil.CYLTRACK.CYLTRACK_WebApp.Pedido
                 }
                 else
                 {
-                    ClienteBE objCliente = servCliente.Consultar_Cliente(txtCedulaCliente.Text);
+                    consultar_ped = servPedido.Consultar_Pedido(TxtNumPedido.Text);
+                    DataTable tabla = new DataTable();
 
-                    txtCedulaCliente.Text = objCliente.Cedula;
-                    txtNombreCliente.Text = objCliente.Nombres_Cliente;
-                    txtPrimerApellido.Text = objCliente.Apellido_1;
-                    txtSegundoApellido.Text = objCliente.Apellido_2;
-                    lstDireccion.Items.Add(objCliente.Ubicacion.Direccion);// como llamar todas las direcciones disponibles para el cliente???
-                    txtBarrio.Text = objCliente.Ubicacion.Barrio;
-                    txtCiudad.Text = objCliente.Ubicacion.Ciudad.Nombre_Ciudad;
-                    txtDepartamento.Text = objCliente.Ubicacion.Ciudad.Departamento.Nombre_Departamento;
-                    txtTelefono.Text = objCliente.Ubicacion.Telefono_1;
-                    //lblFechaPedido.Text = Convert.ToString(objCliente.Detalle_Venta.Venta.Fecha);
-                    
-                    foreach (DataRow row in objdtTabla.Rows)
+                    tabla.Columns.Add("CantidadPedido");
+                    tabla.Columns.Add("TamanoCil");
+
+                    txtCedulaCliente.Text = consultar_ped.Cliente.Cedula;
+                    txtNombreCliente.Text = consultar_ped.Cliente.Nombres_Cliente;
+                    txtPrimerApellido.Text = consultar_ped.Cliente.Apellido_1;
+                    txtSegundoApellido.Text = consultar_ped.Cliente.Apellido_2;
+                    foreach (string datos in consultar_ped.Ubicacion.Direccion)
                     {
-                        Detalle_PedidoBE det = new Detalle_PedidoBE();
-                        TamanoBE tamanito = new TamanoBE();
-                        det.Tamano = tamanito;
-                        det.Tamano.Tamano = (Convert.ToString(row["TamanoCil"]));
-                        det.Cantidad = (Convert.ToString(row["CantidadPedido"]));
-                        lstDetail.Add(det);
+                        lstDireccion.Items.Add(datos);
+                    } 
+                    txtBarrio.Text = consultar_ped.Ubicacion.Barrio;
+                    txtCiudad.Text = consultar_ped.Ubicacion.Ciudad.Nombre_Ciudad;
+                    txtDepartamento.Text = consultar_ped.Ubicacion.Ciudad.Departamento.Nombre_Departamento;
+                    txtTelefono.Text = consultar_ped.Ubicacion.Telefono_1;
+                    lblFechaPedido.Text = Convert.ToString(consultar_ped.Fecha);
+                    lblCodigoPedido.Text = consultar_ped.Id_Pedido;
+                    lstPlaca.Items.Add(consultar_ped.Vehiculo.Placa);
+                    lblRutaAsignada.Text = consultar_ped.Ruta.Nombre_Ruta;
+                    foreach (CilindroBE datos in consultar_ped.Cilindro)
+                    {
+                        objdtTabla.Rows.Add(datos.NTamano.Tamano, datos.Cantidad);
+                        gvPedido.DataSource = objdtTabla;
+                        gvPedido.DataBind();
                     }
 
-                    Detalle_PedidoBE detalle = new Detalle_PedidoBE();
-                    TamanoBE tam = new TamanoBE();
-                    detalle.Tamano = tam;
-
-                    foreach (Detalle_PedidoBE datos in lstDetail)
-                    {
-                        detalle.Tamano.Tamano = datos.Tamano.Tamano;
-                        detalle.Cantidad = datos.Cantidad;
-                    }
                     divInfoCliente.Visible = true;
                     btnGuardar.Visible = true;
                 }
@@ -192,8 +178,7 @@ namespace Unisangil.CYLTRACK.CYLTRACK_WebApp.Pedido
             }
             finally
             {
-                servCliente.Close();
-                servPedido.Close();
+              servPedido.Close();
             }
         }
 
@@ -212,11 +197,13 @@ namespace Unisangil.CYLTRACK.CYLTRACK_WebApp.Pedido
             try
             {
                 ClienteBE idcliente = new ClienteBE();
-                idcliente.Cedula = txtCedula.Text;
+                idcliente.Cedula = txtCedulaCliente.Text;
                 modificar_ped.Cliente = idcliente;
 
                 UbicacionBE ubicli = new UbicacionBE();
-                ubicli.Direccion = lstDireccion.Text;
+                List<string> lstDatoDireccion = new List<string>();
+                lstDatoDireccion.Add(lstDireccion.SelectedValue);
+                ubicli.Direccion = lstDatoDireccion;
                 modificar_ped.Ubicacion = ubicli;
 
                 VehiculoBE veh = new VehiculoBE();
@@ -237,16 +224,8 @@ namespace Unisangil.CYLTRACK.CYLTRACK_WebApp.Pedido
                     lstDetail.Add(det);
                 }
 
-                Detalle_PedidoBE detalle = new Detalle_PedidoBE();
-                TamanoBE tam = new TamanoBE();
-                detalle.Tamano = tam;
-
-                foreach (Detalle_PedidoBE datos in lstDetail)
-                {
-                    detalle.Tamano.Tamano = datos.Tamano.Tamano;
-                    detalle.Cantidad = datos.Cantidad;
-                }
-                modificar_ped.Detalle_Ped = detalle;
+                
+                modificar_ped.Detalle_Ped = lstDetail;
              
                 resp = servPedido.Modificar_Pedido(Convert.ToString(modificar_ped));
 
@@ -293,23 +272,34 @@ namespace Unisangil.CYLTRACK.CYLTRACK_WebApp.Pedido
                 tamanocil.Tamano = lstTamano.SelectedValue;
                 detail.Tamano = tamanocil;
 
-                foreach (Detalle_PedidoBE det in lstDetail)
+                foreach (DataRow info in objdtTabla.Rows)
                 {
-                    if (det.Tamano.Tamano == detail.Tamano.Tamano)
+                    if (tamanocil.Tamano == (Convert.ToString(info["TamanoCil"])))
                     {
-                        detail.Cantidad += det.Tamano.Tamano;
-                        lstDetail.Remove(det);
+                        detail.Cantidad += (Convert.ToString(info["CantidadPedido"]));
                     }
+                    lstDetail.Add(detail);
                 }
-                lstDetail.Add(detail);
-                
+
+
                 foreach (Detalle_PedidoBE info in lstDetail)
                 {
                     objdtTabla.Rows.Add(info.Tamano.Tamano, info.Cantidad);
-
                     gvPedido.DataSource = objdtTabla;
                     gvPedido.DataBind();
                 }
+                //foreach (Detalle_PedidoBE info in lstDetail)
+                //{
+                //    if (info.Tamano.Tamano == objdtTabla.Rows.ToString())
+                //    {
+                //        detail.Cantidad += info.Tamano.Tamano;
+                //        lstDetail.Remove(info);
+                //    }
+                //    objdtTabla.Rows.Add(info.Tamano.Tamano, info.Cantidad);
+
+                //    gvPedido.DataSource = objdtTabla;
+                //    gvPedido.DataBind();
+                //}
             }
             catch (Exception ex)
             {
@@ -327,36 +317,56 @@ namespace Unisangil.CYLTRACK.CYLTRACK_WebApp.Pedido
         protected void txtCedulaCliente_TextChanged(object sender, EventArgs e)
         {
             lstDireccion.Focus();
-
-            ClienteServiceClient servCliente = new ClienteServiceClient();
-            PedidoBE consultar_cli = new PedidoBE();
+            PedidoServiceClient servPedido = new PedidoServiceClient();
+            PedidoBE consultar_ped = new PedidoBE();
             String resp;
 
             try
             {
-                ClienteBE cliente = new ClienteBE();
-                cliente.Cedula = txtCedulaCliente.Text;
-                consultar_cli.Cliente = cliente;
 
-                resp = servCliente.Consultar_Existencia(txtCedula.Text);
+                resp = servPedido.Consultar_Existencia(txtCedulaCliente.Text);
 
                 if (resp == null)
                 {
                     MessageBox.Show("El cliente no se encuentra registrado en el sistema", "Modificar Pedido");
                 }
-                  else
-                    {
-                        ClienteBE objCliente = servCliente.Consultar_Cliente(txtCedulaCliente.Text);
+                
+                else
+                {
+                    consultar_ped = servPedido.Consultar_Pedido(txtCedulaCliente.Text);
 
-                        txtNombreCliente.Text = objCliente.Nombres_Cliente;
-                        txtPrimerApellido.Text = objCliente.Apellido_1;
-                        txtSegundoApellido.Text = objCliente.Apellido_2;
-                        lstDireccion.Items.Add(objCliente.Ubicacion.Direccion);
-                        txtBarrio.Text = objCliente.Ubicacion.Barrio;
-                        txtCiudad.Text = objCliente.Ubicacion.Ciudad.Nombre_Ciudad;
-                        txtDepartamento.Text = objCliente.Ubicacion.Ciudad.Departamento.Nombre_Departamento;
-                        txtTelefono.Text = objCliente.Ubicacion.Telefono_1;
+                    DataTable tabla = new DataTable();
+
+                    tabla.Columns.Add("CantidadPedido");
+                    tabla.Columns.Add("TamanoCil");
+
+                    txtCedulaCliente.Text = consultar_ped.Cliente.Cedula;
+                    txtNombreCliente.Text = consultar_ped.Cliente.Nombres_Cliente;
+                    txtPrimerApellido.Text = consultar_ped.Cliente.Apellido_1;
+                    txtSegundoApellido.Text = consultar_ped.Cliente.Apellido_2;
+                    foreach (string datos in consultar_ped.Ubicacion.Direccion)
+                    {
+                        lstDireccion.Items.Add(datos);
+                    } 
+                    txtBarrio.Text = consultar_ped.Ubicacion.Barrio;
+                    txtCiudad.Text = consultar_ped.Ubicacion.Ciudad.Nombre_Ciudad;
+                    txtDepartamento.Text = consultar_ped.Ubicacion.Ciudad.Departamento.Nombre_Departamento;
+                    txtTelefono.Text = consultar_ped.Ubicacion.Telefono_1;
+                    lblFechaPedido.Text = Convert.ToString(consultar_ped.Fecha);
+                    lblCodigoPedido.Text = consultar_ped.Id_Pedido;
+                    lstPlaca.Items.Add(consultar_ped.Vehiculo.Placa);
+                    lblRutaAsignada.Text = consultar_ped.Ruta.Nombre_Ruta;
+                    foreach (CilindroBE datos in consultar_ped.Cilindro)
+                    {
+                        objdtTabla.Rows.Add(datos.NTamano.Tamano, datos.Cantidad);
+                        gvPedido.DataSource = objdtTabla;
+                        gvPedido.DataBind();
                     }
+
+                    divInfoCliente.Visible = true;
+                    btnGuardar.Visible = true;
+                
+                }
             }
             catch (Exception ex)
             {
@@ -364,7 +374,7 @@ namespace Unisangil.CYLTRACK.CYLTRACK_WebApp.Pedido
             }
             finally
             {
-                servCliente.Close();
+                servPedido.Close();
             }
         }
 
