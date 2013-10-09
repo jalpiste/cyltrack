@@ -48,6 +48,7 @@ namespace Unisangil.CYLTRACK.CYLTRACK_WCF_Services
             return resp;
         }
 
+        
         /// <summary>
         /// Encargado de recibir el codigo_Cilindro de los canales front de venta y llamar
         /// al metodo de negocio para asignar la ubicación del cilindro

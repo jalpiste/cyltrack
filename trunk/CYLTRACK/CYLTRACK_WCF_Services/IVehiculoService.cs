@@ -66,5 +66,14 @@ namespace Unisangil.CYLTRACK.CYLTRACK_WCF_Services
         [OperationContract]
         VehiculoBE Consultar_Conductor(string conductor);
 
+        /// <summary>
+        /// Método encargado de la consulta de placas de vehiculos en el sistema. Permite
+        /// que las aplicaciones llamen a los objetos de negocio directamente.
+        /// </summary>
+        /// <param name="ruta">Objeto de negocio ciudad</param> 
+        /// <returns>Placas registradas</returns>
+        [OperationContract]
+        List<string> ConsultarPlaca(string ciudad);
+
     }
 }

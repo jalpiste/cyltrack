@@ -46,5 +46,45 @@ namespace Unisangil.CYLTRACK.CYLTRACK_WCF_Services
             return resp;
 
         }
+
+        ///<summary>
+        ///Encargado de recibir una ciudad de los canales front de venta y llamar
+        ///al metodo de negocio para consultar la ciudad del reporte
+        ///</summary>
+        ///<param name="ciudad">ciudad</param>
+        ///<returns>cantidad y cilindros por ciudades</returns>
+        public List<UbicacionBE> ConsultaReporteCiudades(string ciudad)
+        {
+            List<UbicacionBE> resp;
+            ReporteBL consultaReporteCiudades = new ReporteBL();
+            resp = consultaReporteCiudades.ConsultaReporteCiudades(ciudad);
+            return resp;
+        }
+
+        /// <summary>
+        /// Encargado de llamar al metodo de negocio para consultar los registros de cilindros
+        /// </summary>
+        /// <param name="cilindro">Objeto de negocio cilindro</param>
+        /// <returns>Códigos internos de los Cilindros</returns>
+        public List<CilindroBE> ReporteCilindro()
+        {
+            List<CilindroBE> resp;
+            ReporteBL reportCil = new ReporteBL();
+            resp = reportCil.ReporteCilindros();
+            return resp;
+        }
+
+         /// <summary>
+        /// Encargado de llamar al metodo de negocio para consultar los registros de cilindros
+        /// </summary>
+        /// <param name="cilindro">Objeto de negocio cilindro</param>
+        /// <returns>Códigos internos de los Cilindros</returns>
+        public List<UbicacionBE> ReporteporPlacas()
+        {
+            List<UbicacionBE> resp;
+            ReporteBL reportPlacas = new ReporteBL();
+            resp = reportPlacas.ReporteporPlacas();
+            return resp;
+        }
     }
 }
