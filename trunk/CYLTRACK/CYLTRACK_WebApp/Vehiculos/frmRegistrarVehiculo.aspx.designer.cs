@@ -202,13 +202,13 @@ namespace Unisangil.CYLTRACK.CYLTRACK_WebApp.Rutas {
         protected global::System.Web.UI.WebControls.RegularExpressionValidator ValidarDatosCilindraje;
         
         /// <summary>
-        /// Control txtModelo.
+        /// Control lstModelo.
         /// </summary>
         /// <remarks>
         /// Campo generado automáticamente.
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox txtModelo;
+        protected global::System.Web.UI.WebControls.ListBox lstModelo;
         
         /// <summary>
         /// Control ValidarRegisModelo.
@@ -218,15 +218,6 @@ namespace Unisangil.CYLTRACK.CYLTRACK_WebApp.Rutas {
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
         protected global::System.Web.UI.WebControls.RequiredFieldValidator ValidarRegisModelo;
-        
-        /// <summary>
-        /// Control ValidarDatosModelo.
-        /// </summary>
-        /// <remarks>
-        /// Campo generado automáticamente.
-        /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.RangeValidator ValidarDatosModelo;
         
         /// <summary>
         /// Control lblMotor.
