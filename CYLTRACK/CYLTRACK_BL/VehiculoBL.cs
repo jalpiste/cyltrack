@@ -45,10 +45,8 @@ namespace Unisangil.CYLTRACK.CYLTRACK_BL
         /// <returns></returns>
         public VehiculoBE ConsultarVehiculo(string consultar_vehiculo)
         {
-            
             VehiculoBE vehiculo = new VehiculoBE();
-
-            vehiculo.Placa = "XHA767";
+            vehiculo.Placa = "XHA098";
             vehiculo.Marca = "Kia";
             vehiculo.Cilindraje = "2800";
             vehiculo.Modelo = "2010";
@@ -70,12 +68,25 @@ namespace Unisangil.CYLTRACK.CYLTRACK_BL
             conductor.Apellido_2 = "Pinto";
             cond.Conductor = conductor;
 
-            //--------------------------------
             RutaBE ruta = new RutaBE();
-            ruta.Nombre_Ruta = "Chiquinquirá-Ubaté";
+            ruta.Nombre_Ruta = "Chiquinquirá-Boyacá";
             vehiculo.Ruta = ruta;
+            //--------------------------------
 
             return vehiculo;
+        }
+
+        public List<string> ConsultarPlacas(string ciudad)
+        {
+            List<string> lstPlacas = new List<string>();
+            string[] letras = new string[] { "A", "R", "J", "L", "P", "V" };
+            Random ran = new Random();
+
+            for (int i = 0; i < 5; i++)
+            {
+                lstPlacas.Add( letras[i] + "" + letras[i] + "" + letras[i] + "" + ((DateTime.Now.Hour + DateTime.Now.Second) * ran.Next(1, 10)).ToString());
+            }
+            return lstPlacas;
         }
         /// <summary>
         /// Método para la modificación de vehículos en el sistema

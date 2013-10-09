@@ -24,9 +24,9 @@ namespace Unisangil.CYLTRACK.CYLTRACK_BL
             return resp;
         }
         
-        public String RegistrarUbicacion(ClienteBE registrar_ubi)
+        public string RegistrarUbicacion(ClienteBE registrar_ubi)
         {
-            String resp = "Ok";
+            string resp = "Ok";
             return resp;
         }
         /// <summary>
@@ -54,8 +54,13 @@ namespace Unisangil.CYLTRACK.CYLTRACK_BL
             cliente.Apellido_1 = "Poveda";
             cliente.Apellido_2 = "Sanchez";
 
-            UbicacionBE ubicacion = new UbicacionBE();
-            ubicacion.Direccion  = "Calle 17 N 10 30";
+            UbicacionBE ubicacion = new UbicacionBE(); 
+            List<string> lstDireccion = new List<string>();
+            for (int i = 0; i < 5; i++)
+            {
+                lstDireccion.Add("Calle" + i + " N " + i + "0 " + i + "0");
+            }
+            ubicacion.Direccion = lstDireccion;
             ubicacion.Barrio = "Centro";
             ubicacion.Telefono_1 = "3143456789";
             

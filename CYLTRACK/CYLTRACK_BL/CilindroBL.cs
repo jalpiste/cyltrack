@@ -59,8 +59,14 @@ namespace Unisangil.CYLTRACK.CYLTRACK_BL
             cli.Nombres_Cliente = "Jaime Andres";
             cli.Apellido_1 = "Ortiz";
             cli.Apellido_2 = "León";
-            UbicacionBE ubi = new UbicacionBE();
-            ubi.Direccion= "Calle 3 N 2-49";
+            UbicacionBE ubi = new UbicacionBE(); 
+             List<string> lstDireccion = new List<string>();
+            for (int i = 0; i < 5; i++)
+            {
+                lstDireccion.Add("Calle" + i + " N " + i + "0 " + i + "0");
+            }
+            ubi.Direccion = lstDireccion;
+            
             ubi.Barrio = "El Bosque";
             CiudadBE ciu = new CiudadBE();
             ciu.Nombre_Ciudad = "Chiquinquirá";
@@ -88,7 +94,7 @@ namespace Unisangil.CYLTRACK.CYLTRACK_BL
             
             return cil;
         }
-
+         
         public string AsignarUbicacion(CilindroBE cilindro)
         {
             string resp;
