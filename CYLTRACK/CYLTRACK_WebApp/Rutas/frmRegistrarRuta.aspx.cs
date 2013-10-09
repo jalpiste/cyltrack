@@ -26,7 +26,6 @@ namespace Unisangil.CYLTRACK.CYLTRACK_WebApp.Rutas
             if (!IsPostBack)
             {
                 RutaServicesClient servRuta = new RutaServicesClient();
-                string dato = "nada por ahora";
                 try
                 {
                     List<CiudadBE> datosCiudades = new List<CiudadBE>(servRuta.ConsultaDepartamentoyCiudades());
@@ -47,6 +46,7 @@ namespace Unisangil.CYLTRACK.CYLTRACK_WebApp.Rutas
             }            
         }
         List<string> lstCiudades = new List<string>();
+        List<string> lstPlacas = new List<string>();
           protected void btnAgregar_Click(object sender, EventArgs e)
         {
             RutaBE ruta = new RutaBE();
@@ -188,7 +188,7 @@ namespace Unisangil.CYLTRACK.CYLTRACK_WebApp.Rutas
                 Response.Redirect("~/Rutas/frmRegistrarRuta.aspx");
             }           
             
-        } 
-               
+        }
+              
     }
 }
