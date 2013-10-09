@@ -31,13 +31,13 @@ namespace Unisangil.CYLTRACK.CYLTRACK_WebApp.Reporte {
         protected global::System.Web.UI.WebControls.Literal FailureText;
         
         /// <summary>
-        /// Control LoginUserValidationSummary.
+        /// Control ValidadorBuscar.
         /// </summary>
         /// <remarks>
         /// Campo generado automáticamente.
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.ValidationSummary LoginUserValidationSummary;
+        protected global::System.Web.UI.WebControls.ValidationSummary ValidadorBuscar;
         
         /// <summary>
         /// Control lblFechaDesde.
@@ -74,6 +74,15 @@ namespace Unisangil.CYLTRACK.CYLTRACK_WebApp.Reporte {
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
         protected global::AjaxControlToolkit.MaskedEditExtender MEEtxtFechaIni;
+        
+        /// <summary>
+        /// Control RequeridoFecha.
+        /// </summary>
+        /// <remarks>
+        /// Campo generado automáticamente.
+        /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.RequiredFieldValidator RequeridoFecha;
         
         /// <summary>
         /// Control calrExtFechaIni.
@@ -130,6 +139,15 @@ namespace Unisangil.CYLTRACK.CYLTRACK_WebApp.Reporte {
         protected global::AjaxControlToolkit.CalendarExtender calrExtFechaFin;
         
         /// <summary>
+        /// Control RequeridoFechaFinal.
+        /// </summary>
+        /// <remarks>
+        /// Campo generado automáticamente.
+        /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.RequiredFieldValidator RequeridoFechaFinal;
+        
+        /// <summary>
         /// Control lblTipoRepSiembra.
         /// </summary>
         /// <remarks>
@@ -148,22 +166,22 @@ namespace Unisangil.CYLTRACK.CYLTRACK_WebApp.Reporte {
         protected global::System.Web.UI.WebControls.ListBox lstReportes;
         
         /// <summary>
-        /// Control lblVehiculo.
+        /// Control requeridolstReportes.
         /// </summary>
         /// <remarks>
         /// Campo generado automáticamente.
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Label lblVehiculo;
+        protected global::System.Web.UI.WebControls.RequiredFieldValidator requeridolstReportes;
         
         /// <summary>
-        /// Control lstPlaca.
+        /// Control divCiudad.
         /// </summary>
         /// <remarks>
         /// Campo generado automáticamente.
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.ListBox lstPlaca;
+        protected global::System.Web.UI.HtmlControls.HtmlGenericControl divCiudad;
         
         /// <summary>
         /// Control lblDepartamento.
@@ -193,6 +211,15 @@ namespace Unisangil.CYLTRACK.CYLTRACK_WebApp.Reporte {
         protected global::System.Web.UI.WebControls.ListBox lstDepto;
         
         /// <summary>
+        /// Control RequiridoDepartamento.
+        /// </summary>
+        /// <remarks>
+        /// Campo generado automáticamente.
+        /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.RequiredFieldValidator RequiridoDepartamento;
+        
+        /// <summary>
         /// Control lstCiudad.
         /// </summary>
         /// <remarks>
@@ -200,6 +227,15 @@ namespace Unisangil.CYLTRACK.CYLTRACK_WebApp.Reporte {
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
         protected global::System.Web.UI.WebControls.ListBox lstCiudad;
+        
+        /// <summary>
+        /// Control RequiredCiudad.
+        /// </summary>
+        /// <remarks>
+        /// Campo generado automáticamente.
+        /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.RequiredFieldValidator RequiredCiudad;
         
         /// <summary>
         /// Control btnBuscar.
@@ -220,24 +256,6 @@ namespace Unisangil.CYLTRACK.CYLTRACK_WebApp.Reporte {
         protected global::System.Web.UI.HtmlControls.HtmlGenericControl DivReporte;
         
         /// <summary>
-        /// Control lblfecha.
-        /// </summary>
-        /// <remarks>
-        /// Campo generado automáticamente.
-        /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.Label lblfecha;
-        
-        /// <summary>
-        /// Control lblImpresionFecha.
-        /// </summary>
-        /// <remarks>
-        /// Campo generado automáticamente.
-        /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.Label lblImpresionFecha;
-        
-        /// <summary>
         /// Control gvReporteCiudad.
         /// </summary>
         /// <remarks>
@@ -247,6 +265,15 @@ namespace Unisangil.CYLTRACK.CYLTRACK_WebApp.Reporte {
         protected global::System.Web.UI.WebControls.GridView gvReporteCiudad;
         
         /// <summary>
+        /// Control gvReportePlacas.
+        /// </summary>
+        /// <remarks>
+        /// Campo generado automáticamente.
+        /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.GridView gvReportePlacas;
+        
+        /// <summary>
         /// Control gvReporteTamano.
         /// </summary>
         /// <remarks>
@@ -254,15 +281,6 @@ namespace Unisangil.CYLTRACK.CYLTRACK_WebApp.Reporte {
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
         protected global::System.Web.UI.WebControls.GridView gvReporteTamano;
-        
-        /// <summary>
-        /// Control ReportViewer1.
-        /// </summary>
-        /// <remarks>
-        /// Campo generado automáticamente.
-        /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
-        /// </remarks>
-        protected global::Microsoft.Reporting.WebForms.ReportViewer ReportViewer1;
         
         /// <summary>
         /// Control divBotones.

@@ -35,9 +35,7 @@ namespace Unisangil.CYLTRACK.CYLTRACK_WebApp.Reportes
             
             try 
             {
-                string codigo = txtCodigoCil.Text;
-                
-                List<ReportesBE> resp = new List<ReportesBE>(serReporte.HistoricoCilindro(codigo));
+                List<ReportesBE> resp = new List<ReportesBE>(serReporte.HistoricoCilindro(txtCodigoCil.Text));
                 
                  tabla.Columns.Add("CodigosCil");
                  tabla.Columns.Add("Tamano");

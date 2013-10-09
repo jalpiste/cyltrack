@@ -4,6 +4,14 @@ using System.Linq;
 using System.Web;
 using System.Web.UI;
 using System.Web.UI.WebControls;
+using CYLTRACK_WebApp.VehiculoService;
+using CYLTRACK_WebApp.RutaService;
+using CYLTRACK_WebApp.CilindroService;
+using CYLTRACK_WebApp.ReporteService;
+using Unisangil.CYLTRACK.CYLTRACK_BE;
+using Unisangil.CYLTRACK.CYLTRACK_WebApp;
+using System.Data;
+
 
 namespace Unisangil.CYLTRACK.CYLTRACK_WebApp.Reporte
 {
@@ -11,13 +19,110 @@ namespace Unisangil.CYLTRACK.CYLTRACK_WebApp.Reporte
     {
         protected void Page_Load(object sender, EventArgs e)
         {
+            if (!IsPostBack)
+            {
+                List<string> listaTipoReporte = Auxiliar.ConsultarTipoReporte();
+                foreach (string datos in listaTipoReporte)
+                {
+                    lstReportes.Items.Add(datos);
+                }
             
-        }
+                RutaServicesClient servRuta = new RutaServicesClient();
+                try
+                {
+                    List<CiudadBE> datosCiudades = new List<CiudadBE>(servRuta.ConsultaDepartamentoyCiudades());
+                    foreach (CiudadBE datos in datosCiudades)
+                    {
+                        lstCiudad.Items.Add(datos.Nombre_Ciudad);
+                        lstDepto.Items.Add(datos.Departamento.Nombre_Departamento);
+                    }
+                }
+                catch (Exception ex)
+                {
+                    Response.Redirect("~/About.aspx");
+                }
+                finally
+                {
+                    servRuta.Close();
+                }
+                        
+        } 
+     }
         
         protected void btnBuscar_Click(object sender, EventArgs e)
         {
-            DivReporte.Visible = true;
-            divBotones.Visible = true;
+            ReporteServiceClient servReporte = new ReporteServiceClient();
+            DataTable table = new DataTable();
+            try 
+            {
+                if (lstReportes.SelectedValue == Tipo_Reporte.Ciudad.ToString())
+                {
+                    string ciudadSelec = lstCiudad.SelectedValue;
+                    List<UbicacionBE> lstReporteporCiudades = new List<UbicacionBE>(servReporte.ConsultaReporteCiudades(ciudadSelec));
+                    table.Columns.Add("CiudadSiembra");
+                    table.Columns.Add("Cil30");
+                    table.Columns.Add("Cil40");
+                    table.Columns.Add("Cil80");
+                    table.Columns.Add("Cil100");
+                    table.Columns.Add("Total");
+
+                    foreach (UbicacionBE datos in lstReporteporCiudades)
+                    {
+                        table.Rows.Add(datos.Ciudad.Nombre_Ciudad, datos.Ubicacion_Cilindro.Cilindro.Cantidad, datos.Ubicacion_Cilindro.Cilindro.Cantidad, datos.Ubicacion_Cilindro.Cilindro.Cantidad, datos.Ubicacion_Cilindro.Cilindro.Cantidad, datos.Ubicacion_Cilindro.Cilindro.Cantidad);
+                        gvReporteCiudad.DataSource = table;
+                        gvReporteCiudad.DataBind();
+                    }
+                    gvReporteCiudad.Visible = true;
+                    DivReporte.Visible = true;
+                }
+                
+                if (lstReportes.SelectedValue == Tipo_Reporte.Vehiculo.ToString())
+                {
+                    List<UbicacionBE> lstReporteporPlacas = new List<UbicacionBE>(servReporte.ReporteporPlacas());
+                    table.Columns.Add("Placa");
+                    table.Columns.Add("Cil30");
+                    table.Columns.Add("Cil40");
+                    table.Columns.Add("Cil80");
+                    table.Columns.Add("Cil100");
+                    table.Columns.Add("Total");
+
+                    foreach (UbicacionBE datos in lstReporteporPlacas)
+                    {
+                        table.Rows.Add(datos.Vehiculo.Placa, datos.Ubicacion_Cilindro.Cilindro.Cantidad, datos.Ubicacion_Cilindro.Cilindro.Cantidad, datos.Ubicacion_Cilindro.Cilindro.Cantidad, datos.Ubicacion_Cilindro.Cilindro.Cantidad, datos.Ubicacion_Cilindro.Cilindro.Cantidad);
+                        gvReportePlacas.DataSource = table;
+                        gvReportePlacas.DataBind();
+                    }
+                    gvReportePlacas.Visible = true;
+                    DivReporte.Visible = true;
+                }
+                
+                if (lstReportes.SelectedValue == Tipo_Reporte.Cilindro.ToString())
+                {
+                    List<CilindroBE> lstReporteporCilindro = new List<CilindroBE>(servReporte.ReporteCilindro());
+
+                    table.Columns.Add("Cantidad");
+                    table.Columns.Add("Tamano");
+                    foreach (CilindroBE datos in lstReporteporCilindro)
+                    {
+                        table.Rows.Add(datos.Cantidad, datos.NTamano.Tamano);
+                        gvReporteTamano.DataSource = table;
+                        gvReporteTamano.DataBind();
+                    }
+                    DivReporte.Visible = true;
+                    gvReporteTamano.Visible = true;
+                }
+                
+            }
+            catch(Exception ex)
+            {
+                Response.Redirect("~/Default.aspx");
+            }
+            finally
+            {
+                servReporte.Close();
+                divBotones.Visible = true;
+            }
+            
         }
 
         protected void btnMenu_Click(object sender, EventArgs e)
@@ -37,26 +142,18 @@ namespace Unisangil.CYLTRACK.CYLTRACK_WebApp.Reporte
             {
                 txtFechaFin.Text = "";
                 Response.Write("<script type='text/javascript'> alert('La fecha final debe ser mayor o igual a la fecha inicial') </script>");
+                DivReporte.Visible = false;
+                gvReporteTamano.Visible = false;
             }
         }
 
         protected void lstReportes_SelectedIndexChanged(object sender, EventArgs e)
         {
-            if (lstReportes.SelectedIndex ==1)
+            if (lstReportes.SelectedValue == Tipo_Reporte.Ciudad.ToString())
             {
-                lstDepto.Visible = true;
-                lstCiudad.Visible = true;
-                gvReporteCiudad.Visible = true;
-            }
-            if (lstReportes.SelectedIndex == 2)
-            {
-                gvReporteTamano.Visible = true;
-            }
-            if (lstReportes.SelectedIndex == 3)
-            {
-                lstPlaca.Visible = true;
+                divCiudad.Visible = true;
             }
         }
-
+                            
     }
 }

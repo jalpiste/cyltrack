@@ -25,5 +25,6 @@ namespace Unisangil.CYLTRACK.CYLTRACK_WebApp.Reporte
             divBotones.Visible = true;
         }
 
+        
     }
 }

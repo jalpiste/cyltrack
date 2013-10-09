@@ -49,94 +49,85 @@ namespace Unisangil.CYLTRACK.CYLTRACK_WebApp.Reporte {
         protected global::System.Web.UI.WebControls.RadioButtonList rblstRegistros;
         
         /// <summary>
-        /// Control lblFechaDesde.
+        /// Control txtFechaDesde.
         /// </summary>
         /// <remarks>
         /// Campo generado automáticamente.
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Label lblFechaDesde;
+        protected global::System.Web.UI.WebControls.TextBox txtFechaDesde;
         
         /// <summary>
-        /// Control txtFechaIni.
+        /// Control imgFecha.
         /// </summary>
         /// <remarks>
         /// Campo generado automáticamente.
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox txtFechaIni;
+        protected global::System.Web.UI.WebControls.ImageButton imgFecha;
         
         /// <summary>
-        /// Control imgFechaIni.
+        /// Control MEEtxtFecha.
         /// </summary>
         /// <remarks>
         /// Campo generado automáticamente.
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.ImageButton imgFechaIni;
+        protected global::AjaxControlToolkit.MaskedEditExtender MEEtxtFecha;
         
         /// <summary>
-        /// Control MEEtxtFechaIni.
+        /// Control calrExtFecha.
         /// </summary>
         /// <remarks>
         /// Campo generado automáticamente.
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
-        protected global::AjaxControlToolkit.MaskedEditExtender MEEtxtFechaIni;
+        protected global::AjaxControlToolkit.CalendarExtender calrExtFecha;
         
         /// <summary>
-        /// Control calrExtFechaIni.
+        /// Control txtFechaHasta.
         /// </summary>
         /// <remarks>
         /// Campo generado automáticamente.
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
-        protected global::AjaxControlToolkit.CalendarExtender calrExtFechaIni;
+        protected global::System.Web.UI.WebControls.TextBox txtFechaHasta;
         
         /// <summary>
-        /// Control lblFechaHasta.
+        /// Control ImageButton1.
         /// </summary>
         /// <remarks>
         /// Campo generado automáticamente.
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Label lblFechaHasta;
+        protected global::System.Web.UI.WebControls.ImageButton ImageButton1;
         
         /// <summary>
-        /// Control txtFechaFin.
+        /// Control MaskedEditExtender1.
         /// </summary>
         /// <remarks>
         /// Campo generado automáticamente.
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox txtFechaFin;
+        protected global::AjaxControlToolkit.MaskedEditExtender MaskedEditExtender1;
         
         /// <summary>
-        /// Control imgFechaFin.
+        /// Control CalendarExtender1.
         /// </summary>
         /// <remarks>
         /// Campo generado automáticamente.
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.ImageButton imgFechaFin;
+        protected global::AjaxControlToolkit.CalendarExtender CalendarExtender1;
         
         /// <summary>
-        /// Control MEEtxtFechaFin.
+        /// Control divSeleccion.
         /// </summary>
         /// <remarks>
         /// Campo generado automáticamente.
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
-        protected global::AjaxControlToolkit.MaskedEditExtender MEEtxtFechaFin;
-        
-        /// <summary>
-        /// Control calrExtFechaFin.
-        /// </summary>
-        /// <remarks>
-        /// Campo generado automáticamente.
-        /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
-        /// </remarks>
-        protected global::AjaxControlToolkit.CalendarExtender calrExtFechaFin;
+        protected global::System.Web.UI.HtmlControls.HtmlGenericControl divSeleccion;
         
         /// <summary>
         /// Control lblPlacaVehiculo.
