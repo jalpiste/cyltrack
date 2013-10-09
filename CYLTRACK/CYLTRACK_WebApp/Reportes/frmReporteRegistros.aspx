@@ -40,29 +40,32 @@
             <legend>Parámetros</legend>
             <br />
             
-            <asp:Label ID="lblFechaDesde" runat="server" Text="Fecha Inicial: "></asp:Label>
-                <asp:TextBox ID="txtFechaIni" runat="server" Width="70px" MaxLength="10"></asp:TextBox>
-                <asp:ImageButton runat="Server" ID="imgFechaIni" ImageUrl="~/Imagenes/Calendar_scheduleHS.png"
-                AlternateText="Click para mostrar el calendario" Height="16px" />
-                <asp:MaskedEditExtender runat="server" ID="MEEtxtFechaIni" TargetControlID="txtFechaIni"
-                Mask="99/99/9999" MaskType="Date">
-                </asp:MaskedEditExtender>
-                <asp:CalendarExtender ID="calrExtFechaIni" runat="server" TargetControlID="txtFechaIni"
-                PopupButtonID="imgFecha" Format="dd/MM/yyyy" />
-                &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-
-            <asp:Label ID="lblFechaHasta" runat="server" Text="Fecha Final: "></asp:Label>
-                <asp:TextBox ID="txtFechaFin" runat="server" Width="70px" MaxLength="10"></asp:TextBox>
-                <asp:ImageButton runat="Server" ID="imgFechaFin" ImageUrl="~/Imagenes/Calendar_scheduleHS.png"
-                AlternateText="Click para mostrar el calendario" Height="16px" />
-                <asp:MaskedEditExtender runat="server" ID="MEEtxtFechaFin" TargetControlID="txtFechaFin"
-                Mask="99/99/9999" MaskType="Date">
-                </asp:MaskedEditExtender>
-                <asp:CalendarExtender ID="calrExtFechaFin" runat="server" TargetControlID="txtFechaFin"
-                PopupButtonID="imgFecha" Format="dd/MM/yyyy" />
-            
+            <label>
+            Fecha Desde<span class="requerido" style="color: Red"> *</span></label>
+        <asp:TextBox ID="txtFechaDesde" runat="server" Width="70px" MaxLength="10"></asp:TextBox>
+        <asp:ImageButton runat="Server" ID="imgFecha" ImageUrl="~/Imagenes/Calendar_scheduleHS.png"
+            AlternateText="Click para mostrar el calendario" Height="16px" />
+        <asp:MaskedEditExtender runat="server" ID="MEEtxtFecha" TargetControlID="txtFechaDesde"
+            Mask="99/99/9999" MaskType="Date">
+        </asp:MaskedEditExtender>
+        <asp:CalendarExtender ID="calrExtFecha" runat="server" TargetControlID="txtFechaDesde"
+            PopupButtonID="imgFecha" Format="dd/MM/yyyy" />
+    
+            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+            <label>
+            Fecha Hasta<span class="requerido" style="color: Red"> *</span></label>
+        <asp:TextBox ID="txtFechaHasta" runat="server" Width="70px" MaxLength="10"></asp:TextBox>
+        <asp:ImageButton runat="Server" ID="ImageButton1" ImageUrl="~/Imagenes/Calendar_scheduleHS.png"
+            AlternateText="Click para mostrar el calendario" Height="16px" />
+        <asp:MaskedEditExtender runat="server" ID="MaskedEditExtender1" TargetControlID="txtFechaHasta"
+            Mask="99/99/9999" MaskType="Date">
+        </asp:MaskedEditExtender>
+        <asp:CalendarExtender ID="CalendarExtender1" runat="server" TargetControlID="txtFechaHasta"
+            PopupButtonID="imgFecha" Format="dd/MM/yyyy" />
+    
             <br />
             <br />
+            <div id="divSeleccion" runat="server" visible="false">
             <asp:Label ID="lblPlacaVehiculo" runat="server" Text="Placa Vehículo: "></asp:Label>            
             <asp:ListBox ID="lstPlaca" runat="server" AutoPostBack="True" Rows="1">
                 <asp:ListItem>Seleccionar</asp:ListItem>
@@ -74,6 +77,7 @@
             <asp:RequiredFieldValidator ID="CedulaConductorRequired" runat="server" ControlToValidate="txtCedulaConductor" 
                              CssClass="failureNotification" ErrorMessage="La cedula del conductor es obligatorio." ToolTip="La cedula del conductor es obligatorio." 
                              ValidationGroup="ReporteValidationGroup">*</asp:RequiredFieldValidator>
+                             </div>
        </fieldset>
         <p class="submitButton">
             <asp:Button ID="btnBuscar" runat="server" Text="Buscar" Width="115px" 
@@ -82,9 +86,8 @@
         <div id= "DivReporte" runat = "server" class="InfoInventarios" visible="false">
        <fieldset class ="login">
             <legend>Reporte</legend>
-            <div style="height: 1468px; width: 477px; margin-right: 4px;">
             <asp:Label ID="lblfecha" runat="server" Text="Fecha:   "></asp:Label>
-            <asp:Label ID="lblImpresionFecha" runat="server" Text="xxxxxxxxx"></asp:Label>
+            <asp:Label ID="lblImpresionFecha" runat="server" ></asp:Label>
             <br />
             <br />
                       
