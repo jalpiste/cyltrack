@@ -70,9 +70,9 @@
                             <asp:TextBox ID="txtTelefono" runat="server" CssClass="textEntry" Enabled="False"></asp:TextBox>
                     </p>
                     
-                     <div class="post">Información Cilindro Cliente</div>
-                    <p>
-                    <asp:GridView ID="gdCilindrosCli" runat="server" AutoGenerateColumns="False" 
+                    <div class="post">Información Cilindro Cliente</div>
+                  <p>
+                   <asp:GridView ID="gdCilindrosCli" runat="server" AutoGenerateColumns="False" 
                     CellPadding="5" ForeColor="#333333" GridLines="None" >
                     <AlternatingRowStyle BackColor="White" />
                     <Columns>
@@ -100,6 +100,7 @@
                     <SortedDescendingCellStyle BackColor="#D4DFE1" />
                     <SortedDescendingHeaderStyle BackColor="#15524A" />
                 </asp:GridView>
+        
                     </p>
                   </div>
                 </fieldset>

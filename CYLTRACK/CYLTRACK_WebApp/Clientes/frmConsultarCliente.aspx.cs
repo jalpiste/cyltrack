@@ -7,6 +7,7 @@ using System.Web.UI.WebControls;
 using Unisangil.CYLTRACK.CYLTRACK_BE;
 using CYLTRACK_WebApp.ClienteService;
 using System.Windows.Forms;
+using System.Data;
 
 namespace Unisangil.CYLTRACK.CYLTRACK_WebApp.Account
 {
@@ -20,48 +21,54 @@ namespace Unisangil.CYLTRACK.CYLTRACK_WebApp.Account
         protected void txtCedula_TextChanged(object sender, EventArgs e)
         {
             btnNuevaConsulta.Focus();
-            ClienteServiceClient servCliente = new ClienteServiceClient();
-            string resp;
+            ClienteServiceClient serCliente = new ClienteServiceClient();
+            DataTable table = new DataTable();
 
             try
             {
-                resp = servCliente.Consultar_Existencia(txtCedula.Text);
+                string consultaExistencia = serCliente.Consultar_Existencia(txtCedula.Text);
 
-                if (resp == null)
+                if (consultaExistencia != "Ok")
                 {
-                    MessageBox.Show("El cliente no se encuentra registrado en el sistema", "Consultar Cliente");
+                    MessageBox.Show("El cliente no se encuentra registrado en el sistema", "Venta de Cilindros");
                 }
-                    else
-                    {
-                        ClienteBE consulta = servCliente.Consultar_Cliente(txtCedula.Text);
-                    
-                        txtCedulaCli.Text = consulta.Cedula;
-                        txtNombreCliente.Text = consulta.Nombres_Cliente;
-                        txtPrimerApellido.Text = consulta.Apellido_1;
-                        txtSegundoApellido.Text = consulta.Apellido_2;
-                        txtDireccion.Text = consulta.Ubicacion.Direccion;
-                        txtBarrio.Text = consulta.Ubicacion.Barrio;
-                        txtCiudad.Text = consulta.Ubicacion.Ciudad.Nombre_Ciudad;
-                        txtDepartamento.Text = consulta.Ubicacion.Ciudad.Departamento.Nombre_Departamento;
-                        txtTelefono.Text = consulta.Ubicacion.Telefono_1;
-                        //txtCodigoCilindro.Text = info.Cilindro.Codigo_Cilindro;
-                        //txtTamano.Text = info.Cilindro.NTamano.Tamano;
-                        //txtTipoCilindro.Text = info.Cilindro.Tipo_Cilindro;
+                else
+                {
+                    ClienteBE cliente = new ClienteBE();
+                    cliente = serCliente.Consultar_Cliente(txtCedula.Text);
 
-                        divInfoCliente.Visible = true;
-                        btnNuevaConsulta.Visible = true;
-                    }
+                    table.Columns.Add("CodigosCil");
+                    table.Columns.Add("Tamano");
+                    table.Columns.Add("TipoCil");
+
+                    txtCedulaCli .Text = cliente.Cedula;
+                    txtNombreCliente.Text = cliente.Nombres_Cliente;
+                    txtPrimerApellido.Text = cliente.Apellido_1;
+                    txtSegundoApellido.Text = cliente.Apellido_2;
+                    foreach (string datos in cliente.Ubicacion.Direccion)
+                    {
+                        txtDireccion.Text = datos;
+                    } 
+                    txtBarrio.Text = cliente.Ubicacion.Barrio;
+                    txtTelefono.Text = cliente.Ubicacion.Telefono_1;
+                    txtCiudad.Text = cliente.Ubicacion.Ciudad.Nombre_Ciudad;
+                    txtDepartamento.Text = cliente.Ubicacion.Ciudad.Departamento.Nombre_Departamento;
+                    table.Rows.Add(cliente.Ubicacion.Ubicacion_Cilindro.Cilindro.Codigo_Cilindro, cliente.Ubicacion.Ubicacion_Cilindro.Cilindro.NTamano.Tamano, cliente.Ubicacion.Ubicacion_Cilindro.Cilindro.Tipo_Cilindro);
+                    gdCilindrosCli.DataSource = table;
+                    gdCilindrosCli.DataBind();
+                    divInfoCliente.Visible = true;
+                    btnNuevaConsulta.Visible = true;
+                }
             }
+
             catch (Exception ex)
             {
                 Response.Redirect("~/About.aspx");
             }
             finally
             {
-                servCliente.Close();
+                serCliente.Close();
             }
-
-           
         }
 
         protected void btnMenuPrincipal_Click(object sender, EventArgs e)
@@ -76,7 +83,5 @@ namespace Unisangil.CYLTRACK.CYLTRACK_WebApp.Account
             btnNuevaConsulta.Visible = false;
             
         }
-
-
     }
 }

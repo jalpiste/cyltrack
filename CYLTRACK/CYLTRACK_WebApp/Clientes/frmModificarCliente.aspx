@@ -1,4 +1,4 @@
-﻿<%@ Page Language="C#" AutoEventWireup="true" MasterPageFile="~/Site.Master"  CodeBehind="frmModificarCliente.aspx.cs" Inherits="Unisangil.CYLTRACK.CYLTRACK_WebApp.Account.Clientes.frmModificarCliente" EnableViewState ="true"%>
+﻿<%@ Page Language="C#" AutoEventWireup="true" MasterPageFile="~/Site.Master"  CodeBehind="frmModificarCliente.aspx.cs" Inherits="Unisangil.CYLTRACK.CYLTRACK_WebApp.Clientes.frmModificarCliente" %>
 
 <asp:Content ID="HeaderContent" runat="server" ContentPlaceHolderID="HeadContent">
     
@@ -32,7 +32,8 @@
                  <div class="post">Datos Personales del Cliente</div>   
                     <p>
                         <asp:Label ID="lblCedulaCli" runat="server" >Número de Cédula:</asp:Label><br />
-                        <asp:TextBox ID="txtCedulaCli" runat="server" CssClass="textEntry" Width="197px"></asp:TextBox>
+                        <asp:TextBox ID="txtCedulaCli" runat="server" CssClass="textEntry" 
+                            Width="197px" ontextchanged="txtCedulaCli_TextChanged" ></asp:TextBox>
                          <asp:RequiredFieldValidator ID="ValidarCedula" runat="server" ControlToValidate="txtCedulaCli" 
                              CssClass="failureNotification" ErrorMessage="El número de cédula del cliente es obligatorio." ToolTip="El número de cédula del cliente es obligatorio." 
                              ValidationGroup="ModificarCliente">*</asp:RequiredFieldValidator>
@@ -108,8 +109,7 @@
                        <asp:ListBox ID="lstDepartamento" runat="server" Rows="1" 
                              onselectedindexchanged="lstDepartamento_SelectedIndexChanged" 
                              style="height: 22px">
-                            <asp:ListItem>Seleccionar...</asp:ListItem>
-                        </asp:ListBox>
+                           </asp:ListBox>
                     <asp:RequiredFieldValidator ID="ValidarDep" runat="server" ControlToValidate="lstDepartamento" 
                     CssClass="failureNotification" ErrorMessage="La selección del departamento es obligatoria." ToolTip="La selección del departamento es obligatoria." 
                     ValidationGroup="ModificarCliente">*</asp:RequiredFieldValidator>
@@ -120,8 +120,7 @@
                     <br />
                         <asp:ListBox ID="lstCiudad" runat="server" Rows="1" 
                             onselectedindexchanged="lstCiudad_SelectedIndexChanged">
-                            <asp:ListItem>Seleccionar...</asp:ListItem>
-                        </asp:ListBox>
+                            </asp:ListBox>
                     <asp:RequiredFieldValidator ID="ValidarCiudad" runat="server" ControlToValidate="lstCiudad" 
                     CssClass="failureNotification" ErrorMessage="La selección de la ciudad es obligatoria." ToolTip="La selección de la ciudad es obligatoria." 
                     ValidationGroup="ModificarCliente">*</asp:RequiredFieldValidator>

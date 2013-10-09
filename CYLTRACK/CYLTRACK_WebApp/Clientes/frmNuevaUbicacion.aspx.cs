@@ -7,16 +7,50 @@ using System.Web.UI.WebControls;
 using Unisangil.CYLTRACK.CYLTRACK_BE;
 using CYLTRACK_WebApp.ClienteService;
 using System.Windows.Forms;
+using CYLTRACK_WebApp.RutaService;
 
 namespace Unisangil.CYLTRACK.CYLTRACK_WebApp.Clientes
 {
     public partial class frmNuevaUbicacion : System.Web.UI.Page
     {
-        protected void Page_Load(object sender, EventArgs e)
+        string cedula;
+        public void Page_Load(object sender, EventArgs e)
         {
-            txtNuevaDireccion.Focus();
-        }
+            if(!IsPostBack)
+            {
+                txtNuevaDireccion.Focus();
+                
+            }
 
+            if (!IsPostBack)
+            {
+                string dato = Server.UrlDecode(Request.QueryString["ReturnUrl"]);
+                //cedula = dato;
+            }
+            
+            if (!IsPostBack)
+            {
+                RutaServicesClient servRuta = new RutaServicesClient();
+                try
+                {
+                    List<CiudadBE> datosCiudades = new List<CiudadBE>(servRuta.ConsultaDepartamentoyCiudades());
+                    foreach (CiudadBE datos in datosCiudades)
+                    {
+                        lstCiudad.Items.Add(datos.Nombre_Ciudad);
+                        lstDepartamento.Items.Add(datos.Departamento.Nombre_Departamento);
+                    }
+                }
+                catch (Exception ex)
+                {
+                    Response.Redirect("~/About.aspx");
+                }
+                finally
+                {
+                    servRuta.Close();
+                }
+            } 
+         }
+               
         protected void btnLimpiar_Click(object sender, EventArgs e)
         {
 
@@ -27,12 +61,15 @@ namespace Unisangil.CYLTRACK.CYLTRACK_WebApp.Clientes
 
             ClienteServiceClient servCliente = new ClienteServiceClient();
             String resp;
-            ClienteBE cliente = new ClienteBE();
-
+            
             try
             {
+                ClienteBE cliente = new ClienteBE();
+
                 UbicacionBE ubi = new UbicacionBE();
-                ubi.Direccion = txtNuevaDireccion.Text;
+                List<string> lstDatoDireccion = new List<string>();
+                lstDatoDireccion.Add(txtNuevaDireccion.Text);
+                ubi.Direccion = lstDatoDireccion;
                 ubi.Barrio = txtNuevoBarrio.Text;
                 ubi.Telefono_2 = txtTelefono.Text;
                 cliente.Ubicacion = ubi;
@@ -44,6 +81,8 @@ namespace Unisangil.CYLTRACK.CYLTRACK_WebApp.Clientes
                 DepartamentoBE depcli = new DepartamentoBE();
                 depcli.Nombre_Departamento = lstDepartamento.SelectedValue;
                 ciucli.Departamento = depcli;
+
+                cliente.Cedula = cedula;
                 
                 resp = servCliente.Agregar_Ubicacion(cliente);
 
@@ -56,7 +95,7 @@ namespace Unisangil.CYLTRACK.CYLTRACK_WebApp.Clientes
             finally
             {
                 servCliente.Close();
-                Response.Redirect("~/Clientes/frmNuevaUbicacion.aspx");
+                Response.Redirect("~/Clientes/frmModificarCliente.aspx");
             }
         }
 
@@ -69,5 +108,7 @@ namespace Unisangil.CYLTRACK.CYLTRACK_WebApp.Clientes
         {
             lstCiudad.Focus();
         }
+
+        
     }
 }
