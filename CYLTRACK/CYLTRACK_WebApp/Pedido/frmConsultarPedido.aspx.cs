@@ -117,7 +117,7 @@ namespace Unisangil.CYLTRACK.CYLTRACK_WebApp.Pedido
                     txtNombreCliente.Text = objPedido.Cliente.Nombres_Cliente;
                     txtPrimerApellido.Text = objPedido.Cliente.Apellido_1;
                     txtSegundoApellido.Text = objPedido.Cliente.Apellido_2;
-                    foreach (string datos in consultar_ped.Ubicacion.Direccion)
+                    foreach (string datos in objPedido.Ubicacion.Direccion)
                     {
                         txtDireccion.Text=(datos);
                     } 
