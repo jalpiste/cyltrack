@@ -50,7 +50,7 @@
                  <div class="post">Información General del Cliente</div>   
                     <h5>
                         <asp:Label ID="lblPedido" runat="server" Text="Pedido N°: "></asp:Label>
-                        <asp:Label ID="lblCodigoPedido" runat="server" Text="2323432"></asp:Label>
+                        <asp:Label ID="lblCodigoPedido" runat="server" ></asp:Label>
                     </h5>                    
                     <p>
                         <asp:Label ID="lblCedulaCliente" runat="server" AssociatedControlID="txtCedulaCliente" Text="Número de Cédula: "></asp:Label><br />
@@ -99,7 +99,7 @@
                         &nbsp;<asp:TextBox ID="txtZona" runat="server" CssClass="textEntry" Enabled="false" Width="50px"></asp:TextBox>
                         &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; &nbsp;
                         <asp:Label ID="lblRuta" runat="server" Enabled="false" Text="Ruta: "></asp:Label>
-                        <asp:Label ID="lblRutaAsignada" runat="server" Enabled="false" Text="xxxxxxx"></asp:Label>
+                        <asp:Label ID="lblRutaAsignada" runat="server" Enabled="false" ></asp:Label>
                       </p>
                       <p>
                           <br />
@@ -134,7 +134,7 @@
                       <p>
                       
                           <asp:Label ID="lblFecha" runat="server" Text="Fecha de Registro de Pedido:   "></asp:Label>
-                          <asp:Label ID="lblFechaPedido" runat="server" Text=" dd/mm/aaa 00:00:00"></asp:Label>
+                          <asp:Label ID="lblFechaPedido" runat="server" ></asp:Label>
                       </p>
                       <p>
                           <asp:Label ID="lblMotivoCancelacion" runat="server" Text="Motivo de la cancelación:"></asp:Label><br />

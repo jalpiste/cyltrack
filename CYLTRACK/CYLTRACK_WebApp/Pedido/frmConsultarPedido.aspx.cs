@@ -8,6 +8,7 @@ using Unisangil.CYLTRACK.CYLTRACK_BE;
 using CYLTRACK_WebApp.PedidoService;
 using CYLTRACK_WebApp.ClienteService;
 using System.Windows.Forms;
+using System.Data;
 
 namespace Unisangil.CYLTRACK.CYLTRACK_WebApp.Pedido
 {
@@ -22,41 +23,54 @@ namespace Unisangil.CYLTRACK.CYLTRACK_WebApp.Pedido
         {
             btnNuevaConsulta.Focus();
             PedidoServiceClient servPedido = new PedidoServiceClient();
-            ClienteServiceClient servCliente = new ClienteServiceClient();
-            
             PedidoBE consultar_ped = new PedidoBE();
-            String resp;
+            string resp;
 
             try
             {
-                resp = servCliente.Consultar_Existencia(txtCedula.Text);
+                resp = servPedido.Consultar_Existencia(txtCedula.Text);
 
                 if (resp == null)
                 {
-                    MessageBox.Show("El cliente no se encuentra registrado en el sistema", "Consultar Pedido");
+                    MessageBox.Show("El Pedido no se encuentra registrado en el sistema", "Consultar Pedido");
                 }
                 
                     else
                     {
-                        ClienteBE objCliente = servCliente.Consultar_Cliente(txtCedula.Text);
 
-                        //lblCodigoPedido.Text = objPed.Id_Pedido;
-                        txtCedulaCliente.Text = objCliente.Cedula;
-                        txtNombreCliente.Text = objCliente.Nombres_Cliente;
-                        txtPrimerApellido.Text = objCliente.Apellido_1;
-                        txtSegundoApellido.Text = objCliente.Apellido_2;
-                        txtDireccion.Text = objCliente.Ubicacion.Direccion;
-                        txtBarrio.Text = objCliente.Ubicacion.Barrio;
-                        txtCiudad.Text = objCliente.Ubicacion.Ciudad.Nombre_Ciudad;
-                        txtDepartamento.Text = objCliente.Ubicacion.Ciudad.Departamento.Nombre_Departamento;
-                        txtTelefono.Text = objCliente.Ubicacion.Telefono_1;
+                       DataTable tabla = new DataTable();
 
-                        //txtPlaca.Text = objPed.Vehiculo.Placa;
-                        //lblRutaAsignada.Text = objPed.Ruta.Nombre_Ruta;
-                        //GRIDVIEW lstAgregar.Text = info.Detalle_Ped.Tamano.Tamano; // como obtener el valor del tamaño y ponerlo en la primera parte de la lista
-                        //GRIDWIEW lstAgregar.Text = info.Detalle_Ped.Cantidad; // como obtener el valor de la cantidad y ponerlo en la segunda parte de la lista
-                        //lblFechaPedido.Text = Convert.ToString(objPed.Fecha);
+                       tabla.Columns.Add("CantidadPedido");
+                       tabla.Columns.Add("TamanoCil");
+                    
+                       PedidoBE objPedido = new PedidoBE();
+                       objPedido = servPedido.Consultar_Pedido(txtCedula.Text);
 
+                        lblCodigoPedido.Text = objPedido.Id_Pedido;
+                        txtCedulaCliente.Text = objPedido.Cliente.Cedula;
+                        txtNombreCliente.Text = objPedido.Cliente.Nombres_Cliente;
+                        txtPrimerApellido.Text = objPedido.Cliente.Apellido_1;
+                        txtSegundoApellido.Text = objPedido.Cliente.Apellido_2;
+                        foreach (string datos in objPedido.Ubicacion.Direccion)
+                        {
+                            txtDireccion.Text = datos;
+                        } 
+                        txtBarrio.Text = objPedido.Ubicacion.Barrio;
+                        txtCiudad.Text = objPedido.Ubicacion.Ciudad.Nombre_Ciudad;
+                        txtDepartamento.Text = objPedido.Ubicacion.Ciudad.Departamento.Nombre_Departamento;
+                        txtTelefono.Text = objPedido.Ubicacion.Telefono_1;
+                        txtPlaca.Text = objPedido.Vehiculo.Placa;
+                        lblRutaAsignada.Text = objPedido.Ruta.Nombre_Ruta;
+                        foreach (CilindroBE datos in objPedido.Cilindro)
+                        {
+                            tabla.Rows.Add(datos.Cantidad, datos.NTamano.Tamano); 
+                        }                                               
+                   
+                        gvPedido.DataSource = tabla;
+                        gvPedido.DataBind();
+                    
+                        lblFechaPedido.Text = Convert.ToString(objPedido.Fecha);
+                        lblFechaEntregaCilindro.Text=  Convert.ToString(objPedido.Fecha);
                         divInfoCliente.Visible = true;
                         btnNuevaConsulta.Visible = true;
                     }
@@ -68,7 +82,6 @@ namespace Unisangil.CYLTRACK.CYLTRACK_WebApp.Pedido
             finally
             {
                 servPedido.Close();
-                servCliente.Close();
             }
         }
 
@@ -76,8 +89,7 @@ namespace Unisangil.CYLTRACK.CYLTRACK_WebApp.Pedido
         {
             btnNuevaConsulta.Focus();
             PedidoServiceClient servPedido = new PedidoServiceClient();
-            ClienteServiceClient servCliente = new ClienteServiceClient();
-            
+             
             PedidoBE consultar_ped = new PedidoBE();
             String resp;
 
@@ -87,32 +99,47 @@ namespace Unisangil.CYLTRACK.CYLTRACK_WebApp.Pedido
 
                 if (resp == null)
                 {
-                    MessageBox.Show("El cliente no se encuentra registrado en el sistema", "Consultar Pedido");
+                    MessageBox.Show("El Pedido no se encuentra registrado en el sistema", "Consultar Pedido");
                 }
-                    else
+                else
+                {
+
+                    DataTable tabla = new DataTable();
+
+                    tabla.Columns.Add("CantidadPedido");
+                    tabla.Columns.Add("TamanoCil");
+
+                    PedidoBE objPedido = new PedidoBE();
+                    objPedido = servPedido.Consultar_Pedido(NumPedidoTxt.Text);
+
+                    lblCodigoPedido.Text = objPedido.Id_Pedido;
+                    txtCedulaCliente.Text = objPedido.Cliente.Cedula;
+                    txtNombreCliente.Text = objPedido.Cliente.Nombres_Cliente;
+                    txtPrimerApellido.Text = objPedido.Cliente.Apellido_1;
+                    txtSegundoApellido.Text = objPedido.Cliente.Apellido_2;
+                    foreach (string datos in consultar_ped.Ubicacion.Direccion)
                     {
-                        ClienteBE objCliente = servCliente.Consultar_Cliente(txtCedula.Text);
-
-                        //lblCodigoPedido.Text = objPed.Id_Pedido;
-                        txtCedulaCliente.Text = objCliente.Cedula;
-                        txtNombreCliente.Text = objCliente.Nombres_Cliente;
-                        txtPrimerApellido.Text = objCliente.Apellido_1;
-                        txtSegundoApellido.Text = objCliente.Apellido_2;
-                        txtDireccion.Text = objCliente.Ubicacion.Direccion;
-                        txtBarrio.Text = objCliente.Ubicacion.Barrio;
-                        txtCiudad.Text = objCliente.Ubicacion.Ciudad.Nombre_Ciudad;
-                        txtDepartamento.Text = objCliente.Ubicacion.Ciudad.Departamento.Nombre_Departamento;
-                        txtTelefono.Text = objCliente.Ubicacion.Telefono_1;
-
-                        //txtPlaca.Text = objPed.Vehiculo.Placa;
-                        //lblRutaAsignada.Text = objPed.Ruta.Nombre_Ruta;
-                        //GRIDVIEW lstAgregar.Text = info.Detalle_Ped.Tamano.Tamano; // como obtener el valor del tamaño y ponerlo en la primera parte de la lista
-                        //GRIDWIEW lstAgregar.Text = info.Detalle_Ped.Cantidad; // como obtener el valor de la cantidad y ponerlo en la segunda parte de la lista
-                        //lblFechaPedido.Text = Convert.ToString(objPed.Fecha);
-
-                        divInfoCliente.Visible = true;
-                        btnNuevaConsulta.Visible = true;
+                        txtDireccion.Text=(datos);
+                    } 
+                    txtBarrio.Text = objPedido.Ubicacion.Barrio;
+                    txtCiudad.Text = objPedido.Ubicacion.Ciudad.Nombre_Ciudad;
+                    txtDepartamento.Text = objPedido.Ubicacion.Ciudad.Departamento.Nombre_Departamento;
+                    txtTelefono.Text = objPedido.Ubicacion.Telefono_1;
+                    txtPlaca.Text = objPedido.Vehiculo.Placa;
+                    lblRutaAsignada.Text = objPedido.Ruta.Nombre_Ruta;
+                    foreach (CilindroBE datos in objPedido.Cilindro)
+                    {
+                        tabla.Rows.Add(datos.Cantidad, datos.NTamano.Tamano);
                     }
+
+                    gvPedido.DataSource = tabla;
+                    gvPedido.DataBind();
+
+                    lblFechaPedido.Text = Convert.ToString(objPedido.Fecha);
+                    lblFechaEntregaCilindro.Text = Convert.ToString(objPedido.Fecha);
+                    divInfoCliente.Visible = true;
+                    btnNuevaConsulta.Visible = true;
+                }
             }
             catch (Exception ex)
             {
@@ -121,7 +148,6 @@ namespace Unisangil.CYLTRACK.CYLTRACK_WebApp.Pedido
             finally
             {
                 servPedido.Close();
-                servCliente.Close();
             }
         }
 

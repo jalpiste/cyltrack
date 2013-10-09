@@ -48,7 +48,7 @@
                  <div class="post">Información General del Cliente</div>   
                     <h5>
                         <asp:Label ID="lblPedido" runat="server" Text="Pedido N°: "></asp:Label>
-                        <asp:Label ID="lblCodigoPedido" runat="server" Text="2323432"></asp:Label>
+                        <asp:Label ID="lblCodigoPedido" runat="server" ></asp:Label>
                     </h5> 
                     <p>
                         <asp:Label ID="lblCedulaCliente" runat="server" AssociatedControlID="txtCedulaCliente" Text="Número de Cédula: "></asp:Label><br />
@@ -81,8 +81,7 @@
                         <br />
                         <asp:ListBox ID="lstDireccion" runat="server" AutoPostBack="True" Rows="1" 
                             onselectedindexchanged="lstDireccion_SelectedIndexChanged">
-                              <asp:ListItem>Seleccionar...</asp:ListItem>
-                          </asp:ListBox>
+                             </asp:ListBox>
                           <asp:RequiredFieldValidator ID="ValidarDir" runat="server" ControlToValidate="lstDireccion" 
                              CssClass="failureNotification" ErrorMessage="La selección de la dirección del cliente es obligatoria." ToolTip="La selección de la dirección del cliente es obligatoria." 
                              ValidationGroup="ModificarPedido">*</asp:RequiredFieldValidator>
@@ -110,9 +109,6 @@
                         <asp:Label ID="lblVehiculo" runat="server" Text="Vehiculo zona: "></asp:Label>
                     &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
                         &nbsp;<asp:ListBox ID="lstPlaca" runat="server" AutoPostBack="True" Rows="1">
-                            <asp:ListItem>UZK201</asp:ListItem>
-                            <asp:ListItem>UZK270</asp:ListItem>
-                            <asp:ListItem>XHA940</asp:ListItem>
                         </asp:ListBox>
                     <asp:RequiredFieldValidator ID="ValidarPlaca" runat="server" ControlToValidate="lstPlaca" CssClass="failureNotification" 
                      ErrorMessage="La selección de la placa del vehículo es obligatoria." ToolTip="La selección de la placa del vehículo es obligatoria." 
@@ -120,17 +116,13 @@
                     
                         &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; &nbsp;
                         <asp:Label ID="lblRuta" runat="server"  Text="Ruta: "></asp:Label>
-                        <asp:Label ID="lblRutaAsignada" runat="server"  Text="xxxxx"></asp:Label>
+                        <asp:Label ID="lblRutaAsignada" runat="server" ></asp:Label>
                       </p>
                       <p>
                           <asp:Label ID="lblTamanoCil" runat="server" Text="Tamaño Cilindro:"></asp:Label>
                       &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
                           <asp:ListBox ID="lstTamano" runat="server" Rows="1">
-                              <asp:ListItem>30</asp:ListItem>
-                              <asp:ListItem>40</asp:ListItem>
-                              <asp:ListItem>80</asp:ListItem>
-                              <asp:ListItem>100</asp:ListItem>
-                          </asp:ListBox>
+                                 </asp:ListBox>
                           &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;
                           <asp:Label ID="lblCantidadCilindro" runat="server" Text="Cantidad Cilindros: "></asp:Label>
                           &nbsp;&nbsp;
