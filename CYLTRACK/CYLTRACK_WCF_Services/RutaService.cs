@@ -54,11 +54,25 @@ namespace Unisangil.CYLTRACK.CYLTRACK_WCF_Services
          ///</summary>
          ///<param name="ruta">Objeto de negocio ruta</param>
          ///<returns>Nombre de ruta</returns>
-        public RutaBE ConsultarRuta(string ruta)
+        public RutaBE ConsultarRutaconParametro(string ruta)
         {
             RutaBE resp;
+            RutaBL consultarRutaParametro = new RutaBL();
+            resp = consultarRutaParametro.ConsultarRutaconParametro(ruta);
+            return resp;
+        }
+
+        ///<summary>
+        ///Encargado de recibir una ruta de los canales front de venta y llamar
+        ///al metodo de negocio para consultar ruta
+        ///</summary>
+        ///<param name="ruta">Objeto de negocio ruta</param>
+        ///<returns>Nombre de ruta</returns>
+        public List<RutaBE> ConsultarRuta()
+        {
+            List<RutaBE> resp;
             RutaBL consultarRuta = new RutaBL();
-            resp = consultarRuta.ConsultarRuta(ruta);
+            resp = consultarRuta.ConsultarRuta();
             return resp;
         }
 
@@ -89,5 +103,7 @@ namespace Unisangil.CYLTRACK.CYLTRACK_WCF_Services
             resp = consultarExistencia.ConsultarExistencias(ruta);
             return resp;
         }
+
+        
     }
 }

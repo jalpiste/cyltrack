@@ -85,5 +85,19 @@ namespace Unisangil.CYLTRACK.CYLTRACK_WCF_Services
             resp = ConConductor.ConsultarConductor(consultar_conductor);
             return resp;
         }
+
+        ///<summary>
+        ///Encargado de  llamar
+        ///al metodo de negocio para consultar placas
+        ///</summary>
+        ///<param name="ruta">placa</param>
+        ///<returns>placas de vehiculos</returns>
+        public List<string> ConsultarPlaca(string ciudad)
+        {
+            List<string> resp;
+            VehiculoBL consultarPlacas = new VehiculoBL();
+            resp = consultarPlacas.ConsultarPlacas(ciudad);
+            return resp;
+        }
     }
 }

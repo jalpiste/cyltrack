@@ -36,5 +36,32 @@ namespace Unisangil.CYLTRACK.CYLTRACK_WCF_Services
         [OperationContract]
         List<ReportesBE> Inventario(ReportesBE reporte);
 
+        /// <summary>
+        /// Método encargado de la consulta de ciudades en el sistema. Permite
+        /// que las aplicaciones llamen a los objetos de negocio directamente.
+        /// </summary>
+        /// <param name="ruta">Objeto de negocio ciudad</param> 
+        /// <returns>nombre de ciudades cantidad de cilindros</returns>
+        [OperationContract]
+        List<UbicacionBE> ConsultaReporteCiudades(string ciudad);
+
+        /// <summary>
+        /// Método encargado de la consulta de cilindros en el sistema. Permite
+        /// que las aplicaciones llamen a los objetos de negocio directamente.
+        /// </summary>
+        /// <param name="cilindro">Objeto de negocio cilindro</param>
+        /// <returns>código cilindro</returns>
+        [OperationContract]
+        List<CilindroBE> ReporteCilindro();
+        
+        
+        /// <summary>
+        /// Método encargado de la consulta de placas en el sistema. Permite
+        /// que las aplicaciones llamen a los objetos de negocio directamente.
+        /// </summary>
+        /// <param name="cilindro">Objeto de negocio placas</param>
+        /// <returns>cantidad cilindros por placas</returns>
+        [OperationContract]
+        List<UbicacionBE> ReporteporPlacas();
     }
 }
