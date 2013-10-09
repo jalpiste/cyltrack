@@ -67,7 +67,7 @@ namespace Unisangil.CYLTRACK.CYLTRACK_BE
         /// Cilindro del cliente
         /// </summary>
         [DataMember]
-        public CilindroBE Cilindro { get; set; }
+        public List<CilindroBE> Cilindro { get; set; }
 
         /// <summary>
         /// Vehículo repartidor
@@ -85,7 +85,7 @@ namespace Unisangil.CYLTRACK.CYLTRACK_BE
         /// Detalle de la venta
         /// </summary>
         [DataMember]
-        public Detalle_PedidoBE Detalle_Ped { get; set; }
+        public List<Detalle_PedidoBE> Detalle_Ped { get; set; }
 
         /// <summary>
         /// venta

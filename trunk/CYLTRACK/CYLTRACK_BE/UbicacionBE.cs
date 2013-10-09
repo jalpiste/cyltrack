@@ -42,7 +42,7 @@ namespace Unisangil.CYLTRACK.CYLTRACK_BE
         /// Dirección de nueva de ubicación
         /// </summary>
         [DataMember]
-        public String Direccion { get; set; }
+        public List<string> Direccion { get; set; }
 
         /// <summary>
         /// Teléfono N.1 de nueva de ubicación
