@@ -56,6 +56,14 @@ namespace Unisangil.CYLTRACK.CYLTRACK_WebApp
             Ubicacion = Enum.GetNames(typeof(Ubicacion)).ToList();
             return Ubicacion;
         }
+
+        public static List<string> ConsultarTipoReporte()
+        {
+            List<string> TipoReporte = new List<string>();
+            TipoReporte = Enum.GetNames(typeof(Tipo_Reporte)).ToList();
+            return TipoReporte;
+        }
+
         public static List<string> ConsultaTipoCilindro ()
         {
             List<String> tipoCil = new List<string>();
@@ -133,6 +141,11 @@ namespace Unisangil.CYLTRACK.CYLTRACK_WebApp
     Cil100 = 4,
     
     }
-    
-    
+
+    public enum Tipo_Reporte
+    { 
+        Cilindro=1,
+        Ciudad=2,
+        Vehiculo=3,
+    }
 }
