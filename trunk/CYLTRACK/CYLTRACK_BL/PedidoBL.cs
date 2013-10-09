@@ -39,6 +39,7 @@ namespace Unisangil.CYLTRACK.CYLTRACK_BL
 
             PedidoBE conPedido = new PedidoBE();
             conPedido.Id_Pedido = "0023";
+            conPedido.Fecha = DateTime.Now.AddHours(5);
 
             ClienteBE cliente = new ClienteBE();
             cliente.Cedula = "56235624";
@@ -47,7 +48,12 @@ namespace Unisangil.CYLTRACK.CYLTRACK_BL
             cliente.Apellido_2 = "Sanchez";
 
             UbicacionBE ubicacion = new UbicacionBE();
-            ubicacion.Direccion = "Calle 17 N 10 30";
+            List<string> lstDireccion = new List<string>();
+            for (int i = 0; i < 5; i++)
+            {
+                lstDireccion.Add("Calle"+i+" N "+i+"0 "+i+"0");
+            }
+            ubicacion.Direccion = lstDireccion;
             ubicacion.Barrio = "Centro";
             ubicacion.Telefono_1 = "3143456789";
             cliente.Ubicacion = ubicacion;
@@ -64,14 +70,20 @@ namespace Unisangil.CYLTRACK.CYLTRACK_BL
             Ubicacion_CilindroBE ubi_cil = new Ubicacion_CilindroBE();
             ubicacion.Ubicacion_Cilindro = ubi_cil;
 
-            CilindroBE cilindro = new CilindroBE();
-            cilindro.Codigo_Cilindro = ((DateTime.Now.Hour + DateTime.Now.Second) * ran.Next(1, 10)).ToString();
-            cilindro.Tipo_Cilindro = "Universal";
-            ubi_cil.Cilindro = cilindro;
-
-            TamanoBE tamano = new TamanoBE();
-            tamano.Tamano = "40";
-            cilindro.NTamano = tamano;
+            List<CilindroBE> lstCod = new List<CilindroBE>();
+            
+            for (int i = 0; i < 5; i++)
+            {
+                CilindroBE datCil = new CilindroBE();
+                datCil.Cantidad = 5;
+                datCil.Codigo_Cilindro = ((DateTime.Now.Hour + DateTime.Now.Second) * ran.Next(1, 10)).ToString();
+                datCil.Tipo_Cilindro = "Universal";
+                TamanoBE tam = new TamanoBE();
+                tam.Tamano = "40";
+                datCil.NTamano = tam;
+                lstCod.Add(datCil);
+            }
+           
 
             //-----------------------------
             VehiculoBE veh = new VehiculoBE();
@@ -84,7 +96,7 @@ namespace Unisangil.CYLTRACK.CYLTRACK_BL
             veh.Conductor = cond;
             ubicacion.Vehiculo = veh;
 
-            conPedido.Cilindro = cilindro;
+            conPedido.Cilindro = lstCod;
             conPedido.Ciudad = ciu_cli;
             conPedido.Ubicacion = ubicacion;
             conPedido.Vehiculo = veh;

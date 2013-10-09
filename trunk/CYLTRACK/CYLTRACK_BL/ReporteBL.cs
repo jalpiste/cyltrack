@@ -85,6 +85,84 @@ namespace Unisangil.CYLTRACK.CYLTRACK_BL
             return resp;
         }
 
+        public List<UbicacionBE> ConsultaReporteCiudades(string ciudad)
+        {
+            List<UbicacionBE> lstCiudades = new List<UbicacionBE>();
+            for (int i = 0; i < 4; i++)
+            {
+                UbicacionBE ubicacion = new UbicacionBE();
+                CiudadBE ciu = new CiudadBE();
+                ciu.Nombre_Ciudad = "Chiquinquirá";
+                DepartamentoBE dep = new DepartamentoBE();
+                dep.Nombre_Departamento = "Boyacá";
+                ciu.Departamento = dep;
+                ubicacion.Ciudad = ciu;
+                Ubicacion_CilindroBE ubiCil = new Ubicacion_CilindroBE();
+                CilindroBE cilindro = new CilindroBE();
+                TamanoBE tam = new TamanoBE();
+                tam.Tamano = "30";
+                cilindro.NTamano = tam;
+                cilindro.Cantidad = 34;
+                ubiCil.Cilindro = cilindro;
+                ubicacion.Ubicacion_Cilindro = ubiCil;
+                lstCiudades.Add(ubicacion);
+            }
+            return lstCiudades;
+        }
+
+        public List<CilindroBE> ReporteCilindros()
+        {
+            List<CilindroBE> lstCilindros = new List<CilindroBE>();
+            Random ran = new Random();
+
+            for (int i = 0; i < 7;i++ ) { 
+            CilindroBE cil = new CilindroBE();
+            cil.Ano = "2012";
+            FabricanteBE fab = new FabricanteBE();
+            fab.Nombre_Fabricante = "Cilgas";
+            cil.Fabricante = fab;
+            cil.Serial_Cilindro = "51954";
+            Tipo_UbicacionBE tipoUbi = new Tipo_UbicacionBE();
+            tipoUbi.Nombre_Ubicacion = "Cliente";
+            TamanoBE tam = new TamanoBE();
+            tam.Tamano = "30";
+            cil.NTamano = tam;
+            cil.Tipo_Cilindro = "Universal";
+            cil.Codigo_Cilindro = ((DateTime.Now.Hour + DateTime.Now.Second) * ran.Next(1, 10)).ToString();
+            cil.Fecha = Convert.ToDateTime(DateTime.Now.ToShortDateString());
+            //--------------------------------
+            lstCilindros.Add(cil);
+            }
+            return lstCilindros;
+        }
+
+        public List<UbicacionBE> ReporteporPlacas()
+        {
+            List<UbicacionBE> lstConsultaPlacas = new List<UbicacionBE>();
+
+            List<string> lstPlacas = new List<string>();
+            string[] letras = new string[] { "A", "R", "J", "L", "P", "V" };
+            Random ran = new Random();
+
+             for (int i = 0; i < 4; i++)
+            {
+                UbicacionBE ubicacion = new UbicacionBE();
+                VehiculoBE vehiculo= new VehiculoBE();
+                vehiculo.Placa = letras[i] + "" + letras[i] + "" + letras[i] + "" + ((DateTime.Now.Hour + DateTime.Now.Second) * ran.Next(1, 10)).ToString();
+                ubicacion.Vehiculo = vehiculo;
+                Ubicacion_CilindroBE ubiCil = new Ubicacion_CilindroBE();
+                CilindroBE cilindro = new CilindroBE();
+                TamanoBE tam = new TamanoBE();
+                tam.Tamano = "30";
+                cilindro.NTamano = tam;
+                cilindro.Cantidad = 34;
+                ubiCil.Cilindro = cilindro;
+                ubicacion.Ubicacion_Cilindro = ubiCil;
+                lstConsultaPlacas.Add(ubicacion);
+            }
+            return lstConsultaPlacas;
+            
+        }
         #endregion
         #region Metodos privados
         #endregion
