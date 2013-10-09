@@ -6,6 +6,7 @@ using System.Web.UI;
 using System.Web.UI.WebControls;
 using Unisangil.CYLTRACK.CYLTRACK_BE;
 using CYLTRACK_WebApp.VehiculoService;
+using CYLTRACK_WebApp.RutaService;
 using System.Windows.Forms;
 
 
@@ -26,6 +27,7 @@ namespace Unisangil.CYLTRACK.CYLTRACK_WebApp.Vehiculos
         protected void txtPlaca_TextChanged(object sender, EventArgs e)
         {
             VehiculoServiceClient servVehiculo = new VehiculoServiceClient();
+            RutaServicesClient servRuta = new RutaServicesClient();
             VehiculoBE consultar_vehiculo = new VehiculoBE();
             string resp;
             
@@ -62,6 +64,11 @@ namespace Unisangil.CYLTRACK.CYLTRACK_WebApp.Vehiculos
                         txtSegundoApellidoCond.Text = consulta.Conductor_Vehiculo.Conductor.Apellido_2;
           
                         txtRuta.Text = consulta.Ruta.Nombre_Ruta;
+                        List<RutaBE> lstRutas = new List<RutaBE>(servRuta.ConsultarRuta());
+                        foreach (RutaBE datos in lstRutas)
+                        {
+                            lstRuta.Items.Add(datos.Nombre_Ruta);
+                        }
                         
                         DivDatosVehiculo.Visible = true;
                         DivPropietario.Visible = true;
@@ -83,25 +90,7 @@ namespace Unisangil.CYLTRACK.CYLTRACK_WebApp.Vehiculos
             }
         }
 
-        //protected void btnModificar_Click(object sender, EventArgs e)
-        //{
-        //    txtIdVehiculo.Enabled = true;
-        //    txtMarca.Enabled = true;
-        //    txtCilindraje.Enabled = true;
-        //    txtModelo.Enabled = true;
-        //    txtMotor.Enabled = true;
-        //    txtChasis.Enabled = true;
-        //    txtCedula.Enabled = true;
-        //    txtRuta.Visible = false;
-        //    lstRuta.Visible = true;
-        //    lblPost.Text = "Asignación de Ruta";
-        //    lblPoster2.Text = "Asignación de Conductor";
-        //    txtNombre.Enabled = true;
-        //    txtPrimerApellido.Enabled = true;
-        //    txtSegundoApellido.Enabled = true;
-        //    txtCedulaCond.Enabled = true;
-        //}
-
+     
         protected void btnGuardar_Click(object sender, EventArgs e)
         {
             VehiculoServiceClient servVehiculo = new VehiculoServiceClient();

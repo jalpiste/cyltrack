@@ -168,7 +168,7 @@
                     ValidationGroup="ValidarCedula" Font-Size = "Small" Display="Dynamic" ></asp:RegularExpressionValidator>
                     <br />
                      <h3>
-                    <asp:Label ID="lblImprimirCedula" runat="server" Text="xxxxxxxxxxxxx" ></asp:Label>
+                    <asp:Label ID="lblImprimirCedula" runat="server" ></asp:Label>
                     </h3>
                     <br />
                     <asp:Label ID="lblNombreCond" runat="server" Text="Nombre " ></asp:Label>
@@ -194,8 +194,7 @@
                  <br />            
                  <asp:ListBox ID="lstRuta" runat="server" AutoPostBack="True" Rows="1" 
                          visible="true" onselectedindexchanged="lstRuta_SelectedIndexChanged">
-                            <asp:ListItem></asp:ListItem>
-                            <asp:ListItem>Chiquinquirá</asp:ListItem>
+                                                    
                      </asp:ListBox>
                  
                  <br />
