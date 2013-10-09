@@ -80,8 +80,10 @@ namespace Unisangil.CYLTRACK.CYLTRACK_WebApp.Ventas
                 ped.Id_Pedido = TxtNumPedido.Text;
                 
                 cli.Pedido = ped;
-                UbicacionBE ubi = new UbicacionBE();
-                ubi.Direccion = lstDireccion.SelectedValue;
+                UbicacionBE ubi = new UbicacionBE(); 
+                List<string> lstDatoDireccion = new List<string>();
+                lstDatoDireccion.Add(lstDireccion.SelectedValue);
+                ubi.Direccion = lstDatoDireccion;
                 cli.Ubicacion = ubi;
                 foreach (VentaBE datos in lstCodigos)
                 {
@@ -136,7 +138,10 @@ namespace Unisangil.CYLTRACK.CYLTRACK_WebApp.Ventas
                     txtNombreCliente.Text = cliente.Nombres_Cliente;
                     txtPrimerApellido.Text = cliente.Apellido_1;
                     txtSegundoApellido.Text = cliente.Apellido_2;
-                    lstDireccion.Items.Add(cliente.Ubicacion.Direccion);
+                    foreach (string datos in cliente.Ubicacion.Direccion)
+                    {
+                        lstDireccion.Items.Add(datos);
+                    } 
                     txtBarrio.Text = cliente.Ubicacion.Barrio;
                     txtTelefono.Text = cliente.Ubicacion.Telefono_1;
                     txtCiudad.Text = cliente.Ubicacion.Ciudad.Nombre_Ciudad;
@@ -184,12 +189,18 @@ namespace Unisangil.CYLTRACK.CYLTRACK_WebApp.Ventas
                     txtNombreCliente.Text = datosPedido.Cliente.Nombres_Cliente;
                     txtPrimerApellido.Text = datosPedido.Cliente.Apellido_1;
                     txtSegundoApellido.Text = datosPedido.Cliente.Apellido_2;
-                    lstDireccion.Items.Add(datosPedido.Ubicacion.Direccion);
-                    txtBarrio.Text = datosPedido.Ubicacion.Barrio;
+                    foreach (string datos in datosPedido.Ubicacion.Direccion)
+                    {
+                        lstDireccion.Items.Add(datos);
+                    } txtBarrio.Text = datosPedido.Ubicacion.Barrio;
                     txtTelefono.Text = datosPedido.Ubicacion.Telefono_1;
                     txtCiudad.Text = datosPedido.Ciudad.Nombre_Ciudad;
                     txtDepartamento.Text = datosPedido.Ciudad.Departamento.Nombre_Departamento;
-                    table.Rows.Add(datosPedido.Cilindro.Codigo_Cilindro, datosPedido.Cilindro.NTamano.Tamano, datosPedido.Cilindro.Tipo_Cilindro);
+                    foreach (CilindroBE datos in datosPedido.Cilindro)
+                    {
+                        table.Rows.Add(datos.Codigo_Cilindro, datos.NTamano.Tamano, datos.Tipo_Cilindro);
+                   
+                    }
                     gdCilindrosCli.DataSource = table;
                     gdCilindrosCli.DataBind();
                 }

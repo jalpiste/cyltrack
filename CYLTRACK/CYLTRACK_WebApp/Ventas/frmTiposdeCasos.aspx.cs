@@ -26,7 +26,10 @@ namespace Unisangil.CYLTRACK.CYLTRACK_WebApp.Ventas
                     txtNombreCliente.Text=consulta.Venta.Cliente.Nombres_Cliente;
                     txtPrimerApellido.Text = consulta.Venta.Cliente.Apellido_1;
                     txtSegundoApellido.Text = consulta.Venta.Cliente.Apellido_2;
-                    txtDireccion.Text = consulta.Venta.Cliente.Ubicacion.Direccion;
+                    foreach (string datos in consulta.Venta.Cliente.Ubicacion.Direccion)
+                    {
+                        txtDireccion.Text= datos;
+                    } 
                     txtBarrio.Text = consulta.Venta.Cliente.Ubicacion.Barrio;
                     txtCiudad.Text = consulta.Venta.Cliente.Ubicacion.Ciudad.Nombre_Ciudad;
                     txtDepartamento.Text = consulta.Venta.Cliente.Ubicacion.Ciudad.Departamento.Nombre_Departamento;
