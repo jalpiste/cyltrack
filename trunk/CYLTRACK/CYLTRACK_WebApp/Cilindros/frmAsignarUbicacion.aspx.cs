@@ -107,7 +107,7 @@ namespace Unisangil.CYLTRACK.CYLTRACK_WebApp.Cilindros
                 UbicacionBE ubi = new UbicacionBE();
                 ubi.Tipo_Ubicacion = tipUbi;
                 VehiculoBE veh = new VehiculoBE();
-                veh.Placa= lstPlacaVehiculo.SelectedValue;
+                veh.Placa= (lstPlacaVehiculo.SelectedValue);
                 ubi.Vehiculo = veh;
                 cilindro.Ubicacion = ubi;
                 resp = servAsig.AsignarUbicacion(cilindro);

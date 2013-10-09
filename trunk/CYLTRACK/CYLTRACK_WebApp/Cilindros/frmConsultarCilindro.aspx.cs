@@ -63,7 +63,10 @@ namespace Unisangil.CYLTRACK.CYLTRACK_WebApp.Cilindros
                             TxtNombreCliente.Text = respConsultaCilindro.Ubicacion.Cliente.Nombres_Cliente;
                             TxtPrimerApellido.Text = respConsultaCilindro.Ubicacion.Cliente.Apellido_1;
                             TxtSegundoApellido.Text = respConsultaCilindro.Ubicacion.Cliente.Apellido_2;
-                            TxtDireccion.Text = respConsultaCilindro.Ubicacion.Direccion;
+                            foreach (string datos in respConsultaCilindro.Ubicacion.Direccion)
+                            {
+                                TxtDireccion.Text = datos;
+                            } 
                             TxtBarrio.Text = respConsultaCilindro.Ubicacion.Barrio;
                             TxtCiudad.Text = respConsultaCilindro.Ubicacion.Ciudad.Nombre_Ciudad;
                             TxtDepartamento.Text = respConsultaCilindro.Ubicacion.Ciudad.Departamento.Nombre_Departamento;
