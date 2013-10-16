@@ -56,26 +56,6 @@ namespace Unisangil.CYLTRACK.CYLTRACK_BL
              return rutaConsulta;
         }
 
-        public List<RutaBE> ConsultarRuta()
-        {
-            List<RutaBE> rutaConsulta = new List<RutaBE>();
-            RutaBE ruta = new RutaBE();
-            CiudadBE ciu = new CiudadBE();
-            ciu.Nombre_Ciudad = "Chiquinquirá";
-            ruta.Ciudad = ciu;
-            DepartamentoBE dep = new DepartamentoBE();
-            dep.Nombre_Departamento = "Boyacá";
-            ciu.Departamento = dep;
-            Ciudad_RutaBE ciuRuta = new Ciudad_RutaBE();
-            List<CiudadBE> lstCiudades = new List<CiudadBE>();
-            lstCiudades.Add(ciu);
-            ciuRuta.Ciudad = lstCiudades;
-            ruta.Nombre_Ruta = "Zona Occidente";
-            ruta.Ciudad_Ruta = ciuRuta;
-            rutaConsulta.Add(ruta);
-
-            return rutaConsulta;
-        }
         public List<CiudadBE> ConsultaDepartamentoyCiudades()
         {
            List<CiudadBE> lstCiudades = new List<CiudadBE>();
@@ -91,6 +71,7 @@ namespace Unisangil.CYLTRACK.CYLTRACK_BL
             return lstCiudades;
         }
         
+
         #endregion
         #region Metodos privados
         #endregion
