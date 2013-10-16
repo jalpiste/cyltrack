@@ -198,6 +198,7 @@
                      </asp:ListBox>
                  
                  <br />
+                 <br />
                      <asp:Label ID="lblRuta" runat="server" Text="Ruta: " ></asp:Label>
                      <br />
                      <asp:TextBox ID="txtRuta" runat="server" CssClass= "textEntry" Width="160px" Visible="true" Enabled = "false"></asp:TextBox>

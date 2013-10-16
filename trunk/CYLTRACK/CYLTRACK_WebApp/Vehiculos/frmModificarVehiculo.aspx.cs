@@ -7,6 +7,7 @@ using System.Web.UI.WebControls;
 using Unisangil.CYLTRACK.CYLTRACK_BE;
 using CYLTRACK_WebApp.VehiculoService;
 using CYLTRACK_WebApp.RutaService;
+using CYLTRACK_WebApp.ReporteService;
 using System.Windows.Forms;
 
 
@@ -27,7 +28,7 @@ namespace Unisangil.CYLTRACK.CYLTRACK_WebApp.Vehiculos
         protected void txtPlaca_TextChanged(object sender, EventArgs e)
         {
             VehiculoServiceClient servVehiculo = new VehiculoServiceClient();
-            RutaServicesClient servRuta = new RutaServicesClient();
+            ReporteServiceClient servReportes = new ReporteServiceClient();
             VehiculoBE consultar_vehiculo = new VehiculoBE();
             string resp;
             
@@ -64,7 +65,7 @@ namespace Unisangil.CYLTRACK.CYLTRACK_WebApp.Vehiculos
                         txtSegundoApellidoCond.Text = consulta.Conductor_Vehiculo.Conductor.Apellido_2;
           
                         txtRuta.Text = consulta.Ruta.Nombre_Ruta;
-                        List<RutaBE> lstRutas = new List<RutaBE>(servRuta.ConsultarRuta());
+                        List<RutaBE> lstRutas = new List<RutaBE>(servReportes.ConsultarRuta());
                         foreach (RutaBE datos in lstRutas)
                         {
                             lstRuta.Items.Add(datos.Nombre_Ruta);
