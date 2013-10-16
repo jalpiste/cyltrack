@@ -71,7 +71,20 @@
                              CssClass="failureNotification" ErrorMessage="El tipo de reporte es obligatorio" ToolTip="El tipo de reporte es obligatorio" 
                              ValidationGroup="ValidarBusqueda">*</asp:RequiredFieldValidator>
         <br />
-        <br />
+        
+        <div id="divTipoCil" runat="server" >
+        <h3>
+         <asp:Label ID="lblTipoCil" runat="server" Text="Tipo de Cilindro:"></asp:Label>
+         </h3>
+            <asp:ListBox ID="lstTipoCil" runat="server" AutoPostBack="True" Rows="1">
+            <asp:ListItem>Seleccionar...</asp:ListItem>
+        </asp:ListBox>
+                         <asp:RequiredFieldValidator ID="RequiredTipoCil" runat="server" ControlToValidate="lstTipoCil" 
+                             CssClass="failureNotification" ErrorMessage="El tipo de cilindro es obligatorio" ToolTip="El tipo de cilindro es obligatorio" 
+                             ValidationGroup="ValidarBusqueda">*</asp:RequiredFieldValidator>
+        </div>
+           <br />
+        
         <div id="divCiudad" runat="server" visible="false">
         <asp:Label ID="lblDepartamento" runat="server" Text="Departamento: " ></asp:Label>
         &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;

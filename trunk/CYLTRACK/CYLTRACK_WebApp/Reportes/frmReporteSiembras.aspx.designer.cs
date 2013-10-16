@@ -175,6 +175,42 @@ namespace Unisangil.CYLTRACK.CYLTRACK_WebApp.Reporte {
         protected global::System.Web.UI.WebControls.RequiredFieldValidator requeridolstReportes;
         
         /// <summary>
+        /// Control divTipoCil.
+        /// </summary>
+        /// <remarks>
+        /// Campo generado automáticamente.
+        /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
+        /// </remarks>
+        protected global::System.Web.UI.HtmlControls.HtmlGenericControl divTipoCil;
+        
+        /// <summary>
+        /// Control lblTipoCil.
+        /// </summary>
+        /// <remarks>
+        /// Campo generado automáticamente.
+        /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Label lblTipoCil;
+        
+        /// <summary>
+        /// Control lstTipoCil.
+        /// </summary>
+        /// <remarks>
+        /// Campo generado automáticamente.
+        /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.ListBox lstTipoCil;
+        
+        /// <summary>
+        /// Control RequiredTipoCil.
+        /// </summary>
+        /// <remarks>
+        /// Campo generado automáticamente.
+        /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.RequiredFieldValidator RequiredTipoCil;
+        
+        /// <summary>
         /// Control divCiudad.
         /// </summary>
         /// <remarks>

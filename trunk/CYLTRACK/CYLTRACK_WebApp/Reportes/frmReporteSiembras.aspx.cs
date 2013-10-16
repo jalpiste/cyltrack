@@ -19,14 +19,21 @@ namespace Unisangil.CYLTRACK.CYLTRACK_WebApp.Reporte
     {
         protected void Page_Load(object sender, EventArgs e)
         {
-            if (!IsPostBack)
+            if(!IsPostBack)
             {
-                List<string> listaTipoReporte = Auxiliar.ConsultarTipoReporte();
-                foreach (string datos in listaTipoReporte)
+                List<string> listaUbica = Auxiliar.ConsultarTipoReporte();
+                IEnumerable<string> listaUbicacion = listaUbica.Skip(5);
+                foreach (string datosUbica in listaUbicacion)
                 {
-                    lstReportes.Items.Add(datos);
+                    lstReportes.Items.Add(datosUbica.ToString());
                 }
-            
+
+                List<string> listaTipoCil = Auxiliar.ConsultaTipoCilindro();
+                foreach (string datosCil in listaTipoCil)
+                {
+                    lstTipoCil.Items.Add(datosCil.ToString());
+                } 
+
                 RutaServicesClient servRuta = new RutaServicesClient();
                 try
                 {
@@ -57,8 +64,7 @@ namespace Unisangil.CYLTRACK.CYLTRACK_WebApp.Reporte
             {
                 if (lstReportes.SelectedValue == Tipo_Reporte.Ciudad.ToString())
                 {
-                    string ciudadSelec = lstCiudad.SelectedValue;
-                    List<UbicacionBE> lstReporteporCiudades = new List<UbicacionBE>(servReporte.ConsultaReporteCiudades(ciudadSelec));
+                    List<UbicacionBE> lstReporteporCiudades = new List<UbicacionBE>(servReporte.ConsultaReporteCiudades(lstCiudad.SelectedValue, lstTipoCil.SelectedValue));
                     table.Columns.Add("CiudadSiembra");
                     table.Columns.Add("Cil30");
                     table.Columns.Add("Cil40");
@@ -76,9 +82,9 @@ namespace Unisangil.CYLTRACK.CYLTRACK_WebApp.Reporte
                     DivReporte.Visible = true;
                 }
                 
-                if (lstReportes.SelectedValue == Tipo_Reporte.Vehiculo.ToString())
+                if (lstReportes.SelectedValue == Tipo_Reporte.Vehiculos.ToString())
                 {
-                    List<UbicacionBE> lstReporteporPlacas = new List<UbicacionBE>(servReporte.ReporteporPlacas());
+                    List<UbicacionBE> lstReporteporPlacas = new List<UbicacionBE>(servReporte.ReporteporPlacas(lstTipoCil.SelectedValue));
                     table.Columns.Add("Placa");
                     table.Columns.Add("Cil30");
                     table.Columns.Add("Cil40");
@@ -96,9 +102,9 @@ namespace Unisangil.CYLTRACK.CYLTRACK_WebApp.Reporte
                     DivReporte.Visible = true;
                 }
                 
-                if (lstReportes.SelectedValue == Tipo_Reporte.Cilindro.ToString())
+                if (lstReportes.SelectedValue == Tipo_Reporte.Cilindros.ToString())
                 {
-                    List<CilindroBE> lstReporteporCilindro = new List<CilindroBE>(servReporte.ReporteCilindro());
+                    List<CilindroBE> lstReporteporCilindro = new List<CilindroBE>(servReporte.ReporteCilindro(lstTipoCil.SelectedValue));
 
                     table.Columns.Add("Cantidad");
                     table.Columns.Add("Tamano");
