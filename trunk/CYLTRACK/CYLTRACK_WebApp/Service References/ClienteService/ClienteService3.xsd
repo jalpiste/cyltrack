@@ -1,0 +1,74 @@
+<?xml version="1.0" encoding="utf-8"?>
+<xs:schema xmlns:tns="http://servicios.cyltrack.com.co/cyltrack/" elementFormDefault="qualified" targetNamespace="http://servicios.cyltrack.com.co/cyltrack/" xmlns:xs="http://www.w3.org/2001/XMLSchema">
+  <xs:import schemaLocation="http://localhost:3816/CYLTRACK_Services/ClienteService.svc?xsd=xsd2" namespace="http://schemas.datacontract.org/2004/07/Unisangil.CYLTRACK.CYLTRACK_BE" />
+  <xs:element name="Registrar_Cliente">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q1="http://schemas.datacontract.org/2004/07/Unisangil.CYLTRACK.CYLTRACK_BE" minOccurs="0" name="cliente" nillable="true" type="q1:ClienteBE" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="Registrar_ClienteResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="Registrar_ClienteResult" nillable="true" type="xs:string" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="Agregar_Ubicacion">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q2="http://schemas.datacontract.org/2004/07/Unisangil.CYLTRACK.CYLTRACK_BE" minOccurs="0" name="ubicacion" nillable="true" type="q2:ClienteBE" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="Agregar_UbicacionResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="Agregar_UbicacionResult" nillable="true" type="xs:string" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="Consultar_Cliente">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="cliente" nillable="true" type="xs:string" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="Consultar_ClienteResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q3="http://schemas.datacontract.org/2004/07/Unisangil.CYLTRACK.CYLTRACK_BE" minOccurs="0" name="Consultar_ClienteResult" nillable="true" type="q3:ClienteBE" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="Consultar_Existencia">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="consultar_existencia" nillable="true" type="xs:string" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="Consultar_ExistenciaResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="Consultar_ExistenciaResult" nillable="true" type="xs:string" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="Modificar_Cliente">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="cliente" nillable="true" type="xs:string" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="Modificar_ClienteResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="Modificar_ClienteResult" nillable="true" type="xs:string" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+</xs:schema>

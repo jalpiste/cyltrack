@@ -9,9 +9,10 @@
   </wsp:Policy>
   <wsdl:types>
     <xsd:schema targetNamespace="http://servicios.cyltrack.com.co/cyltrack/Imports">
-      <xsd:import schemaLocation="http://localhost:51651/CYLTRACK_Services/ClienteService.svc?xsd=xsd0" namespace="http://servicios.cyltrack.com.co/cyltrack/" />
-      <xsd:import schemaLocation="http://localhost:51651/CYLTRACK_Services/ClienteService.svc?xsd=xsd1" namespace="http://schemas.microsoft.com/2003/10/Serialization/" />
-      <xsd:import schemaLocation="http://localhost:51651/CYLTRACK_Services/ClienteService.svc?xsd=xsd2" namespace="http://schemas.datacontract.org/2004/07/Unisangil.CYLTRACK.CYLTRACK_BE" />
+      <xsd:import schemaLocation="http://localhost:3816/CYLTRACK_Services/ClienteService.svc?xsd=xsd0" namespace="http://servicios.cyltrack.com.co/cyltrack/" />
+      <xsd:import schemaLocation="http://localhost:3816/CYLTRACK_Services/ClienteService.svc?xsd=xsd1" namespace="http://schemas.microsoft.com/2003/10/Serialization/" />
+      <xsd:import schemaLocation="http://localhost:3816/CYLTRACK_Services/ClienteService.svc?xsd=xsd2" namespace="http://schemas.datacontract.org/2004/07/Unisangil.CYLTRACK.CYLTRACK_BE" />
+      <xsd:import schemaLocation="http://localhost:3816/CYLTRACK_Services/ClienteService.svc?xsd=xsd3" namespace="http://schemas.microsoft.com/2003/10/Serialization/Arrays" />
     </xsd:schema>
   </wsdl:types>
   <wsdl:message name="IClienteService_Registrar_Cliente_InputMessage">
@@ -32,6 +33,12 @@
   <wsdl:message name="IClienteService_Consultar_Cliente_OutputMessage">
     <wsdl:part name="parameters" element="tns:Consultar_ClienteResponse" />
   </wsdl:message>
+  <wsdl:message name="IClienteService_Consultar_Existencia_InputMessage">
+    <wsdl:part name="parameters" element="tns:Consultar_Existencia" />
+  </wsdl:message>
+  <wsdl:message name="IClienteService_Consultar_Existencia_OutputMessage">
+    <wsdl:part name="parameters" element="tns:Consultar_ExistenciaResponse" />
+  </wsdl:message>
   <wsdl:message name="IClienteService_Modificar_Cliente_InputMessage">
     <wsdl:part name="parameters" element="tns:Modificar_Cliente" />
   </wsdl:message>
@@ -50,6 +57,10 @@
     <wsdl:operation name="Consultar_Cliente">
       <wsdl:input wsaw:Action="http://servicios.cyltrack.com.co/cyltrack/IClienteService/Consultar_Cliente" message="tns:IClienteService_Consultar_Cliente_InputMessage" />
       <wsdl:output wsaw:Action="http://servicios.cyltrack.com.co/cyltrack/IClienteService/Consultar_ClienteResponse" message="tns:IClienteService_Consultar_Cliente_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="Consultar_Existencia">
+      <wsdl:input wsaw:Action="http://servicios.cyltrack.com.co/cyltrack/IClienteService/Consultar_Existencia" message="tns:IClienteService_Consultar_Existencia_InputMessage" />
+      <wsdl:output wsaw:Action="http://servicios.cyltrack.com.co/cyltrack/IClienteService/Consultar_ExistenciaResponse" message="tns:IClienteService_Consultar_Existencia_OutputMessage" />
     </wsdl:operation>
     <wsdl:operation name="Modificar_Cliente">
       <wsdl:input wsaw:Action="http://servicios.cyltrack.com.co/cyltrack/IClienteService/Modificar_Cliente" message="tns:IClienteService_Modificar_Cliente_InputMessage" />
@@ -86,6 +97,15 @@
         <soap:body use="literal" />
       </wsdl:output>
     </wsdl:operation>
+    <wsdl:operation name="Consultar_Existencia">
+      <soap:operation soapAction="http://servicios.cyltrack.com.co/cyltrack/IClienteService/Consultar_Existencia" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
     <wsdl:operation name="Modificar_Cliente">
       <soap:operation soapAction="http://servicios.cyltrack.com.co/cyltrack/IClienteService/Modificar_Cliente" style="document" />
       <wsdl:input>
@@ -98,7 +118,7 @@
   </wsdl:binding>
   <wsdl:service name="ClienteService">
     <wsdl:port name="BasicHttpBinding_IClienteService" binding="tns:BasicHttpBinding_IClienteService">
-      <soap:address location="http://localhost:51651/CYLTRACK_Services/ClienteService.svc" />
+      <soap:address location="http://localhost:3816/CYLTRACK_Services/ClienteService.svc" />
     </wsdl:port>
   </wsdl:service>
 </wsdl:definitions>
