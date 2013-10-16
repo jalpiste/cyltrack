@@ -27,6 +27,12 @@ namespace Unisangil.CYLTRACK.CYLTRACK_BE
         public String Nombre_Ruta { get; set; }
 
         /// <summary>
+        /// Identificador de la ruta 
+        /// </summary>
+        [DataMember]
+        public String Id_Ruta { get; set; }
+
+        /// <summary>
         /// Ruta vehiculo
         /// </summary>
         [DataMember]
