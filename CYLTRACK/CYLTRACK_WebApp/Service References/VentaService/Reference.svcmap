@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
-<ReferenceGroup xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema" ID="ecd05f46-ca0f-4e1f-9ee8-0b3517567d2d" xmlns="urn:schemas-microsoft-com:xml-wcfservicemap">
+<ReferenceGroup xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema" ID="6c8a7c1f-a07b-4d1f-8e85-956c443aff9f" xmlns="urn:schemas-microsoft-com:xml-wcfservicemap">
   <ClientOptions>
     <GenerateAsynchronousMethods>false</GenerateAsynchronousMethods>
     <EnableDataBinding>true</EnableDataBinding>
@@ -18,14 +18,15 @@
     <ServiceContractMappings />
   </ClientOptions>
   <MetadataSources>
-    <MetadataSource Address="http://localhost:51651/CYLTRACK_Services/VentaService.svc" Protocol="http" SourceId="1" />
+    <MetadataSource Address="http://localhost:3816/CYLTRACK_Services/VentaService.svc" Protocol="http" SourceId="1" />
   </MetadataSources>
   <Metadata>
-    <MetadataFile FileName="VentaService2.xsd" MetadataType="Schema" ID="fb2af5bf-b4cd-415f-b7ee-3a62e2a9046c" SourceId="1" SourceUrl="http://localhost:51651/CYLTRACK_Services/VentaService.svc?xsd=xsd1" />
-    <MetadataFile FileName="VentaService.disco" MetadataType="Disco" ID="bcfd6c78-899c-4a99-80ec-67ca18d6bda0" SourceId="1" SourceUrl="http://localhost:51651/CYLTRACK_Services/VentaService.svc?disco" />
-    <MetadataFile FileName="VentaService1.xsd" MetadataType="Schema" ID="a5e92598-2f37-4dcc-84ea-4f805f5d2e61" SourceId="1" SourceUrl="http://localhost:51651/CYLTRACK_Services/VentaService.svc?xsd=xsd0" />
-    <MetadataFile FileName="VentaService.wsdl" MetadataType="Wsdl" ID="2f47681c-76b9-4ca2-8643-1e0389090fe2" SourceId="1" SourceUrl="http://localhost:51651/CYLTRACK_Services/VentaService.svc?wsdl" />
-    <MetadataFile FileName="VentaService.xsd" MetadataType="Schema" ID="185835f7-4e16-493e-969d-88ce61b80271" SourceId="1" SourceUrl="http://localhost:51651/CYLTRACK_Services/VentaService.svc?xsd=xsd2" />
+    <MetadataFile FileName="VentaService.xsd" MetadataType="Schema" ID="d392dba5-6366-4d7c-bec3-218742b69fce" SourceId="1" SourceUrl="http://localhost:3816/CYLTRACK_Services/VentaService.svc?xsd=xsd3" />
+    <MetadataFile FileName="VentaService1.xsd" MetadataType="Schema" ID="b2c23666-e62e-4f59-883d-09081619b5b8" SourceId="1" SourceUrl="http://localhost:3816/CYLTRACK_Services/VentaService.svc?xsd=xsd0" />
+    <MetadataFile FileName="VentaService.wsdl" MetadataType="Wsdl" ID="58ce109f-6611-469b-aba2-17ca84a1abd2" SourceId="1" SourceUrl="http://localhost:3816/CYLTRACK_Services/VentaService.svc?wsdl" />
+    <MetadataFile FileName="VentaService.disco" MetadataType="Disco" ID="ed17543d-4e89-4517-b2f3-6c1637ec3e0e" SourceId="1" SourceUrl="http://localhost:3816/CYLTRACK_Services/VentaService.svc?disco" />
+    <MetadataFile FileName="VentaService2.xsd" MetadataType="Schema" ID="42fd359f-ad38-4e34-9a11-1f21e77c50c4" SourceId="1" SourceUrl="http://localhost:3816/CYLTRACK_Services/VentaService.svc?xsd=xsd1" />
+    <MetadataFile FileName="VentaService3.xsd" MetadataType="Schema" ID="1c5a2cd9-0f9e-4796-b8fc-3911e9bd5711" SourceId="1" SourceUrl="http://localhost:3816/CYLTRACK_Services/VentaService.svc?xsd=xsd2" />
   </Metadata>
   <Extensions>
     <ExtensionFile FileName="configuration91.svcinfo" Name="configuration91.svcinfo" />

@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
-<SavedWcfConfigurationInformation xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema" Version="9.1" CheckSum="MRO6G+Li5pTfAD4Z4lteQD+IUIM=">
+<SavedWcfConfigurationInformation xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema" Version="9.1" CheckSum="+w87NYM5/Syu8bRtF/gWyJdxMp0=">
   <bindingConfigurations>
     <bindingConfiguration bindingType="basicHttpBinding" name="BasicHttpBinding_IClienteService">
       <properties>
@@ -112,10 +112,10 @@
     </bindingConfiguration>
   </bindingConfigurations>
   <endpoints>
-    <endpoint name="BasicHttpBinding_IClienteService" contract="ClienteService.IClienteService" bindingType="basicHttpBinding" address="http://localhost:51651/CYLTRACK_Services/ClienteService.svc" bindingConfiguration="BasicHttpBinding_IClienteService">
+    <endpoint name="BasicHttpBinding_IClienteService" contract="ClienteService.IClienteService" bindingType="basicHttpBinding" address="http://localhost:3816/CYLTRACK_Services/ClienteService.svc" bindingConfiguration="BasicHttpBinding_IClienteService">
       <properties>
         <property path="/address" isComplexType="false" isExplicitlyDefined="true" clrType="System.Uri, System, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
-          <serializedValue>http://localhost:51651/CYLTRACK_Services/ClienteService.svc</serializedValue>
+          <serializedValue>http://localhost:3816/CYLTRACK_Services/ClienteService.svc</serializedValue>
         </property>
         <property path="/behaviorConfiguration" isComplexType="false" isExplicitlyDefined="false" clrType="System.String, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
           <serializedValue />

@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <xs:schema xmlns:tns="http://servicios.cyltrack.com.co/cyltrack/" elementFormDefault="qualified" targetNamespace="http://servicios.cyltrack.com.co/cyltrack/" xmlns:xs="http://www.w3.org/2001/XMLSchema">
-  <xs:import schemaLocation="http://localhost:51651/CYLTRACK_Services/CilindroService.svc?xsd=xsd2" namespace="http://schemas.datacontract.org/2004/07/Unisangil.CYLTRACK.CYLTRACK_BE" />
+  <xs:import schemaLocation="http://localhost:3816/CYLTRACK_Services/CilindroService.svc?xsd=xsd2" namespace="http://schemas.datacontract.org/2004/07/Unisangil.CYLTRACK.CYLTRACK_BE" />
   <xs:element name="RegistrarCilindro">
     <xs:complexType>
       <xs:sequence>
@@ -17,13 +17,15 @@
   </xs:element>
   <xs:element name="ConsultarCilindro">
     <xs:complexType>
-      <xs:sequence />
+      <xs:sequence>
+        <xs:element minOccurs="0" name="cilindro" nillable="true" type="xs:string" />
+      </xs:sequence>
     </xs:complexType>
   </xs:element>
   <xs:element name="ConsultarCilindroResponse">
     <xs:complexType>
       <xs:sequence>
-        <xs:element xmlns:q2="http://schemas.datacontract.org/2004/07/Unisangil.CYLTRACK.CYLTRACK_BE" minOccurs="0" name="ConsultarCilindroResult" nillable="true" type="q2:ArrayOfCilindroBE" />
+        <xs:element xmlns:q2="http://schemas.datacontract.org/2004/07/Unisangil.CYLTRACK.CYLTRACK_BE" minOccurs="0" name="ConsultarCilindroResult" nillable="true" type="q2:CilindroBE" />
       </xs:sequence>
     </xs:complexType>
   </xs:element>
@@ -41,17 +43,45 @@
       </xs:sequence>
     </xs:complexType>
   </xs:element>
-  <xs:element name="CargueyDescargueCilindro">
+  <xs:element name="ConsultarCilUbicacion">
     <xs:complexType>
       <xs:sequence>
-        <xs:element xmlns:q4="http://schemas.datacontract.org/2004/07/Unisangil.CYLTRACK.CYLTRACK_BE" minOccurs="0" name="cilindro" nillable="true" type="q4:CilindroBE" />
+        <xs:element minOccurs="0" name="ubicacion" nillable="true" type="xs:string" />
       </xs:sequence>
     </xs:complexType>
   </xs:element>
-  <xs:element name="CargueyDescargueCilindroResponse">
+  <xs:element name="ConsultarCilUbicacionResponse">
     <xs:complexType>
       <xs:sequence>
-        <xs:element xmlns:q5="http://schemas.datacontract.org/2004/07/Unisangil.CYLTRACK.CYLTRACK_BE" minOccurs="0" name="CargueyDescargueCilindroResult" nillable="true" type="q5:ArrayOfCilindroBE" />
+        <xs:element xmlns:q4="http://schemas.datacontract.org/2004/07/Unisangil.CYLTRACK.CYLTRACK_BE" minOccurs="0" name="ConsultarCilUbicacionResult" nillable="true" type="q4:ArrayOfCilindroBE" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="CargueyDescargueCilindros">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q5="http://schemas.datacontract.org/2004/07/Unisangil.CYLTRACK.CYLTRACK_BE" minOccurs="0" name="cilindros" nillable="true" type="q5:ArrayOfCilindroBE" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="CargueyDescargueCilindrosResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="CargueyDescargueCilindrosResult" nillable="true" type="xs:string" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="consultadeExistencia">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="cilindro" nillable="true" type="xs:string" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="consultadeExistenciaResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="consultadeExistenciaResult" nillable="true" type="xs:string" />
       </xs:sequence>
     </xs:complexType>
   </xs:element>
