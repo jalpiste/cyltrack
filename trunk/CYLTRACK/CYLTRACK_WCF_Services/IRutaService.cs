@@ -47,15 +47,6 @@ namespace Unisangil.CYLTRACK.CYLTRACK_WCF_Services
         RutaBE ConsultarRutaconParametro(string ruta);
 
         /// <summary>
-        /// Método encargado de la consulta de rutas en el sistema. Permite
-        /// que las aplicaciones llamen a los objetos de negocio directamente.
-        /// </summary>
-        /// <param name="ruta">Objeto de negocio ruta</param> 
-        /// <returns>nombre de la ruta</returns>
-        [OperationContract]
-        List<RutaBE> ConsultarRuta();
-
-        /// <summary>
         /// Método encargado de la consulta de ciudades y/o departamentos en el sistema. Permite
         /// que las aplicaciones llamen a los objetos de negocio directamente.
         /// </summary>
