@@ -9,6 +9,7 @@ using Unisangil.CYLTRACK.CYLTRACK_BE;
 using CYLTRACK_WebApp.VehiculoService;
 using CYLTRACK_WebApp.ClienteService;
 using CYLTRACK_WebApp.RutaService;
+using CYLTRACK_WebApp.ReporteService;
 using System.Windows.Forms;
 
 
@@ -17,8 +18,6 @@ namespace Unisangil.CYLTRACK.CYLTRACK_WebApp.Rutas
 
     public partial class frmRegistrarVehículo : System.Web.UI.Page
     {
-        // private CharacterCasing CharacterCasing { get; set; }
-
         protected void Page_Load(object sender, EventArgs e)
         {
             txtPlaca1.Focus();
@@ -43,7 +42,7 @@ namespace Unisangil.CYLTRACK.CYLTRACK_WebApp.Rutas
         protected void txtPlaca1_TextChanged(object sender, EventArgs e)
         {
             VehiculoServiceClient servVehiculo = new VehiculoServiceClient();
-            RutaServicesClient servRuta = new RutaServicesClient();
+            ReporteServiceClient serReporte = new ReporteServiceClient();
             String resp;
 
             try
@@ -67,7 +66,7 @@ namespace Unisangil.CYLTRACK.CYLTRACK_WebApp.Rutas
                     lblCedula1.Visible = true;
                     txtCedula1.Visible = true;
                     btnGuardar.Visible = true;
-                    List<RutaBE> lstRutas = new List<RutaBE>(servRuta.ConsultarRuta());
+                    List<RutaBE> lstRutas = new List<RutaBE>(serReporte.ConsultarRuta());
                     foreach(RutaBE datos in lstRutas)
                     {
                     lstRuta.Items.Add(datos.Nombre_Ruta);
@@ -82,6 +81,7 @@ namespace Unisangil.CYLTRACK.CYLTRACK_WebApp.Rutas
             finally
             {
                 servVehiculo.Close();
+                serReporte.Close();
             }
         }
         protected void txtCedula1_TextChanged(object sender, EventArgs e)
@@ -186,24 +186,32 @@ namespace Unisangil.CYLTRACK.CYLTRACK_WebApp.Rutas
 
         protected void txtCedula_TextChanged(object sender, EventArgs e)
         {
-            
-            
             ClienteServiceClient ServCliente = new ClienteServiceClient();
-
-            string consultarCliente = ServCliente.Consultar_Existencia(txtCedula.Text);
-
-            if (consultarCliente != "Ok")
+            try
             {
-                MessageBox.Show("El propietario no se encuentra registrada en el sistema", "Registrar Vehículo");
+                string consultarCliente = ServCliente.Consultar_Existencia(txtCedula.Text);
+
+                if (consultarCliente != "Ok")
+                {
+                    MessageBox.Show("El propietario no se encuentra registrada en el sistema", "Registrar Vehículo");
+                }
+
+                else
+                {
+                    ClienteBE objCliente = ServCliente.Consultar_Cliente(txtCedula.Text);
+                    txtNombre.Text = objCliente.Nombres_Cliente;
+                    txtPrimerApellido.Text = objCliente.Apellido_1;
+                    txtSegundoApellido.Text = objCliente.Apellido_2;
+
+                }
             }
-
-            else
+            catch (Exception ex)
             {
-                ClienteBE objCliente = ServCliente.Consultar_Cliente(txtCedula.Text);
-                txtNombre.Text = objCliente.Nombres_Cliente;
-                txtPrimerApellido.Text = objCliente.Apellido_1;
-                txtSegundoApellido.Text = objCliente.Apellido_2;
-
+                Response.Redirect("~/About.aspx");
+            }
+            finally 
+            {
+                ServCliente.Close();
             }
         }
     }
