@@ -13,28 +13,30 @@ namespace Unisangil.CYLTRACK.AppTest
         static void Main(string[] args)
         {
             Program pp = new Program();
-            long resp = pp.CrearPrueba();
-            Console.WriteLine("Codigo creado: " + resp);
+            string resp = pp.CrearPrueba();
+            Console.WriteLine( resp);
             Console.Read();
             
         }
 
-        public long CrearPrueba()
+        public string CrearPrueba()
         {
-            CilindroBE cilindro = new CilindroBE();
-            cilindro.Tamano = "40";
-            cilindro.Tipo_Cilindro = "GPL";
-            cilindro.Id_Fabricante = "123455556";
+            PruebaBE prueba = new PruebaBE();
+            prueba.Descripción = "Hola mundo";
             long resp = 0;
             try{
                 Service1Client serv = new Service1Client();
-                resp = serv.Prueba(cilindro);
+                resp = serv.CrearPrueba(prueba);
             }
             catch
             {
                 resp = -1;
             }
-            return resp;
+            if (resp <= 0)
+                return "No fue posible crear prueba";
+            else
+                return "Prueba creada, codigo: " + resp;
+
         }
     }
 }
