@@ -60,6 +60,7 @@
     <Compile Include="PedidoBE.cs" />
     <Compile Include="PerfilBE.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="PruebaBE.cs" />
     <Compile Include="ReportesBE.cs" />
     <Compile Include="RutaBE.cs" />
     <Compile Include="Ruta_VehiculoBE.cs" />
