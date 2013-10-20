@@ -14,17 +14,18 @@ namespace Unisangil.CYLTRACK.AppTest
         {
             Program pp = new Program();
             string resp = pp.CrearPrueba();
-            Console.WriteLine( resp);
+            Console.WriteLine(resp);
             Console.Read();
-            
+
         }
 
         public string CrearPrueba()
         {
             PruebaBE prueba = new PruebaBE();
-            prueba.Descripción = "Hola mundo";
+            prueba.Descripción = "Hola mundo 1";
             long resp = 0;
-            try{
+            try
+            {
                 Service1Client serv = new Service1Client();
                 resp = serv.CrearPrueba(prueba);
             }
