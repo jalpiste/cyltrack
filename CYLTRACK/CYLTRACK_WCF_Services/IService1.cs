@@ -16,5 +16,5 @@ namespace Unisangil.CYLTRACK.CYLTRACK_WCF_Services
         long CrearPrueba(PruebaBE prueba);
     }
 
-    
+
 }

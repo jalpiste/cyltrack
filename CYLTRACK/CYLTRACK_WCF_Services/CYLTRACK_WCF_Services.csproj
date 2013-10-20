@@ -64,9 +64,6 @@
     <Compile Include="VentaService.cs" />
   </ItemGroup>
   <ItemGroup>
-    <None Include="App.config" />
-  </ItemGroup>
-  <ItemGroup>
     <ProjectReference Include="..\CYLTRACK_BE\CYLTRACK_BE.csproj">
       <Project>{46D7E147-3BEC-4D66-9AE9-904256F04620}</Project>
       <Name>CYLTRACK_BE</Name>
