@@ -19,6 +19,12 @@ namespace Unisangil.CYLTRACK.CYLTRACK_DL
 
         private DbConnection conexion = null;
         private DbCommand comando = null;
+
+        public DbCommand Comando
+        {
+            get { return comando; }
+            set { comando = value; }
+        }
         private DbTransaction transaccion = null;
         private string cadenaConexion;
 
@@ -32,7 +38,7 @@ namespace Unisangil.CYLTRACK.CYLTRACK_DL
             try
             {
                 string proveedor = ConfigurationManager.AppSettings.Get("Proveedor");
-                this.cadenaConexion = ConfigurationManager.AppSettings.Get("CadenaConexion");
+                this.cadenaConexion = ConfigurationManager.AppSettings.Get("sqlConnectionCyltrack");
                 BaseDatos.factory = DbProviderFactories.GetFactory(proveedor);
             }
             catch (ConfigurationException ex)
@@ -124,7 +130,8 @@ namespace Unisangil.CYLTRACK.CYLTRACK_DL
         /// <summary>
         /// Ejecuta el comando creado y retorna un escalar.
         /// </summary>
-        /// <returns>El escalar que es el resultado del comando.</returns>        
+        /// <returns>El escalar que es el resultado del comando.</returns>
+        /// <exception cref="BaseDatosException">Si ocurre un error al ejecutar el comando.</exception>
         public int EjecutarEscalar()
         {
             int escalar = 0;
@@ -171,6 +178,23 @@ namespace Unisangil.CYLTRACK.CYLTRACK_DL
                 param.Value = parametros[i + 1];
                 comando.Parameters.Add(param);
             }
+        }
+
+        public void setParametrosSP1(params object[] parametros)
+        {
+
+            if (parametros.Length % 3 != 0)
+                throw new Exception();
+
+            for (int i = 0; i < parametros.Length; i += 3)
+            {
+                DbParameter param = comando.CreateParameter();
+                param.ParameterName = parametros[i].ToString();
+                param.Value = parametros[i + 1];
+                param.Direction = (ParameterDirection)parametros[i + 2];
+                comando.Parameters.Add(param);                
+            }
+            
         }
 
 

@@ -54,7 +54,7 @@ namespace Unisangil.CYLTRACK.CYLTRACK_DL
             catch (Exception ex)
             {
                 throw new Exception("Error al acceder a la base de datos para obtener los PruebaBEs.");
-            }            
+            }
             return pruebas;
         }
 
@@ -65,19 +65,45 @@ namespace Unisangil.CYLTRACK.CYLTRACK_DL
             try
             {
                 db.Conectar();
-                db.ComenzarTransaccion();                
-                string nameSP = "spCrearPrueba";
+                db.ComenzarTransaccion();
+                string nameSP = "CrearRegistro";
+                string descripcion = "";
+                int cod=90;
                 db.CrearComandoSP(nameSP);
-                db.setParametrosSP("descripcion", pru.Descripción);                
-                codigo = db.EjecutarEscalar();
-                db.ConfirmarTransaccion();
+
+                DbParameter[] parametros = new DbParameter[3];
+                parametros[0] = db.Comando.CreateParameter();
+                parametros[0].ParameterName = "vrDescripcion";
+                parametros[0].Value = pru.Descripción;
+                parametros[0].Direction = ParameterDirection.Input;
+                parametros[0].Size = 50;
+                db.Comando.Parameters.Add(parametros[0]);
+
+                parametros[1] = db.Comando.CreateParameter();
+                parametros[1].ParameterName = "vrCodResult";
+                parametros[1].Value = 0;
+                parametros[1].Direction = ParameterDirection.Output;
+                db.Comando.Parameters.Add(parametros[1]);
+
+                parametros[2] = db.Comando.CreateParameter();
+                parametros[2].ParameterName = "vrDescResult";
+                parametros[2].Value = "";
+                parametros[2].Direction = ParameterDirection.Output;
+                parametros[2].Size = 200;
+                parametros[2].DbType = DbType.String;
+                db.Comando.Parameters.Add(parametros[2]);
+                               
+                db.EjecutarComando();
+                codigo = long.Parse(db.Comando.Parameters[1].Value.ToString());
+                descripcion = db.Comando.Parameters[2].Value.ToString();
+                db.ConfirmarTransaccion();               
             }
             catch (Exception ex)
             {
                 db.CancelarTransaccion();
                 throw new Exception("Error al crear el PruebaBE.", ex);
             }
-            
+
             finally
             {
                 db.Desconectar();
@@ -100,9 +126,9 @@ namespace Unisangil.CYLTRACK.CYLTRACK_DL
             }
             catch (Exception ex)
             {
-                db.CancelarTransaccion();                
+                db.CancelarTransaccion();
                 throw new Exception("Error al actualizar el objeto Prueba.", ex);
-            }           
+            }
 
             finally
             {
