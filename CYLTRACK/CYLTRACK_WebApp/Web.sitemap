@@ -1,47 +1,45 @@
 ﻿<?xml version="1.0" encoding="utf-8" ?>
 <siteMap>
-      <siteMapNode title="Principal" description="Home" url="Default.aspx" >
-      <siteMapNode title="Autenticación" description="Compañias afiliadas">
-      <siteMapNode title="Registrar Usuarios" description="Informacion Unigas Colombia" url="~/Autenticacion/frmRegistrarUsuario.aspx" />
-      <siteMapNode title="Autenticar Usuario" description="Informacion Unigas Colombia" url="~/Autenticacion/frmAutenticacion.aspx" />
-      <siteMapNode title="Recuperar Contraseña" description="Informacion Unigas Colombia"  url="~/frmRecuperarContrasena.aspx" />
-    </siteMapNode>
-    <siteMapNode title="Cilindros"    description="Todo sobre Cilindros"  >
+  <siteMapNode>
+      <siteMapNode title="Cilindros"    description="Información de Cilindros"  >
       <siteMapNode title="Registrar Cilindro"     description="Crear Cilindro en el sistema"   text ="solo miembros" Value="solo miembros"  url="~/Cilindros/frmRegistrarCilindro.aspx" />
       <siteMapNode title="Consultar Cilindro"          description="Consultar datos del cilindro en el sistema"  text ="solo miembros" Value="solo miembros"  url="~/Cilindros/frmConsultarCilindro.aspx" />
       <siteMapNode title="Asignar Ubicación"          description="Asignarle una ubicacion del cilindro dentro de la planta"  text ="solo miembros" Value="solo miembros" url="~/Cilindros/frmAsignarUbicacion.aspx" />
       <siteMapNode title="Cargue o Descague de Cilindros"          description="Cargar o descargar cilindros en el sistema"  text ="solo miembros" Value="solo miembros"  url="~/Cilindros/frmCargaryDescargarCilindros.aspx" />
     </siteMapNode>
-    <siteMapNode title="Clientes"    description="Todo sobre Clientes"  >
+    <siteMapNode title="Clientes"    description="Información de Clientes"  >
       <siteMapNode title="Registrar Cliente"     description="Crear cliente en el sistema"   text ="solo miembros" Value="solo miembros" url="~/Clientes/frmRegistrarcliente.aspx" />
       <siteMapNode title="Consultar Cliente"          description="Consultar datos del cliente en el sistema"  text ="solo miembros" Value="solo miembros"  url="~/Clientes/frmconsultarcliente.aspx" />
       <siteMapNode title="Modificar Cliente"          description="Modificar datos del cliente en el sistema"  text ="solo miembros" Value="solo miembros" url="~/Clientes/frmModificarCliente.aspx"  />
     </siteMapNode>
-    <siteMapNode title="Pedidos"    description="Todo sobre Pedidos"  >
+    <siteMapNode title="Pedidos"    description="Información de Pedidos"  >
       <siteMapNode title="Registrar Pedido"     description="Crear Pedido en el sistema"   text ="solo miembros" Value="solo miembros" url="~/Pedido/frmRegistroPedido.aspx" />
       <siteMapNode title="Consultar Pedido"     description="Consultar datos del pedido en el sistema"  text ="solo miembros" Value="solo miembros" url="~/Pedido/frmConsultarPedido.aspx" />
       <siteMapNode title="Modificar Pedido"     description="Modificar datos del pedido en el sistema"  text ="solo miembros" Value="solo miembros"  url="~/Pedido/frmModificarPedido.aspx" />
       <siteMapNode title="Cancelar Pedido"      description="Cancelar pedido en el sistema"  text ="solo miembros" Value="solo miembros"  url="~/Pedido/frmCancelarPedido.aspx" />
     </siteMapNode>
-    <siteMapNode title="Ventas"    description="Todo sobre Ventas"  >
+    <siteMapNode title="Ventas"    description="Información de Ventas"  >
       <siteMapNode title="Venta de Cilindro"     description="Registrar la venta de cilindros en el sistema"   text ="solo miembros" Value="solo miembros" url="~/Ventas/frmVentaCilindro.aspx" />
       <siteMapNode title="Consultar Venta"     description="Consulta la venta de cilindros en el sistema"   text ="solo miembros" Value="solo miembros" url="~/Ventas/frmConsultarVenta.aspx" />
       <siteMapNode title="Casos Especiales"     description="Registro de escapes, errores en la entrega y terminacion contrato de cilindros en el sistema"   text ="solo miembros" Value="solo miembros" url="~/Ventas/frmCasosEspeciales.aspx" />
       <siteMapNode title="Revisión Casos Especiales"     description="Aprobación de Casos Especiales en el sistema"   text ="solo miembros" Value="solo miembros" url="~/Ventas/frmRevisionCasosEspeciales.aspx" />
     </siteMapNode>
-    <siteMapNode title="Vehículos"    description="Todo sobre Vehiculos"  >
+    <siteMapNode title="Vehículos"    description="Información de Vehiculos"  >
       <siteMapNode title="Registrar Vehículo"     description="Registrar datos de vehiculos en el sistema"   text ="solo miembros" Value="solo miembros" url="~/Vehiculos/frmRegistrarVehiculo.aspx" />
-      <siteMapNode title="Modificar Vehículo"     description="Registrar la modificacion del vehiculo en el sistema"   text ="solo miembros" Value="solo miembros" url="~/Vehiculos/frmModificarVehiculo.aspx" />
+      <siteMapNode title="Modificar Vehículo"     description="Modificar la modificacion del vehiculo en el sistema"   text ="solo miembros" Value="solo miembros" url="~/Vehiculos/frmModificarVehiculo.aspx" />
     </siteMapNode>
-    <siteMapNode title="Rutas"    description="Todo sobre Vehiculos"  >
+    <siteMapNode title="Rutas"    description="Información de Rutas"  >
       <siteMapNode title="Registrar Ruta"     description="Registrar datos de las rutas en el sistema"   text ="solo miembros" Value="solo miembros" url="~/Rutas/frmRegistrarRuta.aspx" />
       <siteMapNode title="Modificar Ruta"     description="Registrar la modificacion de la ruta en el sistema"   text ="solo miembros" Value="solo miembros" url="~/Rutas/frmModificarRuta.aspx" />
     </siteMapNode>
-    <siteMapNode title="Reportes"    description="Todo sobre inventario y reportes"  >
-      <siteMapNode title="Histórico de Cilindro"     description="Realizar el historico reporte del cilindro en el sistema"   text ="solo miembros" Value="solo miembros" url="~/Reportes/frmHistoricoCilindro.aspx" />
+    <siteMapNode title="Reportes"    description="Información de inventario y reportes"  >
+      <siteMapNode title="Histórico de Cilindro"     description="Realizar el reporte historico del cilindro en el sistema"   text ="solo miembros" Value="solo miembros" url="~/Reportes/frmHistoricoCilindro.aspx" />
       <siteMapNode title="Inventario Cilindros"     description="Realizar reporte de inventario de cilindros en el sistema"   text ="solo miembros" Value="solo miembros" url="~/Reportes/frmInventario.aspx" />
-      <siteMapNode title="Reporte Registros"     description="Realizar reporte de registro de cilindros, clientes, pedidos y ventas en el sistema"   text ="solo miembros" Value="solo miembros" url="~/Reportes/frmReporteRegistros.aspx" />
       <siteMapNode title="Siembras"     description="Realizar reporte de siembras de cilindros de marca en el sistema"   text ="solo miembros" Value="solo miembros" url="~/Reportes/frmReporteSiembras.aspx" />
     </siteMapNode>
-   </siteMapNode>    
-  </siteMap>
+    <siteMapNode title="Usuarios" description="Información de Usuarios">
+      <siteMapNode title="Registrar Usuarios" description="Informacion Unigas Colombia" url="~/Autenticacion/frmRegistrarUsuario.aspx" />
+      <siteMapNode title="Recuperar Contraseña" description="Informacion Unigas Colombia"  url="~/frmRecuperarContrasena.aspx" />
+    </siteMapNode>
+  </siteMapNode>
+   </siteMap>
