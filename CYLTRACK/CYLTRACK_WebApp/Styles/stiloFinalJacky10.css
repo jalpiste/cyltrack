@@ -1,0 +1,354 @@
+﻿/* DEFAULTS
+----------------------------------------------------------*/
+
+body   
+{
+    background: white;/* color de fondo */
+    font-size: .80em;/*Tamaño de la letra*/
+    font-family: "Helvetica Neue", "Lucida Grande", "Segoe UI", Arial, Helvetica, Verdana, sans-serif, calabri ; /*tipo de letra*/
+    margin: 0px; /*Establece la anchura de los márgenes de los elementos*/
+    padding: 0px;/*Establece la anchura de las zonas de relleno de los elementos*/
+    color: black; /*color letra*/
+}
+
+a:link, a:visited
+{
+    color: red; /* color de los link*/
+     
+}
+
+a:hover
+{
+    color: blue;
+    text-decoration: none;/*Establece la decoración que se aplica al texto de un elemento*/
+}
+
+a:active
+{
+    color:  #AC3332;
+}
+
+p
+{
+    margin-bottom: 10px;/*Establece la anchura del margen inferior de los elementos de bloque*/
+    line-height: 1.6em; /*Establece el interlineado del texto*/
+    margin-top: 8px;/*Establece la anchura del margen superior de los elementos de bloque*/
+    margin-left: 0px;/*Establece la anchura del margen izquierdo de los elementos*/
+}
+
+
+/* HEADINGS   
+----------------------------------------------------------*/
+
+h1, h2, h3, h4, h5, h6, h7
+{
+    font-size: 1.5em;/*Tamaño de la letra*/
+    color: #966262; /*color titulos*/
+    font-family: calabri;/*tipo de letra*/
+    text-transform: none;/*Transforma el texto de un elemento para mostrarlo en mayúsculas, minúsculas o una mezcla de ambas*/
+    font-weight: 200;/*Establece el grosor de cada letra*/
+    margin-bottom: 0px;/*Establece la anchura del margen inferior de los elementos de bloque*/
+}
+
+h1
+{
+    font-size: 32px;/*Tamaño de la letra*/
+    padding-bottom: 0px;/*Establece la anchura de la zona de relleno inferior de los elementos*/
+    margin-bottom: 0px;/*Establece la anchura del margen inferior de los elementos de bloque*/
+    margin-top: 74px;/*Establece la anchura del margen superior de los elementos de bloque*/
+    width: 713px;/*Establece la anchura de los elementos de bloque*/
+}
+
+h2
+{
+    font-size: 1.5em;/*Tamaño de la letra*/
+    font-weight: 600;/*Establece el grosor de cada letra*/
+    text-align: left;/*Establece la alineación del contenido de un elemento de bloque*/
+    margin-top: 73px;/*Establece la anchura del margen superior de los elementos de bloque*/
+    height: 24px;/*Establece la altura de los elementos de bloque*/
+}
+
+h3
+{
+    font-size: 1.2em;/*Tamaño de la letra*/
+}
+
+h4
+{
+    font-size: 1.1em;/*Tamaño de la letra*/
+}
+
+h5, h6
+{
+    font-size: 1em;/*Tamaño de la letra*/
+    text-align: right;
+    margin-top: 10px;/*Establece la anchura del margen superior de los elementos de bloque*/
+    width: 76%;/*Establece la anchura del margen inferior de los elementos de bloque*/
+
+}
+h7
+{
+    font-size: 36px;/*Tamaño de la letra*/
+    font-weight: 600;/*Establece el grosor de cada letra*/
+}
+
+
+/* this rule styles <h1> and <h2> tags that are the 
+first child of the left and right table columns */
+.rightColumn > h1, .rightColumn > h2, .leftColumn > h1, .leftColumn > h2
+{
+    margin-top: 0px;/*Establece la anchura del margen superior de los elementos de bloque*/
+}
+
+
+/* PRIMARY LAYOUT ELEMENTS   
+----------------------------------------------------------*/
+
+.page
+{
+    width: 960px;/*Establece la anchura de los elementos de bloque*/
+    background-color: white; /* color dentro recuadro*/
+    margin: 20px auto 0px auto;/*Establece la anchura de los márgenes de los elementos*/
+    border: 1px solid  #6E4747; /*color borde*/
+}
+
+.header
+{
+    position: relative;/*Establece el posicionamiento utilizado para mostrar un elemento*/
+    margin: 0px;/*Establece la anchura de los márgenes de los elementos*/
+    padding: 0px;/*Establece la anchura de las zonas de relleno de los elementos*/
+    background: #AD3332;/* color parte de arriba*/
+    width: 100%; /*Establece la anchura de los elementos de bloque*/
+    top: 0px;/*Establece el desplazamiento superior de un elemento posicionado*/
+    left: 0px;/*Establece el desplazamiento izquierdo de un elemento posicionado*/
+    height: 89px;/*Establece la altura de los elementos de bloque*/
+}
+
+.header h1
+{
+    font-weight: 700;/*Establece el grosor de cada letra*/
+    margin: 0px;/*Establece la anchura de los márgenes de los elementos*/
+    padding: 0px 0px 0px 20px; /*Establece la anchura de las zonas de relleno de los elementos*/
+    color: #f9f9f9; /* color letra parte de arriba*/
+    border: none;/*Establece las propiedades de todos los bordes de los elementos*/
+    line-height: 2em;/*Establece el interlineado del texto*/
+    font-size: 48px;/*tamaño texto*/
+}
+
+.header h2
+{
+  position: relative;/*Establece el posicionamiento utilizado para mostrar un elemento*/
+    margin: 0px;/*Establece la anchura de los márgenes de los elementos*/
+    padding: 0px;/*Establece la anchura de las zonas de relleno de los elementos*/
+    background: #AC3332;/* color parte de arriba*/
+    width: 100%;/*Establece la anchura de los elementos de bloque*/
+    top: 0px;/*Establece el desplazamiento superior de un elemento posicionado*/
+    left: 0px;/*Establece el desplazamiento izquierdo de un elemento posicionado*/
+    height: 20px;  /*Establece la altura de los elementos de bloque*/ 
+}
+
+
+.main
+{
+    padding: 0px 12px;/*Establece la anchura de las zonas de relleno de los elementos*/
+    margin: 12px 8px 8px 8px;/*Establece la anchura de los márgenes de los elementos*/
+    min-height: 420px;/*Establece la altura mínima de los elementos de bloque*/
+}
+
+.leftCol
+{
+    padding: 6px 0px;/*Establece la anchura de las zonas de relleno de los elementos*/
+    margin: 12px 8px 8px 8px;/*Establece la anchura de los márgenes de los elementos*/
+    width: 200px;/*Establece la anchura de los elementos de bloque*/
+    min-height: 200px;/*Establece la altura mínima de los elementos de bloque*/
+}
+
+.footer
+{
+    color:  red;/* no se*/
+    padding: 4px 0px 0px 0px;/*Establece la anchura de las zonas de relleno de los elementos*/
+    margin: 20px auto 0px auto;/*Establece la anchura de los márgenes de los elementos*/
+    text-align: center;
+    /*line-height: 0em;/*Establece el interlineado del texto*/
+    background-color:#E8E5E5;
+    width: 960px;
+    margin-top: 0px;/*Establece la anchura del margen superior de los elementos de bloque*/
+}
+
+
+/* TAB MENU   
+----------------------------------------------------------*/
+
+div.hideSkiplink
+{
+    background-color:#E8E5E5;/* color bajo encabezado*/
+    width:100%;/*Establece la anchura de los elementos de bloque*/
+}
+
+div.menu
+{
+    padding: 4px 0px 4px 8px;/*Establece la anchura de las zonas de relleno de los elementos*/
+}
+
+div.menu ul
+{
+    list-style: none;/*Establece algunas o todas las propiedades del marcador de los elementos de la lista*/
+    margin: 0px;
+    padding: 0px;
+    width: auto;
+}
+
+div.menu ul li a, div.menu ul li a:visited
+{
+    background-color:  #E8E5E5; /* cuadritos parte de abajo encabezado*/
+    border-right: 1px solid #C00; /* separaciones y color cuadritos bajo encabezado*/
+    color:  #848282; /* clor letra cuadritos*/
+    display: block;/*Establece el tipo de caja generada por un elemento*/
+    line-height: 1.20em;
+    padding: 4px 20px;
+    text-decoration: none;
+    white-space: nowrap;/*Establece el tratamiento de los espacios en blanco*/
+    font-family: Calibri, Arial ;
+    font-size: 18px;
+}
+
+div.menu ul li a:hover
+{
+    background-color: #E8E5E5; /* color cuando pasa por encima de los cuadritos*/
+    color: #AC3332; /* no se*/
+    text-decoration: none;
+}
+
+div.menu ul li a:active
+{
+    background-color:  #E8E5E5;/* no se*/
+    color:  #E8E5E5;/*tampoco*/
+    text-decoration: none;
+}
+
+/* FORM ELEMENTS   
+----------------------------------------------------------*/
+
+fieldset
+{
+    margin: 1em 0px;
+    padding: 1em;
+    border: 1px solid #AC3332;
+    width: 100%;
+}
+
+fieldset p 
+{
+    margin: 2px 12px 10px 10px;
+    width: 670px;
+}
+
+fieldset.login label, fieldset.register label, fieldset.changePassword label
+{
+    display: inline;
+}
+
+fieldset label.inline 
+{
+    display: inline;
+}
+
+legend 
+{
+    font-size: 1.1em;
+    font-weight: 600;
+    padding: 2px 4px 8px 4px;
+}
+
+input.textEntry 
+{
+    border: 1px solid #AC3332; /* linea usuario*/
+}
+
+input.passwordEntry 
+{
+    border: 1px solid #AC3332; /* linea contraseña*/
+}
+
+div.accountInfo
+{
+    width: 651px;
+    margin-right: 91px;
+    margin-top: 0px;
+}
+
+
+/* MISC  
+----------------------------------------------------------*/
+
+.clear
+{
+    clear: both;/*Controla el comportamiento de los elementos adyacentes a los elementos posicionados de forma flotante*/
+}
+
+.title
+{
+    display: block; /*ocupa todo el espacio asi sobre espacio despues de escribir*/
+    float: left;/*Posiciona un elemento de forma flotante*/
+    text-align: left;
+    width: auto;
+}
+
+.loginDisplay
+{
+    font-size: 1.1em;
+    display: block;
+    text-align: right;
+    padding: 10px;
+    color:  white; /* corchetes inicio sesion*/
+}
+
+.loginDisplay a:link
+{
+    color:  white;
+}
+
+.loginDisplay a:visited
+{
+    color:  white;
+}
+
+.loginDisplay a:hover
+{
+    color:  white;
+}
+
+.failureNotification
+{
+    font-size: 1.3em;
+    color: red;
+    margin-top: 48px;
+}
+
+.bold
+{
+    font-weight: bold;
+    text-decoration: underline;
+}
+
+.submitButton
+{
+    text-align: right;
+    padding-right: 10px;/*Establece la anchura de la zona de relleno derecho de los elementos*/
+    width: 568px;
+}
+.post {
+	font-family:Arial Narrow;
+	font-size: 16px;
+	font-weight:  600;
+	color:White;
+	background-color:#AC3332;
+	width:100%;
+    text-indent:9px;
+    height: 23px;
+    margin-bottom: 10px;/*Establece la anchura del margen inferior de los elementos de bloque*/
+    line-height: 1.6em; /*Establece el interlineado del texto*/
+    margin-top: 8px;/*Establece la anchura del margen superior de los elementos de bloque*/
+    margin-left: 0px;/*Establece la anchura del margen izquierdo de los elementos*/
+    
+}
