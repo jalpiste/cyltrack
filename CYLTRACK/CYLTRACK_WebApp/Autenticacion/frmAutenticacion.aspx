@@ -9,7 +9,7 @@
     </h1>
       <asp:ValidationSummary ID="validacionAutenticacion" runat="server" CssClass="failureNotification"
               ValidationGroup="AutenticacionUsuarios" Width="385px"/>
-        <div class="accountInfo">
+              <div class="accountInfo">
             <fieldset class="login" style="width: 444px">
                 <legend>Información de cuenta</legend>
                 <div style="width: 425px; margin-bottom: 0px; margin-left: 40px;">
