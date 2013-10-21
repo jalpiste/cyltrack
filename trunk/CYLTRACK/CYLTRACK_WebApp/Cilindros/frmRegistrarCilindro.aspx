@@ -98,7 +98,7 @@
                 </fieldset>
                 <p class="submitButton">
                 <asp:Button ID="BtnLimpiar" runat="server" Text="Limpiar"  Width="115px"
-                       /> 
+                     /> 
                     &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; &nbsp; 
                     <asp:Button ID="BtnGuardar" runat="server" Text="Guardar" visible="false" Width="115px"
                         onclick="BtnGuardar_Click" ValidationGroup="RegistrodeCilindro"  />  

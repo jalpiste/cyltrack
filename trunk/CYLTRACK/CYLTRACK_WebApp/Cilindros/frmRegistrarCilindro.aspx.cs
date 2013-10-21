@@ -66,7 +66,7 @@ namespace Unisangil.CYLTRACK.CYLTRACK_WebApp.Cilindros
                         txtCil.Text = TxtCodigoCilindro.Text;
                         TxtCodigoCilindro.Text = "";
                         DivDatosCilindro.Visible = true;
-                        BtnGuardar.Visible = true;
+                        BtnGuardar.Visible = true;                      
                     }
                 }
           
