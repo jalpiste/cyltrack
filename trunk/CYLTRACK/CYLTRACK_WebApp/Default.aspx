@@ -11,7 +11,7 @@
     </style>
 </asp:Content>
 <asp:Content ID="BodyContent" runat="server" ContentPlaceHolderID="MainContent">
-    <h1 style="margin-top: 90px">
+    <h1 style="margin-top: 90px; height: 428px;">
         <img alt="Principal" class="style1" src="Imagenes/Inicio.png" /></h1>
     <p>
         Para obtener más información acerca de Cyltrack, visite <a href="http://www.Cyltrack.net" title="Sitio web de Cyltrack">www.Cyltrack.net</a>.
