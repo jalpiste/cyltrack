@@ -14,10 +14,9 @@
     <h1 style="margin-top: 90px; height: 428px;">
         <img alt="Principal" class="style1" src="Imagenes/Inicio.png" /></h1>
     <p>
-        Para obtener más información acerca de Cyltrack, visite <a href="http://www.Cyltrack.net" title="Sitio web de Cyltrack">www.Cyltrack.net</a>.
+        Para obtener más información acerca de Cyltrack, visite <a href="http://www.cyltrack.net" title="Sitio web de Cyltrack">www.Cyltrack.net</a>.
     </p>
     <p>
-        También puede encontrar <a href="http://go.microsoft.com/fwlink/?LinkID=152368"
-            title="Documentación de Cyltrack">documentación sobre ASP.NET en MSDN</a>.
+        Mayor información en nuestras sedes: Bogotá (Autopista Medellín Km 2. Tel: 091-5776908), Chiquinquirá (Km 2 via Chiquinquirá-Bogotá. Tel: 098-7265900).
     </p>
 </asp:Content>
