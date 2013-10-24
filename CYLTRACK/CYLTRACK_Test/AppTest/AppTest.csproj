@@ -58,6 +58,8 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="app.config" />
+    <None Include="Properties\DataSources\Unisangil.CYLTRACK.CYLTRACK_BE.PruebaBE.datasource" />
+    <None Include="Service References\PruebaService\Service.wsdl" />
     <None Include="Service References\PruebaService\Service.xsd">
       <SubType>Designer</SubType>
     </None>

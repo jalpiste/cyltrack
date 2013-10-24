@@ -8,7 +8,9 @@
     <GenerateInternalTypes>false</GenerateInternalTypes>
     <GenerateMessageContracts>false</GenerateMessageContracts>
     <NamespaceMappings />
-    <CollectionMappings />
+    <CollectionMappings>
+      <CollectionMapping TypeName="System.Collections.Generic.List`1" Category="List" />
+    </CollectionMappings>
     <GenerateSerializableTypes>true</GenerateSerializableTypes>
     <Serializer>Auto</Serializer>
     <UseSerializerForFaults>true</UseSerializerForFaults>
@@ -21,11 +23,12 @@
     <MetadataSource Address="http://localhost:51651/CYLTRACK_Services/Service.svc" Protocol="http" SourceId="1" />
   </MetadataSources>
   <Metadata>
+    <MetadataFile FileName="Service.wsdl" MetadataType="Wsdl" ID="60c4b218-9c65-4b73-8df8-795fdfe622f5" SourceId="1" SourceUrl="http://localhost:51651/CYLTRACK_Services/Service.svc?wsdl=wsdl0" />
+    <MetadataFile FileName="Service1.wsdl" MetadataType="Wsdl" ID="e8689c56-19bd-4c50-8d68-3e7a6aa6f7ae" SourceId="1" SourceUrl="http://localhost:51651/CYLTRACK_Services/Service.svc?wsdl" />
+    <MetadataFile FileName="Service2.xsd" MetadataType="Schema" ID="3b463d22-8a72-4795-9f57-f2e56136aac2" SourceId="1" SourceUrl="http://localhost:51651/CYLTRACK_Services/Service.svc?xsd=xsd0" />
     <MetadataFile FileName="Service.xsd" MetadataType="Schema" ID="76cb9442-4d1c-4a3a-860e-054199077aee" SourceId="1" SourceUrl="http://localhost:51651/CYLTRACK_Services/Service.svc?xsd=xsd1" />
     <MetadataFile FileName="Service1.xsd" MetadataType="Schema" ID="1ffab06f-b654-437c-a1ab-8a27c6286a47" SourceId="1" SourceUrl="http://localhost:51651/CYLTRACK_Services/Service.svc?xsd=xsd2" />
-    <MetadataFile FileName="Service1.wsdl" MetadataType="Wsdl" ID="e8689c56-19bd-4c50-8d68-3e7a6aa6f7ae" SourceId="1" SourceUrl="http://localhost:51651/CYLTRACK_Services/Service.svc?wsdl" />
     <MetadataFile FileName="Service.disco" MetadataType="Disco" ID="34eafb46-6844-413b-9a6a-a32b3926d696" SourceId="1" SourceUrl="http://localhost:51651/CYLTRACK_Services/Service.svc?disco" />
-    <MetadataFile FileName="Service2.xsd" MetadataType="Schema" ID="3b463d22-8a72-4795-9f57-f2e56136aac2" SourceId="1" SourceUrl="http://localhost:51651/CYLTRACK_Services/Service.svc?xsd=xsd0" />
   </Metadata>
   <Extensions>
     <ExtensionFile FileName="configuration91.svcinfo" Name="configuration91.svcinfo" />

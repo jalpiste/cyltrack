@@ -8,4 +8,10 @@
     </xs:sequence>
   </xs:complexType>
   <xs:element name="PruebaBE" nillable="true" type="tns:PruebaBE" />
+  <xs:complexType name="ArrayOfPruebaBE">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="PruebaBE" nillable="true" type="tns:PruebaBE" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ArrayOfPruebaBE" nillable="true" type="tns:ArrayOfPruebaBE" />
 </xs:schema>
