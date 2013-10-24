@@ -18,5 +18,17 @@ namespace Unisangil.CYLTRACK.CYLTRACK_WCF_Services
             PruebaBL crearPru = new PruebaBL();
             return crearPru.CrearPrueba(prueba);
         }
+
+        public List<PruebaBE> ConsultarPruebas(int idPrueba)
+        {
+            PruebaBL crearPru = new PruebaBL();
+            return crearPru.ConsultarPruebas(idPrueba);
+        }
+
+        public int ModificarPrueba(PruebaBE prueba)
+        {
+            PruebaBL crearPru = new PruebaBL();
+            return crearPru.ModificarPrueba(prueba);
+        }
     }
 }
