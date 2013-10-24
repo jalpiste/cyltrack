@@ -17,6 +17,12 @@ namespace AppTest.PruebaService {
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IService1/CrearPrueba", ReplyAction="http://tempuri.org/IService1/CrearPruebaResponse")]
         long CrearPrueba(Unisangil.CYLTRACK.CYLTRACK_BE.PruebaBE prueba);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IService1/ConsultarPruebas", ReplyAction="http://tempuri.org/IService1/ConsultarPruebasResponse")]
+        System.Collections.Generic.List<Unisangil.CYLTRACK.CYLTRACK_BE.PruebaBE> ConsultarPruebas(int idPrueba);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IService1/ModificarPrueba", ReplyAction="http://tempuri.org/IService1/ModificarPruebaResponse")]
+        int ModificarPrueba(Unisangil.CYLTRACK.CYLTRACK_BE.PruebaBE prueba);
     }
     
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
@@ -48,6 +54,14 @@ namespace AppTest.PruebaService {
         
         public long CrearPrueba(Unisangil.CYLTRACK.CYLTRACK_BE.PruebaBE prueba) {
             return base.Channel.CrearPrueba(prueba);
+        }
+        
+        public System.Collections.Generic.List<Unisangil.CYLTRACK.CYLTRACK_BE.PruebaBE> ConsultarPruebas(int idPrueba) {
+            return base.Channel.ConsultarPruebas(idPrueba);
+        }
+        
+        public int ModificarPrueba(Unisangil.CYLTRACK.CYLTRACK_BE.PruebaBE prueba) {
+            return base.Channel.ModificarPrueba(prueba);
         }
     }
 }
