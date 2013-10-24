@@ -14,6 +14,12 @@ namespace Unisangil.CYLTRACK.CYLTRACK_WCF_Services
     {
         [OperationContract]
         long CrearPrueba(PruebaBE prueba);
+
+        [OperationContract]
+        List<PruebaBE> ConsultarPruebas(int idPrueba);
+
+        [OperationContract]
+        int ModificarPrueba(PruebaBE prueba);
     }
 
 
