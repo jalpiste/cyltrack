@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ReferenceGroup xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema" ID="943d862e-5db6-4b9f-bd8d-fc63fcda6c2a" xmlns="urn:schemas-microsoft-com:xml-wcfservicemap">
+  <ClientOptions>
+    <GenerateAsynchronousMethods>true</GenerateAsynchronousMethods>
+    <EnableDataBinding>true</EnableDataBinding>
+    <ExcludedTypes />
+    <ImportXmlTypes>false</ImportXmlTypes>
+    <GenerateInternalTypes>false</GenerateInternalTypes>
+    <GenerateMessageContracts>false</GenerateMessageContracts>
+    <NamespaceMappings />
+    <CollectionMappings>
+      <CollectionMapping TypeName="System.Collections.ObjectModel.ObservableCollection`1" Category="List" />
+    </CollectionMappings>
+    <GenerateSerializableTypes>false</GenerateSerializableTypes>
+    <Serializer>Auto</Serializer>
+    <UseSerializerForFaults>true</UseSerializerForFaults>
+    <ReferenceAllAssemblies>true</ReferenceAllAssemblies>
+    <ReferencedAssemblies />
+    <ReferencedDataContractTypes />
+    <ServiceContractMappings />
+  </ClientOptions>
+  <MetadataSources>
+    <MetadataSource Address="http://localhost:51651/CYLTRACK_Services/CilindroService.svc" Protocol="http" SourceId="1" />
+  </MetadataSources>
+  <Metadata>
+    <MetadataFile FileName="CilindroService.wsdl" MetadataType="Wsdl" ID="f3bcd58e-b09e-4e0f-af60-2ddb87d5f900" SourceId="1" SourceUrl="http://localhost:51651/CYLTRACK_Services/CilindroService.svc?wsdl" />
+    <MetadataFile FileName="CilindroService.xsd" MetadataType="Schema" ID="c6831053-59cb-4ff5-b0e0-59aec3f8fdec" SourceId="1" SourceUrl="http://localhost:51651/CYLTRACK_Services/CilindroService.svc?xsd=xsd0" />
+    <MetadataFile FileName="CilindroService1.xsd" MetadataType="Schema" ID="849f1f48-db1d-4354-8682-0fdfc88fec4d" SourceId="1" SourceUrl="http://localhost:51651/CYLTRACK_Services/CilindroService.svc?xsd=xsd1" />
+    <MetadataFile FileName="CilindroService2.xsd" MetadataType="Schema" ID="c0bb2f2f-86ad-468f-a4dd-efb8280e5011" SourceId="1" SourceUrl="http://localhost:51651/CYLTRACK_Services/CilindroService.svc?xsd=xsd2" />
+    <MetadataFile FileName="CilindroService3.xsd" MetadataType="Schema" ID="f67ecb4d-e9d9-4d06-9431-c0c0b0a496a8" SourceId="1" SourceUrl="http://localhost:51651/CYLTRACK_Services/CilindroService.svc?xsd=xsd3" />
+    <MetadataFile FileName="CilindroService.disco" MetadataType="Disco" ID="ddbba5e3-3273-4974-9f64-15988fb4132f" SourceId="1" SourceUrl="http://localhost:51651/CYLTRACK_Services/CilindroService.svc?disco" />
+  </Metadata>
+  <Extensions>
+    <ExtensionFile FileName="configuration91.svcinfo" Name="configuration91.svcinfo" />
+    <ExtensionFile FileName="configuration.svcinfo" Name="configuration.svcinfo" />
+  </Extensions>
+</ReferenceGroup>

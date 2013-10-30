@@ -44,7 +44,7 @@
                 <TextBox Height="Auto" HorizontalAlignment="Left" Name="txtNuevaContrasena" Text="" VerticalAlignment="Top" Width="303" Style="{StaticResource textboxSolos}" Margin="2,120,0,0" />
                 <TextBlock Height="30" HorizontalAlignment="Left" Name="lblConfirContrasena" Text="Confirmar Nueva Contraseña: "  Margin="10,194,0,175" />
                 <TextBox Height="Auto" HorizontalAlignment="Left" Name="txtConfirContrasena" Text="" VerticalAlignment="Top" Width="303" Style="{StaticResource textboxSolos}" Margin="2,212,0,0" />
-                <Button Content="Iniciar Sesión " Height="72" HorizontalAlignment="Left" Margin="126,290,0,0" Name="btnInicioConfig" VerticalAlignment="Top" Width="200" />
+                <Button Content="Iniciar Sesión " Height="72" HorizontalAlignment="Left" Margin="126,290,0,0" Name="btnInicioConfig" VerticalAlignment="Top" Width="200" Click="btnInicioConfig_Click" />
             </Grid>
         </StackPanel>
     </Grid>

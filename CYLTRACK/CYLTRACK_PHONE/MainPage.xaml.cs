@@ -59,5 +59,10 @@ namespace Unisangil.CYLTRACK.Cyltrack_phone
         {
             NavigationService.Navigate(new Uri("/Autenticacion/frmAutenticacion.xaml", UriKind.Relative));
         }
+
+        private void HyperlinkCerrar_Click(object sender, RoutedEventArgs e)
+        {
+            hplIniciar.Visibility = System.Windows.Visibility.Collapsed;
+        }
     }
 }
