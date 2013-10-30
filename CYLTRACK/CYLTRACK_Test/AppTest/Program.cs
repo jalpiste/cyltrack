@@ -14,9 +14,9 @@ namespace Unisangil.CYLTRACK.AppTest
         {
             Program pp = new Program();
             //pp.CrearPrueba();
-            //pp.ConsultarPruebas();
+            pp.ConsultarPruebas();
             //pp.ConsultarPrueba(5);
-            pp.ModificarPrueba(2);
+            //pp.ModificarPrueba(2);
             Console.Read();
         }
 
@@ -29,7 +29,6 @@ namespace Unisangil.CYLTRACK.AppTest
             Service1Client serv = new Service1Client();
             try
             {
-
                 resp = serv.CrearPrueba(prueba);
             }
             catch
@@ -50,7 +49,7 @@ namespace Unisangil.CYLTRACK.AppTest
         public void ConsultarPruebas()
         {
             Service1Client serv = new Service1Client();
-            List<PruebaBE> pruebas = serv.ConsultarPruebas(0);
+            List<PruebaBE> pruebas = new List<PruebaBE>(serv.ConsultarPruebas(0));
             try
             {
                 if (pruebas.Count > 0)
@@ -71,7 +70,7 @@ namespace Unisangil.CYLTRACK.AppTest
         public int ConsultarPrueba(int idPrueba)
         {
             Service1Client serv = new Service1Client();
-            PruebaBE prueba = serv.ConsultarPruebas(idPrueba)[0];
+            PruebaBE prueba = serv.ConsultarPruebas(idPrueba).Count == 0 ? null : serv.ConsultarPruebas(idPrueba)[0];
             int id = -1;
             try
             {
