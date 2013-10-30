@@ -1,0 +1,135 @@
+<?xml version="1.0" encoding="utf-8"?>
+<wsdl:definitions xmlns:wsap="http://schemas.xmlsoap.org/ws/2004/08/addressing/policy" xmlns:wsa10="http://www.w3.org/2005/08/addressing" xmlns:tns="http://servicios.cyltrack.com.co/cyltrack/" xmlns:msc="http://schemas.microsoft.com/ws/2005/12/wsdl/contract" xmlns:soapenc="http://schemas.xmlsoap.org/soap/encoding/" xmlns:wsx="http://schemas.xmlsoap.org/ws/2004/09/mex" xmlns:wsp="http://schemas.xmlsoap.org/ws/2004/09/policy" xmlns:wsam="http://www.w3.org/2007/05/addressing/metadata" xmlns:soap12="http://schemas.xmlsoap.org/wsdl/soap12/" xmlns:wsa="http://schemas.xmlsoap.org/ws/2004/08/addressing" xmlns:wsaw="http://www.w3.org/2006/05/addressing/wsdl" xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:wsu="http://docs.oasis-open.org/wss/2004/01/oasis-200401-wss-wssecurity-utility-1.0.xsd" xmlns:xsd="http://www.w3.org/2001/XMLSchema" name="VentaService" targetNamespace="http://servicios.cyltrack.com.co/cyltrack/" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">
+  <wsdl:types>
+    <xsd:schema targetNamespace="http://servicios.cyltrack.com.co/cyltrack/Imports">
+      <xsd:import schemaLocation="http://localhost:51651/CYLTRACK_Services/VentaService.svc?xsd=xsd0" namespace="http://servicios.cyltrack.com.co/cyltrack/" />
+      <xsd:import schemaLocation="http://localhost:51651/CYLTRACK_Services/VentaService.svc?xsd=xsd1" namespace="http://schemas.microsoft.com/2003/10/Serialization/" />
+      <xsd:import schemaLocation="http://localhost:51651/CYLTRACK_Services/VentaService.svc?xsd=xsd2" namespace="http://schemas.datacontract.org/2004/07/Unisangil.CYLTRACK.CYLTRACK_BE" />
+      <xsd:import schemaLocation="http://localhost:51651/CYLTRACK_Services/VentaService.svc?xsd=xsd3" namespace="http://schemas.microsoft.com/2003/10/Serialization/Arrays" />
+    </xsd:schema>
+  </wsdl:types>
+  <wsdl:message name="IVentaService_VentaCilindro_InputMessage">
+    <wsdl:part name="parameters" element="tns:VentaCilindro" />
+  </wsdl:message>
+  <wsdl:message name="IVentaService_VentaCilindro_OutputMessage">
+    <wsdl:part name="parameters" element="tns:VentaCilindroResponse" />
+  </wsdl:message>
+  <wsdl:message name="IVentaService_ConsultarExistencia_InputMessage">
+    <wsdl:part name="parameters" element="tns:ConsultarExistencia" />
+  </wsdl:message>
+  <wsdl:message name="IVentaService_ConsultarExistencia_OutputMessage">
+    <wsdl:part name="parameters" element="tns:ConsultarExistenciaResponse" />
+  </wsdl:message>
+  <wsdl:message name="IVentaService_ConsultarVenta_InputMessage">
+    <wsdl:part name="parameters" element="tns:ConsultarVenta" />
+  </wsdl:message>
+  <wsdl:message name="IVentaService_ConsultarVenta_OutputMessage">
+    <wsdl:part name="parameters" element="tns:ConsultarVentaResponse" />
+  </wsdl:message>
+  <wsdl:message name="IVentaService_ConsultarCarguePlaca_InputMessage">
+    <wsdl:part name="parameters" element="tns:ConsultarCarguePlaca" />
+  </wsdl:message>
+  <wsdl:message name="IVentaService_ConsultarCarguePlaca_OutputMessage">
+    <wsdl:part name="parameters" element="tns:ConsultarCarguePlacaResponse" />
+  </wsdl:message>
+  <wsdl:message name="IVentaService_RevisionCasosEspeciales_InputMessage">
+    <wsdl:part name="parameters" element="tns:RevisionCasosEspeciales" />
+  </wsdl:message>
+  <wsdl:message name="IVentaService_RevisionCasosEspeciales_OutputMessage">
+    <wsdl:part name="parameters" element="tns:RevisionCasosEspecialesResponse" />
+  </wsdl:message>
+  <wsdl:message name="IVentaService_CasosEspeciales_InputMessage">
+    <wsdl:part name="parameters" element="tns:CasosEspeciales" />
+  </wsdl:message>
+  <wsdl:message name="IVentaService_CasosEspeciales_OutputMessage">
+    <wsdl:part name="parameters" element="tns:CasosEspecialesResponse" />
+  </wsdl:message>
+  <wsdl:portType name="IVentaService">
+    <wsdl:operation name="VentaCilindro">
+      <wsdl:input wsaw:Action="http://servicios.cyltrack.com.co/cyltrack/IVentaService/VentaCilindro" message="tns:IVentaService_VentaCilindro_InputMessage" />
+      <wsdl:output wsaw:Action="http://servicios.cyltrack.com.co/cyltrack/IVentaService/VentaCilindroResponse" message="tns:IVentaService_VentaCilindro_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="ConsultarExistencia">
+      <wsdl:input wsaw:Action="http://servicios.cyltrack.com.co/cyltrack/IVentaService/ConsultarExistencia" message="tns:IVentaService_ConsultarExistencia_InputMessage" />
+      <wsdl:output wsaw:Action="http://servicios.cyltrack.com.co/cyltrack/IVentaService/ConsultarExistenciaResponse" message="tns:IVentaService_ConsultarExistencia_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="ConsultarVenta">
+      <wsdl:input wsaw:Action="http://servicios.cyltrack.com.co/cyltrack/IVentaService/ConsultarVenta" message="tns:IVentaService_ConsultarVenta_InputMessage" />
+      <wsdl:output wsaw:Action="http://servicios.cyltrack.com.co/cyltrack/IVentaService/ConsultarVentaResponse" message="tns:IVentaService_ConsultarVenta_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="ConsultarCarguePlaca">
+      <wsdl:input wsaw:Action="http://servicios.cyltrack.com.co/cyltrack/IVentaService/ConsultarCarguePlaca" message="tns:IVentaService_ConsultarCarguePlaca_InputMessage" />
+      <wsdl:output wsaw:Action="http://servicios.cyltrack.com.co/cyltrack/IVentaService/ConsultarCarguePlacaResponse" message="tns:IVentaService_ConsultarCarguePlaca_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="RevisionCasosEspeciales">
+      <wsdl:input wsaw:Action="http://servicios.cyltrack.com.co/cyltrack/IVentaService/RevisionCasosEspeciales" message="tns:IVentaService_RevisionCasosEspeciales_InputMessage" />
+      <wsdl:output wsaw:Action="http://servicios.cyltrack.com.co/cyltrack/IVentaService/RevisionCasosEspecialesResponse" message="tns:IVentaService_RevisionCasosEspeciales_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="CasosEspeciales">
+      <wsdl:input wsaw:Action="http://servicios.cyltrack.com.co/cyltrack/IVentaService/CasosEspeciales" message="tns:IVentaService_CasosEspeciales_InputMessage" />
+      <wsdl:output wsaw:Action="http://servicios.cyltrack.com.co/cyltrack/IVentaService/CasosEspecialesResponse" message="tns:IVentaService_CasosEspeciales_OutputMessage" />
+    </wsdl:operation>
+  </wsdl:portType>
+  <wsdl:binding name="BasicHttpBinding_IVentaService" type="tns:IVentaService">
+    <soap:binding transport="http://schemas.xmlsoap.org/soap/http" />
+    <wsdl:operation name="VentaCilindro">
+      <soap:operation soapAction="http://servicios.cyltrack.com.co/cyltrack/IVentaService/VentaCilindro" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="ConsultarExistencia">
+      <soap:operation soapAction="http://servicios.cyltrack.com.co/cyltrack/IVentaService/ConsultarExistencia" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="ConsultarVenta">
+      <soap:operation soapAction="http://servicios.cyltrack.com.co/cyltrack/IVentaService/ConsultarVenta" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="ConsultarCarguePlaca">
+      <soap:operation soapAction="http://servicios.cyltrack.com.co/cyltrack/IVentaService/ConsultarCarguePlaca" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="RevisionCasosEspeciales">
+      <soap:operation soapAction="http://servicios.cyltrack.com.co/cyltrack/IVentaService/RevisionCasosEspeciales" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="CasosEspeciales">
+      <soap:operation soapAction="http://servicios.cyltrack.com.co/cyltrack/IVentaService/CasosEspeciales" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+  </wsdl:binding>
+  <wsdl:service name="VentaService">
+    <wsdl:port name="BasicHttpBinding_IVentaService" binding="tns:BasicHttpBinding_IVentaService">
+      <soap:address location="http://localhost:51651/CYLTRACK_Services/VentaService.svc" />
+    </wsdl:port>
+  </wsdl:service>
+</wsdl:definitions>

@@ -10,6 +10,7 @@ using System.Windows.Media;
 using System.Windows.Media.Animation;
 using System.Windows.Shapes;
 using Microsoft.Phone.Controls;
+using CYLTRACK_PHONE.UsuarioService;
 
 namespace Unisangil.CYLTRACK.CYLTRACK_PHONE.Autenticacion
 {
@@ -27,7 +28,22 @@ namespace Unisangil.CYLTRACK.CYLTRACK_PHONE.Autenticacion
 
         private void btonEnviar_Click(object sender, RoutedEventArgs e)
         {
-            MessageBox.Show("La contraseña ha sido enviada a su correo electrónico");
+            UsuarioServiceClient servUsuario = new UsuarioServiceClient();
+
+            try
+            {
+                servUsuario.RecuperarContrasenaAsync(txtNombUsuario.Text);
+                MessageBox.Show("La contraseña ha sido enviada a su correo electrónico");
+            }
+            catch (Exception ex)
+            {
+                NavigationService.Navigate(new Uri("/MainPage.xaml", UriKind.Relative));
+            }
+            finally 
+            {
+                servUsuario.CloseAsync();
+                NavigationService.Navigate(new Uri("/MainPage.xaml", UriKind.Relative));
+            }
         }
     }
 }

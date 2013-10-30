@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ReferenceGroup xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema" ID="d1840de1-7e40-496c-850a-94e6d12b3156" xmlns="urn:schemas-microsoft-com:xml-wcfservicemap">
+  <ClientOptions>
+    <GenerateAsynchronousMethods>true</GenerateAsynchronousMethods>
+    <EnableDataBinding>true</EnableDataBinding>
+    <ExcludedTypes />
+    <ImportXmlTypes>false</ImportXmlTypes>
+    <GenerateInternalTypes>false</GenerateInternalTypes>
+    <GenerateMessageContracts>false</GenerateMessageContracts>
+    <NamespaceMappings />
+    <CollectionMappings>
+      <CollectionMapping TypeName="System.Collections.ObjectModel.ObservableCollection`1" Category="List" />
+    </CollectionMappings>
+    <GenerateSerializableTypes>false</GenerateSerializableTypes>
+    <Serializer>Auto</Serializer>
+    <UseSerializerForFaults>true</UseSerializerForFaults>
+    <ReferenceAllAssemblies>true</ReferenceAllAssemblies>
+    <ReferencedAssemblies />
+    <ReferencedDataContractTypes />
+    <ServiceContractMappings />
+  </ClientOptions>
+  <MetadataSources>
+    <MetadataSource Address="http://localhost:51651/CYLTRACK_Services/PedidoService.svc" Protocol="http" SourceId="1" />
+  </MetadataSources>
+  <Metadata>
+    <MetadataFile FileName="PedidoService.xsd" MetadataType="Schema" ID="918e0687-1c3c-4c88-b02c-f46bbc241358" SourceId="1" SourceUrl="http://localhost:51651/CYLTRACK_Services/PedidoService.svc?xsd=xsd3" />
+    <MetadataFile FileName="PedidoService1.xsd" MetadataType="Schema" ID="ab9f9b66-9b66-4be4-882d-25adbd83c758" SourceId="1" SourceUrl="http://localhost:51651/CYLTRACK_Services/PedidoService.svc?xsd=xsd2" />
+    <MetadataFile FileName="PedidoService2.xsd" MetadataType="Schema" ID="dabcdd22-b1bb-47d1-9dbe-56ce051e6bcb" SourceId="1" SourceUrl="http://localhost:51651/CYLTRACK_Services/PedidoService.svc?xsd=xsd1" />
+    <MetadataFile FileName="PedidoService.disco" MetadataType="Disco" ID="891ed0f4-6e51-4704-9612-937304405a83" SourceId="1" SourceUrl="http://localhost:51651/CYLTRACK_Services/PedidoService.svc?disco" />
+    <MetadataFile FileName="PedidoService.wsdl" MetadataType="Wsdl" ID="583849ba-d67f-48e0-b42a-7bf18cb4d075" SourceId="1" SourceUrl="http://localhost:51651/CYLTRACK_Services/PedidoService.svc?wsdl" />
+    <MetadataFile FileName="PedidoService3.xsd" MetadataType="Schema" ID="a3191f2a-dea3-4f83-8667-3cdf3b995ea9" SourceId="1" SourceUrl="http://localhost:51651/CYLTRACK_Services/PedidoService.svc?xsd=xsd0" />
+  </Metadata>
+  <Extensions>
+    <ExtensionFile FileName="configuration91.svcinfo" Name="configuration91.svcinfo" />
+    <ExtensionFile FileName="configuration.svcinfo" Name="configuration.svcinfo" />
+  </Extensions>
+</ReferenceGroup>
