@@ -9,7 +9,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using Unisangil.CYLTRACK.CYLTRACK_BE;
-
+using Unisangil.CYLTRACK.CYLTRACK_DL;
 
 namespace Unisangil.CYLTRACK.CYLTRACK_BL
 {
@@ -24,75 +24,65 @@ namespace Unisangil.CYLTRACK.CYLTRACK_BL
         /// </summary>
         /// <param name="cilindro"></param>
         /// <returns></returns>
-        public string CrearCilindro(CilindroBE cilindro)
+        public long CrearCilindro(CilindroBE cilindro)
         {
-            string resp = "Ok";
+            CilindroDL cil = new CilindroDL();
+            long resp = 0;
+            try
+            {
+                if (cilindro.Ubicacion_Cilindro.Ubicacion.Tipo_Ubicacion.Nombre_Ubicacion == "Chatarra")
+                {
+                    cilindro.Estado = "Chatarra";
+                }
+                else 
+                {
+                    cilindro.Estado = "Uso";
+                    cilindro.Tipo_Cilindro = "Marcado";
+                }                   
+
+                resp = cil.CrearCilindro(cilindro);
+            }
+            catch (Exception ex)
+            {
+                //guardar exepcion en el log de bd
+                resp = -1;
+            }
+
             return resp;
         }
 
-        public string consultadeExistencia(string cilindro)
+        public long consultadeExistencia(string cilindro)
         {
-            string resp = "Ok";
+            CilindroDL cil = new CilindroDL();
+            long resp = 0;
+            try
+            {
+                resp = cil.ConsultarExistencias(cilindro);
+            }
+            catch (Exception ex)
+            {
+                //guardar exepcion en el log de bd
+                resp = -1;
+            }
+
             return resp;
+
         }
 
          public CilindroBE ConsultarCilindro(string cilindro)
         {
-            Random ran = new Random();
-            CilindroBE cil = new CilindroBE();
-            cil.Ano = "2012";
-            FabricanteBE fab = new FabricanteBE();
-            fab.Nombre_Fabricante = "Cilgas";
-            cil.Fabricante = fab;
-            cil.Serial_Cilindro = "51954";
-            Tipo_UbicacionBE tipoUbi = new Tipo_UbicacionBE();
-            tipoUbi.Nombre_Ubicacion = "Cliente";
-            TamanoBE tam = new TamanoBE();
-            tam.Tamano = "30";
-            cil.NTamano = tam;
-            cil.Tipo_Cilindro = "Universal";
-            cil.Codigo_Cilindro = ((DateTime.Now.Hour + DateTime.Now.Second) * ran.Next(1, 10)).ToString();
-            cil.Fecha = Convert.ToDateTime(DateTime.Now.ToShortDateString());
-            //--------------------------------
-            ClienteBE cli = new ClienteBE();
-            cli.Cedula= "7309877";
-            cli.Nombres_Cliente = "Jaime Andres";
-            cli.Apellido_1 = "Ortiz";
-            cli.Apellido_2 = "León";
-            UbicacionBE ubi = new UbicacionBE(); 
-             List<string> lstDireccion = new List<string>();
-            for (int i = 0; i < 5; i++)
+            CilindroDL cil = new CilindroDL();
+            CilindroBE resp = new CilindroBE();
+            try
             {
-                lstDireccion.Add("Calle" + i + " N " + i + "0 " + i + "0");
+                resp = cil.ConsultarCilindro(cilindro);
             }
-            ubi.Direccion = lstDireccion;
-            
-            ubi.Barrio = "El Bosque";
-            CiudadBE ciu = new CiudadBE();
-            ciu.Nombre_Ciudad = "Chiquinquirá";
-            DepartamentoBE dep = new DepartamentoBE();
-            dep.Nombre_Departamento = "Boyacá";
-            ciu.Departamento = dep;
-            ubi.Telefono_1 = "7266530";
-            cil.Fecha = Convert.ToDateTime(DateTime.Now.ToShortDateString());
-            ubi.Ciudad = ciu;
-            ubi.Cliente = cli;
-            ubi.Tipo_Ubicacion = tipoUbi;
-            
-        
-            //-----------------------------
-            VehiculoBE veh = new VehiculoBE();
-            veh.Placa = "XHA940";
-            RutaBE ruta = new RutaBE();
-            ruta.Nombre_Ruta= "Chiquinquirá-Ubaté";
-            ConductorBE cond = new ConductorBE();
-            cond.Nombres_Conductor= "Juanito perez";
-            veh.Ruta = ruta;
-            veh.Conductor = cond;
-            ubi.Vehiculo = veh;
-            cil.Ubicacion = ubi;
-            
-            return cil;
+            catch (Exception ex)
+            {
+                
+            }
+
+            return resp;
         }
          
         public string AsignarUbicacion(CilindroBE cilindro)
@@ -120,9 +110,11 @@ namespace Unisangil.CYLTRACK.CYLTRACK_BL
                         datCil.NTamano = tam;
                         VehiculoBE veh = new VehiculoBE();
                         veh.Placa = "CAD678";
+                        Ubicacion_CilindroBE ubiCil = new Ubicacion_CilindroBE();
                         UbicacionBE ubicacion = new UbicacionBE();
                         ubicacion.Vehiculo = veh;
-                        datCil.Ubicacion = ubicacion;
+                        ubiCil.Ubicacion = ubicacion;
+                        datCil.Ubicacion_Cilindro = ubiCil;
                         lstCod.Add(datCil);
                     }
             }
@@ -140,9 +132,11 @@ namespace Unisangil.CYLTRACK.CYLTRACK_BL
                         datCil.NTamano = tam;
                         VehiculoBE veh = new VehiculoBE();
                         veh.Placa = "UIZ987";
+                        Ubicacion_CilindroBE ubiCil = new Ubicacion_CilindroBE();
                         UbicacionBE ubicacion = new UbicacionBE();
                         ubicacion.Vehiculo = veh;
-                        datCil.Ubicacion = ubicacion;
+                        ubiCil.Ubicacion = ubicacion;
+                        datCil.Ubicacion_Cilindro = ubiCil;
                         lstCod.Add(datCil);
                     }                   
             }
@@ -154,6 +148,24 @@ namespace Unisangil.CYLTRACK.CYLTRACK_BL
         {
             string resp = "Ok";
             return resp;
+        }
+
+        public long consultaCodigoFabricante(string codigoFabricante)
+        {
+            CilindroDL cil = new CilindroDL();
+            long resp = 0;
+            try
+            {
+                resp = cil.ConsultaCodigoFabricante(codigoFabricante);
+            }
+            catch (Exception ex)
+            {
+                //guardar exepcion en el log de bd
+                resp = -1;
+            }
+
+            return resp;
+
         }
         #endregion
         #region Metodos privados
