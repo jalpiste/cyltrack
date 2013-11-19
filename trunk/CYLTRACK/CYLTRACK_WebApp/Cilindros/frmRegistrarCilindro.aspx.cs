@@ -8,6 +8,7 @@ using System.Web.UI.WebControls;
 using Unisangil.CYLTRACK.CYLTRACK_BE;
 using CYLTRACK_WebApp.CilindroService;
 using System.Windows.Forms;
+using CYLTRACK_WebApp.ReporteService;
 
 
 namespace Unisangil.CYLTRACK.CYLTRACK_WebApp.Cilindros
@@ -20,31 +21,27 @@ namespace Unisangil.CYLTRACK.CYLTRACK_WebApp.Cilindros
             if (!IsPostBack)
             {
                 TxtCodigoCilindro.Focus();
-            }
-            if(!IsPostBack)
-            {
-                List<string> listaUbicacion = Auxiliar.ConsultarUbicacion();
-                IEnumerable<string> lstUbica = listaUbicacion.Skip(2);
-                foreach (string datos in lstUbica)
+           
+                ReporteServiceClient servReporte = new ReporteServiceClient();
+                List<Tipo_UbicacionBE> lstipoUbica = new List<Tipo_UbicacionBE>(servReporte.ConsultaTipoUbicacion());
+                foreach (Tipo_UbicacionBE datosUbicacion in lstipoUbica)
                 {
-                    LstUbicacion.Items.Add(datos);
+                    LstUbicacion.Items.Add(datosUbicacion.Nombre_Ubicacion);
+                }
+
+                List<TamanoBE> lstTamanoCilindro = new List<TamanoBE>(servReporte.ConsultaTamanoCilindro());
+                foreach (TamanoBE datosTamano in lstTamanoCilindro)
+                {
+                    LstTamano.Items.Add(datosTamano.Tamano);
                 }
 
                 Anos[] anos = Auxiliar.ConsultarAnos();
-                IEnumerable<Anos> listaAnos = anos.Skip(1);
+                IEnumerable<Anos> listaAnos = anos.OrderByDescending(g => g);
                 foreach (Anos datosAnos in listaAnos)
                 {
                     LstAno.Items.Add(datosAnos.ToString());
-                }
-
-                if (!IsPostBack)
-                {
-                    List<string> tamanos = Auxiliar.ConsultarTamanos();
-                    foreach (string datosTamanos in tamanos)
-                    {
-                        LstTamano.Items.Add((datosTamanos).Substring(3));
-                    }
-                }
+                }               
+                
             }
         }
         protected void TxtCodigoCilindro_TextChanged(object sender, EventArgs e)
@@ -52,14 +49,15 @@ namespace Unisangil.CYLTRACK.CYLTRACK_WebApp.Cilindros
             SetFocus(BtnGuardar);
             CilindroServiceClient servCilindro = new CilindroServiceClient();
             CilindroBE cilindro = new CilindroBE();
-            string codigo;
+            long codigo;
             try 
             {
                 codigo = servCilindro.consultadeExistencia(TxtCodigoCilindro.Text);
-               
-                    if (codigo != "Ok")
+
+                if (codigo != 0)
                     {
-                        MessageBox.Show("El cilindro ya se encuentra creado en el sistema", "Registrar Cilindro");                        
+                        MessageBox.Show("El Cilindro ya se encuentra creado en el sistema", "Registrar Cilindro");
+                        TxtCodigoCilindro.Text = "";
                     }
                     else 
                     {
@@ -82,29 +80,40 @@ namespace Unisangil.CYLTRACK.CYLTRACK_WebApp.Cilindros
 
         protected void BtnGuardar_Click(object sender, EventArgs e)
         {
-            String resp;
+            long resp;
             CilindroServiceClient servCilindro = new CilindroServiceClient();
             CilindroBE cilindro = new CilindroBE();
 
-            try {
-
+            try 
+            {
                 cilindro.Ano = LstAno.SelectedValue;
                 FabricanteBE fab = new FabricanteBE();
-                fab.Id_Fabricante= TxtEmpresa.Text;
+                fab.Codigo_Fabricante= TxtEmpresa.Text;
                 cilindro.Fabricante = fab;
-                cilindro.Id_Cilindro = txtCil.Text;
-                Tipo_UbicacionBE tipUbica = new Tipo_UbicacionBE();
-                tipUbica.Nombre_Ubicacion= LstUbicacion.SelectedValue;
+                cilindro.Serial_Cilindro = TxtCodigo.Text;
+                cilindro.Codigo_Cilindro = (LstAno.SelectedValue).Substring(2)+""+TxtEmpresa.Text+""+TxtCodigo.Text;
+                Ubicacion_CilindroBE UbicaCil = new Ubicacion_CilindroBE();
                 UbicacionBE ubi = new UbicacionBE();
+                Tipo_UbicacionBE tipUbica = new Tipo_UbicacionBE();
+                tipUbica.Nombre_Ubicacion = LstUbicacion.SelectedValue;
                 ubi.Tipo_Ubicacion = tipUbica;
-                cilindro.Ubicacion = ubi;
+                UbicaCil.Ubicacion = ubi;
+                cilindro.Ubicacion_Cilindro = UbicaCil;
                 TamanoBE tam = new TamanoBE();
                 tam.Tamano= LstTamano.SelectedValue;
                 cilindro.NTamano = tam;
 
-                resp = servCilindro.RegistrarCilindro(cilindro);
-                
-                MessageBox.Show("El cilindro fue registrado satisfactoriamente", "Registrar Cilindro");
+                if (txtCil.Text == cilindro.Codigo_Cilindro)
+                {
+                    resp = servCilindro.RegistrarCilindro(cilindro);
+
+                    MessageBox.Show("El Cilindro fue registrado satisfactoriamente", "Registrar Cilindro");
+                }
+                else 
+                {
+                    MessageBox.Show("El código escrito no coincide con los datos ingresados", "Registrar Cilindro");
+                    TxtCodigoCilindro.Text = "";
+                }
                             
             }
             catch (Exception ex) {
@@ -124,5 +133,29 @@ namespace Unisangil.CYLTRACK.CYLTRACK_WebApp.Cilindros
             Response.Redirect("~/Default.aspx");
         }
 
-      }
+        protected void TxtEmpresa_TextChanged(object sender, EventArgs e)
+        {
+            CilindroServiceClient servCilindro = new CilindroServiceClient();
+
+            try
+            {
+                long codigo = servCilindro.ConsultaCodigoFabricante(TxtEmpresa.Text);
+
+                if (codigo == 0)
+                {
+                    MessageBox.Show("El código del fabricante no esta registrado en el sistema", "Registrar Cilindro");
+                }
+            }
+            catch (Exception ex)
+            {
+                Response.Redirect("~/About.aspx");
+            }
+            finally 
+            {
+                servCilindro.Close();
+            }
+
+        }
+
+     }
 }

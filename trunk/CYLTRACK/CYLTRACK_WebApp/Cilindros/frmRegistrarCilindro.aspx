@@ -54,7 +54,8 @@
                              CssClass="failureNotification" ErrorMessage="El año de fabricación es obligatorio." ToolTip="El año de fabricacion es obligatorio." 
                              ValidationGroup="RegistrodeCilindro">*</asp:RequiredFieldValidator>
                          &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 
-                         <asp:TextBox ID="TxtEmpresa" runat="server" Width="80px" CssClass="textEntry"></asp:TextBox>
+                         <asp:TextBox ID="TxtEmpresa" runat="server" Width="80px" CssClass="textEntry" 
+                             ontextchanged="TxtEmpresa_TextChanged"></asp:TextBox>
                          <asp:RequiredFieldValidator ID="validEmpresa" runat="server" ControlToValidate="TxtEmpresa" 
                              CssClass="failureNotification" ErrorMessage="El código de la empresa es obligatorio." ToolTip="El código de la empresa es obligatorio." 
                              ValidationGroup="RegistrodeCilindro">*</asp:RequiredFieldValidator>
@@ -83,7 +84,7 @@
                              CssClass="failureNotification" ErrorMessage="La ubicacion del cilindro es obligatorio." ToolTip="La ubicacion del cilindro es obligatorio." 
                              ValidationGroup="RegistrodeCilindro">*</asp:RequiredFieldValidator>
                         
-                        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
                         <asp:ListBox ID="LstTamano" runat="server" AutoPostBack="True" Rows="1" >
                             <asp:ListItem>Seleccionar...</asp:ListItem>
                         </asp:ListBox>
