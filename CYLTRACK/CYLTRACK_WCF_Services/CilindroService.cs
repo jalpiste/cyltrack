@@ -26,9 +26,9 @@ namespace Unisangil.CYLTRACK.CYLTRACK_WCF_Services
         /// </summary>
         /// <param name="cilindro">Objeto de negocio cilindro</param>
         /// <returns>Código interno del cilindro</returns>
-        public string RegistrarCilindro(CilindroBE cilindro)
+        public long RegistrarCilindro(CilindroBE cilindro)
         {
-            string resp;
+            long resp;
             CilindroBL crearCil = new CilindroBL();
             resp = crearCil.CrearCilindro(cilindro);
             return resp;
@@ -91,14 +91,20 @@ namespace Unisangil.CYLTRACK.CYLTRACK_WCF_Services
             return resp;
         }
 
-        public string consultadeExistencia(string cilindro)
+        public long consultadeExistencia(string cilindro)
         {
-            string resp;
+            long resp;
             CilindroBL consulExistencia = new CilindroBL();
             resp = consulExistencia.consultadeExistencia(cilindro);
             return resp;
         }
 
-
+        public long ConsultaCodigoFabricante(string codigoFabricante)
+        {
+            long resp;
+            CilindroBL consultaExisFabricante = new CilindroBL();
+            resp = consultaExisFabricante.consultaCodigoFabricante(codigoFabricante);
+            return resp;
+        }
     }
 }

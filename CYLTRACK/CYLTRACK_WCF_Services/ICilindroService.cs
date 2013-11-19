@@ -26,7 +26,7 @@ namespace Unisangil.CYLTRACK.CYLTRACK_WCF_Services
         /// <param name="cilindro">Objeto de negocio cilindro</param>
         /// <returns>código cilindro</returns>
         [OperationContract]
-        string RegistrarCilindro(CilindroBE cilindro);
+        long RegistrarCilindro(CilindroBE cilindro);
 
         /// <summary>
         /// Método encargado de la consulta de cilindros en el sistema. Permite
@@ -73,6 +73,16 @@ namespace Unisangil.CYLTRACK.CYLTRACK_WCF_Services
         /// <param name="cilindro">Objeto de negocio cilindro</param>
         /// <returns>código cilindro</returns>
         [OperationContract]
-        string consultadeExistencia(string cilindro);
+        long consultadeExistencia(string cilindro);
+
+        /// <summary>
+        /// Método encargado de la consulta de la existencia del codigo de fabricante en el sistema. Permite
+        /// que las aplicaciones llamen a los objetos de negocio directamente.
+        /// </summary>
+        /// <param name="cilindro">codigo fabricante del cilindro</param>
+        /// <returns>código fabricante</returns>
+        [OperationContract]
+        long ConsultaCodigoFabricante(string codigoFabricante);
+        
     }
 }
