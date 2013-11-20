@@ -9,6 +9,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using Unisangil.CYLTRACK.CYLTRACK_BE;
+using Unisangil.CYLTRACK.CYLTRACK_DL;
 
 namespace Unisangil.CYLTRACK.CYLTRACK_BL
 {
@@ -323,7 +324,38 @@ namespace Unisangil.CYLTRACK.CYLTRACK_BL
             }
             return lstVehiculo;
         }
+
+        public List<Tipo_UbicacionBE> ConsultaTipoUbicacion() 
+        {
+            ReporteDL reporte = new ReporteDL();
+            List<Tipo_UbicacionBE> lstReport = new List<Tipo_UbicacionBE>();
+            try
+            {
+                lstReport = reporte.ConsultarTipoUbicaciones();
+            }
+            catch (Exception ex)
+            {
+                
+            }
+            return lstReport;
+        }
+       
+        public List<TamanoBE> ConsultaTamanoCilindro() 
+        {
+            ReporteDL reporte = new ReporteDL();
+            List<TamanoBE> lstReport = new List<TamanoBE>();
+            try
+            {
+                lstReport = reporte.ConsultarTamanosCilindros();
+            }
+            catch (Exception ex)
+            {
+                
+            }
+            return lstReport;
+        }
         #endregion
+        
         #region Metodos privados
         #endregion
     }
