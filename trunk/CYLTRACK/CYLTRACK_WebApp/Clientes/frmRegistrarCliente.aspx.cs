@@ -10,7 +10,7 @@ using CYLTRACK_WebApp.ClienteService;
 using CYLTRACK_WebApp.RutaService;
 using System.Windows.Forms;
 
-namespace Unisangil.CYLTRACK.CYLTRACK_WebApp.Account
+namespace Unisangil.CYLTRACK.CYLTRACK_WebApp.Clientes
 {
     public partial class frmcrearcliente : System.Web.UI.Page
     {
@@ -48,12 +48,12 @@ namespace Unisangil.CYLTRACK.CYLTRACK_WebApp.Account
         {
             ClienteServiceClient servCliente = new ClienteServiceClient();
             
-            String resp;
+            long resp;
             try
             {
                 resp = servCliente.Consultar_Existencia(txtCedula.Text);
 
-                if (resp != "Ok")
+                if (resp != 0)
                 {
                     MessageBox.Show("El cliente ya se encuentra registrado en el sistema", "Registrar Cliente");
                 }
@@ -83,34 +83,34 @@ namespace Unisangil.CYLTRACK.CYLTRACK_WebApp.Account
         protected void btnGuardar_Click(object sender, EventArgs e)
         {
             ClienteServiceClient servCliente = new ClienteServiceClient();
-            String resp;
+            long resp;
 
-            ClienteBE registrar_cli = new ClienteBE();
+            ClienteBE cliente = new ClienteBE();
 
             try
             {
-                registrar_cli.Cedula = txtCedulaCli.Text;
-                registrar_cli.Nombres_Cliente = txtNombreCliente.Text;
-                registrar_cli.Apellido_1 = txtPrimerApellido.Text;
-                registrar_cli.Apellido_2 = txtSegundoApellido.Text;
+                cliente.Cedula = txtCedulaCli.Text;
+                cliente.Nombres_Cliente = txtNombreCliente.Text;
+                cliente.Apellido_1 = txtPrimerApellido.Text;
+                cliente.Apellido_2 = txtSegundoApellido.Text;
                 
                 UbicacionBE ubicacion = new UbicacionBE();
                 List<string> lstDatoDireccion = new List<string>();
                 lstDatoDireccion.Add(txtDireccion.Text);
-                ubicacion.Direccion = lstDatoDireccion;
+                ubicacion.Direccion=lstDatoDireccion;
                 ubicacion.Barrio = txtBarrio.Text;
                 ubicacion.Telefono_1 = txtTelefono.Text;
                 
                 CiudadBE ciucli = new CiudadBE();
                 ciucli.Nombre_Ciudad = lstCiudad.SelectedValue;
                 ubicacion.Ciudad = ciucli;
-                registrar_cli.Ubicacion = ubicacion;
+                cliente.Ubicacion = ubicacion;
 
                 DepartamentoBE depcli = new DepartamentoBE();
                 depcli.Nombre_Departamento = lstDepartamento.SelectedValue;
                 ciucli.Departamento = depcli;
                 
-                resp = servCliente.Registrar_Cliente(registrar_cli);
+                resp = servCliente.Registrar_Cliente(cliente);
 
                 MessageBox.Show("El cliente fue registrado satisfactoriamente", "Registrar Cliente");
                 
