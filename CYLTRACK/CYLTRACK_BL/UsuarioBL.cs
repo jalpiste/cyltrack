@@ -41,10 +41,10 @@ namespace Unisangil.CYLTRACK.CYLTRACK_BL
             return resp;
         }
 
-        public bool Autenticacion(UsuarioBE usuario)
+        public string Autenticacion(UsuarioBE usuario)
         {
-            bool resp ;
-            resp = true;
+            string resp ;
+            resp = "PrimeraVez";
             return resp;            
         }
 

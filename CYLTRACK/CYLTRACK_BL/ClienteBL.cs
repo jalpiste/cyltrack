@@ -9,6 +9,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using Unisangil.CYLTRACK.CYLTRACK_BE;
+using Unisangil.CYLTRACK.CYLTRACK_DL;
 
 namespace Unisangil.CYLTRACK.CYLTRACK_BL
 {
@@ -18,9 +19,21 @@ namespace Unisangil.CYLTRACK.CYLTRACK_BL
 
         #endregion
         #region Metodos publicos
-        public String RegistrarCliente(ClienteBE registrar_cli)
+        public long CrearCliente(ClienteBE cliente)
         {
-            String resp = "Ok";
+            ClienteDL cli = new ClienteDL();
+
+            long resp = 0;
+            try
+            {
+                resp = cli.CrearCliente(cliente);
+            }
+            catch (Exception ex)
+            {
+                //guardar exepcion en el log de bd
+                resp = -1;
+            }
+
             return resp;
         }
         
@@ -34,9 +47,20 @@ namespace Unisangil.CYLTRACK.CYLTRACK_BL
         /// </summary>
         /// <param name="consultar_existencia"></param>
         /// <returns></returns>
-        public string ConsultarExistencia(string consultar_existencia)
+        public long ConsultarExistencia(string consultar_existencia)
         {
-            string resp = "Ok";
+            ClienteDL cil = new ClienteDL();
+            long resp = 0;
+            try
+            {
+                resp = cil.ConsultarExistenciasClientes(consultar_existencia);
+            }
+            catch (Exception ex)
+            {
+                //guardar exepcion en el log de bd
+                resp = -1;
+            }
+
             return resp;
         }
         /// <summary>

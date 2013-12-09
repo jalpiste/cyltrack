@@ -69,7 +69,7 @@ namespace Unisangil.CYLTRACK.CYLTRACK_BL
 
         }
 
-         public CilindroBE ConsultarCilindro(string cilindro)
+        public CilindroBE ConsultarCilindro(string cilindro)
         {
             CilindroDL cil = new CilindroDL();
             CilindroBE resp = new CilindroBE();
@@ -92,56 +92,22 @@ namespace Unisangil.CYLTRACK.CYLTRACK_BL
             return resp;
         }
 
-        public List<CilindroBE> ConsultarCilUbicacion(string ubica)
+        public List<Ubicacion_CilindroBE> ConsultarCilUbicacion(string ubica)
         {
-            List<CilindroBE> lstCod = new List<CilindroBE>();
+            List<Ubicacion_CilindroBE> lstResp= new List<Ubicacion_CilindroBE>();
+
+            CilindroDL cil = new CilindroDL();
            
-                if (ubica == "Plataforma")
-                {
-                    Random ran = new Random();
-                    for (int i = 0; i < 7; i++)
-                    {
-                        CilindroBE datCil= new CilindroBE();
-                        
-                        datCil.Codigo_Cilindro=((DateTime.Now.Hour + DateTime.Now.Second) * ran.Next(1, 10)).ToString();
-                        datCil.Tipo_Cilindro = "Universal";
-                        TamanoBE tam = new TamanoBE();
-                        tam.Tamano = "40";
-                        datCil.NTamano = tam;
-                        VehiculoBE veh = new VehiculoBE();
-                        veh.Placa = "CAD678";
-                        Ubicacion_CilindroBE ubiCil = new Ubicacion_CilindroBE();
-                        UbicacionBE ubicacion = new UbicacionBE();
-                        ubicacion.Vehiculo = veh;
-                        ubiCil.Ubicacion = ubicacion;
-                        datCil.Ubicacion_Cilindro = ubiCil;
-                        lstCod.Add(datCil);
-                    }
+            try
+            {
+                lstResp = cil.ConsultarCilUbicacion(ubica);
             }
-                if (ubica == "Vehiculo")
-                {
-                    Random ran = new Random();
-                    for (int i = 0; i < 7; i++)
-                    {
-                        CilindroBE datCil= new CilindroBE();
-                        
-                        datCil.Codigo_Cilindro=((DateTime.Now.Hour + DateTime.Now.Second) * ran.Next(1, 10)).ToString();
-                        datCil.Tipo_Cilindro = "Marcado";
-                        TamanoBE tam = new TamanoBE();
-                        tam.Tamano = "30";
-                        datCil.NTamano = tam;
-                        VehiculoBE veh = new VehiculoBE();
-                        veh.Placa = "UIZ987";
-                        Ubicacion_CilindroBE ubiCil = new Ubicacion_CilindroBE();
-                        UbicacionBE ubicacion = new UbicacionBE();
-                        ubicacion.Vehiculo = veh;
-                        ubiCil.Ubicacion = ubicacion;
-                        datCil.Ubicacion_Cilindro = ubiCil;
-                        lstCod.Add(datCil);
-                    }                   
+            catch (Exception ex)
+            {
+
             }
-            
-            return lstCod;
+
+            return lstResp;
         }
 
         public string CargueyDescargueCilindros(List<CilindroBE> cilindro)
