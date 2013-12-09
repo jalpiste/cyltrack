@@ -62,9 +62,9 @@ namespace Unisangil.CYLTRACK.CYLTRACK_BL
             for (int i = 0; i < 4; i++ )
             {
                 CiudadBE ciu = new CiudadBE();
-                ciu.Nombre_Ciudad = "Chiquinquirá";
+                ciu.Nombre_Ciudad = "CHIQUINQUIRA";
                 DepartamentoBE dep = new DepartamentoBE();
-                dep.Nombre_Departamento = "Boyacá";
+                dep.Nombre_Departamento = "BOYACA";
                 ciu.Departamento = dep;
                 lstCiudades.Add(ciu);
             }           
