@@ -38,6 +38,5 @@ namespace Unisangil.CYLTRACK.CYLTRACK_BE
             set { idPrueba = value; }
         }
 
-
     }
 }
