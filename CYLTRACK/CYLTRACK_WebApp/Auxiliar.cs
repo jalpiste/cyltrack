@@ -76,6 +76,12 @@ namespace Unisangil.CYLTRACK.CYLTRACK_WebApp
             tam = Enum.GetNames(typeof(Tamanos)).ToList();
             return tam;
         }
+        public static List<string> ConsultaTipo_Autenticacion()
+        {
+            List<string> autenticacion = new List<string>();
+            autenticacion = Enum.GetNames(typeof(Tipo_Autenticacion)).ToList();
+            return autenticacion;
+        }
     }
         public enum Tipo_Cilindro
         {
@@ -145,6 +151,12 @@ namespace Unisangil.CYLTRACK.CYLTRACK_WebApp
             Cilindros = 7,
             Vehiculos = 8,
             
+        }
+        public enum Tipo_Autenticacion
+        {
+            PrimeraVez = 1,
+            SegundaVez = 2,
+            Erroneo = 3
         }
 
 }
