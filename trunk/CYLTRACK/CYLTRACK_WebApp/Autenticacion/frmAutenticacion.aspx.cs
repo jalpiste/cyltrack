@@ -7,6 +7,7 @@ using System.Web.Security;
 using System.Web.UI;
 using System.Web.UI.WebControls;
 using Unisangil.CYLTRACK.CYLTRACK_BE;
+using System.Windows.Forms;
 
 namespace Unisangil.CYLTRACK.CYLTRACK_WebApp.Autenticacion
 {
@@ -26,21 +27,26 @@ namespace Unisangil.CYLTRACK.CYLTRACK_WebApp.Autenticacion
             UsuarioBE usuario = new UsuarioBE();
             try
             {
-                bool autentic;
+                string autentic;
                 usuario.Usuario = txtNombreUsuario.Text;
                 usuario.Contrasena_1 = txtContrasena.Text;
 
                 autentic = servUsuario.Autenticacion(usuario);
 
-                if (autentic)
+                if (autentic==Tipo_Autenticacion.PrimeraVez.ToString())
                 {
                     divAutentica.Visible = false;
                     divPrimeraVez.Visible = true;
                     btnIniciarSesion.Visible = false;
                 }
-                else
+                if (autentic == Tipo_Autenticacion.SegundaVez.ToString())
                 {
                     Response.Redirect("~/Default.aspx");
+                }
+                if (autentic == Tipo_Autenticacion.Erroneo.ToString())
+                {
+                    MessageBox.Show("El usuario ingresado no se encuentra registrado", "Autenticación de Usuarios");
+                    txtNombreUsuario.Text = "";
                 }
             }
             catch (Exception ex)
@@ -64,9 +70,13 @@ namespace Unisangil.CYLTRACK.CYLTRACK_WebApp.Autenticacion
             {
                 if (txtNuevaContrasena.Text == txtConfirmarContrasena.Text)
                 {
-                    bool primeraContrasena;
                     user.Contrasena_1 = txtConfirmarContrasena.Text;
-                    primeraContrasena = serUser.Autenticacion(user);
+                    user.Usuario = txtNombreUsuario.Text;
+                    serUser.Autenticacion(user);
+                }
+                else
+                {
+                    MessageBox.Show("Las contraseñas digitadas no coinciden");
                 }
             }
 
