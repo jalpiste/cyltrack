@@ -36,9 +36,9 @@
                   <div class="post" >
                       <asp:Label ID="lblPost" runat="server" Text="Información Cilindro"></asp:Label>
                       </div> 
-                     <asp:Label ID="lblPlaca" runat="server" Text="Placa del vehículo:"></asp:Label>
+                     <asp:Label ID="lblPlaca" runat="server" Text="Placa del vehículo:" Visible="false"></asp:Label>
                      <br />
-                     <asp:ListBox ID="lstPlaca" runat="server" Rows="1"   >
+                     <asp:ListBox ID="lstPlaca" runat="server" Rows="1" Visible="false" >
                          <asp:ListItem>Seleccionar</asp:ListItem>
                      </asp:ListBox>
                      <br />

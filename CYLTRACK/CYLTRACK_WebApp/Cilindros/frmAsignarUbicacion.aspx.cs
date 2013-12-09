@@ -7,6 +7,7 @@ using System.Web.UI.WebControls;
 using Unisangil.CYLTRACK.CYLTRACK_BE;
 using CYLTRACK_WebApp.CilindroService;
 using System.Windows.Forms;
+using CYLTRACK_WebApp.ReporteService;
 
 namespace Unisangil.CYLTRACK.CYLTRACK_WebApp.Cilindros
 {
@@ -18,15 +19,11 @@ namespace Unisangil.CYLTRACK.CYLTRACK_WebApp.Cilindros
             if (!IsPostBack)
             {
                 txtCodeCilindro.Focus();
-            }
-
-            if(!IsPostBack)
-            {
-                List<string> listaUbica = Auxiliar.ConsultarUbicacion();
-                IEnumerable<string> listaUbicacion = listaUbica.Skip(1);
-                foreach (string datosUbica in listaUbicacion)
+                ReporteServiceClient servReporte = new ReporteServiceClient();
+                List<Tipo_UbicacionBE> lstipoUbica = new List<Tipo_UbicacionBE>(servReporte.ConsultaTipoUbicacion());
+                foreach (Tipo_UbicacionBE datosUbicacion in lstipoUbica)
                 {
-                    lstUbica.Items.Add(datosUbica.ToString());
+                    lstUbica.Items.Add(datosUbicacion.Nombre_Ubicacion);
                 }
             }
         }
@@ -37,12 +34,12 @@ namespace Unisangil.CYLTRACK.CYLTRACK_WebApp.Cilindros
             CilindroServiceClient servAsig = new CilindroServiceClient();
             CilindroBE cil = new CilindroBE();
             CilindroBE ConsultarCilindro;
-            string consultarExistencia;
+            long consultarExistencia;
             try 
             {
                 consultarExistencia = servAsig.consultadeExistencia(txtCodeCilindro.Text);
 
-                if (consultarExistencia == null)
+                if (consultarExistencia == 0)
                     {
                         MessageBox.Show("El cilindro digitado no se encuentra registrado en el sistema", "Asignación de ubicación");
                     }
@@ -50,10 +47,10 @@ namespace Unisangil.CYLTRACK.CYLTRACK_WebApp.Cilindros
                     {
                         ConsultarCilindro = servAsig.ConsultarCilindro(txtCodeCilindro.Text);
                         txtCodigo.Text = ConsultarCilindro.Codigo_Cilindro;
-                        txtUbicacionActual.Text = ConsultarCilindro.Ubicacion.Tipo_Ubicacion.Nombre_Ubicacion;
-                        lstPlacaVehiculo.Items.Add(ConsultarCilindro.Ubicacion.Vehiculo.Placa);
-                        TxtConductor.Text = ConsultarCilindro.Ubicacion.Vehiculo.Conductor.Nombres_Conductor;
-                        LblRutaVehiculo.Text = ConsultarCilindro.Ubicacion.Vehiculo.Ruta.Nombre_Ruta;
+                        txtUbicacionActual.Text = ConsultarCilindro.Ubicacion_Cilindro.Ubicacion.Tipo_Ubicacion.Nombre_Ubicacion;
+                        lstPlacaVehiculo.Items.Add(ConsultarCilindro.Ubicacion_Cilindro.Ubicacion.Vehiculo.Placa);
+                        TxtConductor.Text = ConsultarCilindro.Ubicacion_Cilindro.Ubicacion.Vehiculo.Conductor.Nombres_Conductor;
+                        LblRutaVehiculo.Text = ConsultarCilindro.Ubicacion_Cilindro.Ubicacion.Vehiculo.Ruta.Nombre_Ruta;
                         DivUbicacionCil.Visible = true;
                         DivNuevaUbicacion.Visible = true;
                         
@@ -108,8 +105,10 @@ namespace Unisangil.CYLTRACK.CYLTRACK_WebApp.Cilindros
                 ubi.Tipo_Ubicacion = tipUbi;
                 VehiculoBE veh = new VehiculoBE();
                 veh.Placa= (lstPlacaVehiculo.SelectedValue);
+                Ubicacion_CilindroBE UbiCil = new Ubicacion_CilindroBE();
                 ubi.Vehiculo = veh;
-                cilindro.Ubicacion = ubi;
+                UbiCil.Ubicacion = ubi;
+                cilindro.Ubicacion_Cilindro = UbiCil;
                 resp = servAsig.AsignarUbicacion(cilindro);
 
                 MessageBox.Show("La asignación de ubicación fue cambiada satisfactoriamente", "Asignar Ubicación");

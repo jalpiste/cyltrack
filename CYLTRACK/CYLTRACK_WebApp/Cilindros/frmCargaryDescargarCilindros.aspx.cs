@@ -11,7 +11,6 @@ using System.Windows.Forms;
 
 namespace Unisangil.CYLTRACK.CYLTRACK_WebApp.Cilindros
 {
-
     public partial class frmCargaryDescargarCilindros : System.Web.UI.Page
     {
         
@@ -41,21 +40,31 @@ namespace Unisangil.CYLTRACK.CYLTRACK_WebApp.Cilindros
 
                     if (lstOpcion.SelectedIndex == 1)
                     {
-                        datoUbica= "Plataforma";                       
+                        datoUbica= Ubicacion.Plataforma.ToString();
+                        DivUbicacionCil.Visible = true;
+                        lstPlaca.Visible = true;
+                        lblPlaca.Visible = true;
+                        BtnGuardar.Visible = true;
+                        gvCargue.Visible = true;
                     }
                     else 
                     {
-                        datoUbica = "Vehiculo";
+                        datoUbica = Ubicacion.Vehiculo.ToString();
+                        DivUbicacionCil.Visible = true;
+                        BtnGuardar.Visible = true;
+                        gvCargue.Visible = true;
                     }
 
-                    List<CilindroBE> datosConsulta = new List<CilindroBE>(servCilindro.ConsultarCilUbicacion(datoUbica));
-                    foreach (CilindroBE datos in datosConsulta)
+                    List<Ubicacion_CilindroBE> datosConsulta = new List<Ubicacion_CilindroBE>(servCilindro.ConsultarCilUbicacion(datoUbica));
+                    
+                    foreach (Ubicacion_CilindroBE datos in datosConsulta)
                     {
-                        table.Rows.Add(datos.Codigo_Cilindro, datos.NTamano.Tamano, datos.Tipo_Cilindro);
-                        lstPlaca.Items.Add(datos.Ubicacion.Vehiculo.Placa);
+                        table.Rows.Add(datos.Cilindro.Codigo_Cilindro, datos.Cilindro.NTamano.Tamano, datos.Cilindro.Tipo_Cilindro);
+                        //lstPlaca.Items.Add(datos.Ubicacion.Vehiculo.Placa);
                     }
                     gvCargue.DataSource = table;
                     gvCargue.DataBind();
+                    
                 }
                 catch (Exception ex)
                 {
@@ -63,11 +72,7 @@ namespace Unisangil.CYLTRACK.CYLTRACK_WebApp.Cilindros
                 }
                 finally
                 {
-                    DivUbicacionCil.Visible = true;
-                    BtnGuardar.Visible = true;
-                    gvCargue.Visible = true;
                     servCilindro.Close();
-
                 }
                                  
         }
@@ -103,15 +108,16 @@ namespace Unisangil.CYLTRACK.CYLTRACK_WebApp.Cilindros
                 {
                     CilindroBE cil = new CilindroBE();
                     cil.Codigo_Cilindro = cilindro.Codigo_Cilindro;
+
                     if (lstOpcion.SelectedValue == Ubicacion.Plataforma.ToString())
                     {
-                        cil.Ubicacion.Tipo_Ubicacion.Nombre_Ubicacion = Ubicacion.Plataforma.ToString();
+                        cil.Ubicacion_Cilindro.Ubicacion.Tipo_Ubicacion.Nombre_Ubicacion = Ubicacion.Plataforma.ToString();
                     }
 
                     else
                     {
                         cil.Codigo_Cilindro = cilindro.Codigo_Cilindro;
-                        cil.Ubicacion.Tipo_Ubicacion.Nombre_Ubicacion = Ubicacion.Vehiculo.ToString();
+                        cil.Ubicacion_Cilindro.Ubicacion.Tipo_Ubicacion.Nombre_Ubicacion = Ubicacion.Vehiculo.ToString();
                     }
 
                     guardarDatos.Add(cil);
@@ -146,17 +152,20 @@ namespace Unisangil.CYLTRACK.CYLTRACK_WebApp.Cilindros
                     CilindroBE cil = new CilindroBE();
                     cil.Codigo_Cilindro = ((System.Web.UI.WebControls.Button)sender).Attributes["value"].ToString();
 
-                        lstCodigos.ForEach(delegate(CilindroBE registros)
+                        foreach(CilindroBE datos in lstCodigos)
                             {
-                                lstCodigos.Remove(registros);
-                            });
+                            if(cil.Codigo_Cilindro==datos.Codigo_Cilindro)
+                                {
+                                lstCodigos.Remove(datos);
+                                }
+                            };
                                            
                         lstCodigos.Add(cil);
                         tabla.Columns.Add("CodigosAdd");
 
                         foreach (CilindroBE info in lstCodigos)
                         {
-                            tabla.Rows.Add(info);
+                            tabla.Rows.Add(info.Codigo_Cilindro);
                         }
                         gdAdd.DataSource = tabla;
                         gdAdd.DataBind();                    

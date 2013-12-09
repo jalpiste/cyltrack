@@ -64,7 +64,19 @@ namespace Unisangil.CYLTRACK.CYLTRACK_WebApp.Cilindros
                         txtCil.Text = TxtCodigoCilindro.Text;
                         TxtCodigoCilindro.Text = "";
                         DivDatosCilindro.Visible = true;
-                        BtnGuardar.Visible = true;                      
+                        BtnGuardar.Visible = true;
+                        if (txtCil.Text.Length == 11)
+                        {
+                            TxtEmpresa.Text = txtCil.Text.Substring(2, 3);
+                            TxtCodigo.Text = txtCil.Text.Substring(5);
+                        }
+                        else
+                        {
+                            TxtEmpresa.Text = txtCil.Text.Substring(2,4);
+                            TxtCodigo.Text = txtCil.Text.Substring(6);
+                        }
+
+                        TxtEmpresa_TextChanged(sender, e);
                     }
                 }
           
@@ -108,7 +120,8 @@ namespace Unisangil.CYLTRACK.CYLTRACK_WebApp.Cilindros
                     resp = servCilindro.RegistrarCilindro(cilindro);
 
                     MessageBox.Show("El Cilindro fue registrado satisfactoriamente", "Registrar Cilindro");
-                }
+                    
+                 }
                 else 
                 {
                     MessageBox.Show("El código escrito no coincide con los datos ingresados", "Registrar Cilindro");
@@ -154,8 +167,6 @@ namespace Unisangil.CYLTRACK.CYLTRACK_WebApp.Cilindros
             {
                 servCilindro.Close();
             }
-
         }
-
      }
 }
