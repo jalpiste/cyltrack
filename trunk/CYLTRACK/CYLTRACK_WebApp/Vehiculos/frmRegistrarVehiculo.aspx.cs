@@ -189,9 +189,9 @@ namespace Unisangil.CYLTRACK.CYLTRACK_WebApp.Rutas
             ClienteServiceClient ServCliente = new ClienteServiceClient();
             try
             {
-                string consultarCliente = ServCliente.Consultar_Existencia(txtCedula.Text);
+                long consultarCliente = ServCliente.Consultar_Existencia(txtCedula.Text);
 
-                if (consultarCliente != "Ok")
+                if (consultarCliente == 0)
                 {
                     MessageBox.Show("El propietario no se encuentra registrada en el sistema", "Registrar Vehículo");
                 }
