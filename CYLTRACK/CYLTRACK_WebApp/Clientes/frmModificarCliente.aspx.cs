@@ -25,7 +25,7 @@ namespace Unisangil.CYLTRACK.CYLTRACK_WebApp.Clientes
         {
             txtCedulaCli.Focus();
             ClienteServiceClient servCliente = new ClienteServiceClient();
-            string resp;
+            long resp;
            
             try
             {
@@ -146,13 +146,13 @@ namespace Unisangil.CYLTRACK.CYLTRACK_WebApp.Clientes
         protected void txtCedulaCli_TextChanged(object sender, EventArgs e)
         {
             ClienteServiceClient servCliente = new ClienteServiceClient();
-            string resp;
+            long resp;
 
             try
             {
                 resp = servCliente.Consultar_Existencia(txtCedulaCli.Text);
 
-                if (resp != "Ok")
+                if (resp != 0)
                 {
                     MessageBox.Show("La cédula del cliente ya se encuentra registrada en el sistema", "Modificar Cliente");
                 }

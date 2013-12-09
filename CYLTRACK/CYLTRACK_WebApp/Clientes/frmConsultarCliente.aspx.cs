@@ -9,7 +9,7 @@ using CYLTRACK_WebApp.ClienteService;
 using System.Windows.Forms;
 using System.Data;
 
-namespace Unisangil.CYLTRACK.CYLTRACK_WebApp.Account
+namespace Unisangil.CYLTRACK.CYLTRACK_WebApp.Clientes
 {
     public partial class frmconsultarcliente : System.Web.UI.Page
     {
@@ -26,9 +26,9 @@ namespace Unisangil.CYLTRACK.CYLTRACK_WebApp.Account
 
             try
             {
-                string consultaExistencia = serCliente.Consultar_Existencia(txtCedula.Text);
+                long consultaExistencia = serCliente.Consultar_Existencia(txtCedula.Text);
 
-                if (consultaExistencia != "Ok")
+                if (consultaExistencia == 0)
                 {
                     MessageBox.Show("El cliente no se encuentra registrado en el sistema", "Venta de Cilindros");
                 }
