@@ -24,7 +24,7 @@ namespace Unisangil.CYLTRACK.CYLTRACK_BE
         /// Identificador de Ubicacion
         /// </summary>
         [DataMember]
-        public String Id_Tipo_Ubica { get; set; }
+        public int Id_Tipo_Ubica { get; set; }
 
         /// <summary>
         /// Nombre de la ubicación
@@ -37,6 +37,12 @@ namespace Unisangil.CYLTRACK.CYLTRACK_BE
         /// </summary>
         [DataMember]
         public String Descripcion { get; set; }
+
+        /// <summary>
+        /// Ubicación
+        /// </summary>
+        [DataMember]
+        public UbicacionBE Ubicacion { get; set; }
 
     }
 }

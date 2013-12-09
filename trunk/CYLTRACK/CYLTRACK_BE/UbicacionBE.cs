@@ -24,7 +24,7 @@ namespace Unisangil.CYLTRACK.CYLTRACK_BE
         /// Identificador de la ubicacion del cilindro
         /// </summary>
         [DataMember]
-        public String Id_Ubicacion { get; set; }
+        public int Id_Ubicacion { get; set; }
 
         /// <summary>
         /// Fecha del cambio de ubicación del cilindro
