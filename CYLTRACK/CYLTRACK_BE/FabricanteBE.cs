@@ -18,7 +18,7 @@ namespace Unisangil.CYLTRACK.CYLTRACK_BE
         /// Identificador fabricante
         /// </summary>
         [DataMember]
-        public String Id_Fabricante { get; set; }
+        public int Id_Fabricante { get; set; }
         /// <summary>
         /// Direccion del fabricante
         /// </summary>
