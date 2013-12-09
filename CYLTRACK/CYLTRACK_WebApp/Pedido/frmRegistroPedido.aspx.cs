@@ -53,7 +53,7 @@ namespace Unisangil.CYLTRACK.CYLTRACK_WebApp.Pedido
             RutaServicesClient serRuta= new RutaServicesClient();
             
             PedidoBE consultar_cli = new PedidoBE();
-            String resp;
+            long resp;
 
             try
             {
