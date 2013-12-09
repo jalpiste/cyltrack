@@ -119,9 +119,9 @@ namespace Unisangil.CYLTRACK.CYLTRACK_WebApp.Ventas
 
             try
             {
-                string consultaExistencia = serCliente.Consultar_Existencia(cedula);
+                long consultaExistencia = serCliente.Consultar_Existencia(cedula);
 
-                if (consultaExistencia != "Ok")
+                if (consultaExistencia == 0)
                 {
                     MessageBox.Show("El cliente no se encuentra registrado en el sistema", "Venta de Cilindros");
                 }
