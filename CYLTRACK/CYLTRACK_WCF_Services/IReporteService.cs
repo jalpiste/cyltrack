@@ -97,5 +97,21 @@ namespace Unisangil.CYLTRACK.CYLTRACK_WCF_Services
         /// <returns>listado de usuarios</returns>
         [OperationContract]
         List<UsuarioBE> ReporteUsuario();
+
+        /// <summary>
+        /// Método encargado de la consulta de los tipos de ubicaciones de cilindros en el sistema. Permite
+        /// que las aplicaciones llamen a los objetos de negocio directamente.
+        /// </summary>
+        /// <returns>listado de ubicaciones</returns>
+        [OperationContract]
+        List<Tipo_UbicacionBE> ConsultaTipoUbicacion();
+
+        /// <summary>
+        /// Método encargado de la consulta de los tamaños de los cilindros en el sistema. Permite
+        /// que las aplicaciones llamen a los objetos de negocio directamente.
+        /// </summary>
+        /// <returns>listado de tamanos de los cilindros</returns>
+        [OperationContract]
+        List<TamanoBE> ConsultaTamanoCilindro();
     }
 }

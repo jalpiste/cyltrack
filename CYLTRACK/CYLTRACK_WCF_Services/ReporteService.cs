@@ -136,5 +136,29 @@ namespace Unisangil.CYLTRACK.CYLTRACK_WCF_Services
             resp = reporteUsuarios.ReporteUsuario();
             return resp;
         }
+
+        ///<summary>
+        ///Encargado llamar al metodo de negocio para consultar los tipos de ubicacion
+        ///</summary>
+        ///<returns>listado de datos tipos de ubicación</returns>
+        public List<Tipo_UbicacionBE> ConsultaTipoUbicacion() 
+        {
+            List<Tipo_UbicacionBE> resp;
+            ReporteBL consultarTipoUbica = new ReporteBL();
+            resp = consultarTipoUbica.ConsultaTipoUbicacion();
+            return resp;
+        }
+
+        ///<summary>
+        ///Encargado llamar al metodo de negocio para consultar los tamanos de los cilindros
+        ///</summary>
+        ///<returns>listado de datos de tamanos de los cilindros</returns>
+        public List<TamanoBE> ConsultaTamanoCilindro()
+        {
+            List<TamanoBE> resp;
+            ReporteBL consultarTamanoCilindro = new ReporteBL();
+            resp = consultarTamanoCilindro.ConsultaTamanoCilindro();
+            return resp;
+        }
     }
 }
