@@ -53,7 +53,7 @@ namespace Unisangil.CYLTRACK.CYLTRACK_WCF_Services
         /// <param name="usuario">Objeto de negocio usuario</param>
         /// <returns>nombre de usuario</returns>
         [OperationContract]
-        bool Autenticacion(UsuarioBE usuario);
+        string Autenticacion(UsuarioBE usuario);
 
         /// <summary>
         /// Método encargado de la recuperaciòn de contraseña de los usuarios en el sistema. Permite

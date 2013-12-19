@@ -27,7 +27,7 @@ namespace Unisangil.CYLTRACK.CYLTRACK_WCF_Services
         /// <param name="cliente">Objeto de negocio cliente</param>
         /// <returns>cédula del cliente</returns>
         [OperationContract]
-        string Registrar_Cliente(ClienteBE cliente);
+        long Registrar_Cliente(ClienteBE cliente);
 
         /// <summary>
         /// Método encargado del registro una nueva ubicacón de clientes en el sistema. Permite
@@ -54,7 +54,7 @@ namespace Unisangil.CYLTRACK.CYLTRACK_WCF_Services
         /// <param name="consultar_existencia"></param>
         /// <returns></returns>
         [OperationContract]
-        string Consultar_Existencia(string consultar_existencia);
+        long Consultar_Existencia(string consultar_existencia);
 
         /// <summary>
         /// Método encargado de la modificación de clientes en el sistema. Permite

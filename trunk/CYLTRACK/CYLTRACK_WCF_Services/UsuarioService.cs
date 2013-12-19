@@ -64,9 +64,9 @@ namespace Unisangil.CYLTRACK.CYLTRACK_WCF_Services
         /// </summary>
         /// <param name="usuario">Objeto de negocio Usuario</param>
         /// <returns>nombre de usuario</returns>
-        public bool Autenticacion(UsuarioBE usuario)
+        public string Autenticacion(UsuarioBE usuario)
         {
-            bool resp;
+            string resp;
             UsuarioBL autenticarUsuario = new UsuarioBL();
             resp = autenticarUsuario.Autenticacion(usuario);
             return resp;
