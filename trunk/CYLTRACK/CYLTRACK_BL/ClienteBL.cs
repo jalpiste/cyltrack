@@ -70,46 +70,18 @@ namespace Unisangil.CYLTRACK.CYLTRACK_BL
         /// <returns></returns>
         public ClienteBE ConsultarCliente(string consultar_cli)
         {
-            Random ran = new Random();
-
-            ClienteBE cliente = new ClienteBE();
-            cliente.Cedula = "56235624";
-            cliente.Nombres_Cliente = "Jaime";
-            cliente.Apellido_1 = "Poveda";
-            cliente.Apellido_2 = "Sanchez";
-
-            UbicacionBE ubicacion = new UbicacionBE(); 
-            List<string> lstDireccion = new List<string>();
-            for (int i = 0; i < 5; i++)
+            ClienteDL cli = new ClienteDL();
+            ClienteBE resp = new ClienteBE();
+            try
             {
-                lstDireccion.Add("Calle" + i + " N " + i + "0 " + i + "0");
+                resp = cli.ConsultarCliente(consultar_cli);
             }
-            ubicacion.Direccion = lstDireccion;
-            ubicacion.Barrio = "Centro";
-            ubicacion.Telefono_1 = "3143456789";
-            
-            CiudadBE ciu_cli = new CiudadBE();
-            ciu_cli.Nombre_Ciudad = "Chiquinquirá";
-            ubicacion.Ciudad = ciu_cli;
+            catch (Exception ex)
+            {
 
-            DepartamentoBE dep_cli = new DepartamentoBE();
-            dep_cli.Nombre_Departamento = "Boyacá";
-            ciu_cli.Departamento = dep_cli;
-            
-            CilindroBE cilindro = new CilindroBE();
-            cilindro.Codigo_Cilindro = ((DateTime.Now.Hour + DateTime.Now.Second) * ran.Next(1, 10)).ToString();
-            cilindro.Tipo_Cilindro = "Universal";
-            
-            TamanoBE tamano = new TamanoBE();
-            tamano.Tamano = "40";
-            cilindro.NTamano = tamano;
+            }
 
-            Ubicacion_CilindroBE ubi_cilindro = new Ubicacion_CilindroBE();
-            ubi_cilindro.Cilindro = cilindro;
-            ubicacion.Ubicacion_Cilindro = ubi_cilindro;
-            cliente.Ubicacion = ubicacion;
-            
-            return cliente;
+            return resp;
         }
 
         public String ModificarCliente(String modificar_cli)
