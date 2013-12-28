@@ -45,17 +45,17 @@ namespace Unisangil.CYLTRACK.CYLTRACK_WebApp.Clientes
                     txtNombreCliente.Text = cliente.Nombres_Cliente;
                     txtPrimerApellido.Text = cliente.Apellido_1;
                     txtSegundoApellido.Text = cliente.Apellido_2;
-                    foreach (string datos in cliente.Ubicacion.Direccion)
+                    foreach(string datos in cliente.Ubicacion.Direccion)
                     {
                         txtDireccion.Text = datos;
-                    } 
+                    }
                     txtBarrio.Text = cliente.Ubicacion.Barrio;
                     txtTelefono.Text = cliente.Ubicacion.Telefono_1;
                     txtCiudad.Text = cliente.Ubicacion.Ciudad.Nombre_Ciudad;
                     txtDepartamento.Text = cliente.Ubicacion.Ciudad.Departamento.Nombre_Departamento;
-                    table.Rows.Add(cliente.Ubicacion.Ubicacion_Cilindro.Cilindro.Codigo_Cilindro, cliente.Ubicacion.Ubicacion_Cilindro.Cilindro.NTamano.Tamano, cliente.Ubicacion.Ubicacion_Cilindro.Cilindro.Tipo_Cilindro);
-                    gdCilindrosCli.DataSource = table;
-                    gdCilindrosCli.DataBind();
+                    //table.Rows.Add(cliente.Ubicacion.Ubicacion_Cilindro.Cilindro.Codigo_Cilindro, cliente.Ubicacion.Ubicacion_Cilindro.Cilindro.NTamano.Tamano, cliente.Ubicacion.Ubicacion_Cilindro.Cilindro.Tipo_Cilindro);
+                    //gdCilindrosCli.DataSource = table;
+                    //gdCilindrosCli.DataBind();
                     divInfoCliente.Visible = true;
                     btnNuevaConsulta.Visible = true;
                 }
