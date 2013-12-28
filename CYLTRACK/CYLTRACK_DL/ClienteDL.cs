@@ -166,15 +166,21 @@ namespace Unisangil.CYLTRACK.CYLTRACK_DL
                         c.Nombres_Cliente = datos.GetValue(1).ToString();
                         c.Apellido_1 = (datos.GetString(2));
                         c.Apellido_2 = (datos.GetString(3));
-                        c.Ubicacion.Telefono_1 = datos.GetString(4);
+                        UbicacionBE ubi = new UbicacionBE();
                         List<string> lstDireccion = new List<string>();
-                        lstDireccion.Add(datos.GetString(5));
-                        c.Ubicacion.Direccion = lstDireccion;
-                        c.Ubicacion.Barrio = datos.GetString(6);
-                       
-                        //c.Serial_Cilindro = datos.GetString(5);
-                        //c.Fecha = datos.GetDateTime(6);
-                        //cil = c;
+                        lstDireccion.Add(datos.GetString(4));
+                        ubi.Direccion= lstDireccion;                        
+                        ubi.Telefono_1 = datos.GetString(5);
+                        ubi.Barrio = datos.GetString(6);
+                        CiudadBE ciu = new CiudadBE();
+                        ciu.Nombre_Ciudad = datos.GetString(7);                        
+                        DepartamentoBE dep = new DepartamentoBE();
+                        dep.Nombre_Departamento = datos.GetString(8);
+                        ciu.Departamento = dep;
+                        ubi.Ciudad = ciu;
+                        c.Ubicacion = ubi;
+                        cli = c;
+                      
                     }
                     catch (InvalidCastException ex)
                     {

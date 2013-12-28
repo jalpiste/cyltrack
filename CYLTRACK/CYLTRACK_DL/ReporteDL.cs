@@ -50,10 +50,7 @@ namespace Unisangil.CYLTRACK.CYLTRACK_DL
                     {
                         tp = new Tipo_UbicacionBE();
                         tp.Id_Tipo_Ubica = Int32.Parse(datos.GetValue(0).ToString()); 
-                        UbicacionBE ubi = new UbicacionBE();
-                        ubi.Id_Ubicacion = Int32.Parse(datos.GetValue(1).ToString());
-                        tp.Ubicacion = ubi;
-                        tp.Nombre_Ubicacion = datos.GetString(2);
+                        tp.Nombre_Ubicacion = datos.GetString(1);
                         lstTipoUbicacion.Add(tp);
                     }
                     catch (InvalidCastException ex)
