@@ -155,7 +155,7 @@ namespace Unisangil.CYLTRACK.CYLTRACK_DL
                     {
                         c = new CilindroBE();
                         c.Ano = datos.GetString(0);
-                        c.Codigo_Cilindro = (datos.GetString(1));
+                        c.Codigo_Cilindro = datos.GetString(1);
                         c.Tipo_Cilindro = datos.GetString(2);
                         c.Serial_Cilindro = datos.GetString(3);
                         c.Fecha = datos.GetDateTime(4);
