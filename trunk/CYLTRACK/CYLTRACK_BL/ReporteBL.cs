@@ -182,11 +182,11 @@ namespace Unisangil.CYLTRACK.CYLTRACK_BL
                 cliente.Apellido_2 = "Sanchez";
 
                 UbicacionBE ubicacion = new UbicacionBE();
-                List<string> lstDireccion = new List<string>();
+                //List<string> lstDireccion = new List<string>();
                 
-                lstDireccion.Add("Calle" + i + " N " + i + "0 " + i + "0");
+                //lstDireccion.Add("Calle" + i + " N " + i + "0 " + i + "0");
               
-                ubicacion.Direccion = lstDireccion;
+                //ubicacion.Direccion = lstDireccion;
                 ubicacion.Barrio = "Centro";
                 ubicacion.Telefono_1 = "3143456789";
                 ubicacion.fecha = Convert.ToString(DateTime.Now);
@@ -253,14 +253,14 @@ namespace Unisangil.CYLTRACK.CYLTRACK_BL
             ruta.Id_Ruta = "" + i * 4;
             CiudadBE ciu = new CiudadBE();
             ciu.Nombre_Ciudad = "Chiquinquirá";
-            ruta.Ciudad = ciu;
+            //ruta.Ciudad = ciu;
             DepartamentoBE dep = new DepartamentoBE();
             dep.Nombre_Departamento = "Boyacá";
             ciu.Departamento = dep;
             Ciudad_RutaBE ciuRuta = new Ciudad_RutaBE();
-            List<CiudadBE> lstCiudades = new List<CiudadBE>();
-            lstCiudades.Add(ciu);
-            ciuRuta.Ciudad = lstCiudades;
+            //List<CiudadBE> lstCiudades = new List<CiudadBE>();
+            //lstCiudades.Add(ciu);
+            //ciuRuta.Ciudad = lstCiudades;
             ruta.Nombre_Ruta = "Zona Occidente";
             ruta.Ciudad_Ruta = ciuRuta;
             rutaConsulta.Add(ruta);
@@ -325,10 +325,10 @@ namespace Unisangil.CYLTRACK.CYLTRACK_BL
             return lstVehiculo;
         }
 
-        public List<Tipo_UbicacionBE> ConsultaTipoUbicacion() 
+        public IList<Tipo_UbicacionBE> ConsultaTipoUbicacion() 
         {
             ReporteDL reporte = new ReporteDL();
-            List<Tipo_UbicacionBE> lstReport = new List<Tipo_UbicacionBE>();
+            IList<Tipo_UbicacionBE> lstReport = new List<Tipo_UbicacionBE>();
             try
             {
                 lstReport = reporte.ConsultarTipoUbicaciones();
@@ -354,6 +354,42 @@ namespace Unisangil.CYLTRACK.CYLTRACK_BL
             }
             return lstReport;
         }
+
+        public long consultadeExistencia(string dato)
+        {
+            ReporteDL rep = new ReporteDL();
+            long resp = 0;
+            try
+            {
+                resp = rep.ConsultarExistencias(dato);
+            }
+            catch (Exception ex)
+            {
+                //guardar exepcion en el log de bd
+                resp = -1;
+            }
+
+            return resp;
+
+        }
+        public long consultadeExistenciaVarios(string dato)
+        {
+            ReporteDL rep = new ReporteDL();
+            long resp = 0;
+            try
+            {
+                resp = rep.ConsultarExistenciasVarios(dato);
+            }
+            catch (Exception ex)
+            {
+                //guardar exepcion en el log de bd
+                resp = -1;
+            }
+
+            return resp;
+
+        }
+
         #endregion
         
         #region Metodos privados

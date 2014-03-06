@@ -54,12 +54,12 @@ namespace Unisangil.CYLTRACK.CYLTRACK_BL
                 cli.Apellido_2 = "Veloza";
                
                 UbicacionBE ubi = new UbicacionBE();
-                List<string> lstDireccion = new List<string>();
-                for (int i = 0; i < 5; i++)
-                {
-                    lstDireccion.Add("Calle" + i + " N " + i + "0 " + i + "0");
-                }
-                ubi.Direccion = lstDireccion;
+                //List<string> lstDireccion = new List<string>();
+                //for (int i = 0; i < 5; i++)
+                //{
+                //    lstDireccion.Add("Calle" + i + " N " + i + "0 " + i + "0");
+                //}
+                //ubi.Direccion = lstDireccion;
                 ubi.Barrio = "Boyacá";
                 ubi.Telefono_1 = "7266617";
                 cli.Ubicacion = ubi;
