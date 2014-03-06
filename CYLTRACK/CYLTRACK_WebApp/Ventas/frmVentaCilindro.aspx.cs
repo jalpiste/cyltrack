@@ -8,6 +8,7 @@ using Unisangil.CYLTRACK.CYLTRACK_BE;
 using CYLTRACK_WebApp.VentaService;
 using CYLTRACK_WebApp.ClienteService;
 using CYLTRACK_WebApp.PedidoService;
+using CYLTRACK_WebApp.ReporteService;
 using System.Data;
 using System.Windows.Forms;
 
@@ -81,9 +82,7 @@ namespace Unisangil.CYLTRACK.CYLTRACK_WebApp.Ventas
                 
                 cli.Pedido = ped;
                 UbicacionBE ubi = new UbicacionBE(); 
-                List<string> lstDatoDireccion = new List<string>();
-                lstDatoDireccion.Add(lstDireccion.SelectedValue);
-                ubi.Direccion = lstDatoDireccion;
+                ubi.Direccion = lstDireccion.SelectedValue;
                 cli.Ubicacion = ubi;
                 foreach (VentaBE datos in lstCodigos)
                 {
@@ -115,11 +114,12 @@ namespace Unisangil.CYLTRACK.CYLTRACK_WebApp.Ventas
         public void ConsultaDatosCliente(string cedula)
         {
             ClienteServiceClient serCliente = new ClienteServiceClient();
+            ReporteServiceClient servReporte = new ReporteServiceClient();
             DataTable table = new DataTable();
 
             try
             {
-                long consultaExistencia = serCliente.Consultar_Existencia(cedula);
+                long consultaExistencia = servReporte.consultadeExistencia(cedula);
 
                 if (consultaExistencia == 0)
                 {
@@ -138,10 +138,7 @@ namespace Unisangil.CYLTRACK.CYLTRACK_WebApp.Ventas
                     txtNombreCliente.Text = cliente.Nombres_Cliente;
                     txtPrimerApellido.Text = cliente.Apellido_1;
                     txtSegundoApellido.Text = cliente.Apellido_2;
-                    foreach (string datos in cliente.Ubicacion.Direccion)
-                    {
-                        lstDireccion.Items.Add(datos);
-                    } 
+                    lstDireccion.Items.Add(cliente.Ubicacion.Direccion);
                     txtBarrio.Text = cliente.Ubicacion.Barrio;
                     txtTelefono.Text = cliente.Ubicacion.Telefono_1;
                     txtCiudad.Text = cliente.Ubicacion.Ciudad.Nombre_Ciudad;
@@ -159,6 +156,7 @@ namespace Unisangil.CYLTRACK.CYLTRACK_WebApp.Ventas
             finally
             {
                 serCliente.Close();
+                servReporte.Close();
             }
         }
 
@@ -189,10 +187,8 @@ namespace Unisangil.CYLTRACK.CYLTRACK_WebApp.Ventas
                     txtNombreCliente.Text = datosPedido.Cliente.Nombres_Cliente;
                     txtPrimerApellido.Text = datosPedido.Cliente.Apellido_1;
                     txtSegundoApellido.Text = datosPedido.Cliente.Apellido_2;
-                    foreach (string datos in datosPedido.Ubicacion.Direccion)
-                    {
-                        lstDireccion.Items.Add(datos);
-                    } txtBarrio.Text = datosPedido.Ubicacion.Barrio;
+                    lstDireccion.Items.Add(datosPedido.Ubicacion.Direccion);
+                    txtBarrio.Text = datosPedido.Ubicacion.Barrio;
                     txtTelefono.Text = datosPedido.Ubicacion.Telefono_1;
                     txtCiudad.Text = datosPedido.Ciudad.Nombre_Ciudad;
                     txtDepartamento.Text = datosPedido.Ciudad.Departamento.Nombre_Departamento;
