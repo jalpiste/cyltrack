@@ -155,7 +155,12 @@
                     <SortedDescendingCellStyle BackColor="#D4DFE1" />
                     <SortedDescendingHeaderStyle BackColor="#15524A" />
                     </asp:GridView>
-                    <br />
+                   <br />
+                    <asp:Label ID="lblObservaciones" runat="server" Text="Observaciones:"></asp:Label>
+                    
+                        <br />  
+                          <asp:TextBox ID="txtObservaciones" runat="server" Height="65px" Width="289px" CssClass="textEntry" ></asp:TextBox>
+                      <br />
                      </p>
                    </div>
                 </fieldset>

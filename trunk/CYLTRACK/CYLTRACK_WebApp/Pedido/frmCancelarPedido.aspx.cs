@@ -45,10 +45,7 @@ namespace Unisangil.CYLTRACK.CYLTRACK_WebApp.Pedido
                         txtNombreCliente.Text = objPed.Cliente.Nombres_Cliente;
                         txtPrimerApellido.Text = objPed.Cliente.Apellido_1;
                         txtSegundoApellido.Text = objPed.Cliente.Apellido_2;
-                        foreach (string datos in objPed.Ubicacion.Direccion)
-                        {
-                            txtDireccion.Text = datos;
-                        }
+                        txtDireccion.Text = objPed.Ubicacion.Direccion;
                         txtBarrio.Text = objPed.Ubicacion.Barrio;
                         txtCiudad.Text = objPed.Ubicacion.Ciudad.Nombre_Ciudad;
                         txtDepartamento.Text = objPed.Ubicacion.Ciudad.Departamento.Nombre_Departamento;
@@ -108,10 +105,7 @@ namespace Unisangil.CYLTRACK.CYLTRACK_WebApp.Pedido
                     txtNombreCliente.Text = objPed.Cliente.Nombres_Cliente;
                     txtPrimerApellido.Text = objPed.Cliente.Apellido_1;
                     txtSegundoApellido.Text = objPed.Cliente.Apellido_2;
-                    foreach (string datos in objPed.Ubicacion.Direccion)
-                    {
-                        txtDireccion.Text = datos;
-                    }
+                    txtDireccion.Text = objPed.Ubicacion.Direccion;
                     txtBarrio.Text = objPed.Ubicacion.Barrio;
                     txtCiudad.Text = objPed.Ubicacion.Ciudad.Nombre_Ciudad;
                     txtDepartamento.Text = objPed.Ubicacion.Ciudad.Departamento.Nombre_Departamento;

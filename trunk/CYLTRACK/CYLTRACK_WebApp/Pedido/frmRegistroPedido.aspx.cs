@@ -9,6 +9,7 @@ using CYLTRACK_WebApp.ClienteService;
 using CYLTRACK_WebApp.PedidoService;
 using CYLTRACK_WebApp.VehiculoService;
 using CYLTRACK_WebApp.RutaService;
+using CYLTRACK_WebApp.ReporteService;
 using System.Windows.Forms;
 using System.Data;
 
@@ -44,59 +45,52 @@ namespace Unisangil.CYLTRACK.CYLTRACK_WebApp.Pedido
 
         protected void txtCedula_TextChanged(object sender, EventArgs e)
         {
-            lblCodigoPedido.Visible = true;
-            lblNumeroPedido.Visible = true;
-
+            ReporteServiceClient servReporte = new ReporteServiceClient();
             ClienteServiceClient servCliente = new ClienteServiceClient();
-            PedidoServiceClient servPedido = new PedidoServiceClient();
             VehiculoServiceClient serVeh = new VehiculoServiceClient();
-            RutaServicesClient serRuta= new RutaServicesClient();
+            RutaServicesClient serRuta = new RutaServicesClient();
+            PedidoServiceClient servPedido = new PedidoServiceClient();
             
-            PedidoBE consultar_cli = new PedidoBE();
             long resp;
-
             try
             {
-                resp = servCliente.Consultar_Existencia(txtCedula.Text);
+               resp = servReporte.consultadeExistencia(txtCedula.Text);
+                
+               if (resp == 0)
+               {
+                   MessageBox.Show("El cliente no se encuentra registrado en el sistema", "Registrar Pedido");
+               }
 
-                if (resp == null)
-                {
-                    MessageBox.Show("El cliente no se encuentra registrado en el sistema", "Registrar Pedido");
-                }
+               else
+               {
+                   ClienteBE objCliente = servCliente.Consultar_Cliente(txtCedula.Text);
 
-                else
-                {
-                    ClienteBE objCliente = servCliente.Consultar_Cliente(txtCedula.Text);
+                   txtCedulaCli.Text = objCliente.Cedula;
+                   txtNombreCliente.Text = objCliente.Nombres_Cliente;
+                   txtPrimerApellido.Text = objCliente.Apellido_1;
+                   txtSegundoApellido.Text = objCliente.Apellido_2;
+                   lstDireccion.Items.Add(objCliente.Ubicacion.Direccion);
+                   txtBarrio.Text = objCliente.Ubicacion.Barrio;
+                   txtCiudad.Text = objCliente.Ubicacion.Ciudad.Nombre_Ciudad;
+                   txtDepartamento.Text = objCliente.Ubicacion.Ciudad.Departamento.Nombre_Departamento;
+                   txtTelefono.Text = objCliente.Ubicacion.Telefono_1;
 
-                    txtCedulaCli.Text = objCliente.Cedula;
-                    txtNombreCliente.Text = objCliente.Nombres_Cliente;
-                    txtPrimerApellido.Text = objCliente.Apellido_1;
-                    txtSegundoApellido.Text = objCliente.Apellido_2;
-                    foreach (string datos in objCliente.Ubicacion.Direccion)
-                    {
-                        lstDireccion.Items.Add(datos);
-                    } 
-                    txtBarrio.Text = objCliente.Ubicacion.Barrio;
-                    txtCiudad.Text = objCliente.Ubicacion.Ciudad.Nombre_Ciudad;
-                    txtDepartamento.Text = objCliente.Ubicacion.Ciudad.Departamento.Nombre_Departamento;
-                    txtTelefono.Text = objCliente.Ubicacion.Telefono_1;
+                   divInfoCliente.Visible = true;
+                   btnGuardar.Visible = true;
+                   lstDireccion.Focus();
 
-                    divInfoCliente.Visible = true;
-                    btnGuardar.Visible = true;
-                    lstDireccion.Focus();
-                    
-                    List<string> lstPlacas = new List<string>(serVeh.ConsultarPlaca(objCliente.Ubicacion.Ciudad.Nombre_Ciudad));
-
-                    foreach (string info in lstPlacas)
-                    {
-                        lstPlaca.Items.Add(info);
-                    }
-                    RutaBE ruta = new RutaBE();
-                    ruta = serRuta.ConsultarRutaconParametro(objCliente.Ubicacion.Ciudad.Nombre_Ciudad);
-                    // se tiene que consultar la ruta que tiene cada placa seleccionada...
-                    PedidoBE ped = servPedido.Consultar_Pedido(txtCedula.Text);
-                    lblNumeroPedido.Text = ped.Id_Pedido;
-                }
+                   List<VehiculoBE> listaPlacas = new List<VehiculoBE>(serVeh.ConsultarVehiculo(string.Empty));
+                   foreach (VehiculoBE datosVehiculo in listaPlacas)
+                   {
+                       lstPlaca.Items.Add(datosVehiculo.Placa);
+                   }
+                   
+                   RutaBE ruta = new RutaBE();
+                   ruta = serRuta.ConsultarRutaconParametro(objCliente.Ubicacion.Ciudad.Nombre_Ciudad);
+                   // se tiene que consultar la ruta que tiene cada placa seleccionada...
+                   //PedidoBE ped = servPedido.Consultar_Pedido(txtCedula.Text);
+                   //lblNumeroPedido.Text = ped.Id_Pedido;
+               }
             }
             catch (Exception ex)
             {
@@ -107,7 +101,11 @@ namespace Unisangil.CYLTRACK.CYLTRACK_WebApp.Pedido
                 servCliente.Close();
                 servPedido.Close();
                 serVeh.Close();
-            }
+                servReporte.Close();
+                serRuta.Close();
+                lblCodigoPedido.Visible = true;
+                lblNumeroPedido.Visible = true;
+            }                       
         }
 
         protected void btnLimpiar_Click(object sender, EventArgs e)
@@ -128,17 +126,16 @@ namespace Unisangil.CYLTRACK.CYLTRACK_WebApp.Pedido
             PedidoBE registrar_ped = new PedidoBE();
             String resp;
             txtCedula.Text = "";
+            
 
             try
             {
                 ClienteBE idcliente = new ClienteBE();
-                idcliente.Cedula = txtCedula.Text;
+                idcliente.Cedula = txtCedulaCli.Text;
                 registrar_ped.Cliente = idcliente;
 
                 UbicacionBE ubicli = new UbicacionBE();
-                List<string> lstDatoDireccion = new List<string>();
-                lstDatoDireccion.Add(lstDireccion.SelectedValue);
-                ubicli.Direccion = lstDatoDireccion;
+                ubicli.Direccion = lstDireccion.SelectedValue;
                 registrar_ped.Ubicacion = ubicli;
 
                 VehiculoBE veh = new VehiculoBE();
@@ -148,6 +145,9 @@ namespace Unisangil.CYLTRACK.CYLTRACK_WebApp.Pedido
                 RutaBE ruta = new RutaBE();
                 ruta.Nombre_Ruta = lblRutaAsignada.Text;
                 registrar_ped.Ruta = ruta;
+
+                PedidoBE pedido = new PedidoBE();
+                pedido.Detalle = txtObservaciones.Text;
 
                 foreach (DataRow row in objdtTabla.Rows)
                 {
@@ -163,17 +163,8 @@ namespace Unisangil.CYLTRACK.CYLTRACK_WebApp.Pedido
 
                 resp = servPedido.Registrar_Pedido(registrar_ped);
 
-                if (resp == "Ok")
-                {
-                    if (lstDetail.Count == null)
-                    {
-                        MessageBox.Show("Aún no se ha registrado el pedido", "Registrar Pedido");
-                    }
-                    else
-                    {
-                        MessageBox.Show("El pedido fue registrado satisfactoriamente", "Registrar Pedido");
-                    }
-                }
+               MessageBox.Show("El pedido fue registrado satisfactoriamente", "Registrar Pedido");
+                  
             }
             catch (Exception ex)
             {
@@ -225,8 +216,7 @@ namespace Unisangil.CYLTRACK.CYLTRACK_WebApp.Pedido
         protected void btnAgregar_Click(object sender, EventArgs e)
         {
 
-            PedidoServiceClient servPedido = new PedidoServiceClient();
-            Detalle_PedidoBE detail = new Detalle_PedidoBE();
+           Detalle_PedidoBE detail = new Detalle_PedidoBE();
 
             try
             {
@@ -262,14 +252,13 @@ namespace Unisangil.CYLTRACK.CYLTRACK_WebApp.Pedido
             {
                 gvPedido.Visible = true;
                 txtCantidadCilindro.Text = "";
-                servPedido.Close();
                 btnGuardar.Focus();
             }
 
         }
         protected void lstDireccion_SelectedIndexChanged(object sender, EventArgs e)
         {
-            lstDireccion.Focus();
+            lstPlaca.Focus();
         }
 
         protected void gvPedido_RowDeleting(Object sender, GridViewDeleteEventArgs e)

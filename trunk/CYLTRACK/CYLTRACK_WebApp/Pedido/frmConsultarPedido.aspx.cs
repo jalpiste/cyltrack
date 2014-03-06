@@ -21,7 +21,6 @@ namespace Unisangil.CYLTRACK.CYLTRACK_WebApp.Pedido
 
         protected void txtCedula_TextChanged(object sender, EventArgs e)
         {
-            btnNuevaConsulta.Focus();
             PedidoServiceClient servPedido = new PedidoServiceClient();
             PedidoBE consultar_ped = new PedidoBE();
             string resp;
@@ -51,10 +50,7 @@ namespace Unisangil.CYLTRACK.CYLTRACK_WebApp.Pedido
                         txtNombreCliente.Text = objPedido.Cliente.Nombres_Cliente;
                         txtPrimerApellido.Text = objPedido.Cliente.Apellido_1;
                         txtSegundoApellido.Text = objPedido.Cliente.Apellido_2;
-                        foreach (string datos in objPedido.Ubicacion.Direccion)
-                        {
-                            txtDireccion.Text = datos;
-                        } 
+                        txtDireccion.Text = objPedido.Ubicacion.Direccion;
                         txtBarrio.Text = objPedido.Ubicacion.Barrio;
                         txtCiudad.Text = objPedido.Ubicacion.Ciudad.Nombre_Ciudad;
                         txtDepartamento.Text = objPedido.Ubicacion.Ciudad.Departamento.Nombre_Departamento;
@@ -117,10 +113,7 @@ namespace Unisangil.CYLTRACK.CYLTRACK_WebApp.Pedido
                     txtNombreCliente.Text = objPedido.Cliente.Nombres_Cliente;
                     txtPrimerApellido.Text = objPedido.Cliente.Apellido_1;
                     txtSegundoApellido.Text = objPedido.Cliente.Apellido_2;
-                    foreach (string datos in objPedido.Ubicacion.Direccion)
-                    {
-                        txtDireccion.Text=(datos);
-                    } 
+                    txtDireccion.Text = objPedido.Ubicacion.Direccion;
                     txtBarrio.Text = objPedido.Ubicacion.Barrio;
                     txtCiudad.Text = objPedido.Ubicacion.Ciudad.Nombre_Ciudad;
                     txtDepartamento.Text = objPedido.Ubicacion.Ciudad.Departamento.Nombre_Departamento;
