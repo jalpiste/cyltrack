@@ -44,7 +44,7 @@ namespace Unisangil.CYLTRACK.CYLTRACK_WebApp.Vehiculos
                   
                     else
                     {
-                        VehiculoBE consulta = servVehiculo.Consultar_Vehiculo(txtPlaca.Text);
+                        VehiculoBE consulta = servVehiculo.ConsultarVehiculo(txtPlaca.Text) == null ? null : servVehiculo.ConsultarVehiculo(txtPlaca.Text)[0];
                         txtPlaca.Text = "";
                         txtIdVehiculo.Focus();
                         txtIdVehiculo.Text = consulta.Placa;
