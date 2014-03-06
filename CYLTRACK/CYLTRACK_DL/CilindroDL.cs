@@ -200,12 +200,12 @@ namespace Unisangil.CYLTRACK.CYLTRACK_DL
             BaseDatos db = new BaseDatos();
             try
             {
-                string nameSP = "ConsultarExistenciaCilindro";
+                string nameSP = "ConsultarExistenciaDatos";
                 db.Conectar();
                 db.CrearComandoSP(nameSP);
                 DbParameter[] parametros = new DbParameter[3];
                 parametros[0] = db.Comando.CreateParameter();
-                parametros[0].ParameterName = "vrCodigoCilindro";
+                parametros[0].ParameterName = "vrDatoConsulta";
                 parametros[0].Value = cil;
                 parametros[0].Direction = ParameterDirection.Input;
                 db.Comando.Parameters.Add(parametros[0]);
@@ -256,12 +256,12 @@ namespace Unisangil.CYLTRACK.CYLTRACK_DL
             BaseDatos db = new BaseDatos();
             try
             {
-                string nameSP = "ConsultarCodigoFabricante";
+                string nameSP = "ConsultarExistenciaDatos";
                 db.Conectar();
                 db.CrearComandoSP(nameSP);
                 DbParameter[] parametros = new DbParameter[3];
                 parametros[0] = db.Comando.CreateParameter();
-                parametros[0].ParameterName = "vrCodigo_Fabricante";
+                parametros[0].ParameterName = "vrDatoConsulta";
                 parametros[0].Value = codigoFabricante;
                 parametros[0].Direction = ParameterDirection.Input;
                 db.Comando.Parameters.Add(parametros[0]);
@@ -347,14 +347,14 @@ namespace Unisangil.CYLTRACK.CYLTRACK_DL
                         ub = new Ubicacion_CilindroBE ();
                         CilindroBE cilindro = new CilindroBE();
                         cilindro.Codigo_Cilindro = (datos.GetString(0));
-                        TamanoBE tam = new TamanoBE();
-                        tam.Tamano = (datos.GetString(1));
-                        cilindro.NTamano = tam;
-                        cilindro.Tipo_Cilindro=datos.GetString(2);                        
+                        cilindro.Tipo_Cilindro=datos.GetString(1);                        
                         ub.Cilindro = cilindro;
+                        TamanoBE tam = new TamanoBE();
+                        tam.Tamano = (datos.GetString(2));
+                        cilindro.NTamano = tam;
                         //VehiculoBE vehiculo = new VehiculoBE();
                         //UbicacionBE ubicacion = new UbicacionBE();
-                        //vehiculo.Placa = (datos.GetString(0));
+                        //vehiculo.Placa = (datos.GetString(3));
                         //ubicacion.Vehiculo = vehiculo;
                         //ub.Ubicacion = ubicacion;
                         ubicacionCil.Add(ub);

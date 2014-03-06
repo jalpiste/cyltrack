@@ -15,9 +15,9 @@ using Unisangil.CYLTRACK.CYLTRACK_BE;
 
 namespace Unisangil.CYLTRACK.CYLTRACK_DL
 {
-    public class ClienteDL
+    public class PedidoDL
     {
-        public long CrearCliente(ClienteBE cliente)
+        public long CrearPedido(ClienteBE cliente)
         {
             long codigo = 0;
             BaseDatos db = new BaseDatos();
@@ -41,7 +41,7 @@ namespace Unisangil.CYLTRACK.CYLTRACK_DL
                 parametros[1].ParameterName = "vrNombres";
                 parametros[1].Value = cliente.Nombres_Cliente;
                 parametros[1].Direction = ParameterDirection.Input;
-                parametros[1].Size =20;
+                parametros[1].Size = 20;
                 db.Comando.Parameters.Add(parametros[1]);
 
                 parametros[2] = db.Comando.CreateParameter();
@@ -167,18 +167,18 @@ namespace Unisangil.CYLTRACK.CYLTRACK_DL
                         c.Apellido_1 = (datos.GetString(2));
                         c.Apellido_2 = (datos.GetString(3));
                         UbicacionBE ubi = new UbicacionBE();
-                        ubi.Direccion= datos.GetString(4);                        
+                        ubi.Direccion = datos.GetString(4);
                         ubi.Telefono_1 = datos.GetString(5);
                         ubi.Barrio = datos.GetString(6);
                         CiudadBE ciu = new CiudadBE();
-                        ciu.Nombre_Ciudad = datos.GetString(7);                        
+                        ciu.Nombre_Ciudad = datos.GetString(7);
                         DepartamentoBE dep = new DepartamentoBE();
                         dep.Nombre_Departamento = datos.GetString(8);
                         ciu.Departamento = dep;
                         ubi.Ciudad = ciu;
                         c.Ubicacion = ubi;
                         cli = c;
-                      
+
                     }
                     catch (InvalidCastException ex)
                     {
@@ -199,7 +199,7 @@ namespace Unisangil.CYLTRACK.CYLTRACK_DL
             return cli;
         }
 
-        public long ConsultarExistenciasClientes(string cli)
+        public long ConsultarExistenciasClientes(string dato)
         {
             long codigo = 0;
             BaseDatos db = new BaseDatos();
@@ -211,7 +211,7 @@ namespace Unisangil.CYLTRACK.CYLTRACK_DL
                 DbParameter[] parametros = new DbParameter[3];
                 parametros[0] = db.Comando.CreateParameter();
                 parametros[0].ParameterName = "vrDatoConsulta";
-                parametros[0].Value = cli;
+                parametros[0].Value = dato;
                 parametros[0].Direction = ParameterDirection.Input;
                 db.Comando.Parameters.Add(parametros[0]);
 
@@ -250,7 +250,7 @@ namespace Unisangil.CYLTRACK.CYLTRACK_DL
             }
             catch (Exception ex)
             {
-                throw new Exception("Error al acceder a la base de datos para obtener los CilindroBEs.");
+                throw new Exception("Error al acceder a la base de datos");
             }
             return codigo;
         }
@@ -410,7 +410,7 @@ namespace Unisangil.CYLTRACK.CYLTRACK_DL
                 parametros[4].Direction = ParameterDirection.Input;
                 parametros[4].Size = 20;
                 db.Comando.Parameters.Add(parametros[4]);
-                
+
                 parametros[5] = db.Comando.CreateParameter();
                 parametros[5].ParameterName = "vrDepartamento";
                 parametros[5].Value = cliente.Ubicacion.Ciudad.Departamento.Nombre_Departamento;
