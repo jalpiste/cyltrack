@@ -104,7 +104,7 @@ namespace Unisangil.CYLTRACK.CYLTRACK_WCF_Services
         /// </summary>
         /// <returns>listado de ubicaciones</returns>
         [OperationContract]
-        List<Tipo_UbicacionBE> ConsultaTipoUbicacion();
+        IList<Tipo_UbicacionBE> ConsultaTipoUbicacion();
 
         /// <summary>
         /// Método encargado de la consulta de los tamaños de los cilindros en el sistema. Permite
@@ -113,5 +113,23 @@ namespace Unisangil.CYLTRACK.CYLTRACK_WCF_Services
         /// <returns>listado de tamanos de los cilindros</returns>
         [OperationContract]
         List<TamanoBE> ConsultaTamanoCilindro();
+
+        /// <summary>
+        /// Método encargado de la consulta de la existencia de datos en el sistema. Permite
+        /// que las aplicaciones llamen a los objetos de negocio directamente.
+        /// </summary>
+        /// <param name="dato">Objeto de negocio </param>
+        /// <returns>identificador</returns>
+        [OperationContract]
+        long consultadeExistencia(string dato);
+
+        /// <summary>
+        /// Método encargado de la consulta de la existencia de datos en el sistema. Permite
+        /// que las aplicaciones llamen a los objetos de negocio directamente.
+        /// </summary>
+        /// <param name="dato">Objeto de negocio </param>
+        /// <returns>identificador</returns>
+        [OperationContract]
+        long consultadeExistenciaVarios(string dato);
     }
 }

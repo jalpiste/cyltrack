@@ -26,9 +26,9 @@ namespace Unisangil.CYLTRACK.CYLTRACK_WCF_Services
          ///</summary>
          ///<param name="ruta">Objeto de negocio ruta</param>
          ///<returns>Nombre de Ruta</returns>
-        public string RegistrarRuta(RutaBE ruta)
+        public long RegistrarRuta(RutaBE ruta)
         {
-            string resp;
+            long resp;
             RutaBL registrarRuta = new RutaBL();
             resp = registrarRuta.RegistrarRuta(ruta);
             return resp;

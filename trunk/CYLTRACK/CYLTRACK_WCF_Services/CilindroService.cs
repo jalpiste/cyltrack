@@ -91,20 +91,5 @@ namespace Unisangil.CYLTRACK.CYLTRACK_WCF_Services
             return resp;
         }
 
-        public long consultadeExistencia(string cilindro)
-        {
-            long resp;
-            CilindroBL consulExistencia = new CilindroBL();
-            resp = consulExistencia.consultadeExistencia(cilindro);
-            return resp;
-        }
-
-        public long ConsultaCodigoFabricante(string codigoFabricante)
-        {
-            long resp;
-            CilindroBL consultaExisFabricante = new CilindroBL();
-            resp = consultaExisFabricante.consultaCodigoFabricante(codigoFabricante);
-            return resp;
-        }
     }
 }

@@ -47,19 +47,7 @@ namespace Unisangil.CYLTRACK.CYLTRACK_WCF_Services
             return resp;
         }
 
-        /// <summary>
-        /// Encargado de recibir la confirmación de existencia de pedidos, clientes o conductores de los canales front de venta y llamar
-        /// al metodo de negocio para consultar la existencia de un pedido
-        /// </summary>
-        /// <param name="consultar_vehiculo"></param>
-        /// <returns></returns>
-        public string Consultar_Existencia(string consultar_existencia)
-        {
-            string resp;
-            PedidoBL ConExis = new PedidoBL();
-            resp = ConExis.ConsultarExistencia(consultar_existencia);
-            return resp;
-        }
+
 
         /// <summary>
         /// Encargado de recibir un pedido de los canales front de venta y llamar
