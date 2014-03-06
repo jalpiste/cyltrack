@@ -7,6 +7,7 @@ using System.Web.UI.WebControls;
 using Unisangil.CYLTRACK.CYLTRACK_BE;
 using CYLTRACK_WebApp.PedidoService;
 using CYLTRACK_WebApp.ClienteService;
+using CYLTRACK_WebApp.ReporteService;
 using System.Windows.Forms;
 using System.Data;
 
@@ -89,10 +90,7 @@ namespace Unisangil.CYLTRACK.CYLTRACK_WebApp.Pedido
                         txtNombreCliente.Text = consultar_ped.Cliente.Nombres_Cliente;
                         txtPrimerApellido.Text = consultar_ped.Cliente.Apellido_1;
                         txtSegundoApellido.Text = consultar_ped.Cliente.Apellido_2;
-                        foreach (string datos in consultar_ped.Ubicacion.Direccion)
-                        {
-                            lstDireccion.Items.Add(datos);
-                        }
+                        lstDireccion.Items.Add(consultar_ped.Ubicacion.Direccion);
                         txtBarrio.Text = consultar_ped.Ubicacion.Barrio;
                         txtCiudad.Text = consultar_ped.Ubicacion.Ciudad.Nombre_Ciudad;
                         txtDepartamento.Text = consultar_ped.Ubicacion.Ciudad.Departamento.Nombre_Departamento;
@@ -126,14 +124,15 @@ namespace Unisangil.CYLTRACK.CYLTRACK_WebApp.Pedido
         {
             txtCedulaCliente.Focus();
             PedidoServiceClient servPedido = new PedidoServiceClient();
+            ReporteServiceClient servReporte = new ReporteServiceClient();
             PedidoBE consultar_ped = new PedidoBE();
-            String resp;
+            long resp;
 
             try
             {
-                resp = servPedido.Consultar_Existencia(TxtNumPedido.Text);
+                resp = servReporte.consultadeExistencia(TxtNumPedido.Text);
 
-                if (resp == null)
+                if (resp == 0)
                 {
                     MessageBox.Show("El pedido no se encuentra registrado en el sistema", "Modificar Pedido");
                 }
@@ -149,10 +148,7 @@ namespace Unisangil.CYLTRACK.CYLTRACK_WebApp.Pedido
                     txtNombreCliente.Text = consultar_ped.Cliente.Nombres_Cliente;
                     txtPrimerApellido.Text = consultar_ped.Cliente.Apellido_1;
                     txtSegundoApellido.Text = consultar_ped.Cliente.Apellido_2;
-                    foreach (string datos in consultar_ped.Ubicacion.Direccion)
-                    {
-                        lstDireccion.Items.Add(datos);
-                    } 
+                    lstDireccion.Items.Add(consultar_ped.Ubicacion.Direccion);
                     txtBarrio.Text = consultar_ped.Ubicacion.Barrio;
                     txtCiudad.Text = consultar_ped.Ubicacion.Ciudad.Nombre_Ciudad;
                     txtDepartamento.Text = consultar_ped.Ubicacion.Ciudad.Departamento.Nombre_Departamento;
@@ -201,9 +197,7 @@ namespace Unisangil.CYLTRACK.CYLTRACK_WebApp.Pedido
                 modificar_ped.Cliente = idcliente;
 
                 UbicacionBE ubicli = new UbicacionBE();
-                List<string> lstDatoDireccion = new List<string>();
-                lstDatoDireccion.Add(lstDireccion.SelectedValue);
-                ubicli.Direccion = lstDatoDireccion;
+                ubicli.Direccion = lstDireccion.SelectedValue;
                 modificar_ped.Ubicacion = ubicli;
 
                 VehiculoBE veh = new VehiculoBE();
@@ -344,10 +338,7 @@ namespace Unisangil.CYLTRACK.CYLTRACK_WebApp.Pedido
                     txtNombreCliente.Text = consultar_ped.Cliente.Nombres_Cliente;
                     txtPrimerApellido.Text = consultar_ped.Cliente.Apellido_1;
                     txtSegundoApellido.Text = consultar_ped.Cliente.Apellido_2;
-                    foreach (string datos in consultar_ped.Ubicacion.Direccion)
-                    {
-                        lstDireccion.Items.Add(datos);
-                    } 
+                    lstDireccion.Items.Add(consultar_ped.Ubicacion.Direccion);
                     txtBarrio.Text = consultar_ped.Ubicacion.Barrio;
                     txtCiudad.Text = consultar_ped.Ubicacion.Ciudad.Nombre_Ciudad;
                     txtDepartamento.Text = consultar_ped.Ubicacion.Ciudad.Departamento.Nombre_Departamento;

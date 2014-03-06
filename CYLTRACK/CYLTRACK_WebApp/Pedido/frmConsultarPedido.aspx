@@ -28,15 +28,17 @@
                        <asp:RequiredFieldValidator ID="txtCedulaRequired" runat="server" ControlToValidate="txtCedula" 
                              CssClass="failureNotification" ErrorMessage="El número de cédula del cliente es obligatorio." ToolTip="El número de cédula del cliente es obligatorio." 
                              ValidationGroup="Validar" Font-Size = "Small" Display ="Dynamic"></asp:RequiredFieldValidator>
+                    <br />
                      <asp:RegularExpressionValidator ID="ValidarDatosCedula" runat="server" ControlToValidate="txtCedula" 
                             CssClass="failureNotification" ErrorMessage="El número de cédula debe contener entre 6 y 10 dígitos." 
                             ValidationExpression="^([\d]{6,10})$"  Font-Size = "Small" Display ="Dynamic"
                             ValidationGroup="Validar" ></asp:RegularExpressionValidator>
-                 
+                 <br />
 
                         <asp:RequiredFieldValidator ID="ValidarDatosPedido" runat="server" ControlToValidate="NumPedidoTxt" 
                              CssClass="failureNotification" ErrorMessage="El número del pedido es obligatorio." 
                              ValidationGroup="Validar" Font-Size = "Small" Display ="Dynamic"></asp:RequiredFieldValidator>
+                     <br />
                      <asp:RegularExpressionValidator ID="ValidarPedido" runat="server" ControlToValidate="NumPedidoTxt" 
                             CssClass="failureNotification" ErrorMessage="El número del pedido debe contener entre 3 y 5 dígitos." 
                             ValidationExpression="^([\d]{3,5})$"  Font-Size = "Small" Display ="Dynamic"
