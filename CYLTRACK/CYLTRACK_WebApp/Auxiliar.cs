@@ -125,12 +125,12 @@ namespace Unisangil.CYLTRACK.CYLTRACK_WebApp
         }
         public enum Ubicacion
         {
-            Cliente = 1,
-            Vehiculo = 2,
-            Mantenimiento = 3,
-            Chatarra = 4,
-            Bodega = 5,
-            Plataforma = 6
+            CLIENTE = 1,
+            VEHICULO = 2,
+            MANTENIMIENTO = 3,
+            CHATARRA = 4,
+            BODEGA = 5,
+            PLATAFORMA = 6
         }
         public enum Tamanos
         {
