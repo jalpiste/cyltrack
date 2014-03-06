@@ -13,11 +13,19 @@ namespace Unisangil.CYLTRACK.CYLTRACK_WebApp.Rutas
 {
     public partial class frmRegistrarRuta : System.Web.UI.Page
     {
+        List<CiudadBE> lstDetail = new List<CiudadBE>();
+        DataTable objdtLista;
+
         protected void Page_Load(object sender, EventArgs e)
         {
             if(!IsPostBack)
             {
                 txtNombreRuta.Focus();
+            }
+            if (!Page.IsPostBack)
+            {
+                objdtLista = new DataTable();
+                CrearTabla();
             }
             if(IsPostBack)
             {
@@ -45,35 +53,21 @@ namespace Unisangil.CYLTRACK.CYLTRACK_WebApp.Rutas
                 }
             }            
         }
-        List<string> lstCiudades = new List<string>();
-        List<string> lstPlacas = new List<string>();
           protected void btnAgregar_Click(object sender, EventArgs e)
         {
-            RutaBE ruta = new RutaBE();
-            DataTable tabla = new DataTable();
+            CiudadBE ciudad = new CiudadBE();
+            ciudad.Nombre_Ciudad = lstCiudad.SelectedValue;
 
             try
             {
-                string registro = lstCiudad.SelectedValue;
-               
-                   foreach(string datos in lstCiudades)
-                    {
-                       if(datos==registro){
-                        lstCiudades.Remove(registro);
-                    }
-                   }
+                lstDetail.Add(ciudad);
 
-                    lstCiudades.Add(registro);
-
-               tabla.Columns.Add("CiudadesAdd");
-
-                foreach (string info in lstCiudades)
+                foreach (CiudadBE info in lstDetail)
                 {
-                    tabla.Rows.Add(info);
-                    gdAdd.DataSource = tabla;
+                    objdtTabla.Rows.Add(info.Nombre_Ciudad);
+                    gdAdd.DataSource = objdtTabla;
                     gdAdd.DataBind();
                 }
-
             }
             catch (Exception ex)
             {
@@ -82,48 +76,81 @@ namespace Unisangil.CYLTRACK.CYLTRACK_WebApp.Rutas
             finally
             {
                 gdAdd.Visible = true;
+                btnGuardar.Focus();
             }
+
         }
+          protected DataTable objdtTabla
+          {
+              get
+              {
+                  if (ViewState["objdtTabla"] != null)
+                  {
+                      return (DataTable)ViewState["objdtTabla"];
+                  }
+                  else
+                  {
+                      return objdtLista;
+                  }
+              }
+
+              set
+              {
+                  ViewState["objdtTabla"] = value;
+              }
+          }
+          //        ------------------------- fin de tabla acumulada y asignación de valor
+          private void CrearTabla()
+          {
+              objdtLista.Columns.Add("CiudadesAdd");
+              objdtTabla = objdtLista;
+          }
 
         protected void btnMenu_Click(object sender, EventArgs e)
         {
             //Response.Redirect("~/Default.aspx");
         }
-
+        protected void gdAdd_RowDeleting(Object sender, GridViewDeleteEventArgs e)
+        {
+            objdtTabla.Rows.RemoveAt(e.RowIndex);
+            gdAdd.DataSource = objdtTabla;
+            gdAdd.DataBind();
+            btnGuardar.Focus();
+        }
         protected void btnRemover_Click(object sender, EventArgs e)
         {
-            RutaBE ruta = new RutaBE();
-            DataTable tabla = new DataTable();
+            //RutaBE ruta = new RutaBE();
+            //DataTable tabla = new DataTable();
 
-            try
-            {
-                string registro = ((System.Web.UI.WebControls.Button)sender).Attributes["value"].ToString();
-                foreach (string datos in lstCiudades)
-                {
-                   if(datos==registro)
-                   {
-                       lstCiudades.Remove(registro);
-                   } 
-                }
+            //try
+            //{
+            //    string registro = ((System.Web.UI.WebControls.Button)sender).Attributes["value"].ToString();
+            //    foreach (string datos in lstCiudades)
+            //    {
+            //       if(datos==registro)
+            //       {
+            //           lstCiudades.Remove(registro);
+            //       } 
+            //    }
                 
-                tabla.Columns.Add("CiudadesAdd");
+            //    tabla.Columns.Add("CiudadesAdd");
 
-                foreach (string info in lstCiudades)
-                {
-                    tabla.Rows.Add(info);
-                    gdAdd.DataSource = tabla;
-                    gdAdd.DataBind();
-                }
+            //    foreach (string info in lstCiudades)
+            //    {
+            //        tabla.Rows.Add(info);
+            //        gdAdd.DataSource = tabla;
+            //        gdAdd.DataBind();
+            //    }
 
-            }
-            catch (Exception ex)
-            {
-                Response.Redirect("~/About.aspx");
-            }
-            finally
-            {
-                gdAdd.Visible = true;
-            }
+            //}
+            //catch (Exception ex)
+            //{
+            //    Response.Redirect("~/About.aspx");
+            //}
+            //finally
+            //{
+            //    gdAdd.Visible = true;
+            //}
             
         }
 
@@ -164,15 +191,25 @@ namespace Unisangil.CYLTRACK.CYLTRACK_WebApp.Rutas
         {
             RutaServicesClient servRuta = new RutaServicesClient();
             RutaBE ruta = new RutaBE();
-            String registrarRuta;
+            long registrarRuta;
 
             try 
             {
                 ruta.Nombre_Ruta = txtNomRuta.Text;
-                foreach(string datos in lstCiudades)
+                foreach (DataRow row in objdtTabla.Rows)
                 {
-                    ruta.Ciudad_Ruta.Ciudad[lstCiudades.Count()].Nombre_Ciudad = datos;
+                    CiudadBE ciudad = new CiudadBE();
+                    ciudad.Nombre_Ciudad=(Convert.ToString(row["CiudadesAdd"]));
+                    lstDetail.Add(ciudad);
                 }
+                
+                foreach (CiudadBE datos in lstDetail)
+                {
+                    Ciudad_RutaBE ciudadesRuta = new Ciudad_RutaBE();
+                    ciudadesRuta.Ciudad += datos.Nombre_Ciudad;
+                    ruta.Ciudad_Ruta = ciudadesRuta;
+                }                
+
                 registrarRuta = servRuta.RegistrarRuta(ruta);
 
                 MessageBox.Show("La ruta ingresada fue registrada satisfactoriamente","Registrar Ruta");
