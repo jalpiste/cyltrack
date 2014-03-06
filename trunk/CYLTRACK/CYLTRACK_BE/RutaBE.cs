@@ -44,11 +44,6 @@ namespace Unisangil.CYLTRACK.CYLTRACK_BE
         [DataMember]
         public Ciudad_RutaBE Ciudad_Ruta { get; set; }
 
-        /// <summary>
-        /// Ciudades
-        /// </summary>
-        [DataMember]
-        public CiudadBE Ciudad { get; set; }
 
     }
 }
