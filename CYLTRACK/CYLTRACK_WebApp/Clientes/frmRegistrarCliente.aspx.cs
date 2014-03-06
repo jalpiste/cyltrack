@@ -8,6 +8,7 @@ using System.Web.UI.WebControls;
 using Unisangil.CYLTRACK.CYLTRACK_BE;
 using CYLTRACK_WebApp.ClienteService;
 using CYLTRACK_WebApp.RutaService;
+using CYLTRACK_WebApp.ReporteService;
 using System.Windows.Forms;
 
 namespace Unisangil.CYLTRACK.CYLTRACK_WebApp.Clientes
@@ -46,12 +47,12 @@ namespace Unisangil.CYLTRACK.CYLTRACK_WebApp.Clientes
 
         protected void txtCedula_TextChanged(object sender, EventArgs e)
         {
-            ClienteServiceClient servCliente = new ClienteServiceClient();
+            ReporteServiceClient servReporte = new ReporteServiceClient();
             
             long resp;
             try
             {
-                resp = servCliente.Consultar_Existencia(txtCedula.Text);
+                resp = servReporte.consultadeExistencia(txtCedula.Text);
 
                 if (resp != 0)
                 {
@@ -72,7 +73,7 @@ namespace Unisangil.CYLTRACK.CYLTRACK_WebApp.Clientes
             }
             finally
             {
-                servCliente.Close();
+                servReporte.Close();
             }
         }
         protected void btnMenuPrincipal_Click(object sender, EventArgs e)
@@ -95,9 +96,7 @@ namespace Unisangil.CYLTRACK.CYLTRACK_WebApp.Clientes
                 cliente.Apellido_2 = txtSegundoApellido.Text;
                 
                 UbicacionBE ubicacion = new UbicacionBE();
-                List<string> lstDatoDireccion = new List<string>();
-                lstDatoDireccion.Add(txtDireccion.Text);
-                ubicacion.Direccion=lstDatoDireccion;
+                ubicacion.Direccion = txtDireccion.Text;
                 ubicacion.Barrio = txtBarrio.Text;
                 ubicacion.Telefono_1 = txtTelefono.Text;
                 

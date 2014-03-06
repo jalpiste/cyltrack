@@ -6,6 +6,7 @@ using System.Web.UI;
 using System.Web.UI.WebControls;
 using Unisangil.CYLTRACK.CYLTRACK_BE;
 using CYLTRACK_WebApp.ClienteService;
+using CYLTRACK_WebApp.ReporteService;
 using System.Windows.Forms;
 
 namespace Unisangil.CYLTRACK.CYLTRACK_WebApp.Clientes
@@ -17,7 +18,7 @@ namespace Unisangil.CYLTRACK.CYLTRACK_WebApp.Clientes
             txtCedula.Focus();
             if(IsPostBack)
             {
-                hprNuevaUbicacion.NavigateUrl = "frmNuevaUbicacion.aspx?ReturnUrl=" + HttpUtility.UrlEncode(Request.QueryString["ReturnUrl"]) + Server.UrlEncode(txtCedulaCli.Text);
+                hprNuevaUbicacion.NavigateUrl = "frmNuevaUbicacion.aspx?ReturnUrl=" + HttpUtility.UrlEncode(Request.QueryString["ReturnUrl"]) + Server.UrlEncode(txtCedula.Text);
             }       
         }
 
@@ -25,11 +26,12 @@ namespace Unisangil.CYLTRACK.CYLTRACK_WebApp.Clientes
         {
             txtCedulaCli.Focus();
             ClienteServiceClient servCliente = new ClienteServiceClient();
+            ReporteServiceClient servReporte = new ReporteServiceClient();
             long resp;
            
             try
             {
-                resp = servCliente.Consultar_Existencia(txtCedula.Text);
+                resp = servReporte.consultadeExistencia(txtCedula.Text);
 
                 if (resp == null)
                 {
@@ -43,10 +45,7 @@ namespace Unisangil.CYLTRACK.CYLTRACK_WebApp.Clientes
                        txtNombreCliente.Text = consulta.Nombres_Cliente;
                        txtPrimerApellido.Text = consulta.Apellido_1;
                        txtSegundoApellido.Text = consulta.Apellido_2;
-                       foreach (string datos in consulta.Ubicacion.Direccion)
-                       {
-                           txtDireccion.Text = datos;
-                       } 
+                       txtDireccion.Text = consulta.Ubicacion.Direccion;
                        txtBarrio.Text = consulta.Ubicacion.Barrio;
                        lstDepartamento.Items.Add(consulta.Ubicacion.Ciudad.Departamento.Nombre_Departamento);
                        lstCiudad.Items.Add(consulta.Ubicacion.Ciudad.Nombre_Ciudad);
@@ -64,13 +63,14 @@ namespace Unisangil.CYLTRACK.CYLTRACK_WebApp.Clientes
            finally
             {
                 servCliente.Close();
+                servReporte.Close();
             }
         }
 
         protected void btnGuardar_Click(object sender, EventArgs e)
         {
             ClienteServiceClient servCliente = new ClienteServiceClient();
-            String resp;
+            long resp;
             ClienteBE cliente = new ClienteBE();
 
             try
@@ -78,11 +78,10 @@ namespace Unisangil.CYLTRACK.CYLTRACK_WebApp.Clientes
                 cliente.Nombres_Cliente = txtNombreCliente.Text;
                 cliente.Apellido_1 = txtPrimerApellido.Text;
                 cliente.Apellido_2 = txtSegundoApellido.Text;
+                cliente.Cedula = txtCedulaCli.Text;
 
                 UbicacionBE ubicli = new UbicacionBE();
-                List<string> lstDatoDireccion = new List<string>();
-                lstDatoDireccion.Add(txtDireccion.Text);
-                ubicli.Direccion = lstDatoDireccion;
+                ubicli.Direccion = txtDireccion.Text;
                 ubicli.Barrio = txtBarrio.Text;
                 ubicli.Telefono_1 = txtTelefono.Text;
                 
@@ -95,11 +94,7 @@ namespace Unisangil.CYLTRACK.CYLTRACK_WebApp.Clientes
                 depcli.Nombre_Departamento = lstDepartamento.SelectedValue;
                 ciucli.Departamento = depcli;
             
-                divInfoCliente.Visible = false;
-                btnGuardar.Visible = false;
-                txtCedula.Text = "";
-                
-                resp = servCliente.Modificar_Cliente(Convert.ToString(cliente));
+                resp = servCliente.Modificar_Cliente(cliente);
                 
                 MessageBox.Show("El cliente fue modificado satisfactoriamente", "Modificar Cliente");
             }
@@ -112,6 +107,8 @@ namespace Unisangil.CYLTRACK.CYLTRACK_WebApp.Clientes
             {
                 servCliente.Close();
                 Response.Redirect("~/Clientes/frmModificarCliente.aspx");
+                txtCedula.Text = "";
+                
             }
         }
 
@@ -145,12 +142,12 @@ namespace Unisangil.CYLTRACK.CYLTRACK_WebApp.Clientes
 
         protected void txtCedulaCli_TextChanged(object sender, EventArgs e)
         {
-            ClienteServiceClient servCliente = new ClienteServiceClient();
+            ReporteServiceClient servReporte = new ReporteServiceClient();
             long resp;
 
             try
             {
-                resp = servCliente.Consultar_Existencia(txtCedulaCli.Text);
+                resp = servReporte.consultadeExistencia(txtCedulaCli.Text);
 
                 if (resp != 0)
                 {
@@ -167,7 +164,7 @@ namespace Unisangil.CYLTRACK.CYLTRACK_WebApp.Clientes
             }
             finally
             {
-                servCliente.Close();
+                servReporte.Close();
             }
         }        
     }

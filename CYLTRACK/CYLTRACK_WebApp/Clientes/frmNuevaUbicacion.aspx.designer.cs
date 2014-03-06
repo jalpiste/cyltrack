@@ -139,6 +139,15 @@ namespace Unisangil.CYLTRACK.CYLTRACK_WebApp.Clientes {
         protected global::System.Web.UI.WebControls.Label lblDepartamento;
         
         /// <summary>
+        /// Control lblCiudad.
+        /// </summary>
+        /// <remarks>
+        /// Campo generado automáticamente.
+        /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Label lblCiudad;
+        
+        /// <summary>
         /// Control lstDepartamento.
         /// </summary>
         /// <remarks>
@@ -157,15 +166,6 @@ namespace Unisangil.CYLTRACK.CYLTRACK_WebApp.Clientes {
         protected global::System.Web.UI.WebControls.RequiredFieldValidator ValidarDep;
         
         /// <summary>
-        /// Control lblCiudad.
-        /// </summary>
-        /// <remarks>
-        /// Campo generado automáticamente.
-        /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.Label lblCiudad;
-        
-        /// <summary>
         /// Control lstCiudad.
         /// </summary>
         /// <remarks>
@@ -182,6 +182,15 @@ namespace Unisangil.CYLTRACK.CYLTRACK_WebApp.Clientes {
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
         protected global::System.Web.UI.WebControls.RequiredFieldValidator ValidarCiudad;
+        
+        /// <summary>
+        /// Control lblCedula.
+        /// </summary>
+        /// <remarks>
+        /// Campo generado automáticamente.
+        /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Label lblCedula;
         
         /// <summary>
         /// Control btnLimpiar.
