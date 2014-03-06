@@ -8,7 +8,7 @@ using System.Runtime.Serialization;
 
 namespace Unisangil.CYLTRACK.CYLTRACK_BE
 {
-    /// <summary>
+    /// <summary>C:\CYLTRACK\CYLTRACK\CYLTRACK\CYLTRACK\CYLTRACK_BE\Ubicacion_CilindroBE.cs
     /// Clase utilizada para identificar la entidad Ubicacion_Cilindro
     /// </summary>
     [DataContract]
