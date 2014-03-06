@@ -13,7 +13,7 @@ namespace Unisangil.CYLTRACK.CYLTRACK_WebApp.Clientes
 {
     public partial class frmNuevaUbicacion : System.Web.UI.Page
     {
-        string cedula;
+      
         public void Page_Load(object sender, EventArgs e)
         {
             if(!IsPostBack)
@@ -24,8 +24,7 @@ namespace Unisangil.CYLTRACK.CYLTRACK_WebApp.Clientes
 
             if (!IsPostBack)
             {
-                string dato = Server.UrlDecode(Request.QueryString["ReturnUrl"]);
-                //cedula = dato;
+                lblCedula.Text = (Server.UrlDecode(Request.QueryString["ReturnUrl"]));
             }
             
             if (!IsPostBack)
@@ -60,18 +59,16 @@ namespace Unisangil.CYLTRACK.CYLTRACK_WebApp.Clientes
         {
 
             ClienteServiceClient servCliente = new ClienteServiceClient();
-            String resp;
+            long resp;
             
             try
             {
                 ClienteBE cliente = new ClienteBE();
 
                 UbicacionBE ubi = new UbicacionBE();
-                List<string> lstDatoDireccion = new List<string>();
-                lstDatoDireccion.Add(txtNuevaDireccion.Text);
-                ubi.Direccion = lstDatoDireccion;
+                ubi.Direccion = txtNuevaDireccion.Text;
                 ubi.Barrio = txtNuevoBarrio.Text;
-                ubi.Telefono_2 = txtTelefono.Text;
+                ubi.Telefono_1 = txtTelefono.Text;
                 cliente.Ubicacion = ubi;
 
                 CiudadBE ciucli = new CiudadBE();
@@ -82,7 +79,7 @@ namespace Unisangil.CYLTRACK.CYLTRACK_WebApp.Clientes
                 depcli.Nombre_Departamento = lstDepartamento.SelectedValue;
                 ciucli.Departamento = depcli;
 
-                cliente.Cedula = cedula;
+                cliente.Cedula = lblCedula.Text;
                 
                 resp = servCliente.Agregar_Ubicacion(cliente);
 
