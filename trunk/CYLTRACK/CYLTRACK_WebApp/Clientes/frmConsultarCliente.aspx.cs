@@ -6,6 +6,7 @@ using System.Web.UI;
 using System.Web.UI.WebControls;
 using Unisangil.CYLTRACK.CYLTRACK_BE;
 using CYLTRACK_WebApp.ClienteService;
+using CYLTRACK_WebApp.ReporteService;
 using System.Windows.Forms;
 using System.Data;
 
@@ -22,15 +23,16 @@ namespace Unisangil.CYLTRACK.CYLTRACK_WebApp.Clientes
         {
             btnNuevaConsulta.Focus();
             ClienteServiceClient serCliente = new ClienteServiceClient();
+            ReporteServiceClient servReporte = new ReporteServiceClient();
             DataTable table = new DataTable();
 
             try
             {
-                long consultaExistencia = serCliente.Consultar_Existencia(txtCedula.Text);
+                long consultaExistencia = servReporte.consultadeExistencia(txtCedula.Text);
 
                 if (consultaExistencia == 0)
                 {
-                    MessageBox.Show("El cliente no se encuentra registrado en el sistema", "Venta de Cilindros");
+                    MessageBox.Show("El cliente no se encuentra registrado en el sistema", "Consulta de Clientes");
                 }
                 else
                 {
@@ -45,10 +47,7 @@ namespace Unisangil.CYLTRACK.CYLTRACK_WebApp.Clientes
                     txtNombreCliente.Text = cliente.Nombres_Cliente;
                     txtPrimerApellido.Text = cliente.Apellido_1;
                     txtSegundoApellido.Text = cliente.Apellido_2;
-                    foreach(string datos in cliente.Ubicacion.Direccion)
-                    {
-                        txtDireccion.Text = datos;
-                    }
+                    txtDireccion.Text = cliente.Ubicacion.Direccion;
                     txtBarrio.Text = cliente.Ubicacion.Barrio;
                     txtTelefono.Text = cliente.Ubicacion.Telefono_1;
                     txtCiudad.Text = cliente.Ubicacion.Ciudad.Nombre_Ciudad;
@@ -68,6 +67,7 @@ namespace Unisangil.CYLTRACK.CYLTRACK_WebApp.Clientes
             finally
             {
                 serCliente.Close();
+                servReporte.Close();
             }
         }
 
