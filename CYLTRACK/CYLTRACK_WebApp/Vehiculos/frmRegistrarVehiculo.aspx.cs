@@ -186,10 +186,11 @@ namespace Unisangil.CYLTRACK.CYLTRACK_WebApp.Rutas
 
         protected void txtCedula_TextChanged(object sender, EventArgs e)
         {
-            ClienteServiceClient ServCliente = new ClienteServiceClient();
+            ClienteServiceClient servCliente = new ClienteServiceClient();
+            ReporteServiceClient servReporte = new ReporteServiceClient();
             try
             {
-                long consultarCliente = ServCliente.Consultar_Existencia(txtCedula.Text);
+                long consultarCliente = servReporte.consultadeExistencia(txtCedula.Text);
 
                 if (consultarCliente == 0)
                 {
@@ -198,7 +199,7 @@ namespace Unisangil.CYLTRACK.CYLTRACK_WebApp.Rutas
 
                 else
                 {
-                    ClienteBE objCliente = ServCliente.Consultar_Cliente(txtCedula.Text);
+                    ClienteBE objCliente = servCliente.Consultar_Cliente(txtCedula.Text);
                     txtNombre.Text = objCliente.Nombres_Cliente;
                     txtPrimerApellido.Text = objCliente.Apellido_1;
                     txtSegundoApellido.Text = objCliente.Apellido_2;
@@ -211,7 +212,8 @@ namespace Unisangil.CYLTRACK.CYLTRACK_WebApp.Rutas
             }
             finally 
             {
-                ServCliente.Close();
+                servCliente.Close();
+                servReporte.Close();
             }
         }
     }
