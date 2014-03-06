@@ -37,9 +37,18 @@ namespace Unisangil.CYLTRACK.CYLTRACK_BL
             return resp;
         }
         
-        public string RegistrarUbicacion(ClienteBE registrar_ubi)
+        public long AgregarUbicacion(ClienteBE cliente)
         {
-            string resp = "Ok";
+            ClienteDL cli = new ClienteDL();
+            long resp = 0;
+            try
+            {
+                resp = cli.AgregarUbicacionCliente(cliente);
+            }
+            catch (Exception ex)
+            {
+                resp = -1;
+            }
             return resp;
         }
         /// <summary>
@@ -84,11 +93,21 @@ namespace Unisangil.CYLTRACK.CYLTRACK_BL
             return resp;
         }
 
-        public String ModificarCliente(String modificar_cli)
+        public long ModificarCliente(ClienteBE cliente)
         {
-            ClienteBE modificar = ConsultarCliente(modificar_cli);
-            String resp = "Ok";
-            
+            ClienteDL cli = new ClienteDL();
+
+            long resp = 0;
+            try
+            {
+                resp = cli.ModificarCliente(cliente);
+            }
+            catch (Exception ex)
+            {
+                //guardar exepcion en el log de bd
+                resp = -1;
+            }
+
             return resp;
         }
         #endregion

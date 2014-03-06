@@ -9,6 +9,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using Unisangil.CYLTRACK.CYLTRACK_BE;
+using Unisangil.CYLTRACK.CYLTRACK_DL;
 
 namespace Unisangil.CYLTRACK.CYLTRACK_BL
 {
@@ -18,10 +19,19 @@ namespace Unisangil.CYLTRACK.CYLTRACK_BL
 
         #endregion
         #region Metodos publicos
-        public String RegistrarRuta(RutaBE ruta)
+        public long RegistrarRuta(RutaBE ruta)
         {
-            String resp = "Ok";
-            return resp;
+            RutaDL regRuta = new RutaDL();
+            long respuesta = new long();
+            try
+            {
+                respuesta = regRuta.CrearRuta(ruta);
+            }
+            catch (Exception ex)
+            {
+
+            }
+            return respuesta;
         }
 
         public String ModificarRuta(RutaBE ruta)
@@ -42,33 +52,31 @@ namespace Unisangil.CYLTRACK.CYLTRACK_BL
                 RutaBE rutaConsulta = new RutaBE();
                 CiudadBE ciu = new CiudadBE();
                 ciu.Nombre_Ciudad = "Chiquinquirá";
-                rutaConsulta.Ciudad = ciu;
+               // rutaConsulta.Ciudad = ciu;
                 DepartamentoBE dep = new DepartamentoBE();
                 dep.Nombre_Departamento = "Boyacá";
                 ciu.Departamento = dep;
                 Ciudad_RutaBE ciuRuta = new Ciudad_RutaBE();
-                List<CiudadBE> lstCiudades = new List<CiudadBE>();
-                lstCiudades.Add(ciu);
-                ciuRuta.Ciudad = lstCiudades;
-                rutaConsulta.Ciudad_Ruta = ciuRuta;
-                rutaConsulta.Nombre_Ruta = "Zona Occidente";               
+                //ciuRuta.Ciudad = lstCiudades;
+                //rutaConsulta.Ciudad_Ruta = ciuRuta;
+                //rutaConsulta.Nombre_Ruta = "Zona Occidente";               
 
              return rutaConsulta;
         }
 
         public List<CiudadBE> ConsultaDepartamentoyCiudades()
         {
-           List<CiudadBE> lstCiudades = new List<CiudadBE>();
-            for (int i = 0; i < 4; i++ )
+            RutaDL ruta = new RutaDL();
+            List<CiudadBE> ciudadesDep = new List<CiudadBE>();
+            try
             {
-                CiudadBE ciu = new CiudadBE();
-                ciu.Nombre_Ciudad = "CHIQUINQUIRA";
-                DepartamentoBE dep = new DepartamentoBE();
-                dep.Nombre_Departamento = "BOYACA";
-                ciu.Departamento = dep;
-                lstCiudades.Add(ciu);
-            }           
-            return lstCiudades;
+                ciudadesDep= ruta.ConsultaDepartamentoyCiudades();
+            }
+            catch (Exception ex)
+            {
+
+            }
+            return ciudadesDep;        
         }
         
 
