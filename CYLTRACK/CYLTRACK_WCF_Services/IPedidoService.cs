@@ -40,15 +40,6 @@ namespace Unisangil.CYLTRACK.CYLTRACK_WCF_Services
         PedidoBE Consultar_Pedido(string pedido);
 
         /// <summary>
-        /// Método encargado de la consulta para la confirmación de existencia de pedido o conductores en el sistema. Permite
-        /// que las aplicaciones llamen a los objetos de negocio directamente.
-        /// </summary>
-        /// <param name="consultar_existencia"></param>
-        /// <returns></returns>
-        [OperationContract]
-        string Consultar_Existencia(string consultar_existencia);
-
-        /// <summary>
         /// Método encargado de la modificación de pedidos en el sistema. Permite
         /// que las aplicaciones llamen a los objetos de negocio directamente.
         /// </summary>

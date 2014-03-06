@@ -35,9 +35,18 @@ namespace Unisangil.CYLTRACK.CYLTRACK_WCF_Services
         /// Permite que las aplicaciones llamen a los objetos de negocio directamente.
         /// </summary>
         /// <param name="consultar_vehiculo">Objeto de negocio vehículo</param>
-        /// <returns>placa vehículo</returns>
+        /// <returns>Objeto vehículo</returns>
         [OperationContract]
-        VehiculoBE Consultar_Vehiculo(string vehiculo);
+        List<VehiculoBE> ConsultarVehiculo(string placa);
+
+        ///// <summary>
+        ///// Método encargado de la consulta de vehículos en el sistema y su posterior impresión en los controles de texto.
+        ///// Permite que las aplicaciones llamen a los objetos de negocio directamente.
+        ///// </summary>
+        ///// <param name="consultar_vehiculo">Objeto de negocio vehículo</param>
+        ///// <returns>placa vehículo</returns>
+        //[OperationContract]
+        //VehiculoBE Consultar_Vehiculo(string vehiculo);
 
         /// <summary>
         /// Método encargado de la consulta para la confirmación de existencia de vehículo en el sistema. Permite
@@ -66,22 +75,22 @@ namespace Unisangil.CYLTRACK.CYLTRACK_WCF_Services
         [OperationContract]
         VehiculoBE Consultar_Conductor(string conductor);
 
-        /// <summary>
-        /// Método encargado de la consulta de placas de vehiculos en el sistema. Permite
-        /// que las aplicaciones llamen a los objetos de negocio directamente.
-        /// </summary>
-        /// <param name="ruta">Objeto de negocio ciudad</param> 
-        /// <returns>Placas registradas</returns>
-        [OperationContract]
-        List<string> ConsultarPlacaSinParametro();
+        /////// <summary>
+        /////// Método encargado de la consulta de placas de vehiculos en el sistema. Permite
+        /////// que las aplicaciones llamen a los objetos de negocio directamente.
+        /////// </summary>
+        /////// <param name="ruta">Objeto de negocio ciudad</param> 
+        /////// <returns>Placas registradas</returns>
+        ////[OperationContract]
+        ////List<string> ConsultarPlacaSinParametro();
 
-        /// <summary>
-        /// Método encargado de la consulta de placas de vehiculos en el sistema. Permite
-        /// que las aplicaciones llamen a los objetos de negocio directamente.
-        /// </summary>
-        /// <param name="ruta">Objeto de negocio ciudad</param> 
-        /// <returns>Placas registradas</returns>
-        [OperationContract]
-        List<string> ConsultarPlaca(string ciudad);
+        ///// <summary>
+        ///// Método encargado de la consulta de placas de vehiculos en el sistema. Permite
+        ///// que las aplicaciones llamen a los objetos de negocio directamente.
+        ///// </summary>
+        ///// <param name="ruta">Objeto de negocio ciudad</param> 
+        ///// <returns>Placas registradas</returns>
+        //[OperationContract]
+        //List<string> ConsultarPlaca(string ciudad);
     }
 }

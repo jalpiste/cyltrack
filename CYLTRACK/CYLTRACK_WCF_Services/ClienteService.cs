@@ -42,21 +42,14 @@ namespace Unisangil.CYLTRACK.CYLTRACK_WCF_Services
         /// <param name="registrar_cli">Objeto de negocio cliente</param>
         /// <returns>cédula del cliente</returns>
 
-        public String Agregar_Ubicacion (ClienteBE registrar_ubi)
+        public long Agregar_Ubicacion (ClienteBE cliente)
         {
-            String resp ;
+            long resp ;
             ClienteBL RegisUbicacion = new ClienteBL();
-            resp = RegisUbicacion.RegistrarUbicacion(registrar_ubi);
+            resp = RegisUbicacion.AgregarUbicacion(cliente);
             return resp;
         }
-     
-        public long Consultar_Existencia(string consultar_existencia)
-        {
-            long resp;
-            ClienteBL ConExis = new ClienteBL();
-            resp = ConExis.ConsultarExistencia(consultar_existencia);
-            return resp;
-        }
+
         
         /// <summary>
         /// Encargado de recibir un cliente de los canales front de venta y llamar
@@ -79,9 +72,9 @@ namespace Unisangil.CYLTRACK.CYLTRACK_WCF_Services
         /// </summary>
         /// <param name="registrar_cli">Objeto de negocio cliente</param>
         /// <returns>cédula del cliente</returns>
-        public String Modificar_Cliente(String modificar_cli)
+        public long Modificar_Cliente(ClienteBE modificar_cli)
         {
-            String resp;
+            long resp;
             ClienteBL ModCliente = new ClienteBL();
             resp = ModCliente.ModificarCliente(modificar_cli);
             return resp;

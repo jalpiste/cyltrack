@@ -65,24 +65,6 @@ namespace Unisangil.CYLTRACK.CYLTRACK_WCF_Services
         /// <returns>respuesta operacion</returns>
         [OperationContract]
         string CargueyDescargueCilindros(List<CilindroBE> cilindros);
-
-        /// <summary>
-        /// Método encargado de la asignación de ubicación de cilindros dentro de la planta en el sistema. Permite
-        /// que las aplicaciones llamen a los objetos de negocio directamente.
-        /// </summary>
-        /// <param name="cilindro">Objeto de negocio cilindro</param>
-        /// <returns>código cilindro</returns>
-        [OperationContract]
-        long consultadeExistencia(string cilindro);
-
-        /// <summary>
-        /// Método encargado de la consulta de la existencia del codigo de fabricante en el sistema. Permite
-        /// que las aplicaciones llamen a los objetos de negocio directamente.
-        /// </summary>
-        /// <param name="cilindro">codigo fabricante del cilindro</param>
-        /// <returns>código fabricante</returns>
-        [OperationContract]
-        long ConsultaCodigoFabricante(string codigoFabricante);
-        
+       
     }
 }

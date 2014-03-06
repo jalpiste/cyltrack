@@ -26,7 +26,7 @@ namespace Unisangil.CYLTRACK.CYLTRACK_WCF_Services
         /// <param name="ruta">Objeto de negocio ruta</param>
         /// <returns>nombre de la ruta</returns>
         [OperationContract]
-        string RegistrarRuta(RutaBE ruta);
+        long RegistrarRuta(RutaBE ruta);
 
         /// <summary>
         /// Método encargado de la modificaciòn de rutas en el sistema. Permite
