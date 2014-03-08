@@ -5,6 +5,7 @@ using System.Web;
 using System.Web.UI;
 using System.Web.UI.WebControls;
 using CYLTRACK_WebApp.CilindroService;
+using CYLTRACK_WebApp.VehiculoService;
 using Unisangil.CYLTRACK.CYLTRACK_BE;
 using System.Data;
 using System.Windows.Forms;
@@ -13,10 +14,10 @@ namespace Unisangil.CYLTRACK.CYLTRACK_WebApp.Cilindros
 {
     public partial class frmCargaryDescargarCilindros : System.Web.UI.Page
     {
-        
+
         protected void Page_Load(object sender, EventArgs e)
         {
-            if(!IsPostBack) 
+            if (!IsPostBack)
             {
                 lstOpcion.Focus();
             }
@@ -27,63 +28,67 @@ namespace Unisangil.CYLTRACK.CYLTRACK_WebApp.Cilindros
         protected void lstOpcion_SelectedIndexChanged(object sender, EventArgs e)
         {
             lstPlaca.Focus();
-                CilindroServiceClient servCilindro = new CilindroServiceClient();
-                
-                string datoUbica= null ;
-                DataTable table = new DataTable();
-        
+            CilindroServiceClient servCilindro = new CilindroServiceClient();
+            VehiculoServiceClient serVehiculo = new VehiculoServiceClient();
+
+            string datoUbica = null;
+            DataTable table = new DataTable();
+
             try
-                {
-                    table.Columns.Add("CodigosCil");
-                    table.Columns.Add("Tamano");
-                    table.Columns.Add("TipoCil");
+            {
+                table.Columns.Add("CodigosCil");
+                table.Columns.Add("Tamano");
+                table.Columns.Add("TipoCil");
 
-                    if (lstOpcion.SelectedIndex == 1)
-                    {
-                        datoUbica= Ubicacion.Plataforma.ToString();
-                        DivUbicacionCil.Visible = true;
-                        lstPlaca.Visible = true;
-                        lblPlaca.Visible = true;
-                        BtnGuardar.Visible = true;
-                        gvCargue.Visible = true;
-                    }
-                    else 
-                    {
-                        datoUbica = Ubicacion.Vehiculo.ToString();
-                        DivUbicacionCil.Visible = true;
-                        BtnGuardar.Visible = true;
-                        gvCargue.Visible = true;
-                    }
+                if (lstOpcion.SelectedIndex == 1)
+                {
+                    datoUbica = Ubicacion.PLATAFORMA.ToString();
+                    DivUbicacionCil.Visible = true;
+                    lstPlaca.Visible = true;
+                    BtnGuardar.Visible = true;
+                    gvCargue.Visible = true;
+                }
+                else
+                {
+                    datoUbica = Ubicacion.VEHICULO.ToString();
+                    DivUbicacionCil.Visible = true;
+                    BtnGuardar.Visible = true;
+                    gvCargue.Visible = true;
+                }
 
-                    List<Ubicacion_CilindroBE> datosConsulta = new List<Ubicacion_CilindroBE>(servCilindro.ConsultarCilUbicacion(datoUbica));
-                    
-                    foreach (Ubicacion_CilindroBE datos in datosConsulta)
-                    {
-                        table.Rows.Add(datos.Cilindro.Codigo_Cilindro, datos.Cilindro.NTamano.Tamano, datos.Cilindro.Tipo_Cilindro);
-                        //lstPlaca.Items.Add(datos.Ubicacion.Vehiculo.Placa);
-                    }
-                    gvCargue.DataSource = table;
-                    gvCargue.DataBind();
-                    
-                }
-                catch (Exception ex)
+                List<Ubicacion_CilindroBE> datosConsulta = new List<Ubicacion_CilindroBE>(servCilindro.ConsultarCilUbicacion(datoUbica));
+                List<VehiculoBE> listaPlacas = new List<VehiculoBE>(serVehiculo.ConsultarVehiculo(string.Empty));
+                foreach (VehiculoBE datosVehiculo in listaPlacas)
                 {
-                    Response.Redirect("~/About.aspx");
+                    lstPlaca.Items.Add(datosVehiculo.Placa);
                 }
-                finally
+                foreach (Ubicacion_CilindroBE datos in datosConsulta)
                 {
-                    servCilindro.Close();
+                    table.Rows.Add(datos.Cilindro.Codigo_Cilindro, datos.Cilindro.Tipo_Cilindro, datos.Cilindro.NTamano.Tamano);
                 }
-                                 
+                gvCargue.DataSource = table;
+                gvCargue.DataBind();
+
+            }
+            catch (Exception ex)
+            {
+                Response.Redirect("~/About.aspx");
+            }
+            finally
+            {
+                servCilindro.Close();
+                serVehiculo.Close();
+            }
+
         }
 
         protected void gvReporte_SelectedIndexChanged(object sender, EventArgs e)
         {
-             if (gvCargue.SelectedDataKey["Checking"].ToString() == "True")
+            if (gvCargue.SelectedDataKey["Checking"].ToString() == "True")
             {
-                
+
             }
-            else 
+            else
             {
                 gvCargue.DataBind();
             }
@@ -98,8 +103,8 @@ namespace Unisangil.CYLTRACK.CYLTRACK_WebApp.Cilindros
         protected void BtnGuardar_Click1(object sender, EventArgs e)
         {
             CilindroServiceClient servCilindro = new CilindroServiceClient();
-            
-            List<CilindroBE> guardarDatos= new List<CilindroBE>();
+
+            List<CilindroBE> guardarDatos = new List<CilindroBE>();
 
             try
             {
@@ -109,20 +114,20 @@ namespace Unisangil.CYLTRACK.CYLTRACK_WebApp.Cilindros
                     CilindroBE cil = new CilindroBE();
                     cil.Codigo_Cilindro = cilindro.Codigo_Cilindro;
 
-                    if (lstOpcion.SelectedValue == Ubicacion.Plataforma.ToString())
+                    if (lstOpcion.SelectedValue == Ubicacion.PLATAFORMA.ToString())
                     {
-                        cil.Ubicacion_Cilindro.Ubicacion.Tipo_Ubicacion.Nombre_Ubicacion = Ubicacion.Plataforma.ToString();
+                        cil.Ubicacion_Cilindro.Ubicacion.Tipo_Ubicacion.Nombre_Ubicacion = Ubicacion.PLATAFORMA.ToString();
                     }
 
                     else
                     {
                         cil.Codigo_Cilindro = cilindro.Codigo_Cilindro;
-                        cil.Ubicacion_Cilindro.Ubicacion.Tipo_Ubicacion.Nombre_Ubicacion = Ubicacion.Vehiculo.ToString();
+                        cil.Ubicacion_Cilindro.Ubicacion.Tipo_Ubicacion.Nombre_Ubicacion = Ubicacion.VEHICULO.ToString();
                     }
 
                     guardarDatos.Add(cil);
                 }
-                
+
                 string resp = servCilindro.CargueyDescargueCilindros(guardarDatos.ToArray());
                 MessageBox.Show("Los datos han sido guardados satisfactoriamente", "Cargue o descargue de Cilindro");
             }
@@ -132,52 +137,52 @@ namespace Unisangil.CYLTRACK.CYLTRACK_WebApp.Cilindros
             }
             {
                 servCilindro.Close();
-                Response.Redirect("~/Cilindros/frmCargaryDescargarCilindros.aspx");                
+                Response.Redirect("~/Cilindros/frmCargaryDescargarCilindros.aspx");
             }
         }
 
         protected void lstPlaca_SelectedIndexChanged(object sender, EventArgs e)
         {
             gdAdd.Focus();
-            
+
         }
 
         protected void Agregar_onClick(object sender, EventArgs e)
         {
-              BtnGuardar.Focus();
-              DataTable tabla = new DataTable();
-               
-                try
-                {
-                    CilindroBE cil = new CilindroBE();
-                    cil.Codigo_Cilindro = ((System.Web.UI.WebControls.Button)sender).Attributes["value"].ToString();
+            BtnGuardar.Focus();
+            DataTable tabla = new DataTable();
 
-                        foreach(CilindroBE datos in lstCodigos)
-                            {
-                            if(cil.Codigo_Cilindro==datos.Codigo_Cilindro)
-                                {
-                                lstCodigos.Remove(datos);
-                                }
-                            };
-                                           
-                        lstCodigos.Add(cil);
-                        tabla.Columns.Add("CodigosAdd");
+            try
+            {
+                CilindroBE cil = new CilindroBE();
+                cil.Codigo_Cilindro = ((System.Web.UI.WebControls.Button)sender).Attributes["value"].ToString();
 
-                        foreach (CilindroBE info in lstCodigos)
-                        {
-                            tabla.Rows.Add(info.Codigo_Cilindro);
-                        }
-                        gdAdd.DataSource = tabla;
-                        gdAdd.DataBind();                    
-                }
-                catch (Exception ex)
+                foreach (CilindroBE datos in lstCodigos)
                 {
-                    Response.Redirect("~/About.aspx"); 
-                }
-                finally 
+                    if (cil.Codigo_Cilindro == datos.Codigo_Cilindro)
+                    {
+                        lstCodigos.Remove(datos);
+                    }
+                };
+
+                lstCodigos.Add(cil);
+                tabla.Columns.Add("CodigosAdd");
+
+                foreach (CilindroBE info in lstCodigos)
                 {
-                    gdAdd.Visible = true;
+                    tabla.Rows.Add(info.Codigo_Cilindro);
                 }
-           }                            
+                gdAdd.DataSource = tabla;
+                gdAdd.DataBind();
+            }
+            catch (Exception ex)
+            {
+                Response.Redirect("~/About.aspx");
+            }
+            finally
+            {
+                gdAdd.Visible = true;
+            }
+        }
     }
 }

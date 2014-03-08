@@ -12,6 +12,8 @@
         </span> 
             <asp:ValidationSummary ID="RegistrarCilindro" runat="server" CssClass="failureNotification" 
                  ValidationGroup="RegistrodeCilindro" />
+                 <asp:ValidationSummary ID="validarPlaca" runat="server" CssClass="failureNotification" 
+                 ValidationGroup="validarPlaca" />
                              <asp:ValidationSummary ID="validarCodigo" runat="server" CssClass="failureNotification" 
                  ValidationGroup="validarCodigo" />
             <div class="accountInfo">
@@ -74,26 +76,35 @@
                     </p>
                     <p> 
                         <asp:Label ID="LblUbicacion" runat="server" Text="Ubicación: " ></asp:Label>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-                        <asp:Label ID="LblTamano" runat="server" Text="Tamaño: " ></asp:Label>
+                        <asp:Label ID="lblTamano" runat="server" Text="Tamaño: " ></asp:Label>
+                        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                        <asp:Label ID="lblPlaca" runat="server" Text="Placa:" Width="30%" Visible = "false" ></asp:Label>
                         </p>
                         <p>
-                        <asp:ListBox ID="LstUbicacion" runat="server" AutoPostBack="True" Rows="1" >
+                        <asp:ListBox ID="lstUbicacion" runat="server" AutoPostBack="True" Rows="1" 
+                                onselectedindexchanged="lstUbicacion_SelectedIndexChanged" >
                             <asp:ListItem>Seleccionar...</asp:ListItem>
                         </asp:ListBox>
                            <asp:RequiredFieldValidator ID="validUbicacion" runat="server" ControlToValidate="LstUbicacion" 
                              CssClass="failureNotification" ErrorMessage="La ubicacion del cilindro es obligatorio." ToolTip="La ubicacion del cilindro es obligatorio." 
                              ValidationGroup="RegistrodeCilindro">*</asp:RequiredFieldValidator>
                         
-                            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-                        <asp:ListBox ID="LstTamano" runat="server" AutoPostBack="True" Rows="1" >
+                            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<asp:ListBox ID="LstTamano" runat="server" AutoPostBack="True" Rows="1" >
                             <asp:ListItem>Seleccionar...</asp:ListItem>
                         </asp:ListBox>
                             <asp:RequiredFieldValidator ID="validTamano" runat="server" ControlToValidate="LstTamano" 
                              CssClass="failureNotification" ErrorMessage="El tamaño del cilindro es obligatorio." ToolTip="El tamaño del cilindro es obligatorio." 
                              ValidationGroup="RegistrodeCilindro">*</asp:RequiredFieldValidator>
+                    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                            <asp:ListBox ID="lstPlacas" runat="server" AutoPostBack="True" Rows="1" Visible = "false"  >
+                            <asp:ListItem>Seleccionar...</asp:ListItem>
+                        </asp:ListBox>
+                        <asp:RequiredFieldValidator ID="validPlaca" runat="server" ControlToValidate="lstPlacas" 
+                             CssClass="failureNotification" ErrorMessage="La placa del vehículo es obligatorio." ToolTip="La placa del vehículo es obligatorio." 
+                             ValidationGroup="validarPlaca">*</asp:RequiredFieldValidator>
                     </p>
                         <p>
-                        <asp:Label ID="Lbltotal" runat="server" Width="30%" ></asp:Label>
+                            <asp:Label ID="Lbltotal" runat="server" Width="30%" ></asp:Label>
                 </p>
                 </div>
                 </fieldset>
