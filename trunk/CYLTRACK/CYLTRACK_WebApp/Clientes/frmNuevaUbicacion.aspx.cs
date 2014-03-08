@@ -57,7 +57,6 @@ namespace Unisangil.CYLTRACK.CYLTRACK_WebApp.Clientes
 
         protected void btnGuardar_Click(object sender, EventArgs e)
         {
-
             ClienteServiceClient servCliente = new ClienteServiceClient();
             long resp;
             
@@ -104,8 +103,6 @@ namespace Unisangil.CYLTRACK.CYLTRACK_WebApp.Clientes
         protected void lstDepartamento_SelectedIndexChanged(object sender, EventArgs e)
         {
             lstCiudad.Focus();
-        }
-
-        
+        }        
     }
 }
