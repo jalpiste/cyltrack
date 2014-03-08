@@ -9,6 +9,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using Unisangil.CYLTRACK.CYLTRACK_BE;
+using Unisangil.CYLTRACK.CYLTRACK_DL;
 
 namespace Unisangil.CYLTRACK.CYLTRACK_BL
 {
@@ -109,16 +110,6 @@ namespace Unisangil.CYLTRACK.CYLTRACK_BL
         /// Método para la consulta de existencia de pedido en el sistema
         /// </summary>
         /// <param name="consultar_existencia"></param>
-        /// <returns></returns>
-        public string ConsultarExistencia(string consultar_existencia)
-        {
-            string resp = "Ok";
-            return resp;
-        }
-        /// <summary>
-        /// Método para la modificación de pedidos en el sistema
-        /// </summary>
-        /// <param name="modificar_ped"></param>
         /// <returns></returns>
         public string ModificarPedido(string pedido)
         {
