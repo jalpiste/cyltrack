@@ -163,13 +163,14 @@ namespace Unisangil.CYLTRACK.CYLTRACK_WebApp.Ventas
         public void ConsultaDatosPedido(string pedido)
         {
             PedidoServiceClient serPedido = new PedidoServiceClient();
+            ReporteServiceClient servReporte = new ReporteServiceClient();
             DataTable table = new DataTable();
 
             try
             {
-                string consultaExistencia = serPedido.Consultar_Existencia(pedido);
+                long consultaExistencia = servReporte.consultadeExistenciaVarios(pedido);
 
-                if (consultaExistencia != "Ok")
+                if (consultaExistencia == 0)
                 {
                     MessageBox.Show("El pedido no se encuentra registrado en el sistema", "Venta de Cilindros");
                 }
@@ -209,6 +210,7 @@ namespace Unisangil.CYLTRACK.CYLTRACK_WebApp.Ventas
             finally
             {
                 serPedido.Close();
+                servReporte.Close();
             }
         }
 
