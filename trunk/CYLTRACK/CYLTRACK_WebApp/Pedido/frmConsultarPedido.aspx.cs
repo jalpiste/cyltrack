@@ -6,6 +6,7 @@ using System.Web.UI;
 using System.Web.UI.WebControls;
 using Unisangil.CYLTRACK.CYLTRACK_BE;
 using CYLTRACK_WebApp.PedidoService;
+using CYLTRACK_WebApp.ReporteService;
 using CYLTRACK_WebApp.ClienteService;
 using System.Windows.Forms;
 using System.Data;
@@ -21,22 +22,23 @@ namespace Unisangil.CYLTRACK.CYLTRACK_WebApp.Pedido
 
         protected void txtCedula_TextChanged(object sender, EventArgs e)
         {
+            ReporteServiceClient servReporte = new ReporteServiceClient();
             PedidoServiceClient servPedido = new PedidoServiceClient();
             PedidoBE consultar_ped = new PedidoBE();
-            string resp;
+            long resp;
 
             try
-            {
-                resp = servPedido.Consultar_Existencia(txtCedula.Text);
 
-                if (resp == null)
+            {
+                resp = servReporte.consultadeExistenciaVarios(txtCedula.Text);
+
+                if (resp == 0)
                 {
                     MessageBox.Show("El Pedido no se encuentra registrado en el sistema", "Consultar Pedido");
                 }
                 
                     else
                     {
-
                        DataTable tabla = new DataTable();
 
                        tabla.Columns.Add("CantidadPedido");
@@ -77,7 +79,7 @@ namespace Unisangil.CYLTRACK.CYLTRACK_WebApp.Pedido
             }
             finally
             {
-                servPedido.Close();
+                servReporte.Close();
             }
         }
 
@@ -85,15 +87,15 @@ namespace Unisangil.CYLTRACK.CYLTRACK_WebApp.Pedido
         {
             btnNuevaConsulta.Focus();
             PedidoServiceClient servPedido = new PedidoServiceClient();
-             
+            ReporteServiceClient servReporte = new ReporteServiceClient(); 
             PedidoBE consultar_ped = new PedidoBE();
-            String resp;
+            long resp;
 
             try
             {
-                resp = servPedido.Consultar_Existencia(NumPedidoTxt.Text);
+                resp = servReporte.consultadeExistenciaVarios(NumPedidoTxt.Text);
 
-                if (resp == null)
+                if (resp == 0)
                 {
                     MessageBox.Show("El Pedido no se encuentra registrado en el sistema", "Consultar Pedido");
                 }

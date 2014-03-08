@@ -67,14 +67,15 @@ namespace Unisangil.CYLTRACK.CYLTRACK_WebApp.Pedido
         {
             txtCedulaCliente.Focus();
             PedidoServiceClient servPedido = new PedidoServiceClient();
+            ReporteServiceClient servReporte = new ReporteServiceClient();
             PedidoBE consultar_ped = new PedidoBE();
-            String resp;
+            long resp;
 
             try
             {
-                resp = servPedido.Consultar_Existencia(txtCedula.Text);
+                resp = servReporte.consultadeExistenciaVarios(txtCedula.Text);
                 
-                if (resp == null)
+                if (resp == 0)
                 {
                     MessageBox.Show("El pedido no se encuentra registrado en el sistema", "Modificar Pedido");
                 }
@@ -175,6 +176,7 @@ namespace Unisangil.CYLTRACK.CYLTRACK_WebApp.Pedido
             finally
             {
               servPedido.Close();
+              servReporte.Close();
             }
         }
 
@@ -312,15 +314,15 @@ namespace Unisangil.CYLTRACK.CYLTRACK_WebApp.Pedido
         {
             lstDireccion.Focus();
             PedidoServiceClient servPedido = new PedidoServiceClient();
+            ReporteServiceClient servReporte = new ReporteServiceClient();
             PedidoBE consultar_ped = new PedidoBE();
-            String resp;
+            long resp;
 
             try
             {
+                resp = servReporte.consultadeExistencia(txtCedulaCliente.Text);
 
-                resp = servPedido.Consultar_Existencia(txtCedulaCliente.Text);
-
-                if (resp == null)
+                if (resp == 0)
                 {
                     MessageBox.Show("El cliente no se encuentra registrado en el sistema", "Modificar Pedido");
                 }
@@ -366,6 +368,7 @@ namespace Unisangil.CYLTRACK.CYLTRACK_WebApp.Pedido
             finally
             {
                 servPedido.Close();
+                servReporte.Close();
             }
         }
 
