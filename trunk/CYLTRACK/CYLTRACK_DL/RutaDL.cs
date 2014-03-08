@@ -125,7 +125,7 @@ namespace Unisangil.CYLTRACK.CYLTRACK_DL
             catch (Exception ex)
             {
                 db.CancelarTransaccion();
-                throw new Exception("Error al crear el CilindroBE.", ex);
+                throw new Exception("Error al crear la RutaBE.", ex);
             }
 
             finally
