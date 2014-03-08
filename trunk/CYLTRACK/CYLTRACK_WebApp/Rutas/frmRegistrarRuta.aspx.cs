@@ -18,7 +18,7 @@ namespace Unisangil.CYLTRACK.CYLTRACK_WebApp.Rutas
 
         protected void Page_Load(object sender, EventArgs e)
         {
-            if(!IsPostBack)
+            if (!IsPostBack)
             {
                 txtNombreRuta.Focus();
             }
@@ -27,7 +27,7 @@ namespace Unisangil.CYLTRACK.CYLTRACK_WebApp.Rutas
                 objdtLista = new DataTable();
                 CrearTabla();
             }
-            if(IsPostBack)
+            if (IsPostBack)
             {
                 btnGuardar.Focus();
             }
@@ -51,9 +51,9 @@ namespace Unisangil.CYLTRACK.CYLTRACK_WebApp.Rutas
                 {
                     servRuta.Close();
                 }
-            }            
+            }
         }
-          protected void btnAgregar_Click(object sender, EventArgs e)
+        protected void btnAgregar_Click(object sender, EventArgs e)
         {
             CiudadBE ciudad = new CiudadBE();
             ciudad.Nombre_Ciudad = lstCiudad.SelectedValue;
@@ -80,31 +80,31 @@ namespace Unisangil.CYLTRACK.CYLTRACK_WebApp.Rutas
             }
 
         }
-          protected DataTable objdtTabla
-          {
-              get
-              {
-                  if (ViewState["objdtTabla"] != null)
-                  {
-                      return (DataTable)ViewState["objdtTabla"];
-                  }
-                  else
-                  {
-                      return objdtLista;
-                  }
-              }
+        protected DataTable objdtTabla
+        {
+            get
+            {
+                if (ViewState["objdtTabla"] != null)
+                {
+                    return (DataTable)ViewState["objdtTabla"];
+                }
+                else
+                {
+                    return objdtLista;
+                }
+            }
 
-              set
-              {
-                  ViewState["objdtTabla"] = value;
-              }
-          }
-          //        ------------------------- fin de tabla acumulada y asignación de valor
-          private void CrearTabla()
-          {
-              objdtLista.Columns.Add("CiudadesAdd");
-              objdtTabla = objdtLista;
-          }
+            set
+            {
+                ViewState["objdtTabla"] = value;
+            }
+        }
+        //        ------------------------- fin de tabla acumulada y asignación de valor
+        private void CrearTabla()
+        {
+            objdtLista.Columns.Add("CiudadesAdd");
+            objdtTabla = objdtLista;
+        }
 
         protected void btnMenu_Click(object sender, EventArgs e)
         {
@@ -132,7 +132,7 @@ namespace Unisangil.CYLTRACK.CYLTRACK_WebApp.Rutas
             //           lstCiudades.Remove(registro);
             //       } 
             //    }
-                
+
             //    tabla.Columns.Add("CiudadesAdd");
 
             //    foreach (string info in lstCiudades)
@@ -151,41 +151,41 @@ namespace Unisangil.CYLTRACK.CYLTRACK_WebApp.Rutas
             //{
             //    gdAdd.Visible = true;
             //}
-            
+
         }
 
         protected void txtNombreRuta_TextChanged(object sender, EventArgs e)
         {
             RutaServicesClient servRuta = new RutaServicesClient();
             RutaBE ruta = new RutaBE();
-            
-            try 
+
+            try
             {
                 string consultaExistencia = servRuta.ConsultaExistencia(txtNombreRuta.Text);
-                
-                 if (consultaExistencia == "Ok")
-                    {
-                        txtNomRuta.Text = txtNombreRuta.Text;
-                        DivSelCiudades.Visible = true;
-                        btnGuardar.Visible = true;
-                        divRuta.Visible = true;
-                    }
-                    else
-                    {
-                        MessageBox.Show("La ruta digitada ya se encuentra registrada", "Registrar Ruta"); 
-                    }
-                             
+
+                if (consultaExistencia == "Ok")
+                {
+                    txtNomRuta.Text = txtNombreRuta.Text;
+                    DivSelCiudades.Visible = true;
+                    btnGuardar.Visible = true;
+                    divRuta.Visible = true;
+                }
+                else
+                {
+                    MessageBox.Show("La ruta digitada ya se encuentra registrada", "Registrar Ruta");
+                }
+
             }
             catch (Exception ex)
             {
                 Response.Redirect("~/About.aspx");
             }
-            finally 
+            finally
             {
                 servRuta.Close();
             }
-            
-          }
+
+        }
 
         protected void btnGuardar_Click(object sender, EventArgs e)
         {
@@ -193,39 +193,39 @@ namespace Unisangil.CYLTRACK.CYLTRACK_WebApp.Rutas
             RutaBE ruta = new RutaBE();
             long registrarRuta;
 
-            try 
+            try
             {
                 ruta.Nombre_Ruta = txtNomRuta.Text;
                 foreach (DataRow row in objdtTabla.Rows)
                 {
                     CiudadBE ciudad = new CiudadBE();
-                    ciudad.Nombre_Ciudad=(Convert.ToString(row["CiudadesAdd"]));
+                    ciudad.Nombre_Ciudad = (Convert.ToString(row["CiudadesAdd"]));
                     lstDetail.Add(ciudad);
                 }
-                
+
                 foreach (CiudadBE datos in lstDetail)
                 {
                     Ciudad_RutaBE ciudadesRuta = new Ciudad_RutaBE();
                     ciudadesRuta.Ciudad += datos.Nombre_Ciudad;
                     ruta.Ciudad_Ruta = ciudadesRuta;
-                }                
+                }
 
                 registrarRuta = servRuta.RegistrarRuta(ruta);
 
-                MessageBox.Show("La ruta ingresada fue registrada satisfactoriamente","Registrar Ruta");
-                           
-              }
+                MessageBox.Show("La ruta ingresada fue registrada satisfactoriamente", "Registrar Ruta");
+
+            }
             catch (Exception ex)
             {
                 Response.Redirect("~/About.aspx");
             }
-            finally 
+            finally
             {
                 servRuta.Close();
                 Response.Redirect("~/Rutas/frmRegistrarRuta.aspx");
-            }           
-            
+            }
+
         }
-              
+
     }
 }
