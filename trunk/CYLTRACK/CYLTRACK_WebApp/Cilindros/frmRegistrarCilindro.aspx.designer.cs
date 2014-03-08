@@ -31,6 +31,15 @@ namespace Unisangil.CYLTRACK.CYLTRACK_WebApp.Cilindros {
         protected global::System.Web.UI.WebControls.ValidationSummary RegistrarCilindro;
         
         /// <summary>
+        /// Control validarPlaca.
+        /// </summary>
+        /// <remarks>
+        /// Campo generado automáticamente.
+        /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.ValidationSummary validarPlaca;
+        
+        /// <summary>
         /// Control validarCodigo.
         /// </summary>
         /// <remarks>
@@ -220,22 +229,31 @@ namespace Unisangil.CYLTRACK.CYLTRACK_WebApp.Cilindros {
         protected global::System.Web.UI.WebControls.Label LblUbicacion;
         
         /// <summary>
-        /// Control LblTamano.
+        /// Control lblTamano.
         /// </summary>
         /// <remarks>
         /// Campo generado automáticamente.
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Label LblTamano;
+        protected global::System.Web.UI.WebControls.Label lblTamano;
         
         /// <summary>
-        /// Control LstUbicacion.
+        /// Control lblPlaca.
         /// </summary>
         /// <remarks>
         /// Campo generado automáticamente.
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.ListBox LstUbicacion;
+        protected global::System.Web.UI.WebControls.Label lblPlaca;
+        
+        /// <summary>
+        /// Control lstUbicacion.
+        /// </summary>
+        /// <remarks>
+        /// Campo generado automáticamente.
+        /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.ListBox lstUbicacion;
         
         /// <summary>
         /// Control validUbicacion.
@@ -263,6 +281,24 @@ namespace Unisangil.CYLTRACK.CYLTRACK_WebApp.Cilindros {
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
         protected global::System.Web.UI.WebControls.RequiredFieldValidator validTamano;
+        
+        /// <summary>
+        /// Control lstPlacas.
+        /// </summary>
+        /// <remarks>
+        /// Campo generado automáticamente.
+        /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.ListBox lstPlacas;
+        
+        /// <summary>
+        /// Control validPlaca.
+        /// </summary>
+        /// <remarks>
+        /// Campo generado automáticamente.
+        /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.RequiredFieldValidator validPlaca;
         
         /// <summary>
         /// Control Lbltotal.
