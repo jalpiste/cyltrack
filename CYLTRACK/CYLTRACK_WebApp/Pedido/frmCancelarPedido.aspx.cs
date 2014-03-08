@@ -7,6 +7,7 @@ using System.Web.UI.WebControls;
 using Unisangil.CYLTRACK.CYLTRACK_BE;
 using CYLTRACK_WebApp.PedidoService;
 using CYLTRACK_WebApp.ClienteService;
+using CYLTRACK_WebApp.ReporteService;
 using System.Windows.Forms;
 using System.Data;
 
@@ -25,14 +26,15 @@ namespace Unisangil.CYLTRACK.CYLTRACK_WebApp.Pedido
             //txtCedula.Text = "";
 
             PedidoServiceClient servPedido = new PedidoServiceClient();
+            ReporteServiceClient servReporte = new ReporteServiceClient();
             PedidoBE objPed = new PedidoBE();
-            String resp;
+            long resp;
 
             try
             {
-                resp = servPedido.Consultar_Existencia(txtCedula.Text);
+                resp = servReporte.consultadeExistencia(txtCedula.Text);
                 
-                if (resp == null)
+                if (resp == 0)
                 {
                     MessageBox.Show("El pedido no se encuentra registrado en el sistema", "Cancelar Pedido");
                 }
@@ -85,14 +87,15 @@ namespace Unisangil.CYLTRACK.CYLTRACK_WebApp.Pedido
             txtMotivoCancelacion.Focus();
             
             PedidoServiceClient servPedido = new PedidoServiceClient();
+            ReporteServiceClient servReporte = new ReporteServiceClient();
             PedidoBE objPed = new PedidoBE();
-            String resp;
+            long resp;
 
             try
             {
-                resp = servPedido.Consultar_Existencia(txtNumPedido.Text);
+                resp = servReporte.consultadeExistenciaVarios(txtNumPedido.Text);
 
-                if (resp == null)
+                if (resp == 0)
                 {
                     MessageBox.Show("El pedido no se encuentra registrado en el sistema", "Cancelar Pedido");
                 }
