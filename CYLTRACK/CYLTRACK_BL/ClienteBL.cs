@@ -51,28 +51,7 @@ namespace Unisangil.CYLTRACK.CYLTRACK_BL
             }
             return resp;
         }
-        /// <summary>
-        /// Método para la consulta de existencia de clientes en el sistema
-        /// </summary>
-        /// <param name="consultar_existencia"></param>
-        /// <returns></returns>
-        public long ConsultarExistencia(string consultar_existencia)
-        {
-            ClienteDL cil = new ClienteDL();
-            long resp = 0;
-            try
-            {
-                resp = cil.ConsultarExistenciasClientes(consultar_existencia);
-            }
-            catch (Exception ex)
-            {
-                //guardar exepcion en el log de bd
-                resp = -1;
-            }
-
-            return resp;
-        }
-        /// <summary>
+         /// <summary>
         /// Método para la consulta de clientes en el sistema y muestra de información 
         /// </summary>
         /// <param name="consultar_cli"></param>
