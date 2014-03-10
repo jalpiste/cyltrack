@@ -64,7 +64,7 @@ namespace Unisangil.CYLTRACK.CYLTRACK_WebApp.Pedido
                else
                {
                    ClienteBE objCliente = servCliente.Consultar_Cliente(txtCedula.Text);
-
+                   
                    txtCedulaCli.Text = objCliente.Cedula;
                    txtNombreCliente.Text = objCliente.Nombres_Cliente;
                    txtPrimerApellido.Text = objCliente.Apellido_1;
@@ -105,6 +105,7 @@ namespace Unisangil.CYLTRACK.CYLTRACK_WebApp.Pedido
                 serRuta.Close();
                 lblCodigoPedido.Visible = true;
                 lblNumeroPedido.Visible = true;
+                
             }                       
         }
 
