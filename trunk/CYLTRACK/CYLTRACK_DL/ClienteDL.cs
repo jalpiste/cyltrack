@@ -194,7 +194,7 @@ namespace Unisangil.CYLTRACK.CYLTRACK_DL
             }
             catch (Exception ex)
             {
-                throw new Exception("Error al acceder a la base de datos para obtener los CilindroBEs.");
+                throw new Exception("Error al acceder a la base de datos para obtener los ClienteBEs.");
             }
             return cli;
         }
