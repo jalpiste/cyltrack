@@ -53,7 +53,8 @@ namespace Unisangil.CYLTRACK.CYLTRACK_DL
                         DepartamentoBE dep = new DepartamentoBE();
                         dep.Id_Departamento = datos.GetValue(0).ToString();
                         dep.Nombre_Departamento = datos.GetString(1);
-                        c.Nombre_Ciudad= (datos.GetString(2));
+                        c.Id_Ciudad = datos.GetValue(2).ToString();
+                        c.Nombre_Ciudad= (datos.GetString(3));
                         c.Departamento= dep;
                         ciudadesDepart.Add(c);
 
@@ -88,7 +89,7 @@ namespace Unisangil.CYLTRACK.CYLTRACK_DL
                 string nameSP = "CrearRegistroRutas";
                 db.CrearComandoSP(nameSP);
 
-                DbParameter[] parametros = new DbParameter[4];
+                DbParameter[] parametros = new DbParameter[5];
 
                 parametros[0] = db.Comando.CreateParameter();
                 parametros[0].ParameterName = "vrNombre";
@@ -98,28 +99,35 @@ namespace Unisangil.CYLTRACK.CYLTRACK_DL
                 db.Comando.Parameters.Add(parametros[0]);
 
                 parametros[1] = db.Comando.CreateParameter();
-                parametros[1].ParameterName = "vrCiudad";
-                parametros[1].Value = ruta.Ciudad_Ruta.Ciudad.ToString();
+                parametros[1].ParameterName = "vrCiudades";
+                parametros[1].Value = ruta.Ciudad_Ruta.Ciudad;
                 parametros[1].Direction = ParameterDirection.Input;
                 parametros[1].Size = 20;
                 db.Comando.Parameters.Add(parametros[1]);
 
                 parametros[2] = db.Comando.CreateParameter();
-                parametros[2].ParameterName = "vrCodResult";
-                parametros[2].Value = 0;
-                parametros[2].Direction = ParameterDirection.Output;
+                parametros[2].ParameterName = "vrSeparador";
+                parametros[2].Value = ",";
+                parametros[2].Direction = ParameterDirection.Input;
+                parametros[2].Size = 20;
                 db.Comando.Parameters.Add(parametros[2]);
 
                 parametros[3] = db.Comando.CreateParameter();
-                parametros[3].ParameterName = "vrDescResult";
-                parametros[3].Value = "";
+                parametros[3].ParameterName = "vrCodResult";
+                parametros[3].Value = 0;
                 parametros[3].Direction = ParameterDirection.Output;
-                parametros[3].Size = 200;
-                parametros[3].DbType = DbType.String;
                 db.Comando.Parameters.Add(parametros[3]);
 
+                parametros[4] = db.Comando.CreateParameter();
+                parametros[4].ParameterName = "vrDescResult";
+                parametros[4].Value = "";
+                parametros[4].Direction = ParameterDirection.Output;
+                parametros[4].Size = 200;
+                parametros[4].DbType = DbType.String;
+                db.Comando.Parameters.Add(parametros[4]);
+
                 db.EjecutarComando();
-                codigo = long.Parse(db.Comando.Parameters[2].Value.ToString());
+                codigo = long.Parse(db.Comando.Parameters[3].Value.ToString());
                 db.ConfirmarTransaccion();
             }
             catch (Exception ex)

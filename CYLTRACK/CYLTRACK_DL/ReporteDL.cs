@@ -187,7 +187,7 @@ namespace Unisangil.CYLTRACK.CYLTRACK_DL
             BaseDatos db = new BaseDatos();
             try
             {
-                string nameSP = "ConsultarExistenciaDatos2";
+                string nameSP = "ConsultarExistenciaDatoDos";
                 db.Conectar();
                 db.CrearComandoSP(nameSP);
                 DbParameter[] parametros = new DbParameter[3];

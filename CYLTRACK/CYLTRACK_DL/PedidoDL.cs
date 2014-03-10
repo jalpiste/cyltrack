@@ -178,6 +178,7 @@ namespace Unisangil.CYLTRACK.CYLTRACK_DL
                         ubi.Ciudad = ciu;
                         c.Ubicacion = ubi;
                         cli = c;
+                        
 
                     }
                     catch (InvalidCastException ex)
