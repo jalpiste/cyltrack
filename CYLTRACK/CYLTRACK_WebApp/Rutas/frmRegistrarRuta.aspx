@@ -44,7 +44,6 @@
                     <br />                
                     <asp:ListBox ID="lstDepartamento" runat="server" AutoPostBack="True" Rows="1" 
                             Width="170px" > 
-                    <asp:ListItem>Seleccionar</asp:ListItem>
                     </asp:ListBox>
                      <asp:RequiredFieldValidator ID="validadorDepart" runat="server" 
                      ControlToValidate="lstDepartamento" CssClass="failureNotification" 

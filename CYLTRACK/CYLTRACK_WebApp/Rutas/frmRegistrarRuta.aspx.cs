@@ -6,6 +6,7 @@ using System.Web.UI;
 using System.Web.UI.WebControls;
 using Unisangil.CYLTRACK.CYLTRACK_BE;
 using CYLTRACK_WebApp.RutaService;
+using CYLTRACK_WebApp.ReporteService;
 using System.Windows.Forms;
 using System.Data;
 
@@ -156,16 +157,16 @@ namespace Unisangil.CYLTRACK.CYLTRACK_WebApp.Rutas
 
         protected void txtNombreRuta_TextChanged(object sender, EventArgs e)
         {
-            RutaServicesClient servRuta = new RutaServicesClient();
+            ReporteServiceClient servReporte = new ReporteServiceClient();
             RutaBE ruta = new RutaBE();
 
             try
             {
-                string consultaExistencia = servRuta.ConsultaExistencia(txtNombreRuta.Text);
+                long consultaExistencia = servReporte.consultadeExistenciaVarios(txtNombreRuta.Text);
 
-                if (consultaExistencia == "Ok")
+                if (consultaExistencia == 0)
                 {
-                    txtNomRuta.Text = txtNombreRuta.Text;
+                    txtNomRuta.Text = txtNombreRuta.Text.ToUpper();
                     DivSelCiudades.Visible = true;
                     btnGuardar.Visible = true;
                     divRuta.Visible = true;
@@ -182,7 +183,7 @@ namespace Unisangil.CYLTRACK.CYLTRACK_WebApp.Rutas
             }
             finally
             {
-                servRuta.Close();
+               servReporte.Close();
             }
 
         }
@@ -203,17 +204,20 @@ namespace Unisangil.CYLTRACK.CYLTRACK_WebApp.Rutas
                     lstDetail.Add(ciudad);
                 }
 
+                Ciudad_RutaBE ciudadesRuta = new Ciudad_RutaBE();
+                CiudadBE ciu = new CiudadBE();
                 foreach (CiudadBE datos in lstDetail)
                 {
-                    Ciudad_RutaBE ciudadesRuta = new Ciudad_RutaBE();
-                    ciudadesRuta.Ciudad += datos.Nombre_Ciudad;
+                    ciu.Nombre_Ciudad += datos.Nombre_Ciudad + ",";
+                    ciudadesRuta.Ciudad = ciu;
                     ruta.Ciudad_Ruta = ciudadesRuta;
                 }
-
+                int var = ciudadesRuta.Ciudad.Nombre_Ciudad.Length;
+                ciudadesRuta.Ciudad.Nombre_Ciudad = ciudadesRuta.Ciudad.Nombre_Ciudad.Substring(0, var -1 );
                 registrarRuta = servRuta.RegistrarRuta(ruta);
 
                 MessageBox.Show("La ruta ingresada fue registrada satisfactoriamente", "Registrar Ruta");
-
+                
             }
             catch (Exception ex)
             {

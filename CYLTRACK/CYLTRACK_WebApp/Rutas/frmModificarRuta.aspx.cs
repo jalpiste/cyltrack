@@ -135,7 +135,7 @@ namespace Unisangil.CYLTRACK.CYLTRACK_WebApp.Rutas
                     }
                     else
                     {
-                        RutaBE consultaRuta = servRuta.ConsultarRutaconParametro(txtNombreRuta.Text);
+                      //  RutaBE consultaRuta = servRuta.ConsultarRutaconParametro(txtNombreRuta.Text);
                         txtNuevoNombre.Text = txtNombreRuta.Text;
                         //List<CiudadBE> lstCiudades = servRuta.ConsultarRutaconParametro(txtNombreRuta.Text).Ciudad_Ruta.Ciudad;
 
@@ -264,7 +264,7 @@ namespace Unisangil.CYLTRACK.CYLTRACK_WebApp.Rutas
                     }
                     else
                     {
-                        RutaBE consultaRuta = servRuta.ConsultarRutaconParametro(txtNombreRuta.Text);
+                    //    RutaBE consultaRuta = servRuta.ConsultarRutaconParametro(txtNombreRuta.Text);
                         txtNuevoNombre.Text = txtNombreRuta.Text;
                         //gdAdd.DataSource = consultaRuta.Ciudad_Ruta.Ciudad[consultaRuta.Ciudad_Ruta.Ciudad.Count()].Nombre_Ciudad;
                         //gdAdd.DataBind();
