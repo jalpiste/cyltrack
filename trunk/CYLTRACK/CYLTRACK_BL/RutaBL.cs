@@ -47,22 +47,27 @@ namespace Unisangil.CYLTRACK.CYLTRACK_BL
 
             return resp;
         }
-        public RutaBE ConsultarRutaconParametro(string Ruta)
+        /// <summary>
+        /// Método para la consulta de rutas en el sistema y muestra de información
+        /// </summary>
+        /// <param name="consultarRutas"></param>
+        /// <returns></returns>
+        public List<RutaBE> ConsultarRuta(string ruta)
         {
-                RutaBE rutaConsulta = new RutaBE();
-                CiudadBE ciu = new CiudadBE();
-                ciu.Nombre_Ciudad = "Chiquinquirá";
-               // rutaConsulta.Ciudad = ciu;
-                DepartamentoBE dep = new DepartamentoBE();
-                dep.Nombre_Departamento = "Boyacá";
-                ciu.Departamento = dep;
-                Ciudad_RutaBE ciuRuta = new Ciudad_RutaBE();
-                //ciuRuta.Ciudad = lstCiudades;
-                //rutaConsulta.Ciudad_Ruta = ciuRuta;
-                //rutaConsulta.Nombre_Ruta = "Zona Occidente";               
+            RutaDL rut = new RutaDL();
+            List<RutaBE> lstRuta = new List<RutaBE>();
+            try
+            {
+                lstRuta = rut.ConsultarRutas(ruta);
+            }
+            catch (Exception ex)
+            {
 
-             return rutaConsulta;
+            }
+            return lstRuta;
         }
+
+
 
         public List<CiudadBE> ConsultaDepartamentoyCiudades()
         {
