@@ -86,7 +86,7 @@ namespace Unisangil.CYLTRACK.CYLTRACK_WebApp.Pedido
                    }
                    
                    RutaBE ruta = new RutaBE();
-                   ruta = serRuta.ConsultarRutaconParametro(objCliente.Ubicacion.Ciudad.Nombre_Ciudad);
+                  // ruta = serRuta.ConsultarRuta(objCliente.Ubicacion.Ciudad.Nombre_Ciudad);
                    // se tiene que consultar la ruta que tiene cada placa seleccionada...
                    //PedidoBE ped = servPedido.Consultar_Pedido(txtCedula.Text);
                    //lblNumeroPedido.Text = ped.Id_Pedido;
