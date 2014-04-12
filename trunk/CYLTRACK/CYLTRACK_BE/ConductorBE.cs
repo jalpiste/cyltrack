@@ -63,5 +63,17 @@ namespace Unisangil.CYLTRACK.CYLTRACK_BE
          [DataMember]
          public String Cedula { get; set; }
 
+         /// <summary>
+         /// Barrio del conductor
+         /// </summary>
+         [DataMember]
+         public String Barrio { get; set; }
+
+         /// <summary>
+         /// Ciudad 
+         /// </summary>
+         [DataMember]
+         public CiudadBE Ciudad { get; set; }
+
     }
 }

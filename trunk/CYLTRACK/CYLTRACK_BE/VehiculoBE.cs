@@ -101,12 +101,6 @@ namespace Unisangil.CYLTRACK.CYLTRACK_BE
         public RutaBE Ruta { get; set; }
 
         /// <summary>
-        /// Conductor asignado al Vehículo 
-        /// </summary>
-        [DataMember]
-        public Conductor_VehiculoBE Conductor_Vehiculo { get; set; }
-
-        /// <summary>
         /// Datos conductor
         /// </summary>
         [DataMember]
