@@ -82,6 +82,13 @@ namespace Unisangil.CYLTRACK.CYLTRACK_WebApp
             autenticacion = Enum.GetNames(typeof(Tipo_Autenticacion)).ToList();
             return autenticacion;
         }
+
+        public static List<string> ConsultaEstado()
+        {
+            List<string> estado = new List<string>();
+            estado = Enum.GetNames(typeof(Estado)).ToList();
+            return estado;
+        }
     }
         public enum Tipo_Cilindro
         {
@@ -158,5 +165,12 @@ namespace Unisangil.CYLTRACK.CYLTRACK_WebApp
             SegundaVez = 2,
             Erroneo = 3
         }
+
+        public enum Estado
+        {
+            Activo = 1,
+            Inactivo = 2            
+        }
+
 
 }
