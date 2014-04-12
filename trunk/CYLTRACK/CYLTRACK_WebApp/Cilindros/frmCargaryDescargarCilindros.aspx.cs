@@ -57,11 +57,12 @@ namespace Unisangil.CYLTRACK.CYLTRACK_WebApp.Cilindros
                 }
 
                 List<Ubicacion_CilindroBE> datosConsulta = new List<Ubicacion_CilindroBE>(servCilindro.ConsultarCilUbicacion(datoUbica));
-                List<VehiculoBE> listaPlacas = new List<VehiculoBE>(serVehiculo.ConsultarVehiculo(string.Empty));
-                foreach (VehiculoBE datosVehiculo in listaPlacas)
-                {
-                    lstPlaca.Items.Add(datosVehiculo.Placa);
-                }
+                
+                lstPlaca.DataSource = serVehiculo.ConsultarVehiculo(string.Empty);
+                lstPlaca.DataValueField = "Id_Vehiculo";
+                lstPlaca.DataTextField = "Placa";
+                lstPlaca.DataBind();
+
                 foreach (Ubicacion_CilindroBE datos in datosConsulta)
                 {
                     table.Rows.Add(datos.Cilindro.Codigo_Cilindro, datos.Cilindro.Tipo_Cilindro, datos.Cilindro.NTamano.Tamano);
@@ -108,7 +109,6 @@ namespace Unisangil.CYLTRACK.CYLTRACK_WebApp.Cilindros
 
             try
             {
-
                 foreach (CilindroBE cilindro in lstCodigos)
                 {
                     CilindroBE cil = new CilindroBE();
