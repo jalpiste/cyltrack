@@ -44,7 +44,7 @@ namespace Unisangil.CYLTRACK.CYLTRACK_WCF_Services
         /// <param name="ruta">Objeto de negocio ruta</param> 
         /// <returns>nombre de la ruta</returns>
         [OperationContract]
-        RutaBE ConsultarRutaconParametro(string ruta);
+        List<RutaBE> ConsultarRuta(string ruta);
 
         /// <summary>
         /// Método encargado de la consulta de ciudades y/o departamentos en el sistema. Permite
