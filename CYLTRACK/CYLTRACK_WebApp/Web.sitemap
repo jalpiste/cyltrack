@@ -27,6 +27,8 @@
     <siteMapNode title="Vehículos"    description="Información de Vehiculos"  >
       <siteMapNode title="Registrar Vehículo"     description="Registrar datos de vehiculos en el sistema"   text ="solo miembros" Value="solo miembros" url="~/Vehiculos/frmRegistrarVehiculo.aspx" />
       <siteMapNode title="Modificar Vehículo"     description="Modificar la modificacion del vehiculo en el sistema"   text ="solo miembros" Value="solo miembros" url="~/Vehiculos/frmModificarVehiculo.aspx" />
+      <siteMapNode title="Registrar Conductor"     description="Registrar datos de conductores en el sistema"   text ="solo miembros" Value="solo miembros" url="~/Vehiculos/frmRegistrarConductor.aspx" />
+
     </siteMapNode>
     <siteMapNode title="Rutas"    description="Información de Rutas"  >
       <siteMapNode title="Registrar Ruta"     description="Registrar datos de las rutas en el sistema"   text ="solo miembros" Value="solo miembros" url="~/Rutas/frmRegistrarRuta.aspx" />
