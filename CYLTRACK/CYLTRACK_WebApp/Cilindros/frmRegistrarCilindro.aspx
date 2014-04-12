@@ -103,9 +103,7 @@
                              CssClass="failureNotification" ErrorMessage="La placa del vehículo es obligatorio." ToolTip="La placa del vehículo es obligatorio." 
                              ValidationGroup="validarPlaca">*</asp:RequiredFieldValidator>
                     </p>
-                        <p>
-                            <asp:Label ID="Lbltotal" runat="server" Width="30%" ></asp:Label>
-                </p>
+                        
                 </div>
                 </fieldset>
                 <p class="submitButton">

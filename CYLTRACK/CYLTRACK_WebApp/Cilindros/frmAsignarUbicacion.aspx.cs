@@ -20,20 +20,19 @@ namespace Unisangil.CYLTRACK.CYLTRACK_WebApp.Cilindros
             {
                 txtCodeCilindro.Focus();
                 ReporteServiceClient servReporte = new ReporteServiceClient();
-                List<Tipo_UbicacionBE> lstipoUbica = new List<Tipo_UbicacionBE>(servReporte.ConsultaTipoUbicacion());
-                foreach (Tipo_UbicacionBE datosUbicacion in lstipoUbica)
-                {
-                    lstUbica.Items.Add(datosUbicacion.Nombre_Ubicacion);
-                }
+                lstUbica.DataSource = servReporte.ConsultaTipoUbicacion();
+                lstUbica.DataValueField = "Id_Tipo_Ubica";
+                lstUbica.DataTextField = "Nombre_Ubicacion";
+                lstUbica.DataBind();
+
             }
         }
 
         protected void txtCodeCilindro_TextChanged(object sender, EventArgs e)
         {
             lstUbica.Focus();
-            CilindroServiceClient servAsig = new CilindroServiceClient();
+            CilindroServiceClient servCilindro = new CilindroServiceClient();
             ReporteServiceClient servReporte = new ReporteServiceClient();
-            CilindroBE cil = new CilindroBE();
             CilindroBE ConsultarCilindro;
             long consultarExistencia;
             try
@@ -46,7 +45,7 @@ namespace Unisangil.CYLTRACK.CYLTRACK_WebApp.Cilindros
                 }
                 else
                 {
-                    ConsultarCilindro = servAsig.ConsultarCilindro(txtCodeCilindro.Text);
+                    ConsultarCilindro = servCilindro.ConsultarCilindro(txtCodeCilindro.Text);
                     txtCodigo.Text = ConsultarCilindro.Codigo_Cilindro;
                     txtUbicacionActual.Text = ConsultarCilindro.Ubicacion_Cilindro.Ubicacion.Tipo_Ubicacion.Nombre_Ubicacion;
                     lstPlacaVehiculo.Items.Add(ConsultarCilindro.Ubicacion_Cilindro.Ubicacion.Vehiculo.Placa);
@@ -64,7 +63,7 @@ namespace Unisangil.CYLTRACK.CYLTRACK_WebApp.Cilindros
             }
             finally
             {
-                servAsig.Close();
+                servCilindro.Close();
                 servReporte.Close();
 
             }

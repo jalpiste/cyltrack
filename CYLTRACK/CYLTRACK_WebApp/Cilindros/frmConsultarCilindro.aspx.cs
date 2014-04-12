@@ -25,8 +25,7 @@ namespace Unisangil.CYLTRACK.CYLTRACK_WebApp.Cilindros
             ReporteServiceClient servReporte = new ReporteServiceClient();
             CilindroBE cilindro = new CilindroBE();
             long respConsultaExistencias;
-            CilindroBE respConsultaCilindro;
-
+            
             try
             {
                 respConsultaExistencias = servReporte.consultadeExistencia(txtCodigoCilindro.Text);
@@ -37,7 +36,7 @@ namespace Unisangil.CYLTRACK.CYLTRACK_WebApp.Cilindros
                 }
                 else
                 {
-                    respConsultaCilindro = servCilindro.ConsultarCilindro(txtCodigoCilindro.Text);
+                    CilindroBE respConsultaCilindro = servCilindro.ConsultarCilindro(txtCodigoCilindro.Text);
 
                     TxtAno.Text = respConsultaCilindro.Ano;
                     TxtEmpresa.Text = Convert.ToString(respConsultaCilindro.Fabricante.Nombre_Fabricante);
