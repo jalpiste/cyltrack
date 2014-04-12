@@ -78,9 +78,9 @@ namespace Unisangil.CYLTRACK.CYLTRACK_WebApp.Clientes
 
         protected void btnNuevaConsulta_Click(object sender, EventArgs e)
         {
-            txtCedula.Text = "";
-            divInfoCliente.Visible = false;
-            btnNuevaConsulta.Visible = false;
+            //txtCedula.Text = "";
+            //divInfoCliente.Visible = false;
+            //btnNuevaConsulta.Visible = false;
             
         }
     }
