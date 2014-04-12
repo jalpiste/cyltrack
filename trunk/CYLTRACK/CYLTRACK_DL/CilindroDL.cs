@@ -52,8 +52,8 @@ namespace Unisangil.CYLTRACK.CYLTRACK_DL
                 db.Comando.Parameters.Add(parametros[2]);
 
                 parametros[3] = db.Comando.CreateParameter();
-                parametros[3].ParameterName = "vrTamano";
-                parametros[3].Value = cil.NTamano.Tamano;
+                parametros[3].ParameterName = "vrIdTamano";
+                parametros[3].Value = cil.NTamano.Id_Tamano;
                 parametros[3].Direction = ParameterDirection.Input;
                 parametros[3].Size = 3;
                 db.Comando.Parameters.Add(parametros[3]);
@@ -66,10 +66,10 @@ namespace Unisangil.CYLTRACK.CYLTRACK_DL
                 db.Comando.Parameters.Add(parametros[4]);
 
                 parametros[5] = db.Comando.CreateParameter();
-                parametros[5].ParameterName = "vrNombre_Ubicacion";
-                parametros[5].Value = cil.Ubicacion_Cilindro.Ubicacion.Tipo_Ubicacion.Nombre_Ubicacion;
+                parametros[5].ParameterName = "vrId_Tipo_Ubica";
+                parametros[5].Value = cil.Ubicacion_Cilindro.Ubicacion.Tipo_Ubicacion.Id_Tipo_Ubica;
                 parametros[5].Direction = ParameterDirection.Input;
-                parametros[5].Size = 15;
+                parametros[5].Size = 4;
                 db.Comando.Parameters.Add(parametros[5]);
 
                 parametros[6] = db.Comando.CreateParameter();
@@ -154,26 +154,28 @@ namespace Unisangil.CYLTRACK.CYLTRACK_DL
                     try
                     {
                         c = new CilindroBE();
-                        c.Ano = datos.GetString(0);
-                        c.Codigo_Cilindro = datos.GetString(1);
-                        c.Tipo_Cilindro = datos.GetString(2);
-                        c.Serial_Cilindro = datos.GetString(3);
-                        c.Fecha = datos.GetDateTime(4);
+                        c.Id_Cilindro = datos.GetValue(0).ToString();
+                        c.Ano = datos.GetString(1);
+                        c.Codigo_Cilindro = datos.GetString(2);
+                        c.Tipo_Cilindro = datos.GetString(3);
+                        c.Serial_Cilindro = datos.GetString(4); 
+                        c.Fecha = datos.GetDateTime(5);
                         FabricanteBE fab = new FabricanteBE();
-                        fab.Nombre_Fabricante = (datos.GetValue(5).ToString());
+                        fab.Nombre_Fabricante = (datos.GetValue(6).ToString());
                         c.Fabricante = fab;
                         Ubicacion_CilindroBE ubiCil = new Ubicacion_CilindroBE();
                         UbicacionBE ubi = new UbicacionBE();
                         ubi.Ubicacion_Cilindro = ubiCil;
                         Tipo_UbicacionBE tipoUbica = new Tipo_UbicacionBE();
-                        tipoUbica.Nombre_Ubicacion = datos.GetString(6);
+                        tipoUbica.Nombre_Ubicacion = datos.GetString(7);
                         ubi.Tipo_Ubicacion = tipoUbica;
                         ubiCil.Ubicacion = ubi;
                         c.Ubicacion_Cilindro = ubiCil;
                         TamanoBE tam = new TamanoBE();
-                        tam.Tamano= (datos.GetString(7));
+                        tam.Tamano= (datos.GetString(8));
                         c.NTamano = tam;                        
                         cil= c;
+                   
                     }
                     catch (InvalidCastException ex)
                     {
