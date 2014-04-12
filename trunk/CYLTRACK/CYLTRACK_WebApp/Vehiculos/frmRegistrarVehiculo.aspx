@@ -1,4 +1,4 @@
-﻿<%@ Page Title="" Language="C#" MasterPageFile="~/Site.Master" AutoEventWireup="true" CodeBehind="frmRegistrarVehiculo.aspx.cs" Inherits="Unisangil.CYLTRACK.CYLTRACK_WebApp.Rutas.frmRegistrarVehículo" %>
+﻿<%@ Page Title="" Language="C#" MasterPageFile="~/Site.Master" AutoEventWireup="true" CodeBehind="frmRegistrarVehiculo.aspx.cs" Inherits="Unisangil.CYLTRACK.CYLTRACK_WebApp.Vehiculos.frmRegistrarVehiculo" %>
 <asp:Content ID="Content1" ContentPlaceHolderID="HeadContent" runat="server">
     <style type="text/css">
         #DivPropietario
@@ -91,16 +91,27 @@
                     <asp:Label ID="lblMotor" runat="server" Text="No. Motor: "></asp:Label>
                     &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
                     <asp:Label ID="lblChasis" runat="server" Text="No. Chasis: "></asp:Label>
+                   &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                    <asp:Label ID="lblEstado" runat="server" Text="Estado: "></asp:Label>
                     <br />
                     <asp:TextBox ID="txtMotor" runat="server" CssClass= "textEntry"></asp:TextBox>
                     <asp:RequiredFieldValidator ID="ValidarRegisMotor" runat="server" ControlToValidate="txtMotor" 
                              CssClass="failureNotification" ErrorMessage="El número de motor del vehículo es obligatorio." ToolTip="El número de motor del vehículo es obligatorio." 
                              ValidationGroup="RegistrarVehiculo">*</asp:RequiredFieldValidator>
                     
-                    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<asp:TextBox ID="txtChasis" runat="server" CssClass= "textEntry"></asp:TextBox>
+                    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                    <asp:TextBox ID="txtChasis" runat="server" CssClass= "textEntry"></asp:TextBox>
                     <asp:RequiredFieldValidator ID="ValidarRegisChasis" runat="server" ControlToValidate="txtChasis" 
                              CssClass="failureNotification" ErrorMessage="El número de chasis del vehículo es obligatorio." ToolTip="El número de chasis del vehículo es obligatorio." 
                              ValidationGroup="RegistrarVehiculo">*</asp:RequiredFieldValidator>
+
+                             &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+
+                             <asp:ListBox ID="lstEstado" runat="server" AutoPostBack="True" Rows="1" ></asp:ListBox>
+                    <asp:RequiredFieldValidator ID="RequiredFieldValidator1" runat="server" ControlToValidate="lstModelo" 
+                             CssClass="failureNotification" ErrorMessage="El estado del vehículo es obligatorio." ToolTip="El estado del vehículo es obligatorio." 
+                             ValidationGroup="RegistrarVehiculo">*</asp:RequiredFieldValidator>
+                    
                     
                 </div> 
                 <div id = "DivPropietario" runat ="server" visible ="false">
@@ -109,14 +120,21 @@
                       </div> 
                     <asp:Label ID="lblCedula" runat="server" Text="Número de Cédula: "></asp:Label><br />
                     <asp:TextBox ID="txtCedula" runat="server" CssClass= "textEntry" Width="160px" 
-                         ontextchanged="txtCedula_TextChanged" ></asp:TextBox>                                       
-                    <asp:RequiredFieldValidator ID="ValidarRegisCedulaProp" runat="server" ControlToValidate="txtCedula" 
+                         ontextchanged="txtCedula_TextChanged" ></asp:TextBox>   
+                        
+                        <asp:RequiredFieldValidator ID="ValidarRegisCedulaProp" runat="server" ControlToValidate="txtCedula" 
                              CssClass="failureNotification" ErrorMessage="El número de cédula del propietario del vehículo es obligatorio." ToolTip="El número de cédula del propietario del vehículo es obligatorio." 
                              ValidationGroup="RegistrarVehiculo">*</asp:RequiredFieldValidator>
                     <asp:RegularExpressionValidator ID="ValidarDatosCedulaProp" runat="server" ControlToValidate="txtCedula" 
                     CssClass="failureNotification" ErrorMessage="El número de cédula debe contener entre 6 y 10 dígitos." 
                         ValidationExpression="^([\d]{6,10})$"  ToolTip="Sólo caractéres numéricos." 
                     ValidationGroup="RegistrarVehiculo" >*</asp:RegularExpressionValidator>
+                    
+                         <br />
+                         <br />  
+                      <asp:Label ID="lblCedula2" runat="server" Text="Número de Cédula: "></asp:Label><br />
+                    <asp:TextBox ID="txtCedula2" runat="server" CssClass= "textEntry" Width="160px" 
+                         ontextchanged="txtCedula_TextChanged" Enabled="false"></asp:TextBox>                                    
                     
                     <br />
                     <asp:Label ID="lblNombre" runat="server" Text="Nombre " ></asp:Label>
@@ -199,7 +217,8 @@
                     <br />
                      <asp:Label ID="lblRuta" runat="server" Text="Ruta: "></asp:Label>
                      <br />
-                        <asp:ListBox ID="lstRuta" runat="server" AutoPostBack="True" Rows="1"  >
+                        <asp:ListBox ID="lstRuta" runat="server" AutoPostBack="True" Rows="1" onselectedindexchanged="lstRuta_SelectedIndexChanged" 
+                           >
                         </asp:ListBox>
                     <asp:RequiredFieldValidator ID="ValidarRegisRuta" runat="server" ControlToValidate="lstRuta" 
                     CssClass="failureNotification" ErrorMessage="La selección de la ruta es obligatoria." ToolTip="La selección de la ruta es obligatoria." 

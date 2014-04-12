@@ -12,25 +12,15 @@ using CYLTRACK_WebApp.RutaService;
 using CYLTRACK_WebApp.ReporteService;
 using System.Windows.Forms;
 
-
-namespace Unisangil.CYLTRACK.CYLTRACK_WebApp.Rutas
+namespace Unisangil.CYLTRACK.CYLTRACK_WebApp.Vehiculos
 {   
 
-    public partial class frmRegistrarVehículo : System.Web.UI.Page
+    public partial class frmRegistrarVehiculo : System.Web.UI.Page
     {
         protected void Page_Load(object sender, EventArgs e)
         {
             txtPlaca1.Focus();
-            if (!IsPostBack)
-            {
-                Anos[] anos = Auxiliar.ConsultarAnos();
-                IEnumerable<Anos> listaAnos = anos.OrderByDescending(g => g).Skip(0);
-                foreach (Anos datosAnos in listaAnos)
-                {
-                    lstModelo.Items.Add(datosAnos.ToString());
-                }
-
-            }
+            
         // txtPlaca1.CharacterCasing = CharacterCasing.Upper;
         }
         
@@ -41,15 +31,15 @@ namespace Unisangil.CYLTRACK.CYLTRACK_WebApp.Rutas
 
         protected void txtPlaca1_TextChanged(object sender, EventArgs e)
         {
-            VehiculoServiceClient servVehiculo = new VehiculoServiceClient();
-            ReporteServiceClient serReporte = new ReporteServiceClient();
-            String resp;
+           ReporteServiceClient serReporte = new ReporteServiceClient();
+           RutaServicesClient servRuta = new RutaServicesClient();
+            long resp;
 
             try
             {
-                resp = servVehiculo.Consultar_Existencia(txtPlaca1.Text);
+                resp = serReporte.consultadeExistenciaVarios(txtPlaca1.Text);
 
-                if (resp != "Ok")
+                if (resp != 0)
                 {
                     MessageBox.Show("El vehículo ya se encuentra registrado en el sistema", "Registrar Vehículo");
                 }
@@ -66,10 +56,26 @@ namespace Unisangil.CYLTRACK.CYLTRACK_WebApp.Rutas
                     lblCedula1.Visible = true;
                     txtCedula1.Visible = true;
                     btnGuardar.Visible = true;
-                    List<RutaBE> lstRutas = new List<RutaBE>(serReporte.ConsultarRuta());
+
+                    List<RutaBE> lstRutas = new List<RutaBE>(servRuta.ConsultarRuta(string.Empty));
                     foreach(RutaBE datos in lstRutas)
                     {
-                    lstRuta.Items.Add(datos.Nombre_Ruta);
+                        lstRuta.DataSource = servRuta.ConsultarRuta(string.Empty);
+                        lstRuta.DataValueField = "Id_Ruta";
+                        lstRuta.DataTextField = "Nombre_Ruta";
+                        lstRuta.DataBind();
+                   // lstRuta.Items.Add(datos.Nombre_Ruta);
+                    }
+                    Anos[] anos = Auxiliar.ConsultarAnos();
+                    IEnumerable<Anos> listaAnos = anos.OrderByDescending(g => g).Skip(0);
+                    foreach (Anos datosAnos in listaAnos)
+                    {
+                        lstModelo.Items.Add(datosAnos.ToString());
+                    }
+                    List<string> estado = Auxiliar.ConsultaEstado();
+                    foreach (string datoEstado in estado)
+                    {
+                        lstEstado.Items.Add(datoEstado);
                     }
                 }
             }
@@ -80,36 +86,32 @@ namespace Unisangil.CYLTRACK.CYLTRACK_WebApp.Rutas
             }
             finally
             {
-                servVehiculo.Close();
                 serReporte.Close();
             }
         }
         protected void txtCedula1_TextChanged(object sender, EventArgs e)
         {            
+            ReporteServiceClient servReporte = new ReporteServiceClient();
             VehiculoServiceClient servVehiculo = new VehiculoServiceClient();
+
             VehiculoBE consultar_conductor = new VehiculoBE();
-            string resp;
+            long resp;
             
             try
             {
-                resp = servVehiculo.Consultar_Existencia(txtCedula1.Text);
+                resp = servReporte.consultadeExistenciaVarios(txtCedula1.Text);
 
-                    if (resp == null)
+                    if (resp == 0)
                     {
                        MessageBox.Show("El conductor no se encuentra registrado en el sistema", "Asignar Conductor");
                     }
                     else
                     {
-                        VehiculoBE objConductor = servVehiculo.Consultar_Conductor(txtCedula1.Text);
-
-                        lblImprimirCedula.Text = objConductor.Conductor_Vehiculo.Conductor.Cedula;
-                        txtNombreCond.Text = objConductor.Conductor_Vehiculo.Conductor.Nombres_Conductor;
-                        txtPrimerApellidoCond.Text = objConductor.Conductor_Vehiculo.Conductor.Apellido_1;
-                        txtSegundoApellidoCond.Text = objConductor.Conductor_Vehiculo.Conductor.Apellido_2;
-
-
-                        txtCedula1.Text = "";
-                        lstRuta.Focus();
+                        ConductorBE objConductor = servVehiculo.Consultar_Conductor(txtCedula1.Text);
+                        lblImprimirCedula.Text = objConductor.Cedula;
+                        txtNombreCond.Text = objConductor.Nombres_Conductor;
+                        txtPrimerApellidoCond.Text = objConductor.Apellido_1;
+                        txtSegundoApellidoCond.Text = objConductor.Apellido_2;
                         DatosConductor.Visible = true;
                         btnGuardar.Visible = true;
                         txtCedula1.Text = "";
@@ -121,7 +123,9 @@ namespace Unisangil.CYLTRACK.CYLTRACK_WebApp.Rutas
             }
             finally
             {
+                servReporte.Close();
                 servVehiculo.Close();
+                lstRuta.Focus();
             }
         }
 
@@ -130,7 +134,7 @@ namespace Unisangil.CYLTRACK.CYLTRACK_WebApp.Rutas
         {
             VehiculoServiceClient servVehiculo = new VehiculoServiceClient();
 
-            String resp;
+            long resp;
             VehiculoBE registrar_vehiculo = new VehiculoBE();
 
             try
@@ -141,22 +145,18 @@ namespace Unisangil.CYLTRACK.CYLTRACK_WebApp.Rutas
                 registrar_vehiculo.Modelo = lstModelo.SelectedValue;
                 registrar_vehiculo.Motor = txtMotor.Text;
                 registrar_vehiculo.Chasis = txtChasis.Text;
-                registrar_vehiculo.Ced_Prop = txtCedula.Text;
+                registrar_vehiculo.Ced_Prop = txtCedula2.Text;
                 registrar_vehiculo.Nombres_Prop = txtNombre.Text;
                 registrar_vehiculo.Apellido_1_Prop = txtPrimerApellido.Text;
                 registrar_vehiculo.Apellido_2_Prop = txtSegundoApellido.Text;
+                registrar_vehiculo.Estado = lstEstado.SelectedValue;
 
-                Conductor_VehiculoBE cond = new Conductor_VehiculoBE();
-                registrar_vehiculo.Conductor_Vehiculo = cond;
-
-                ConductorBE regis = new ConductorBE();
-                regis.Nombres_Conductor = txtNombreCond.Text;
-                regis.Apellido_1 = txtPrimerApellidoCond.Text;
-                regis.Apellido_2 = txtSegundoApellidoCond.Text;
-                cond.Conductor = regis;
+                ConductorBE cond = new ConductorBE();
+                cond.Cedula = lblImprimirCedula.Text;
+                registrar_vehiculo.Conductor = cond;
 
                 RutaBE rutaasig = new RutaBE();
-                rutaasig.Nombre_Ruta = lstRuta.SelectedValue; // donde asignarle el valor de la ruta seleccionada. en que tabla o que campo
+                rutaasig.Id_Ruta = lstRuta.SelectedValue; 
                 registrar_vehiculo.Ruta = rutaasig;
 
                 resp = servVehiculo.Registrar_Vehiculo(registrar_vehiculo);
@@ -186,24 +186,26 @@ namespace Unisangil.CYLTRACK.CYLTRACK_WebApp.Rutas
 
         protected void txtCedula_TextChanged(object sender, EventArgs e)
         {
-            ClienteServiceClient servCliente = new ClienteServiceClient();
+            VehiculoServiceClient servVehiculo = new VehiculoServiceClient();
             ReporteServiceClient servReporte = new ReporteServiceClient();
             try
             {
-                long consultarCliente = servReporte.consultadeExistencia(txtCedula.Text);
+                long consultarPropVehiculo = servReporte.consultadeExistenciaVarios(txtCedula.Text);
 
-                if (consultarCliente == 0)
+                if (consultarPropVehiculo != 0)
                 {
-                    MessageBox.Show("El propietario no se encuentra registrada en el sistema", "Registrar Vehículo");
+                    txtCedula2.Text = txtCedula.Text;
+                    VehiculoBE objVehiculo = servVehiculo.ConsultarPropVehiculo(txtCedula2.Text);
+                    txtNombre.Text = objVehiculo.Nombres_Prop;
+                    txtPrimerApellido.Text = objVehiculo.Apellido_1_Prop;
+                    txtSegundoApellido.Text = objVehiculo.Apellido_2_Prop;
+                    txtNombre.Enabled = false;
+                    txtPrimerApellido.Enabled = false;
+                    txtSegundoApellido.Enabled = false;
                 }
-
                 else
                 {
-                    ClienteBE objCliente = servCliente.Consultar_Cliente(txtCedula.Text);
-                    txtNombre.Text = objCliente.Nombres_Cliente;
-                    txtPrimerApellido.Text = objCliente.Apellido_1;
-                    txtSegundoApellido.Text = objCliente.Apellido_2;
-
+                    txtCedula2.Text = txtCedula.Text;
                 }
             }
             catch (Exception ex)
@@ -212,9 +214,16 @@ namespace Unisangil.CYLTRACK.CYLTRACK_WebApp.Rutas
             }
             finally 
             {
-                servCliente.Close();
+                servVehiculo.Close();
                 servReporte.Close();
             }
         }
+
+        protected void lstRuta_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            btnGuardar.Focus();
+        }
+
+        
     }
 }
