@@ -306,15 +306,13 @@ namespace Unisangil.CYLTRACK.CYLTRACK_BL
                 vehiculo.Apellido_1_Prop = "Colón";
                 vehiculo.Apellido_2_Prop = "Mendieta";
                 //--------------------------------
-                Conductor_VehiculoBE cond = new Conductor_VehiculoBE();
-                vehiculo.Conductor_Vehiculo = cond;
 
                 ConductorBE conductor = new ConductorBE();
                 conductor.Cedula = "19080347";
                 conductor.Nombres_Conductor = "Pablo";
                 conductor.Apellido_1 = "Pérez";
                 conductor.Apellido_2 = "Pinto";
-                cond.Conductor = conductor;
+                vehiculo.Conductor = conductor;
 
                 RutaBE ruta = new RutaBE();
                 ruta.Nombre_Ruta = "Chiquinquirá-Boyacá";

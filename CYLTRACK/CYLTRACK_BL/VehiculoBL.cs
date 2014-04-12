@@ -24,9 +24,18 @@ namespace Unisangil.CYLTRACK.CYLTRACK_BL
         /// </summary>
         /// <param name="registrar_vehiculo"></param>
         /// <returns></returns>
-        public string RegistrarVehiculo(VehiculoBE registrar_vehiculo)
+        public long CrearVehiculo(VehiculoBE vehiculo)
         {
-            String resp = "Ok";
+            VehiculoDL veh = new VehiculoDL();
+            long resp =0;
+            try
+            {
+                resp = veh.CrearVehiculo(vehiculo);
+            }
+            catch (Exception ex)
+            {
+
+            }
             return resp;
         }
         /// <summary>
@@ -50,7 +59,62 @@ namespace Unisangil.CYLTRACK.CYLTRACK_BL
             List<VehiculoBE> vehiculo = new List<VehiculoBE>();
             try
             {
-                vehiculo = veh.ConsultarPlacasVehiculos(placa);
+                vehiculo = veh.ConsultarVehiculo(placa);
+            }
+            catch (Exception ex)
+            {
+
+            }
+            return vehiculo;
+        }
+        /// <summary>
+        /// Método para la modificación de vehículos en el sistema
+        /// </summary>
+        /// <param name="modificar_vehiculo"></param>
+        /// <returns>codigo</returns>
+        public long ModificarVehiculo(VehiculoBE modificar_vehiculo)
+        {
+            VehiculoDL veh = new VehiculoDL();
+            long resp = 0;
+            try
+            {
+                resp = veh.ModificarVehiculo(modificar_vehiculo);
+            }
+            catch (Exception ex)
+            {
+
+            }
+            return resp;
+        }
+        /// <summary>
+        /// Método para la consulta de conductores en el sistema
+        /// </summary>
+        /// <param name="cedula"></param>
+        /// <returns></returns>
+        public ConductorBE ConsultarConductor(string cedula)
+        {
+
+            VehiculoDL veh = new VehiculoDL();
+            ConductorBE cond = new ConductorBE();
+            try
+            {
+                cond = veh.ConsultarConductor(cedula);
+            }
+            catch (Exception ex)
+            {
+
+            }
+            return cond;
+        }
+
+        public VehiculoBE ConsultarPropVehiculo(string cedula)
+        {
+
+            VehiculoDL veh = new VehiculoDL();
+            VehiculoBE vehiculo = new VehiculoBE();
+            try
+            {
+                vehiculo = veh.ConsultarPropVehiculo(cedula);
             }
             catch (Exception ex)
             {
@@ -59,41 +123,24 @@ namespace Unisangil.CYLTRACK.CYLTRACK_BL
             return vehiculo;
         }
 
-        /// <summary>
-        /// Método para la modificación de vehículos en el sistema
-        /// </summary>
-        /// <param name="modificar_vehiculo"></param>
-        /// <returns></returns>
-        public string ModificarVehiculo(string modificar_vehiculo)
+        public long RegistrarConductor(ConductorBE conductor)
         {
-            //VehiculoBE consulta = ConsultarVehiculo(modificar_vehiculo);
-            VehiculoBE conductor = ConsultarConductor(modificar_vehiculo);
-            String resp = "Ok";
+            VehiculoDL veh = new VehiculoDL();
+
+            long resp = 0;
+            try
+            {
+                resp = veh.RegistrarConductor(conductor);
+            }
+            catch (Exception ex)
+            {
+                //guardar exepcion en el log de bd
+                resp = -1;
+            }
+
             return resp;
         }
-        /// <summary>
-        /// Método para la consulta de conductores en el sistema
-        /// </summary>
-        /// <param name="consultar_conductor"></param>
-        /// <returns></returns>
-        public VehiculoBE ConsultarConductor(string consultar_conductor)
-        {
-            
-            VehiculoBE conductor = new VehiculoBE();
-
-
-            Conductor_VehiculoBE cond_veh = new Conductor_VehiculoBE();
-            conductor.Conductor_Vehiculo = cond_veh;
-
-            ConductorBE cond = new ConductorBE();
-            cond.Cedula = "11242779";
-            cond.Nombres_Conductor = "Daniel";
-            cond.Apellido_1 = "López";
-            cond.Apellido_2 = "Barinas";
-            cond_veh.Conductor = cond;
-
-            return conductor;
-        }
+        
         #endregion
         #region Metodos privados
         #endregion
