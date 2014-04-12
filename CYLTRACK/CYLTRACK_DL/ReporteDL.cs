@@ -49,7 +49,7 @@ namespace Unisangil.CYLTRACK.CYLTRACK_DL
                     try
                     {
                         tp = new Tipo_UbicacionBE();
-                        tp.Id_Tipo_Ubica = Int32.Parse(datos.GetValue(0).ToString()); 
+                        tp.Id_Tipo_Ubica = (datos.GetValue(0).ToString()); 
                         tp.Nombre_Ubicacion = datos.GetString(1);
                         lstTipoUbicacion.Add(tp);
                     }
@@ -103,7 +103,7 @@ namespace Unisangil.CYLTRACK.CYLTRACK_DL
                     try
                     {
                         tam = new TamanoBE();
-                        tam.Id_Tamano = Int32.Parse(datos.GetValue(0).ToString());
+                        tam.Id_Tamano = datos.GetValue(0).ToString();
                         tam.Tamano = datos.GetString(1);
                         tam.Descripcion = datos.GetString(2);
                         lstTamanosCilindros.Add(tam);

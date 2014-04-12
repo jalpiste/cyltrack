@@ -100,7 +100,7 @@ namespace Unisangil.CYLTRACK.CYLTRACK_DL
 
                 parametros[1] = db.Comando.CreateParameter();
                 parametros[1].ParameterName = "vrCiudades";
-                parametros[1].Value = ruta.Ciudad_Ruta.Ciudad;
+                parametros[1].Value = ruta.Ciudad_Ruta.Ciudad.Nombre_Ciudad;
                 parametros[1].Direction = ParameterDirection.Input;
                 parametros[1].Size = 20;
                 db.Comando.Parameters.Add(parametros[1]);
@@ -141,6 +141,77 @@ namespace Unisangil.CYLTRACK.CYLTRACK_DL
                 db.Desconectar();
             }
             return codigo;
+        }
+        
+        public List<RutaBE> ConsultarRutas(string ruta)
+        {
+            List<RutaBE> lstRuta = new List<RutaBE>();
+            try
+            {
+                string nameSP = "ConsultarRutas";
+                BaseDatos db = new BaseDatos();
+                db.Conectar();
+                db.CrearComandoSP(nameSP);
+                DbParameter[] parametros = new DbParameter[3];
+                parametros[0] = db.Comando.CreateParameter();
+                parametros[0].ParameterName = "vrNombre";
+                parametros[0].Value = ruta;
+                parametros[0].Direction = ParameterDirection.Input;
+                db.Comando.Parameters.Add(parametros[0]);
+
+                parametros[1] = db.Comando.CreateParameter();
+                parametros[1].ParameterName = "vrCodResult";
+                parametros[1].Value = 0;
+                parametros[1].Direction = ParameterDirection.Output;
+                db.Comando.Parameters.Add(parametros[1]);
+
+                parametros[2] = db.Comando.CreateParameter();
+                parametros[2].ParameterName = "vrDescResult";
+                parametros[2].Value = "";
+                parametros[2].Direction = ParameterDirection.Output;
+                parametros[2].Size = 200;
+                parametros[2].DbType = DbType.String;
+                db.Comando.Parameters.Add(parametros[2]);
+
+                DbDataReader datos = db.EjecutarConsulta();
+                RutaBE r = null;
+                while (datos.Read())
+                {
+                    try
+                    {
+                        r = new RutaBE();
+                        r.Id_Ruta = (datos.GetValue(0).ToString());
+                        r.Nombre_Ruta = datos.GetString(1);
+                        Ciudad_RutaBE ciuRuta = new Ciudad_RutaBE();
+                        CiudadBE ciu = new CiudadBE();
+                        ciu.Id_Ciudad = (datos.GetValue(2).ToString());
+                        ciu.Nombre_Ciudad = datos.GetString(3);
+                        DepartamentoBE dep = new DepartamentoBE();
+                        dep.Id_Departamento = (datos.GetValue(4).ToString());
+                        dep.Nombre_Departamento = datos.GetString(5);
+                        ciu.Departamento = dep;
+                        ciuRuta.Ciudad = ciu;
+                        r.Ciudad_Ruta = ciuRuta;
+                        lstRuta.Add(r);                        
+                    }
+                    catch (InvalidCastException ex)
+                    {
+                        throw new Exception("Los tipos no coinciden.", ex);
+                    }
+                    catch (DataException ex)
+                    {
+                        throw new Exception("Error de ADO.NET.", ex);
+                    }
+                }
+                datos.Close();
+                db.Desconectar();
+            }
+            catch (Exception ex)
+            {
+                throw new Exception("Error al acceder a la base de datos para obtener los RutaBEs.");
+            }
+            return lstRuta;
+
         }
 
        }    
