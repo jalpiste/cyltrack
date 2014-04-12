@@ -40,22 +40,22 @@ namespace Unisangil.CYLTRACK.CYLTRACK_WebApp.Vehiculos {
         protected global::System.Web.UI.WebControls.ValidationSummary ValidationSummary1;
         
         /// <summary>
-        /// Control lblPlaca.
+        /// Control lblPlaca1.
         /// </summary>
         /// <remarks>
         /// Campo generado automáticamente.
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Label lblPlaca;
+        protected global::System.Web.UI.WebControls.Label lblPlaca1;
         
         /// <summary>
-        /// Control txtPlaca.
+        /// Control txtPlaca1.
         /// </summary>
         /// <remarks>
         /// Campo generado automáticamente.
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox txtPlaca;
+        protected global::System.Web.UI.WebControls.TextBox txtPlaca1;
         
         /// <summary>
         /// Control ValidarPlaca.
@@ -76,13 +76,13 @@ namespace Unisangil.CYLTRACK.CYLTRACK_WebApp.Vehiculos {
         protected global::System.Web.UI.WebControls.RegularExpressionValidator ValidarDatosPlaca;
         
         /// <summary>
-        /// Control DivDatosVehiculo.
+        /// Control DivVehiculo.
         /// </summary>
         /// <remarks>
         /// Campo generado automáticamente.
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
-        protected global::System.Web.UI.HtmlControls.HtmlGenericControl DivDatosVehiculo;
+        protected global::System.Web.UI.HtmlControls.HtmlGenericControl DivVehiculo;
         
         /// <summary>
         /// Control lblPoster.
@@ -94,22 +94,22 @@ namespace Unisangil.CYLTRACK.CYLTRACK_WebApp.Vehiculos {
         protected global::System.Web.UI.WebControls.Label lblPoster;
         
         /// <summary>
-        /// Control lblIdVehiculo.
+        /// Control lblPlaca.
         /// </summary>
         /// <remarks>
         /// Campo generado automáticamente.
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Label lblIdVehiculo;
+        protected global::System.Web.UI.WebControls.Label lblPlaca;
         
         /// <summary>
-        /// Control txtIdVehiculo.
+        /// Control txtPlaca.
         /// </summary>
         /// <remarks>
         /// Campo generado automáticamente.
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox txtIdVehiculo;
+        protected global::System.Web.UI.WebControls.TextBox txtPlaca;
         
         /// <summary>
         /// Control ValidarRegisPlaca.
@@ -119,15 +119,6 @@ namespace Unisangil.CYLTRACK.CYLTRACK_WebApp.Vehiculos {
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
         protected global::System.Web.UI.WebControls.RequiredFieldValidator ValidarRegisPlaca;
-        
-        /// <summary>
-        /// Control ValidarDatosIdVehiculo.
-        /// </summary>
-        /// <remarks>
-        /// Campo generado automáticamente.
-        /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.RegularExpressionValidator ValidarDatosIdVehiculo;
         
         /// <summary>
         /// Control lblMarca.
@@ -211,13 +202,13 @@ namespace Unisangil.CYLTRACK.CYLTRACK_WebApp.Vehiculos {
         protected global::System.Web.UI.WebControls.RegularExpressionValidator ValidarDatosCilindraje;
         
         /// <summary>
-        /// Control txtModelo.
+        /// Control lstModelo.
         /// </summary>
         /// <remarks>
         /// Campo generado automáticamente.
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox txtModelo;
+        protected global::System.Web.UI.WebControls.ListBox lstModelo;
         
         /// <summary>
         /// Control ValidarRegisModelo.
@@ -227,15 +218,6 @@ namespace Unisangil.CYLTRACK.CYLTRACK_WebApp.Vehiculos {
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
         protected global::System.Web.UI.WebControls.RequiredFieldValidator ValidarRegisModelo;
-        
-        /// <summary>
-        /// Control ValidarDatosModelo.
-        /// </summary>
-        /// <remarks>
-        /// Campo generado automáticamente.
-        /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.RangeValidator ValidarDatosModelo;
         
         /// <summary>
         /// Control lblMotor.
@@ -254,6 +236,15 @@ namespace Unisangil.CYLTRACK.CYLTRACK_WebApp.Vehiculos {
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
         protected global::System.Web.UI.WebControls.Label lblChasis;
+        
+        /// <summary>
+        /// Control lblEstado.
+        /// </summary>
+        /// <remarks>
+        /// Campo generado automáticamente.
+        /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Label lblEstado;
         
         /// <summary>
         /// Control txtMotor.
@@ -290,6 +281,24 @@ namespace Unisangil.CYLTRACK.CYLTRACK_WebApp.Vehiculos {
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
         protected global::System.Web.UI.WebControls.RequiredFieldValidator ValidarRegisChasis;
+        
+        /// <summary>
+        /// Control lstEstado.
+        /// </summary>
+        /// <remarks>
+        /// Campo generado automáticamente.
+        /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.ListBox lstEstado;
+        
+        /// <summary>
+        /// Control RequiredFieldValidator1.
+        /// </summary>
+        /// <remarks>
+        /// Campo generado automáticamente.
+        /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.RequiredFieldValidator RequiredFieldValidator1;
         
         /// <summary>
         /// Control DivPropietario.
@@ -344,6 +353,24 @@ namespace Unisangil.CYLTRACK.CYLTRACK_WebApp.Vehiculos {
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
         protected global::System.Web.UI.WebControls.RegularExpressionValidator ValidarDatosCedulaProp;
+        
+        /// <summary>
+        /// Control lblCedula2.
+        /// </summary>
+        /// <remarks>
+        /// Campo generado automáticamente.
+        /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Label lblCedula2;
+        
+        /// <summary>
+        /// Control txtCedula2.
+        /// </summary>
+        /// <remarks>
+        /// Campo generado automáticamente.
+        /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.TextBox txtCedula2;
         
         /// <summary>
         /// Control lblNombre.
@@ -445,13 +472,13 @@ namespace Unisangil.CYLTRACK.CYLTRACK_WebApp.Vehiculos {
         protected global::System.Web.UI.WebControls.RegularExpressionValidator ValidarDatosApePorp;
         
         /// <summary>
-        /// Control DivConductorAsignado.
+        /// Control DivAsignacionConductor.
         /// </summary>
         /// <remarks>
         /// Campo generado automáticamente.
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
-        protected global::System.Web.UI.HtmlControls.HtmlGenericControl DivConductorAsignado;
+        protected global::System.Web.UI.HtmlControls.HtmlGenericControl DivAsignacionConductor;
         
         /// <summary>
         /// Control lblPoster2.
@@ -463,31 +490,22 @@ namespace Unisangil.CYLTRACK.CYLTRACK_WebApp.Vehiculos {
         protected global::System.Web.UI.WebControls.Label lblPoster2;
         
         /// <summary>
-        /// Control DivConductor.
+        /// Control lblCedula1.
         /// </summary>
         /// <remarks>
         /// Campo generado automáticamente.
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
-        protected global::System.Web.UI.HtmlControls.HtmlGenericControl DivConductor;
+        protected global::System.Web.UI.WebControls.Label lblCedula1;
         
         /// <summary>
-        /// Control lblCedulaCond.
+        /// Control txtCedula1.
         /// </summary>
         /// <remarks>
         /// Campo generado automáticamente.
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Label lblCedulaCond;
-        
-        /// <summary>
-        /// Control txtCedulaCond.
-        /// </summary>
-        /// <remarks>
-        /// Campo generado automáticamente.
-        /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox txtCedulaCond;
+        protected global::System.Web.UI.WebControls.TextBox txtCedula1;
         
         /// <summary>
         /// Control ValidarAsigConductor.
@@ -506,6 +524,15 @@ namespace Unisangil.CYLTRACK.CYLTRACK_WebApp.Vehiculos {
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
         protected global::System.Web.UI.WebControls.RegularExpressionValidator ValidarDatosConductor;
+        
+        /// <summary>
+        /// Control DatosConductor.
+        /// </summary>
+        /// <remarks>
+        /// Campo generado automáticamente.
+        /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
+        /// </remarks>
+        protected global::System.Web.UI.HtmlControls.HtmlGenericControl DatosConductor;
         
         /// <summary>
         /// Control lblImprimirCedula.
@@ -571,13 +598,13 @@ namespace Unisangil.CYLTRACK.CYLTRACK_WebApp.Vehiculos {
         protected global::System.Web.UI.WebControls.TextBox txtSegundoApellidoCond;
         
         /// <summary>
-        /// Control DivAsigRuta.
+        /// Control DivSelRuta.
         /// </summary>
         /// <remarks>
         /// Campo generado automáticamente.
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
-        protected global::System.Web.UI.HtmlControls.HtmlGenericControl DivAsigRuta;
+        protected global::System.Web.UI.HtmlControls.HtmlGenericControl DivSelRuta;
         
         /// <summary>
         /// Control lblPost.
@@ -589,33 +616,6 @@ namespace Unisangil.CYLTRACK.CYLTRACK_WebApp.Vehiculos {
         protected global::System.Web.UI.WebControls.Label lblPost;
         
         /// <summary>
-        /// Control divDatosRuta.
-        /// </summary>
-        /// <remarks>
-        /// Campo generado automáticamente.
-        /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
-        /// </remarks>
-        protected global::System.Web.UI.HtmlControls.HtmlGenericControl divDatosRuta;
-        
-        /// <summary>
-        /// Control lblNota.
-        /// </summary>
-        /// <remarks>
-        /// Campo generado automáticamente.
-        /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.Label lblNota;
-        
-        /// <summary>
-        /// Control lstRuta.
-        /// </summary>
-        /// <remarks>
-        /// Campo generado automáticamente.
-        /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.ListBox lstRuta;
-        
-        /// <summary>
         /// Control lblRuta.
         /// </summary>
         /// <remarks>
@@ -625,13 +625,13 @@ namespace Unisangil.CYLTRACK.CYLTRACK_WebApp.Vehiculos {
         protected global::System.Web.UI.WebControls.Label lblRuta;
         
         /// <summary>
-        /// Control txtRuta.
+        /// Control lstRuta.
         /// </summary>
         /// <remarks>
         /// Campo generado automáticamente.
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox txtRuta;
+        protected global::System.Web.UI.WebControls.ListBox lstRuta;
         
         /// <summary>
         /// Control ValidarRegisRuta.
