@@ -24,13 +24,13 @@ namespace Unisangil.CYLTRACK.CYLTRACK_WCF_Services
         /// Encargado de recibir un vehículo de los canales front de venta y llamar
         /// al metodo de negocio para crear un registrar vehículo
         /// </summary>
-        /// <param name="registrar_vehiculo">Objeto de negocio vehículo</param>
+        /// <param name="vehiculo">Objeto de negocio vehículo</param>
         /// <returns>Placa del vehículo</returns>
-        public string Registrar_Vehiculo(VehiculoBE registrar_vehiculo)
+        public long Registrar_Vehiculo(VehiculoBE vehiculo)
         {
-            String resp;
+            long resp;
             VehiculoBL RegisVehiculo = new VehiculoBL();
-            resp = RegisVehiculo.RegistrarVehiculo(registrar_vehiculo);
+            resp = RegisVehiculo.CrearVehiculo(vehiculo);
             return resp;
         }
 
@@ -39,6 +39,8 @@ namespace Unisangil.CYLTRACK.CYLTRACK_WCF_Services
             VehiculoBL consultarVehiculo = new VehiculoBL();
             return consultarVehiculo.ConsultarVehiculo(placa);
         }
+
+
         ///// <summary>
         ///// Encargado de recibir un vehículo de los canales front de venta y llamar
         ///// al metodo de negocio para consultar un vehículo
@@ -70,10 +72,10 @@ namespace Unisangil.CYLTRACK.CYLTRACK_WCF_Services
         /// al metodo de negocio para modificar un vehículo
         /// </summary>
         /// <param name="modificar_vehiculo">Objeto de negocio vehículo</param>
-        /// <returns>Placa del vehículo</returns>
-        public string Modificar_Vehiculo(string modificar_vehiculo)
+        /// <returns>IDENTITY</returns>
+        public long Modificar_Vehiculo(VehiculoBE modificar_vehiculo)
         {
-            String resp;
+            long resp;
             VehiculoBL ModVehiculo = new VehiculoBL();
             resp = ModVehiculo.ModificarVehiculo(modificar_vehiculo);
             return resp;
@@ -84,11 +86,25 @@ namespace Unisangil.CYLTRACK.CYLTRACK_WCF_Services
         /// </summary>
         /// <param name="consultar_conductor">Objeto de negocio vehículo</param>
         /// <returns>cedula conductor</returns>
-        public VehiculoBE Consultar_Conductor(string consultar_conductor)
+        public ConductorBE Consultar_Conductor(string cedula)
+        {
+            ConductorBE resp;
+            VehiculoBL ConConductor = new VehiculoBL();
+            resp = ConConductor.ConsultarConductor(cedula);
+            return resp;
+        }
+
+        /// <summary>
+        /// Encargado de recibir la cedula del propietario del vehiculo de los canales front de venta y llamar
+        /// al metodo de negocio para consultar un propietario
+        /// </summary>
+        /// <param name="consultarPropVehiculo">cédula propietario</param>
+        /// <returns>objeto de negocio vehiculo</returns>
+        public VehiculoBE ConsultarPropVehiculo(string cedula)
         {
             VehiculoBE resp;
-            VehiculoBL ConConductor = new VehiculoBL();
-            resp = ConConductor.ConsultarConductor(consultar_conductor);
+            VehiculoBL consultaPropietarioV = new VehiculoBL();
+            resp = consultaPropietarioV.ConsultarPropVehiculo(cedula);
             return resp;
         }
 
@@ -119,5 +135,19 @@ namespace Unisangil.CYLTRACK.CYLTRACK_WCF_Services
         //    resp = consultarPlacas.ConsultarPlacasSinParametro();
         //    return resp;
         //}
+
+        /// <summary>
+        /// Encargado de recibir un conductor de los canales front de venta y llamar
+        /// al metodo de negocio para crear un registrar conductor
+        /// </summary>
+        /// <param name="conductor">Objeto de negocio conductor</param>
+        /// <returns>Objeto Conductor</returns>
+        public long RegistrarConductor(ConductorBE conductor)
+        {
+            long resp;
+            VehiculoBL RegisConductor = new VehiculoBL();
+            resp = RegisConductor.RegistrarConductor(conductor);
+            return resp;
+        }
     }
 }

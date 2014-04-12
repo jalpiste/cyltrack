@@ -53,13 +53,11 @@ namespace Unisangil.CYLTRACK.CYLTRACK_WCF_Services
          ///al metodo de negocio para consultar ruta
          ///</summary>
          ///<param name="ruta">Objeto de negocio ruta</param>
-         ///<returns>Nombre de ruta</returns>
-        public RutaBE ConsultarRutaconParametro(string ruta)
+         ///<returns>lista de objetos ruta</returns>
+        public List<RutaBE> ConsultarRuta(string ruta)
         {
-            RutaBE resp;
-            RutaBL consultarRutaParametro = new RutaBL();
-            resp = consultarRutaParametro.ConsultarRutaconParametro(ruta);
-            return resp;
+            RutaBL consultarRuta = new RutaBL();
+            return consultarRuta.ConsultarRuta(ruta);
         }
 
         ///<summary>
