@@ -24,7 +24,7 @@ namespace Unisangil.CYLTRACK.CYLTRACK_BE
         /// Identificador del tamaño del cilindro
         /// </summary>
         [DataMember]
-        public int Id_Tamano { get; set; }
+        public String Id_Tamano { get; set; }
 
         /// <summary>
         /// Valor del tamaño del cilindro

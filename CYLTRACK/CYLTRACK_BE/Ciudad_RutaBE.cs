@@ -29,6 +29,8 @@ namespace Unisangil.CYLTRACK.CYLTRACK_BE
         /// Ciudad_Ruta
         /// </summary>
         [DataMember]
-        public String Ciudad { get; set; }
+        public CiudadBE Ciudad { get; set; }
+
+
     }
 }
