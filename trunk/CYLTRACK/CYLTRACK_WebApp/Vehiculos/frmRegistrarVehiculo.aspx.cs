@@ -31,13 +31,13 @@ namespace Unisangil.CYLTRACK.CYLTRACK_WebApp.Vehiculos
 
         protected void txtPlaca1_TextChanged(object sender, EventArgs e)
         {
-           ReporteServiceClient serReporte = new ReporteServiceClient();
+            VehiculoServiceClient serVehiculo = new VehiculoServiceClient();
            RutaServicesClient servRuta = new RutaServicesClient();
             long resp;
 
             try
             {
-                resp = serReporte.consultadeExistenciaVarios(txtPlaca1.Text);
+                resp = serVehiculo.ConsultarExistenciaVehiculo(txtPlaca1.Text);
 
                 if (resp != 0)
                 {
@@ -86,20 +86,20 @@ namespace Unisangil.CYLTRACK.CYLTRACK_WebApp.Vehiculos
             }
             finally
             {
-                serReporte.Close();
+                serVehiculo.Close();
+                servRuta.Close();
             }
         }
         protected void txtCedula1_TextChanged(object sender, EventArgs e)
         {            
-            ReporteServiceClient servReporte = new ReporteServiceClient();
-            VehiculoServiceClient servVehiculo = new VehiculoServiceClient();
+           VehiculoServiceClient servVehiculo = new VehiculoServiceClient();
 
             VehiculoBE consultar_conductor = new VehiculoBE();
             long resp;
             
             try
             {
-                resp = servReporte.consultadeExistenciaVarios(txtCedula1.Text);
+                resp = servVehiculo.ConsultarExistenciaConductor(txtCedula1.Text);
 
                     if (resp == 0)
                     {
@@ -123,7 +123,6 @@ namespace Unisangil.CYLTRACK.CYLTRACK_WebApp.Vehiculos
             }
             finally
             {
-                servReporte.Close();
                 servVehiculo.Close();
                 lstRuta.Focus();
             }
@@ -187,10 +186,9 @@ namespace Unisangil.CYLTRACK.CYLTRACK_WebApp.Vehiculos
         protected void txtCedula_TextChanged(object sender, EventArgs e)
         {
             VehiculoServiceClient servVehiculo = new VehiculoServiceClient();
-            ReporteServiceClient servReporte = new ReporteServiceClient();
             try
             {
-                long consultarPropVehiculo = servReporte.consultadeExistenciaVarios(txtCedula.Text);
+                long consultarPropVehiculo = servVehiculo.ConsultarExistenciaContratista(txtCedula.Text);
 
                 if (consultarPropVehiculo != 0)
                 {
@@ -215,7 +213,6 @@ namespace Unisangil.CYLTRACK.CYLTRACK_WebApp.Vehiculos
             finally 
             {
                 servVehiculo.Close();
-                servReporte.Close();
             }
         }
 
