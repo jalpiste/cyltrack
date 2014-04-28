@@ -89,6 +89,24 @@ namespace Unisangil.CYLTRACK.CYLTRACK_BL
 
             return resp;
         }
+
+        public long ConsultarExistenciasClientes(string cliente)
+        {
+            ClienteDL cli = new ClienteDL();
+
+            long resp = 0;
+            try
+            {
+                resp = cli.ConsultarExistenciasClientes(cliente);
+            }
+            catch (Exception ex)
+            {
+                //guardar exepcion en el log de bd
+                resp = -1;
+            }
+
+            return resp;
+        }
         #endregion
         #region Metodos privados
         #endregion

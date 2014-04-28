@@ -51,13 +51,13 @@ namespace Unisangil.CYLTRACK.CYLTRACK_BL
             return resp;
         }
 
-        public long consultadeExistencia(string cilindro)
+        public long ConsultarExistenciaCilindro(string cilindro)
         {
             CilindroDL cil = new CilindroDL();
             long resp = 0;
             try
             {
-                resp = cil.ConsultarExistencias(cilindro);
+                resp = cil.ConsultarExistenciaCilindro(cilindro);
             }
             catch (Exception ex)
             {

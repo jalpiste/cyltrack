@@ -67,7 +67,23 @@ namespace Unisangil.CYLTRACK.CYLTRACK_BL
             return lstRuta;
         }
 
+        public long ConsultaExistenciaRuta(string ruta)
+        {
+            RutaDL rut = new RutaDL();
+            long resp = 0;
+            try
+            {
+                resp = rut.ConsultaExistenciaRuta(ruta);
+            }
+            catch (Exception ex)
+            {
+                //guardar exepcion en el log de bd
+                resp = -1;
+            }
 
+            return resp;
+
+        }
 
         public List<CiudadBE> ConsultaDepartamentoyCiudades()
         {

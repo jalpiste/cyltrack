@@ -128,6 +128,25 @@ namespace Unisangil.CYLTRACK.CYLTRACK_BL
             String resp = "Ok";
             return resp;
         }
+
+        public long ConsultaExistenciaPedido(string pedido)
+        
+        {
+            PedidoDL ped = new PedidoDL();
+            long resp = 0;
+            try
+            {
+                resp = ped.ConsultaExistenciaPedido(pedido);
+            }
+            catch (Exception ex)
+            {
+                //guardar exepcion en el log de bd
+                resp = -1;
+            }
+
+            return resp;
+
+        }
         #endregion
         #region Metodos privados
         #endregion
