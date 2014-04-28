@@ -6,7 +6,6 @@ using System.Web.UI;
 using System.Web.UI.WebControls;
 using Unisangil.CYLTRACK.CYLTRACK_BE;
 using CYLTRACK_WebApp.RutaService;
-using CYLTRACK_WebApp.ReporteService;
 using System.Windows.Forms;
 using System.Data;
 
@@ -121,13 +120,12 @@ namespace Unisangil.CYLTRACK.CYLTRACK_WebApp.Rutas
         protected void txtNombreRuta_TextChanged(object sender, EventArgs e)
         {
             RutaServicesClient servRuta = new RutaServicesClient();
-            ReporteServiceClient servReporte = new ReporteServiceClient();
             RutaBE ruta = new RutaBE();
             DataTable tabla = new DataTable();
 
             try 
             {
-                long consultarExistencia = servReporte.consultadeExistenciaVarios(txtNombreRuta.Text);
+                long consultarExistencia = servRuta.ConsultaExistenciaRuta(txtNombreRuta.Text);
                                
                     if (consultarExistencia==0)
                     {
@@ -250,15 +248,14 @@ namespace Unisangil.CYLTRACK.CYLTRACK_WebApp.Rutas
         protected void txtNuevoNombre_TextChanged(object sender, EventArgs e)
         {
             RutaServicesClient servRuta = new RutaServicesClient();
-            ReporteServiceClient servReporte = new ReporteServiceClient();
             RutaBE ruta = new RutaBE();
             DataTable tabla = new DataTable();
 
             try
             {
-                long consultaExistencia = servReporte.consultadeExistenciaVarios(txtNuevoNombre.Text);
+                long consultaExistencia = servRuta.ConsultaExistenciaRuta(txtNuevoNombre.Text);
                                 
-                    if (consultaExistencia!=null)
+                    if (consultaExistencia!=0)
                     {
                         MessageBox.Show("El nombre de la ruta digitada ya se encuentra registrada", "Modificar Ruta");
                     }

@@ -6,7 +6,6 @@ using System.Web.UI;
 using System.Web.UI.WebControls;
 using Unisangil.CYLTRACK.CYLTRACK_BE;
 using CYLTRACK_WebApp.RutaService;
-using CYLTRACK_WebApp.ReporteService;
 using System.Windows.Forms;
 using System.Data;
 
@@ -157,12 +156,12 @@ namespace Unisangil.CYLTRACK.CYLTRACK_WebApp.Rutas
 
         protected void txtNombreRuta_TextChanged(object sender, EventArgs e)
         {
-            ReporteServiceClient servReporte = new ReporteServiceClient();
+            RutaServicesClient servRuta = new RutaServicesClient();
             RutaBE ruta = new RutaBE();
 
             try
             {
-                long consultaExistencia = servReporte.consultadeExistenciaVarios(txtNombreRuta.Text);
+                long consultaExistencia = servRuta.ConsultaExistenciaRuta(txtNombreRuta.Text);
 
                 if (consultaExistencia == 0)
                 {
@@ -183,7 +182,7 @@ namespace Unisangil.CYLTRACK.CYLTRACK_WebApp.Rutas
             }
             finally
             {
-               servReporte.Close();
+               servRuta.Close();
             }
 
         }
