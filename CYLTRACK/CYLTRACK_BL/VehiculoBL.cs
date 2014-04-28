@@ -43,11 +43,61 @@ namespace Unisangil.CYLTRACK.CYLTRACK_BL
         /// </summary>
         /// <param name="consultar_existencia"></param>
         /// <returns></returns>
-        public string ConsultarExistencia(string consultar_existencia)
+        public long ConsultaExistenciaVehiculo(string vehiculo)
         {
-            string resp = "Ok";
+            VehiculoDL veh = new VehiculoDL();
+            long resp = 0;
+            try
+            {
+                resp = veh.ConsultaExistenciaVehiculo(vehiculo);
+            }
+            catch (Exception ex)
+            {
+                //guardar exepcion en el log de bd
+                resp = -1;
+            }
+
             return resp;
+
         }
+
+        public long ConsultaExistenciaConductor(string cedula)
+        {
+            VehiculoDL veh = new VehiculoDL();
+            long resp = 0;
+            try
+            {
+                resp = veh.ConsultaExistenciaConductor(cedula);
+            }
+            catch (Exception ex)
+            {
+                //guardar exepcion en el log de bd
+                resp = -1;
+            }
+
+            return resp;
+
+        }
+
+        public long ConsultaExistenciaContratista(string cedula)
+        {
+            VehiculoDL veh = new VehiculoDL();
+            long resp = 0;
+            try
+            {
+                resp = veh.ConsultaExistenciaContratistas(cedula);
+            }
+            catch (Exception ex)
+            {
+                //guardar exepcion en el log de bd
+                resp = -1;
+            }
+
+            return resp;
+
+        }
+
+
         /// <summary>
         /// Método para la consulta de vehículos en el sistema y muestra de información
         /// </summary>
