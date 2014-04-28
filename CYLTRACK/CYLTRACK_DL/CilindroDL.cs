@@ -28,7 +28,7 @@ namespace Unisangil.CYLTRACK.CYLTRACK_DL
                 string nameSP = "CrearRegistroCilindro";
                 db.CrearComandoSP(nameSP);
 
-                DbParameter[] parametros = new DbParameter[10];
+                DbParameter[] parametros = new DbParameter[11];
                 
                 parametros[0] = db.Comando.CreateParameter();
                 parametros[0].ParameterName = "vrAno";
@@ -87,21 +87,28 @@ namespace Unisangil.CYLTRACK.CYLTRACK_DL
                 db.Comando.Parameters.Add(parametros[7]);
 
                 parametros[8] = db.Comando.CreateParameter();
-                parametros[8].ParameterName = "vrCodResult";
-                parametros[8].Value = 0;
-                parametros[8].Direction = ParameterDirection.Output;
+                parametros[8].ParameterName = "vrId_Vehiculo";
+                parametros[8].Value = cil.Ubicacion_Cilindro.Ubicacion.Vehiculo.Id_Vehiculo;
+                parametros[8].Direction = ParameterDirection.Input;
+                parametros[8].Size = 6;
                 db.Comando.Parameters.Add(parametros[8]);
 
                 parametros[9] = db.Comando.CreateParameter();
-                parametros[9].ParameterName = "vrDescResult";
-                parametros[9].Value = "";
+                parametros[9].ParameterName = "vrCodResult";
+                parametros[9].Value = 0;
                 parametros[9].Direction = ParameterDirection.Output;
-                parametros[9].Size = 200;
-                parametros[9].DbType = DbType.String;
                 db.Comando.Parameters.Add(parametros[9]);
 
+                parametros[10] = db.Comando.CreateParameter();
+                parametros[10].ParameterName = "vrDescResult";
+                parametros[10].Value = "";
+                parametros[10].Direction = ParameterDirection.Output;
+                parametros[10].Size = 200;
+                parametros[10].DbType = DbType.String;
+                db.Comando.Parameters.Add(parametros[10]);
+
                 db.EjecutarComando();
-                codigo = long.Parse(db.Comando.Parameters[8].Value.ToString());
+                codigo = long.Parse(db.Comando.Parameters[9].Value.ToString());
                 db.ConfirmarTransaccion();
             }
             catch (Exception ex)
@@ -196,13 +203,13 @@ namespace Unisangil.CYLTRACK.CYLTRACK_DL
             return cil;
         }
 
-        public long ConsultarExistencias(string cil)
+        public long ConsultarExistenciaCilindro(string cil)
         {
             long codigo = 0;
             BaseDatos db = new BaseDatos();
             try
             {
-                string nameSP = "ConsultarExistenciaDatos";
+                string nameSP = "ConsultarExistenciaCilindro";
                 db.Conectar();
                 db.CrearComandoSP(nameSP);
                 DbParameter[] parametros = new DbParameter[3];
@@ -258,7 +265,7 @@ namespace Unisangil.CYLTRACK.CYLTRACK_DL
             BaseDatos db = new BaseDatos();
             try
             {
-                string nameSP = "ConsultarExistenciaDatos";
+                string nameSP = "ConsultarExistenciaFabricante";
                 db.Conectar();
                 db.CrearComandoSP(nameSP);
                 DbParameter[] parametros = new DbParameter[3];
