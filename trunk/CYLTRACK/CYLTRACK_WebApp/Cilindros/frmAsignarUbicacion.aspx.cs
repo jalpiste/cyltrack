@@ -32,12 +32,11 @@ namespace Unisangil.CYLTRACK.CYLTRACK_WebApp.Cilindros
         {
             lstUbica.Focus();
             CilindroServiceClient servCilindro = new CilindroServiceClient();
-            ReporteServiceClient servReporte = new ReporteServiceClient();
             CilindroBE ConsultarCilindro;
             long consultarExistencia;
             try
             {
-                consultarExistencia = servReporte.consultadeExistencia(txtCodeCilindro.Text);
+                consultarExistencia = servCilindro.ConsultarExistenciaCilindro(txtCodeCilindro.Text);
 
                 if (consultarExistencia == 0)
                 {
@@ -64,8 +63,6 @@ namespace Unisangil.CYLTRACK.CYLTRACK_WebApp.Cilindros
             finally
             {
                 servCilindro.Close();
-                servReporte.Close();
-
             }
         }
 

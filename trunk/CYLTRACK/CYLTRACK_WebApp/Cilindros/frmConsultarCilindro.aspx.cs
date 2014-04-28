@@ -6,7 +6,6 @@ using System.Web.UI;
 using System.Web.UI.WebControls;
 using Unisangil.CYLTRACK.CYLTRACK_BE;
 using CYLTRACK_WebApp.CilindroService;
-using CYLTRACK_WebApp.ReporteService;
 using System.Windows.Forms;
 
 namespace Unisangil.CYLTRACK.CYLTRACK_WebApp.Cilindros
@@ -22,13 +21,12 @@ namespace Unisangil.CYLTRACK.CYLTRACK_WebApp.Cilindros
         {
             SetFocus(DivInfoCilindro);
             CilindroServiceClient servCilindro = new CilindroServiceClient();
-            ReporteServiceClient servReporte = new ReporteServiceClient();
             CilindroBE cilindro = new CilindroBE();
             long respConsultaExistencias;
             
             try
             {
-                respConsultaExistencias = servReporte.consultadeExistencia(txtCodigoCilindro.Text);
+                respConsultaExistencias = servCilindro.ConsultarExistenciaCilindro(txtCodigoCilindro.Text);
 
                 if (respConsultaExistencias == 0)
                 {
@@ -74,8 +72,6 @@ namespace Unisangil.CYLTRACK.CYLTRACK_WebApp.Cilindros
                         DivInfoCilindro.Visible = true;
                     }
                 }
-
-
             }
 
             catch (Exception ex)
@@ -85,7 +81,6 @@ namespace Unisangil.CYLTRACK.CYLTRACK_WebApp.Cilindros
             finally
             {
                 servCilindro.Close();
-                servReporte.Close();
             }
 
         }
