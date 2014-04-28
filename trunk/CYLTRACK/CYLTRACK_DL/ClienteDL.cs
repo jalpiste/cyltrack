@@ -205,7 +205,7 @@ namespace Unisangil.CYLTRACK.CYLTRACK_DL
             BaseDatos db = new BaseDatos();
             try
             {
-                string nameSP = "ConsultarExistenciaDatos";
+                string nameSP = "ConsultarExistenciaClientes";
                 db.Conectar();
                 db.CrearComandoSP(nameSP);
                 DbParameter[] parametros = new DbParameter[3];
@@ -250,7 +250,7 @@ namespace Unisangil.CYLTRACK.CYLTRACK_DL
             }
             catch (Exception ex)
             {
-                throw new Exception("Error al acceder a la base de datos para obtener los CilindroBEs.");
+                throw new Exception("Error al acceder a la base de datos para obtener los ClientesBEs.");
             }
             return codigo;
         }

@@ -214,5 +214,62 @@ namespace Unisangil.CYLTRACK.CYLTRACK_DL
 
         }
 
+        public long ConsultaExistenciaRuta(string ruta)
+        {
+            long codigo = 0;
+            BaseDatos db = new BaseDatos();
+            try
+            {
+                string nameSP = "ConsultarExistenciaRutas";
+                db.Conectar();
+                db.CrearComandoSP(nameSP);
+                DbParameter[] parametros = new DbParameter[3];
+                parametros[0] = db.Comando.CreateParameter();
+                parametros[0].ParameterName = "vrDatoConsulta";
+                parametros[0].Value = ruta;
+                parametros[0].Direction = ParameterDirection.Input;
+                db.Comando.Parameters.Add(parametros[0]);
+
+                parametros[1] = db.Comando.CreateParameter();
+                parametros[1].ParameterName = "vrCodResult";
+                parametros[1].Value = 0;
+                parametros[1].Direction = ParameterDirection.Output;
+                db.Comando.Parameters.Add(parametros[1]);
+
+                parametros[2] = db.Comando.CreateParameter();
+                parametros[2].ParameterName = "vrDescResult";
+                parametros[2].Value = "";
+                parametros[2].Direction = ParameterDirection.Output;
+                parametros[2].Size = 200;
+                parametros[2].DbType = DbType.String;
+                db.Comando.Parameters.Add(parametros[2]);
+
+                DbDataReader datos = db.EjecutarConsulta();
+                while (datos.Read())
+                {
+                    try
+                    {
+                        codigo = long.Parse(datos.GetValue(0).ToString());
+                    }
+                    catch (InvalidCastException ex)
+                    {
+                        throw new Exception("Los tipos no coinciden.", ex);
+                    }
+                    catch (DataException ex)
+                    {
+                        throw new Exception("Error de ADO.NET.", ex);
+                    }
+                }
+                datos.Close();
+                db.Desconectar();
+            }
+            catch (Exception ex)
+            {
+                throw new Exception("Error al acceder a la base de datos para obtener los RutaBEs.");
+            }
+            return codigo;
+
+        }
+
        }    
 }
