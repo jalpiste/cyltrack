@@ -6,7 +6,6 @@ using System.Web.UI;
 using System.Web.UI.WebControls;
 using Unisangil.CYLTRACK.CYLTRACK_BE;
 using CYLTRACK_WebApp.ClienteService;
-using CYLTRACK_WebApp.ReporteService;
 using System.Windows.Forms;
 using System.Data;
 
@@ -23,12 +22,11 @@ namespace Unisangil.CYLTRACK.CYLTRACK_WebApp.Clientes
         {
             btnNuevaConsulta.Focus();
             ClienteServiceClient serCliente = new ClienteServiceClient();
-            ReporteServiceClient servReporte = new ReporteServiceClient();
             DataTable table = new DataTable();
 
             try
             {
-                long consultaExistencia = servReporte.consultadeExistencia(txtCedula.Text);
+                long consultaExistencia = serCliente.ConsultarExistenciasClientes(txtCedula.Text);
 
                 if (consultaExistencia == 0)
                 {
@@ -67,7 +65,7 @@ namespace Unisangil.CYLTRACK.CYLTRACK_WebApp.Clientes
             finally
             {
                 serCliente.Close();
-                servReporte.Close();
+                
             }
         }
 

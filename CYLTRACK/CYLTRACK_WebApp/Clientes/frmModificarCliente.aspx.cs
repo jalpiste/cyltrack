@@ -6,7 +6,6 @@ using System.Web.UI;
 using System.Web.UI.WebControls;
 using Unisangil.CYLTRACK.CYLTRACK_BE;
 using CYLTRACK_WebApp.ClienteService;
-using CYLTRACK_WebApp.ReporteService;
 using System.Windows.Forms;
 
 namespace Unisangil.CYLTRACK.CYLTRACK_WebApp.Clientes
@@ -26,12 +25,11 @@ namespace Unisangil.CYLTRACK.CYLTRACK_WebApp.Clientes
         {
             txtCedulaCli.Focus();
             ClienteServiceClient servCliente = new ClienteServiceClient();
-            ReporteServiceClient servReporte = new ReporteServiceClient();
             long resp;
            
             try
             {
-                resp = servReporte.consultadeExistencia(txtCedula.Text);
+                resp = servCliente.ConsultarExistenciasClientes(txtCedula.Text);
 
                 if (resp == null)
                 {
@@ -63,7 +61,6 @@ namespace Unisangil.CYLTRACK.CYLTRACK_WebApp.Clientes
            finally
             {
                 servCliente.Close();
-                servReporte.Close();
             }
         }
 
@@ -142,12 +139,12 @@ namespace Unisangil.CYLTRACK.CYLTRACK_WebApp.Clientes
 
         protected void txtCedulaCli_TextChanged(object sender, EventArgs e)
         {
-            ReporteServiceClient servReporte = new ReporteServiceClient();
+            ClienteServiceClient servCliente = new ClienteServiceClient();
             long resp;
 
             try
             {
-                resp = servReporte.consultadeExistencia(txtCedulaCli.Text);
+                resp = servCliente.ConsultarExistenciasClientes(txtCedulaCli.Text);
 
                 if (resp != 0)
                 {
@@ -164,7 +161,7 @@ namespace Unisangil.CYLTRACK.CYLTRACK_WebApp.Clientes
             }
             finally
             {
-                servReporte.Close();
+                servCliente.Close();
             }
         }        
     }
