@@ -47,12 +47,12 @@ namespace Unisangil.CYLTRACK.CYLTRACK_WebApp.Clientes
 
         protected void txtCedula_TextChanged(object sender, EventArgs e)
         {
-            ReporteServiceClient servReporte = new ReporteServiceClient();
+            ClienteServiceClient servCliente = new ClienteServiceClient();
             
             long resp;
             try
             {
-                resp = servReporte.consultadeExistencia(txtCedula.Text);
+                resp = servCliente.ConsultarExistenciasClientes(txtCedula.Text);
 
                 if (resp != 0)
                 {
@@ -73,7 +73,7 @@ namespace Unisangil.CYLTRACK.CYLTRACK_WebApp.Clientes
             }
             finally
             {
-                servReporte.Close();
+                servCliente.Close();
             }
         }
         protected void btnMenuPrincipal_Click(object sender, EventArgs e)
