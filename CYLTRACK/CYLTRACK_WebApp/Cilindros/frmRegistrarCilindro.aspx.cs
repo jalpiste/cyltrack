@@ -66,12 +66,12 @@ namespace Unisangil.CYLTRACK.CYLTRACK_WebApp.Cilindros
         protected void TxtCodigoCilindro_TextChanged(object sender, EventArgs e)
         {
             SetFocus(BtnGuardar);
-            ReporteServiceClient servReporte = new ReporteServiceClient();
+            CilindroServiceClient servCilindro = new CilindroServiceClient();
             CilindroBE cilindro = new CilindroBE();
             long codigo;
             try
             {
-                codigo = servReporte.consultadeExistencia(TxtCodigoCilindro.Text);
+                codigo = servCilindro.ConsultarExistenciaCilindro(TxtCodigoCilindro.Text);
 
                 if (codigo != 0)
                 {
@@ -105,7 +105,7 @@ namespace Unisangil.CYLTRACK.CYLTRACK_WebApp.Cilindros
             }
             finally
             {
-                servReporte.Close();
+                servCilindro.Close();
             }
         }
 
@@ -126,14 +126,17 @@ namespace Unisangil.CYLTRACK.CYLTRACK_WebApp.Cilindros
                 Ubicacion_CilindroBE UbicaCil = new Ubicacion_CilindroBE();
                 UbicacionBE ubi = new UbicacionBE();
                 Tipo_UbicacionBE tipUbica = new Tipo_UbicacionBE();
+                VehiculoBE veh = new VehiculoBE();
+                veh.Id_Vehiculo = lstPlacas.SelectedValue;
                 tipUbica.Id_Tipo_Ubica = lstUbicacion.SelectedValue;
                 ubi.Tipo_Ubicacion = tipUbica;
+                ubi.Vehiculo = veh;
                 UbicaCil.Ubicacion = ubi;
                 cilindro.Ubicacion_Cilindro = UbicaCil;
                 TamanoBE tam = new TamanoBE();
                 tam.Id_Tamano = LstTamano.SelectedValue;
                 cilindro.NTamano = tam;
-
+                
                 if (txtCil.Text == cilindro.Codigo_Cilindro)
                 {
                     resp = servCilindro.RegistrarCilindro(cilindro);
@@ -166,11 +169,11 @@ namespace Unisangil.CYLTRACK.CYLTRACK_WebApp.Cilindros
 
         protected void TxtEmpresa_TextChanged(object sender, EventArgs e)
         {
-            ReporteServiceClient servReporte = new ReporteServiceClient();
+            CilindroServiceClient servCilindro = new CilindroServiceClient();
 
             try
             {
-                long codigo = servReporte.consultadeExistencia(TxtEmpresa.Text);
+                long codigo = servCilindro.consultaCodigoFabricante(TxtEmpresa.Text);
 
                 if (codigo == 0)
                 {
@@ -183,7 +186,7 @@ namespace Unisangil.CYLTRACK.CYLTRACK_WebApp.Cilindros
             }
             finally
             {
-                servReporte.Close();
+                servCilindro.Close();
             }
         }
 
