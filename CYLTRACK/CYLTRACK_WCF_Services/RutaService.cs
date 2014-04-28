@@ -80,11 +80,11 @@ namespace Unisangil.CYLTRACK.CYLTRACK_WCF_Services
         ///</summary>
         ///<param name="ruta">valor de negocio ruta</param>
         ///<returns>existencia de ruta</returns>
-        public string ConsultaExistencia(string ruta)
+        public long ConsultaExistenciaRuta(string ruta)
         {
-            string resp;
-            RutaBL consultarExistencia = new RutaBL();
-            resp = consultarExistencia.ConsultarExistencias(ruta);
+            long resp;
+            RutaBL consultarExistenciaRuta = new RutaBL();
+            resp = consultarExistenciaRuta.ConsultaExistenciaRuta(ruta);
             return resp;
         }
 

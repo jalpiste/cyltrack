@@ -55,6 +55,15 @@ namespace Unisangil.CYLTRACK.CYLTRACK_WCF_Services
         /// <returns>cédula del cliente</returns>
         [OperationContract]
         long Modificar_Cliente(ClienteBE cliente);
+       
+        /// <summary>
+        /// Método encargado de la consulta de existencia de clientes en el sistema. Permite
+        /// que las aplicaciones llamen a los objetos de negocio directamente.
+        /// </summary>
+        /// <param name="cliente">Objeto de negocio cliente</param>
+        /// <returns>código</returns>
+        [OperationContract]
+        long ConsultarExistenciasClientes(string cliente);
     }
 
 }

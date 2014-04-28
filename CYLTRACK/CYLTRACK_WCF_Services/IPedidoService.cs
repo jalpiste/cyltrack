@@ -56,5 +56,14 @@ namespace Unisangil.CYLTRACK.CYLTRACK_WCF_Services
         /// <returns>cédula del cliente,código pedido</returns>
         [OperationContract]
         string Cancelar_Pedido(string pedido);
+
+        /// <summary>
+        /// Método encargado de la consulta de existencia de pedidos en el sistema. Permite
+        /// que las aplicaciones llamen a los objetos de negocio directamente.
+        /// </summary>
+        /// <param name="pedido">Objeto de negocio pedido</param>
+        /// <returns>código</returns>
+        [OperationContract]
+        long ConsultarExistenciaPedido(string pedido);
     }
 }
