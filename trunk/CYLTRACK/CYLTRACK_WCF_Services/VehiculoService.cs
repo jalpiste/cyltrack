@@ -60,13 +60,43 @@ namespace Unisangil.CYLTRACK.CYLTRACK_WCF_Services
         /// </summary>
         /// <param name="consultar_existencia"></param>
         /// <returns></returns>
-        public string Consultar_Existencia(string consultar_existencia)
+        public long ConsultarExistenciaVehiculo(string placa)
         {
-            String resp;
-            VehiculoBL ConExis = new VehiculoBL();
-            resp = ConExis.ConsultarExistencia(consultar_existencia);
+            long resp;
+            VehiculoBL ConExisVehiculo = new VehiculoBL();
+            resp = ConExisVehiculo.ConsultaExistenciaVehiculo(placa);
             return resp;
         }
+
+        /// <summary>
+        /// Encargado de recibir la confirmación de existencia de contratista de los canales front de venta y llamar
+        /// al metodo de negocio para consultar la existencia de un contratista
+        /// </summary>
+        /// <param name="consultar_existencia"></param>
+        /// <returns></returns>
+        public long ConsultarExistenciaContratista(string cedula)
+        {
+            long resp;
+            VehiculoBL ConExisContratista = new VehiculoBL();
+            resp = ConExisContratista.ConsultaExistenciaContratista(cedula);
+            return resp;
+        }
+
+
+        /// <summary>
+        /// Encargado de recibir la cedula del conductor de los canales front de venta y llamar
+        /// al metodo de negocio para consultar la existencia de un conductor
+        /// </summary>
+        /// <param name="cedula"></param>
+        /// <returns></returns>
+        public long ConsultarExistenciaConductor(string cedula)
+        {
+            long resp;
+            VehiculoBL ConExisConductor = new VehiculoBL();
+            resp = ConExisConductor.ConsultaExistenciaConductor(cedula);
+            return resp;
+        }
+
         /// <summary>
         /// Encargado de recibir un vehículo de los canales front de venta y llamar
         /// al metodo de negocio para modificar un vehículo

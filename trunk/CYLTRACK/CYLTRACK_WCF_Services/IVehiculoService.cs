@@ -46,7 +46,18 @@ namespace Unisangil.CYLTRACK.CYLTRACK_WCF_Services
         /// <param name="consultar_existencia"></param>
         /// <returns></returns>
         [OperationContract]
-        string Consultar_Existencia(string consultar_existencia);
+        long ConsultarExistenciaVehiculo(string placa);
+
+
+
+        /// <summary>
+        /// Método encargado de la consulta para la confirmación de existencia de contratistas en el sistema. Permite
+        /// que las aplicaciones llamen a los objetos de negocio directamente.
+        /// </summary>
+        /// <param name="consultar_existencia"></param>
+        /// <returns></returns>
+        [OperationContract]
+        long ConsultarExistenciaContratista(string cedula);
 
         /// <summary>
         /// Método encargado de la modificación de vehículos en el sistema. Permite
@@ -101,5 +112,14 @@ namespace Unisangil.CYLTRACK.CYLTRACK_WCF_Services
         /// <returns>objeto conductor</returns>
         [OperationContract]
         long RegistrarConductor(ConductorBE conductor);
+
+        /// <summary>
+        /// Método encargado de la consulta para la confirmación de existencia de conductor en el sistema. Permite
+        /// que las aplicaciones llamen a los objetos de negocio directamente.
+        /// </summary>
+        /// <param name="consultar_existencia"></param>
+        /// <returns></returns>
+        [OperationContract]
+        long ConsultarExistenciaConductor(string cedula);
     }
 }

@@ -62,7 +62,7 @@ namespace Unisangil.CYLTRACK.CYLTRACK_WCF_Services
         /// <param name="ruta">Objeto de negocio ciudad</param> 
         /// <returns>existencia de ruta</returns>
         [OperationContract]
-        string ConsultaExistencia(string ruta);
+        long ConsultaExistenciaRuta(string ruta);
 
         
     }

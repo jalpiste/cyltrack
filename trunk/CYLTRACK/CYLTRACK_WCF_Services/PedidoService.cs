@@ -75,5 +75,19 @@ namespace Unisangil.CYLTRACK.CYLTRACK_WCF_Services
             resp = CanPedido.CancelarPedido(motivo);
             return resp;
         }
+
+        /// <summary>
+        /// Encargado de recibir el numero del pedido de los canales front de venta y llamar
+        /// al metodo de negocio para la consulta de existencia de pedidos
+        /// </summary>
+        /// <param name="ubicacion">Objeto de negocio cilindro</param>
+        /// <returns>codigo</returns>
+        public long ConsultarExistenciaPedido(string pedido)
+        {
+            long resp;
+            PedidoBL consultaExistenciaPedido = new PedidoBL();
+            resp = consultaExistenciaPedido.ConsultaExistenciaPedido(pedido);
+            return resp;
+        }
     }
 }

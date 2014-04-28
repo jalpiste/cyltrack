@@ -79,5 +79,19 @@ namespace Unisangil.CYLTRACK.CYLTRACK_WCF_Services
             resp = ModCliente.ModificarCliente(modificar_cli);
             return resp;
         }
+
+        /// <summary>
+        /// Encargado de recibir un cliente de los canales front de venta y llamar
+        /// al metodo de negocio para la consulta de existencia del registro de cliente
+        /// </summary>
+        /// <param name="registrar_cli">Objeto de negocio cliente</param>
+        /// <returns>código</returns>
+        public long ConsultarExistenciasClientes(string cliente)
+        {
+            long resp;
+            ClienteBL ConsultaExistenciaCliente = new ClienteBL();
+            resp = ConsultaExistenciaCliente.ConsultarExistenciasClientes(cliente);
+            return resp;
+        }
     }
 }
