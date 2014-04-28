@@ -45,7 +45,6 @@ namespace Unisangil.CYLTRACK.CYLTRACK_WebApp.Pedido
 
         protected void txtCedula_TextChanged(object sender, EventArgs e)
         {
-            ReporteServiceClient servReporte = new ReporteServiceClient();
             ClienteServiceClient servCliente = new ClienteServiceClient();
             VehiculoServiceClient serVeh = new VehiculoServiceClient();
             RutaServicesClient serRuta = new RutaServicesClient();
@@ -54,7 +53,7 @@ namespace Unisangil.CYLTRACK.CYLTRACK_WebApp.Pedido
             long resp;
             try
             {
-               resp = servReporte.consultadeExistencia(txtCedula.Text);
+                resp = servCliente.ConsultarExistenciasClientes(txtCedula.Text);
                 
                if (resp == 0)
                {
@@ -101,7 +100,6 @@ namespace Unisangil.CYLTRACK.CYLTRACK_WebApp.Pedido
                 servCliente.Close();
                 servPedido.Close();
                 serVeh.Close();
-                servReporte.Close();
                 serRuta.Close();
                 lblCodigoPedido.Visible = true;
                 lblNumeroPedido.Visible = true;

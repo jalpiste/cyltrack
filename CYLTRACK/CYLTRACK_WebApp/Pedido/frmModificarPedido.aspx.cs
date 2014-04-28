@@ -67,13 +67,12 @@ namespace Unisangil.CYLTRACK.CYLTRACK_WebApp.Pedido
         {
             txtCedulaCliente.Focus();
             PedidoServiceClient servPedido = new PedidoServiceClient();
-            ReporteServiceClient servReporte = new ReporteServiceClient();
             PedidoBE consultar_ped = new PedidoBE();
             long resp;
 
             try
             {
-                resp = servReporte.consultadeExistenciaVarios(txtCedula.Text);
+                resp = servPedido.ConsultarExistenciaPedido(txtCedula.Text);
                 
                 if (resp == 0)
                 {
