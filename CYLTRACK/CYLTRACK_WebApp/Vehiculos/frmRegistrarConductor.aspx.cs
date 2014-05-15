@@ -47,12 +47,12 @@ namespace Unisangil.CYLTRACK.CYLTRACK_WebApp.Vehiculos
 
         protected void txtCedula_TextChanged(object sender, EventArgs e)
         {
-            ReporteServiceClient servReporte = new ReporteServiceClient();
+            VehiculoServiceClient servVehiculo = new VehiculoServiceClient();
 
             long resp;
             try
             {
-                resp = servReporte.consultadeExistenciaVarios(txtCedula.Text);
+                resp = servVehiculo.ConsultarExistenciaConductor(txtCedula.Text);
 
                 if (resp != 0)
                 {
@@ -73,7 +73,7 @@ namespace Unisangil.CYLTRACK.CYLTRACK_WebApp.Vehiculos
             }
             finally
             {
-                servReporte.Close();
+                servVehiculo.Close();
             }
         }
         protected void btnMenuPrincipal_Click(object sender, EventArgs e)
