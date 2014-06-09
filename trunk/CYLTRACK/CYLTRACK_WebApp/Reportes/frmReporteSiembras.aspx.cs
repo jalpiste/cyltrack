@@ -37,12 +37,16 @@ namespace Unisangil.CYLTRACK.CYLTRACK_WebApp.Reporte
                 RutaServicesClient servRuta = new RutaServicesClient();
                 try
                 {
-                    List<CiudadBE> datosCiudades = new List<CiudadBE>(servRuta.ConsultaDepartamentoyCiudades());
-                    foreach (CiudadBE datos in datosCiudades)
-                    {
-                        lstCiudad.Items.Add(datos.Nombre_Ciudad);
-                        lstDepto.Items.Add(datos.Departamento.Nombre_Departamento);
-                    }
+                    lstDepto.DataSource = servRuta.ConsultaDepartamento();
+                    lstDepto.DataValueField = "Id_Departamento";
+                    lstDepto.DataTextField = "Nombre_Departamento";
+                    lstDepto.DataBind();
+
+
+                    lstCiudad.DataSource = servRuta.ConsultaCiudades(lstDepto.DataSourceID);
+                    lstCiudad.DataValueField = "Id_Ciudad";
+                    lstCiudad.DataTextField = "Nombre_Ciudad";
+                    lstCiudad.DataBind();
                 }
                 catch (Exception ex)
                 {
