@@ -32,12 +32,11 @@ namespace Unisangil.CYLTRACK.CYLTRACK_WebApp.Rutas
                 RutaServicesClient servRuta = new RutaServicesClient();
                 try
                 {
-                    List<CiudadBE> datosCiudades = new List<CiudadBE>(servRuta.ConsultaDepartamentoyCiudades());
-                    foreach (CiudadBE datos in datosCiudades)
-                    {
-                        lstCiudad.Items.Add(datos.Nombre_Ciudad);
-                        lstDepartamento.Items.Add(datos.Departamento.Nombre_Departamento);
-                    }
+                    lstDepartamento.DataSource = servRuta.ConsultaDepartamento();
+                    lstDepartamento.DataValueField = "Id_Departamento";
+                    lstDepartamento.DataTextField = "Nombre_Departamento";
+                    lstDepartamento.DataBind();
+
                 }
                 catch (Exception ex)
                 {
@@ -58,19 +57,13 @@ namespace Unisangil.CYLTRACK.CYLTRACK_WebApp.Rutas
         
         protected void btnAgregar_Click(object sender, EventArgs e)
         {
-            CiudadBE ciudad = new CiudadBE();
-            ciudad.Nombre_Ciudad = lstCiudad.SelectedValue;
-
             try
             {
-                lstDetail.Add(ciudad);
 
-                foreach (CiudadBE info in lstDetail)
-                {
-                    objdtTabla.Rows.Add(info.Nombre_Ciudad);
+                    objdtTabla.Rows.Add(lstCiudad.SelectedItem.Text);
                     gdAdd.DataSource = objdtTabla;
                     gdAdd.DataBind();
-                }
+                
             }
             catch (Exception ex)
             {
@@ -122,7 +115,7 @@ namespace Unisangil.CYLTRACK.CYLTRACK_WebApp.Rutas
             RutaServicesClient servRuta = new RutaServicesClient();
             RutaBE ruta = new RutaBE();
             DataTable tabla = new DataTable();
-
+            
             try 
             {
                 long consultarExistencia = servRuta.ConsultaExistenciaRuta(txtNombreRuta.Text);
@@ -130,21 +123,27 @@ namespace Unisangil.CYLTRACK.CYLTRACK_WebApp.Rutas
                     if (consultarExistencia==0)
                     {
                         MessageBox.Show("La ruta digitada no se encuentra registrada", "Modificar Ruta");
+                        DivCiudad.Visible = false;
+                        DivDatos.Visible = false;
+                        DivModificarDatos.Visible = false;
+                        DivPost.Visible = false;
+                        txtNombreRuta.Focus();
                     }
                     else
                     {
-                      //  RutaBE consultaRuta = servRuta.ConsultarRutaconParametro(txtNombreRuta.Text);
+                       List<RutaBE> consultaRuta = new List<RutaBE>(servRuta.ConsultarRuta(txtNombreRuta.Text));
+
+                       tabla.Columns.Add("CiudadesAdd");
+
+                        foreach(RutaBE datos in consultaRuta)
+                       {
+                           txtNuevoNombre.Text = datos.Nombre_Ruta;
+                           lblIdRuta.Text = datos.Id_Ruta;
+                           objdtTabla.Rows.Add(datos.Ciudad_Ruta.Ciudad.Nombre_Ciudad);
+                           gdAdd.DataSource = objdtTabla;
+                           gdAdd.DataBind();
+                       }
                         txtNuevoNombre.Text = txtNombreRuta.Text;
-                        //List<CiudadBE> lstCiudades = servRuta.ConsultarRutaconParametro(txtNombreRuta.Text).Ciudad_Ruta.Ciudad;
-
-                        //tabla.Columns.Add("CiudadesAdd");
-
-                        //foreach (CiudadBE datos in lstCiudades)
-                        //{
-                        //    tabla.Rows.Add(datos);
-                        //    gdAdd.DataSource = tabla;
-                        //    gdAdd.DataBind();
-                        //}
  
                         DivPost.Visible = true;
                         DivDatos.Visible = true;
@@ -174,23 +173,24 @@ namespace Unisangil.CYLTRACK.CYLTRACK_WebApp.Rutas
         protected void btnGuardar_Click(object sender, EventArgs e)
         {
             RutaServicesClient servRuta = new RutaServicesClient();
-            String datos;
+            long datos;
             RutaBE ruta = new RutaBE();
 
             try 
             {
                     ruta.Nombre_Ruta = txtNuevoNombre.Text;
-                   
+                    CiudadBE ciudad = new CiudadBE();
+                    Ciudad_RutaBE ciuRuta = new Ciudad_RutaBE();
                     foreach (DataRow row in objdtTabla.Rows)
-                    {
-                        CiudadBE ciudad = new CiudadBE();
-                        ciudad.Nombre_Ciudad = (Convert.ToString(row["CiudadesAdd"]));
-                        lstDetail.Add(ciudad);
+                    {                      
+                        ciudad.Nombre_Ciudad += (Convert.ToString(row["CiudadesAdd"])+",");
+                        ciuRuta.Ciudad = ciudad;
                     }
-                    //Ciudad_RutaBE ciuRuta = new Ciudad_RutaBE();
-                    //ciuRuta.Ciudad = lstDetail;
-                    //ruta.Ciudad_Ruta = ciuRuta;
 
+                    int var = ciudad.Nombre_Ciudad.Length;
+                    ciudad.Nombre_Ciudad = ciudad.Nombre_Ciudad.Substring(0, var - 1);
+                    ruta.Ciudad_Ruta = ciuRuta;
+                    ruta.Id_Ruta = lblIdRuta.Text;
                     datos = servRuta.ModificarRuta(ruta);
 
                     MessageBox.Show("La ruta fue modificada satisfactoriamente", "Modificar Ruta");
@@ -291,6 +291,29 @@ namespace Unisangil.CYLTRACK.CYLTRACK_WebApp.Rutas
             {
                 servRuta.Close();
                 gdAdd.Visible = true;
+            }
+           
+        }
+
+        protected void lstDepartamento_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            RutaServicesClient servRuta = new RutaServicesClient();
+
+            try 
+            {
+                lstCiudad.DataSource = servRuta.ConsultaCiudades(lstDepartamento.SelectedValue);
+                lstCiudad.DataValueField = "Id_Ciudad";
+                lstCiudad.DataTextField = "Nombre_Ciudad";
+                lstCiudad.DataBind();
+            }
+
+            catch (Exception ex)
+            {
+                Response.Redirect("~/About.aspx");
+            }
+            finally
+            {
+                servRuta.Close();
             }
            
         }                
