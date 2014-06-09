@@ -29,7 +29,7 @@ namespace Unisangil.CYLTRACK.CYLTRACK_DL
                 string nameSP = "CrearRegistroVehiculo";
                 db.CrearComandoSP(nameSP);
 
-                DbParameter[] parametros = new DbParameter[15];
+                DbParameter[] parametros = new DbParameter[12];
 
                 parametros[0] = db.Comando.CreateParameter();
                 parametros[0].ParameterName = "vrPlaca";
@@ -75,70 +75,49 @@ namespace Unisangil.CYLTRACK.CYLTRACK_DL
                 db.Comando.Parameters.Add(parametros[5]);
 
                 parametros[6] = db.Comando.CreateParameter();
-                parametros[6].ParameterName = "vrCed_Prop";
-                parametros[6].Value = vehiculo.Ced_Prop;
+                parametros[6].ParameterName = "vrEstado";
+                parametros[6].Value = vehiculo.Estado;
                 parametros[6].Direction = ParameterDirection.Input;
-                parametros[6].Size = 12;
+                parametros[6].Size = 1;
                 db.Comando.Parameters.Add(parametros[6]);
 
                 parametros[7] = db.Comando.CreateParameter();
-                parametros[7].ParameterName = "vrNombres_Prop";
-                parametros[7].Value = vehiculo.Nombres_Prop;
+                parametros[7].ParameterName = "vrCedulaCond";
+                parametros[7].Value = vehiculo.Conductor.Cedula;
                 parametros[7].Direction = ParameterDirection.Input;
-                parametros[7].Size = 20;
+                parametros[7].Size = 12;
                 db.Comando.Parameters.Add(parametros[7]);
 
                 parametros[8] = db.Comando.CreateParameter();
-                parametros[8].ParameterName = "vrApellido_1_Prop";
-                parametros[8].Value = vehiculo.Apellido_1_Prop;
+                parametros[8].ParameterName = "vrIdRuta";
+                parametros[8].Value = vehiculo.Ruta.Id_Ruta;
                 parametros[8].Direction = ParameterDirection.Input;
-                parametros[8].Size = 15;
+                parametros[8].Size = 30;
                 db.Comando.Parameters.Add(parametros[8]);
 
                 parametros[9] = db.Comando.CreateParameter();
-                parametros[9].ParameterName = "vrApellido_2_Prop";
-                parametros[9].Value = vehiculo.Apellido_2_Prop;
+                parametros[9].ParameterName = "vrCedulaContra";
+                parametros[9].Value = vehiculo.Contratista.Cedula;
                 parametros[9].Direction = ParameterDirection.Input;
-                parametros[9].Size = 15;
+                parametros[9].Size = 12;
                 db.Comando.Parameters.Add(parametros[9]);
 
                 parametros[10] = db.Comando.CreateParameter();
-                parametros[10].ParameterName = "vrEstado";
-                parametros[10].Value = vehiculo.Estado;
-                parametros[10].Direction = ParameterDirection.Input;
-                parametros[10].Size = 8;
+                parametros[10].ParameterName = "vrCodResult";
+                parametros[10].Value = 0;
+                parametros[10].Direction = ParameterDirection.Output;
                 db.Comando.Parameters.Add(parametros[10]);
 
                 parametros[11] = db.Comando.CreateParameter();
-                parametros[11].ParameterName = "vrCedulaCond";
-                parametros[11].Value = vehiculo.Conductor.Cedula;
-                parametros[11].Direction = ParameterDirection.Input;
-                parametros[11].Size = 12;
+                parametros[11].ParameterName = "vrDescResult";
+                parametros[11].Value = "";
+                parametros[11].Direction = ParameterDirection.Output;
+                parametros[11].Size = 200;
+                parametros[11].DbType = DbType.String;
                 db.Comando.Parameters.Add(parametros[11]);
 
-                parametros[12] = db.Comando.CreateParameter();
-                parametros[12].ParameterName = "vrIdRuta";
-                parametros[12].Value = vehiculo.Ruta.Id_Ruta;
-                parametros[12].Direction = ParameterDirection.Input;
-                parametros[12].Size = 30;
-                db.Comando.Parameters.Add(parametros[12]);
-
-                parametros[13] = db.Comando.CreateParameter();
-                parametros[13].ParameterName = "vrCodResult";
-                parametros[13].Value = 0;
-                parametros[13].Direction = ParameterDirection.Output;
-                db.Comando.Parameters.Add(parametros[13]);
-
-                parametros[14] = db.Comando.CreateParameter();
-                parametros[14].ParameterName = "vrDescResult";
-                parametros[14].Value = "";
-                parametros[14].Direction = ParameterDirection.Output;
-                parametros[14].Size = 200;
-                parametros[14].DbType = DbType.String;
-                db.Comando.Parameters.Add(parametros[14]);
-
                 db.EjecutarComando();
-                codigo = long.Parse(db.Comando.Parameters[13].Value.ToString());
+                codigo = long.Parse(db.Comando.Parameters[10].Value.ToString());
                 db.ConfirmarTransaccion();
             }
             catch (Exception ex)
@@ -220,12 +199,12 @@ namespace Unisangil.CYLTRACK.CYLTRACK_DL
             return cond;
         }
 
-        public VehiculoBE ConsultarPropVehiculo(string cedula)
+        public ContratistaBE ConsultarPropVehiculo(string cedula)
         {
-            VehiculoBE veh = new VehiculoBE();
+            ContratistaBE contratista = new ContratistaBE();
             try
             {
-                string nameSP = "ConsultarPropVehiculo";
+                string nameSP = "ConsultarContratista";
                 BaseDatos db = new BaseDatos();
                 db.Conectar();
                 db.CrearComandoSP(nameSP);
@@ -251,16 +230,17 @@ namespace Unisangil.CYLTRACK.CYLTRACK_DL
                 db.Comando.Parameters.Add(parametros[2]);
 
                 DbDataReader datos = db.EjecutarConsulta();
-                VehiculoBE v = null;
+                ContratistaBE c = null;
                 while (datos.Read())
                 {
                     try
                     {
-                        v = new VehiculoBE();
-                        v.Nombres_Prop = datos.GetString(0);
-                        v.Apellido_1_Prop = datos.GetString(1);
-                        v.Apellido_2_Prop = datos.GetString(2);
-                        veh = v;
+                        c = new ContratistaBE();
+                        c.Id_Contratista = datos.GetValue(0).ToString();
+                        c.Cedula = datos.GetString(1);
+                        c.Nombres = datos.GetString(2);
+                        c.Apellidos = (datos.GetString(3));
+                        contratista = c;
                     }
                     catch (InvalidCastException ex)
                     {
@@ -276,9 +256,9 @@ namespace Unisangil.CYLTRACK.CYLTRACK_DL
             }
             catch (Exception ex)
             {
-                throw new Exception("Error al acceder a la base de datos para obtener los VehiculoBEs.");
+                throw new Exception("Error al acceder a la base de datos para obtener los ContratistaBEs.");
             }
-            return veh;
+            return contratista;
         }
         
         public long RegistrarConductor(ConductorBE conductor)
@@ -426,19 +406,22 @@ namespace Unisangil.CYLTRACK.CYLTRACK_DL
                         v.Modelo = datos.GetString(5);
                         v.Motor = datos.GetString(6);
                         v.Chasis = datos.GetString(7);
-                        v.Ced_Prop = datos.GetString(8);
-                        v.Nombres_Prop = datos.GetString(9);
-                        v.Apellido_1_Prop = datos.GetString(10);
-                        v.Apellido_2_Prop = datos.GetString(11);
                         ConductorBE cond = new ConductorBE();
-                        cond.Id_Conductor = datos.GetValue(12).ToString();
-                        cond.Nombres_Conductor = datos.GetString(13);
-                        cond.Apellido_1 = datos.GetString(14);
-                        cond.Apellido_2 = datos.GetString(15);
-                        cond.Cedula = datos.GetString(16);
+                        cond.Id_Conductor = datos.GetValue(8).ToString();
+                        cond.Nombres_Conductor = datos.GetString(9);
+                        cond.Apellido_1 = datos.GetString(10);
+                        cond.Apellido_2 = datos.GetString(11);
+                        cond.Cedula = datos.GetString(12);
                         RutaBE ruta = new RutaBE();
-                        ruta.Id_Ruta = datos.GetValue(17).ToString();
-                        ruta.Nombre_Ruta = datos.GetString(18);
+                        ruta.Id_Ruta = datos.GetValue(13).ToString();
+                        ruta.Nombre_Ruta = datos.GetString(14);
+                        v.Id_Ubicacion = datos.GetValue(15).ToString();
+                        ContratistaBE contratista = new ContratistaBE();
+                        contratista.Id_Contratista = datos.GetValue(16).ToString();
+                        contratista.Cedula = datos.GetString(17);
+                        contratista.Nombres = datos.GetString(18);
+                        contratista.Apellidos = datos.GetString(19);
+                        v.Contratista = contratista;
                         v.Conductor = cond;
                         v.Ruta = ruta;
                         lstVehiculo.Add(v);
@@ -474,7 +457,7 @@ namespace Unisangil.CYLTRACK.CYLTRACK_DL
                 string nameSP = "ModificarVehiculo";
                 db.CrearComandoSP(nameSP);
 
-                DbParameter[] parametros = new DbParameter[15];
+                DbParameter[] parametros = new DbParameter[12];
 
                 parametros[0] = db.Comando.CreateParameter();
                 parametros[0].ParameterName = "vrPlaca";
@@ -520,70 +503,49 @@ namespace Unisangil.CYLTRACK.CYLTRACK_DL
                 db.Comando.Parameters.Add(parametros[5]);
 
                 parametros[6] = db.Comando.CreateParameter();
-                parametros[6].ParameterName = "vrCed_Prop";
-                parametros[6].Value = vehiculo.Ced_Prop;
+                parametros[6].ParameterName = "vrEstado";
+                parametros[6].Value = vehiculo.Estado;
                 parametros[6].Direction = ParameterDirection.Input;
-                parametros[6].Size = 12;
+                parametros[6].Size = 1;
                 db.Comando.Parameters.Add(parametros[6]);
 
                 parametros[7] = db.Comando.CreateParameter();
-                parametros[7].ParameterName = "vrNombres_Prop";
-                parametros[7].Value = vehiculo.Nombres_Prop;
+                parametros[7].ParameterName = "vrCedulaCond";
+                parametros[7].Value = vehiculo.Conductor.Cedula;
                 parametros[7].Direction = ParameterDirection.Input;
-                parametros[7].Size = 20;
+                parametros[7].Size = 12;
                 db.Comando.Parameters.Add(parametros[7]);
 
                 parametros[8] = db.Comando.CreateParameter();
-                parametros[8].ParameterName = "vrApellido_1_Prop";
-                parametros[8].Value = vehiculo.Apellido_1_Prop;
+                parametros[8].ParameterName = "vrIdRuta";
+                parametros[8].Value = vehiculo.Ruta.Id_Ruta;
                 parametros[8].Direction = ParameterDirection.Input;
-                parametros[8].Size = 15;
+                parametros[8].Size = 30;
                 db.Comando.Parameters.Add(parametros[8]);
 
                 parametros[9] = db.Comando.CreateParameter();
-                parametros[9].ParameterName = "vrApellido_2_Prop";
-                parametros[9].Value = vehiculo.Apellido_2_Prop;
+                parametros[9].ParameterName = "vrCedulaContra";
+                parametros[9].Value = vehiculo.Contratista.Cedula;
                 parametros[9].Direction = ParameterDirection.Input;
-                parametros[9].Size = 15;
+                parametros[9].Size = 12;
                 db.Comando.Parameters.Add(parametros[9]);
 
                 parametros[10] = db.Comando.CreateParameter();
-                parametros[10].ParameterName = "vrEstado";
-                parametros[10].Value = vehiculo.Estado;
-                parametros[10].Direction = ParameterDirection.Input;
-                parametros[10].Size = 8;
+                parametros[10].ParameterName = "vrCodResult";
+                parametros[10].Value = 0;
+                parametros[10].Direction = ParameterDirection.Output;
                 db.Comando.Parameters.Add(parametros[10]);
 
                 parametros[11] = db.Comando.CreateParameter();
-                parametros[11].ParameterName = "vrCedulaCond";
-                parametros[11].Value = vehiculo.Conductor.Cedula;
-                parametros[11].Direction = ParameterDirection.Input;
-                parametros[11].Size = 12;
+                parametros[11].ParameterName = "vrDescResult";
+                parametros[11].Value = "";
+                parametros[11].Direction = ParameterDirection.Output;
+                parametros[11].Size = 200;
+                parametros[11].DbType = DbType.String;
                 db.Comando.Parameters.Add(parametros[11]);
 
-                parametros[12] = db.Comando.CreateParameter();
-                parametros[12].ParameterName = "vrIdRuta";
-                parametros[12].Value = vehiculo.Ruta.Id_Ruta;
-                parametros[12].Direction = ParameterDirection.Input;
-                parametros[12].Size = 30;
-                db.Comando.Parameters.Add(parametros[12]);
-
-                parametros[13] = db.Comando.CreateParameter();
-                parametros[13].ParameterName = "vrCodResult";
-                parametros[13].Value = 0;
-                parametros[13].Direction = ParameterDirection.Output;
-                db.Comando.Parameters.Add(parametros[13]);
-
-                parametros[14] = db.Comando.CreateParameter();
-                parametros[14].ParameterName = "vrDescResult";
-                parametros[14].Value = "";
-                parametros[14].Direction = ParameterDirection.Output;
-                parametros[14].Size = 200;
-                parametros[14].DbType = DbType.String;
-                db.Comando.Parameters.Add(parametros[14]);
-
                 db.EjecutarComando();
-                codigo = long.Parse(db.Comando.Parameters[13].Value.ToString());
+                codigo = long.Parse(db.Comando.Parameters[10].Value.ToString());
                 db.ConfirmarTransaccion();
             }
             catch (Exception ex)
@@ -764,11 +726,91 @@ namespace Unisangil.CYLTRACK.CYLTRACK_DL
             }
             catch (Exception ex)
             {
-                throw new Exception("Error al acceder a la base de datos para obtener los VehiculoBEs.");
+                throw new Exception("Error al acceder a la base de datos para obtener los ContratistaBEs.");
             }
             return codigo;
 
         }
+
+        public long RegistrarContratista(ContratistaBE contratista)
+        {
+            long codigo = 0;
+            BaseDatos db = new BaseDatos();
+            try
+            {
+                db.Conectar();
+                db.ComenzarTransaccion();
+                string nameSP = "CrearRegistroContratista";
+                db.CrearComandoSP(nameSP);
+
+                DbParameter[] parametros = new DbParameter[10];
+
+                parametros[0] = db.Comando.CreateParameter();
+                parametros[0].ParameterName = "vrCedula";
+                parametros[0].Value = contratista.Cedula;
+                parametros[0].Direction = ParameterDirection.Input;
+                parametros[0].Size = 12;
+                db.Comando.Parameters.Add(parametros[0]);
+
+                parametros[1] = db.Comando.CreateParameter();
+                parametros[1].ParameterName = "vrNombres";
+                parametros[1].Value = contratista.Nombres;
+                parametros[1].Direction = ParameterDirection.Input;
+                parametros[1].Size = 20;
+                db.Comando.Parameters.Add(parametros[1]);
+
+                parametros[2] = db.Comando.CreateParameter();
+                parametros[2].ParameterName = "vrApellidos";
+                parametros[2].Value = contratista.Apellidos;
+                parametros[2].Direction = ParameterDirection.Input;
+                parametros[2].Size = 12;
+                db.Comando.Parameters.Add(parametros[2]);
+
+                parametros[3] = db.Comando.CreateParameter();
+                parametros[3].ParameterName = "vrDireccion";
+                parametros[3].Value = contratista.Direccion;
+                parametros[3].Direction = ParameterDirection.Input;
+                parametros[3].Size = 30;
+                db.Comando.Parameters.Add(parametros[3]);
+
+                parametros[4] = db.Comando.CreateParameter();
+                parametros[4].ParameterName = "vrTelefono";
+                parametros[4].Value = contratista.Telefono;
+                parametros[4].Direction = ParameterDirection.Input;
+                parametros[4].Size = 10;
+                db.Comando.Parameters.Add(parametros[4]);
+
+                parametros[5] = db.Comando.CreateParameter();
+                parametros[5].ParameterName = "vrCodResult";
+                parametros[5].Value = 0;
+                parametros[5].Direction = ParameterDirection.Output;
+                db.Comando.Parameters.Add(parametros[5]);
+
+                parametros[6] = db.Comando.CreateParameter();
+                parametros[6].ParameterName = "vrDescResult";
+                parametros[6].Value = "";
+                parametros[6].Direction = ParameterDirection.Output;
+                parametros[6].Size = 200;
+                parametros[6].DbType = DbType.String;
+                db.Comando.Parameters.Add(parametros[6]);
+
+                db.EjecutarComando();
+                codigo = long.Parse(db.Comando.Parameters[5].Value.ToString());
+                db.ConfirmarTransaccion();
+            }
+            catch (Exception ex)
+            {
+                db.CancelarTransaccion();
+                throw new Exception("Error al crear el registro de  ContratistaBE.", ex);
+            }
+
+            finally
+            {
+                db.Desconectar();
+            }
+            return codigo;
+        }
+
 
         //public long ConsultarExistenciaVehiculo(string placa)
         //{

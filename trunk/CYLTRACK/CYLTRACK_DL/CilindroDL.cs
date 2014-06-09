@@ -67,7 +67,7 @@ namespace Unisangil.CYLTRACK.CYLTRACK_DL
 
                 parametros[5] = db.Comando.CreateParameter();
                 parametros[5].ParameterName = "vrId_Tipo_Ubica";
-                parametros[5].Value = cil.Ubicacion_Cilindro.Ubicacion.Tipo_Ubicacion.Id_Tipo_Ubica;
+                parametros[5].Value = cil.Tipo_Ubicacion.Id_Tipo_Ubica;
                 parametros[5].Direction = ParameterDirection.Input;
                 parametros[5].Size = 4;
                 db.Comando.Parameters.Add(parametros[5]);
@@ -88,7 +88,7 @@ namespace Unisangil.CYLTRACK.CYLTRACK_DL
 
                 parametros[8] = db.Comando.CreateParameter();
                 parametros[8].ParameterName = "vrId_Vehiculo";
-                parametros[8].Value = cil.Ubicacion_Cilindro.Ubicacion.Vehiculo.Id_Vehiculo;
+                parametros[8].Value = cil.Vehiculo.Id_Vehiculo;
                 parametros[8].Direction = ParameterDirection.Input;
                 parametros[8].Size = 6;
                 db.Comando.Parameters.Add(parametros[8]);
@@ -170,16 +170,11 @@ namespace Unisangil.CYLTRACK.CYLTRACK_DL
                         FabricanteBE fab = new FabricanteBE();
                         fab.Nombre_Fabricante = (datos.GetValue(6).ToString());
                         c.Fabricante = fab;
-                        Ubicacion_CilindroBE ubiCil = new Ubicacion_CilindroBE();
-                        UbicacionBE ubi = new UbicacionBE();
-                        ubi.Ubicacion_Cilindro = ubiCil;
-                        Tipo_UbicacionBE tipoUbica = new Tipo_UbicacionBE();
-                        tipoUbica.Nombre_Ubicacion = datos.GetString(7);
-                        ubi.Tipo_Ubicacion = tipoUbica;
-                        ubiCil.Ubicacion = ubi;
-                        c.Ubicacion_Cilindro = ubiCil;
+                        Tipo_UbicacionBE tipUbi = new Tipo_UbicacionBE();
+                        tipUbi.Nombre_Ubicacion= datos.GetString(7);
+                        c.Tipo_Ubicacion = tipUbi;
                         TamanoBE tam = new TamanoBE();
-                        tam.Tamano= (datos.GetString(8));
+                        tam.Tamano = (datos.GetString(8));
                         c.NTamano = tam;                        
                         cil= c;
                    
@@ -387,6 +382,79 @@ namespace Unisangil.CYLTRACK.CYLTRACK_DL
             }
             return ubicacionCil;
         }
+
+        public long ModificarUbicacionCilindro(CilindroBE cil)
+        {
+            long codigo = 0;
+            BaseDatos db = new BaseDatos();
+            try
+            {
+                db.Conectar();
+                db.ComenzarTransaccion();
+                string nameSP = "CargueyDescargueCilindros";
+                db.CrearComandoSP(nameSP);
+
+                DbParameter[] parametros = new DbParameter[6];
+
+                parametros[0] = db.Comando.CreateParameter();
+                parametros[0].ParameterName = "vrCodigosCilindros";
+                parametros[0].Value = cil.Codigo_Cilindro;
+                parametros[0].Direction = ParameterDirection.Input;
+                parametros[0].Size = 100;
+                db.Comando.Parameters.Add(parametros[0]);
+
+                parametros[1] = db.Comando.CreateParameter();
+                parametros[1].ParameterName = "vrNombreUbi";
+                parametros[1].Value = cil.Tipo_Ubicacion.Nombre_Ubicacion;
+                parametros[1].Direction = ParameterDirection.Input;
+                parametros[1].Size = 15;
+                db.Comando.Parameters.Add(parametros[1]);
+
+                parametros[2] = db.Comando.CreateParameter();
+                parametros[2].ParameterName = "vrIdVehiculo";
+                parametros[2].Value = cil.Vehiculo.Id_Vehiculo;
+                parametros[2].Direction = ParameterDirection.Input;
+                parametros[2].Size = 6;
+                db.Comando.Parameters.Add(parametros[2]);
+
+                parametros[3] = db.Comando.CreateParameter();
+                parametros[3].ParameterName = "vrSeparador";
+                parametros[3].Value = ",";
+                parametros[3].Direction = ParameterDirection.Input;
+                parametros[3].Size = 1;
+                db.Comando.Parameters.Add(parametros[3]);
+
+                parametros[4] = db.Comando.CreateParameter();
+                parametros[4].ParameterName = "vrCodResult";
+                parametros[4].Value = 0;
+                parametros[4].Direction = ParameterDirection.Output;
+                db.Comando.Parameters.Add(parametros[4]);
+
+                parametros[5] = db.Comando.CreateParameter();
+                parametros[5].ParameterName = "vrDescResult";
+                parametros[5].Value = "";
+                parametros[5].Direction = ParameterDirection.Output;
+                parametros[5].Size = 200;
+                parametros[5].DbType = DbType.String;
+                db.Comando.Parameters.Add(parametros[5]);
+
+                db.EjecutarComando();
+                codigo = long.Parse(db.Comando.Parameters[4].Value.ToString());
+                db.ConfirmarTransaccion();
+            }
+            catch (Exception ex)
+            {
+                db.CancelarTransaccion();
+                throw new Exception("Error al crear el CilindroBE.", ex);
+            }
+
+            finally
+            {
+                db.Desconectar();
+            }
+            return codigo;
+        }
+
 
    }
 }
