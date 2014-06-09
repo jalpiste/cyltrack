@@ -75,10 +75,16 @@ namespace Unisangil.CYLTRACK.CYLTRACK_BE
         public DateTime Fecha { get; set; }
 
         /// <summary>
-        /// Ubicación del cilindro
+        /// Tipo de Ubicación
         /// </summary>
         [DataMember]
-        public Ubicacion_CilindroBE Ubicacion_Cilindro { get; set; }
+        public Tipo_UbicacionBE Tipo_Ubicacion { get; set; }
+
+        /// <summary>
+        /// Vehiculo
+        /// </summary>
+        [DataMember]
+        public VehiculoBE Vehiculo { get; set; }
 
         /// <summary>
         /// Cantidad de Cilindros

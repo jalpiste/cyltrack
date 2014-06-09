@@ -44,10 +44,22 @@ namespace Unisangil.CYLTRACK.CYLTRACK_BE
         public String Estado { get; set; }
 
         /// <summary>
+        /// Lista Vehiculo
+        /// </summary>
+        [DataMember]
+        public List<VehiculoBE> ListaVehiculo { get; set; }
+
+        /// <summary>
         /// Vehiculo
         /// </summary>
         [DataMember]
-        public List<VehiculoBE> Vehiculo { get; set; }
+        public VehiculoBE Vehiculo { get; set; }
+
+        /// <summary>
+        /// Ciudad
+        /// </summary>
+        [DataMember]
+        public CiudadBE Ciudad { get; set; }
 
     }
 }
