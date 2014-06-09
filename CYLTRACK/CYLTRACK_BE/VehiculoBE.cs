@@ -71,30 +71,6 @@ namespace Unisangil.CYLTRACK.CYLTRACK_BE
         public String Chasis { get; set; }
 
         /// <summary>
-        /// Número de cédula del propietario del Vehículo 
-        /// </summary>
-        [DataMember]
-        public String Ced_Prop { get; set; }
-
-        /// <summary>
-        /// Nombres del propietario del Vehículo 
-        /// </summary>
-        [DataMember]
-        public String Nombres_Prop { get; set; }
-
-        /// <summary>
-        /// Primer apellido del propietario del Vehículo 
-        /// </summary>
-        [DataMember]
-        public String Apellido_1_Prop { get; set; }
-
-        /// <summary>
-        /// Segundo apellido del propietario del Vehículo 
-        /// </summary>
-        [DataMember]
-        public String Apellido_2_Prop { get; set; }
-
-        /// <summary>
         /// Ruta del Vehículo 
         /// </summary>
         [DataMember]
@@ -105,5 +81,19 @@ namespace Unisangil.CYLTRACK.CYLTRACK_BE
         /// </summary>
         [DataMember]
         public ConductorBE Conductor { get; set; }
+
+        /// <summary>
+        /// Datos contratista
+        /// </summary>
+        [DataMember]
+        public ContratistaBE Contratista { get; set; }
+
+        /// <summary>
+        /// Identificador Ubicación
+        /// </summary>
+        [DataMember]
+        public String Id_Ubicacion { get; set; }
+
+
     }
 }

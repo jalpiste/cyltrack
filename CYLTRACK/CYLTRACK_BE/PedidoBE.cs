@@ -52,12 +52,6 @@ namespace Unisangil.CYLTRACK.CYLTRACK_BE
         public ClienteBE Cliente { get; set; }
 
         /// <summary>
-        /// Ubicación del cliente
-        /// </summary>
-        [DataMember]
-        public UbicacionBE Ubicacion { get; set; }
-
-        /// <summary>
         /// Ciudad de la ubicación del cliente
         /// </summary>
         [DataMember]
@@ -85,12 +79,7 @@ namespace Unisangil.CYLTRACK.CYLTRACK_BE
         /// Detalle de la venta
         /// </summary>
         [DataMember]
-        public List<Detalle_PedidoBE> Detalle_Ped { get; set; }
+        public Detalle_PedidoBE Detalle_Ped { get; set; }
 
-        /// <summary>
-        /// venta
-        /// </summary>
-        [DataMember]
-        public VentaBE Venta { get; set; }
     }
 }
