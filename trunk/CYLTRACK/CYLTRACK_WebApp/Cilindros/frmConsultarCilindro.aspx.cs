@@ -37,9 +37,9 @@ namespace Unisangil.CYLTRACK.CYLTRACK_WebApp.Cilindros
                     CilindroBE respConsultaCilindro = servCilindro.ConsultarCilindro(txtCodigoCilindro.Text);
 
                     TxtAno.Text = respConsultaCilindro.Ano;
-                    TxtEmpresa.Text = Convert.ToString(respConsultaCilindro.Fabricante.Nombre_Fabricante);
+                    TxtEmpresa.Text = respConsultaCilindro.Fabricante.Nombre_Fabricante;
                     TxtCodigo.Text = respConsultaCilindro.Serial_Cilindro;
-                    TxtUbicacion.Text = respConsultaCilindro.Ubicacion_Cilindro.Ubicacion.Tipo_Ubicacion.Nombre_Ubicacion;
+                    TxtUbicacion.Text = respConsultaCilindro.Tipo_Ubicacion.Nombre_Ubicacion;
                     TxtTamano.Text = respConsultaCilindro.NTamano.Tamano;
                     txtCodigoTotal.Text = respConsultaCilindro.Codigo_Cilindro;
                     TxtRegistro.Text = Convert.ToString(respConsultaCilindro.Fecha);
@@ -49,24 +49,24 @@ namespace Unisangil.CYLTRACK.CYLTRACK_WebApp.Cilindros
 
                     if (TxtUbicacion.Text == Ubicacion.VEHICULO.ToString())
                     {
-                        TxtPlaca.Text = respConsultaCilindro.Ubicacion_Cilindro.Ubicacion.Vehiculo.Placa;
-                        TxtConductor.Text = respConsultaCilindro.Ubicacion_Cilindro.Ubicacion.Vehiculo.Conductor.Nombres_Conductor;
-                        TxtRuta.Text = respConsultaCilindro.Ubicacion_Cilindro.Ubicacion.Vehiculo.Ruta.Nombre_Ruta;
+                        TxtPlaca.Text = respConsultaCilindro.Vehiculo.Placa;
+                        TxtConductor.Text = respConsultaCilindro.Vehiculo.Conductor.Nombres_Conductor;
+                        TxtRuta.Text = respConsultaCilindro.Vehiculo.Ruta.Nombre_Ruta;
 
                         DivInfoVehiculo.Visible = true;
                     }
 
                     if (TxtUbicacion.Text == Ubicacion.CLIENTE.ToString())
                     {
-                        txtCedula.Text = respConsultaCilindro.Ubicacion_Cilindro.Ubicacion.Cliente.Cedula;
-                        TxtNombreCliente.Text = respConsultaCilindro.Ubicacion_Cilindro.Ubicacion.Cliente.Nombres_Cliente;
-                        TxtPrimerApellido.Text = respConsultaCilindro.Ubicacion_Cilindro.Ubicacion.Cliente.Apellido_1;
-                        TxtSegundoApellido.Text = respConsultaCilindro.Ubicacion_Cilindro.Ubicacion.Cliente.Apellido_2;
-                        TxtDireccion.Text = respConsultaCilindro.Ubicacion_Cilindro.Ubicacion.Direccion;
-                        TxtBarrio.Text = respConsultaCilindro.Ubicacion_Cilindro.Ubicacion.Barrio;
-                        TxtCiudad.Text = respConsultaCilindro.Ubicacion_Cilindro.Ubicacion.Ciudad.Nombre_Ciudad;
-                        TxtDepartamento.Text = respConsultaCilindro.Ubicacion_Cilindro.Ubicacion.Ciudad.Departamento.Nombre_Departamento;
-                        TxtTelefono.Text = respConsultaCilindro.Ubicacion_Cilindro.Ubicacion.Telefono_1;
+                        txtCedula.Text = respConsultaCilindro.Tipo_Ubicacion.Ubicacion.Cliente.Cedula;
+                        TxtNombreCliente.Text = respConsultaCilindro.Tipo_Ubicacion.Ubicacion.Cliente.Nombres_Cliente;
+                        TxtPrimerApellido.Text = respConsultaCilindro.Tipo_Ubicacion.Ubicacion.Cliente.Apellido_1;
+                        TxtSegundoApellido.Text = respConsultaCilindro.Tipo_Ubicacion.Ubicacion.Cliente.Apellido_2;
+                        TxtDireccion.Text = respConsultaCilindro.Tipo_Ubicacion.Ubicacion.Direccion;
+                        TxtBarrio.Text = respConsultaCilindro.Tipo_Ubicacion.Ubicacion.Barrio;
+                        TxtCiudad.Text = respConsultaCilindro.Tipo_Ubicacion.Ubicacion.Ciudad.Nombre_Ciudad;
+                        TxtDepartamento.Text = respConsultaCilindro.Tipo_Ubicacion.Ubicacion.Ciudad.Departamento.Nombre_Departamento;
+                        TxtTelefono.Text = respConsultaCilindro.Tipo_Ubicacion.Ubicacion.Telefono_1;
                         Txtentrega.Text = Convert.ToString(respConsultaCilindro.Fecha);
 
                         DivInfoCilindro.Visible = true;

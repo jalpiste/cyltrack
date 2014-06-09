@@ -72,11 +72,16 @@ namespace Unisangil.CYLTRACK.CYLTRACK_WebApp.Cilindros
             try
             {
                 codigo = servCilindro.ConsultarExistenciaCilindro(TxtCodigoCilindro.Text);
+                int anoActual = Convert.ToInt32(DateTime.Now.Year.ToString().Substring(1));
+                string varAno = (TxtCodigoCilindro.Text.Substring(0, 2));
 
                 if (codigo != 0)
                 {
                     MessageBox.Show("El Cilindro ya se encuentra creado en el sistema", "Registrar Cilindro");
                     TxtCodigoCilindro.Text = "";
+                    DivDatosCilindro.Visible = false;
+                    BtnGuardar.Visible = false;
+                    TxtCodigoCilindro.Focus();                    
                 }
                 else
                 {
@@ -84,6 +89,7 @@ namespace Unisangil.CYLTRACK.CYLTRACK_WebApp.Cilindros
                     TxtCodigoCilindro.Text = "";
                     DivDatosCilindro.Visible = true;
                     BtnGuardar.Visible = true;
+                    BtnGuardar.Focus();
                     if (txtCil.Text.Length == 11)
                     {
                         TxtEmpresa.Text = txtCil.Text.Substring(2, 3);
@@ -92,9 +98,17 @@ namespace Unisangil.CYLTRACK.CYLTRACK_WebApp.Cilindros
                     else
                     {
                         TxtEmpresa.Text = txtCil.Text.Substring(2, 4);
-                        TxtCodigo.Text = txtCil.Text.Substring(6);
+                        TxtCodigo.Text = txtCil.Text.Substring(6);                        
                     }
 
+                    if (Convert.ToInt32(varAno) >= 0 || Convert.ToInt32(varAno) <= anoActual)
+                    {
+                        LstAno.SelectedValue = ("20" + varAno);
+                    }
+                    else
+                    {
+                        LstAno.Items.FindByText("19" + varAno);
+                    }
                     TxtEmpresa_TextChanged(sender, e);
                 }
             }
@@ -123,16 +137,12 @@ namespace Unisangil.CYLTRACK.CYLTRACK_WebApp.Cilindros
                 cilindro.Fabricante = fab;
                 cilindro.Serial_Cilindro = TxtCodigo.Text;
                 cilindro.Codigo_Cilindro = (LstAno.SelectedValue).Substring(2) + "" + TxtEmpresa.Text + "" + TxtCodigo.Text;
-                Ubicacion_CilindroBE UbicaCil = new Ubicacion_CilindroBE();
-                UbicacionBE ubi = new UbicacionBE();
-                Tipo_UbicacionBE tipUbica = new Tipo_UbicacionBE();
                 VehiculoBE veh = new VehiculoBE();
-                veh.Id_Vehiculo = lstPlacas.SelectedValue;
+                veh.Id_Vehiculo = (lstPlacas.SelectedValue);
+                cilindro.Vehiculo = veh;
+                Tipo_UbicacionBE tipUbica = new Tipo_UbicacionBE();
                 tipUbica.Id_Tipo_Ubica = lstUbicacion.SelectedValue;
-                ubi.Tipo_Ubicacion = tipUbica;
-                ubi.Vehiculo = veh;
-                UbicaCil.Ubicacion = ubi;
-                cilindro.Ubicacion_Cilindro = UbicaCil;
+                cilindro.Tipo_Ubicacion = tipUbica;
                 TamanoBE tam = new TamanoBE();
                 tam.Id_Tamano = LstTamano.SelectedValue;
                 cilindro.NTamano = tam;
@@ -142,7 +152,7 @@ namespace Unisangil.CYLTRACK.CYLTRACK_WebApp.Cilindros
                     resp = servCilindro.RegistrarCilindro(cilindro);
 
                     MessageBox.Show("El Cilindro fue registrado satisfactoriamente", "Registrar Cilindro");
-                    Response.Redirect("~/Cilindros/frmRegistrarCilindro.aspx");
+                    
                 }
                 else
                 {
@@ -158,13 +168,17 @@ namespace Unisangil.CYLTRACK.CYLTRACK_WebApp.Cilindros
             }
             finally
             {
-                servCilindro.Close();                
+                servCilindro.Close();
+                Response.Redirect("~/Cilindros/frmRegistrarCilindro.aspx");
             }
         }
 
         protected void BtnMenu_Click(object sender, EventArgs e)
         {
-            Response.Redirect("~/Default.aspx");
+            if (!IsPostBack)
+            {
+                Response.Redirect("~/Default.aspx");
+            }
         }
 
         protected void TxtEmpresa_TextChanged(object sender, EventArgs e)
@@ -177,7 +191,11 @@ namespace Unisangil.CYLTRACK.CYLTRACK_WebApp.Cilindros
 
                 if (codigo == 0)
                 {
-                    MessageBox.Show("El código del fabricante no se encuentra registrado en el sistema", "Registrar Cilindro");
+                    MessageBox.Show("El código del fabricante no se encuentra registrado en el sistema, comuniquese con el administrador del sistema", "Registrar Cilindro");
+                    TxtCodigoCilindro.Text = "";
+                    DivDatosCilindro.Visible = false;
+                    BtnGuardar.Visible = false;
+                    TxtCodigoCilindro.Focus();
                 }
             }
             catch (Exception ex)
@@ -187,6 +205,7 @@ namespace Unisangil.CYLTRACK.CYLTRACK_WebApp.Cilindros
             finally
             {
                 servCilindro.Close();
+               
             }
         }
 
@@ -194,11 +213,23 @@ namespace Unisangil.CYLTRACK.CYLTRACK_WebApp.Cilindros
         {
             if (lstUbicacion.SelectedItem.Text == Ubicacion.VEHICULO.ToString())
             {
-                lstPlacas.Visible = true;
-                lblPlaca.Visible = true;
+                if (lstPlacas.Items.Count == 0)
+                {
+                    MessageBox.Show("No se ha realizado registros de vehiculos en el sistema", "Registrar Cilindro");
+                    lstPlacas.Visible = false;
+                    lblPlaca.Visible = false;
+                }
+                else
+                {
+                    lstPlacas.Visible = true;
+                    lblPlaca.Visible = true;
+                }
             }
-        }
-
-              
+            else
+                {
+                    lstPlacas.Visible = false;
+                    lblPlaca.Visible = false;
+                }
+        }               
      }
 }

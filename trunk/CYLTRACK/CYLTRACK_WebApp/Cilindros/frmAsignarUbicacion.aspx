@@ -52,7 +52,7 @@
                         <asp:Label ID="lblUbicacion" runat="server" Text="Nueva Ubicación:  " 
                             Enabled="False"></asp:Label>
                         &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-                        <asp:ListBox ID="lstUbica" runat="server" AutoPostBack="True" Rows="1" 
+                        <asp:ListBox ID="lstUbica" runat="server" AutoPostBack="true"  Rows="1" 
                             onselectedindexchanged="Ubica_SelectedIndexChanged">
                             <asp:ListItem>Seleccionar...</asp:ListItem>                            
                          </asp:ListBox>
@@ -60,7 +60,8 @@
                         <div id="diVehiculo" runat="server" visible="false">
                         <br />
                         <asp:Label ID="lblPlaca" runat="server" Text="Placa Vehículo:  " ></asp:Label>
-                        <asp:ListBox ID="lstPlacaVehiculo" runat="server" AutoPostBack="True" Rows="1">
+                        <asp:ListBox ID="lstPlacaVehiculo" runat="server" AutoPostBack="true" Rows="1" onselectedindexchanged="lstPlacaVehiculo_SelectedIndexChanged"  
+                                >
                           <asp:ListItem>Seleccionar...</asp:ListItem>                            
                          </asp:ListBox>
                          <br /><br />
@@ -68,7 +69,8 @@
 
                         &nbsp;&nbsp;&nbsp;
 
-                        <asp:TextBox ID="TxtConductor" runat="server" CssClass="textEntry" Enabled="false"></asp:TextBox>
+                        <asp:TextBox ID="TxtConductor" runat="server" CssClass="textEntry" Enabled="false" 
+                                Width="242px"></asp:TextBox>
                        
                             &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
                        

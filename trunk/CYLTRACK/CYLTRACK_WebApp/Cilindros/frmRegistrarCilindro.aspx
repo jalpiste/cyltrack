@@ -49,9 +49,8 @@
                            <asp:Label ID="LblCodigo" runat="server" Text="Identificador Cilindro:" ></asp:Label>
                     </p>
                     <p>
-                         <asp:ListBox ID="LstAno" runat="server" AutoPostBack="True" Rows="1" >
-                             <asp:ListItem>seleccionar...</asp:ListItem>
-                             </asp:ListBox>
+                         <asp:ListBox ID="LstAno" runat="server" AutoPostBack="True" Rows="1" />
+                             
                              <asp:RequiredFieldValidator ID="ValidAno" runat="server" ControlToValidate="LstAno" 
                              CssClass="failureNotification" ErrorMessage="El año de fabricación es obligatorio." ToolTip="El año de fabricacion es obligatorio." 
                              ValidationGroup="RegistrodeCilindro">*</asp:RequiredFieldValidator>
@@ -107,8 +106,6 @@
                 </div>
                 </fieldset>
                 <p class="submitButton">
-                <asp:Button ID="BtnLimpiar" runat="server" Text="Limpiar"  Width="115px"
-                     /> 
                     &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; &nbsp; 
                     <asp:Button ID="BtnGuardar" runat="server" Text="Guardar" visible="false" Width="115px"
                         onclick="BtnGuardar_Click" ValidationGroup="RegistrodeCilindro"  />  

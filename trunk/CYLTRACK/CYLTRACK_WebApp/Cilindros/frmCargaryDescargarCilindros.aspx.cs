@@ -14,9 +14,17 @@ namespace Unisangil.CYLTRACK.CYLTRACK_WebApp.Cilindros
 {
     public partial class frmCargaryDescargarCilindros : System.Web.UI.Page
     {
+        List<CilindroBE> lstDetail = new List<CilindroBE>();
+        DataTable objdtLista;
 
         protected void Page_Load(object sender, EventArgs e)
         {
+            if (!Page.IsPostBack)
+            {
+                objdtLista = new DataTable();
+                CrearTabla();
+            }
+
             if (!IsPostBack)
             {
                 lstOpcion.Focus();
@@ -82,19 +90,41 @@ namespace Unisangil.CYLTRACK.CYLTRACK_WebApp.Cilindros
             }
 
         }
-
-        protected void gvReporte_SelectedIndexChanged(object sender, EventArgs e)
+        protected DataTable objdtTabla
         {
-            if (gvCargue.SelectedDataKey["Checking"].ToString() == "True")
+            get
             {
-
+                if (ViewState["objdtTabla"] != null)
+                {
+                    return (DataTable)ViewState["objdtTabla"];
+                }
+                else
+                {
+                    return objdtLista;
+                }
             }
-            else
+
+            set
             {
-                gvCargue.DataBind();
+                ViewState["objdtTabla"] = value;
             }
-
         }
+        //        ------------------------- fin de tabla acumulada y asignación de valor
+        private void CrearTabla()
+        {
+            objdtLista.Columns.Add("CodigosAdd");
+            objdtTabla = objdtLista;
+        }
+
+        protected void gvCargueyDescargue_RowDeleting(Object sender, GridViewDeleteEventArgs e)
+        {
+            objdtTabla.Rows.RemoveAt(e.RowIndex);
+            gdAdd.DataSource = objdtTabla;
+            gdAdd.DataBind();
+            BtnGuardar.Focus();
+        }
+
+        
 
         protected void BtnMenu_Click(object sender, EventArgs e)
         {
@@ -104,31 +134,37 @@ namespace Unisangil.CYLTRACK.CYLTRACK_WebApp.Cilindros
         protected void BtnGuardar_Click1(object sender, EventArgs e)
         {
             CilindroServiceClient servCilindro = new CilindroServiceClient();
-
-            List<CilindroBE> guardarDatos = new List<CilindroBE>();
+            long resp;
 
             try
             {
-                foreach (CilindroBE cilindro in lstCodigos)
-                {
-                    CilindroBE cil = new CilindroBE();
-                    cil.Codigo_Cilindro = cilindro.Codigo_Cilindro;
+                CilindroBE cil = new CilindroBE();
+                foreach (DataRow info in objdtTabla.Rows)
+                {                    
+                    cil.Codigo_Cilindro += Convert.ToString(info["CodigosAdd"])+",";
 
-                    if (lstOpcion.SelectedValue == Ubicacion.PLATAFORMA.ToString())
+                    Tipo_UbicacionBE tipUbi = new Tipo_UbicacionBE();
+                    cil.Tipo_Ubicacion = tipUbi;
+                    VehiculoBE veh = new VehiculoBE();
+                    cil.Vehiculo = veh;
+
+                    if (lstOpcion.SelectedIndex == 2)
                     {
-                        cil.Ubicacion_Cilindro.Ubicacion.Tipo_Ubicacion.Nombre_Ubicacion = Ubicacion.PLATAFORMA.ToString();
+                        cil.Tipo_Ubicacion.Nombre_Ubicacion = Ubicacion.PLATAFORMA.ToString();
+                        cil.Vehiculo.Id_Vehiculo = "0";                       
                     }
 
                     else
                     {
-                        cil.Codigo_Cilindro = cilindro.Codigo_Cilindro;
-                        cil.Ubicacion_Cilindro.Ubicacion.Tipo_Ubicacion.Nombre_Ubicacion = Ubicacion.VEHICULO.ToString();
-                    }
-
-                    guardarDatos.Add(cil);
+                        cil.Tipo_Ubicacion.Nombre_Ubicacion = Ubicacion.VEHICULO.ToString();
+                        cil.Vehiculo.Id_Vehiculo = lstPlaca.SelectedValue;
+                    }                    
                 }
 
-                string resp = servCilindro.CargueyDescargueCilindros(guardarDatos.ToArray());
+                int var = cil.Codigo_Cilindro.Length;
+                cil.Codigo_Cilindro = cil.Codigo_Cilindro.Substring(0, var - 1);
+                  
+                resp = servCilindro.ModificarUbicaCilindro(cil);
                 MessageBox.Show("Los datos han sido guardados satisfactoriamente", "Cargue o descargue de Cilindro");
             }
             catch (Exception ex)
@@ -150,30 +186,28 @@ namespace Unisangil.CYLTRACK.CYLTRACK_WebApp.Cilindros
         protected void Agregar_onClick(object sender, EventArgs e)
         {
             BtnGuardar.Focus();
-            DataTable tabla = new DataTable();
-
+            
             try
             {
                 CilindroBE cil = new CilindroBE();
                 cil.Codigo_Cilindro = ((System.Web.UI.WebControls.Button)sender).Attributes["value"].ToString();
 
-                foreach (CilindroBE datos in lstCodigos)
+                foreach (DataRow info in objdtTabla.Rows)
                 {
-                    if (cil.Codigo_Cilindro == datos.Codigo_Cilindro)
+                    if (cil.Codigo_Cilindro == (Convert.ToString(info["CodigosAdd"])))
                     {
-                        lstCodigos.Remove(datos);
-                    }
-                };
-
-                lstCodigos.Add(cil);
-                tabla.Columns.Add("CodigosAdd");
-
-                foreach (CilindroBE info in lstCodigos)
-                {
-                    tabla.Rows.Add(info.Codigo_Cilindro);
+                        info.RowState.ToString().Remove(0,1);
+                        //lstDetail.Add(detail);
+                    }                    
                 }
-                gdAdd.DataSource = tabla;
-                gdAdd.DataBind();
+                lstDetail.Add(cil);
+
+                foreach (CilindroBE info in lstDetail)
+                {
+                    objdtTabla.Rows.Add(info.Codigo_Cilindro);
+                    gdAdd.DataSource = objdtTabla;
+                    gdAdd.DataBind();
+                }
             }
             catch (Exception ex)
             {
@@ -183,6 +217,7 @@ namespace Unisangil.CYLTRACK.CYLTRACK_WebApp.Cilindros
             {
                 gdAdd.Visible = true;
             }
+
         }
     }
 }
