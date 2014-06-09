@@ -27,21 +27,16 @@ namespace Unisangil.CYLTRACK.CYLTRACK_WebApp.Rutas
                 objdtLista = new DataTable();
                 CrearTabla();
             }
-            if (IsPostBack)
-            {
-                btnGuardar.Focus();
-            }
+            
             if (!IsPostBack)
             {
                 RutaServicesClient servRuta = new RutaServicesClient();
                 try
                 {
-                    List<CiudadBE> datosCiudades = new List<CiudadBE>(servRuta.ConsultaDepartamentoyCiudades());
-                    foreach (CiudadBE datos in datosCiudades)
-                    {
-                        lstCiudad.Items.Add(datos.Nombre_Ciudad);
-                        lstDepartamento.Items.Add(datos.Departamento.Nombre_Departamento);
-                    }
+                    lstDepartamento.DataSource = servRuta.ConsultaDepartamento();
+                    lstDepartamento.DataValueField = "Id_Departamento";
+                    lstDepartamento.DataTextField = "Nombre_Departamento";
+                    lstDepartamento.DataBind();                                 
                 }
                 catch (Exception ex)
                 {
@@ -56,7 +51,7 @@ namespace Unisangil.CYLTRACK.CYLTRACK_WebApp.Rutas
         protected void btnAgregar_Click(object sender, EventArgs e)
         {
             CiudadBE ciudad = new CiudadBE();
-            ciudad.Nombre_Ciudad = lstCiudad.SelectedValue;
+            ciudad.Nombre_Ciudad = lstCiudad.SelectedItem.Text;
 
             try
             {
@@ -76,6 +71,7 @@ namespace Unisangil.CYLTRACK.CYLTRACK_WebApp.Rutas
             finally
             {
                 gdAdd.Visible = true;
+                btnGuardar.Visible = true;            
                 btnGuardar.Focus();
             }
 
@@ -157,8 +153,7 @@ namespace Unisangil.CYLTRACK.CYLTRACK_WebApp.Rutas
         protected void txtNombreRuta_TextChanged(object sender, EventArgs e)
         {
             RutaServicesClient servRuta = new RutaServicesClient();
-            RutaBE ruta = new RutaBE();
-
+            
             try
             {
                 long consultaExistencia = servRuta.ConsultaExistenciaRuta(txtNombreRuta.Text);
@@ -167,12 +162,21 @@ namespace Unisangil.CYLTRACK.CYLTRACK_WebApp.Rutas
                 {
                     txtNomRuta.Text = txtNombreRuta.Text.ToUpper();
                     DivSelCiudades.Visible = true;
-                    btnGuardar.Visible = true;
                     divRuta.Visible = true;
+                    txtNombreRuta.Text = "";
+                    lstDepartamento.Focus();
+                    btnGuardar.Visible = false;
                 }
                 else
                 {
                     MessageBox.Show("La ruta digitada ya se encuentra registrada", "Registrar Ruta");
+                    DivSelCiudades.Visible = false;
+                    btnGuardar.Visible = false;
+                    divRuta.Visible = false;
+                    txtNombreRuta.Text = "";
+                    txtNomRuta.Text = "";
+                    txtNombreRuta.Focus();
+                    lstDetail.Clear();
                 }
 
             }
@@ -214,7 +218,7 @@ namespace Unisangil.CYLTRACK.CYLTRACK_WebApp.Rutas
                 int var = ciudadesRuta.Ciudad.Nombre_Ciudad.Length;
                 ciudadesRuta.Ciudad.Nombre_Ciudad = ciudadesRuta.Ciudad.Nombre_Ciudad.Substring(0, var -1 );
                 registrarRuta = servRuta.RegistrarRuta(ruta);
-
+                
                 MessageBox.Show("La ruta ingresada fue registrada satisfactoriamente", "Registrar Ruta");
                 
             }
@@ -226,9 +230,40 @@ namespace Unisangil.CYLTRACK.CYLTRACK_WebApp.Rutas
             {
                 servRuta.Close();
                 Response.Redirect("~/Rutas/frmRegistrarRuta.aspx");
+                txtNombreRuta.Text = "";
+                
             }
 
         }
+
+        protected void lstDepartamento_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            RutaServicesClient servRuta = new RutaServicesClient();
+
+            try
+            {
+                lstCiudad.DataSource = servRuta.ConsultaCiudades(lstDepartamento.SelectedValue);
+                lstCiudad.DataValueField = "Id_Ciudad";
+                lstCiudad.DataTextField = "Nombre_Ciudad";
+                lstCiudad.DataBind();
+
+            }
+            catch (Exception ex)
+            {
+                Response.Redirect("~/About.aspx");
+            }
+            finally
+            {
+                servRuta.Close();
+                lstCiudad.Focus();
+            }       
+        }
+
+        protected void lstCiudad_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            btnAgregar.Visible = true;
+        }
+
 
     }
 }

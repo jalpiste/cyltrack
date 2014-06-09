@@ -14,7 +14,7 @@
 
                  <div class="accountInfo">
                  <fieldset class="login">
-                    <legend>Modificar Ruta</legend>
+                    <legend>ModiModificar Ruta</legend>
                     <div id="DivModRuta" runat="server">
                      <asp:Label ID="lblNombreRuta" runat="server" Text="Nombre de Ruta: "></asp:Label>           
                      <br />
@@ -35,20 +35,22 @@
                         <asp:TextBox ID="txtNuevoNombre" runat="server" CssClass="textEntry" 
                             Width="197px" ontextchanged="txtNuevoNombre_TextChanged"
                          ></asp:TextBox>
+                        &nbsp;<asp:Label ID="lblIdRuta" runat="server" Visible="false"></asp:Label>
                         <br />
                         </div>  
                     
                     <div id="DivModificarDatos" runat ="server" visible ="false" >
                     <h3>
                     Seleccione la(s) ciudad(es) que hace(n) parte de la ruta.
-                    </h3>
+                    >
                     <br />
                     <asp:Label ID="lblDepartamento" runat="server" Text="Departamento: "></asp:Label>                                   
                         &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; &nbsp;
                     <asp:Label ID="lblCiudad" runat="server" Text="Ciudad: "></asp:Label>
                     <br />                
                     <asp:ListBox ID="lstDepartamento" runat="server" AutoPostBack="True" Rows="1" 
-                            Width="170px"> 
+                            Width="170px" 
+                            onselectedindexchanged="lstDepartamento_SelectedIndexChanged"> 
                     <asp:ListItem>Seleccionar</asp:ListItem>
                     </asp:ListBox>
                      &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;

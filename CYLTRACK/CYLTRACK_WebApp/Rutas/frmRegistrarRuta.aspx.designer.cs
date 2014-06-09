@@ -22,13 +22,22 @@ namespace Unisangil.CYLTRACK.CYLTRACK_WebApp.Rutas {
         protected global::System.Web.UI.WebControls.Literal FailureText;
         
         /// <summary>
-        /// Control RegistrarRutaValidationSummary.
+        /// Control validarNombreRuta.
         /// </summary>
         /// <remarks>
         /// Campo generado automáticamente.
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.ValidationSummary RegistrarRutaValidationSummary;
+        protected global::System.Web.UI.WebControls.ValidationSummary validarNombreRuta;
+        
+        /// <summary>
+        /// Control RegistrarRuta.
+        /// </summary>
+        /// <remarks>
+        /// Campo generado automáticamente.
+        /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.ValidationSummary RegistrarRuta;
         
         /// <summary>
         /// Control DivNomRuta.
@@ -92,6 +101,15 @@ namespace Unisangil.CYLTRACK.CYLTRACK_WebApp.Rutas {
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
         protected global::System.Web.UI.WebControls.TextBox txtNomRuta;
+        
+        /// <summary>
+        /// Control validarNombre.
+        /// </summary>
+        /// <remarks>
+        /// Campo generado automáticamente.
+        /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.RequiredFieldValidator validarNombre;
         
         /// <summary>
         /// Control DivSelCiudades.

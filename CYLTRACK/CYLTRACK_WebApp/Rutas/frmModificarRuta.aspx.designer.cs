@@ -112,6 +112,15 @@ namespace Unisangil.CYLTRACK.CYLTRACK_WebApp.Rutas {
         protected global::System.Web.UI.WebControls.TextBox txtNuevoNombre;
         
         /// <summary>
+        /// Control lblIdRuta.
+        /// </summary>
+        /// <remarks>
+        /// Campo generado automáticamente.
+        /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Label lblIdRuta;
+        
+        /// <summary>
         /// Control DivModificarDatos.
         /// </summary>
         /// <remarks>
