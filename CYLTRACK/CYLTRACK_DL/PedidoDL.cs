@@ -17,7 +17,7 @@ namespace Unisangil.CYLTRACK.CYLTRACK_DL
 {
     public class PedidoDL
     {
-        public long CrearPedido(ClienteBE cliente)
+        public long CrearPedido(PedidoBE pedido)
         {
             long codigo = 0;
             BaseDatos db = new BaseDatos();
@@ -25,97 +25,82 @@ namespace Unisangil.CYLTRACK.CYLTRACK_DL
             {
                 db.Conectar();
                 db.ComenzarTransaccion();
-                string nameSP = "CrearRegistroCliente";
+                string nameSP = "CrearRegistroPedido";
                 db.CrearComandoSP(nameSP);
 
-                DbParameter[] parametros = new DbParameter[11];
+                DbParameter[] parametros = new DbParameter[9];
 
                 parametros[0] = db.Comando.CreateParameter();
                 parametros[0].ParameterName = "vrCedula";
-                parametros[0].Value = cliente.Cedula;
+                parametros[0].Value = pedido.Cliente.Cedula;
                 parametros[0].Direction = ParameterDirection.Input;
-                parametros[0].Size = 12;
+                parametros[0].Size = 18;
                 db.Comando.Parameters.Add(parametros[0]);
 
                 parametros[1] = db.Comando.CreateParameter();
-                parametros[1].ParameterName = "vrNombres";
-                parametros[1].Value = cliente.Nombres_Cliente;
+                parametros[1].ParameterName = "vrId_Vehiculo";
+                parametros[1].Value = pedido.Vehiculo.Id_Vehiculo;
                 parametros[1].Direction = ParameterDirection.Input;
-                parametros[1].Size = 20;
+                parametros[1].Size = 18;
                 db.Comando.Parameters.Add(parametros[1]);
 
                 parametros[2] = db.Comando.CreateParameter();
-                parametros[2].ParameterName = "vrApellido_1";
-                parametros[2].Value = cliente.Apellido_1;
+                parametros[2].ParameterName = "vrCantidad";
+                parametros[2].Value = pedido.Detalle_Ped.Cantidad;
                 parametros[2].Direction = ParameterDirection.Input;
-                parametros[2].Size = 12;
+                parametros[2].Size = 100;
                 db.Comando.Parameters.Add(parametros[2]);
 
                 parametros[3] = db.Comando.CreateParameter();
-                parametros[3].ParameterName = "vrApellido_2";
-                parametros[3].Value = cliente.Apellido_2;
+                parametros[3].ParameterName = "vrTamano";
+                parametros[3].Value = pedido.Detalle_Ped.Tamano.Tamano;
                 parametros[3].Direction = ParameterDirection.Input;
-                parametros[3].Size = 15;
+                parametros[3].Size = 100;
                 db.Comando.Parameters.Add(parametros[3]);
 
                 parametros[4] = db.Comando.CreateParameter();
-                parametros[4].ParameterName = "vrDireccion";
-                parametros[4].Value = Convert.ToString(cliente.Ubicacion.Direccion);
+                parametros[4].ParameterName = "vrDetalle";
+                parametros[4].Value = pedido.Detalle;
                 parametros[4].Direction = ParameterDirection.Input;
-                parametros[4].Size = 30;
+                parametros[4].Size = 100;
                 db.Comando.Parameters.Add(parametros[4]);
 
                 parametros[5] = db.Comando.CreateParameter();
-                parametros[5].ParameterName = "vrBarrio";
-                parametros[5].Value = cliente.Ubicacion.Barrio;
+                parametros[5].ParameterName = "vrDireccion";
+                parametros[5].Value = pedido.Cliente.Ubicacion.Direccion;
                 parametros[5].Direction = ParameterDirection.Input;
                 parametros[5].Size = 30;
                 db.Comando.Parameters.Add(parametros[5]);
 
                 parametros[6] = db.Comando.CreateParameter();
-                parametros[6].ParameterName = "vrTelefono";
-                parametros[6].Value = cliente.Ubicacion.Telefono_1;
+                parametros[6].ParameterName = "vrSeparador";
+                parametros[6].Value = ",";
                 parametros[6].Direction = ParameterDirection.Input;
-                parametros[6].Size = 10;
+                parametros[6].Size = 1;
                 db.Comando.Parameters.Add(parametros[6]);
 
                 parametros[7] = db.Comando.CreateParameter();
-                parametros[7].ParameterName = "vrCiudad";
-                parametros[7].Value = cliente.Ubicacion.Ciudad.Nombre_Ciudad;
-                parametros[7].Direction = ParameterDirection.Input;
-                parametros[7].Size = 20;
+                parametros[7].ParameterName = "vrCodResult";
+                parametros[7].Value = 0;
+                parametros[7].Direction = ParameterDirection.Output;
                 db.Comando.Parameters.Add(parametros[7]);
 
-
                 parametros[8] = db.Comando.CreateParameter();
-                parametros[8].ParameterName = "vrDepartamento";
-                parametros[8].Value = cliente.Ubicacion.Ciudad.Departamento.Nombre_Departamento;
-                parametros[8].Direction = ParameterDirection.Input;
-                parametros[8].Size = 20;
+                parametros[8].ParameterName = "vrDescResult";
+                parametros[8].Value = "";
+                parametros[8].Direction = ParameterDirection.Output;
+                parametros[8].Size = 200;
+                parametros[8].DbType = DbType.String;
                 db.Comando.Parameters.Add(parametros[8]);
 
-                parametros[9] = db.Comando.CreateParameter();
-                parametros[9].ParameterName = "vrCodResult";
-                parametros[9].Value = 0;
-                parametros[9].Direction = ParameterDirection.Output;
-                db.Comando.Parameters.Add(parametros[9]);
-
-                parametros[10] = db.Comando.CreateParameter();
-                parametros[10].ParameterName = "vrDescResult";
-                parametros[10].Value = "";
-                parametros[10].Direction = ParameterDirection.Output;
-                parametros[10].Size = 200;
-                parametros[10].DbType = DbType.String;
-                db.Comando.Parameters.Add(parametros[10]);
-
                 db.EjecutarComando();
-                codigo = long.Parse(db.Comando.Parameters[9].Value.ToString());
+                codigo = long.Parse(db.Comando.Parameters[7].Value.ToString());
                 db.ConfirmarTransaccion();
             }
             catch (Exception ex)
             {
                 db.CancelarTransaccion();
-                throw new Exception("Error al crear el CilindroBE.", ex);
+                throw new Exception("Error al crear el PedidoBE.", ex);
             }
 
             finally

@@ -28,7 +28,7 @@ namespace Unisangil.CYLTRACK.CYLTRACK_DL
                 string nameSP = "CrearRegistroCliente";
                 db.CrearComandoSP(nameSP);
 
-                DbParameter[] parametros = new DbParameter[11];
+                DbParameter[] parametros = new DbParameter[10];
 
                 parametros[0] = db.Comando.CreateParameter();
                 parametros[0].ParameterName = "vrCedula";
@@ -60,7 +60,7 @@ namespace Unisangil.CYLTRACK.CYLTRACK_DL
 
                 parametros[4] = db.Comando.CreateParameter();
                 parametros[4].ParameterName = "vrDireccion";
-                parametros[4].Value = Convert.ToString(cliente.Ubicacion.Direccion);
+                parametros[4].Value = cliente.Ubicacion.Direccion;
                 parametros[4].Direction = ParameterDirection.Input;
                 parametros[4].Size = 30;
                 db.Comando.Parameters.Add(parametros[4]);
@@ -80,42 +80,34 @@ namespace Unisangil.CYLTRACK.CYLTRACK_DL
                 db.Comando.Parameters.Add(parametros[6]);
 
                 parametros[7] = db.Comando.CreateParameter();
-                parametros[7].ParameterName = "vrCiudad";
-                parametros[7].Value = cliente.Ubicacion.Ciudad.Nombre_Ciudad;
+                parametros[7].ParameterName = "vrId_Ciudad";
+                parametros[7].Value = cliente.Ubicacion.Ciudad.Id_Ciudad;
                 parametros[7].Direction = ParameterDirection.Input;
-                parametros[7].Size = 20;
+                parametros[7].Size = 5;
                 db.Comando.Parameters.Add(parametros[7]);
 
-
                 parametros[8] = db.Comando.CreateParameter();
-                parametros[8].ParameterName = "vrDepartamento";
-                parametros[8].Value = cliente.Ubicacion.Ciudad.Departamento.Nombre_Departamento;
-                parametros[8].Direction = ParameterDirection.Input;
-                parametros[8].Size = 20;
+                parametros[8].ParameterName = "vrCodResult";
+                parametros[8].Value = 0;
+                parametros[8].Direction = ParameterDirection.Output;
                 db.Comando.Parameters.Add(parametros[8]);
 
                 parametros[9] = db.Comando.CreateParameter();
-                parametros[9].ParameterName = "vrCodResult";
-                parametros[9].Value = 0;
+                parametros[9].ParameterName = "vrDescResult";
+                parametros[9].Value = "";
                 parametros[9].Direction = ParameterDirection.Output;
+                parametros[9].Size = 200;
+                parametros[9].DbType = DbType.String;
                 db.Comando.Parameters.Add(parametros[9]);
 
-                parametros[10] = db.Comando.CreateParameter();
-                parametros[10].ParameterName = "vrDescResult";
-                parametros[10].Value = "";
-                parametros[10].Direction = ParameterDirection.Output;
-                parametros[10].Size = 200;
-                parametros[10].DbType = DbType.String;
-                db.Comando.Parameters.Add(parametros[10]);
-
                 db.EjecutarComando();
-                codigo = long.Parse(db.Comando.Parameters[9].Value.ToString());
+                codigo = long.Parse(db.Comando.Parameters[8].Value.ToString());
                 db.ConfirmarTransaccion();
             }
             catch (Exception ex)
             {
                 db.CancelarTransaccion();
-                throw new Exception("Error al crear el CilindroBE.", ex);
+                throw new Exception("Error al crear el ClienteBE.", ex);
             }
 
             finally
@@ -163,7 +155,7 @@ namespace Unisangil.CYLTRACK.CYLTRACK_DL
                     {
                         c = new ClienteBE();
                         c.Cedula = datos.GetString(0);
-                        c.Nombres_Cliente = datos.GetValue(1).ToString();
+                        c.Nombres_Cliente = datos.GetString(1).ToString();
                         c.Apellido_1 = (datos.GetString(2));
                         c.Apellido_2 = (datos.GetString(3));
                         UbicacionBE ubi = new UbicacionBE();
@@ -171,9 +163,11 @@ namespace Unisangil.CYLTRACK.CYLTRACK_DL
                         ubi.Telefono_1 = datos.GetString(5);
                         ubi.Barrio = datos.GetString(6);
                         CiudadBE ciu = new CiudadBE();
-                        ciu.Nombre_Ciudad = datos.GetString(7);                        
+                        ciu.Nombre_Ciudad = datos.GetString(7);
+                        ciu.Id_Ciudad = datos.GetValue(8).ToString();
                         DepartamentoBE dep = new DepartamentoBE();
-                        dep.Nombre_Departamento = datos.GetString(8);
+                        dep.Nombre_Departamento = datos.GetString(9);
+                        dep.Id_Departamento = datos.GetValue(10).ToString();
                         ciu.Departamento = dep;
                         ubi.Ciudad = ciu;
                         c.Ubicacion = ubi;
@@ -266,7 +260,7 @@ namespace Unisangil.CYLTRACK.CYLTRACK_DL
                 string nameSP = "ModificarUbiCliente";
                 db.CrearComandoSP(nameSP);
 
-                DbParameter[] parametros = new DbParameter[11];
+                DbParameter[] parametros = new DbParameter[10];
 
                 parametros[0] = db.Comando.CreateParameter();
                 parametros[0].ParameterName = "vrCedula";
@@ -286,7 +280,7 @@ namespace Unisangil.CYLTRACK.CYLTRACK_DL
                 parametros[2].ParameterName = "vrApellido_1";
                 parametros[2].Value = cliente.Apellido_1;
                 parametros[2].Direction = ParameterDirection.Input;
-                parametros[2].Size = 12;
+                parametros[2].Size = 15;
                 db.Comando.Parameters.Add(parametros[2]);
 
                 parametros[3] = db.Comando.CreateParameter();
@@ -298,7 +292,7 @@ namespace Unisangil.CYLTRACK.CYLTRACK_DL
 
                 parametros[4] = db.Comando.CreateParameter();
                 parametros[4].ParameterName = "vrDireccion";
-                parametros[4].Value = Convert.ToString(cliente.Ubicacion.Direccion);
+                parametros[4].Value = cliente.Ubicacion.Direccion;
                 parametros[4].Direction = ParameterDirection.Input;
                 parametros[4].Size = 30;
                 db.Comando.Parameters.Add(parametros[4]);
@@ -318,36 +312,28 @@ namespace Unisangil.CYLTRACK.CYLTRACK_DL
                 db.Comando.Parameters.Add(parametros[6]);
 
                 parametros[7] = db.Comando.CreateParameter();
-                parametros[7].ParameterName = "vrCiudad";
-                parametros[7].Value = cliente.Ubicacion.Ciudad.Nombre_Ciudad;
+                parametros[7].ParameterName = "vrId_Ciudad";
+                parametros[7].Value = cliente.Ubicacion.Ciudad.Id_Ciudad;
                 parametros[7].Direction = ParameterDirection.Input;
-                parametros[7].Size = 20;
+                parametros[7].Size = 5;
                 db.Comando.Parameters.Add(parametros[7]);
 
-
                 parametros[8] = db.Comando.CreateParameter();
-                parametros[8].ParameterName = "vrDepartamento";
-                parametros[8].Value = cliente.Ubicacion.Ciudad.Departamento.Nombre_Departamento;
-                parametros[8].Direction = ParameterDirection.Input;
-                parametros[8].Size = 20;
+                parametros[8].ParameterName = "vrCodResult";
+                parametros[8].Value = 0;
+                parametros[8].Direction = ParameterDirection.Output;
                 db.Comando.Parameters.Add(parametros[8]);
 
                 parametros[9] = db.Comando.CreateParameter();
-                parametros[9].ParameterName = "vrCodResult";
-                parametros[9].Value = 0;
+                parametros[9].ParameterName = "vrDescResult";
+                parametros[9].Value = "";
                 parametros[9].Direction = ParameterDirection.Output;
+                parametros[9].Size = 200;
+                parametros[9].DbType = DbType.String;
                 db.Comando.Parameters.Add(parametros[9]);
 
-                parametros[10] = db.Comando.CreateParameter();
-                parametros[10].ParameterName = "vrDescResult";
-                parametros[10].Value = "";
-                parametros[10].Direction = ParameterDirection.Output;
-                parametros[10].Size = 200;
-                parametros[10].DbType = DbType.String;
-                db.Comando.Parameters.Add(parametros[10]);
-
                 db.EjecutarComando();
-                codigo = long.Parse(db.Comando.Parameters[9].Value.ToString());
+                codigo = long.Parse(db.Comando.Parameters[8].Value.ToString());
                 db.ConfirmarTransaccion();
             }
             catch (Exception ex)
@@ -374,7 +360,7 @@ namespace Unisangil.CYLTRACK.CYLTRACK_DL
                 string nameSP = "IngresaNuevaUbiCliente";
                 db.CrearComandoSP(nameSP);
 
-                DbParameter[] parametros = new DbParameter[8];
+                DbParameter[] parametros = new DbParameter[7];
 
                 parametros[0] = db.Comando.CreateParameter();
                 parametros[0].ParameterName = "vrCedula";
@@ -385,7 +371,7 @@ namespace Unisangil.CYLTRACK.CYLTRACK_DL
 
                 parametros[1] = db.Comando.CreateParameter();
                 parametros[1].ParameterName = "vrDireccion";
-                parametros[1].Value = Convert.ToString(cliente.Ubicacion.Direccion);
+                parametros[1].Value = cliente.Ubicacion.Direccion;
                 parametros[1].Direction = ParameterDirection.Input;
                 parametros[1].Size = 30;
                 db.Comando.Parameters.Add(parametros[1]);
@@ -405,35 +391,28 @@ namespace Unisangil.CYLTRACK.CYLTRACK_DL
                 db.Comando.Parameters.Add(parametros[3]);
 
                 parametros[4] = db.Comando.CreateParameter();
-                parametros[4].ParameterName = "vrCiudad";
-                parametros[4].Value = cliente.Ubicacion.Ciudad.Nombre_Ciudad;
+                parametros[4].ParameterName = "vrId_Ciudad";
+                parametros[4].Value = cliente.Ubicacion.Ciudad.Id_Ciudad;
                 parametros[4].Direction = ParameterDirection.Input;
-                parametros[4].Size = 20;
+                parametros[4].Size = 5;
                 db.Comando.Parameters.Add(parametros[4]);
-                
+  
                 parametros[5] = db.Comando.CreateParameter();
-                parametros[5].ParameterName = "vrDepartamento";
-                parametros[5].Value = cliente.Ubicacion.Ciudad.Departamento.Nombre_Departamento;
-                parametros[5].Direction = ParameterDirection.Input;
-                parametros[5].Size = 20;
+                parametros[5].ParameterName = "vrCodResult";
+                parametros[5].Value = 0;
+                parametros[5].Direction = ParameterDirection.Output;
                 db.Comando.Parameters.Add(parametros[5]);
 
                 parametros[6] = db.Comando.CreateParameter();
-                parametros[6].ParameterName = "vrCodResult";
-                parametros[6].Value = 0;
+                parametros[6].ParameterName = "vrDescResult";
+                parametros[6].Value = "";
                 parametros[6].Direction = ParameterDirection.Output;
+                parametros[6].Size = 200;
+                parametros[6].DbType = DbType.String;
                 db.Comando.Parameters.Add(parametros[6]);
 
-                parametros[7] = db.Comando.CreateParameter();
-                parametros[7].ParameterName = "vrDescResult";
-                parametros[7].Value = "";
-                parametros[7].Direction = ParameterDirection.Output;
-                parametros[7].Size = 200;
-                parametros[7].DbType = DbType.String;
-                db.Comando.Parameters.Add(parametros[7]);
-
                 db.EjecutarComando();
-                codigo = long.Parse(db.Comando.Parameters[6].Value.ToString());
+                codigo = long.Parse(db.Comando.Parameters[5].Value.ToString());
                 db.ConfirmarTransaccion();
             }
             catch (Exception ex)
