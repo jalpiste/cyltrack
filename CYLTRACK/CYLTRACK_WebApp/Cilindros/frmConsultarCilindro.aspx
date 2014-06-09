@@ -45,8 +45,9 @@
                         <asp:Label ID="LblTamano" runat="server" Text="Tamaño: " ></asp:Label>
                         </p>
                         <p>
-                            <asp:TextBox ID="TxtUbicacion" runat="server" CssClass="textEntry" Width="80px" Enabled="False" ></asp:TextBox>
-                            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                            <asp:TextBox ID="TxtUbicacion" runat="server" CssClass="textEntry" 
+                                Width="131px" Enabled="False" ></asp:TextBox>
+                           &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
                             <asp:TextBox ID="TxtTamano" runat="server" CssClass="textEntry" Width="80px" Enabled="False"></asp:TextBox>
                     </p>
                         <p>
