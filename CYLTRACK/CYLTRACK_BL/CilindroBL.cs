@@ -30,17 +30,22 @@ namespace Unisangil.CYLTRACK.CYLTRACK_BL
             long resp = 0;
             try
             {
-                if (cilindro.Ubicacion_Cilindro.Ubicacion.Tipo_Ubicacion.Nombre_Ubicacion == "Chatarra")
+                if (cilindro.Tipo_Ubicacion.Nombre_Ubicacion == "Chatarra")
                 {
-                    cilindro.Estado = "Chatarra";
+                    cilindro.Estado = "CHATARRA";
                 }
                 else 
                 {
-                    cilindro.Estado = "Uso";
-                    cilindro.Tipo_Cilindro = "Marcado";
-                }                   
+                    cilindro.Estado = "USO";
+                    cilindro.Tipo_Cilindro = "MARCADO";
+                }
 
-                resp = cil.CrearCilindro(cilindro);
+                if (cilindro.Vehiculo.Id_Vehiculo == "")
+                {
+                    cilindro.Vehiculo.Id_Vehiculo = "0";
+                }
+
+               resp = cil.CrearCilindro(cilindro);
             }
             catch (Exception ex)
             {
@@ -75,7 +80,7 @@ namespace Unisangil.CYLTRACK.CYLTRACK_BL
             CilindroBE resp = new CilindroBE();
             try
             {
-                resp = cil.ConsultarCilindro(cilindro);
+                resp = cil.ConsultarCilindro(cilindro);                
             }
             catch (Exception ex)
             {
@@ -85,13 +90,6 @@ namespace Unisangil.CYLTRACK.CYLTRACK_BL
             return resp;
         }
          
-        public string AsignarUbicacion(CilindroBE cilindro)
-        {
-            string resp;
-            resp = "Ok";
-            return resp;
-        }
-
         public List<Ubicacion_CilindroBE> ConsultarCilUbicacion(string ubica)
         {
             List<Ubicacion_CilindroBE> lstResp= new List<Ubicacion_CilindroBE>();
@@ -110,9 +108,27 @@ namespace Unisangil.CYLTRACK.CYLTRACK_BL
             return lstResp;
         }
 
-        public string CargueyDescargueCilindros(List<CilindroBE> cilindro)
+        public long ModificarUbicacionCilindro(CilindroBE cilindro)
         {
-            string resp = "Ok";
+            CilindroDL cil = new CilindroDL();
+            long resp = 0;
+            try
+            {
+                if (cilindro.Vehiculo.Id_Vehiculo == null)
+                {
+                    VehiculoBE veh = new VehiculoBE();
+                    veh.Id_Vehiculo = "0";
+                    cilindro.Vehiculo = veh;
+                }
+
+                resp = cil.ModificarUbicacionCilindro(cilindro);
+            }
+            catch (Exception ex)
+            {
+                //guardar exepcion en el log de bd
+                resp = -1;
+            }
+
             return resp;
         }
 

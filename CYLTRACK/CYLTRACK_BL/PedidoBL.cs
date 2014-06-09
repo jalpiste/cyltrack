@@ -24,9 +24,25 @@ namespace Unisangil.CYLTRACK.CYLTRACK_BL
         /// </summary>
         /// <param name="registrar_ped"></param>
         /// <returns></returns>
-        public string RegistrarPedido(PedidoBE registrar_ped)
+        public long RegistrarPedido(PedidoBE registrar_ped)
         {
-            String resp = "Ok";
+            PedidoDL pedido = new PedidoDL();
+            long resp = 0;
+            try
+            {
+                if (registrar_ped.Detalle == null)
+                {
+                    registrar_ped.Detalle = "0";
+                }
+
+                resp = pedido.CrearPedido(registrar_ped);
+            }
+            catch (Exception ex)
+            {
+                //guardar exepcion en el log de bd
+                resp = -1;
+            }
+
             return resp;
         }
         /// <summary>
@@ -99,7 +115,7 @@ namespace Unisangil.CYLTRACK.CYLTRACK_BL
 
             conPedido.Cilindro = lstCod;
             conPedido.Ciudad = ciu_cli;
-            conPedido.Ubicacion = ubicacion;
+            //conPedido.Ubicacion = ubicacion;
             conPedido.Vehiculo = veh;
             conPedido.Ruta = ruta;
             conPedido.Cliente = cliente;

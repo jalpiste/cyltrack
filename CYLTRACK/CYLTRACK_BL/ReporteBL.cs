@@ -235,7 +235,7 @@ namespace Unisangil.CYLTRACK.CYLTRACK_BL
                 veh.Placa = "XHA940";
                 ubicacion.Vehiculo = veh;
 
-                conPedido.Ubicacion = ubicacion;
+               // conPedido.Ubicacion = ubicacion;
                 conPedido.Vehiculo = veh;
                 conPedido.Cliente = cliente;
                 conPedido.Cilindro = lstCilindros;
@@ -293,7 +293,7 @@ namespace Unisangil.CYLTRACK.CYLTRACK_BL
             for (int i = 0; i < 5;i++ )
             {
                 VehiculoBE vehiculo = new VehiculoBE();
-                vehiculo.Id_Vehiculo = "" + i * 2;
+                //vehiculo.Id_Vehiculo = "" + i * 2;
                 vehiculo.Placa = "XHA098";
                 vehiculo.Marca = "Kia";
                 vehiculo.Cilindraje = "2800";
@@ -301,12 +301,7 @@ namespace Unisangil.CYLTRACK.CYLTRACK_BL
                 vehiculo.Motor = "ODJGDSJ335252VVDS";
                 vehiculo.Chasis = "ODJGDSJ335252VVDS111";
                 //--------------------------------
-                vehiculo.Ced_Prop = "7320591";
-                vehiculo.Nombres_Prop = "Cristobal";
-                vehiculo.Apellido_1_Prop = "Colón";
-                vehiculo.Apellido_2_Prop = "Mendieta";
-                //--------------------------------
-
+                
                 ConductorBE conductor = new ConductorBE();
                 conductor.Cedula = "19080347";
                 conductor.Nombres_Conductor = "Pablo";

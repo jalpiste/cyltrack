@@ -30,6 +30,14 @@ namespace Unisangil.CYLTRACK.CYLTRACK_BL
             long resp =0;
             try
             {
+                if (vehiculo.Estado == "Activo")
+                {
+                    vehiculo.Estado = "1";
+                }
+                else 
+                {
+                    vehiculo.Estado = "0";
+                }
                 resp = veh.CrearVehiculo(vehiculo);
             }
             catch (Exception ex)
@@ -96,8 +104,6 @@ namespace Unisangil.CYLTRACK.CYLTRACK_BL
             return resp;
 
         }
-
-
         /// <summary>
         /// Método para la consulta de vehículos en el sistema y muestra de información
         /// </summary>
@@ -109,7 +115,22 @@ namespace Unisangil.CYLTRACK.CYLTRACK_BL
             List<VehiculoBE> vehiculo = new List<VehiculoBE>();
             try
             {
+                if (placa == "") 
+                {
+                    placa = "0";
+                }
+                
                 vehiculo = veh.ConsultarVehiculo(placa);
+                foreach (VehiculoBE datos in vehiculo)
+                {
+                    if (datos.Estado == "1")
+                    {
+                        datos.Estado = "Activo";
+                    }
+                    else
+                        datos.Estado = "Inactivo";
+                }
+               
             }
             catch (Exception ex)
             {
@@ -128,6 +149,14 @@ namespace Unisangil.CYLTRACK.CYLTRACK_BL
             long resp = 0;
             try
             {
+                if (modificar_vehiculo.Estado == "Activo")
+                {
+                    modificar_vehiculo.Estado = "1";
+                }
+                else
+                {
+                    modificar_vehiculo.Estado = "0";
+                }
                 resp = veh.ModificarVehiculo(modificar_vehiculo);
             }
             catch (Exception ex)
@@ -157,20 +186,20 @@ namespace Unisangil.CYLTRACK.CYLTRACK_BL
             return cond;
         }
 
-        public VehiculoBE ConsultarPropVehiculo(string cedula)
+        public ContratistaBE ConsultarPropVehiculo(string cedula)
         {
 
             VehiculoDL veh = new VehiculoDL();
-            VehiculoBE vehiculo = new VehiculoBE();
+            ContratistaBE cont = new ContratistaBE();
             try
             {
-                vehiculo = veh.ConsultarPropVehiculo(cedula);
+                cont = veh.ConsultarPropVehiculo(cedula);
             }
             catch (Exception ex)
             {
 
             }
-            return vehiculo;
+            return cont;
         }
 
         public long RegistrarConductor(ConductorBE conductor)
@@ -181,6 +210,24 @@ namespace Unisangil.CYLTRACK.CYLTRACK_BL
             try
             {
                 resp = veh.RegistrarConductor(conductor);
+            }
+            catch (Exception ex)
+            {
+                //guardar exepcion en el log de bd
+                resp = -1;
+            }
+
+            return resp;
+        }
+
+        public long RegistrarContratista(ContratistaBE contratista)
+        {
+            VehiculoDL veh = new VehiculoDL();
+
+            long resp = 0;
+            try
+            {
+                resp = veh.RegistrarContratista(contratista);
             }
             catch (Exception ex)
             {

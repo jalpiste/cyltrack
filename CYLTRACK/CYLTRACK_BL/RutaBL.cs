@@ -34,11 +34,20 @@ namespace Unisangil.CYLTRACK.CYLTRACK_BL
             return respuesta;
         }
 
-        public String ModificarRuta(RutaBE ruta)
+        public long ModificarRuta(RutaBE ruta)
         {
-            String resp = "Ok";
-            
+            RutaDL rut = new RutaDL();
+            long resp = new long();
+            try
+            {
+               resp = rut.ModificarRuta(ruta);
+            }
+            catch (Exception ex)
+            {
+
+            }
             return resp;
+
         }
 
         public string ConsultarExistencias(string ruta)
@@ -58,7 +67,11 @@ namespace Unisangil.CYLTRACK.CYLTRACK_BL
             List<RutaBE> lstRuta = new List<RutaBE>();
             try
             {
-                lstRuta = rut.ConsultarRutas(ruta);
+                if(ruta == "")
+                {
+                    ruta = "0";
+                }
+                lstRuta = rut.ConsultarRutas(ruta);                
             }
             catch (Exception ex)
             {
@@ -85,22 +98,50 @@ namespace Unisangil.CYLTRACK.CYLTRACK_BL
 
         }
 
-        public List<CiudadBE> ConsultaDepartamentoyCiudades()
+        public List<CiudadBE> ConsultaCiudades(string id_dep)
         {
             RutaDL ruta = new RutaDL();
-            List<CiudadBE> ciudadesDep = new List<CiudadBE>();
+            List<CiudadBE> lstCiudades = new List<CiudadBE>();
             try
             {
-                ciudadesDep= ruta.ConsultaDepartamentoyCiudades();
+                lstCiudades = ruta.ConsultaCiudades(id_dep);
             }
             catch (Exception ex)
             {
 
             }
-            return ciudadesDep;        
+            return lstCiudades;        
         }
-        
 
+        public List<DepartamentoBE> ConsultaDepartamento()
+        {
+            RutaDL ruta = new RutaDL();
+            List<DepartamentoBE> lstDepartamentos = new List<DepartamentoBE>();
+            try
+            {
+                lstDepartamentos = ruta.ConsultaDepartamento();
+            }
+            catch (Exception ex)
+            {
+
+            }
+            return lstDepartamentos;
+        }
+
+        public RutaBE ConsultarRutaPorPlaca(Ruta_VehiculoBE rutaVehiculo)
+        {
+            RutaDL rut = new RutaDL();
+            RutaBE datoRuta = new RutaBE();
+            try
+            {
+                datoRuta = rut.ConsultarRutasPorPlaca(rutaVehiculo);
+            }
+            catch (Exception ex)
+            {
+
+            }
+            return datoRuta;
+        }
         #endregion
         #region Metodos privados
         #endregion
