@@ -35,20 +35,28 @@ namespace Unisangil.CYLTRACK.CYLTRACK_WebApp.Pedido
 
             if (!IsPostBack)
             {
-                List<string> tamanos = Auxiliar.ConsultarTamanos();
-                foreach (string datosTamanos in tamanos)
+                ReporteServiceClient servReporte = new ReporteServiceClient();
+                try
                 {
-                    lstTamano.Items.Add((datosTamanos).Substring(3));
+                    lstTamano.DataSource = servReporte.ConsultaTamanoCilindro();
+                    lstTamano.DataTextField = "Tamano";
+                    lstTamano.DataBind();
+
+                }
+                catch (Exception ex)
+                {
+                    Response.Redirect("~/About.aspx");
+                }
+                finally
+                {
+                    servReporte.Close();
                 }
             }
         }
-
         protected void txtCedula_TextChanged(object sender, EventArgs e)
         {
             ClienteServiceClient servCliente = new ClienteServiceClient();
-            VehiculoServiceClient serVeh = new VehiculoServiceClient();
-            RutaServicesClient serRuta = new RutaServicesClient();
-            PedidoServiceClient servPedido = new PedidoServiceClient();
+            VehiculoServiceClient servVeh = new VehiculoServiceClient();
             
             long resp;
             try
@@ -58,6 +66,9 @@ namespace Unisangil.CYLTRACK.CYLTRACK_WebApp.Pedido
                if (resp == 0)
                {
                    MessageBox.Show("El cliente no se encuentra registrado en el sistema", "Registrar Pedido");
+                   divInfoCliente.Visible = false;
+                   txtCedula.Text = "";
+                   txtCedula.Focus();
                }
 
                else
@@ -78,17 +89,11 @@ namespace Unisangil.CYLTRACK.CYLTRACK_WebApp.Pedido
                    btnGuardar.Visible = true;
                    lstDireccion.Focus();
 
-                   List<VehiculoBE> listaPlacas = new List<VehiculoBE>(serVeh.ConsultarVehiculo(string.Empty));
-                   foreach (VehiculoBE datosVehiculo in listaPlacas)
-                   {
-                       lstPlaca.Items.Add(datosVehiculo.Placa);
-                   }
+                   lstPlaca.DataSource = servVeh.ConsultarVehiculo(string.Empty);
+                   lstPlaca.DataValueField = "Id_Vehiculo";
+                   lstPlaca.DataTextField = "Placa";
+                   lstPlaca.DataBind(); 
                    
-                   RutaBE ruta = new RutaBE();
-                  // ruta = serRuta.ConsultarRuta(objCliente.Ubicacion.Ciudad.Nombre_Ciudad);
-                   // se tiene que consultar la ruta que tiene cada placa seleccionada...
-                   //PedidoBE ped = servPedido.Consultar_Pedido(txtCedula.Text);
-                   //lblNumeroPedido.Text = ped.Id_Pedido;
                }
             }
             catch (Exception ex)
@@ -98,12 +103,7 @@ namespace Unisangil.CYLTRACK.CYLTRACK_WebApp.Pedido
             finally
             {
                 servCliente.Close();
-                servPedido.Close();
-                serVeh.Close();
-                serRuta.Close();
-                lblCodigoPedido.Visible = true;
-                lblNumeroPedido.Visible = true;
-                
+                servVeh.Close();                
             }                       
         }
 
@@ -123,22 +123,21 @@ namespace Unisangil.CYLTRACK.CYLTRACK_WebApp.Pedido
         {
             PedidoServiceClient servPedido = new PedidoServiceClient();
             PedidoBE registrar_ped = new PedidoBE();
-            String resp;
-            txtCedula.Text = "";
-            
+            long resp;
+            txtCedula.Text = "";            
 
             try
             {
                 ClienteBE idcliente = new ClienteBE();
                 idcliente.Cedula = txtCedulaCli.Text;
-                registrar_ped.Cliente = idcliente;
-
                 UbicacionBE ubicli = new UbicacionBE();
                 ubicli.Direccion = lstDireccion.SelectedValue;
-                registrar_ped.Ubicacion = ubicli;
+                idcliente.Ubicacion = ubicli;
+                registrar_ped.Cliente = idcliente;
 
+                
                 VehiculoBE veh = new VehiculoBE();
-                veh.Placa = lstPlaca.SelectedValue;
+                veh.Id_Vehiculo = lstPlaca.SelectedValue;
                 registrar_ped.Vehiculo = veh;
 
                 RutaBE ruta = new RutaBE();
@@ -147,18 +146,22 @@ namespace Unisangil.CYLTRACK.CYLTRACK_WebApp.Pedido
 
                 PedidoBE pedido = new PedidoBE();
                 pedido.Detalle = txtObservaciones.Text;
-
+                
+                Detalle_PedidoBE det = new Detalle_PedidoBE();
+                TamanoBE tamanito = new TamanoBE();
+                det.Tamano = tamanito;
                 foreach (DataRow row in objdtTabla.Rows)
                 {
-                    Detalle_PedidoBE det = new Detalle_PedidoBE();
-                    TamanoBE tamanito = new TamanoBE();
-                    det.Tamano = tamanito;
-                    det.Tamano.Tamano = (Convert.ToString(row["TamanoCil"]));
-                    det.Cantidad = (Convert.ToString(row["CantidadPedido"]));
-                    lstDetail.Add(det);
+                    det.Tamano.Tamano += Convert.ToString(row["TamanoCil"])+",";
+                    det.Cantidad += Convert.ToString(row["CantidadPedido"])+",";                        
                 }
-                                
-                registrar_ped.Detalle_Ped = lstDetail;
+
+                int varCant = det.Cantidad.Length;
+                det.Cantidad = det.Cantidad.Substring(0, varCant - 1);
+
+                int varTam = det.Tamano.Tamano.Length;
+                det.Tamano.Tamano = det.Tamano.Tamano.Substring(0, varTam - 1);
+                registrar_ped.Detalle_Ped = det;
 
                 resp = servPedido.Registrar_Pedido(registrar_ped);
 
@@ -267,5 +270,37 @@ namespace Unisangil.CYLTRACK.CYLTRACK_WebApp.Pedido
             gvPedido.DataBind();
             btnGuardar.Focus();
         }
+
+        protected void lstPlaca_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            RutaServicesClient servRuta = new RutaServicesClient();
+            try 
+            {
+                Ruta_VehiculoBE rutaVehiculo = new Ruta_VehiculoBE() ;
+                CiudadBE ciu = new CiudadBE();
+                ciu.Nombre_Ciudad = txtCiudad.Text;
+                rutaVehiculo.Ciudad = ciu;
+                                
+                VehiculoBE veh = new VehiculoBE();
+                veh.Id_Vehiculo = lstPlaca.SelectedValue;
+                rutaVehiculo.Vehiculo = veh;
+
+                RutaBE objRuta_Vehiculo = servRuta.ConsultarRutaPorPlaca(rutaVehiculo);
+                lblRutaAsignada.Text = objRuta_Vehiculo.Nombre_Ruta;
+            }
+            catch (Exception ex)
+            {
+                Response.Redirect("~/About.aspx");
+            }
+            finally
+            {
+                servRuta.Close();
+                btnGuardar.Focus();
+            }
+
+
+        }
+
+        
     }
 }

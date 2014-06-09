@@ -90,11 +90,11 @@ namespace Unisangil.CYLTRACK.CYLTRACK_WebApp.Pedido
                         txtNombreCliente.Text = consultar_ped.Cliente.Nombres_Cliente;
                         txtPrimerApellido.Text = consultar_ped.Cliente.Apellido_1;
                         txtSegundoApellido.Text = consultar_ped.Cliente.Apellido_2;
-                        lstDireccion.Items.Add(consultar_ped.Ubicacion.Direccion);
-                        txtBarrio.Text = consultar_ped.Ubicacion.Barrio;
-                        txtCiudad.Text = consultar_ped.Ubicacion.Ciudad.Nombre_Ciudad;
-                        txtDepartamento.Text = consultar_ped.Ubicacion.Ciudad.Departamento.Nombre_Departamento;
-                        txtTelefono.Text = consultar_ped.Ubicacion.Telefono_1;
+                        lstDireccion.Items.Add(consultar_ped.Cliente.Ubicacion.Direccion);
+                        txtBarrio.Text = consultar_ped.Cliente.Ubicacion.Barrio;
+                        txtCiudad.Text = consultar_ped.Cliente.Ubicacion.Ciudad.Nombre_Ciudad;
+                        txtDepartamento.Text = consultar_ped.Cliente.Ubicacion.Ciudad.Departamento.Nombre_Departamento;
+                        txtTelefono.Text = consultar_ped.Cliente.Ubicacion.Telefono_1;
                         lblFechaPedido.Text = Convert.ToString(consultar_ped.Fecha);
                         lblCodigoPedido.Text = consultar_ped.Id_Pedido;
                         lstPlaca.Items.Add(consultar_ped.Vehiculo.Placa);
@@ -148,11 +148,11 @@ namespace Unisangil.CYLTRACK.CYLTRACK_WebApp.Pedido
                     txtNombreCliente.Text = consultar_ped.Cliente.Nombres_Cliente;
                     txtPrimerApellido.Text = consultar_ped.Cliente.Apellido_1;
                     txtSegundoApellido.Text = consultar_ped.Cliente.Apellido_2;
-                    lstDireccion.Items.Add(consultar_ped.Ubicacion.Direccion);
-                    txtBarrio.Text = consultar_ped.Ubicacion.Barrio;
-                    txtCiudad.Text = consultar_ped.Ubicacion.Ciudad.Nombre_Ciudad;
-                    txtDepartamento.Text = consultar_ped.Ubicacion.Ciudad.Departamento.Nombre_Departamento;
-                    txtTelefono.Text = consultar_ped.Ubicacion.Telefono_1;
+                    lstDireccion.Items.Add(consultar_ped.Cliente.Ubicacion.Direccion);
+                    txtBarrio.Text = consultar_ped.Cliente.Ubicacion.Barrio;
+                    txtCiudad.Text = consultar_ped.Cliente.Ubicacion.Ciudad.Nombre_Ciudad;
+                    txtDepartamento.Text = consultar_ped.Cliente.Ubicacion.Ciudad.Departamento.Nombre_Departamento;
+                    txtTelefono.Text = consultar_ped.Cliente.Ubicacion.Telefono_1;
                     lblFechaPedido.Text = Convert.ToString(consultar_ped.Fecha);
                     lblCodigoPedido.Text = consultar_ped.Id_Pedido;
                     lstPlaca.Items.Add(consultar_ped.Vehiculo.Placa);
@@ -187,7 +187,7 @@ namespace Unisangil.CYLTRACK.CYLTRACK_WebApp.Pedido
         protected void btnGuardar_Click(object sender, EventArgs e)
         {
             PedidoServiceClient servPedido = new PedidoServiceClient();
-            String resp;
+            long resp;
             PedidoBE modificar_ped = new PedidoBE();
             txtCedula.Text = "";
 
@@ -199,7 +199,7 @@ namespace Unisangil.CYLTRACK.CYLTRACK_WebApp.Pedido
 
                 UbicacionBE ubicli = new UbicacionBE();
                 ubicli.Direccion = lstDireccion.SelectedValue;
-                modificar_ped.Ubicacion = ubicli;
+                modificar_ped.Cliente.Ubicacion = ubicli;
 
                 VehiculoBE veh = new VehiculoBE();
                 veh.Placa = lstPlaca.SelectedValue;
@@ -220,21 +220,14 @@ namespace Unisangil.CYLTRACK.CYLTRACK_WebApp.Pedido
                 }
 
                 
-                modificar_ped.Detalle_Ped = lstDetail;
+                //modificar_ped.Detalle_Ped = lstDetail;
              
-                resp = servPedido.Modificar_Pedido(Convert.ToString(modificar_ped));
+                //resp = servPedido.Modificar_Pedido(Convert.ToString(modificar_ped));
 
-                if (resp == "Ok")
-                {
-                   if (lstDetail.Count == 0)
-                   {
-                      MessageBox.Show("No se percibió cambio en la orden de pedido de cilindros", "Modificar Pedido");
-                   }
-                   else
-                   {
+                
                       MessageBox.Show("El pedido fue modificado satisfactoriamente", "Modificar Pedido");
-                   }
-                }
+                  
+                
             }
             catch (Exception ex)
             {
@@ -339,11 +332,11 @@ namespace Unisangil.CYLTRACK.CYLTRACK_WebApp.Pedido
                     txtNombreCliente.Text = consultar_ped.Cliente.Nombres_Cliente;
                     txtPrimerApellido.Text = consultar_ped.Cliente.Apellido_1;
                     txtSegundoApellido.Text = consultar_ped.Cliente.Apellido_2;
-                    lstDireccion.Items.Add(consultar_ped.Ubicacion.Direccion);
-                    txtBarrio.Text = consultar_ped.Ubicacion.Barrio;
-                    txtCiudad.Text = consultar_ped.Ubicacion.Ciudad.Nombre_Ciudad;
-                    txtDepartamento.Text = consultar_ped.Ubicacion.Ciudad.Departamento.Nombre_Departamento;
-                    txtTelefono.Text = consultar_ped.Ubicacion.Telefono_1;
+                    lstDireccion.Items.Add(consultar_ped.Cliente.Ubicacion.Direccion);
+                    txtBarrio.Text = consultar_ped.Cliente.Ubicacion.Barrio;
+                    txtCiudad.Text = consultar_ped.Cliente.Ubicacion.Ciudad.Nombre_Ciudad;
+                    txtDepartamento.Text = consultar_ped.Cliente.Ubicacion.Ciudad.Departamento.Nombre_Departamento;
+                    txtTelefono.Text = consultar_ped.Cliente.Ubicacion.Telefono_1;
                     lblFechaPedido.Text = Convert.ToString(consultar_ped.Fecha);
                     lblCodigoPedido.Text = consultar_ped.Id_Pedido;
                     lstPlaca.Items.Add(consultar_ped.Vehiculo.Placa);

@@ -22,65 +22,61 @@ namespace Unisangil.CYLTRACK.CYLTRACK_WebApp.Pedido
 
         protected void txtCedula_TextChanged(object sender, EventArgs e)
         {
-            ReporteServiceClient servReporte = new ReporteServiceClient();
             PedidoServiceClient servPedido = new PedidoServiceClient();
-            PedidoBE consultar_ped = new PedidoBE();
-            long resp;
-
-            try
-
-            {
-                resp = servReporte.consultadeExistenciaVarios(txtCedula.Text);
-
-                if (resp == 0)
-                {
-                    MessageBox.Show("El Pedido no se encuentra registrado en el sistema", "Consultar Pedido");
-                }
+            
+            //long resp;
+            //try
+            //{
+            ////    resp = servCliente.ConsultarExistenciasClientes(txtCedula.Text);
                 
-                    else
-                    {
-                       DataTable tabla = new DataTable();
+            //   if (resp == 0)
+            //   {
+            //       MessageBox.Show("El cliente no se encuentra registrado en el sistema", "Registrar Pedido");
+            //       divInfoCliente.Visible = false;
+            //       txtCedula.Text = "";
+            //       txtCedula.Focus();
+            //   }
 
-                       tabla.Columns.Add("CantidadPedido");
-                       tabla.Columns.Add("TamanoCil");
-                    
-                       PedidoBE objPedido = new PedidoBE();
-                       objPedido = servPedido.Consultar_Pedido(txtCedula.Text);
-
-                        lblCodigoPedido.Text = objPedido.Id_Pedido;
-                        txtCedulaCliente.Text = objPedido.Cliente.Cedula;
-                        txtNombreCliente.Text = objPedido.Cliente.Nombres_Cliente;
-                        txtPrimerApellido.Text = objPedido.Cliente.Apellido_1;
-                        txtSegundoApellido.Text = objPedido.Cliente.Apellido_2;
-                        txtDireccion.Text = objPedido.Ubicacion.Direccion;
-                        txtBarrio.Text = objPedido.Ubicacion.Barrio;
-                        txtCiudad.Text = objPedido.Ubicacion.Ciudad.Nombre_Ciudad;
-                        txtDepartamento.Text = objPedido.Ubicacion.Ciudad.Departamento.Nombre_Departamento;
-                        txtTelefono.Text = objPedido.Ubicacion.Telefono_1;
-                        txtPlaca.Text = objPedido.Vehiculo.Placa;
-                        lblRutaAsignada.Text = objPedido.Ruta.Nombre_Ruta;
-                        foreach (CilindroBE datos in objPedido.Cilindro)
-                        {
-                            tabla.Rows.Add(datos.Cantidad, datos.NTamano.Tamano); 
-                        }                                               
+            //   else
+            //   {
+            //       ClienteBE objCliente = servCliente.Consultar_Cliente(txtCedula.Text);
                    
-                        gvPedido.DataSource = tabla;
-                        gvPedido.DataBind();
-                    
-                        lblFechaPedido.Text = Convert.ToString(objPedido.Fecha);
-                        lblFechaEntregaCilindro.Text=  Convert.ToString(objPedido.Fecha);
-                        divInfoCliente.Visible = true;
-                        btnNuevaConsulta.Visible = true;
-                    }
-            }
-            catch (Exception ex)
-            {
-                Response.Redirect("~/About.aspx");
-            }
-            finally
-            {
-                servReporte.Close();
-            }
+            //       txtCedulaCli.Text = objCliente.Cedula;
+            //       txtNombreCliente.Text = objCliente.Nombres_Cliente;
+            //       txtPrimerApellido.Text = objCliente.Apellido_1;
+            //       txtSegundoApellido.Text = objCliente.Apellido_2;
+            //       lstDireccion.Items.Add(objCliente.Ubicacion.Direccion);
+            //       txtBarrio.Text = objCliente.Ubicacion.Barrio;
+            //       txtCiudad.Text = objCliente.Ubicacion.Ciudad.Nombre_Ciudad;
+            //       txtDepartamento.Text = objCliente.Ubicacion.Ciudad.Departamento.Nombre_Departamento;
+            //       txtTelefono.Text = objCliente.Ubicacion.Telefono_1;
+
+            //       divInfoCliente.Visible = true;
+            //       btnGuardar.Visible = true;
+            //       lstDireccion.Focus();
+
+            //       lstPlaca.DataSource = servVeh.ConsultarVehiculo(string.Empty);
+            //       lstPlaca.DataValueField = "Id_Vehiculo";
+            //       lstPlaca.DataTextField = "Placa";
+            //       lstPlaca.DataBind(); 
+                   
+            //   }
+            //}
+            //catch (Exception ex)
+            //{
+            //    Response.Redirect("~/About.aspx");
+            //}
+            //finally
+            //{
+            //    servCliente.Close();
+            //    servPedido.Close();
+            //    servVeh.Close();
+            //    serRuta.Close();
+            //    lblCodigoPedido.Visible = true;
+            //    lblNumeroPedido.Visible = true;
+                
+            //}                       
+        
         }
 
         protected void NumPedidoTxt_TextChanged(object sender, EventArgs e)
@@ -115,11 +111,11 @@ namespace Unisangil.CYLTRACK.CYLTRACK_WebApp.Pedido
                     txtNombreCliente.Text = objPedido.Cliente.Nombres_Cliente;
                     txtPrimerApellido.Text = objPedido.Cliente.Apellido_1;
                     txtSegundoApellido.Text = objPedido.Cliente.Apellido_2;
-                    txtDireccion.Text = objPedido.Ubicacion.Direccion;
-                    txtBarrio.Text = objPedido.Ubicacion.Barrio;
-                    txtCiudad.Text = objPedido.Ubicacion.Ciudad.Nombre_Ciudad;
-                    txtDepartamento.Text = objPedido.Ubicacion.Ciudad.Departamento.Nombre_Departamento;
-                    txtTelefono.Text = objPedido.Ubicacion.Telefono_1;
+                    txtDireccion.Text = objPedido.Cliente.Ubicacion.Direccion;
+                    txtBarrio.Text = objPedido.Cliente.Ubicacion.Barrio;
+                    txtCiudad.Text = objPedido.Cliente.Ubicacion.Ciudad.Nombre_Ciudad;
+                    txtDepartamento.Text = objPedido.Cliente.Ubicacion.Ciudad.Departamento.Nombre_Departamento;
+                    txtTelefono.Text = objPedido.Cliente.Ubicacion.Telefono_1;
                     txtPlaca.Text = objPedido.Vehiculo.Placa;
                     lblRutaAsignada.Text = objPedido.Ruta.Nombre_Ruta;
                     foreach (CilindroBE datos in objPedido.Cilindro)

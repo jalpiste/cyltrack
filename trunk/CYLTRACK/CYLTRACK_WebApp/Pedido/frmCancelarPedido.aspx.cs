@@ -47,11 +47,11 @@ namespace Unisangil.CYLTRACK.CYLTRACK_WebApp.Pedido
                         txtNombreCliente.Text = objPed.Cliente.Nombres_Cliente;
                         txtPrimerApellido.Text = objPed.Cliente.Apellido_1;
                         txtSegundoApellido.Text = objPed.Cliente.Apellido_2;
-                        txtDireccion.Text = objPed.Ubicacion.Direccion;
-                        txtBarrio.Text = objPed.Ubicacion.Barrio;
-                        txtCiudad.Text = objPed.Ubicacion.Ciudad.Nombre_Ciudad;
-                        txtDepartamento.Text = objPed.Ubicacion.Ciudad.Departamento.Nombre_Departamento;
-                        txtTelefono.Text = objPed.Ubicacion.Telefono_1;
+                        txtDireccion.Text = objPed.Cliente.Ubicacion.Direccion;
+                        txtBarrio.Text = objPed.Cliente.Ubicacion.Barrio;
+                        txtCiudad.Text = objPed.Cliente.Ubicacion.Ciudad.Nombre_Ciudad;
+                        txtDepartamento.Text = objPed.Cliente.Ubicacion.Ciudad.Departamento.Nombre_Departamento;
+                        txtTelefono.Text = objPed.Cliente.Ubicacion.Telefono_1;
                         //----------------------------------------------------------
                         txtZona.Text = objPed.Vehiculo.Placa;
                         lblRutaAsignada.Text = objPed.Ruta.Nombre_Ruta;
@@ -108,11 +108,11 @@ namespace Unisangil.CYLTRACK.CYLTRACK_WebApp.Pedido
                     txtNombreCliente.Text = objPed.Cliente.Nombres_Cliente;
                     txtPrimerApellido.Text = objPed.Cliente.Apellido_1;
                     txtSegundoApellido.Text = objPed.Cliente.Apellido_2;
-                    txtDireccion.Text = objPed.Ubicacion.Direccion;
-                    txtBarrio.Text = objPed.Ubicacion.Barrio;
-                    txtCiudad.Text = objPed.Ubicacion.Ciudad.Nombre_Ciudad;
-                    txtDepartamento.Text = objPed.Ubicacion.Ciudad.Departamento.Nombre_Departamento;
-                    txtTelefono.Text = objPed.Ubicacion.Telefono_1;
+                    txtDireccion.Text = objPed.Cliente.Ubicacion.Direccion;
+                    txtBarrio.Text = objPed.Cliente.Ubicacion.Barrio;
+                    txtCiudad.Text = objPed.Cliente.Ubicacion.Ciudad.Nombre_Ciudad;
+                    txtDepartamento.Text = objPed.Cliente.Ubicacion.Ciudad.Departamento.Nombre_Departamento;
+                    txtTelefono.Text = objPed.Cliente.Ubicacion.Telefono_1;
                     //----------------------------------------------------------
                     txtZona.Text = objPed.Vehiculo.Placa;
                     lblRutaAsignada.Text = objPed.Ruta.Nombre_Ruta;
