@@ -96,7 +96,8 @@
 
                         <asp:Label ID="lblVehiculo" runat="server" Text="Placa Vehículo: "></asp:Label>
                     &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-                        <asp:ListBox ID="lstPlaca" runat="server" Rows="1">
+                        <asp:ListBox ID="lstPlaca" runat="server" Rows="1" AutoPostBack="true"
+                            >
                         </asp:ListBox>
                         <asp:RequiredFieldValidator ID="ValidarPlaca" runat="server" ControlToValidate="lstPlaca" CssClass="failureNotification" 
                      ErrorMessage="La selección de la placa del vehículo es obligatoria." ToolTip="La selección de la placa del vehículo es obligatoria." 
@@ -110,7 +111,8 @@
                       <p>
                           <asp:Label ID="lblTamanoCil" runat="server" Text="Tamaño Cilindro:"></asp:Label>
                       &nbsp;&nbsp;&nbsp;&nbsp;
-                          <asp:ListBox ID="lstTamano" runat="server" Rows="1">
+                          <asp:ListBox ID="lstTamano" runat="server" Rows="1" 
+                              >
                           </asp:ListBox>
                           &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<asp:Label ID="lblCantidadCilindro" runat="server" Text="Cantidad Cilindros: "></asp:Label>
                           &nbsp;&nbsp;&nbsp;
