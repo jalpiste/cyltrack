@@ -188,9 +188,9 @@ namespace Unisangil.CYLTRACK.CYLTRACK_WebApp.Ventas
                     txtNombreCliente.Text = datosPedido.Cliente.Nombres_Cliente;
                     txtPrimerApellido.Text = datosPedido.Cliente.Apellido_1;
                     txtSegundoApellido.Text = datosPedido.Cliente.Apellido_2;
-                    lstDireccion.Items.Add(datosPedido.Ubicacion.Direccion);
-                    txtBarrio.Text = datosPedido.Ubicacion.Barrio;
-                    txtTelefono.Text = datosPedido.Ubicacion.Telefono_1;
+                    lstDireccion.Items.Add(datosPedido.Cliente.Ubicacion.Direccion);
+                    txtBarrio.Text = datosPedido.Cliente.Ubicacion.Barrio;
+                    txtTelefono.Text = datosPedido.Cliente.Ubicacion.Telefono_1;
                     txtCiudad.Text = datosPedido.Ciudad.Nombre_Ciudad;
                     txtDepartamento.Text = datosPedido.Ciudad.Departamento.Nombre_Departamento;
                     foreach (CilindroBE datos in datosPedido.Cilindro)
