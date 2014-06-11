@@ -41,6 +41,9 @@ Project("{E24C65DC-7377-472B-9ABA-BC803B73C61A}") = "CYLTRACK_Services", "CYLTRA
 	EndProjectSection
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CYLTRACK_WebApp", "CYLTRACK_WebApp\CYLTRACK_WebApp.csproj", "{764A507E-34DD-4E08-B8AB-25B2B2FBFEF7}"
+	ProjectSection(ProjectDependencies) = postProject
+		{AD98270E-AF3B-4DEE-BDC9-6E41FA303508} = {AD98270E-AF3B-4DEE-BDC9-6E41FA303508}
+	EndProjectSection
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "AppTest", "CYLTRACK_Test\AppTest\AppTest.csproj", "{7D3D444A-2505-47EE-8444-E275100BE70C}"
 	ProjectSection(ProjectDependencies) = postProject
