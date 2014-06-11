@@ -130,9 +130,9 @@ namespace Unisangil.CYLTRACK.CYLTRACK_WCF_Services
         /// </summary>
         /// <param name="consultarPropVehiculo">cédula propietario</param>
         /// <returns>objeto de negocio vehiculo</returns>
-        public VehiculoBE ConsultarPropVehiculo(string cedula)
+        public ContratistaBE ConsultarPropVehiculo(string cedula)
         {
-            VehiculoBE resp;
+            ContratistaBE resp;
             VehiculoBL consultaPropietarioV = new VehiculoBL();
             resp = consultaPropietarioV.ConsultarPropVehiculo(cedula);
             return resp;
@@ -177,6 +177,20 @@ namespace Unisangil.CYLTRACK.CYLTRACK_WCF_Services
             long resp;
             VehiculoBL RegisConductor = new VehiculoBL();
             resp = RegisConductor.RegistrarConductor(conductor);
+            return resp;
+        }
+
+        /// <summary>
+        /// Encargado de recibir un contratista de los canales front de venta y llamar
+        /// al metodo de negocio para crear un registrar contratista
+        /// </summary>
+        /// <param name="conductor">Objeto de negocio contratista</param>
+        /// <returns>identity</returns>
+        public long RegistrarContratista(ContratistaBE contratista)
+        {
+            long resp;
+            VehiculoBL RegisContratista = new VehiculoBL();
+            resp = RegisContratista.RegistrarContratista(contratista);
             return resp;
         }
     }

@@ -35,7 +35,7 @@ namespace Unisangil.CYLTRACK.CYLTRACK_WCF_Services
         /// <param name="ruta">Objeto de negocio ruta</param> 
         /// <returns>nombre de la ruta</returns>
         [OperationContract]
-        string ModificarRuta(RutaBE ruta);
+        long ModificarRuta(RutaBE ruta);
         
         /// <summary>
         /// Método encargado de la consulta de rutas en el sistema. Permite
@@ -46,14 +46,33 @@ namespace Unisangil.CYLTRACK.CYLTRACK_WCF_Services
         [OperationContract]
         List<RutaBE> ConsultarRuta(string ruta);
 
+
         /// <summary>
-        /// Método encargado de la consulta de ciudades y/o departamentos en el sistema. Permite
+        /// Método encargado de la consulta de rutas por placas en el sistema. Permite
         /// que las aplicaciones llamen a los objetos de negocio directamente.
         /// </summary>
-        /// <param name="ruta">Objeto de negocio ciudad</param> 
-        /// <returns>nombre de ciudades y/o departamentos</returns>
+        /// <param name="placa y ciudad">Objeto de negocio ruta_vehiculo</param> 
+        /// <returns>Objeto Ruta</returns>
         [OperationContract]
-        List<CiudadBE> ConsultaDepartamentoyCiudades();
+        RutaBE ConsultarRutaPorPlaca(Ruta_VehiculoBE rutaVehiculo);
+
+        /// <summary>
+        /// Método encargado de la consulta de los departamentos en el sistema. Permite
+        /// que las aplicaciones llamen a los objetos de negocio directamente.
+        /// </summary>
+        /// <param name=""></param> 
+        /// <returns>lista de objetos departamentos</returns>
+        [OperationContract]
+        List<DepartamentoBE> ConsultaDepartamento();
+
+                /// <summary>
+        /// Método encargado de la consulta de ciudades  en el sistema. Permite
+        /// que las aplicaciones llamen a los objetos de negocio directamente.
+        /// </summary>
+        /// <param name="id_departamento">identificador departamento</param> 
+        /// <returns>lista de objetos ciudades</returns>
+        [OperationContract]
+        List<CiudadBE> ConsultaCiudades(string id_dep);
 
         /// <summary>
         /// Método encargado de la consulta de existencia de rutas en el sistema. Permite

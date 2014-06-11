@@ -26,9 +26,9 @@ namespace Unisangil.CYLTRACK.CYLTRACK_WCF_Services
         /// </summary>
         /// <param name="registrar_ped">Objeto de negocio pedido</param>
         /// <returns>cédula del cliente</returns>
-        public string Registrar_Pedido(PedidoBE pedido)
+        public long Registrar_Pedido(PedidoBE pedido)
         {
-            String resp;
+            long resp;
             PedidoBL regisPedido = new PedidoBL();
             resp = regisPedido.RegistrarPedido(pedido);
             return resp;

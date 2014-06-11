@@ -84,7 +84,7 @@ namespace Unisangil.CYLTRACK.CYLTRACK_WCF_Services
         /// <param name="consultarPropVehiculo">cédula propietario</param>
         /// <returns>objeto de negocio vehiculo</returns>
         [OperationContract]
-        VehiculoBE ConsultarPropVehiculo(string cedula);
+        ContratistaBE ConsultarPropVehiculo(string cedula);
 
         /////// <summary>
         /////// Método encargado de la consulta de placas de vehiculos en el sistema. Permite
@@ -112,6 +112,15 @@ namespace Unisangil.CYLTRACK.CYLTRACK_WCF_Services
         /// <returns>objeto conductor</returns>
         [OperationContract]
         long RegistrarConductor(ConductorBE conductor);
+
+        /// <summary>
+        /// Método encargado del registro de contratistas en el sistema. Permite
+        /// que las aplicaciones llamen a los objetos de negocio directamente.
+        /// </summary>
+        /// <param name="registrarContratista">Objeto de negocio contratista</param>
+        /// <returns>identity</returns>
+        [OperationContract]
+        long RegistrarContratista(ContratistaBE contratista);
 
         /// <summary>
         /// Método encargado de la consulta para la confirmación de existencia de conductor en el sistema. Permite

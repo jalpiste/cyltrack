@@ -28,7 +28,7 @@ namespace Unisangil.CYLTRACK.CYLTRACK_WCF_Services
         /// <param name="pedido">Objeto de negocio pedido</param>
         /// <returns>cédula del cliente</returns>
         [OperationContract]
-        string Registrar_Pedido(PedidoBE pedido);
+        long Registrar_Pedido(PedidoBE pedido);
 
         /// <summary>
         /// Método encargado de la consulta de pedidos en el sistema. Permite
