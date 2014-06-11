@@ -40,9 +40,9 @@ namespace Unisangil.CYLTRACK.CYLTRACK_WCF_Services
          ///</summary>
          ///<param name="ruta">Objeto de negocio ruta</param>
          ///<returns>Nombre de ruta</returns>
-        public string ModificarRuta(RutaBE ruta)
+        public long ModificarRuta(RutaBE ruta)
         {
-            string resp;
+            long resp;
             RutaBL modificarRuta = new RutaBL();
             resp = modificarRuta.ModificarRuta(ruta);
             return resp;
@@ -61,16 +61,42 @@ namespace Unisangil.CYLTRACK.CYLTRACK_WCF_Services
         }
 
         ///<summary>
-        ///Encargado de recibir una ciudad de los canales front de venta y llamar
-        ///al metodo de negocio para consultar ruta
+        ///Encargado de recibir un vehiculo y ciudad de los canales front de venta y llamar
+        ///al metodo de negocio para consultar ruta por placa
         ///</summary>
-        ///<param name="ruta">valor de negocio ruta</param>
-        ///<returns>existencia de ruta</returns>
-        public List<CiudadBE> ConsultaDepartamentoyCiudades()
+        ///<param name="Id_placa y Nombreciudad">Objeto de negocio ruta_vehiculo</param>
+        ///<returns>objeto ruta</returns>
+        public RutaBE ConsultarRutaPorPlaca(Ruta_VehiculoBE rutaVehiculo)
+        {
+            RutaBL consultarRuta = new RutaBL();
+            return consultarRuta.ConsultarRutaPorPlaca(rutaVehiculo);
+        }
+
+        ///<summary>
+        ///Encargado de llamar desde los canales front de venta  
+        ///al metodo de negocio para consultar departamentos
+        ///</summary>
+        ///<param name=""></param>
+        ///<returns>lista de objetos departamentos</returns>
+        public List<DepartamentoBE> ConsultaDepartamento()
+        {
+            List<DepartamentoBE> resp;
+            RutaBL consultarDepartamento = new RutaBL();
+            resp = consultarDepartamento.ConsultaDepartamento();
+            return resp;
+        }
+
+        ///<summary>
+        ///Encargado de recibir un departamento de los canales front de venta y llamar
+        ///al metodo de negocio para consultar ciudades
+        ///</summary>
+        ///<param name="id_departamento">identificador departamento</param>
+        ///<returns>lista de objetos ciudades</returns>
+        public List<CiudadBE> ConsultaCiudades(string id_dep)
         {
             List<CiudadBE> resp;
-            RutaBL consultarDepyCiudad = new RutaBL();
-            resp = consultarDepyCiudad.ConsultaDepartamentoyCiudades();
+            RutaBL consultarCiudad = new RutaBL();
+            resp = consultarCiudad.ConsultaCiudades(id_dep);
             return resp;
         }
 

@@ -37,16 +37,6 @@ namespace Unisangil.CYLTRACK.CYLTRACK_WCF_Services
         [OperationContract]
         CilindroBE ConsultarCilindro(string cilindro);
 
-       
-        /// <summary>
-        /// Método encargado de la asignación de ubicación de cilindros dentro de la planta en el sistema. Permite
-        /// que las aplicaciones llamen a los objetos de negocio directamente.
-        /// </summary>
-        /// <param name="cilindro">Objeto de negocio cilindro</param>
-        /// <returns>código cilindro</returns>
-        [OperationContract]
-        string AsignarUbicacion(CilindroBE cilindro);
-
 
         /// <summary>
         /// Método encargado de la consulta de cilindros de una ubicacion especifica en el sistema. Permite
@@ -64,7 +54,7 @@ namespace Unisangil.CYLTRACK.CYLTRACK_WCF_Services
         /// <param name="cilindro">Objetos de negocio cilindro</param>
         /// <returns>respuesta operacion</returns>
         [OperationContract]
-        string CargueyDescargueCilindros(List<CilindroBE> cilindros);
+        long ModificarUbicaCilindro(CilindroBE cilindros);
 
         /// <summary>
         /// Método encargado de la consulta de existencia de cilindros en el sistema. Permite
