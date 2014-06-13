@@ -80,7 +80,13 @@ namespace Unisangil.CYLTRACK.CYLTRACK_BL
             CilindroBE resp = new CilindroBE();
             try
             {
-                resp = cil.ConsultarCilindro(cilindro);                
+                resp = cil.ConsultarCilindro(cilindro);   
+                //if(resp.Tipo_Ubicacion.Nombre_Ubicacion=="VEHICULO")
+                //{
+                //    VehiculoDL veh = new VehiculoDL();
+                //    VehiculoBE objVehi= new VehiculoBE();
+                //    objVehi= veh.ConsultarVehiculo
+                //}
             }
             catch (Exception ex)
             {
