@@ -59,7 +59,7 @@
                        
                <asp:Label ID="lblCiudad" runat="server" AssociatedControlID="LstCiudad" Width="685px" >Ciudad:</asp:Label>
                             <br />
-               <asp:ListBox ID="lstDepartamento" runat="server" Rows="1" 
+               <asp:ListBox ID="lstDepartamento" runat="server" Rows="1" AutoPostBack="true" 
                        onselectedindexchanged="lstDepartamento_SelectedIndexChanged">
                             <asp:ListItem>Seleccionar...</asp:ListItem>
                         </asp:ListBox>
@@ -69,7 +69,8 @@
                      
                            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
                      
-                           <asp:ListBox ID="lstCiudad" runat="server" Rows="1">
+                           <asp:ListBox ID="lstCiudad" runat="server" Rows="1"   AutoPostBack="false"
+                       onselectedindexchanged="lstCiudad_SelectedIndexChanged">
                             <asp:ListItem>Seleccionar...</asp:ListItem>
                         </asp:ListBox>
                      <asp:RequiredFieldValidator ID="ValidarCiudad" runat="server" ControlToValidate="lstCiudad" CssClass="failureNotification" 
@@ -82,11 +83,11 @@
               </p> 
                 </fieldset>
                 <p class="submitButton">
-                <asp:Button ID="btnLimpiar" runat="server" Text="Limpiar" Width="115px" 
+                <asp:Button ID="btnLimpiar" runat="server" Text="Limpiar" Width="115px" Visible="false"
                         onclick="btnLimpiar_Click"/> 
                     &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; &nbsp; 
                     <asp:Button ID="btnGuardar" runat="server" Text="Guardar" 
-                        Width="115px" onclick="btnGuardar_Click" ValidationGroup="NuevaUbic"/>  
+                        Width="115px" onclick="btnGuardar_Click" Visible="false" ValidationGroup="NuevaUbic"/>  
                     &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; &nbsp;  
                     <asp:Button ID="btnAtras" runat="server" Text="Atrás" 
                         Width="115px" onclick="btnAtras_Click" /> 

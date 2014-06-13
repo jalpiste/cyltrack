@@ -13,31 +13,29 @@ namespace Unisangil.CYLTRACK.CYLTRACK_WebApp.Clientes
 {
     public partial class frmNuevaUbicacion : System.Web.UI.Page
     {
-      
+
         public void Page_Load(object sender, EventArgs e)
         {
-            if(!IsPostBack)
+            if (!IsPostBack)
             {
                 txtNuevaDireccion.Focus();
-                
+
             }
 
             if (!IsPostBack)
             {
                 lblCedula.Text = (Server.UrlDecode(Request.QueryString["ReturnUrl"]));
             }
-            
+
             if (!IsPostBack)
             {
                 RutaServicesClient servRuta = new RutaServicesClient();
                 try
                 {
-                    List<CiudadBE> datosCiudades = new List<CiudadBE>(servRuta.ConsultaDepartamentoyCiudades());
-                    foreach (CiudadBE datos in datosCiudades)
-                    {
-                        lstCiudad.Items.Add(datos.Nombre_Ciudad);
-                        lstDepartamento.Items.Add(datos.Departamento.Nombre_Departamento);
-                    }
+                    lstDepartamento.DataSource = servRuta.ConsultaDepartamento();
+                    lstDepartamento.DataValueField = "Id_Departamento";
+                    lstDepartamento.DataTextField = "Nombre_Departamento";
+                    lstDepartamento.DataBind();
                 }
                 catch (Exception ex)
                 {
@@ -47,9 +45,9 @@ namespace Unisangil.CYLTRACK.CYLTRACK_WebApp.Clientes
                 {
                     servRuta.Close();
                 }
-            } 
-         }
-               
+            }
+        }
+
         protected void btnLimpiar_Click(object sender, EventArgs e)
         {
 
@@ -59,7 +57,7 @@ namespace Unisangil.CYLTRACK.CYLTRACK_WebApp.Clientes
         {
             ClienteServiceClient servCliente = new ClienteServiceClient();
             long resp;
-            
+
             try
             {
                 ClienteBE cliente = new ClienteBE();
@@ -71,15 +69,11 @@ namespace Unisangil.CYLTRACK.CYLTRACK_WebApp.Clientes
                 cliente.Ubicacion = ubi;
 
                 CiudadBE ciucli = new CiudadBE();
-                ciucli.Nombre_Ciudad = lstCiudad.SelectedValue;
+                ciucli.Id_Ciudad = lstCiudad.SelectedValue;
                 ubi.Ciudad = ciucli;
 
-                DepartamentoBE depcli = new DepartamentoBE();
-                depcli.Nombre_Departamento = lstDepartamento.SelectedValue;
-                ciucli.Departamento = depcli;
-
                 cliente.Cedula = lblCedula.Text;
-                
+
                 resp = servCliente.Agregar_Ubicacion(cliente);
 
                 MessageBox.Show("La nueva ubicación fue registrada satisfactoriamente", "Registrar Nueva Ubicación");
@@ -102,7 +96,31 @@ namespace Unisangil.CYLTRACK.CYLTRACK_WebApp.Clientes
 
         protected void lstDepartamento_SelectedIndexChanged(object sender, EventArgs e)
         {
-            lstCiudad.Focus();
-        }        
+            RutaServicesClient servRuta = new RutaServicesClient();
+
+            try
+            {
+                lstCiudad.DataSource = servRuta.ConsultaCiudades(lstDepartamento.SelectedValue);
+                lstCiudad.DataValueField = "Id_Ciudad";
+                lstCiudad.DataTextField = "Nombre_Ciudad";
+                lstCiudad.DataBind();
+
+            }
+            catch (Exception ex)
+            {
+                Response.Redirect("~/About.aspx");
+            }
+            finally
+            {
+                servRuta.Close();
+                lstCiudad.Focus();
+            }
+        }
+
+        protected void lstCiudad_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            btnGuardar.Visible = true;
+            btnLimpiar.Visible = true;
+        }
     }
 }

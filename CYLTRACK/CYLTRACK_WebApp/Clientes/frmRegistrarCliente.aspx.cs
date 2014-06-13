@@ -17,22 +17,20 @@ namespace Unisangil.CYLTRACK.CYLTRACK_WebApp.Clientes
     {
         protected void Page_Load(object sender, EventArgs e)
         {
-            if(!IsPostBack)
+            if (!IsPostBack)
             {
                 txtCedula.Focus();
             }
-            
+
             if (!IsPostBack)
             {
                 RutaServicesClient servRuta = new RutaServicesClient();
                 try
                 {
-                    List<CiudadBE> datosCiudades = new List<CiudadBE>(servRuta.ConsultaDepartamentoyCiudades());
-                    foreach (CiudadBE datos in datosCiudades)
-                    {
-                        lstCiudad.Items.Add(datos.Nombre_Ciudad);
-                        lstDepartamento.Items.Add(datos.Departamento.Nombre_Departamento);
-                    }
+                    lstDepartamento.DataSource = servRuta.ConsultaDepartamento();
+                    lstDepartamento.DataValueField = "Id_Departamento";
+                    lstDepartamento.DataTextField = "Nombre_Departamento";
+                    lstDepartamento.DataBind();
                 }
                 catch (Exception ex)
                 {
@@ -48,7 +46,7 @@ namespace Unisangil.CYLTRACK.CYLTRACK_WebApp.Clientes
         protected void txtCedula_TextChanged(object sender, EventArgs e)
         {
             ClienteServiceClient servCliente = new ClienteServiceClient();
-            
+
             long resp;
             try
             {
@@ -57,6 +55,17 @@ namespace Unisangil.CYLTRACK.CYLTRACK_WebApp.Clientes
                 if (resp != 0)
                 {
                     MessageBox.Show("El cliente ya se encuentra registrado en el sistema", "Registrar Cliente");
+                    divInfoCliente.Visible = false;
+                    txtCedulaCli.Text = "";
+                    txtBarrio.Text = "";
+                    txtCedula.Text = "";
+                    txtDireccion.Text = "";
+                    txtNombreCliente.Text = "";
+                    txtPrimerApellido.Text = "";
+                    txtSegundoApellido.Text = "";
+                    txtTelefono.Text = "";
+                    btnGuardar.Visible = false;
+                    txtCedula.Focus();
                 }
                 else
                 {
@@ -94,25 +103,22 @@ namespace Unisangil.CYLTRACK.CYLTRACK_WebApp.Clientes
                 cliente.Nombres_Cliente = txtNombreCliente.Text;
                 cliente.Apellido_1 = txtPrimerApellido.Text;
                 cliente.Apellido_2 = txtSegundoApellido.Text;
-                
+
                 UbicacionBE ubicacion = new UbicacionBE();
                 ubicacion.Direccion = txtDireccion.Text;
                 ubicacion.Barrio = txtBarrio.Text;
                 ubicacion.Telefono_1 = txtTelefono.Text;
-                
+
                 CiudadBE ciucli = new CiudadBE();
-                ciucli.Nombre_Ciudad = lstCiudad.SelectedValue;
+                ciucli.Id_Ciudad = lstCiudad.SelectedValue;
                 ubicacion.Ciudad = ciucli;
                 cliente.Ubicacion = ubicacion;
 
-                DepartamentoBE depcli = new DepartamentoBE();
-                depcli.Nombre_Departamento = lstDepartamento.SelectedValue;
-                ciucli.Departamento = depcli;
-                
+
                 resp = servCliente.Registrar_Cliente(cliente);
 
                 MessageBox.Show("El cliente fue registrado satisfactoriamente", "Registrar Cliente");
-                
+
             }
             catch (Exception ex)
             {
@@ -142,7 +148,26 @@ namespace Unisangil.CYLTRACK.CYLTRACK_WebApp.Clientes
 
         protected void lstDepartamento_SelectedIndexChanged(object sender, EventArgs e)
         {
-            lstCiudad.Focus();
+            RutaServicesClient servRuta = new RutaServicesClient();
+
+            try
+            {
+                lstCiudad.DataSource = servRuta.ConsultaCiudades(lstDepartamento.SelectedValue);
+                lstCiudad.DataValueField = "Id_Ciudad";
+                lstCiudad.DataTextField = "Nombre_Ciudad";
+                lstCiudad.DataBind();
+
+            }
+            catch (Exception ex)
+            {
+                Response.Redirect("~/About.aspx");
+            }
+            finally
+            {
+                servRuta.Close();
+                lstCiudad.Focus();
+            }
+
         }
     }
 }
