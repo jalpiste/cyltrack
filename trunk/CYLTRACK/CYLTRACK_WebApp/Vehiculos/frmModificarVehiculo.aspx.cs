@@ -29,18 +29,23 @@ namespace Unisangil.CYLTRACK.CYLTRACK_WebApp.Vehiculos
 
         protected void txtPlaca1_TextChanged(object sender, EventArgs e)
         {
-            ReporteServiceClient serReporte = new ReporteServiceClient();
             RutaServicesClient servRuta = new RutaServicesClient();
             VehiculoServiceClient servVehiculo = new VehiculoServiceClient();
             long resp;
 
             try
             {
-                resp = serReporte.consultadeExistenciaVarios(txtPlaca1.Text);
+                resp = servVehiculo.ConsultarExistenciaVehiculo(txtPlaca1.Text);
 
                 if (resp == 0)
                 {
                     MessageBox.Show("El vehículo no se encuentra registrado en el sistema", "Modificar Vehículo");
+                    DivAsignacionConductor.Visible = false;
+                    DivPropietario.Visible = false;
+                    DivSelRuta.Visible = false;
+                    DivVehiculo.Visible = false;
+                    txtPlaca1.Text = "";
+                    txtPlaca1.Focus();                   
                 }
 
                 else
@@ -67,10 +72,10 @@ namespace Unisangil.CYLTRACK.CYLTRACK_WebApp.Vehiculos
                         {
                             lstEstado.Items.Add(datoEstado);                            
                         }
-                        txtCedula.Text = datos.Ced_Prop;
-                        txtCedula2.Text = txtCedula1.Text;
-                        txtCedula1.Text = datos.Conductor.Cedula;
-                        lblImprimirCedula.Text = txtCedula1.Text;
+                        txtCedula2.Text = datos.Contratista.Cedula;
+                        txtNombre.Text = datos.Contratista.Nombres;
+                        txtApellidos.Text = datos.Contratista.Apellidos;
+                        lblImprimirCedula.Text = datos.Conductor.Cedula;
                         txtNombreCond.Text = datos.Conductor.Nombres_Conductor;
                         txtPrimerApellidoCond.Text = datos.Conductor.Apellido_1;
                         txtSegundoApellidoCond.Text = datos.Conductor.Apellido_2;
@@ -86,6 +91,7 @@ namespace Unisangil.CYLTRACK.CYLTRACK_WebApp.Vehiculos
                     DivPropietario.Visible = true;
                     DivSelRuta.Visible = true;
                     DivAsignacionConductor.Visible = true;
+                    DivDatosConductor.Visible = true;
                     btnGuardar.Visible = true;
                                  
                 }
@@ -97,8 +103,6 @@ namespace Unisangil.CYLTRACK.CYLTRACK_WebApp.Vehiculos
             }
             finally
             {
-
-                serReporte.Close();
                 servRuta.Close();
                 servVehiculo.Close();
             }
@@ -120,10 +124,6 @@ namespace Unisangil.CYLTRACK.CYLTRACK_WebApp.Vehiculos
                 modificar_vehiculo.Modelo = lstModelo.SelectedValue;
                 modificar_vehiculo.Motor = txtMotor.Text;
                 modificar_vehiculo.Chasis = txtChasis.Text;
-                modificar_vehiculo.Ced_Prop = txtCedula2.Text;
-                modificar_vehiculo.Nombres_Prop = txtNombre.Text;
-                modificar_vehiculo.Apellido_1_Prop = txtPrimerApellido.Text;
-                modificar_vehiculo.Apellido_2_Prop = txtSegundoApellido.Text;
                 modificar_vehiculo.Estado = lstEstado.SelectedValue;
 
                 ConductorBE cond = new ConductorBE();
@@ -133,6 +133,10 @@ namespace Unisangil.CYLTRACK.CYLTRACK_WebApp.Vehiculos
                 RutaBE rutaasig = new RutaBE();
                 rutaasig.Id_Ruta = lstRuta.SelectedValue;
                 modificar_vehiculo.Ruta = rutaasig;
+
+                ContratistaBE contratista = new ContratistaBE();
+                contratista.Cedula = txtCedula2.Text;
+                modificar_vehiculo.Contratista = contratista;
 
                 resp = servVehiculo.Modificar_Vehiculo(modificar_vehiculo);
 
@@ -215,13 +219,12 @@ namespace Unisangil.CYLTRACK.CYLTRACK_WebApp.Vehiculos
                 if (consultarPropVehiculo != 0)
                 {
                     txtCedula2.Text = txtCedula.Text;
-                    VehiculoBE objVehiculo = servVehiculo.ConsultarPropVehiculo(txtCedula2.Text);
-                    txtNombre.Text = objVehiculo.Nombres_Prop;
-                    txtPrimerApellido.Text = objVehiculo.Apellido_1_Prop;
-                    txtSegundoApellido.Text = objVehiculo.Apellido_2_Prop;
+                    ContratistaBE objContratista = servVehiculo.ConsultarPropVehiculo(txtCedula2.Text);
+                    txtNombre.Text = objContratista.Nombres;
+                    txtApellidos.Text = objContratista.Apellidos;
                     txtNombre.Enabled = false;
-                    txtPrimerApellido.Enabled = false;
-                    txtSegundoApellido.Enabled = false;
+                    txtApellidos.Enabled = false;
+                    
                 }
             }
             catch (Exception ex)
@@ -258,7 +261,7 @@ namespace Unisangil.CYLTRACK.CYLTRACK_WebApp.Vehiculos
                     txtNombreCond.Text = objConductor.Nombres_Conductor;
                     txtPrimerApellidoCond.Text = objConductor.Apellido_1;
                     txtSegundoApellidoCond.Text = objConductor.Apellido_2;
-                    DatosConductor.Visible = true;
+                    DivDatosConductor.Visible = true;
                     btnGuardar.Visible = true;
                     txtCedula1.Text = "";
                 }

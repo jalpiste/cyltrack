@@ -1,4 +1,5 @@
-﻿<%@ Page Title="" Language="C#" MasterPageFile="~/Site.Master" AutoEventWireup="true" CodeBehind="frmRegistrarVehiculo.aspx.cs" Inherits="Unisangil.CYLTRACK.CYLTRACK_WebApp.Vehiculos.frmRegistrarVehiculo" %>
+﻿
+<%@ Page Title="" Language="C#" MasterPageFile="~/Site.Master" AutoEventWireup="true" CodeBehind="frmRegistrarVehiculo.aspx.cs" Inherits="Unisangil.CYLTRACK.CYLTRACK_WebApp.Vehiculos.frmRegistrarVehiculo" %>
 <asp:Content ID="Content1" ContentPlaceHolderID="HeadContent" runat="server">
     <style type="text/css">
         #DivPropietario
@@ -114,7 +115,7 @@
                     
                     
                 </div> 
-                <div id = "DivPropietario" runat ="server" visible ="false">
+                <div id = "DivDatosPropietario" runat ="server" visible ="false">
                      <div class="post" >
                           <asp:Label ID="lblPoster1" runat="server" Text="Información de Propietario"></asp:Label>
                       </div> 
@@ -122,53 +123,34 @@
                     <asp:TextBox ID="txtCedula" runat="server" CssClass= "textEntry" Width="160px" 
                          ontextchanged="txtCedula_TextChanged" ></asp:TextBox>   
                         
-                        <asp:RequiredFieldValidator ID="ValidarRegisCedulaProp" runat="server" ControlToValidate="txtCedula" 
-                             CssClass="failureNotification" ErrorMessage="El número de cédula del propietario del vehículo es obligatorio." ToolTip="El número de cédula del propietario del vehículo es obligatorio." 
-                             ValidationGroup="RegistrarVehiculo">*</asp:RequiredFieldValidator>
-                    <asp:RegularExpressionValidator ID="ValidarDatosCedulaProp" runat="server" ControlToValidate="txtCedula" 
+                        <asp:RegularExpressionValidator ID="ValidarDatosCedulaProp" runat="server" ControlToValidate="txtCedula" 
                     CssClass="failureNotification" ErrorMessage="El número de cédula debe contener entre 6 y 10 dígitos." 
                         ValidationExpression="^([\d]{6,10})$"  ToolTip="Sólo caractéres numéricos." 
                     ValidationGroup="RegistrarVehiculo" >*</asp:RegularExpressionValidator>
                     
-                         <br />
-                         <br />  
+                        
+                   <div id = "DivConsultaPropietario" runat ="server" visible ="false"> 
                       <asp:Label ID="lblCedula2" runat="server" Text="Número de Cédula: "></asp:Label><br />
                     <asp:TextBox ID="txtCedula2" runat="server" CssClass= "textEntry" Width="160px" 
-                         ontextchanged="txtCedula_TextChanged" Enabled="false"></asp:TextBox>                                    
-                    
-                    <br />
-                    <asp:Label ID="lblNombre" runat="server" Text="Nombre " ></asp:Label>
+                        Enabled="false"></asp:TextBox> 
+                        <asp:RequiredFieldValidator ID="validarCedProp" runat="server" ControlToValidate="txtCedula2" 
+                             CssClass="failureNotification" ErrorMessage="El número de cédula del propietario del vehículo es obligatorio." ToolTip="El número de cédula del propietario del vehículo es obligatorio." 
+                             ValidationGroup="RegistrarVehiculo">*</asp:RequiredFieldValidator>
+                    <asp:RegularExpressionValidator ID="validarExpreProp" runat="server" ControlToValidate="txtCedula2" 
+                    CssClass="failureNotification" ErrorMessage="El número de cédula debe contener entre 6 y 10 dígitos." 
+                        ValidationExpression="^([\d]{6,10})$"  ToolTip="Sólo caractéres numéricos." 
+                    ValidationGroup="RegistrarVehiculo" >*</asp:RegularExpressionValidator>
+                   <br />                                      
+                    <asp:Label ID="lblNombres" runat="server" Text="Nombres " ></asp:Label>
                     &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-                    <asp:Label ID="lblPrimerApellido" runat="server" Text="Primer Apellido " ></asp:Label>
-                    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-                    <asp:Label ID="lblSegundoApellido" runat="server" Text="Segundo Apellido " ></asp:Label><br />                  
-                    <asp:TextBox ID="txtNombre" runat="server" CssClass= "textEntry" Width="160px" ></asp:TextBox>                                       
-                    <asp:RequiredFieldValidator ID="ValidarRegisNomProp" runat="server" ControlToValidate="txtNombre" 
-                             CssClass="failureNotification" ErrorMessage="El nombre del propietario del vehículo es obligatorio." ToolTip="El nombre del propietario del vehículo es obligatorio." 
-                             ValidationGroup="RegistrarVehiculo">*</asp:RequiredFieldValidator>
-                    <asp:RegularExpressionValidator ID="ValidarDatosNomProp" runat="server" ControlToValidate="txtNombre" 
-                    CssClass="failureNotification" ErrorMessage="El nombre debe contener sólo caracteres alfabéticos." 
-                        ValidationExpression="^([A-Za-z]{0,20})$"  
-                    ValidationGroup="RegistrarVehiculo" >*</asp:RegularExpressionValidator>
+                    <asp:Label ID="lblApellidos" runat="server" Text="Apellidos " ></asp:Label>
+                    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; &nbsp;
+                    <asp:TextBox ID="txtNombres" runat="server" CssClass= "textEntry" Width="160px" Enabled="false" ></asp:TextBox>                                       
                     
                     &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-                    <asp:TextBox ID="txtPrimerApellido" runat="server" CssClass= "textEntry" Width="160px" ></asp:TextBox>                                       
-                    <asp:RequiredFieldValidator ID="ValidarRegisApeProp" runat="server" ControlToValidate="txtPrimerApellido" 
-                             CssClass="failureNotification" ErrorMessage="El apellido del propietario del vehículo es obligatorio." ToolTip="El apellido del propietario del vehículo es obligatorio." 
-                             ValidationGroup="RegistrarVehiculo">*</asp:RequiredFieldValidator>
-                    <asp:RegularExpressionValidator ID="ValidarDatosApeProp" runat="server" ControlToValidate="txtPrimerApellido" 
-                    CssClass="failureNotification" ErrorMessage="El apellido debe contener sólo caracteres alfabéticos." 
-                        ValidationExpression="^([A-Za-z]{0,20})$"  
-                    ValidationGroup="RegistrarVehiculo" >*</asp:RegularExpressionValidator>
-                    
-
-                    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-                    <asp:TextBox ID="txtSegundoApellido" runat="server" CssClass= "textEntry" Width="160px" ></asp:TextBox>                                       
-                    <asp:RegularExpressionValidator ID="ValidarDatosApePorp" runat="server" ControlToValidate="txtSegundoApellido" 
-                    CssClass="failureNotification" ErrorMessage="El apellido debe contener sólo caracteres alfabéticos." 
-                        ValidationExpression="^([A-Za-z]{0,20})$"  
-                    ValidationGroup="RegistrarVehiculo" >*</asp:RegularExpressionValidator>
-                    
+                    <asp:TextBox ID="txtApellidos" runat="server" CssClass= "textEntry" Width="160px" Enabled="false"  ></asp:TextBox> 
+                         </div>                                      
+                   
                 </div> 
                     
                     <div id="DivAsignacionConductor" runat="server" visible="false">
@@ -178,20 +160,25 @@
                     <asp:Label ID="lblCedula1" runat="server" Text="Número de Cédula: " Visible="false"></asp:Label><br />
                     <asp:TextBox ID="txtCedula1" runat="server" CssClass= "textEntry" Width="160px" 
                         ontextchanged="txtCedula1_TextChanged" Visible="false"></asp:TextBox>                                       
-                    <asp:RequiredFieldValidator ID="ValidarAsigConductor" runat="server" ControlToValidate="txtCedula1" 
-                    CssClass="failureNotification" 
-                            ErrorMessage="El número de cédula del conductor es obligatorio." ToolTip="El número de cédula del conductor es obligatorio." 
-                             ValidationGroup="ValidarCedula" Font-Size = "Small" Display="Dynamic" ></asp:RequiredFieldValidator>
-                    <asp:RegularExpressionValidator ID="ValidarDatosConductor" runat="server" ControlToValidate="txtCedula1" 
+                    
+                        <asp:RegularExpressionValidator ID="ValidarExpresionCedula" runat="server" ControlToValidate="txtCedula1" 
                     CssClass="failureNotification" ErrorMessage="El número de cédula debe contener entre 6 y 10 dígitos." 
                         ValidationExpression="^([\d]{6,10})$"  ToolTip="Sólo caractéres numéricos." 
-                    ValidationGroup="ValidarCedula" Font-Size = "Small" Display="Dynamic" ></asp:RegularExpressionValidator>
-                    
-                    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                    ValidationGroup="RegistrarVehiculo" >*</asp:RegularExpressionValidator>
+                  
                  
-                 <div id = "DatosConductor" runat ="server" visible ="false">
+                 <div id = "DivDatosConductor" runat ="server" visible ="false">
                     <h3>
-                    <asp:Label ID="lblImprimirCedula" runat="server" ></asp:Label>
+                    <asp:TextBox ID="txtCedConductor" runat="server" CssClass= "textEntry" Width="160px" 
+                        Enabled="false"></asp:TextBox> 
+                        <asp:RequiredFieldValidator ID="validarCedulaCond" runat="server" ControlToValidate="txtCedConductor" 
+                             CssClass="failureNotification" ErrorMessage="El número de cédula del conductor del vehículo es obligatorio." ToolTip="El número de cédula del conductor del vehículo es obligatorio." 
+                             ValidationGroup="RegistrarVehiculo">*</asp:RequiredFieldValidator>
+                    <asp:RegularExpressionValidator ID="RegularExpressionValidator1" runat="server" ControlToValidate="txtCedConductor" 
+                    CssClass="failureNotification" ErrorMessage="El número de cédula debe contener entre 6 y 10 dígitos." 
+                        ValidationExpression="^([\d]{6,10})$"  ToolTip="Sólo caractéres numéricos." 
+                    ValidationGroup="RegistrarVehiculo" >*</asp:RegularExpressionValidator>
+                                                                        
                     </h3>
                     <br />
                     <asp:Label ID="lblNombreCond" runat="server" Text="Nombre " ></asp:Label>
@@ -200,10 +187,34 @@
                     &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
                     <asp:Label ID="lblSegundoApellidoCond" runat="server" Text="Segundo Apellido " ></asp:Label><br />                  
                     <asp:TextBox ID="txtNombreCond" runat="server" CssClass= "textEntry" Width="160px" Enabled ="false" ></asp:TextBox>                                       
+                    <asp:RequiredFieldValidator ID="validarNombreCond" runat="server" ControlToValidate="txtNombreCond" 
+                             CssClass="failureNotification" ErrorMessage="El nombre del conductor del vehículo es obligatorio." ToolTip="El nombre del conductor del vehículo es obligatorio." 
+                             ValidationGroup="RegistrarVehiculo">*</asp:RequiredFieldValidator>
+                    <asp:RegularExpressionValidator ID="validarExpresionCond" runat="server" ControlToValidate="txtNombreCond" 
+                    CssClass="failureNotification" ErrorMessage="El nombre debe contener sólo caracteres alfabéticos." 
+                        ValidationExpression="^([A-Za-z]{0,20})$"  
+                    ValidationGroup="RegistrarVehiculo" >*</asp:RegularExpressionValidator>
+                    
                     &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
                     <asp:TextBox ID="txtPrimerApellidoCond" runat="server" CssClass= "textEntry" Width="160px" Enabled ="false" ></asp:TextBox>                                       
-                    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                    
+                    <asp:RequiredFieldValidator ID="validarApellidoCond" runat="server" ControlToValidate="txtPrimerApellidoCond" 
+                             CssClass="failureNotification" ErrorMessage="El apellido del conductor del vehículo es obligatorio." ToolTip="El apellido del conductor del vehículo es obligatorio." 
+                             ValidationGroup="RegistrarVehiculo">*</asp:RequiredFieldValidator>
+                    <asp:RegularExpressionValidator ID="validarExpresionApellido" runat="server" ControlToValidate="txtPrimerApellidoCond" 
+                    CssClass="failureNotification" ErrorMessage="El apellido debe contener sólo caracteres alfabéticos." 
+                        ValidationExpression="^([A-Za-z]{0,20})$"  
+                    ValidationGroup="RegistrarVehiculo" >*</asp:RegularExpressionValidator>
+                    
+                    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
                     <asp:TextBox ID="txtSegundoApellidoCond" runat="server" CssClass= "textEntry" Width="160px" Enabled ="false" ></asp:TextBox>                                       
+                    <asp:RequiredFieldValidator ID="validarSegundApellido" runat="server" ControlToValidate="txtSegundoApellidoCond" 
+                             CssClass="failureNotification" ErrorMessage="El apellido del conductor del vehículo es obligatorio." ToolTip="El apellido del conductor del vehículo es obligatorio." 
+                             ValidationGroup="RegistrarVehiculo">*</asp:RequiredFieldValidator>
+                    <asp:RegularExpressionValidator ID="validarExpresionSegApellido" runat="server" ControlToValidate="txtSegundoApellidoCond" 
+                    CssClass="failureNotification" ErrorMessage="El apellido debe contener sólo caracteres alfabéticos." 
+                        ValidationExpression="^([A-Za-z]{0,20})$"  
+                    ValidationGroup="RegistrarVehiculo" >*</asp:RegularExpressionValidator>
                     </div> 
                     </div> 
                  <div id = "DivSelRuta" runat ="server" visible ="false">

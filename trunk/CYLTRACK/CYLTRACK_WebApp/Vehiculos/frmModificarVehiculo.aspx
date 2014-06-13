@@ -115,10 +115,7 @@
                     <asp:TextBox ID="txtCedula" runat="server" CssClass= "textEntry" Width="160px" ontextchanged="txtCedula_TextChanged" 
                         ></asp:TextBox>   
                         
-                        <asp:RequiredFieldValidator ID="ValidarRegisCedulaProp" runat="server" ControlToValidate="txtCedula" 
-                             CssClass="failureNotification" ErrorMessage="El número de cédula del propietario del vehículo es obligatorio." ToolTip="El número de cédula del propietario del vehículo es obligatorio." 
-                             ValidationGroup="ModificarVehiculo">*</asp:RequiredFieldValidator>
-                    <asp:RegularExpressionValidator ID="ValidarDatosCedulaProp" runat="server" ControlToValidate="txtCedula" 
+                        <asp:RegularExpressionValidator ID="ValidarDatosCedulaProp" runat="server" ControlToValidate="txtCedula" 
                     CssClass="failureNotification" ErrorMessage="El número de cédula debe contener entre 6 y 10 dígitos." 
                         ValidationExpression="^([\d]{6,10})$"  ToolTip="Sólo caractéres numéricos." 
                     ValidationGroup="ModificarVehiculo" >*</asp:RegularExpressionValidator>
@@ -132,9 +129,8 @@
                     <br />
                     <asp:Label ID="lblNombre" runat="server" Text="Nombre " ></asp:Label>
                     &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-                    <asp:Label ID="lblPrimerApellido" runat="server" Text="Primer Apellido " ></asp:Label>
-                    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-                    <asp:Label ID="lblSegundoApellido" runat="server" Text="Segundo Apellido " ></asp:Label><br />                  
+                    <asp:Label ID="lblApellidos" runat="server" Text="Apellidos " ></asp:Label>
+                    <br />
                     <asp:TextBox ID="txtNombre" runat="server" CssClass= "textEntry" Width="160px" Enabled="false" ></asp:TextBox>                                       
                     <asp:RequiredFieldValidator ID="ValidarRegisNomProp" runat="server" ControlToValidate="txtNombre" 
                              CssClass="failureNotification" ErrorMessage="El nombre del propietario del vehículo es obligatorio." ToolTip="El nombre del propietario del vehículo es obligatorio." 
@@ -145,23 +141,17 @@
                     ValidationGroup="ModificarVehiculo" >*</asp:RegularExpressionValidator>
                     
                     &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-                    <asp:TextBox ID="txtPrimerApellido" runat="server" CssClass= "textEntry" Width="160px" Enabled="false" ></asp:TextBox>                                       
-                    <asp:RequiredFieldValidator ID="ValidarRegisApeProp" runat="server" ControlToValidate="txtPrimerApellido" 
+                    <asp:TextBox ID="txtApellidos" runat="server" CssClass= "textEntry" Width="160px" Enabled="false" ></asp:TextBox>                                       
+                    <asp:RequiredFieldValidator ID="ValidarRegisApeProp" runat="server" ControlToValidate="txtApellidos" 
                              CssClass="failureNotification" ErrorMessage="El apellido del propietario del vehículo es obligatorio." ToolTip="El apellido del propietario del vehículo es obligatorio." 
                              ValidationGroup="ModificarVehiculo">*</asp:RequiredFieldValidator>
-                    <asp:RegularExpressionValidator ID="ValidarDatosApeProp" runat="server" ControlToValidate="txtPrimerApellido" 
+                    <asp:RegularExpressionValidator ID="ValidarDatosApeProp" runat="server" ControlToValidate="txtApellidos" 
                     CssClass="failureNotification" ErrorMessage="El apellido debe contener sólo caracteres alfabéticos." 
                         ValidationExpression="^([A-Za-z]{0,20})$"  
                     ValidationGroup="ModificarVehiculo" >*</asp:RegularExpressionValidator>
                     
 
-                    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-                    <asp:TextBox ID="txtSegundoApellido" runat="server" CssClass= "textEntry" Width="160px" Enabled="false" ></asp:TextBox>                                       
-                    <asp:RegularExpressionValidator ID="ValidarDatosApePorp" runat="server" ControlToValidate="txtSegundoApellido" 
-                    CssClass="failureNotification" ErrorMessage="El apellido debe contener sólo caracteres alfabéticos." 
-                        ValidationExpression="^([A-Za-z]{0,20})$"  
-                    ValidationGroup="ModificarVehiculo" >*</asp:RegularExpressionValidator>
-                    
+                                
                 </div> 
                     
                     <div id="DivAsignacionConductor" runat="server" visible="false">
@@ -171,10 +161,6 @@
                     <asp:Label ID="lblCedula1" runat="server" Text="Número de Cédula: " ></asp:Label><br />
                     <asp:TextBox ID="txtCedula1" runat="server" CssClass= "textEntry" Width="160px" ontextchanged="txtCedula1_TextChanged" 
                          ></asp:TextBox>                                       
-                    <asp:RequiredFieldValidator ID="ValidarAsigConductor" runat="server" ControlToValidate="txtCedula1" 
-                    CssClass="failureNotification" 
-                            ErrorMessage="El número de cédula del conductor es obligatorio." ToolTip="El número de cédula del conductor es obligatorio." 
-                             ValidationGroup="ValidarCedula" Font-Size = "Small" Display="Dynamic" ></asp:RequiredFieldValidator>
                     <asp:RegularExpressionValidator ID="ValidarDatosConductor" runat="server" ControlToValidate="txtCedula1" 
                     CssClass="failureNotification" ErrorMessage="El número de cédula debe contener entre 6 y 10 dígitos." 
                         ValidationExpression="^([\d]{6,10})$"  ToolTip="Sólo caractéres numéricos." 
@@ -182,7 +168,7 @@
                     
                     &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
                  
-                 <div id = "DatosConductor" runat ="server" visible ="false">
+                 <div id = "DivDatosConductor" runat ="server" visible ="false">
                     <h3>
                     <asp:Label ID="lblImprimirCedula" runat="server" ></asp:Label>
                     </h3>
