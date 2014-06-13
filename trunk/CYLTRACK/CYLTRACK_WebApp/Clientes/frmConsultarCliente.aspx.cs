@@ -16,6 +16,10 @@ namespace Unisangil.CYLTRACK.CYLTRACK_WebApp.Clientes
         protected void Page_Load(object sender, EventArgs e)
         {
             txtCedula.Focus();
+            if (IsPostBack)
+            {
+                btnNuevaConsulta.Visible = true;
+            }
         }
 
         protected void txtCedula_TextChanged(object sender, EventArgs e)
@@ -31,6 +35,10 @@ namespace Unisangil.CYLTRACK.CYLTRACK_WebApp.Clientes
                 if (consultaExistencia == 0)
                 {
                     MessageBox.Show("El cliente no se encuentra registrado en el sistema", "Consulta de Clientes");
+                    divInfoCliente.Visible = false;
+                    btnNuevaConsulta.Visible = false;
+                    txtCedula.Text = "";
+                    txtCedula.Focus();
                 }
                 else
                 {
@@ -41,7 +49,7 @@ namespace Unisangil.CYLTRACK.CYLTRACK_WebApp.Clientes
                     table.Columns.Add("Tamano");
                     table.Columns.Add("TipoCil");
 
-                    txtCedulaCli .Text = cliente.Cedula;
+                    txtCedulaCli.Text = cliente.Cedula;
                     txtNombreCliente.Text = cliente.Nombres_Cliente;
                     txtPrimerApellido.Text = cliente.Apellido_1;
                     txtSegundoApellido.Text = cliente.Apellido_2;
@@ -55,6 +63,8 @@ namespace Unisangil.CYLTRACK.CYLTRACK_WebApp.Clientes
                     //gdCilindrosCli.DataBind();
                     divInfoCliente.Visible = true;
                     btnNuevaConsulta.Visible = true;
+                    txtCedula.Text = "";
+
                 }
             }
 
@@ -65,7 +75,7 @@ namespace Unisangil.CYLTRACK.CYLTRACK_WebApp.Clientes
             finally
             {
                 serCliente.Close();
-                
+
             }
         }
 
@@ -76,10 +86,10 @@ namespace Unisangil.CYLTRACK.CYLTRACK_WebApp.Clientes
 
         protected void btnNuevaConsulta_Click(object sender, EventArgs e)
         {
-            //txtCedula.Text = "";
-            //divInfoCliente.Visible = false;
-            //btnNuevaConsulta.Visible = false;
-            
+            txtCedula.Text = "";
+            divInfoCliente.Visible = false;
+            btnNuevaConsulta.Visible = false;
+
         }
     }
 }

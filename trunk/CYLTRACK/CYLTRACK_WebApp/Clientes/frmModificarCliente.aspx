@@ -106,7 +106,7 @@
                     </p> 
                      <p><asp:Label ID="lblDepartamento" runat="server" >Departamento:</asp:Label>
                      <br />
-                       <asp:ListBox ID="lstDepartamento" runat="server" Rows="1" 
+                       <asp:ListBox ID="lstDepartamento" runat="server" Rows="1" AutoPostBack ="true"
                              onselectedindexchanged="lstDepartamento_SelectedIndexChanged" 
                              style="height: 22px">
                            </asp:ListBox>

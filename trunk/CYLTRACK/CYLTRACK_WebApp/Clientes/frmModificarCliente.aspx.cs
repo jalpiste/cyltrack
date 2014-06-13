@@ -6,6 +6,7 @@ using System.Web.UI;
 using System.Web.UI.WebControls;
 using Unisangil.CYLTRACK.CYLTRACK_BE;
 using CYLTRACK_WebApp.ClienteService;
+using CYLTRACK_WebApp.RutaService;
 using System.Windows.Forms;
 
 namespace Unisangil.CYLTRACK.CYLTRACK_WebApp.Clientes
@@ -15,50 +16,78 @@ namespace Unisangil.CYLTRACK.CYLTRACK_WebApp.Clientes
         protected void Page_Load(object sender, EventArgs e)
         {
             txtCedula.Focus();
-            if(IsPostBack)
+            if (IsPostBack)
             {
                 hprNuevaUbicacion.NavigateUrl = "frmNuevaUbicacion.aspx?ReturnUrl=" + HttpUtility.UrlEncode(Request.QueryString["ReturnUrl"]) + Server.UrlEncode(txtCedula.Text);
-            }       
+            }
+
+            if (!IsPostBack)
+            {
+                RutaServicesClient servRuta = new RutaServicesClient();
+                try
+                {
+                    lstDepartamento.DataSource = servRuta.ConsultaDepartamento();
+                    lstDepartamento.DataValueField = "Id_Departamento";
+                    lstDepartamento.DataTextField = "Nombre_Departamento";
+                    lstDepartamento.DataBind();
+                }
+                catch (Exception ex)
+                {
+                    Response.Redirect("~/About.aspx");
+                }
+                finally
+                {
+                    servRuta.Close();
+                }
+            }
         }
 
         protected void txtCedula_TextChanged(object sender, EventArgs e)
         {
-            txtCedulaCli.Focus();
+
             ClienteServiceClient servCliente = new ClienteServiceClient();
             long resp;
-           
+
             try
             {
                 resp = servCliente.ConsultarExistenciasClientes(txtCedula.Text);
 
-                if (resp == null)
+                if (resp == 0)
                 {
                     MessageBox.Show("El cliente no se encuentra registrado en el sistema", "Modificar Cliente");
+                    divInfoCliente.Visible = false;
+                    txtCedula.Text = "";
+                    txtCedula.Focus();
+                    btnGuardar.Visible = false;
+
                 }
-                   else
-                   {
-                       ClienteBE consulta = servCliente.Consultar_Cliente(txtCedula.Text);
+                else
+                {
+                    ClienteBE consulta = servCliente.Consultar_Cliente(txtCedula.Text);
 
-                       txtCedulaCli.Text = consulta.Cedula;
-                       txtNombreCliente.Text = consulta.Nombres_Cliente;
-                       txtPrimerApellido.Text = consulta.Apellido_1;
-                       txtSegundoApellido.Text = consulta.Apellido_2;
-                       txtDireccion.Text = consulta.Ubicacion.Direccion;
-                       txtBarrio.Text = consulta.Ubicacion.Barrio;
-                       lstDepartamento.Items.Add(consulta.Ubicacion.Ciudad.Departamento.Nombre_Departamento);
-                       lstCiudad.Items.Add(consulta.Ubicacion.Ciudad.Nombre_Ciudad);
-                       txtTelefono.Text = consulta.Ubicacion.Telefono_1;
+                    txtCedulaCli.Text = consulta.Cedula;
+                    txtNombreCliente.Text = consulta.Nombres_Cliente;
+                    txtPrimerApellido.Text = consulta.Apellido_1;
+                    txtSegundoApellido.Text = consulta.Apellido_2;
+                    txtDireccion.Text = consulta.Ubicacion.Direccion;
+                    txtBarrio.Text = consulta.Ubicacion.Barrio;
+                    lstDepartamento.DataValueField = "Id_Departamento";
+                    lstDepartamento.DataTextField = "Nombre_Departamento";
+                    lstCiudad.DataValueField = "Id_Ciudad";
+                    lstCiudad.DataTextField = "Nombre_Ciudad";
+                    txtTelefono.Text = consulta.Ubicacion.Telefono_1;
 
-                       divInfoCliente.Visible = true;
-                       btnGuardar.Visible = true;
-                       txtCedula.Text = "";
-                   }
-           }
-           catch (Exception ex)
-           {
-               Response.Redirect("~/About.aspx");
-           }
-           finally
+                    divInfoCliente.Visible = true;
+                    btnGuardar.Visible = true;
+                    txtCedula.Text = "";
+                    txtCedulaCli.Focus();
+                }
+            }
+            catch (Exception ex)
+            {
+                Response.Redirect("~/About.aspx");
+            }
+            finally
             {
                 servCliente.Close();
             }
@@ -81,18 +110,14 @@ namespace Unisangil.CYLTRACK.CYLTRACK_WebApp.Clientes
                 ubicli.Direccion = txtDireccion.Text;
                 ubicli.Barrio = txtBarrio.Text;
                 ubicli.Telefono_1 = txtTelefono.Text;
-                
+
                 CiudadBE ciucli = new CiudadBE();
-                ciucli.Nombre_Ciudad = lstCiudad.SelectedValue;
+                ciucli.Id_Ciudad = lstCiudad.SelectedValue;
                 ubicli.Ciudad = ciucli;
                 cliente.Ubicacion = ubicli;
 
-                DepartamentoBE depcli = new DepartamentoBE();
-                depcli.Nombre_Departamento = lstDepartamento.SelectedValue;
-                ciucli.Departamento = depcli;
-            
                 resp = servCliente.Modificar_Cliente(cliente);
-                
+
                 MessageBox.Show("El cliente fue modificado satisfactoriamente", "Modificar Cliente");
             }
             catch (Exception ex)
@@ -105,7 +130,8 @@ namespace Unisangil.CYLTRACK.CYLTRACK_WebApp.Clientes
                 servCliente.Close();
                 Response.Redirect("~/Clientes/frmModificarCliente.aspx");
                 txtCedula.Text = "";
-                
+                txtCedula.Focus();
+
             }
         }
 
@@ -129,7 +155,25 @@ namespace Unisangil.CYLTRACK.CYLTRACK_WebApp.Clientes
 
         protected void lstDepartamento_SelectedIndexChanged(object sender, EventArgs e)
         {
-            lstCiudad.Focus();
+            RutaServicesClient servRuta = new RutaServicesClient();
+
+            try
+            {
+                lstCiudad.DataSource = servRuta.ConsultaCiudades(lstDepartamento.SelectedValue);
+                lstCiudad.DataValueField = "Id_Ciudad";
+                lstCiudad.DataTextField = "Nombre_Ciudad";
+                lstCiudad.DataBind();
+
+            }
+            catch (Exception ex)
+            {
+                Response.Redirect("~/About.aspx");
+            }
+            finally
+            {
+                servRuta.Close();
+                lstCiudad.Focus();
+            }
         }
 
         protected void lstCiudad_SelectedIndexChanged(object sender, EventArgs e)
@@ -152,7 +196,7 @@ namespace Unisangil.CYLTRACK.CYLTRACK_WebApp.Clientes
                 }
                 else
                 {
-                    txtCedulaCli.Enabled= false;
+                    txtCedulaCli.Enabled = false;
                 }
             }
             catch (Exception ex)
@@ -163,6 +207,6 @@ namespace Unisangil.CYLTRACK.CYLTRACK_WebApp.Clientes
             {
                 servCliente.Close();
             }
-        }        
+        }
     }
 }
