@@ -12,59 +12,38 @@ using CYLTRACK_WebApp.RutaService;
 using CYLTRACK_WebApp.ReporteService;
 using System.Windows.Forms;
 
+
 namespace Unisangil.CYLTRACK.CYLTRACK_WebApp.Vehiculos
-{   
+{
 
     public partial class frmRegistrarVehiculo : System.Web.UI.Page
     {
         protected void Page_Load(object sender, EventArgs e)
         {
-            txtPlaca1.Focus();
-            
-        // txtPlaca1.CharacterCasing = CharacterCasing.Upper;
-        }
-        
-        protected void btnCancelar_Click(object sender, EventArgs e)
-        {
-            Response.Redirect("~/Default.aspx");
-        }
 
-        protected void txtPlaca1_TextChanged(object sender, EventArgs e)
-        {
-            VehiculoServiceClient serVehiculo = new VehiculoServiceClient();
-           RutaServicesClient servRuta = new RutaServicesClient();
-            long resp;
-
+            // txtPlaca1.CharacterCasing = CharacterCasing.Upper;
+            RutaServicesClient servRuta = new RutaServicesClient();
             try
             {
-                resp = serVehiculo.ConsultarExistenciaVehiculo(txtPlaca1.Text);
-
-                if (resp != 0)
+                if (!IsPostBack)
                 {
-                    MessageBox.Show("El vehículo ya se encuentra registrado en el sistema", "Registrar Vehículo");
-                }
-
-                else
-                {
-                    txtPlaca.Text = txtPlaca1.Text;
-                    txtPlaca1.Text = "";
-                    txtMarca.Focus();
-                    DivVehiculo.Visible = true;
-                    DivPropietario.Visible = true;
-                    DivSelRuta.Visible = true;
-                    DivAsignacionConductor.Visible = true;
-                    lblCedula1.Visible = true;
-                    txtCedula1.Visible = true;
-                    btnGuardar.Visible = true;
-
+                    txtPlaca1.Focus();
                     List<RutaBE> lstRutas = new List<RutaBE>(servRuta.ConsultarRuta(string.Empty));
-                    foreach(RutaBE datos in lstRutas)
+                    foreach (RutaBE datos in lstRutas)
                     {
                         lstRuta.DataSource = servRuta.ConsultarRuta(string.Empty);
                         lstRuta.DataValueField = "Id_Ruta";
                         lstRuta.DataTextField = "Nombre_Ruta";
                         lstRuta.DataBind();
-                   // lstRuta.Items.Add(datos.Nombre_Ruta);
+
+                    }
+                    if (lstRuta.Items.Count == 0)
+                    {
+                        MessageBox.Show("No existen rutas registradas en el sistema", "Registrar Vehículo");
+                        DivAsignacionConductor.Visible = false;
+                        DivDatosPropietario.Visible = false;
+                        DivSelRuta.Visible = false;
+                        DivVehiculo.Visible = false;
                     }
                     Anos[] anos = Auxiliar.ConsultarAnos();
                     IEnumerable<Anos> listaAnos = anos.OrderByDescending(g => g).Skip(0);
@@ -79,6 +58,69 @@ namespace Unisangil.CYLTRACK.CYLTRACK_WebApp.Vehiculos
                     }
                 }
             }
+            catch (Exception ex)
+            {
+                Response.Redirect("~/About.aspx");
+            }
+            finally
+            {
+                servRuta.Close();
+            }
+        }
+
+        protected void btnCancelar_Click(object sender, EventArgs e)
+        {
+            Response.Redirect("~/Default.aspx");
+        }
+
+        protected void txtPlaca1_TextChanged(object sender, EventArgs e)
+        {
+            VehiculoServiceClient serVehiculo = new VehiculoServiceClient();
+            long resp;
+
+            try
+            {
+                resp = serVehiculo.ConsultarExistenciaVehiculo(txtPlaca1.Text);
+
+                if (resp != 0)
+                {
+                    MessageBox.Show("El vehículo ya se encuentra registrado en el sistema", "Registrar Vehículo");
+                    txtPlaca1.Text = "";
+                    DivVehiculo.Visible = false;
+                    DivSelRuta.Visible = false;
+                    DivDatosPropietario.Visible = false;
+                    DivConsultaPropietario.Visible = false;
+                    DivAsignacionConductor.Visible = false;
+                    DivDatosConductor.Visible = false;
+                    txtPlaca1.Focus();
+                    txtMarca.Text = "";
+                    txtCilindraje.Text = "";
+                    txtMotor.Text = "";
+                    txtChasis.Text = "";
+                    txtApellidos.Text = "";
+                    txtCedConductor.Text = "";
+                    txtCedula.Text = "";
+                    txtCedula2.Text = "";
+                    txtNombreCond.Text = "";
+                    txtNombres.Text = "";
+
+                }
+
+
+                else
+                {
+                    txtPlaca.Text = txtPlaca1.Text;
+                    txtPlaca1.Text = "";
+                    txtMarca.Focus();
+                    DivVehiculo.Visible = true;
+                    DivDatosPropietario.Visible = true;
+                    DivSelRuta.Visible = true;
+                    DivAsignacionConductor.Visible = true;
+                    lblCedula1.Visible = true;
+                    txtCedula1.Visible = true;
+                    btnGuardar.Visible = true;
+                }
+            }
 
             catch (Exception ex)
             {
@@ -87,35 +129,43 @@ namespace Unisangil.CYLTRACK.CYLTRACK_WebApp.Vehiculos
             finally
             {
                 serVehiculo.Close();
-                servRuta.Close();
             }
         }
         protected void txtCedula1_TextChanged(object sender, EventArgs e)
-        {            
-           VehiculoServiceClient servVehiculo = new VehiculoServiceClient();
+        {
+            VehiculoServiceClient servVehiculo = new VehiculoServiceClient();
 
             VehiculoBE consultar_conductor = new VehiculoBE();
             long resp;
-            
+
             try
             {
                 resp = servVehiculo.ConsultarExistenciaConductor(txtCedula1.Text);
 
-                    if (resp == 0)
-                    {
-                       MessageBox.Show("El conductor no se encuentra registrado en el sistema", "Asignar Conductor");
-                    }
-                    else
-                    {
-                        ConductorBE objConductor = servVehiculo.Consultar_Conductor(txtCedula1.Text);
-                        lblImprimirCedula.Text = objConductor.Cedula;
-                        txtNombreCond.Text = objConductor.Nombres_Conductor;
-                        txtPrimerApellidoCond.Text = objConductor.Apellido_1;
-                        txtSegundoApellidoCond.Text = objConductor.Apellido_2;
-                        DatosConductor.Visible = true;
-                        btnGuardar.Visible = true;
-                        txtCedula1.Text = "";
-                    }
+                if (resp == 0)
+                {
+                    MessageBox.Show("El conductor no se encuentra registrado en el sistema", "Registro de Vehículos");
+
+                    txtCedula1.Text = "";
+                    txtCedConductor.Text = "";
+                    txtNombreCond.Text = "";
+                    txtSegundoApellidoCond.Text = "";
+                    txtPrimerApellidoCond.Text = "";
+                    DivDatosConductor.Visible = false;
+                    txtCedula1.Focus();
+                }
+                else
+                {
+                    ConductorBE objConductor = servVehiculo.Consultar_Conductor(txtCedula1.Text);
+                    txtCedConductor.Text = objConductor.Cedula;
+                    txtNombreCond.Text = objConductor.Nombres_Conductor;
+                    txtPrimerApellidoCond.Text = objConductor.Apellido_1;
+                    txtSegundoApellidoCond.Text = objConductor.Apellido_2;
+                    DivDatosConductor.Visible = true;
+                    btnGuardar.Visible = true;
+                    txtCedula1.Text = "";
+                    btnGuardar.Focus();
+                }
             }
             catch (Exception ex)
             {
@@ -124,11 +174,10 @@ namespace Unisangil.CYLTRACK.CYLTRACK_WebApp.Vehiculos
             finally
             {
                 servVehiculo.Close();
-                lstRuta.Focus();
             }
         }
 
-        
+
         protected void btnGuardar_Click(object sender, EventArgs e)
         {
             VehiculoServiceClient servVehiculo = new VehiculoServiceClient();
@@ -144,18 +193,18 @@ namespace Unisangil.CYLTRACK.CYLTRACK_WebApp.Vehiculos
                 registrar_vehiculo.Modelo = lstModelo.SelectedValue;
                 registrar_vehiculo.Motor = txtMotor.Text;
                 registrar_vehiculo.Chasis = txtChasis.Text;
-                registrar_vehiculo.Ced_Prop = txtCedula2.Text;
-                registrar_vehiculo.Nombres_Prop = txtNombre.Text;
-                registrar_vehiculo.Apellido_1_Prop = txtPrimerApellido.Text;
-                registrar_vehiculo.Apellido_2_Prop = txtSegundoApellido.Text;
                 registrar_vehiculo.Estado = lstEstado.SelectedValue;
 
                 ConductorBE cond = new ConductorBE();
-                cond.Cedula = lblImprimirCedula.Text;
+                cond.Cedula = txtCedConductor.Text;
                 registrar_vehiculo.Conductor = cond;
 
+                ContratistaBE contrat = new ContratistaBE();
+                contrat.Cedula = txtCedula2.Text;
+                registrar_vehiculo.Contratista = contrat;
+
                 RutaBE rutaasig = new RutaBE();
-                rutaasig.Id_Ruta = lstRuta.SelectedValue; 
+                rutaasig.Id_Ruta = lstRuta.SelectedValue;
                 registrar_vehiculo.Ruta = rutaasig;
 
                 resp = servVehiculo.Registrar_Vehiculo(registrar_vehiculo);
@@ -192,25 +241,32 @@ namespace Unisangil.CYLTRACK.CYLTRACK_WebApp.Vehiculos
 
                 if (consultarPropVehiculo != 0)
                 {
+
                     txtCedula2.Text = txtCedula.Text;
-                    VehiculoBE objVehiculo = servVehiculo.ConsultarPropVehiculo(txtCedula2.Text);
-                    txtNombre.Text = objVehiculo.Nombres_Prop;
-                    txtPrimerApellido.Text = objVehiculo.Apellido_1_Prop;
-                    txtSegundoApellido.Text = objVehiculo.Apellido_2_Prop;
-                    txtNombre.Enabled = false;
-                    txtPrimerApellido.Enabled = false;
-                    txtSegundoApellido.Enabled = false;
+                    ContratistaBE objContratista = servVehiculo.ConsultarPropVehiculo(txtCedula2.Text);
+                    txtCedula.Text = "";
+                    txtNombres.Text = objContratista.Nombres;
+                    txtApellidos.Text = objContratista.Apellidos;
+                    DivConsultaPropietario.Visible = true;
+                    txtCedula1.Focus();
                 }
                 else
                 {
-                    txtCedula2.Text = txtCedula.Text;
+                    MessageBox.Show("El propietario no se encuentra registrado en el sistema", "Registro de Vehículos");
+
+                    txtCedula.Text = "";
+                    txtCedula2.Text = "";
+                    txtNombres.Text = "";
+                    txtApellidos.Text = "";
+                    DivConsultaPropietario.Visible = false;
+                    txtCedula.Focus();
                 }
             }
             catch (Exception ex)
             {
                 Response.Redirect("~/About.aspx");
             }
-            finally 
+            finally
             {
                 servVehiculo.Close();
             }
@@ -221,6 +277,6 @@ namespace Unisangil.CYLTRACK.CYLTRACK_WebApp.Vehiculos
             btnGuardar.Focus();
         }
 
-        
+
     }
 }

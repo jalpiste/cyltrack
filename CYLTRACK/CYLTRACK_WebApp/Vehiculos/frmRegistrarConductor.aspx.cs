@@ -27,12 +27,11 @@ namespace Unisangil.CYLTRACK.CYLTRACK_WebApp.Vehiculos
                 RutaServicesClient servRuta = new RutaServicesClient();
                 try
                 {
-                    List<CiudadBE> datosCiudades = new List<CiudadBE>(servRuta.ConsultaDepartamentoyCiudades());
-                    foreach (CiudadBE datos in datosCiudades)
-                    {
-                        lstCiudad.Items.Add(datos.Nombre_Ciudad);
-                        lstDepartamento.Items.Add(datos.Departamento.Nombre_Departamento);
-                    }
+
+                    lstDepartamento.DataSource = servRuta.ConsultaDepartamento();
+                    lstDepartamento.DataValueField = "Id_Departamento";
+                    lstDepartamento.DataTextField = "Nombre_Departamento";
+                    lstDepartamento.DataBind();  
                 }
                 catch (Exception ex)
                 {
@@ -57,6 +56,15 @@ namespace Unisangil.CYLTRACK.CYLTRACK_WebApp.Vehiculos
                 if (resp != 0)
                 {
                     MessageBox.Show("El Conductor ya se encuentra registrado en el sistema", "Registrar Conductor");
+                    divInfoConductor.Visible = false;                    
+                    btnGuardar.Visible = false;
+                    txtCedulaCond.Text = "";
+                    txtCedula.Text = "";
+                    txtDireccion.Text = "";
+                    txtPrimerApellido.Text = "";
+                    txtNombreConductor.Text = "";
+                    txtTelefono.Text = "";
+                    txtCedula.Focus();
                 }
                 else
                 {
@@ -91,11 +99,11 @@ namespace Unisangil.CYLTRACK.CYLTRACK_WebApp.Vehiculos
             try
             {
                 conductor.Cedula = txtCedulaCond.Text;
-                conductor.Nombres_Conductor = txtNombreConductor.Text;
-                conductor.Apellido_1 = txtPrimerApellido.Text;
-                conductor.Apellido_2 = txtSegundoApellido.Text;
-                conductor.Direccion = txtDireccion.Text;
-                conductor.Barrio = txtBarrio.Text;
+                conductor.Nombres_Conductor = txtNombreConductor.Text.ToUpper();
+                conductor.Apellido_1 = txtPrimerApellido.Text.ToUpper();
+                conductor.Apellido_2 = txtSegundoApellido.Text.ToUpper();
+                conductor.Direccion = txtDireccion.Text.ToUpper();
+                conductor.Barrio = txtBarrio.Text.ToUpper();
                 conductor.Telefono = txtTelefono.Text;
 
                 CiudadBE ciucli = new CiudadBE();
@@ -132,14 +140,29 @@ namespace Unisangil.CYLTRACK.CYLTRACK_WebApp.Vehiculos
             txtTelefono.Text = "";
         }
 
-        protected void lstCiudad_SelectedIndexChanged(object sender, EventArgs e)
-        {
-            txtTelefono.Focus();
-        }
-
+       
         protected void lstDepartamento_SelectedIndexChanged(object sender, EventArgs e)
         {
-            lstCiudad.Focus();
+            RutaServicesClient servRuta = new RutaServicesClient();
+
+            try
+            {
+                lstCiudad.DataSource = servRuta.ConsultaCiudades(lstDepartamento.SelectedValue);
+                lstCiudad.DataValueField = "Id_Ciudad";
+                lstCiudad.DataTextField = "Nombre_Ciudad";
+                lstCiudad.DataBind();
+
+            }
+            catch (Exception ex)
+            {
+                Response.Redirect("~/About.aspx");
+            }
+            finally
+            {
+                servRuta.Close();
+                lstCiudad.Focus();
+            }
         }
+
     }
 }

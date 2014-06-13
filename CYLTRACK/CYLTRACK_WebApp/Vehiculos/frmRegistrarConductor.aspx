@@ -105,8 +105,8 @@
                          <p><asp:Label ID="lblDepartamento" runat="server" AssociatedControlID="lstDepartamento" 
                             Width="679px">Departamento:</asp:Label>
                             <br />
-                        <asp:ListBox ID="lstDepartamento" runat="server" Rows="1" 
-                                 onselectedindexchanged="lstDepartamento_SelectedIndexChanged">
+                        <asp:ListBox ID="lstDepartamento" runat="server" Rows="1" AutoPostBack="True"  onselectedindexchanged="lstDepartamento_SelectedIndexChanged" 
+                                 >
                         </asp:ListBox>
                             <asp:RequiredFieldValidator ID="lstDepartamentoRequired" runat="server" ControlToValidate="lstDepartamento" 
                              CssClass="failureNotification" ErrorMessage="El departamento es obligatorio." ToolTip="El departamento es obligatorio." 
@@ -117,7 +117,7 @@
                     <p><asp:Label ID="lblCiudad" runat="server" AssociatedControlID="LstCiudad" Width="685px" >Ciudad:</asp:Label>
                     <br />
                         <asp:ListBox ID="lstCiudad" runat="server" Rows="1" 
-                            onselectedindexchanged="lstCiudad_SelectedIndexChanged">
+                            >
                         </asp:ListBox>
                      <asp:RequiredFieldValidator ID="lstCiudadRequired" runat="server" ControlToValidate="LstCiudad" 
                              CssClass="failureNotification" ErrorMessage="La ciudad es obligatorio." ToolTip="La ciudad es obligatorio." 
