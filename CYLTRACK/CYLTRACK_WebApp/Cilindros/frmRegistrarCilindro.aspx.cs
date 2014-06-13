@@ -23,7 +23,7 @@ namespace Unisangil.CYLTRACK.CYLTRACK_WebApp.Cilindros
             {
                 TxtCodigoCilindro.Focus();
 
-                ReporteServiceClient servReporte = new ReporteServiceClient();
+                    ReporteServiceClient servReporte = new ReporteServiceClient();
                 VehiculoServiceClient servVehiculo = new VehiculoServiceClient();
 
                 try
