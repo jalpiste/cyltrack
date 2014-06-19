@@ -185,7 +185,6 @@ namespace Unisangil.CYLTRACK.CYLTRACK_BL
             }
             return cond;
         }
-
         public ContratistaBE ConsultarPropVehiculo(string cedula)
         {
 
@@ -201,7 +200,6 @@ namespace Unisangil.CYLTRACK.CYLTRACK_BL
             }
             return cont;
         }
-
         public long RegistrarConductor(ConductorBE conductor)
         {
             VehiculoDL veh = new VehiculoDL();
@@ -219,7 +217,6 @@ namespace Unisangil.CYLTRACK.CYLTRACK_BL
 
             return resp;
         }
-
         public long RegistrarContratista(ContratistaBE contratista)
         {
             VehiculoDL veh = new VehiculoDL();

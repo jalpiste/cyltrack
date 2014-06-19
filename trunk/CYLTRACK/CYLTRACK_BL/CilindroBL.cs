@@ -81,12 +81,14 @@ namespace Unisangil.CYLTRACK.CYLTRACK_BL
             try
             {
                 resp = cil.ConsultarCilindro(cilindro);   
-                //if(resp.Tipo_Ubicacion.Nombre_Ubicacion=="VEHICULO")
-                //{
-                //    VehiculoDL veh = new VehiculoDL();
-                //    VehiculoBE objVehi= new VehiculoBE();
-                //    objVehi= veh.ConsultarVehiculo
-                //}
+                if(resp.Tipo_Ubicacion.Nombre_Ubicacion=="VEHICULO")
+                {
+                    VehiculoDL veh = new VehiculoDL();
+                    VehiculoBE datVeh = new VehiculoBE();
+                    string var = Convert.ToString(resp.Tipo_Ubicacion.Ubicacion.Id_Ubicacion);
+                    datVeh = veh.ConsultaPlacaPorUbicacion(var);
+                    resp.Vehiculo = datVeh;
+                }
             }
             catch (Exception ex)
             {
