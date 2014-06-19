@@ -67,7 +67,6 @@ namespace Unisangil.CYLTRACK.CYLTRACK_WebApp.Cilindros
                     DivNuevaUbicacion.Visible = true;
                     txtCodeCilindro.Text = "";
                     lstUbica.Focus();
-
                 }
             }
 
@@ -138,6 +137,12 @@ namespace Unisangil.CYLTRACK.CYLTRACK_WebApp.Cilindros
                 {
                     VehiculoBE veh = new VehiculoBE();
                     veh.Id_Vehiculo = lstPlacaVehiculo.SelectedValue;
+                    cilindro.Vehiculo = veh;
+                }
+                else 
+                {
+                    VehiculoBE veh = new VehiculoBE();
+                    veh.Id_Vehiculo = "0";
                     cilindro.Vehiculo = veh;
                 }
                 resp = servAsig.ModificarUbicaCilindro(cilindro);
