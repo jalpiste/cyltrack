@@ -172,9 +172,12 @@ namespace Unisangil.CYLTRACK.CYLTRACK_DL
                         c.Fabricante = fab;
                         Tipo_UbicacionBE tipUbi = new Tipo_UbicacionBE();
                         tipUbi.Nombre_Ubicacion= datos.GetString(7);
+                        UbicacionBE ubi = new UbicacionBE();
+                        ubi.Id_Ubicacion = int.Parse(datos.GetValue(8).ToString());
+                        tipUbi.Ubicacion = ubi;
                         c.Tipo_Ubicacion = tipUbi;
                         TamanoBE tam = new TamanoBE();
-                        tam.Tamano = (datos.GetString(8));
+                        tam.Tamano = (datos.GetString(9));
                         c.NTamano = tam;                        
                         cil= c;
                    
@@ -455,6 +458,6 @@ namespace Unisangil.CYLTRACK.CYLTRACK_DL
             return codigo;
         }
 
-
+        
    }
 }
