@@ -47,7 +47,7 @@
 
                         <asp:RegularExpressionValidator ID="ValidarDatosNom" runat="server" ControlToValidate="txtNombreCliente" 
                     CssClass="failureNotification" ErrorMessage="El nombre debe contener sólo caracteres alfabéticos." 
-                        ValidationExpression="^([A-Za-z]{0,20})$"  
+                        ValidationExpression="^([A-Za-z](.{0,20}))$"  
                     ValidationGroup="RegistrarClienteValidationGroup" >*</asp:RegularExpressionValidator>
                     
                     </p>
@@ -85,12 +85,7 @@
                         <asp:RequiredFieldValidator ID="txtDirecciónRequired" runat="server" ControlToValidate="txtDireccion" 
                              CssClass="failureNotification" ErrorMessage="La dirección del cliente es obligatoria." ToolTip="La dirección del cliente es obligatoria." 
                              ValidationGroup="RegistrarClienteValidationGroup">*</asp:RequiredFieldValidator>
-                    <asp:RegularExpressionValidator ID="ValidarDatosDir" runat="server" ControlToValidate="txtDireccion" 
-                    CssClass="failureNotification" ErrorMessage="La dirección debe contener sólo caracteres alfanuméricos. Ej, Calle 43 N 2 56"  
-                    ValidationGroup="RegistrarClienteValidationGroup" 
-                            ValidationExpression="\w{1,20}\ \d{1,3}\ N \d{1,3}\ \d{1,3}">*</asp:RegularExpressionValidator>
-                    
-                          &nbsp;&nbsp;&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;
+                                              &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;
                           <asp:TextBox ID="txtBarrio" runat="server" CssClass="textEntry" 
                                 Width="197px" ></asp:TextBox>
                                 <asp:RequiredFieldValidator ID="txtBarrioRequired" runat="server" ControlToValidate="txtBarrio" 
@@ -99,7 +94,7 @@
 
                               <asp:RegularExpressionValidator ID="ValidarDatosBarrio" runat="server" ControlToValidate="txtBarrio" 
                     CssClass="failureNotification" ErrorMessage="El barrio debe contener sólo caracteres alfabéticos." 
-                        ValidationExpression="^([A-Za-z]{0,20})$"  
+                        ValidationExpression="^([A-Za-z](.{0,20}))$"  
                     ValidationGroup="RegistrarClienteValidationGroup" >*</asp:RegularExpressionValidator>
                     
                          </p> 
