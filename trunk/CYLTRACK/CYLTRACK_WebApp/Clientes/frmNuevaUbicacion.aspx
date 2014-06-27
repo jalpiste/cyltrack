@@ -25,10 +25,10 @@
                       <asp:RequiredFieldValidator ID="ValidarDir" runat="server" ControlToValidate="txtNuevaDireccion" CssClass="failureNotification" 
                      ErrorMessage="La nueva dirección del cliente es obligatoria." ToolTip="La nueva dirección del cliente es obligatoria." 
                      ValidationGroup="NuevaUbic">*</asp:RequiredFieldValidator>
-                     <asp:RegularExpressionValidator ID="ValidarDatosDir" runat="server" ControlToValidate="txtNuevaDireccion" 
+<%--                     <asp:RegularExpressionValidator ID="ValidarDatosDir" runat="server" ControlToValidate="txtNuevaDireccion" 
                     CssClass="failureNotification" ErrorMessage="La dirección debe contener sólo caracteres alfanuméricos. Ej, Calle 43 N 2 56"  
                     ValidationGroup="NuevaUbic" ValidationExpression="\w{1,20}\ \d{1,3}\ N \d{1,3}\ \d{1,3}" >*</asp:RegularExpressionValidator>
-                    
+                    --%>
                            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
 
                        <asp:TextBox ID="txtNuevoBarrio" CssClass="textEntry" runat="server"></asp:TextBox>
@@ -37,7 +37,7 @@
                      ValidationGroup="NuevaUbic">*</asp:RequiredFieldValidator>
                     <asp:RegularExpressionValidator ID="ValidarDatosBarrio" runat="server" ControlToValidate="txtNuevoBarrio" 
                     CssClass="failureNotification" ErrorMessage="El barrio debe contener sólo caracteres alfabéticos." 
-                        ValidationExpression="^([A-Za-z]{0,20})$"  
+                        ValidationExpression="^([A-Za-z](.{0,20}))$"  
                     ValidationGroup="NuevaUbic" >*</asp:RegularExpressionValidator>
                     
                            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
@@ -67,7 +67,7 @@
                      ErrorMessage="La selección del departamento es obligatoria." ToolTip="La selección del departamento es obligatoria." 
                      ValidationGroup="NuevaUbic"> * </asp:RequiredFieldValidator>
                      
-                           &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
                      
                            <asp:ListBox ID="lstCiudad" runat="server" Rows="1"   AutoPostBack="false"
                        onselectedindexchanged="lstCiudad_SelectedIndexChanged">
