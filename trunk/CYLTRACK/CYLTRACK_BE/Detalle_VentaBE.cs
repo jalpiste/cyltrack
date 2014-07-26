@@ -27,18 +27,6 @@ namespace Unisangil.CYLTRACK.CYLTRACK_BE
         public String Id_Detalle_Venta { get; set; }
 
         /// <summary>
-        /// Código del cilindro actual del cliente
-        /// </summary>
-        [DataMember]
-        public String Cod_Cil_Actual { get; set; }
-
-        /// <summary>
-        /// Código del cilindro nuevo de venta al cliente
-        /// </summary>
-        [DataMember]
-        public String Cod_Cil_Nuevo { get; set; }
-
-        /// <summary>
         /// Tamaño del cilindro
         /// </summary>
         [DataMember]
@@ -51,13 +39,13 @@ namespace Unisangil.CYLTRACK.CYLTRACK_BE
         public String Tipo_Cilindro { get; set; }
 
         /// <summary>
-        /// Cilindro entregado como prestamo al cliente
+        /// Identificador del cilindro de entrada, es decir, el cilindro que se recibe del cliente
         /// </summary>
         [DataMember]
         public String Id_Cilindro_Entrada { get; set; }
 
         /// <summary>
-        /// Cilindro recibido como prestamo al cliente
+        /// Identificador del cilindro de salida, es decir, el cilindro que se entrega al cliente
         /// </summary>
         [DataMember]
         public String Id_Cilindro_Salida { get; set; }
@@ -69,10 +57,10 @@ namespace Unisangil.CYLTRACK.CYLTRACK_BE
         public CasosBE Casos_Especiales { get; set; }
 
         /// <summary>
-        /// Venta
+        /// Identificador de la Venta
         /// </summary>
         [DataMember]
-        public VentaBE Venta { get; set; }
+        public String IdVenta { get; set; }
         
     }
 }

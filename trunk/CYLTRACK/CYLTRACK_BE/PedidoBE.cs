@@ -28,12 +28,6 @@ namespace Unisangil.CYLTRACK.CYLTRACK_BE
         public String Id_Pedido { get; set; }
 
         /// <summary>
-        /// Fecha de la realizacion del pedido 
-        /// </summary>
-        [DataMember]
-        public DateTime Fecha { get; set; }
-
-        /// <summary>
         /// Observaciones referentes a la entrega del pedido
         /// </summary>
         [DataMember]
@@ -46,34 +40,23 @@ namespace Unisangil.CYLTRACK.CYLTRACK_BE
         public String Motivo_Cancel { get; set; }
 
         /// <summary>
-        /// Información del cliente
+        /// Identificador del cliente
         /// </summary>
         [DataMember]
-        public ClienteBE Cliente { get; set; }
+        public String IdCliente { get; set; }
 
         /// <summary>
-        /// Ciudad de la ubicación del cliente
+        /// Identificador Vehículo repartidor
         /// </summary>
         [DataMember]
-        public CiudadBE Ciudad { get; set; }
+        public String Id_Vehiculo { get; set; }
+
 
         /// <summary>
-        /// Cilindro del cliente
+        /// Estado del pedido, (1) Activo (2) Cancelado
         /// </summary>
         [DataMember]
-        public List<CilindroBE> Cilindro { get; set; }
-
-        /// <summary>
-        /// Vehículo repartidor
-        /// </summary>
-        [DataMember]
-        public VehiculoBE Vehiculo { get; set; }
-
-        /// <summary>
-        /// Ruta del vehículo
-        /// </summary>
-        [DataMember]
-        public RutaBE Ruta { get; set; }
+        public String Estado { get; set; }
 
         /// <summary>
         /// Detalle de la venta
@@ -81,5 +64,12 @@ namespace Unisangil.CYLTRACK.CYLTRACK_BE
         [DataMember]
         public Detalle_PedidoBE Detalle_Ped { get; set; }
 
+        /// <summary>
+        /// Lista Detalle de la venta
+        /// </summary>
+        [DataMember]
+        public List<Detalle_PedidoBE> List_Detalle_Ped { get; set; }
+
+    
     }
 }

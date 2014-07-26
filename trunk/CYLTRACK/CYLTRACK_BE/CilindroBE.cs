@@ -86,11 +86,6 @@ namespace Unisangil.CYLTRACK.CYLTRACK_BE
         [DataMember]
         public VehiculoBE Vehiculo { get; set; }
 
-        /// <summary>
-        /// Cantidad de Cilindros
-        /// </summary>
-        [DataMember]
-        public int Cantidad { get; set; }
 
     }
 }

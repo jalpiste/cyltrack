@@ -39,9 +39,9 @@ namespace Unisangil.CYLTRACK.CYLTRACK_BE
         public Tipo_CasoBE Tipo_Caso { get; set; }
 
         /// <summary>
-        /// Venta de cilindros
+        /// Identificador Cliente
         /// </summary>
         [DataMember]
-        public VentaBE Venta { get; set; }
+        public String Id_Cliente { get; set; }
       }
 }
