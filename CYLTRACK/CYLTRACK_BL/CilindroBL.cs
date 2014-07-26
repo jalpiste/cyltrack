@@ -97,7 +97,7 @@ namespace Unisangil.CYLTRACK.CYLTRACK_BL
             return resp;
         }
          
-        public List<Ubicacion_CilindroBE> ConsultarCilUbicacion(Ubicacion_CilindroBE ubicaCil)
+        public List<Ubicacion_CilindroBE> ConsultarCilUbicacion(string ubicaCil)
         {
             List<Ubicacion_CilindroBE> lstResp= new List<Ubicacion_CilindroBE>();
 
