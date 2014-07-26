@@ -6,6 +6,7 @@ using System.Web.UI;
 using System.Web.UI.WebControls;
 using Unisangil.CYLTRACK.CYLTRACK_BE;
 using CYLTRACK_WebApp.VentaService;
+using CYLTRACK_WebApp.ClienteService;
 using System.Data;
 using System.Windows.Forms;
 
@@ -38,52 +39,47 @@ namespace Unisangil.CYLTRACK.CYLTRACK_WebApp.Ventas
 
         protected void txtCedulaCliente_TextChanged(object sender, EventArgs e)
         {
-
             VentaServiceClient serVenta = new VentaServiceClient();
-            VentaBE venta = new VentaBE();
-
+            ClienteServiceClient serCliente = new ClienteServiceClient();
+           
             try
             {
                 DataTable table = new DataTable();
-                string consultarExistencia = serVenta.ConsultarExistencia(txtCedulaCliente.Text);
+                long consultarExistencia = serVenta.ConsultarExistenciaVenta(txtCedulaCliente.Text);
 
-                if (consultarExistencia != "Ok")
+                if (consultarExistencia == 0)
                 {
                     MessageBox.Show("El cliente no tiene asignado ninguna venta reciente", "Consultar Venta");
                 }
                 else
                 {
-                    VentaBE datosVenta = new VentaBE();
-                    datosVenta = serVenta.ConsultarVenta(txtCedulaCliente.Text);
-
-                    table.Columns.Add("CodigosCil");
-                    table.Columns.Add("Tamano");
-                    table.Columns.Add("TipoCil");
+                    VentaBE datosVenta = serVenta.ConsultarVenta(txtCedulaCliente.Text);
 
                     txtFecha.Text = Convert.ToString(datosVenta.Fecha);
-                    txtHora.Text = Convert.ToString(datosVenta.Fecha);
-                    txtNumCedula.Text = datosVenta.Cliente.Cedula;
-                    txtNombreCliente.Text = datosVenta.Cliente.Nombres_Cliente;
-                    txtPrimerApellido.Text = datosVenta.Cliente.Apellido_1;
-                    txtSegundoApellido.Text = datosVenta.Cliente.Apellido_2;
-                    txtDireccion.Text = datosVenta.Cliente.Ubicacion.Direccion;
-                    txtBarrio.Text = datosVenta.Cliente.Ubicacion.Barrio;
-                    txtCiudad.Text = datosVenta.Cliente.Ubicacion.Ciudad.Nombre_Ciudad;
-                    txtDepartamento.Text = datosVenta.Cliente.Ubicacion.Ciudad.Departamento.Nombre_Departamento;
-                    txtTelefono.Text = datosVenta.Cliente.Ubicacion.Telefono_1;
+                    txtHora.Text = Convert.ToString(datosVenta.Fecha.TimeOfDay);
                     txtObservacion.Text = datosVenta.Observaciones;
 
-                    //-------------------------------------
+                    ClienteBE cliente = serCliente.Consultar_Cliente(txtCedulaCliente.Text);
 
-                    txtNombreConductor.Text = datosVenta.Vehiculo.Conductor.Nombres_Conductor;
-                    txtApellidoConductor.Text = datosVenta.Vehiculo.Conductor.Apellido_1;
-                    txtSegundoApellidoConductor.Text = datosVenta.Vehiculo.Conductor.Apellido_2;
-                    txtPlaca.Text = datosVenta.Vehiculo.Placa;
-                    txtRuta.Text = datosVenta.Vehiculo.Ruta.Nombre_Ruta;
-                    table.Rows.Add(datosVenta.Detalle_Venta.Cod_Cil_Actual, datosVenta.Detalle_Venta.Tamano, datosVenta.Detalle_Venta.Tipo_Cilindro);
-                    gvCargue.DataSource = table;
-                    gvCargue.DataBind();
+                    txtCedula2.Text = cliente.Cedula;
+                    lblIdCliente.Text = cliente.Id_Cliente;
+                    txtNombreCliente.Text = cliente.Nombres_Cliente + " " + cliente.Apellido_1 + " " + cliente.Apellido_2;
 
+                    table.Columns.Add("IdUbicacion");
+                    table.Columns.Add("Direccion");
+                    table.Columns.Add("Barrio");
+                    table.Columns.Add("Telefono");
+                    table.Columns.Add("Ciudad");
+
+                    foreach (UbicacionBE datos in cliente.ListaDirecciones)
+                    {
+                        table.Rows.Add(datos.Id_Ubicacion, datos.Direccion, datos.Barrio, datos.Telefono_1, datos.Ciudad.Nombre_Ciudad);
+                        
+                    }
+                    gvDirecciones.DataSource = table;
+                    gvDirecciones.DataBind();
+                    divDirCliente.Visible = true;                    
+                    divInfoCilindro.Visible = true;
                     DivInfoVenta.Visible = true;
                     btnNuevaConsulta.Visible = true;
                 }
@@ -96,6 +92,43 @@ namespace Unisangil.CYLTRACK.CYLTRACK_WebApp.Ventas
             finally
             {
                 serVenta.Close();
+                txtCedulaCliente.Text = "";
+                txtCodVenta.Text = "";
+            }
+        }
+
+        protected void Seleccion_onClick(object sender, EventArgs e)
+        {
+            ClienteServiceClient servCliente = new ClienteServiceClient();
+            DataTable table = new DataTable();
+            VentaBE venta = new VentaBE();
+            try
+            {
+                string idUbica = ((System.Web.UI.WebControls.RadioButton)sender).Attributes["value"].ToString();
+                lblIdUbica.Text = idUbica;
+                ((System.Web.UI.WebControls.RadioButton)sender).Checked = false;
+
+                List<Ubicacion_CilindroBE> lstCilCliente = new List<Ubicacion_CilindroBE>(servCliente.ConsultarCilPorCliente(lblIdUbica.Text));
+                table.Columns.Add("CodigosCil");
+                table.Columns.Add("Tamano");
+                table.Columns.Add("TipoCil");
+
+                foreach (Ubicacion_CilindroBE info in lstCilCliente)
+                {
+                    table.Rows.Add(info.Cilindro.Codigo_Cilindro, info.Cilindro.NTamano.Tamano, info.Cilindro.Tipo_Cilindro);
+                }
+
+                gvCargue.DataSource = table;
+                gvCargue.DataBind();               
+            }
+            catch (Exception ex)
+            {
+                Response.Redirect("~/About.aspx");
+            }
+            finally
+            {
+                btnNuevaConsulta.Focus();
+                servCliente.Close();
             }
         }
     }

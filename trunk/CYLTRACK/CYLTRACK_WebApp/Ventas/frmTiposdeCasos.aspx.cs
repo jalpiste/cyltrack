@@ -22,32 +22,32 @@ namespace Unisangil.CYLTRACK.CYLTRACK_WebApp.Ventas
                 List<CasosBE> lstCasos = new List<CasosBE>(serVenta.RevisionCasosEspeciales(dato));
                 foreach(CasosBE consulta in lstCasos)
                 {
-                    txtNumCedula.Text = consulta.Venta.Cliente.Cedula; 
-                    txtNombreCliente.Text=consulta.Venta.Cliente.Nombres_Cliente;
-                    txtPrimerApellido.Text = consulta.Venta.Cliente.Apellido_1;
-                    txtSegundoApellido.Text = consulta.Venta.Cliente.Apellido_2;
-                    foreach (string datos in consulta.Venta.Cliente.Ubicacion.Direccion)
-                    {
-                        txtDireccion.Text= datos;
-                    } 
-                    txtBarrio.Text = consulta.Venta.Cliente.Ubicacion.Barrio;
-                    txtCiudad.Text = consulta.Venta.Cliente.Ubicacion.Ciudad.Nombre_Ciudad;
-                    txtDepartamento.Text = consulta.Venta.Cliente.Ubicacion.Ciudad.Departamento.Nombre_Departamento;
-                    txtTelefono.Text = consulta.Venta.Cliente.Ubicacion.Telefono_1;
-                    txtObservacion.Text = consulta.Venta.Observaciones;
+                    //txtNumCedula.Text = consulta.Venta.IdCliente.Cedula; 
+                    //txtNombreCliente.Text=consulta.Venta.IdCliente.Nombres_Cliente;
+                    //txtPrimerApellido.Text = consulta.Venta.IdCliente.Apellido_1;
+                    //txtSegundoApellido.Text = consulta.Venta.IdCliente.Apellido_2;
+                    ////foreach (string datos in consulta.Venta.Cliente.ListaDirecciones)
+                    ////{
+                    ////    txtDireccion.Text= datos;
+                    ////} 
+                    //txtBarrio.Text = consulta.Venta.IdCliente.Ubicacion.Barrio;
+                    //txtCiudad.Text = consulta.Venta.IdCliente.Ubicacion.Ciudad.Nombre_Ciudad;
+                    //txtDepartamento.Text = consulta.Venta.IdCliente.Ubicacion.Ciudad.Departamento.Nombre_Departamento;
+                    //txtTelefono.Text = consulta.Venta.IdCliente.Ubicacion.Telefono_1;
+                   // txtObservacion.Text = consulta.Id_Detalle_Venta.Observaciones;
                     txtCasoEspecial.Text = consulta.Tipo_Caso.Nombre_Caso;
                     
                     if (txtCasoEspecial.Text == "Escape")
                     {
                         divEscape.Visible = true;
-                        txtCilAnterior.Text = consulta.Venta.Detalle_Venta.Cod_Cil_Actual;
-                        txtCilaCambio.Text = consulta.Venta.Detalle_Venta.Cod_Cil_Nuevo;
+                       // txtCilAnterior.Text = consulta.Venta.Detalle_Venta.Cod_Cil_Actual;
+                      //  txtCilaCambio.Text = consulta.Venta.Detalle_Venta.Cod_Cil_Nuevo;
                     }
                     if (txtCasoEspecial.Text == "Codigo_Errado") 
                     {
                         divCodErroneo.Visible = true;
-                        txtCodigoErroneo.Text = consulta.Venta.Detalle_Venta.Cod_Cil_Actual;
-                        txtCodigoCorrecto.Text = consulta.Venta.Detalle_Venta.Cod_Cil_Nuevo;
+                        //txtCodigoErroneo.Text = consulta.Venta.Detalle_Venta.Cod_Cil_Actual;
+                        //txtCodigoCorrecto.Text = consulta.Venta.Detalle_Venta.Cod_Cil_Nuevo;
                     }
                 }
             }
