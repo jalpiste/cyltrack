@@ -9,6 +9,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using Unisangil.CYLTRACK.CYLTRACK_BE;
+using Unisangil.CYLTRACK.CYLTRACK_DL;
 
 namespace Unisangil.CYLTRACK.CYLTRACK_BL
 {
@@ -18,74 +19,72 @@ namespace Unisangil.CYLTRACK.CYLTRACK_BL
 
         #endregion
         #region Metodos publicos
-        public string VentaCilindro(VentaBE ventas)
+        public long RegistarVenta(VentaBE venta)
         {
-            string resp = "Ok";
+            VentaDL ven = new VentaDL();
+            long respVenta = 0;
+            long respDetalleVenta = 0;
+            try
+            {
+                if(venta.Observaciones=="")
+                {
+                    venta.Observaciones = "0";
+                }
+                respVenta = ven.RegistrarVenta(venta);
+                venta.Id_Venta= respVenta.ToString();
+
+                foreach(Detalle_VentaBE datos in venta.Lista_Detalle_Venta)
+                {
+                    Detalle_VentaBE det = new Detalle_VentaBE();
+                    det.Id_Cilindro_Entrada = datos.Id_Cilindro_Entrada;
+                    det.Id_Cilindro_Salida = datos.Id_Cilindro_Salida;
+                    det.Tipo_Cilindro = datos.Tipo_Cilindro;
+                    venta.Detalle_Venta = det;
+                    respDetalleVenta = ven.RegistrarDetalleVenta(venta);
+                }
+                
+            }
+            catch (Exception ex)
+            {
+                //guardar exepcion en el log de bd
+                respVenta = -1;
+            }
+            return respVenta;
+        }
+
+        public long ConsultarExistenciasVenta(string venta)
+        {
+            VentaDL ven = new VentaDL();
+
+            long resp = 0;
+            try
+            {
+                resp = ven.ConsultarExistenciasVenta(venta);
+            }
+            catch (Exception ex)
+            {
+                //guardar exepcion en el log de bd
+                resp = -1;
+            }
+
             return resp;
         }
 
-        public string ConsultarExistencia(string ventas)
+        public VentaBE ConsultarVenta(string datoConsulta)
         {
-            string resp = "Ok";
+            VentaDL ven = new VentaDL();
+            VentaBE resp = new VentaBE();
+
+            try
+            {
+                resp = ven.ConsultarVenta(datoConsulta);
+            }
+            catch (Exception ex)
+            {
+                
+            }
+
             return resp;
-        }
-
-        public VentaBE ConsultarVenta(string ventas)
-        {
-                Random ran = new Random();
-                VentaBE datVenta = new VentaBE();
-                Detalle_VentaBE detVenta = new Detalle_VentaBE();
-                detVenta.Cod_Cil_Actual = ((DateTime.Now.Hour + DateTime.Now.Second) * ran.Next(1, 10)).ToString();
-                detVenta.Cod_Cil_Nuevo = ((DateTime.Now.Hour + DateTime.Now.Second) * ran.Next(1, 10)).ToString();
-                detVenta.Tamano = "30";
-                detVenta.Tipo_Cilindro = "Universal";
-                CasosBE casos = new CasosBE();
-                Tipo_CasoBE tipCasos = new Tipo_CasoBE();
-                tipCasos.Nombre_Caso = "Escape";
-                casos.Tipo_Caso = tipCasos;
-                casos.Id_Casos = "189238";
-                detVenta.Casos_Especiales = casos;
-                datVenta.Detalle_Venta = detVenta;
-                datVenta.Fecha = Convert.ToDateTime(DateTime.Now.ToShortDateString());
-                ClienteBE cli = new ClienteBE();
-                cli.Cedula = "2345678";
-                cli.Nombres_Cliente = "Pablo";
-                cli.Apellido_1 = "Paez";
-                cli.Apellido_2 = "Veloza";
-               
-                UbicacionBE ubi = new UbicacionBE();
-                //List<string> lstDireccion = new List<string>();
-                //for (int i = 0; i < 5; i++)
-                //{
-                //    lstDireccion.Add("Calle" + i + " N " + i + "0 " + i + "0");
-                //}
-                //ubi.Direccion = lstDireccion;
-                ubi.Barrio = "Boyacá";
-                ubi.Telefono_1 = "7266617";
-                cli.Ubicacion = ubi;
-                CiudadBE ciu = new CiudadBE();
-                ciu.Nombre_Ciudad = "Chiquinquirá";
-                DepartamentoBE dep = new DepartamentoBE();
-                dep.Nombre_Departamento = "Boyacá";
-                ciu.Departamento = dep;
-                ubi.Ciudad = ciu;
-                cli.Ubicacion = ubi;
-                datVenta.Observaciones = "error en el codigo del cilindro del cliente";
-                datVenta.Cliente = cli;
-                //------------------------
-                VehiculoBE veh = new VehiculoBE();
-                veh.Placa = "XHA940";
-                ConductorBE cond = new ConductorBE();
-                cond.Nombres_Conductor = "carlos";
-                cond.Apellido_1 = "Pineda";
-                cond.Apellido_2 = "Poveda";
-                veh.Conductor = cond;
-                RutaBE ruta = new RutaBE();
-                ruta.Nombre_Ruta = "Zona centro";
-                veh.Ruta = ruta;
-                datVenta.Vehiculo = veh;
-
-                return datVenta;
         }
 
         public List<CilindroBE> ConsultarCarguePlaca() 
@@ -115,7 +114,7 @@ namespace Unisangil.CYLTRACK.CYLTRACK_BL
                  VentaBE datosVenta= new VentaBE();
                  datosVenta = ConsultarVenta(casos);
                  CasosBE casosEspeciales = new CasosBE();
-                 casosEspeciales.Venta = datosVenta;
+                 //casosEspeciales.Id_Detalle_Venta = datosVenta;
                  casosEspeciales.Id_Casos = ((DateTime.Now.Hour + DateTime.Now.Second) * ran.Next(1, 10)).ToString();
                  Tipo_CasoBE tipCaso = new Tipo_CasoBE();
                  tipCaso.Nombre_Caso = "Escape";

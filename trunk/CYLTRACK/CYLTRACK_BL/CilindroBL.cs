@@ -30,17 +30,16 @@ namespace Unisangil.CYLTRACK.CYLTRACK_BL
             long resp = 0;
             try
             {
-                if (cilindro.Tipo_Ubicacion.Nombre_Ubicacion == "Chatarra")
+                if (cilindro.Tipo_Cilindro == "UNIVERSAL")
                 {
                     cilindro.Estado = "CHATARRA";
                 }
                 else 
                 {
-                    cilindro.Estado = "USO";
-                    cilindro.Tipo_Cilindro = "MARCADO";
+                    cilindro.Estado = "USO";                    
                 }
 
-                if (cilindro.Vehiculo.Id_Vehiculo == "")
+                if (cilindro.Tipo_Ubicacion.Nombre_Ubicacion != "VEHICULO" )
                 {
                     cilindro.Vehiculo.Id_Vehiculo = "0";
                 }
@@ -98,15 +97,14 @@ namespace Unisangil.CYLTRACK.CYLTRACK_BL
             return resp;
         }
          
-        public List<Ubicacion_CilindroBE> ConsultarCilUbicacion(string ubica)
+        public List<Ubicacion_CilindroBE> ConsultarCilUbicacion(Ubicacion_CilindroBE ubicaCil)
         {
             List<Ubicacion_CilindroBE> lstResp= new List<Ubicacion_CilindroBE>();
 
             CilindroDL cil = new CilindroDL();
-           
             try
             {
-                lstResp = cil.ConsultarCilUbicacion(ubica);
+                lstResp = cil.ConsultarCilUbicacion(ubicaCil);
             }
             catch (Exception ex)
             {

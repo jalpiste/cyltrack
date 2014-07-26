@@ -72,14 +72,32 @@ namespace Unisangil.CYLTRACK.CYLTRACK_BL
             return resp;
         }
 
-        public long ModificarCliente(ClienteBE cliente)
+        public long ModificarDirCliente(UbicacionBE cliente)
         {
             ClienteDL cli = new ClienteDL();
 
             long resp = 0;
             try
             {
-                resp = cli.ModificarCliente(cliente);
+                resp = cli.ModificarDirCliente(cliente);
+            }
+            catch (Exception ex)
+            {
+                //guardar exepcion en el log de bd
+                resp = -1;
+            }
+
+            return resp;
+        }
+
+        public long ModificarNombreCliente(ClienteBE cliente)
+        {
+            ClienteDL cli = new ClienteDL();
+
+            long resp = 0;
+            try
+            {
+                resp = cli.ModificarNombreCliente(cliente);
             }
             catch (Exception ex)
             {
@@ -107,6 +125,39 @@ namespace Unisangil.CYLTRACK.CYLTRACK_BL
 
             return resp;
         }
+
+        public List<Ubicacion_CilindroBE> ConsultarCilPorCliente(string idCliente)
+        {
+            List<Ubicacion_CilindroBE> lstResp = new List<Ubicacion_CilindroBE>();
+
+            ClienteDL cli = new ClienteDL();
+            try
+            {
+                lstResp = cli.ConsultarCilPorCliente(idCliente);
+            }
+            catch (Exception ex)
+            {
+
+            }
+
+            return lstResp;
+        }
+        public UbicacionBE ConsultarDirPorUbicacion(string idUbica)
+        {
+            UbicacionBE resp = new UbicacionBE();
+
+            ClienteDL cli = new ClienteDL();
+            try
+            {
+                resp = cli.ConsultarDirClientePorUbicacion(idUbica);
+            }
+            catch (Exception ex)
+            {
+
+            }
+            return resp;
+        }
+         
         #endregion
         #region Metodos privados
         #endregion

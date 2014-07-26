@@ -26,88 +26,44 @@ namespace Unisangil.CYLTRACK.CYLTRACK_BL
             CilindroBE cil = new CilindroBE();
             TamanoBE tam = new TamanoBE();
             cil.NTamano = tam;
-            report.Cilindro = cil;
-            report.Cilindro.Codigo_Cilindro = reporte;
-            report.Cilindro.NTamano.Tamano = "30";
-            report.Fecha_Reporte = DateTime.Now;
+            //report.Cilindro = cil;
+            //report.Cilindro.Codigo_Cilindro = reporte;
+            //report.Cilindro.NTamano.Tamano = "30";
+            //report.Fecha_Reporte = DateTime.Now;
             UbicacionBE ubi = new UbicacionBE();
             Tipo_UbicacionBE tipoUbica = new Tipo_UbicacionBE();
             ubi.Tipo_Ubicacion= tipoUbica;            
-            report.Ubicacion = ubi;
-            report.Ubicacion.Tipo_Ubicacion.Nombre_Ubicacion = "Vehiculo";
+            //report.Ubicacion_Cilindro = ubi;
+            //report.Ubicacion_Cilindro.Tipo_Ubicacion.Nombre_Ubicacion = "Vehiculo";
 
             resp.Add(report);
 
             return resp;
         }
 
-        public List<ReportesBE> Inventario(ReportesBE reporte)
-        {
-            List<ReportesBE> resp= new List<ReportesBE>();
-            ReportesBE[] lista = new ReportesBE[7];
-            Random ran = new Random();
-            for (int i = 0; i < 7; i++)
-            {
-                ReportesBE datReporte = new ReportesBE();
-
-                CilindroBE cil = new CilindroBE();
-                cil.Codigo_Cilindro = ((DateTime.Now.Hour + DateTime.Now.Second) * ran.Next(1, 10)).ToString();
-                cil.Tipo_Cilindro = "Marcado";
-                TamanoBE tam = new TamanoBE();
-                tam.Tamano = "30";
-                cil.NTamano = tam;
-                datReporte.Cilindro = cil;
-                VehiculoBE veh = new VehiculoBE();
-                veh.Placa = "UIZ987";
-                UbicacionBE ubicacion = new UbicacionBE();
-                Tipo_UbicacionBE tipoUbica = new Tipo_UbicacionBE();
-                ubicacion.Tipo_Ubicacion = tipoUbica;
-                ubicacion.Vehiculo = veh;
-                datReporte.Ubicacion = ubicacion;
-
-                if (reporte.Ubicacion.Tipo_Ubicacion.Nombre_Ubicacion == "Vehiculo")
-                {
-                    datReporte.Ubicacion.Tipo_Ubicacion.Nombre_Ubicacion = "XHA940";
-                    datReporte.Cilindro.Tipo_Cilindro = "Universal";
-                    datReporte.Cilindro.Cantidad = 5;
-                }
-                else
-                {
-                    datReporte.Ubicacion.Tipo_Ubicacion.Nombre_Ubicacion = reporte.Ubicacion.Tipo_Ubicacion.Nombre_Ubicacion;
-                    datReporte.Cilindro.Tipo_Cilindro = reporte.Cilindro.Tipo_Cilindro;
-                    datReporte.Cilindro.Cantidad = 5;
-                }
-            
-                lista[i] = datReporte;
-            }
-
-            resp = lista.ToList();
-
-            return resp;
-        }
-
+        
         public List<UbicacionBE> ConsultaReporteCiudades(string ciudad, string tipoCil)
         {
             List<UbicacionBE> lstCiudades = new List<UbicacionBE>();
-            for (int i = 0; i < 4; i++)
-            {
-                UbicacionBE ubicacion = new UbicacionBE();
-                CiudadBE ciu = new CiudadBE();
-                ciu.Nombre_Ciudad = "Chiquinquirá";
-                DepartamentoBE dep = new DepartamentoBE();
-                dep.Nombre_Departamento = "Boyacá";
-                ciu.Departamento = dep;
-                ubicacion.Ciudad = ciu;
-                Ubicacion_CilindroBE ubiCil = new Ubicacion_CilindroBE();
-                CilindroBE cilindro = new CilindroBE();
-                TamanoBE tam = new TamanoBE();
-                tam.Tamano = "30";
-                cilindro.NTamano = tam;
-                cilindro.Cantidad = 34;
-                ubiCil.Cilindro = cilindro;
-                ubicacion.Ubicacion_Cilindro = ubiCil;
-                lstCiudades.Add(ubicacion);
-            }
+            //for (int i = 0; i < 4; i++)
+            //{
+            //    UbicacionBE ubicacion = new UbicacionBE();
+            //    CiudadBE ciu = new CiudadBE();
+            //    ciu.Nombre_Ciudad = "Chiquinquirá";
+            //    DepartamentoBE dep = new DepartamentoBE();
+            //    dep.Nombre_Departamento = "Boyacá";
+            //    ciu.Departamento = dep;
+            //    ubicacion.Ciudad = ciu;
+            //    Ubicacion_CilindroBE ubiCil = new Ubicacion_CilindroBE();
+            //    CilindroBE cilindro = new CilindroBE();
+            //    TamanoBE tam = new TamanoBE();
+            //    tam.Tamano = "30";
+            //    cilindro.NTamano = tam;
+            //    cilindro.Cantidad = 34;
+            //    ubiCil.Cilindro = cilindro;
+            //    ubicacion.Ubicacion_Cilindro = ubiCil;
+            //    lstCiudades.Add(ubicacion);
+            //}
             return lstCiudades;
         }
 
@@ -148,22 +104,22 @@ namespace Unisangil.CYLTRACK.CYLTRACK_BL
             string[] letras = new string[] { "A", "R", "J", "L", "P", "V" };
             Random ran = new Random();
 
-             for (int i = 0; i < 4; i++)
-            {
-                UbicacionBE ubicacion = new UbicacionBE();
-                VehiculoBE vehiculo= new VehiculoBE();
-                vehiculo.Placa = letras[i] + "" + letras[i] + "" + letras[i] + "" + ((DateTime.Now.Hour + DateTime.Now.Second) * ran.Next(1, 10)).ToString();
-                ubicacion.Vehiculo = vehiculo;
-                Ubicacion_CilindroBE ubiCil = new Ubicacion_CilindroBE();
-                CilindroBE cilindro = new CilindroBE();
-                TamanoBE tam = new TamanoBE();
-                tam.Tamano = "30";
-                cilindro.NTamano = tam;
-                cilindro.Cantidad = 34;
-                ubiCil.Cilindro = cilindro;
-                ubicacion.Ubicacion_Cilindro = ubiCil;
-                lstConsultaPlacas.Add(ubicacion);
-            }
+            // for (int i = 0; i < 4; i++)
+            //{
+            //    UbicacionBE ubicacion = new UbicacionBE();
+            //    VehiculoBE vehiculo= new VehiculoBE();
+            //    vehiculo.Placa = letras[i] + "" + letras[i] + "" + letras[i] + "" + ((DateTime.Now.Hour + DateTime.Now.Second) * ran.Next(1, 10)).ToString();
+            //    ubicacion.Vehiculo = vehiculo;
+            //    Ubicacion_CilindroBE ubiCil = new Ubicacion_CilindroBE();
+            //    CilindroBE cilindro = new CilindroBE();
+            //    TamanoBE tam = new TamanoBE();
+            //    tam.Tamano = "30";
+            //    cilindro.NTamano = tam;
+            //    cilindro.Cantidad = 34;
+            //    ubiCil.Cilindro = cilindro;
+            //    ubicacion.Ubicacion_Cilindro = ubiCil;
+            //    lstConsultaPlacas.Add(ubicacion);
+            //}
             return lstConsultaPlacas;
             
         }
@@ -212,9 +168,9 @@ namespace Unisangil.CYLTRACK.CYLTRACK_BL
             
             for (int i = 0; i < 5; i++)
             {
-                PedidoBE conPedido = new PedidoBE();
-                conPedido.Id_Pedido = ""+i*3;
-                conPedido.Fecha = DateTime.Now.AddHours(5);
+                //PedidoBE conPedido = new PedidoBE();
+                //conPedido.Id_Pedido = ""+i*3;
+                //conPedido.Fecha = DateTime.Now.AddHours(5);
 
                 ClienteBE cliente = new ClienteBE();
                 cliente.Cedula = "56235624";
@@ -236,10 +192,10 @@ namespace Unisangil.CYLTRACK.CYLTRACK_BL
                 ubicacion.Vehiculo = veh;
 
                // conPedido.Ubicacion = ubicacion;
-                conPedido.Vehiculo = veh;
-                conPedido.Cliente = cliente;
-                conPedido.Cilindro = lstCilindros;
-                lstPedidos.Add(conPedido);
+                //conPedido.Id_Vehiculo = veh;
+                //conPedido.CedCliente = cliente;
+                //conPedido.Cilindro = lstCilindros;
+                //lstPedidos.Add(conPedido);
             }
             return lstPedidos;
        
@@ -365,22 +321,60 @@ namespace Unisangil.CYLTRACK.CYLTRACK_BL
             return resp;
 
         }
-        public long consultadeExistenciaVarios(string dato)
+        public List<Ubicacion_CilindroBE> ConsultarCilInventario(ReportesBE reporte)
         {
+            List<Ubicacion_CilindroBE> lstResp = new List<Ubicacion_CilindroBE>();
+
             ReporteDL rep = new ReporteDL();
-            long resp = 0;
             try
             {
-                resp = rep.ConsultarExistenciasVarios(dato);
+                lstResp = rep.ConsultarCilInventario(reporte);
+
+                ReportesBE objRep = new ReportesBE();
+
+                foreach (Ubicacion_CilindroBE datos in lstResp)
+                {
+                    if (datos.Cilindro.NTamano.Tamano == "30")
+                    {
+                        objRep.SumCil30 += 1;
+                    }
+                    if (datos.Cilindro.NTamano.Tamano == "40")
+                    {
+                        objRep.SumCil40 += 1;
+                    }
+                    if (datos.Cilindro.NTamano.Tamano == "80")
+                    {
+                        objRep.SumCil80 += 1;
+                    }
+                    if (datos.Cilindro.NTamano.Tamano == "100")
+                    {
+                        objRep.SumCil100 += 1;
+                    }
+
+                    datos.Reportes = objRep;
+                }
             }
             catch (Exception ex)
             {
-                //guardar exepcion en el log de bd
-                resp = -1;
+
             }
 
-            return resp;
+            return lstResp;
+        }
+        
+        public List<Tipo_CasoBE> ConsultaTipoCasos()
+        {
+            ReporteDL reporte = new ReporteDL();
+            List<Tipo_CasoBE> lstTipoCaso = new List<Tipo_CasoBE>();
+            try
+            {
+                lstTipoCaso = reporte.ConsultarTipoCasos();
+            }
+            catch (Exception ex)
+            {
 
+            }
+            return lstTipoCaso;
         }
 
         #endregion
