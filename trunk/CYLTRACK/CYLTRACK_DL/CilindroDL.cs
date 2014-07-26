@@ -314,7 +314,7 @@ namespace Unisangil.CYLTRACK.CYLTRACK_DL
         
         }
 
-        public List<Ubicacion_CilindroBE> ConsultarCilUbicacion(Ubicacion_CilindroBE ubicaCil)
+        public List<Ubicacion_CilindroBE> ConsultarCilUbicacion(string ubicaCil)
         {
             List<Ubicacion_CilindroBE> ubicacionCil = new List<Ubicacion_CilindroBE>();
             try
@@ -327,7 +327,7 @@ namespace Unisangil.CYLTRACK.CYLTRACK_DL
 
                 parametros[0] = db.Comando.CreateParameter();
                 parametros[0].ParameterName = "vrTipoUbicacion";
-                parametros[0].Value = ubicaCil.Id_Ubicacion_Cilindro;
+                parametros[0].Value = ubicaCil;
                 parametros[0].Direction = ParameterDirection.Input;
                 db.Comando.Parameters.Add(parametros[0]);
 
