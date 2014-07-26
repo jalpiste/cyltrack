@@ -18,16 +18,22 @@ namespace Unisangil.CYLTRACK.CYLTRACK_BE
         public String Mes_Reporte { get; set; }
 
         /// <summary>
-        /// Ubiación del Cilindro
+        /// Identificador Vehículo
         /// </summary>
         [DataMember]
-        public UbicacionBE Ubicacion { get; set; }
+        public String IdVehiculo { get; set; }
 
         /// <summary>
-        /// Vehículo
+        /// Identificador Ubicacion
         /// </summary>
         [DataMember]
-        public VehiculoBE Vehiculo { get; set; }
+        public String IdUbicacion { get; set; }
+
+        /// <summary>
+        /// Tipo de Cilindro
+        /// </summary>
+        [DataMember]
+        public String Tipo_Cilindro { get; set; }
 
         /// <summary>
         /// Vehículo
@@ -36,9 +42,28 @@ namespace Unisangil.CYLTRACK.CYLTRACK_BE
         public DateTime Fecha_Reporte { get; set; }
 
         /// <summary>
-        /// Cilindro
-        /// </summary>
+        ///Sumatoria de Cilindros de 30 Libras
+        /// </summary> 
         [DataMember]
-        public CilindroBE Cilindro { get; set; }
+        public Int32 SumCil30 { get; set; }
+
+        /// <summary>
+        ///Sumatoria de Cilindros de 40 Libras
+        /// </summary> 
+        [DataMember]
+        public Int32 SumCil40 { get; set; }
+
+        /// <summary>
+        ///Sumatoria de Cilindros de 80 Libras
+        /// </summary> 
+        [DataMember]
+        public Int32 SumCil80 { get; set; }
+
+        /// <summary>
+        ///Sumatoria de Cilindros de 100 Libras
+        /// </summary> 
+        [DataMember]
+        public Int32 SumCil100 { get; set; }
+
     }
 }

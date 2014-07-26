@@ -27,6 +27,12 @@ namespace Unisangil.CYLTRACK.CYLTRACK_BE
         public String Id_Venta { get; set; }
 
         /// <summary>
+        /// Identificador Ubicacion Dirección
+        /// </summary>
+        [DataMember]
+        public String Id_Ubicacion { get; set; }
+
+        /// <summary>
         /// Observaciones de la venta
         /// </summary>
         [DataMember]
@@ -45,22 +51,23 @@ namespace Unisangil.CYLTRACK.CYLTRACK_BE
         public Detalle_VentaBE Detalle_Venta { get; set; }
 
         /// <summary>
-        /// Datos del vehículo 
+        /// Detalle de la venta
         /// </summary>
         [DataMember]
-        public VehiculoBE Vehiculo { get; set; }
+        public List<Detalle_VentaBE> Lista_Detalle_Venta { get; set; }
 
         /// <summary>
-        /// Cliente 
+        /// Identificador del vehículo 
         /// </summary>
         [DataMember]
-        public ClienteBE Cliente { get; set; }
+        public String IdVehiculo { get; set; }
 
         /// <summary>
-        /// Contratista
+        /// Identificador del Cliente 
         /// </summary>
         [DataMember]
-        public ContratistaBE Contratista { get; set; }
+        public String IdCliente { get; set; }
+
               
     }
 }

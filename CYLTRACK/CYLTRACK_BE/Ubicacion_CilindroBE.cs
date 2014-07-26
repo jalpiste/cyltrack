@@ -56,6 +56,20 @@ namespace Unisangil.CYLTRACK.CYLTRACK_BE
         [DataMember]
         public UbicacionBE Ubicacion { get; set; }
 
+        /// <summary>
+        ///Reportes
+        /// </summary> 
+        [DataMember]
+        public ReportesBE Reportes { get; set; }
+
+        /// <summary>
+        ///Nombre Ubicación
+        /// </summary> 
+        [DataMember]
+        public String Nombre_Ubicacion { get; set; }
+
+
+
     }
 }
 

@@ -24,7 +24,7 @@ namespace Unisangil.CYLTRACK.CYLTRACK_BE
         /// Identificador de la ubicacion del cilindro
         /// </summary>
         [DataMember]
-        public int Id_Ubicacion { get; set; }
+        public String Id_Ubicacion { get; set; }
 
         /// <summary>
         /// Fecha del cambio de ubicación del cilindro
@@ -45,28 +45,10 @@ namespace Unisangil.CYLTRACK.CYLTRACK_BE
         public String Direccion { get; set; }
 
         /// <summary>
-        /// Segunda Dirección de Cliente
-        /// </summary>
-        [DataMember]
-        public String Direccion2 { get; set; }
-
-        /// <summary>
-        /// Tercera Dirección de Cliente
-        /// </summary>
-        [DataMember]
-        public String Direccion3 { get; set; }
-
-        /// <summary>
         /// Teléfono N.1 de nueva de ubicación
         /// </summary>
         [DataMember]
         public String Telefono_1 { get; set; }
-
-        /// <summary>
-        /// Teléfono N.2 de nueva de ubicación
-        /// </summary>
-        [DataMember]
-        public String Telefono_2 { get; set; }
 
         /// <summary>
         /// Barrio de nueva de ubicación
