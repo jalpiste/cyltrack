@@ -54,7 +54,7 @@ namespace Unisangil.CYLTRACK.CYLTRACK_WCF_Services
         /// </summary>
         /// <param name="ubicacionCil">Objeto de negocio cilindro</param>
         /// <returns>Códigos de Cilindros</returns>
-        public List<Ubicacion_CilindroBE> ConsultarCilUbicacion(Ubicacion_CilindroBE ubicacionCil)
+        public List<Ubicacion_CilindroBE> ConsultarCilUbicacion(string ubicacionCil)
         {
             List<Ubicacion_CilindroBE> resp;
             CilindroBL consultaUbicacion = new CilindroBL();
