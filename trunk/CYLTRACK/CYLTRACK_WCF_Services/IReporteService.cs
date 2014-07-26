@@ -28,13 +28,15 @@ namespace Unisangil.CYLTRACK.CYLTRACK_WCF_Services
         [OperationContract]
         List<ReportesBE> HistoricoCilindro(string reporte);
 
+
         /// <summary>
-        /// Método encargado de la consulta del inventario de cilindros en el sistema. Permite
+        /// Método encargado de la consulta de cilindros de una ubicacion especifica en el sistema. Permite
         /// que las aplicaciones llamen a los objetos de negocio directamente.
         /// </summary>
         /// <param name="reporte">Objeto de negocio reporte</param>
+        /// <returns>Objeto cilindro</returns>
         [OperationContract]
-        List<ReportesBE> Inventario(ReportesBE reporte);
+        List<Ubicacion_CilindroBE> ConsultarCilInventario(ReportesBE reporte);
 
         /// <summary>
         /// Método encargado de la consulta de ciudades en el sistema. Permite
@@ -124,12 +126,11 @@ namespace Unisangil.CYLTRACK.CYLTRACK_WCF_Services
         long consultadeExistencia(string dato);
 
         /// <summary>
-        /// Método encargado de la consulta de la existencia de datos en el sistema. Permite
+        /// Método encargado de la consulta de los tipos de casos en el sistema. Permite
         /// que las aplicaciones llamen a los objetos de negocio directamente.
         /// </summary>
-        /// <param name="dato">Objeto de negocio </param>
-        /// <returns>identificador</returns>
+        /// <returns>listado de objetos de tipos de casos </returns>
         [OperationContract]
-        long consultadeExistenciaVarios(string dato);
+        List<Tipo_CasoBE> ConsultaTiposCasos();
     }
 }

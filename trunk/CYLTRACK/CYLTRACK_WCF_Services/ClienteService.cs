@@ -50,7 +50,20 @@ namespace Unisangil.CYLTRACK.CYLTRACK_WCF_Services
             return resp;
         }
 
-        
+        /// <summary>
+        /// Encargado de recibir un cliente de los canales front de venta y llamar
+        /// al metodo de negocio para la consulta de cilindros en dicha ubicacion
+        /// </summary>
+        /// <param name="idCliente">Identificador Cliente</param>
+        /// <returns>lista de Objeto de Cilindros</returns>
+        public List<Ubicacion_CilindroBE> ConsultarCilPorCliente(string idCliente)
+        {
+            List<Ubicacion_CilindroBE> resp;
+            ClienteBL consultaCilCliente = new ClienteBL();
+            resp = consultaCilCliente.ConsultarCilPorCliente(idCliente);
+            return resp;
+        }
+
         /// <summary>
         /// Encargado de recibir un cliente de los canales front de venta y llamar
         /// al metodo de negocio para realizar la consulta de un cliente
@@ -68,15 +81,44 @@ namespace Unisangil.CYLTRACK.CYLTRACK_WCF_Services
 
         /// <summary>
         /// Encargado de recibir un cliente de los canales front de venta y llamar
+        /// al metodo de negocio para realizar la consulta de un cliente
+        /// </summary>
+        /// <param name="registrar_cli">Objeto de negocio cliente</param>
+        /// <returns>cédula del cliente</returns>
+
+        public UbicacionBE ConsultarDirCliPorUbica(string idUbica)
+        {
+            UbicacionBE resp;
+            ClienteBL ConCliente = new ClienteBL();
+            resp = ConCliente.ConsultarDirPorUbicacion(idUbica);
+            return resp;
+        }
+
+        /// <summary>
+        /// Encargado de recibir un cliente de los canales front de venta y llamar
         /// al metodo de negocio para modificar el registro de cliente
         /// </summary>
         /// <param name="registrar_cli">Objeto de negocio cliente</param>
         /// <returns>cédula del cliente</returns>
-        public long Modificar_Cliente(ClienteBE modificar_cli)
+        public long ModificarDirCliente(UbicacionBE ubicacion)
         {
             long resp;
             ClienteBL ModCliente = new ClienteBL();
-            resp = ModCliente.ModificarCliente(modificar_cli);
+            resp = ModCliente.ModificarDirCliente(ubicacion);
+            return resp;
+        }
+
+        /// <summary>
+        /// Encargado de recibir un cliente de los canales front de venta y llamar
+        /// al metodo de negocio para modificar el registro de cliente
+        /// </summary>
+        /// <param name="registrar_cli">Objeto de negocio cliente</param>
+        /// <returns>cédula del cliente</returns>
+        public long ModificarNombreCliente(ClienteBE modificar_cli)
+        {
+            long resp;
+            ClienteBL ModCliente = new ClienteBL();
+            resp = ModCliente.ModificarNombreCliente(modificar_cli);
             return resp;
         }
 

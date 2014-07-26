@@ -24,27 +24,27 @@ namespace Unisangil.CYLTRACK.CYLTRACK_WCF_Services
         /// que las aplicaciones llamen a los objetos de negocio directamente.
         /// </summary>
         /// <param name="ventas">Objeto de negocio ventas</param>
-        /// <returns>cédula del cliente</returns>
+        /// <returns>Identificador de la venta</returns>
         [OperationContract]
-        string VentaCilindro(VentaBE ventas);
+        long RegistrarVenta(VentaBE ventas);
 
         /// <summary>
         /// Método encargado de la consulta de existencia de ventas de cilindros en el sistema. Permite
         /// que las aplicaciones llamen a los objetos de negocio directamente.
         /// </summary>
-        /// <param name="ventas">Id_Venta</param>
-        /// <returns>Existencia</returns>
+        /// <param name="cédula cliente,código pedido">cedula, codigo_pedido</param>
+        /// <returns>identificador venta</returns>
         [OperationContract]
-        string ConsultarExistencia(string ventas);
+        long ConsultarExistenciaVenta(string ventas);
 
         /// <summary>
         /// Método encargado de la consulta de ventas de cilindros en el sistema. Permite
         /// que las aplicaciones llamen a los objetos de negocio directamente.
         /// </summary>
-        /// <param name="ventas">Objeto de negocio ventas</param>
-        /// <returns>cédula del cliente</returns>
+        /// <param name="cédula,codigoVenta">cédula del cliente o código venta</param>
+        /// <returns>Objeto de negocio venta</returns>
         [OperationContract]
-        VentaBE ConsultarVenta(string ventas);
+        VentaBE ConsultarVenta(string datoConsulta);
 
         /// <summary>
         /// Método encargado de la consulta de cilindros por placa en el sistema. Permite

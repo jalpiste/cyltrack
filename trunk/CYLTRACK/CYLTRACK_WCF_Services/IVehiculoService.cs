@@ -49,6 +49,14 @@ namespace Unisangil.CYLTRACK.CYLTRACK_WCF_Services
         long ConsultarExistenciaVehiculo(string placa);
 
 
+        /// <summary>
+        /// Método encargado de la consulta de cilindros de un Vehiculo en especifico en el sistema. Permite
+        /// que las aplicaciones llamen a los objetos de negocio directamente.
+        /// </summary>
+        /// <param name="vehiculo">Identificador del Vehiculo</param>
+        /// <returns>Lista de Objetos con códigos cilindro</returns>
+        [OperationContract]
+        List<Ubicacion_CilindroBE> ConsultarCilPorVehiculo(string idVehiculo);
 
         /// <summary>
         /// Método encargado de la consulta para la confirmación de existencia de contratistas en el sistema. Permite

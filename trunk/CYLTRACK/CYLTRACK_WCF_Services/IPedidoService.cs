@@ -46,16 +46,16 @@ namespace Unisangil.CYLTRACK.CYLTRACK_WCF_Services
         /// <param name="pedido">Objeto de negocio pedido</param>
         /// <returns>cédula del cliente,código pedido</returns>
         [OperationContract]
-        string Modificar_Pedido(string pedido);
+        long Modificar_Pedido(PedidoBE pedido);
 
         /// <summary>
         /// Método encargado de la cancelación de pedidos en el sistema. Permite
         /// que las aplicaciones llamen a los objetos de negocio directamente.
         /// </summary>
         /// <param name="pedido">Objeto de negocio pedido</param>
-        /// <returns>cédula del cliente,código pedido</returns>
+        /// <returns>Identificador del pedido</returns>
         [OperationContract]
-        string Cancelar_Pedido(string pedido);
+        long Cancelar_Pedido(PedidoBE pedido);
 
         /// <summary>
         /// Método encargado de la consulta de existencia de pedidos en el sistema. Permite
