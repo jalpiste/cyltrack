@@ -23,114 +23,77 @@ namespace Unisangil.CYLTRACK.CYLTRACK_WebApp.Pedido
         protected void txtCedula_TextChanged(object sender, EventArgs e)
         {
             PedidoServiceClient servPedido = new PedidoServiceClient();
-            
-            //long resp;
-            //try
-            //{
-            ////    resp = servCliente.ConsultarExistenciasClientes(txtCedula.Text);
-                
-            //   if (resp == 0)
-            //   {
-            //       MessageBox.Show("El cliente no se encuentra registrado en el sistema", "Registrar Pedido");
-            //       divInfoCliente.Visible = false;
-            //       txtCedula.Text = "";
-            //       txtCedula.Focus();
-            //   }
+            ClienteServiceClient servCliente = new ClienteServiceClient();
+            DataTable table1 = new DataTable();
+            DataTable table2 = new DataTable();
 
-            //   else
-            //   {
-            //       ClienteBE objCliente = servCliente.Consultar_Cliente(txtCedula.Text);
-                   
-            //       txtCedulaCli.Text = objCliente.Cedula;
-            //       txtNombreCliente.Text = objCliente.Nombres_Cliente;
-            //       txtPrimerApellido.Text = objCliente.Apellido_1;
-            //       txtSegundoApellido.Text = objCliente.Apellido_2;
-            //       lstDireccion.Items.Add(objCliente.Ubicacion.Direccion);
-            //       txtBarrio.Text = objCliente.Ubicacion.Barrio;
-            //       txtCiudad.Text = objCliente.Ubicacion.Ciudad.Nombre_Ciudad;
-            //       txtDepartamento.Text = objCliente.Ubicacion.Ciudad.Departamento.Nombre_Departamento;
-            //       txtTelefono.Text = objCliente.Ubicacion.Telefono_1;
-
-            //       divInfoCliente.Visible = true;
-            //       btnGuardar.Visible = true;
-            //       lstDireccion.Focus();
-
-            //       lstPlaca.DataSource = servVeh.ConsultarVehiculo(string.Empty);
-            //       lstPlaca.DataValueField = "Id_Vehiculo";
-            //       lstPlaca.DataTextField = "Placa";
-            //       lstPlaca.DataBind(); 
-                   
-            //   }
-            //}
-            //catch (Exception ex)
-            //{
-            //    Response.Redirect("~/About.aspx");
-            //}
-            //finally
-            //{
-            //    servCliente.Close();
-            //    servPedido.Close();
-            //    servVeh.Close();
-            //    serRuta.Close();
-            //    lblCodigoPedido.Visible = true;
-            //    lblNumeroPedido.Visible = true;
-                
-            //}                       
-        
-        }
-
-        protected void NumPedidoTxt_TextChanged(object sender, EventArgs e)
-        {
-            btnNuevaConsulta.Focus();
-            PedidoServiceClient servPedido = new PedidoServiceClient();
-            ReporteServiceClient servReporte = new ReporteServiceClient(); 
-            PedidoBE consultar_ped = new PedidoBE();
-            long resp;
+            long respExisCliente;
+            long respExisPedido;
 
             try
             {
-                resp = servReporte.consultadeExistenciaVarios(NumPedidoTxt.Text);
+                respExisCliente = servCliente.ConsultarExistenciasClientes(txtCedula.Text);
 
-                if (resp == 0)
+                if (respExisCliente == 0)
                 {
-                    MessageBox.Show("El Pedido no se encuentra registrado en el sistema", "Consultar Pedido");
+                    MessageBox.Show("El cliente no se encuentra registrado en el sistema", "Consultar Pedido");
+                    divInfoCliente.Visible = false;
+                    txtCedula.Text = "";
+                    txtCedula.Focus();
+                }
+
+                else
+                {
+                    respExisPedido = servPedido.ConsultarExistenciaPedido(txtCedula.Text);
+
+                if (respExisPedido == 0)
+                {
+                    MessageBox.Show("El pedido no se encuentra registrado en el sistema", "Consultar Pedido");
+                    divInfoCliente.Visible = false;
+                    txtCedula.Text = "";
+                    txtNumPedido.Text = "";
+                    txtCedula.Focus();
                 }
                 else
                 {
+                    ClienteBE objCliente = servCliente.Consultar_Cliente(txtCedula.Text);
 
-                    DataTable tabla = new DataTable();
+                    txtCedulaCliente.Text = objCliente.Cedula;
+                    txtNombreCliente.Text = objCliente.Nombres_Cliente;
+                    txtPrimerApellido.Text = objCliente.Apellido_1;
+                    txtSegundoApellido.Text = objCliente.Apellido_2;
 
-                    tabla.Columns.Add("CantidadPedido");
-                    tabla.Columns.Add("TamanoCil");
+                    table1.Columns.Add("IdUbicacion");
+                    table1.Columns.Add("Direccion");
+                    table1.Columns.Add("Barrio");
+                    table1.Columns.Add("Telefono");
+                    table1.Columns.Add("Ciudad");
 
-                    PedidoBE objPedido = new PedidoBE();
-                    objPedido = servPedido.Consultar_Pedido(NumPedidoTxt.Text);
-
-                    lblCodigoPedido.Text = objPedido.Id_Pedido;
-                    txtCedulaCliente.Text = objPedido.Cliente.Cedula;
-                    txtNombreCliente.Text = objPedido.Cliente.Nombres_Cliente;
-                    txtPrimerApellido.Text = objPedido.Cliente.Apellido_1;
-                    txtSegundoApellido.Text = objPedido.Cliente.Apellido_2;
-                    txtDireccion.Text = objPedido.Cliente.Ubicacion.Direccion;
-                    txtBarrio.Text = objPedido.Cliente.Ubicacion.Barrio;
-                    txtCiudad.Text = objPedido.Cliente.Ubicacion.Ciudad.Nombre_Ciudad;
-                    txtDepartamento.Text = objPedido.Cliente.Ubicacion.Ciudad.Departamento.Nombre_Departamento;
-                    txtTelefono.Text = objPedido.Cliente.Ubicacion.Telefono_1;
-                    txtPlaca.Text = objPedido.Vehiculo.Placa;
-                    lblRutaAsignada.Text = objPedido.Ruta.Nombre_Ruta;
-                    foreach (CilindroBE datos in objPedido.Cilindro)
+                    foreach (UbicacionBE datos in objCliente.ListaDirecciones)
                     {
-                        tabla.Rows.Add(datos.Cantidad, datos.NTamano.Tamano);
+                        table1.Rows.Add(datos.Id_Ubicacion, datos.Direccion, datos.Barrio, datos.Telefono_1, datos.Ciudad.Nombre_Ciudad);
+                        gvDirecciones.DataSource = table1;
+                        gvDirecciones.DataBind();
                     }
 
-                    gvPedido.DataSource = tabla;
+                    PedidoBE objPedido = servPedido.Consultar_Pedido(txtCedulaCliente.Text);
+                    
+                    table2.Columns.Add("TamanoCil");
+                    table2.Columns.Add("CantidadPedido");
+                    table2.Columns.Add("FechaPedido");
+                    
+                    foreach(Detalle_PedidoBE datos in objPedido.List_Detalle_Ped)
+                    {
+                        table2.Rows.Add(datos.Tamano, datos.Cantidad, datos.Fecha);                        
+                    }
+                    gvPedido.DataSource = table2;
                     gvPedido.DataBind();
-
-                    lblFechaPedido.Text = Convert.ToString(objPedido.Fecha);
-                    lblFechaEntregaCilindro.Text = Convert.ToString(objPedido.Fecha);
+                    gvDirecciones.Visible = true;
+                    divInfoPedido.Visible = true;
                     divInfoCliente.Visible = true;
-                    btnNuevaConsulta.Visible = true;
-                }
+                    divDirCliente.Visible = true;
+                 }
+              }
             }
             catch (Exception ex)
             {
@@ -138,8 +101,91 @@ namespace Unisangil.CYLTRACK.CYLTRACK_WebApp.Pedido
             }
             finally
             {
+                servCliente.Close();
                 servPedido.Close();
+                txtCedula.Text = "";
+                txtNumPedido.Text = "";
+                btnNuevaConsulta.Visible = true;
+            }          
+        }
+
+        protected void NumPedidoTxt_TextChanged(object sender, EventArgs e)
+        {
+            btnNuevaConsulta.Focus();
+            PedidoServiceClient servPedido = new PedidoServiceClient();
+            ClienteServiceClient servCliente = new ClienteServiceClient();
+            DataTable table1 = new DataTable();
+            DataTable table2 = new DataTable();
+
+            long respExisPedido;
+
+            try
+            {
+                respExisPedido = servPedido.ConsultarExistenciaPedido(txtNumPedido.Text);
+
+                    if (respExisPedido == 0)
+                    {
+                        MessageBox.Show("El pedido no se encuentra registrado en el sistema", "Consultar Pedido");
+                        divInfoCliente.Visible = false;
+                        txtCedula.Text = "";
+                        txtNumPedido.Text = "";
+                        txtCedula.Focus();
+                    }
+                    else
+                    {
+                        ClienteBE objCliente = servCliente.Consultar_Cliente(Convert.ToString(respExisPedido));
+
+                        txtCedulaCliente.Text = objCliente.Cedula;
+                        txtNombreCliente.Text = objCliente.Nombres_Cliente;
+                        txtPrimerApellido.Text = objCliente.Apellido_1;
+                        txtSegundoApellido.Text = objCliente.Apellido_2;
+                        lblCodigoPedido.Text = txtNumPedido.Text;
+                        table1.Columns.Add("IdUbicacion");
+                        table1.Columns.Add("Direccion");
+                        table1.Columns.Add("Barrio");
+                        table1.Columns.Add("Telefono");
+                        table1.Columns.Add("Ciudad");
+
+                        foreach (UbicacionBE datos in objCliente.ListaDirecciones)
+                        {
+                            table1.Rows.Add(datos.Id_Ubicacion, datos.Direccion, datos.Barrio, datos.Telefono_1, datos.Ciudad.Nombre_Ciudad);
+                            gvDirecciones.DataSource = table1;
+                            gvDirecciones.DataBind();
+                        }
+
+                        divInfoCliente.Visible = true;
+                        divDirCliente.Visible = true;
+
+                        PedidoBE objPedido = servPedido.Consultar_Pedido(txtNumPedido.Text);
+                        table2.Columns.Add("TamanoCil");
+                        table2.Columns.Add("CantidadPedido");
+                        table2.Columns.Add("FechaPedido");
+
+                        foreach (Detalle_PedidoBE datos in objPedido.List_Detalle_Ped)
+                        {
+                            table2.Rows.Add(datos.Tamano, datos.Cantidad, datos.Fecha);
+                            gvPedido.DataSource = table2;
+                            gvPedido.DataBind();
+                        }
+                        divInfoPedido.Visible = true;
+                        
+                    }                
             }
+            catch (Exception ex)
+            {
+                Response.Redirect("~/About.aspx");
+            }
+            finally
+            {
+                servCliente.Close();
+                servPedido.Close();
+                lblCodigoPedido.Visible = true;
+                lblPedido.Visible = true;
+                txtCedula.Text = "";
+                txtNumPedido.Text = "";
+                btnNuevaConsulta.Visible = true;
+            }                       
+        
         }
 
         protected void btnNuevaConsulta_Click(object sender, EventArgs e)
