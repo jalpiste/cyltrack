@@ -21,34 +21,33 @@
                             Width="197px" ontextchanged="txtCedula_TextChanged"></asp:TextBox>
                      
                                        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;
-                        <asp:TextBox ID="NumPedidoTxt" CssClass="textEntry" runat="server" 
+                        <asp:TextBox ID="txtNumPedido" CssClass="textEntry" runat="server" 
                                   Width="112px" ontextchanged="NumPedidoTxt_TextChanged"></asp:TextBox><br />
-                     
 
                        <asp:RequiredFieldValidator ID="txtCedulaRequired" runat="server" ControlToValidate="txtCedula" 
                              CssClass="failureNotification" ErrorMessage="El número de cédula del cliente es obligatorio." ToolTip="El número de cédula del cliente es obligatorio." 
                              ValidationGroup="Validar" Font-Size = "Small" Display ="Dynamic"></asp:RequiredFieldValidator>
-                    <br />
                      <asp:RegularExpressionValidator ID="ValidarDatosCedula" runat="server" ControlToValidate="txtCedula" 
                             CssClass="failureNotification" ErrorMessage="El número de cédula debe contener entre 6 y 10 dígitos." 
                             ValidationExpression="^([\d]{6,10})$"  Font-Size = "Small" Display ="Dynamic"
                             ValidationGroup="Validar" ></asp:RegularExpressionValidator>
                  <br />
 
-                        <asp:RequiredFieldValidator ID="ValidarDatosPedido" runat="server" ControlToValidate="NumPedidoTxt" 
+                        <asp:RequiredFieldValidator ID="ValidarDatosPedido" runat="server" ControlToValidate="txtNumPedido" 
                              CssClass="failureNotification" ErrorMessage="El número del pedido es obligatorio." 
                              ValidationGroup="Validar" Font-Size = "Small" Display ="Dynamic"></asp:RequiredFieldValidator>
-                     <br />
-                     <asp:RegularExpressionValidator ID="ValidarPedido" runat="server" ControlToValidate="NumPedidoTxt" 
+                     <asp:RegularExpressionValidator ID="ValidarPedido" runat="server" ControlToValidate="txtNumPedido" 
                             CssClass="failureNotification" ErrorMessage="El número del pedido debe contener entre 3 y 5 dígitos." 
-                            ValidationExpression="^([\d]{3,5})$"  Font-Size = "Small" Display ="Dynamic"
+                            ValidationExpression="\d*"  Font-Size = "Small" Display ="Dynamic"
                             ValidationGroup="Validar" ></asp:RegularExpressionValidator>
                         
                         </p>
                     <div id="divInfoCliente" runat="server" visible="false">
-                 <div class="post">Información General del Cliente</div>   
-                    <h5>
-                        <asp:Label ID="lblPedido" runat="server" Text="Pedido N°: "></asp:Label>
+                 <div class="post">Información General del Cliente</div>
+                  <h4><asp:Label ID="lblPedidoCancelado" runat="server" Enabled="false"></asp:Label>
+                        </h4> 
+                 <h5>
+                 <asp:Label ID="lblPedido" runat="server" Text="Pedido N°: "></asp:Label>
                         <asp:Label ID="lblCodigoPedido" runat="server" ></asp:Label>
                     </h5>                    
                     <p>
@@ -64,46 +63,55 @@
                         &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 
                                <asp:Label ID="SegundoApellidoLabel" runat="server" Text="Segundo Apellido:"></asp:Label><br />
                         <asp:TextBox ID="txtPrimerApellido" runat="server" CssClass="textEntry" Width="197px" Enabled="False" ></asp:TextBox>
-                            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
                             <asp:TextBox ID="txtSegundoApellido" runat="server" CssClass="textEntry" Width="197px" Enabled="False" ></asp:TextBox>
+                     <asp:Label ID="lblIdUbica" runat="server" Visible="false"></asp:Label>                      
                     </p> 
-                    <p>
-                        <asp:Label ID="lblDireccion" runat="server" Text="Dirección:  "></asp:Label>
-                        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 
-                        <asp:Label ID="lblBarrio" runat="server" Text="Barrio:" ></asp:Label>
-                        <br />
-                        <asp:TextBox ID="txtDireccion" runat="server" Enabled="false" CssClass="textEntry" ></asp:TextBox>
-                          &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;
-                          <asp:TextBox ID="txtBarrio" runat="server" CssClass="textEntry" Width="197px" Enabled="False" ></asp:TextBox>
-                    </p> 
-                    <p><asp:Label ID="lblCiudad" runat="server" Width="685px">Ciudad:</asp:Label><br />
-                    <asp:TextBox ID="txtCiudad" runat="server" CssClass="textEntry" Width="197px" Enabled="False" ></asp:TextBox>
-                    <br/>
-                    <asp:Label ID="lblDepartamento" runat="server" Width="679px">Departamento:</asp:Label>
-                    <br />
-                    <asp:TextBox ID="txtDepartamento" runat="server" CssClass="textEntry" Width="197px" Enabled="False" ></asp:TextBox>
-                         
-                        </p>
-                    
-                     <p> 
-                         <asp:Label ID="lblTelefono" runat="server" Text="Teléfono:"></asp:Label>
-                    <br />
-                           <asp:TextBox ID="txtTelefono" runat="server" CssClass="textEntry" Enabled="False" ></asp:TextBox>
-                    </p>
+                   <div id="divDirCliente" runat="server" visible="false">  
+                   <div class="post">Direcciones del Cliente</div> 
+                    <asp:GridView ID="gvDirecciones" runat="server" AutoGenerateColumns="False" 
+                    CellPadding="7" ForeColor="#333333" GridLines="None" >
+                    <AlternatingRowStyle BackColor="White" />
+                    <Columns>
+                        <asp:BoundField SortExpression="IdUbicacion" DataField="IdUbicacion" HeaderText="IdUbicacion"
+                            HeaderStyle-Width="100px" Visible="false">
+                            <HeaderStyle Width="130px" />
+                        </asp:BoundField>
+                        <asp:BoundField SortExpression="Direccion" DataField="Direccion" HeaderText="Dirección"
+                            HeaderStyle-Width="100px">
+                            <HeaderStyle Width="130px" />
+                        </asp:BoundField>
+                        <asp:BoundField SortExpression="Barrio" DataField="Barrio"  HeaderText="Barrio"
+                            HeaderStyle-Width="100px">
+                            <HeaderStyle Width="110px" />
+                        </asp:BoundField>
+                        <asp:BoundField SortExpression="Telefono" DataField="Telefono" HeaderText="Teléfono"
+                            HeaderStyle-Width="100px">
+                            <HeaderStyle Width="130px" />
+                        </asp:BoundField>
+                        <asp:BoundField SortExpression="Ciudad" DataField="Ciudad" HeaderText="Ciudad"
+                            HeaderStyle-Width="100px">
+                            <HeaderStyle Width="130px" />
+                        </asp:BoundField>                        
+                    </Columns>
+                    <EditRowStyle BackColor="#7C6F57" />
+                    <FooterStyle BackColor="#1C5E55" Font-Bold="True" ForeColor="White" />
+                    <HeaderStyle BackColor="#AC3332" Font-Bold="True" ForeColor="White" />
+                    <PagerStyle BackColor="#666666" ForeColor="White" HorizontalAlign="Center" />
+                    <RowStyle BackColor="#EFF3FB" />
+                    <SelectedRowStyle BackColor="#C5BBAF" Font-Bold="True" ForeColor="#333333" />
+                    <SortedAscendingCellStyle BackColor="#F8FAFA" />
+                    <SortedAscendingHeaderStyle BackColor="#246B61" />
+                    <SortedDescendingCellStyle BackColor="#D4DFE1" />
+                    <SortedDescendingHeaderStyle BackColor="#15524A" />
+                </asp:GridView>
+                <br />
+                </div>
+                <div id="divInfoPedido" runat="server" visible="false" >
                    <div class="post">Información Pedido</div>
-                    <p>
-
-                        <asp:Label ID="lblVehiculo" runat="server" Text="Vehiculo zona: "></asp:Label>
-                    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-                    <asp:TextBox ID="txtPlaca"  CssClass="textEntry" runat="server" enabled = "false" Width="50px" ></asp:TextBox>
-                        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; &nbsp;
-                        <asp:Label ID="lblRuta" runat="server"  Text="Ruta: "></asp:Label>
-                        <asp:Label ID="lblRutaAsignada" runat="server" ></asp:Label>
-                      </p>
-                      <p>
-                    
+                                     
                     <asp:GridView ID="gvPedido" runat="server" AutoGenerateColumns="False" 
-                    CellPadding="3" ForeColor="#333333" GridLines="None" enabled="false"> 
+                    CellPadding="3" ForeColor="#333333" GridLines="None" > 
                               
                     <AlternatingRowStyle BackColor="White"  />
                     <Columns>
@@ -114,6 +122,10 @@
                         <asp:BoundField SortExpression="CantidadPedido" DataField="CantidadPedido" HeaderText="Cantidad"
                             HeaderStyle-Width="100px">
                             <HeaderStyle Width="130px" />
+                        </asp:BoundField>
+                        <asp:BoundField SortExpression="FechaPedido" DataField="FechaPedido" HeaderText="Fecha "
+                            HeaderStyle-Width="100px">
+                            <HeaderStyle Width="200px" />
                         </asp:BoundField>
                     </Columns>
                     <EditRowStyle BackColor="#7C6F57" />
@@ -126,19 +138,8 @@
                     <SortedAscendingHeaderStyle BackColor="#246B61" />
                     <SortedDescendingCellStyle BackColor="#D4DFE1" />
                     <SortedDescendingHeaderStyle BackColor="#15524A" />
-                    </asp:GridView>
-                      </p>
-                        <p>
-                      
-                          <asp:Label ID="lblFecha" runat="server" Text="Fecha de Registro de Pedido:   "></asp:Label>
-                          &nbsp;
-                          <asp:Label ID="lblFechaPedido" runat="server"></asp:Label>
-                      </p>
-                      <p>
-                          <asp:Label ID="lblFechaEntrega" runat="server" Text="Fecha de Entrega del Pedido:"></asp:Label>
-                          &nbsp;&nbsp;
-                          <asp:Label ID="lblFechaEntregaCilindro" runat="server" ></asp:Label>
-                      </p>
+                </asp:GridView>                      
+                   </div>
                    </div>
                 </fieldset>
                 <p class="submitButton">

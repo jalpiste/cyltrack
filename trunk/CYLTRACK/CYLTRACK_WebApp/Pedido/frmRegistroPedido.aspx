@@ -41,6 +41,7 @@
                      <p>
                         <asp:Label ID="lblCedulaCli" runat="server" AssociatedControlID="txtNombreCliente">Número de Cédula:</asp:Label><br />
                         <asp:TextBox ID="txtCedulaCli" runat="server" CssClass="textEntry" Width="197px" Enabled="False"></asp:TextBox>
+                         <asp:Label ID="lblIdCedula" runat="server" Visible="false" ></asp:Label>
                     </p>  
                     <p>
                         <asp:Label ID="lblNombreCliente" runat="server" AssociatedControlID="txtNombreCliente">Nombres del cliente:</asp:Label><br />
@@ -57,93 +58,31 @@
                             <asp:TextBox ID="txtSegundoApellido" runat="server" CssClass="textEntry" 
                                 Width="197px" Enabled="False" ></asp:TextBox>
                     </p> 
-                    <p>
-                        <asp:Label ID="lblDireccion" runat="server" Text="Dirección:  "></asp:Label>
-                    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-                        <asp:Label ID="lblBarrio" runat="server" Text="Barrio:" ></asp:Label>
-                        <br />
-                        <asp:ListBox ID="lstDireccion" runat="server" Width="176px" AutoPostBack="True" 
-                              Rows="1" onselectedindexchanged="lstDireccion_SelectedIndexChanged" >                             
-                        </asp:ListBox>
-                           <asp:RequiredFieldValidator ID="ValidarDir" runat="server" ControlToValidate="lstDireccion" CssClass="failureNotification" 
-                     ErrorMessage="La selección de la dirección del cliente es obligatoria." ToolTip="La selección de la dirección del cliente es obligatoria." 
-                     ValidationGroup="RegistroPedido"> * </asp:RequiredFieldValidator>
-                    
-                          &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; &nbsp;
-                          <asp:TextBox ID="txtBarrio"  runat="server" CssClass="textEntry" 
-                                Width="197px" Enabled="False" ></asp:TextBox>
-                    </p> 
-                    <p><asp:Label ID="lblCiudad" runat="server" AssociatedControlID="txtCiudad" 
-                            Width="685px">Ciudad:</asp:Label><br />
-                            <asp:TextBox ID="txtCiudad" runat="server" CssClass="textEntry" 
-                            Width="197px" Enabled="False"></asp:TextBox>
-                           &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-                        </p>  
-                        <p><asp:Label ID="lblDepartamento" runat="server" AssociatedControlID="txtDepartamento" 
-                            Width="679px">Departamento:</asp:Label><br />
-                            <asp:TextBox ID="txtDepartamento" runat="server" CssClass="textEntry" 
-                            Width="197px" Enabled="False"></asp:TextBox>
-                           &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-                        </p>
-                    
-                     <p> 
-                         <asp:Label ID="lblTelefono" runat="server" Text="Teléfono:"></asp:Label><br />
-                         <asp:TextBox ID="txtTelefono" runat="server" CssClass="textEntry" Enabled="False"></asp:TextBox>
-                    </p>
-                        
-                   <div class="post">Información Pedido</div>
-                    <p>
-
-                        <asp:Label ID="lblVehiculo" runat="server" Text="Placa Vehículo: "></asp:Label>
-                    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-                        <asp:ListBox ID="lstPlaca" runat="server" Rows="1" AutoPostBack="true"
-                            >
-                        </asp:ListBox>
-                        <asp:RequiredFieldValidator ID="ValidarPlaca" runat="server" ControlToValidate="lstPlaca" CssClass="failureNotification" 
-                     ErrorMessage="La selección de la placa del vehículo es obligatoria." ToolTip="La selección de la placa del vehículo es obligatoria." 
-                     ValidationGroup="RegistroPedido"> * </asp:RequiredFieldValidator>
-                    
-                        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-                        <asp:Label ID="lblRuta" runat="server" Text="Ruta: "></asp:Label>
-                        &nbsp;
-                        <asp:Label ID="lblRutaAsignada" runat="server" ></asp:Label>
-                      </p>
-                      <p>
-                          <asp:Label ID="lblTamanoCil" runat="server" Text="Tamaño Cilindro:"></asp:Label>
-                      &nbsp;&nbsp;&nbsp;&nbsp;
-                          <asp:ListBox ID="lstTamano" runat="server" Rows="1" 
-                              >
-                          </asp:ListBox>
-                          &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<asp:Label ID="lblCantidadCilindro" runat="server" Text="Cantidad Cilindros: "></asp:Label>
-                          &nbsp;&nbsp;&nbsp;
-                          <asp:TextBox ID="txtCantidadCilindro" CssClass="textEntry" runat="server" Width="50px"></asp:TextBox>
-                    
-                        <asp:RequiredFieldValidator ID="ValidarCantidad" runat="server" 
-                          ControlToValidate="txtCantidadCilindro" CssClass="failureNotification" 
-                          ErrorMessage="La cantidad de cilindros es obligatoria." ToolTip="La cantidad de cilindros es obligatoria." 
-                          ValidationGroup="RegistrarCantidad" Display="Dynamic">*</asp:RequiredFieldValidator>
-                          
-                    <asp:RegularExpressionValidator ID="ValidarDatosCantidad" runat="server" ControlToValidate="txtCantidadCilindro" 
-                    CssClass="failureNotification" ErrorMessage="La cantidad de cilindros debe contener entre 1 y 5 dígitos." 
-                        ValidationExpression="^([\d]{1,6})$"  ToolTip="Sólo caractéres numéricos." 
-                    ValidationGroup="RegistrarCantidad" >*</asp:RegularExpressionValidator>
-                   
-                               &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-                    <asp:Button ID="btnAgregar" runat="server" Text="Agregar" Width="115px" 
-                         onclick="btnAgregar_Click" />
-                    <br />
-                    <br />
-                    <asp:GridView ID="gvPedido" runat="server" AutoGenerateColumns="False" 
-                    CellPadding="3" ForeColor="#333333" GridLines="None" Visible="false" 
-                    AutoGenerateDeleteButton = "true" onrowdeleting="gvPedido_RowDeleting"> 
-                              
-                    <AlternatingRowStyle BackColor="White"  />
+                                        <div id="divDirCliente" runat="server" visible="false">  
+                   <div class="post">Direcciones del Cliente</div> 
+                    <asp:GridView ID="gvDirecciones" runat="server" AutoGenerateColumns="False" 
+                    CellPadding="7" ForeColor="#333333" GridLines="None" >
+                    <AlternatingRowStyle BackColor="White" />
                     <Columns>
-                        <asp:BoundField SortExpression="TamanoCil" DataField="TamanoCil" HeaderText="Tamaño Cilindro"
+                        <asp:BoundField SortExpression="IdUbicacion" DataField="IdUbicacion" HeaderText="IdUbicacion"
+                            HeaderStyle-Width="100px" Visible="false">
+                            <HeaderStyle Width="130px" />
+                        </asp:BoundField>
+                        <asp:BoundField SortExpression="Direccion" DataField="Direccion" HeaderText="Dirección"
                             HeaderStyle-Width="100px">
-                            </asp:BoundField>
-                        <asp:BoundField SortExpression="CantidadPedido" DataField="CantidadPedido" HeaderText="Cantidad"
-                            HeaderStyle-Width="100px">                            
+                            <HeaderStyle Width="130px" />
+                        </asp:BoundField>
+                        <asp:BoundField SortExpression="Barrio" DataField="Barrio"  HeaderText="Barrio"
+                            HeaderStyle-Width="100px">
+                            <HeaderStyle Width="110px" />
+                        </asp:BoundField>
+                        <asp:BoundField SortExpression="Telefono" DataField="Telefono" HeaderText="Teléfono"
+                            HeaderStyle-Width="100px">
+                            <HeaderStyle Width="130px" />
+                        </asp:BoundField>
+                        <asp:BoundField SortExpression="Ciudad" DataField="Ciudad" HeaderText="Ciudad"
+                            HeaderStyle-Width="100px">
+                            <HeaderStyle Width="130px" />
                         </asp:BoundField>
                     </Columns>
                     <EditRowStyle BackColor="#7C6F57" />
@@ -156,7 +95,34 @@
                     <SortedAscendingHeaderStyle BackColor="#246B61" />
                     <SortedDescendingCellStyle BackColor="#D4DFE1" />
                     <SortedDescendingHeaderStyle BackColor="#15524A" />
-                    </asp:GridView>
+                </asp:GridView>
+                <br />
+                </div>
+                   <div class="post">Información Pedido</div>
+                    <p>
+
+                      <asp:Label ID="lblTamano" runat="server" Text="Tamaño Cilindro:"></asp:Label>
+    <asp:DropDownList ID="lstTamanos" runat="server">
+    </asp:DropDownList>
+    <asp:Label ID="lblCantidad" runat="server" Text="Cantidad"></asp:Label>
+    <asp:TextBox ID="txtCantidad" runat="server"></asp:TextBox>
+    <asp:Button ID="btnEjecutar" runat="server" Text="Agregar" OnClick="btnEjecutar_Click" />
+    <asp:Button ID="btnModificar" runat="server" Text="Modificar" Enabled="False" 
+        onclick="btnModificar_Click" />
+    <asp:GridView ID="grvPrueba" runat="server" AutoGenerateDeleteButton="True" 
+        AutoGenerateEditButton="True" onrowdeleting="grvPrueba_RowDeleting" 
+        onrowediting="grvPrueba_RowEditing">
+        <EditRowStyle BackColor="#7C6F57" />
+                    <FooterStyle BackColor="#1C5E55" Font-Bold="True" ForeColor="White" />
+                    <HeaderStyle BackColor="#AC3332" Font-Bold="True" ForeColor="White" />
+                    <PagerStyle BackColor="#666666" ForeColor="White" HorizontalAlign="Center" />
+                    <RowStyle BackColor="#EFF3FB" />
+                    <SelectedRowStyle BackColor="#C5BBAF" Font-Bold="True" ForeColor="#333333" />
+                    <SortedAscendingCellStyle BackColor="#F8FAFA" />
+                    <SortedAscendingHeaderStyle BackColor="#246B61" />
+                    <SortedDescendingCellStyle BackColor="#D4DFE1" />
+                    <SortedDescendingHeaderStyle BackColor="#15524A" />
+    </asp:GridView>
                    <br />
                     <asp:Label ID="lblObservaciones" runat="server" Text="Observaciones:"></asp:Label>
                     

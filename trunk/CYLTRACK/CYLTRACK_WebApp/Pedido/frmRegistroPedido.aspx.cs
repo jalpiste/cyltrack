@@ -20,7 +20,8 @@ namespace Unisangil.CYLTRACK.CYLTRACK_WebApp.Pedido
     {
         List<Detalle_PedidoBE> lstDetail = new List<Detalle_PedidoBE>();
         DataTable objdtLista;
-
+        List<TamanoBE> lista = new List<TamanoBE>();
+        
         protected void Page_Load(object sender, EventArgs e)
         {
             txtCedula.Focus();
@@ -31,6 +32,7 @@ namespace Unisangil.CYLTRACK.CYLTRACK_WebApp.Pedido
 
                 objdtLista = new DataTable();
                 CrearTabla();
+                CargaInicialGridView();
             }
 
             if (!IsPostBack)
@@ -38,10 +40,10 @@ namespace Unisangil.CYLTRACK.CYLTRACK_WebApp.Pedido
                 ReporteServiceClient servReporte = new ReporteServiceClient();
                 try
                 {
-                    lstTamano.DataSource = servReporte.ConsultaTamanoCilindro();
-                    lstTamano.DataTextField = "Tamano";
-                    lstTamano.DataBind();
-
+                    lstTamanos.DataSource = servReporte.ConsultaTamanoCilindro();
+                    lstTamanos.DataValueField = "Id_Tamano";
+                    lstTamanos.DataTextField = "Tamano";
+                    lstTamanos.DataBind();
                 }
                 catch (Exception ex)
                 {
@@ -53,11 +55,12 @@ namespace Unisangil.CYLTRACK.CYLTRACK_WebApp.Pedido
                 }
             }
         }
+               
         protected void txtCedula_TextChanged(object sender, EventArgs e)
         {
             ClienteServiceClient servCliente = new ClienteServiceClient();
             VehiculoServiceClient servVeh = new VehiculoServiceClient();
-            
+            DataTable table = new DataTable();
             long resp;
             try
             {
@@ -76,23 +79,26 @@ namespace Unisangil.CYLTRACK.CYLTRACK_WebApp.Pedido
                    ClienteBE objCliente = servCliente.Consultar_Cliente(txtCedula.Text);
                    
                    txtCedulaCli.Text = objCliente.Cedula;
+                   lblIdCedula.Text = objCliente.Id_Cliente;
                    txtNombreCliente.Text = objCliente.Nombres_Cliente;
                    txtPrimerApellido.Text = objCliente.Apellido_1;
                    txtSegundoApellido.Text = objCliente.Apellido_2;
-                   lstDireccion.Items.Add(objCliente.Ubicacion.Direccion);
-                   txtBarrio.Text = objCliente.Ubicacion.Barrio;
-                   txtCiudad.Text = objCliente.Ubicacion.Ciudad.Nombre_Ciudad;
-                   txtDepartamento.Text = objCliente.Ubicacion.Ciudad.Departamento.Nombre_Departamento;
-                   txtTelefono.Text = objCliente.Ubicacion.Telefono_1;
+                   table.Columns.Add("IdUbicacion");
+                   table.Columns.Add("Direccion");
+                   table.Columns.Add("Barrio");
+                   table.Columns.Add("Telefono");
+                   table.Columns.Add("Ciudad");
 
+                   foreach (UbicacionBE datos in objCliente.ListaDirecciones)
+                   {
+                       table.Rows.Add(datos.Id_Ubicacion, datos.Direccion, datos.Barrio, datos.Telefono_1, datos.Ciudad.Nombre_Ciudad);
+                       gvDirecciones.DataSource = table;
+                       gvDirecciones.DataBind();
+                   }
+                   divDirCliente.Visible = true;
                    divInfoCliente.Visible = true;
                    btnGuardar.Visible = true;
-                   lstDireccion.Focus();
-
-                   lstPlaca.DataSource = servVeh.ConsultarVehiculo(string.Empty);
-                   lstPlaca.DataValueField = "Id_Vehiculo";
-                   lstPlaca.DataTextField = "Placa";
-                   lstPlaca.DataBind(); 
+                   gvDirecciones.Focus();
                    
                }
             }
@@ -119,51 +125,28 @@ namespace Unisangil.CYLTRACK.CYLTRACK_WebApp.Pedido
             //txtCantidadCilindro.Text = " ";
         }
 
-        protected void btnGuardar_Click(object sender, EventArgs e)
+       protected void btnGuardar_Click(object sender, EventArgs e)
         {
             PedidoServiceClient servPedido = new PedidoServiceClient();
-            PedidoBE registrar_ped = new PedidoBE();
-            long resp;
-            txtCedula.Text = "";            
-
+            PedidoBE ped = new PedidoBE();
+            long resp;            
+            lista = (List<TamanoBE>)Session["lista"];
             try
             {
-                ClienteBE idcliente = new ClienteBE();
-                idcliente.Cedula = txtCedulaCli.Text;
-                UbicacionBE ubicli = new UbicacionBE();
-                ubicli.Direccion = lstDireccion.SelectedValue;
-                idcliente.Ubicacion = ubicli;
-                registrar_ped.Cliente = idcliente;
-
-                
-                VehiculoBE veh = new VehiculoBE();
-                veh.Id_Vehiculo = lstPlaca.SelectedValue;
-                registrar_ped.Vehiculo = veh;
-
-                RutaBE ruta = new RutaBE();
-                ruta.Nombre_Ruta = lblRutaAsignada.Text;
-                registrar_ped.Ruta = ruta;
-
-                PedidoBE pedido = new PedidoBE();
-                pedido.Detalle = txtObservaciones.Text;
-                
-                Detalle_PedidoBE det = new Detalle_PedidoBE();
-                TamanoBE tamanito = new TamanoBE();
-                det.Tamano = tamanito;
-                foreach (DataRow row in objdtTabla.Rows)
-                {
-                    det.Tamano.Tamano += Convert.ToString(row["TamanoCil"])+",";
-                    det.Cantidad += Convert.ToString(row["CantidadPedido"])+",";                        
+                ped.IdCliente = lblIdCedula.Text;
+                                 
+                ped.Detalle = txtObservaciones.Text;
+                List<Detalle_PedidoBE> lstPedido = new List<Detalle_PedidoBE>();
+                foreach (TamanoBE dato in lista)
+                {                   
+                    Detalle_PedidoBE det = new Detalle_PedidoBE();
+                    det.Tamano = dato.Tamano;
+                    det.Cantidad = dato.Cantidad.ToString();
+                    lstPedido.Add(det);                    
                 }
+                ped.List_Detalle_Ped = lstPedido;
 
-                int varCant = det.Cantidad.Length;
-                det.Cantidad = det.Cantidad.Substring(0, varCant - 1);
-
-                int varTam = det.Tamano.Tamano.Length;
-                det.Tamano.Tamano = det.Tamano.Tamano.Substring(0, varTam - 1);
-                registrar_ped.Detalle_Ped = det;
-
-                resp = servPedido.Registrar_Pedido(registrar_ped);
+                resp = servPedido.Registrar_Pedido(ped);
 
                MessageBox.Show("El pedido fue registrado satisfactoriamente", "Registrar Pedido");
                   
@@ -180,14 +163,12 @@ namespace Unisangil.CYLTRACK.CYLTRACK_WebApp.Pedido
 
         }
 
-        protected void btnMenuPrincipal_Click(object sender, EventArgs e)
+       protected void btnMenuPrincipal_Click(object sender, EventArgs e)
         {
             Response.Redirect("~/Default.aspx");
         }
 
-        //      ------------------------- inicio de tabla acumulada y asignación de valor
-
-        protected DataTable objdtTabla
+       protected DataTable objdtTabla
         {
             get
             {
@@ -206,101 +187,95 @@ namespace Unisangil.CYLTRACK.CYLTRACK_WebApp.Pedido
                 ViewState["objdtTabla"] = value;
             }
         }
-        //        ------------------------- fin de tabla acumulada y asignación de valor
-        private void CrearTabla()
+       
+       private void CrearTabla()
         {
             objdtLista.Columns.Add("TamanoCil");
             objdtLista.Columns.Add("CantidadPedido");
 
             objdtTabla = objdtLista;
         }
-
-        protected void btnAgregar_Click(object sender, EventArgs e)
+                
+       protected void grvPrueba_RowEditing(object sender, GridViewEditEventArgs e)
         {
+            lista = (List<TamanoBE>)Session["lista"];
+            btnEjecutar.Enabled = false;
+            btnModificar.Enabled = true;
+            lstTamanos.SelectedIndex = Convert.ToInt32(lista[e.NewEditIndex].Id_Tamano);
+            txtCantidad.Text = lista[e.NewEditIndex].Cantidad.ToString();
+            Session["indiceModificar"] = e.NewEditIndex;
+            e.Cancel = true;
+        }
 
-           Detalle_PedidoBE detail = new Detalle_PedidoBE();
+        protected void grvPrueba_RowDeleting(object sender, GridViewDeleteEventArgs e)
+        {
+            lista = (List<TamanoBE>)Session["lista"];
+            lista.Remove(lista[e.RowIndex]);
+            Session["lista"] = lista;
+            grvPrueba.DataSource = lista;
+            grvPrueba.DataBind();
+        }
 
-            try
+        protected void btnModificar_Click(object sender, EventArgs e)
+        {
+            lista = (List<TamanoBE>)Session["lista"];
+            int indice = (int)Session["indiceModificar"];
+            Session.Remove("indiceModificar");
+            TamanoBE tamano = new TamanoBE();
+            tamano.Tamano = lstTamanos.SelectedItem.Text;
+            tamano.Id_Tamano = Convert.ToString(lstTamanos.SelectedIndex);
+            int cant = 0;
+            tamano.Cantidad = int.TryParse(txtCantidad.Text, out cant) ? cant : 0;
+            lista.Remove(lista[indice]);
+
+            foreach (TamanoBE ent in lista)
             {
-                detail.Cantidad = txtCantidadCilindro.Text;
-
-                TamanoBE tamanocil = new TamanoBE();
-                tamanocil.Tamano = lstTamano.SelectedValue;
-                detail.Tamano = tamanocil;
-
-                foreach (DataRow info in objdtTabla.Rows)
+                if (ent.Tamano == lstTamanos.SelectedItem.Text)
                 {
-                    if (tamanocil.Tamano == (Convert.ToString(info["TamanoCil"])))
-                    {
-                        detail.Cantidad += (Convert.ToString(info["CantidadPedido"]));
-                        info.RowState.ToString().Remove(0,1);
-                        //lstDetail.Add(detail);
-                    }                    
+                    tamano.Cantidad += ent.Cantidad;
+                    lista.Remove(ent);
+                    break;
                 }
-                lstDetail.Add(detail);
+            }
+            lista.Add(tamano);
+            Session["lista"] = lista;
+            grvPrueba.DataSource = lista;
+            grvPrueba.DataBind();
+            btnEjecutar.Enabled = true;
+            btnModificar.Enabled = false;
 
-                foreach (Detalle_PedidoBE info in lstDetail)
+        }
+
+        protected void btnEjecutar_Click(object sender, EventArgs e)
+        {
+            lista = (List<TamanoBE>)Session["lista"];
+            TamanoBE tamano = new TamanoBE();
+            tamano.Tamano = lstTamanos.SelectedItem.Text;
+            tamano.Id_Tamano = Convert.ToString(lstTamanos.SelectedIndex);
+            int cant = 0;
+            tamano.Cantidad = int.TryParse(txtCantidad.Text, out cant) ? cant : 0;
+
+            foreach (TamanoBE ent in lista)
+            {
+                if (ent.Tamano == lstTamanos.SelectedItem.Text)
                 {
-                    objdtTabla.Rows.Add(info.Tamano.Tamano, info.Cantidad);
-                    gvPedido.DataSource = objdtTabla;
-                    gvPedido.DataBind();
+                    tamano.Cantidad += ent.Cantidad;
+                    lista.Remove(ent);
+                    break;
                 }
             }
-            catch (Exception ex)
-            {
-                Response.Redirect("~/About.aspx");
-            }
-            finally
-            {
-                gvPedido.Visible = true;
-                txtCantidadCilindro.Text = "";
-                btnGuardar.Focus();
-            }
-
-        }
-        protected void lstDireccion_SelectedIndexChanged(object sender, EventArgs e)
-        {
-            lstPlaca.Focus();
+           
+            lista.Add(tamano);
+            Session["lista"] = lista;
+            grvPrueba.DataSource = lista;
+            grvPrueba.DataBind();
         }
 
-        protected void gvPedido_RowDeleting(Object sender, GridViewDeleteEventArgs e)
-        {
-            objdtTabla.Rows.RemoveAt(e.RowIndex);
-            gvPedido.DataSource = objdtTabla;
-            gvPedido.DataBind();
-            btnGuardar.Focus();
+        private void CargaInicialGridView()
+        {            
+            grvPrueba.DataSource = lista;
+            grvPrueba.DataBind();
+            Session["lista"] = lista;
         }
-
-        protected void lstPlaca_SelectedIndexChanged(object sender, EventArgs e)
-        {
-            RutaServicesClient servRuta = new RutaServicesClient();
-            try 
-            {
-                Ruta_VehiculoBE rutaVehiculo = new Ruta_VehiculoBE() ;
-                CiudadBE ciu = new CiudadBE();
-                ciu.Nombre_Ciudad = txtCiudad.Text;
-                rutaVehiculo.Ciudad = ciu;
-                                
-                VehiculoBE veh = new VehiculoBE();
-                veh.Id_Vehiculo = lstPlaca.SelectedValue;
-                rutaVehiculo.Vehiculo = veh;
-
-                RutaBE objRuta_Vehiculo = servRuta.ConsultarRutaPorPlaca(rutaVehiculo);
-                lblRutaAsignada.Text = objRuta_Vehiculo.Nombre_Ruta;
-            }
-            catch (Exception ex)
-            {
-                Response.Redirect("~/About.aspx");
-            }
-            finally
-            {
-                servRuta.Close();
-                btnGuardar.Focus();
-            }
-
-
-        }
-
-        
     }
 }
