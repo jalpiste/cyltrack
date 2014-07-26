@@ -408,7 +408,8 @@ namespace Unisangil.CYLTRACK.CYLTRACK_DL
                 BaseDatos db = new BaseDatos();
                 db.Conectar();
                 db.CrearComandoSP(nameSP);
-                DbParameter[] parametros = new DbParameter[4];
+                DbParameter[] parametros = new DbParameter[3];
+
                 parametros[0] = db.Comando.CreateParameter();
                 parametros[0].ParameterName = "vrIdVehiculo";
                 parametros[0].Value = rutaVehiculo.Vehiculo.Id_Vehiculo;
@@ -416,24 +417,18 @@ namespace Unisangil.CYLTRACK.CYLTRACK_DL
                 db.Comando.Parameters.Add(parametros[0]);
 
                 parametros[1] = db.Comando.CreateParameter();
-                parametros[1].ParameterName = "vrNombreCiudad";
-                parametros[1].Value = rutaVehiculo.Ciudad.Nombre_Ciudad;
-                parametros[1].Direction = ParameterDirection.Input;
+                parametros[1].ParameterName = "vrCodResult";
+                parametros[1].Value = 0;
+                parametros[1].Direction = ParameterDirection.Output;
                 db.Comando.Parameters.Add(parametros[1]);
 
                 parametros[2] = db.Comando.CreateParameter();
-                parametros[2].ParameterName = "vrCodResult";
-                parametros[2].Value = 0;
+                parametros[2].ParameterName = "vrDescResult";
+                parametros[2].Value = "";
                 parametros[2].Direction = ParameterDirection.Output;
+                parametros[2].Size = 200;
+                parametros[2].DbType = DbType.String;
                 db.Comando.Parameters.Add(parametros[2]);
-
-                parametros[3] = db.Comando.CreateParameter();
-                parametros[3].ParameterName = "vrDescResult";
-                parametros[3].Value = "";
-                parametros[3].Direction = ParameterDirection.Output;
-                parametros[3].Size = 200;
-                parametros[3].DbType = DbType.String;
-                db.Comando.Parameters.Add(parametros[3]);
 
                 DbDataReader datos = db.EjecutarConsulta();
                 RutaBE r = null;

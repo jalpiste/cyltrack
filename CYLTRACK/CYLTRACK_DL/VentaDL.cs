@@ -15,9 +15,9 @@ using Unisangil.CYLTRACK.CYLTRACK_BE;
 
 namespace Unisangil.CYLTRACK.CYLTRACK_DL
 {
-    public class ClienteDL
+    public class VentaDL
     {
-        public long CrearCliente(ClienteBE cliente)
+        public long RegistrarVenta(VentaBE venta)
         {
             long codigo = 0;
             BaseDatos db = new BaseDatos();
@@ -25,89 +25,47 @@ namespace Unisangil.CYLTRACK.CYLTRACK_DL
             {
                 db.Conectar();
                 db.ComenzarTransaccion();
-                string nameSP = "CrearRegistroCliente";
+                string nameSP = "CrearRegistroVenta";
                 db.CrearComandoSP(nameSP);
 
-                DbParameter[] parametros = new DbParameter[10];
+                DbParameter[] parametros = new DbParameter[11];
 
                 parametros[0] = db.Comando.CreateParameter();
-                parametros[0].ParameterName = "vrCedula";
-                parametros[0].Value = cliente.Cedula;
+                parametros[0].ParameterName = "vrIdCliente";
+                parametros[0].Value = venta.IdCliente;
                 parametros[0].Direction = ParameterDirection.Input;
-                parametros[0].Size = 12;
+                parametros[0].Size = 18;
                 db.Comando.Parameters.Add(parametros[0]);
 
                 parametros[1] = db.Comando.CreateParameter();
-                parametros[1].ParameterName = "vrNombres";
-                parametros[1].Value = cliente.Nombres_Cliente;
+                parametros[1].ParameterName = "vrObservaciones";
+                parametros[1].Value = venta.Observaciones;
                 parametros[1].Direction = ParameterDirection.Input;
-                parametros[1].Size =20;
+                parametros[1].Size = 100;
                 db.Comando.Parameters.Add(parametros[1]);
-
+                                
                 parametros[2] = db.Comando.CreateParameter();
-                parametros[2].ParameterName = "vrApellido_1";
-                parametros[2].Value = cliente.Apellido_1;
-                parametros[2].Direction = ParameterDirection.Input;
-                parametros[2].Size = 12;
+                parametros[2].ParameterName = "vrCodResult";
+                parametros[2].Value = 0;
+                parametros[2].Direction = ParameterDirection.Output;
                 db.Comando.Parameters.Add(parametros[2]);
 
                 parametros[3] = db.Comando.CreateParameter();
-                parametros[3].ParameterName = "vrApellido_2";
-                parametros[3].Value = cliente.Apellido_2;
-                parametros[3].Direction = ParameterDirection.Input;
-                parametros[3].Size = 15;
+                parametros[3].ParameterName = "vrDescResult";
+                parametros[3].Value = "";
+                parametros[3].Direction = ParameterDirection.Output;
+                parametros[3].Size = 200;
+                parametros[3].DbType = DbType.String;
                 db.Comando.Parameters.Add(parametros[3]);
 
-                parametros[4] = db.Comando.CreateParameter();
-                parametros[4].ParameterName = "vrDireccion";
-                parametros[4].Value = cliente.Ubicacion.Direccion;
-                parametros[4].Direction = ParameterDirection.Input;
-                parametros[4].Size = 30;
-                db.Comando.Parameters.Add(parametros[4]);
-
-                parametros[5] = db.Comando.CreateParameter();
-                parametros[5].ParameterName = "vrBarrio";
-                parametros[5].Value = cliente.Ubicacion.Barrio;
-                parametros[5].Direction = ParameterDirection.Input;
-                parametros[5].Size = 30;
-                db.Comando.Parameters.Add(parametros[5]);
-
-                parametros[6] = db.Comando.CreateParameter();
-                parametros[6].ParameterName = "vrTelefono";
-                parametros[6].Value = cliente.Ubicacion.Telefono_1;
-                parametros[6].Direction = ParameterDirection.Input;
-                parametros[6].Size = 10;
-                db.Comando.Parameters.Add(parametros[6]);
-
-                parametros[7] = db.Comando.CreateParameter();
-                parametros[7].ParameterName = "vrId_Ciudad";
-                parametros[7].Value = cliente.Ubicacion.Ciudad.Id_Ciudad;
-                parametros[7].Direction = ParameterDirection.Input;
-                parametros[7].Size = 5;
-                db.Comando.Parameters.Add(parametros[7]);
-
-                parametros[8] = db.Comando.CreateParameter();
-                parametros[8].ParameterName = "vrCodResult";
-                parametros[8].Value = 0;
-                parametros[8].Direction = ParameterDirection.Output;
-                db.Comando.Parameters.Add(parametros[8]);
-
-                parametros[9] = db.Comando.CreateParameter();
-                parametros[9].ParameterName = "vrDescResult";
-                parametros[9].Value = "";
-                parametros[9].Direction = ParameterDirection.Output;
-                parametros[9].Size = 200;
-                parametros[9].DbType = DbType.String;
-                db.Comando.Parameters.Add(parametros[9]);
-
                 db.EjecutarComando();
-                codigo = long.Parse(db.Comando.Parameters[8].Value.ToString());
+                codigo = long.Parse(db.Comando.Parameters[2].Value.ToString());
                 db.ConfirmarTransaccion();
             }
             catch (Exception ex)
             {
                 db.CancelarTransaccion();
-                throw new Exception("Error al crear el ClienteBE.", ex);
+                throw new Exception("Error al crear el VentaBE.", ex);
             }
 
             finally
@@ -117,19 +75,112 @@ namespace Unisangil.CYLTRACK.CYLTRACK_DL
             return codigo;
         }
 
-        public ClienteBE ConsultarCliente(string cliente)
+        public long RegistrarDetalleVenta(VentaBE venta)
         {
-            ClienteBE cli = new ClienteBE();
+            long codigo = 0;
+            BaseDatos db = new BaseDatos();
             try
             {
-                string nameSP = "ConsultarClientes";
+                db.Conectar();
+                db.ComenzarTransaccion();
+                string nameSP = "CrearRegistroDetalleVenta";
+                db.CrearComandoSP(nameSP);
+
+                DbParameter[] parametros = new DbParameter[9];
+
+                parametros[0] = db.Comando.CreateParameter();
+                parametros[0].ParameterName = "vrIdVenta";
+                parametros[0].Value = venta.Id_Venta;
+                parametros[0].Direction = ParameterDirection.Input;
+                parametros[0].Size = 12;
+                db.Comando.Parameters.Add(parametros[0]);
+
+                parametros[1] = db.Comando.CreateParameter();
+                parametros[1].ParameterName = "vrTipoCil";
+                parametros[1].Value = venta.Detalle_Venta.Tipo_Cilindro;
+                parametros[1].Direction = ParameterDirection.Input;
+                parametros[1].Size = 9;
+                db.Comando.Parameters.Add(parametros[1]);
+
+                parametros[2] = db.Comando.CreateParameter();
+                parametros[2].ParameterName = "vrTamano";
+                parametros[2].Value = venta.Detalle_Venta.Tamano;
+                parametros[2].Direction = ParameterDirection.Input;
+                parametros[2].Size = 100;
+                db.Comando.Parameters.Add(parametros[2]);
+
+                parametros[3] = db.Comando.CreateParameter();
+                parametros[3].ParameterName = "vrCodCilEntrada";
+                parametros[3].Value = venta.Detalle_Venta.Id_Cilindro_Entrada;
+                parametros[3].Direction = ParameterDirection.Input;
+                parametros[3].Size = 200;
+                db.Comando.Parameters.Add(parametros[3]);
+
+                parametros[4] = db.Comando.CreateParameter();
+                parametros[4].ParameterName = "vrCodCilSalida";
+                parametros[4].Value = venta.Detalle_Venta.Id_Cilindro_Salida;
+                parametros[4].Direction = ParameterDirection.Input;
+                parametros[4].Size = 200;
+                db.Comando.Parameters.Add(parametros[4]);
+                
+                parametros[5] = db.Comando.CreateParameter();
+                parametros[5].ParameterName = "vrIdUbica";
+                parametros[5].Value = venta.Id_Ubicacion;
+                parametros[5].Direction = ParameterDirection.Input;
+                parametros[5].Size = 12;
+                db.Comando.Parameters.Add(parametros[5]);
+
+                parametros[6] = db.Comando.CreateParameter();
+                parametros[6].ParameterName = "vrIdVehiculo";
+                parametros[6].Value = venta.IdVehiculo;
+                parametros[6].Direction = ParameterDirection.Input;
+                parametros[6].Size = 6;
+                db.Comando.Parameters.Add(parametros[6]);
+
+                parametros[7] = db.Comando.CreateParameter();
+                parametros[7].ParameterName = "vrCodResult";
+                parametros[7].Value = 0;
+                parametros[7].Direction = ParameterDirection.Output;
+                db.Comando.Parameters.Add(parametros[7]);
+
+                parametros[8] = db.Comando.CreateParameter();
+                parametros[8].ParameterName = "vrDescResult";
+                parametros[8].Value = "";
+                parametros[8].Direction = ParameterDirection.Output;
+                parametros[8].Size = 200;
+                parametros[8].DbType = DbType.String;
+                db.Comando.Parameters.Add(parametros[8]);
+
+                db.EjecutarComando();
+                codigo = long.Parse(db.Comando.Parameters[7].Value.ToString());
+                db.ConfirmarTransaccion();
+            }
+            catch (Exception ex)
+            {
+                db.CancelarTransaccion();
+                throw new Exception("Error al crear el VentaBE.", ex);
+            }
+
+            finally
+            {
+                db.Desconectar();
+            }
+            return codigo;
+        }
+
+        public VentaBE ConsultarVenta(string datoConsulta)
+        {
+            VentaBE venta = new VentaBE();
+            try
+            {
+                string nameSP = "ConsultarVenta";
                 BaseDatos db = new BaseDatos();
                 db.Conectar();
                 db.CrearComandoSP(nameSP);
                 DbParameter[] parametros = new DbParameter[3];
                 parametros[0] = db.Comando.CreateParameter();
-                parametros[0].ParameterName = "vrCedula";
-                parametros[0].Value = cliente;
+                parametros[0].ParameterName = "vrDatoConsulta";
+                parametros[0].Value = datoConsulta;
                 parametros[0].Direction = ParameterDirection.Input;
                 db.Comando.Parameters.Add(parametros[0]);
 
@@ -148,35 +199,15 @@ namespace Unisangil.CYLTRACK.CYLTRACK_DL
                 db.Comando.Parameters.Add(parametros[2]);
 
                 DbDataReader datos = db.EjecutarConsulta();
-                List<UbicacionBE> lstUbicaciones = new List<UbicacionBE>();
-                ClienteBE c = null;
+                VentaBE v = null;
                 while (datos.Read())
                 {
                     try
                     {
-                        c = new ClienteBE();
-                        c.Cedula = datos.GetString(0);
-                        c.Nombres_Cliente = datos.GetString(1).ToString();
-                        c.Apellido_1 = (datos.GetString(2));
-                        c.Apellido_2 = (datos.GetString(3));
-                        UbicacionBE ubi = new UbicacionBE();
-                        ubi.Direccion= datos.GetString(4);                        
-                        ubi.Telefono_1 = datos.GetString(5);
-                        ubi.Barrio = datos.GetString(6);
-                        CiudadBE ciu = new CiudadBE();
-                        ciu.Nombre_Ciudad = datos.GetString(7);
-                        ciu.Id_Ciudad = datos.GetValue(8).ToString();
-                        DepartamentoBE dep = new DepartamentoBE();
-                        dep.Nombre_Departamento = datos.GetString(9);
-                        dep.Id_Departamento = datos.GetValue(10).ToString();
-                        c.Id_Cliente = datos.GetValue(11).ToString();
-                        ubi.Id_Ubicacion = datos.GetValue(12).ToString();
-                        ciu.Departamento = dep;
-                        ubi.Ciudad = ciu;
-                        lstUbicaciones.Add(ubi);
-                        c.ListaDirecciones = lstUbicaciones;
-                        cli = c;
-                      
+                        v = new VentaBE();
+                        v.Fecha = datos.GetDateTime(0);
+                        v.Observaciones = datos.GetString(1);
+                        venta = v;
                     }
                     catch (InvalidCastException ex)
                     {
@@ -192,24 +223,24 @@ namespace Unisangil.CYLTRACK.CYLTRACK_DL
             }
             catch (Exception ex)
             {
-                throw new Exception("Error al acceder a la base de datos para obtener los ClienteBEs.");
+                throw new Exception("Error al acceder a la base de datos para obtener los VentaBEs.");
             }
-            return cli;
+            return venta;
         }
 
-        public long ConsultarExistenciasClientes(string cli)
+        public long ConsultarExistenciasVenta(string venta)
         {
             long codigo = 0;
             BaseDatos db = new BaseDatos();
             try
             {
-                string nameSP = "ConsultarExistenciaClientes";
+                string nameSP = "ConsultarExistenciaVenta";
                 db.Conectar();
                 db.CrearComandoSP(nameSP);
                 DbParameter[] parametros = new DbParameter[3];
                 parametros[0] = db.Comando.CreateParameter();
                 parametros[0].ParameterName = "vrDatoConsulta";
-                parametros[0].Value = cli;
+                parametros[0].Value = venta;
                 parametros[0].Direction = ParameterDirection.Input;
                 db.Comando.Parameters.Add(parametros[0]);
 
@@ -248,7 +279,7 @@ namespace Unisangil.CYLTRACK.CYLTRACK_DL
             }
             catch (Exception ex)
             {
-                throw new Exception("Error al acceder a la base de datos para obtener los ClientesBEs.");
+                throw new Exception("Error al acceder a la base de datos para obtener los VentaBEs.");
             }
             return codigo;
         }
@@ -379,7 +410,7 @@ namespace Unisangil.CYLTRACK.CYLTRACK_DL
                 parametros[4].Direction = ParameterDirection.Input;
                 parametros[4].Size = 5;
                 db.Comando.Parameters.Add(parametros[4]);
-  
+
                 parametros[5] = db.Comando.CreateParameter();
                 parametros[5].ParameterName = "vrCodResult";
                 parametros[5].Value = 0;
@@ -411,7 +442,7 @@ namespace Unisangil.CYLTRACK.CYLTRACK_DL
             return codigo;
         }
 
-        public List<Ubicacion_CilindroBE> ConsultarCilPorCliente(string IdUbiCliente)
+        public List<Ubicacion_CilindroBE> ConsultarCilPorCliente(string IdCliente)
         {
             List<Ubicacion_CilindroBE> lstubicacionCil = new List<Ubicacion_CilindroBE>();
             try
@@ -422,8 +453,8 @@ namespace Unisangil.CYLTRACK.CYLTRACK_DL
                 db.CrearComandoSP(nameSP);
                 DbParameter[] parametros = new DbParameter[3];
                 parametros[0] = db.Comando.CreateParameter();
-                parametros[0].ParameterName = "vrIdUbiCliente";
-                parametros[0].Value = IdUbiCliente;
+                parametros[0].ParameterName = "vrIdCliente";
+                parametros[0].Value = IdCliente;
                 parametros[0].Direction = ParameterDirection.Input;
                 db.Comando.Parameters.Add(parametros[0]);
 
@@ -480,8 +511,8 @@ namespace Unisangil.CYLTRACK.CYLTRACK_DL
 
         public UbicacionBE ConsultarDirClientePorUbicacion(string cliente)
         {
-           UbicacionBE ubicacion = new UbicacionBE();
-           
+            UbicacionBE ubicacion = new UbicacionBE();
+
             try
             {
                 string nameSP = "ConsultarDirClientesPorUbicacion";
@@ -527,7 +558,7 @@ namespace Unisangil.CYLTRACK.CYLTRACK_DL
                         dep.Id_Departamento = datos.GetValue(6).ToString();
                         ciu.Departamento = dep;
                         u.Ciudad = ciu;
-                        ubicacion=u;
+                        ubicacion = u;
                     }
                     catch (InvalidCastException ex)
                     {
@@ -588,7 +619,7 @@ namespace Unisangil.CYLTRACK.CYLTRACK_DL
                 parametros[3].Direction = ParameterDirection.Input;
                 parametros[3].Size = 15;
                 db.Comando.Parameters.Add(parametros[3]);
-                                
+
                 parametros[4] = db.Comando.CreateParameter();
                 parametros[4].ParameterName = "vrCodResult";
                 parametros[4].Value = 0;
