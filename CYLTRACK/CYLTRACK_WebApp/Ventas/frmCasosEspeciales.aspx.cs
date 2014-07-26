@@ -6,6 +6,9 @@ using System.Web.UI;
 using System.Web.UI.WebControls;
 using Unisangil.CYLTRACK.CYLTRACK_BE;
 using CYLTRACK_WebApp.VentaService;
+using CYLTRACK_WebApp.ClienteService;
+using CYLTRACK_WebApp.VehiculoService;
+using CYLTRACK_WebApp.ReporteService;
 using System.Data;
 using System.Windows.Forms;
 
@@ -19,28 +22,20 @@ namespace Unisangil.CYLTRACK.CYLTRACK_WebApp.Ventas
             if (!IsPostBack)
             {
                 txtCedulaCliente.Focus();
-            }
-            
+            }          
 
             if (!IsPostBack)
             {
-                List<string> tiposCasos = Auxiliar.ConsultarTipoCaso();
-                foreach (string datosCasos in tiposCasos)
-                {
-                    lstCaso.Items.Add(datosCasos);
-                }
-            }
-
-            if (!IsPostBack)
-            {
-                VentaServiceClient serVenta = new VentaServiceClient();
+                ReporteServiceClient servReporte = new ReporteServiceClient();
                 try
                 {
-                    List<CilindroBE> cargueVehiculo = new List<CilindroBE>(serVenta.ConsultarCarguePlaca());
-                    foreach(CilindroBE datos in cargueVehiculo)
-                    {
-                        lstCilEntrega.Items.Add(datos.Codigo_Cilindro);
-                    }
+                    List<Tipo_CasoBE> lstTipCasos = new List<Tipo_CasoBE>(servReporte.ConsultaTiposCasos());
+
+                    lstCaso.DataSource = servReporte.ConsultaTiposCasos();
+                    lstCaso.DataValueField = "Id_Tipo_Caso";
+                    lstCaso.DataTextField = "Nombre_Caso";
+                    lstCaso.DataBind();   
+                                 
                 }
                 catch (Exception ex)
                 {
@@ -48,7 +43,7 @@ namespace Unisangil.CYLTRACK.CYLTRACK_WebApp.Ventas
                 }
                 finally
                 {
-                    serVenta.Close();
+                    servReporte.Close();
                 }
             }
 
@@ -61,49 +56,48 @@ namespace Unisangil.CYLTRACK.CYLTRACK_WebApp.Ventas
 
         protected void txtCedulaCliente_TextChanged(object sender, EventArgs e)
         {
-            SetFocus(lstCaso);
             VentaServiceClient serVenta = new VentaServiceClient();
-            VentaBE venta = new VentaBE();
+            ClienteServiceClient serCliente = new ClienteServiceClient();
 
             try
             {
-                string consultaCedula = serVenta.ConsultarExistencia(txtCedulaCliente.Text);
+                DataTable table = new DataTable();
+                long consultarExistencia = serVenta.ConsultarExistenciaVenta(txtCedulaCliente.Text);
 
-                if (consultaCedula != "Ok")
+                if (consultarExistencia == 0)
                 {
-                    MessageBox.Show("El cliente digitado no tiene ventas asignadas", "Casos Especiales");
+                    MessageBox.Show("El cliente no tiene asignado ninguna venta reciente", "Consultar Venta");
                 }
                 else
                 {
-                    VentaBE consultarVenta = serVenta.ConsultarVenta(txtCedulaCliente.Text);
+                    VentaBE datosVenta = serVenta.ConsultarVenta(txtCedulaCliente.Text);
 
-                    txtFecha.Text = Convert.ToString(consultarVenta.Fecha);
-                    txtHora.Text = Convert.ToString(consultarVenta.Fecha);
-                    txtNumCedula.Text = consultarVenta.Cliente.Cedula;
-                    txtNombreCliente.Text = consultarVenta.Cliente.Nombres_Cliente;
-                    txtPrimerApellido.Text = consultarVenta.Cliente.Apellido_1;
-                    txtSegundoApellido.Text = consultarVenta.Cliente.Apellido_2;
-                    txtDireccion.Text = consultarVenta.Cliente.Ubicacion.Direccion;
-                    txtBarrio.Text = consultarVenta.Cliente.Ubicacion.Barrio;
-                    txtCiudad.Text = consultarVenta.Cliente.Ubicacion.Ciudad.Nombre_Ciudad;
-                    txtDepartamento.Text = consultarVenta.Cliente.Ubicacion.Ciudad.Departamento.Nombre_Departamento;
-                    txtTelefono.Text = consultarVenta.Cliente.Ubicacion.Telefono_1;
-                    txtObservacion.Text = consultarVenta.Observaciones;
+                    txtFecha.Text = Convert.ToString(datosVenta.Fecha);
+                    txtHora.Text = Convert.ToString(datosVenta.Fecha.TimeOfDay);
+                    
+                    ClienteBE cliente = serCliente.Consultar_Cliente(txtCedulaCliente.Text);
 
-                    DataTable table = new DataTable();
-                    table.Columns.Add("CodigosCil");
-                    table.Columns.Add("Tamano");
-                    table.Columns.Add("TipoCil");
+                    txtCedula2.Text = cliente.Cedula;
+                    lblIdCliente.Text = cliente.Id_Cliente;
+                    txtNombreCliente.Text = cliente.Nombres_Cliente + " " + cliente.Apellido_1 + " " + cliente.Apellido_2;
 
-                    table.Rows.Add(consultarVenta.Detalle_Venta.Cod_Cil_Actual, consultarVenta.Detalle_Venta.Tamano, consultarVenta.Detalle_Venta.Tipo_Cilindro);
-                    gvCargue.DataSource = table;
-                    gvCargue.DataBind();
+                    table.Columns.Add("IdUbicacion");
+                    table.Columns.Add("Direccion");
+                    table.Columns.Add("Barrio");
+                    table.Columns.Add("Telefono");
+                    table.Columns.Add("Ciudad");
 
-                    DivInfoVenta.Visible = true;
-                    divVerifInfo.Visible = true;
-                    btnGuardar.Visible = true;
+                    foreach (UbicacionBE datos in cliente.ListaDirecciones)
+                    {
+                        table.Rows.Add(datos.Id_Ubicacion, datos.Direccion, datos.Barrio, datos.Telefono_1, datos.Ciudad.Nombre_Ciudad);
+                    }
+                    gvDirecciones.DataSource = table;
+                    gvDirecciones.DataBind();
+                    divDirCliente.Visible = true;
+                    DivInfoVenta.Visible = true;                    
                 }
             }
+
             catch (Exception ex)
             {
                 Response.Redirect("~/About.aspx");
@@ -111,6 +105,8 @@ namespace Unisangil.CYLTRACK.CYLTRACK_WebApp.Ventas
             finally
             {
                 serVenta.Close();
+                txtCedulaCliente.Text = "";
+                txtCodVenta.Text = "";
             }
         }
 
@@ -118,37 +114,31 @@ namespace Unisangil.CYLTRACK.CYLTRACK_WebApp.Ventas
         {
             VentaServiceClient serVenta = new VentaServiceClient();
             CasosBE casos = new CasosBE();
-            string resp;
+            long resp;
             try
             {
-                VentaBE venta = new VentaBE();
-                Detalle_VentaBE detVenta = new Detalle_VentaBE();
-                venta.Detalle_Venta = detVenta;
-                ClienteBE cli = new ClienteBE();
-                cli.Cedula = txtCedulaCliente.Text;
-                venta.Cliente = cli;
-                Tipo_CasoBE tip = new Tipo_CasoBE();
-                casos.Tipo_Caso = tip;
-                casos.Tipo_Caso.Nombre_Caso = lstCaso.SelectedValue;
-                casos.Observaciones = txtObserva.Text;
+                //casos.Id_Cliente = lblIdCliente.Text;
+                //casos.
+                //casos.Tipo_Caso.Nombre_Caso = lstCaso.SelectedValue;
+                //casos.Observaciones = txtObserva.Text;
 
-                if (lstCaso.SelectedIndex == 1)
-                {
-                    venta.Detalle_Venta.Cod_Cil_Nuevo = lstCilEntrega.SelectedValue;
-                    venta.Detalle_Venta.Cod_Cil_Actual = lblMsn.Text;
-                }
-                if (lstCaso.SelectedIndex == 3)
-                {
-                    venta.Detalle_Venta.Cod_Cil_Nuevo = txtCodigoVerific.Text;
-                    venta.Detalle_Venta.Cod_Cil_Actual = lblMsn.Text;
-                }
-                //falta adicionar al cargue del vehiculo el cilindro que devuelve en terminacion del contrato
-                
-                casos.Venta = venta;
-              
-                resp = serVenta.CasosEspeciales(casos);
+                //if (lstCaso.SelectedIndex == 1)
+                //{
+                //    venta.Lista_Detalle_Venta.Cod_Cil_Nuevo = lstCilEntrega.SelectedValue;
+                //    venta.Lista_Detalle_Venta.Cod_Cil_Actual = lblMsn.Text;
+                //}
+                //if (lstCaso.SelectedIndex == 3)
+                //{
+                //    venta.Lista_Detalle_Venta.Cod_Cil_Nuevo = txtCodigoVerific.Text;
+                //    venta.Lista_Detalle_Venta.Cod_Cil_Actual = lblMsn.Text;
+                //}
+                ////falta adicionar al cargue del vehiculo el cilindro que devuelve en terminacion del contrato
 
-                MessageBox.Show("El caso especial fue registrado con satisfacción", "Casos Especiales");
+                //casos.Id_Detalle_Venta = venta;
+
+                //resp = serVenta.CasosEspeciales(casos);
+
+                //MessageBox.Show("El caso especial fue registrado con satisfacción", "Casos Especiales");
 
             }
             catch (Exception ex)
@@ -165,33 +155,71 @@ namespace Unisangil.CYLTRACK.CYLTRACK_WebApp.Ventas
 
         protected void lstCaso_SelectedIndexChanged(object sender, EventArgs e)
         {
-
-            divGrid.Visible = true;
-
-            if (lstCaso.SelectedIndex == 1)
-            {
-                divEscape.Visible = true;
-                SetFocus(lstCilEntrega);
-            }
-            if (lstCaso.SelectedIndex == 3)
-            {
-                divCodCorrecto.Visible = true;
-                SetFocus(txtCodigoVerific);
-            }
-        }
-
-        
-        protected void Agregar_onClick(object sender, EventArgs e)
-        {
-            SetFocus(btnGuardar);
-            
-            DataTable tabla = new DataTable();
+            VehiculoServiceClient servVehiculo = new VehiculoServiceClient();
+            DataTable table = new DataTable();
 
             try
             {
-                string codigo = ((System.Web.UI.WebControls.RadioButton)sender).Attributes["value"].ToString();
-                lblMsn.Text = "Se seleccionó el cilindro : " + codigo;
+                if (lstCaso.SelectedItem.Text == Tipo_Casos.ESCAPE.ToString())
+                {
+                    divEscape.Visible = true;
+                    SetFocus(lstCilEntrega);
+                    List<Ubicacion_CilindroBE> lstCilVehiculos = new List<Ubicacion_CilindroBE>(servVehiculo.ConsultarCilPorVehiculo("1"));
+
+                    foreach (Ubicacion_CilindroBE datos in lstCilVehiculos)
+                    {
+                        lstCilEntrega.Items.Add(datos.Cilindro.Codigo_Cilindro);
+                    }
+                }
+                else
+                {
+                    divEscape.Visible = false;
+                }
+
+                if (lstCaso.SelectedItem.Text == Tipo_Casos.CODIGO.ToString() + " " + Tipo_Casos.ERRADO.ToString())
+                {
+                    divCodCorrecto.Visible = true;
+                    SetFocus(txtCodigoVerific);
+                }
+                else 
+                {
+                    divCodCorrecto.Visible = false;
+                }    
+             }
+                catch (Exception ex)
+                {
+                    Response.Redirect("~/About.aspx");
+                }
+                finally
+                {
+                    servVehiculo.Close();
+                    divGrid.Visible = true;
+                    btnGuardar.Visible = true;
+                }
+       }
+
+        protected void Seleccion_onClick(object sender, EventArgs e)
+        {
+            ClienteServiceClient servCliente = new ClienteServiceClient();
+            DataTable table = new DataTable();
+            
+            try
+            {
+                string idUbica = ((System.Web.UI.WebControls.RadioButton)sender).Attributes["value"].ToString();
+                lblIdUbica.Text = idUbica;
                 ((System.Web.UI.WebControls.RadioButton)sender).Checked = false;
+                List<Ubicacion_CilindroBE> lstCilCliente = new List<Ubicacion_CilindroBE>(servCliente.ConsultarCilPorCliente(lblIdUbica.Text));
+                table.Columns.Add("CodigosCil");
+                table.Columns.Add("Tamano");
+                table.Columns.Add("TipoCil");
+
+                foreach (Ubicacion_CilindroBE info in lstCilCliente)
+                {
+                    table.Rows.Add(info.Cilindro.Codigo_Cilindro, info.Cilindro.NTamano.Tamano, info.Cilindro.Tipo_Cilindro);
+                }
+
+                gvCargue.DataSource = table;
+                gvCargue.DataBind();   
             }
             catch (Exception ex)
             {
@@ -199,8 +227,10 @@ namespace Unisangil.CYLTRACK.CYLTRACK_WebApp.Ventas
             }
             finally
             {
-                lblMsn.Visible = true;                
+                btnGuardar.Focus();
+                divVerifInfo.Visible = true;
             }
-        } 
+        }
+
     }
 }
