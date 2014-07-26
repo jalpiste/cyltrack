@@ -48,14 +48,41 @@ namespace Unisangil.CYLTRACK.CYLTRACK_WCF_Services
         ClienteBE Consultar_Cliente(string cliente);
 
         /// <summary>
-        /// Método encargado de la modificación de clientes en el sistema. Permite
+        /// Método encargado de la modificación de la direccion de clientes en el sistema. Permite
+        /// que las aplicaciones llamen a los objetos de negocio directamente.
+        /// </summary>
+        /// <param name="Ubicacion">Objeto de negocio ubicacion</param>
+        /// <returns>cédula del cliente</returns>
+        [OperationContract]
+        long ModificarDirCliente(UbicacionBE ubicacion);
+
+        /// <summary>
+        /// Método encargado de la modificación de los nombres de clientes en el sistema. Permite
         /// que las aplicaciones llamen a los objetos de negocio directamente.
         /// </summary>
         /// <param name="cliente">Objeto de negocio cliente</param>
         /// <returns>cédula del cliente</returns>
         [OperationContract]
-        long Modificar_Cliente(ClienteBE cliente);
-       
+        long ModificarNombreCliente(ClienteBE cliente);
+
+        /// <summary>
+        /// Método encargado de la consulta de cilindros de un cliente en el sistema. Permite
+        /// que las aplicaciones llamen a los objetos de negocio directamente.
+        /// </summary>
+        /// <param name="cliente">Identificador del cliente</param>
+        /// <returns>Lista de Objetos con códigos cilindro</returns>
+        [OperationContract]
+        List<Ubicacion_CilindroBE> ConsultarCilPorCliente(string idCliente);
+
+        /// <summary>
+        /// Método encargado de la consulta de direcciones de un cliente en el sistema. Permite
+        /// que las aplicaciones llamen a los objetos de negocio directamente.
+        /// </summary>
+        /// <param name="idUbicacion">Identificador de la ubicación</param>
+        /// <returns>Objetos Ubicacion</returns>
+        [OperationContract]
+        UbicacionBE ConsultarDirCliPorUbica(string idUbica);
+
         /// <summary>
         /// Método encargado de la consulta de existencia de clientes en el sistema. Permite
         /// que las aplicaciones llamen a los objetos de negocio directamente.

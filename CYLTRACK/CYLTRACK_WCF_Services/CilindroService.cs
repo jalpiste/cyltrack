@@ -52,13 +52,13 @@ namespace Unisangil.CYLTRACK.CYLTRACK_WCF_Services
         /// Encargado de recibir la ubicacion de los canales front de venta y llamar
         /// al metodo de negocio para la consulta de cilindros en dicha ubicacion
         /// </summary>
-        /// <param name="ubicacion">Objeto de negocio cilindro</param>
+        /// <param name="ubicacionCil">Objeto de negocio cilindro</param>
         /// <returns>Códigos de Cilindros</returns>
-        public List<Ubicacion_CilindroBE> ConsultarCilUbicacion(string ubicacion)
+        public List<Ubicacion_CilindroBE> ConsultarCilUbicacion(Ubicacion_CilindroBE ubicacionCil)
         {
             List<Ubicacion_CilindroBE> resp;
             CilindroBL consultaUbicacion = new CilindroBL();
-            resp = consultaUbicacion.ConsultarCilUbicacion(ubicacion);
+            resp = consultaUbicacion.ConsultarCilUbicacion(ubicacionCil);
             return resp;
         }
 

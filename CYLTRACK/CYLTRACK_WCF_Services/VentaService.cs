@@ -22,12 +22,12 @@ namespace Unisangil.CYLTRACK.CYLTRACK_WCF_Services
         /// al metodo de negocio para registrar ventas
         /// </summary>
         /// <param name="ventas">Objeto de negocio Venta</param>
-        /// <returns>Cédula del cliente</returns>
-        public string VentaCilindro(VentaBE ventas)
+        /// <returns>Identificador Venta</returns>
+        public long RegistrarVenta(VentaBE ventas)
         {
-            string resp;
+            long resp;
             VentaBL ventaCil = new VentaBL();
-            resp = ventaCil.VentaCilindro(ventas);
+            resp = ventaCil.RegistarVenta(ventas);
             return resp;
         }
 
@@ -35,27 +35,27 @@ namespace Unisangil.CYLTRACK.CYLTRACK_WCF_Services
         /// Encargado de recibir el id_venta de los canales front de venta y llamar
         /// al metodo de negocio para consultar ventas
         /// </summary>
-        /// <param name="ventas">Id_Venta</param>
-        /// <returns>Objeto de Negocio venta</returns>
-        public string ConsultarExistencia(string ventas)
+        /// <param name="cédula cliente, codigo pedido">cedula, codigopedido</param>
+        /// <returns>Identificador venta</returns>
+        public long ConsultarExistenciaVenta(string ventas)
         {
-            string resp;
+            long resp;
             VentaBL ventaCil = new VentaBL();
-            resp = ventaCil.ConsultarExistencia(ventas);
+            resp = ventaCil.ConsultarExistenciasVenta(ventas);
             return resp;
         }
 
         /// <summary>
-        /// Encargado de recibir la cédula del cliente de los canales front de venta y llamar
+        /// Encargado de recibir la cédula del cliente o código de la venta de los canales front de venta y llamar
         /// al metodo de negocio para consultar venta
         /// </summary>
-        /// <param name="ventas">Objeto de negocio Venta</param>
-        /// <returns>Cédula del cliente</returns>
-        public VentaBE ConsultarVenta(string ventas)
+        /// <param name="cédula, codigoVenta">cédula cliente o código venta</param>
+        /// <returns>Objeto de Venta</returns>
+        public VentaBE ConsultarVenta(string datoConsulta)
         {
             VentaBE resp;
             VentaBL consulVenta = new VentaBL();
-            resp = consulVenta.ConsultarVenta(ventas);
+            resp = consulVenta.ConsultarVenta(datoConsulta);
             return resp;
         }
 

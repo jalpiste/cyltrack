@@ -45,7 +45,7 @@ namespace Unisangil.CYLTRACK.CYLTRACK_WCF_Services
         /// <param name="cilindro">Objeto de negocio cilindro</param>
         /// <returns>código cilindro</returns>
         [OperationContract]
-        List<Ubicacion_CilindroBE> ConsultarCilUbicacion(string ubicacion);
+        List<Ubicacion_CilindroBE> ConsultarCilUbicacion(Ubicacion_CilindroBE ubicacionCil);
 
         /// <summary>
         /// Método encargado del cambio de ubicacion de los cilindros en el sistema. Permite

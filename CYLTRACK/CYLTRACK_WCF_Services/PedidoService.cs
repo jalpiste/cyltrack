@@ -55,24 +55,24 @@ namespace Unisangil.CYLTRACK.CYLTRACK_WCF_Services
         /// </summary>
         /// <param name="modificar_ped">Objeto de negocio pedido</param>
         /// <returns>cédula del cliente</returns>
-        public string Modificar_Pedido(string pedido)
+        public long Modificar_Pedido(PedidoBE pedido)
         {
-            String resp;
+            long resp;
             PedidoBL ModPedido = new PedidoBL();
             resp = ModPedido.ModificarPedido(pedido);
             return resp;
         }
         /// <summary>
         /// Encargado de recibir un pedido de los canales front de venta y llamar
-        /// al metodo de negocio para modificar un pedido de cilindro
+        /// al metodo de negocio para cancelar un pedido de cilindro
         /// </summary>
         /// <param name="cancelar_ped">Objeto de negocio pedido</param>
-        /// <returns>cédula del cliente</returns>
-        public string Cancelar_Pedido(string motivo)
+        /// <returns>identificar del pedido</returns>
+        public long Cancelar_Pedido(PedidoBE pedido)
         {
-            String resp;
+            long resp;
             PedidoBL CanPedido = new PedidoBL();
-            resp = CanPedido.CancelarPedido(motivo);
+            resp = CanPedido.CancelarPedido(pedido);
             return resp;
         }
 

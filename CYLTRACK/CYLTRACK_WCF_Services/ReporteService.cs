@@ -33,19 +33,19 @@ namespace Unisangil.CYLTRACK.CYLTRACK_WCF_Services
         }
 
         /// <summary>
-        /// Encargado de recibir el código del cilindro de los canales front de venta y llamar
-        /// al metodo de negocio para consultar el inventario de cilindros
+        /// Encargado de recibir la ubicacion de los canales front de venta y llamar
+        /// al metodo de negocio para la consulta de cilindros en dicha ubicacion
         /// </summary>
-        /// <param name="reporte">Objeto de negocio Reporte</param>
-        /// <returns>Datos Cilindros</returns>
-        public List<ReportesBE> Inventario(ReportesBE reporte)
+        /// <param name="reporte">Objeto de negocio reporte</param>
+        /// <returns>Objeto de Cilindros</returns>
+        public List<Ubicacion_CilindroBE> ConsultarCilInventario(ReportesBE reporte)
         {
-            List<ReportesBE> resp;
-            ReporteBL inventario = new ReporteBL();
-            resp = inventario.Inventario(reporte);
+            List<Ubicacion_CilindroBE> resp;
+            ReporteBL consultaUbicacion = new ReporteBL();
+            resp = consultaUbicacion.ConsultarCilInventario(reporte);
             return resp;
-
         }
+
 
         ///<summary>
         ///Encargado de recibir una ciudad de los canales front de venta y llamar
@@ -168,12 +168,18 @@ namespace Unisangil.CYLTRACK.CYLTRACK_WCF_Services
             resp = consulExistencia.consultadeExistencia(dato);
             return resp;
         }
-        public long consultadeExistenciaVarios(string dato)
+
+        ///<summary>
+        ///Encargado llamar al metodo de negocio para consultar los tipos de casos
+        ///</summary>
+        ///<returns>lista de Objetos de negocio Tipos de casos</returns>
+        public List<Tipo_CasoBE> ConsultaTiposCasos()
         {
-            long resp;
-            ReporteBL consulExistencia = new ReporteBL();
-            resp = consulExistencia.consultadeExistenciaVarios(dato);
+            List<Tipo_CasoBE> resp;
+            ReporteBL consultarTipoCasos = new ReporteBL();
+            resp = consultarTipoCasos.ConsultaTipoCasos();
             return resp;
         }
+        
     }
 }
