@@ -78,7 +78,7 @@ namespace Unisangil.CYLTRACK.CYLTRACK_WebApp.Reporte
 
                     foreach (UbicacionBE datos in lstReporteporCiudades)
                     {
-                        table.Rows.Add(datos.Ciudad.Nombre_Ciudad, datos.Ubicacion_Cilindro.Cilindro.Cantidad, datos.Ubicacion_Cilindro.Cilindro.Cantidad, datos.Ubicacion_Cilindro.Cilindro.Cantidad, datos.Ubicacion_Cilindro.Cilindro.Cantidad, datos.Ubicacion_Cilindro.Cilindro.Cantidad);
+                        table.Rows.Add(datos.Ciudad.Nombre_Ciudad, datos.Ubicacion_Cilindro.Cilindro.NTamano.Cantidad, datos.Ubicacion_Cilindro.Cilindro.NTamano.Cantidad, datos.Ubicacion_Cilindro.Cilindro.NTamano.Cantidad, datos.Ubicacion_Cilindro.Cilindro.NTamano.Cantidad, datos.Ubicacion_Cilindro.Cilindro.NTamano.Cantidad);
                         gvReporteCiudad.DataSource = table;
                         gvReporteCiudad.DataBind();
                     }
@@ -98,7 +98,7 @@ namespace Unisangil.CYLTRACK.CYLTRACK_WebApp.Reporte
 
                     foreach (UbicacionBE datos in lstReporteporPlacas)
                     {
-                        table.Rows.Add(datos.Vehiculo.Placa, datos.Ubicacion_Cilindro.Cilindro.Cantidad, datos.Ubicacion_Cilindro.Cilindro.Cantidad, datos.Ubicacion_Cilindro.Cilindro.Cantidad, datos.Ubicacion_Cilindro.Cilindro.Cantidad, datos.Ubicacion_Cilindro.Cilindro.Cantidad);
+                        table.Rows.Add(datos.Vehiculo.Placa, datos.Ubicacion_Cilindro.Cilindro.NTamano.Cantidad, datos.Ubicacion_Cilindro.Cilindro.NTamano.Cantidad, datos.Ubicacion_Cilindro.Cilindro.NTamano.Cantidad, datos.Ubicacion_Cilindro.Cilindro.NTamano.Cantidad, datos.Ubicacion_Cilindro.Cilindro.NTamano.Cantidad);
                         gvReportePlacas.DataSource = table;
                         gvReportePlacas.DataBind();
                     }
@@ -114,7 +114,7 @@ namespace Unisangil.CYLTRACK.CYLTRACK_WebApp.Reporte
                     table.Columns.Add("Tamano");
                     foreach (CilindroBE datos in lstReporteporCilindro)
                     {
-                        table.Rows.Add(datos.Cantidad, datos.NTamano.Tamano);
+                        table.Rows.Add(datos.NTamano.Cantidad, datos.NTamano.Tamano);
                         gvReporteTamano.DataSource = table;
                         gvReporteTamano.DataBind();
                     }
