@@ -234,7 +234,22 @@ namespace Unisangil.CYLTRACK.CYLTRACK_BL
 
             return resp;
         }
-        
+        public List<Ubicacion_CilindroBE> ConsultarCilPorVehiculo(string idVehiculo)
+        {
+            List<Ubicacion_CilindroBE> lstResp = new List<Ubicacion_CilindroBE>();
+
+            VehiculoDL veh = new VehiculoDL();
+            try
+            {
+                lstResp = veh.ConsultarCilPorVehiculo(idVehiculo);
+            }
+            catch (Exception ex)
+            {
+
+            }
+
+            return lstResp;
+        }
         #endregion
         #region Metodos privados
         #endregion
