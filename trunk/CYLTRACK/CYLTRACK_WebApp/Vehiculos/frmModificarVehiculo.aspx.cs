@@ -211,12 +211,15 @@ namespace Unisangil.CYLTRACK.CYLTRACK_WebApp.Vehiculos
         protected void txtCedula_TextChanged(object sender, EventArgs e)
         {
             VehiculoServiceClient servVehiculo = new VehiculoServiceClient();
-            ReporteServiceClient servReporte = new ReporteServiceClient();
-            try
+             try
             {
-                long consultarPropVehiculo = servReporte.consultadeExistenciaVarios(txtCedula.Text);
+                long consultarPropVehiculo = servVehiculo.ConsultarExistenciaContratista(txtCedula.Text);
 
-                if (consultarPropVehiculo != 0)
+                if (consultarPropVehiculo == 0)
+                {
+                    MessageBox.Show("El contratista no se encuentra registrado en el sistema", "Modificar Vehículo");
+                }
+                else
                 {
                     txtCedula2.Text = txtCedula.Text;
                     ContratistaBE objContratista = servVehiculo.ConsultarPropVehiculo(txtCedula2.Text);
@@ -233,14 +236,12 @@ namespace Unisangil.CYLTRACK.CYLTRACK_WebApp.Vehiculos
             }
             finally
             {
-                servVehiculo.Close();
-                servReporte.Close();
+                servVehiculo.Close();                
             }
         }
 
         protected void txtCedula1_TextChanged(object sender, EventArgs e)
         {
-            ReporteServiceClient servReporte = new ReporteServiceClient();
             VehiculoServiceClient servVehiculo = new VehiculoServiceClient();
 
             VehiculoBE consultar_conductor = new VehiculoBE();
@@ -248,7 +249,7 @@ namespace Unisangil.CYLTRACK.CYLTRACK_WebApp.Vehiculos
 
             try
             {
-                resp = servReporte.consultadeExistenciaVarios(txtCedula1.Text);
+                resp = servVehiculo.ConsultarExistenciaConductor(txtCedula1.Text);
 
                 if (resp == 0)
                 {
@@ -272,7 +273,6 @@ namespace Unisangil.CYLTRACK.CYLTRACK_WebApp.Vehiculos
             }
             finally
             {
-                servReporte.Close();
                 servVehiculo.Close();
                 lstRuta.Focus();
             }
