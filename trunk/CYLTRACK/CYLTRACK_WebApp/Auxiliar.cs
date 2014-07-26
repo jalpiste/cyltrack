@@ -92,8 +92,8 @@ namespace Unisangil.CYLTRACK.CYLTRACK_WebApp
     }
         public enum Tipo_Cilindro
         {
-            Universal = 1,
-            Marcado = 2,
+            MARCADO = 1,
+            UNIVERSAL = 2,
         }
         public enum Meses
         {
@@ -126,9 +126,13 @@ namespace Unisangil.CYLTRACK.CYLTRACK_WebApp
         }
         public enum Tipo_Casos
         {
-            Escape = 1,
-            Terminacion_Contrato = 2,
-            Codigo_Errado = 3,
+            ESCAPE = 1,
+            TERMINACION = 2,
+            CONTRATO=3,
+            CODIGO = 4,
+            ERRADO=5,
+            DEL=6,
+
         }
         public enum Ubicacion
         {
