@@ -19,12 +19,11 @@ namespace Unisangil.CYLTRACK.CYLTRACK_WebApp.Clientes
             if (!IsPostBack)
             {
                 txtNuevaDireccion.Focus();
-
             }
 
             if (!IsPostBack)
             {
-                lblCedula.Text = (Server.UrlDecode(Request.QueryString["ReturnUrl"]));
+                lblCedula.Text = (Server.UrlDecode(Request.QueryString["ReturnUrl"]));                
             }
 
             if (!IsPostBack)
@@ -92,6 +91,7 @@ namespace Unisangil.CYLTRACK.CYLTRACK_WebApp.Clientes
         protected void btnAtras_Click(object sender, EventArgs e)
         {
             Response.Redirect("~/Clientes/frmModificarCliente.aspx");
+            
         }
 
         protected void lstDepartamento_SelectedIndexChanged(object sender, EventArgs e)

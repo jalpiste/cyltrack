@@ -42,26 +42,29 @@ namespace Unisangil.CYLTRACK.CYLTRACK_WebApp.Clientes
                 }
                 else
                 {
-                    ClienteBE cliente = new ClienteBE();
-                    cliente = serCliente.Consultar_Cliente(txtCedula.Text);
 
-                    table.Columns.Add("CodigosCil");
-                    table.Columns.Add("Tamano");
-                    table.Columns.Add("TipoCil");
+                    ClienteBE consulta = serCliente.Consultar_Cliente(txtCedula.Text);
 
-                    txtCedulaCli.Text = cliente.Cedula;
-                    txtNombreCliente.Text = cliente.Nombres_Cliente;
-                    txtPrimerApellido.Text = cliente.Apellido_1;
-                    txtSegundoApellido.Text = cliente.Apellido_2;
-                    txtDireccion.Text = cliente.Ubicacion.Direccion;
-                    txtBarrio.Text = cliente.Ubicacion.Barrio;
-                    txtTelefono.Text = cliente.Ubicacion.Telefono_1;
-                    txtCiudad.Text = cliente.Ubicacion.Ciudad.Nombre_Ciudad;
-                    txtDepartamento.Text = cliente.Ubicacion.Ciudad.Departamento.Nombre_Departamento;
-                    //table.Rows.Add(cliente.Ubicacion.Ubicacion_Cilindro.Cilindro.Codigo_Cilindro, cliente.Ubicacion.Ubicacion_Cilindro.Cilindro.NTamano.Tamano, cliente.Ubicacion.Ubicacion_Cilindro.Cilindro.Tipo_Cilindro);
-                    //gdCilindrosCli.DataSource = table;
-                    //gdCilindrosCli.DataBind();
+                    txtCedulaCli.Text = consulta.Cedula;
+                    txtNombreCliente.Text = consulta.Nombres_Cliente;
+                    txtPrimerApellido.Text = consulta.Apellido_1;
+                    txtSegundoApellido.Text = consulta.Apellido_2;
+
+                    table.Columns.Add("IdUbicacion");
+                    table.Columns.Add("Direccion");
+                    table.Columns.Add("Barrio");
+                    table.Columns.Add("Telefono");
+                    table.Columns.Add("Ciudad");
+
+                    foreach (UbicacionBE datos in consulta.ListaDirecciones)
+                    {
+                        table.Rows.Add(datos.Id_Ubicacion, datos.Direccion, datos.Barrio, datos.Telefono_1, datos.Ciudad.Nombre_Ciudad);
+                    }
+                    gvDirecciones.DataSource = table;
+                    gvDirecciones.DataBind();
+                    
                     divInfoCliente.Visible = true;
+                    divDireccionesCli.Visible = true;
                     btnNuevaConsulta.Visible = true;
                     txtCedula.Text = "";
 
