@@ -41,7 +41,6 @@
     <asp:Label ID="lblTipoCil" runat="server" Text="Tipo de Cilindro: "></asp:Label>
             &nbsp;&nbsp;
             <asp:ListBox ID="lstTipoCil" runat="server" AutoPostBack="True" Rows="1" >
-                <asp:ListItem>Seleccionar...</asp:ListItem>
                </asp:ListBox>
                <asp:RequiredFieldValidator ID="tipoCilRequerido" runat="server" ControlToValidate="lstTipoCil" 
                CssClass="failureNotification" ErrorMessage="El tipo de cilindro del reporte es obligatorio" ToolTip="El tipo de cilindro del reporte es obligatorio" 
@@ -52,9 +51,9 @@
                 <br />
                 <asp:Label ID="lblNota" runat="server" Text="Ubicación: "></asp:Label>
             &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-            <asp:ListBox ID="lstUbicacion" runat="server" AutoPostBack="True" Rows="1" OnSelectedIndexChanged="Ubicacion_SelectedIndexChanged">
-                <asp:ListItem>Seleccionar...</asp:ListItem>
-               </asp:ListBox>
+            <asp:ListBox ID="lstUbicacion" runat="server" AutoPostBack="True" Rows="1" 
+                onselectedindexchanged="lstUbicacion_SelectedIndexChanged" >
+                </asp:ListBox>
                <asp:RequiredFieldValidator ID="UbicacionRequerida" runat="server" ControlToValidate="lstUbicacion" 
                CssClass="failureNotification" ErrorMessage="La ubicación del reporte es obligatorio" ToolTip="La ubicación del reporte es obligatorio" 
                ValidationGroup="Inventario">*</asp:RequiredFieldValidator>
@@ -65,12 +64,10 @@
             <asp:Label ID="lblPlaca" runat="server" Text="Placa Vehículo:  " Visible="true"></asp:Label>
             &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
             <asp:ListBox ID="lstPlacaVehículo" runat="server" AutoPostBack="True" Rows="1" Visible="true">
-                <asp:ListItem>Seleccionar...</asp:ListItem>
-            </asp:ListBox>
+                </asp:ListBox>
                     <asp:RequiredFieldValidator ID="RequiredFieldValidator1" runat="server" ControlToValidate="lstTipoCil" 
                CssClass="failureNotification" ErrorMessage="La placa del vehiculo es obligatorio" ToolTip="la placa del vehiculo es obligatorio" 
-               ValidationGroup="Inventario">*</asp:RequiredFieldValidator>
-         
+               ValidationGroup="Inventario">*</asp:RequiredFieldValidator>         
             </div>
         </fieldset>
         <p class="submitButton" >
@@ -82,48 +79,67 @@
         <fieldset class="login">
             <legend>Inventario de Cilindros</legend>
            
-                <asp:GridView ID="gvInventario" runat="server" AutoGenerateColumns="False" 
-                    CellPadding="5" ForeColor="#333333" GridLines="None"  >
-                    <AlternatingRowStyle BackColor="White" />
+               <asp:GridView ID="gvInventario" runat="server" AutoGenerateColumns="False" 
+                    CellPadding="5" ForeColor="#333333" GridLines="Both"  >
+                    <AlternatingRowStyle BackColor="White"  />                    
                     <Columns>
-                        <asp:BoundField SortExpression="Ubicacion" DataField="Ubicacion" HeaderText="Ubicación"
-                           >
-                            <%--<HeaderStyle Width="130px" />--%>
+                        <asp:BoundField SortExpression="Ubicacion" HeaderStyle-VerticalAlign="Middle" DataField="Ubicacion"  HeaderText="Ubicación Cilindros"
+                            HeaderStyle-Width="100px">
+                            <HeaderStyle Width="130px" />
                         </asp:BoundField>
-                        <asp:BoundField SortExpression="Cil30" DataField="Cil30" HeaderText="Cilindro 30"
-                           >
-                            <%--<HeaderStyle Width="110px" />--%>
+                        <asp:BoundField SortExpression="CodigosCilindros" DataField="CodigosCil" HeaderText="Códigos Cilindros"
+                            HeaderStyle-Width="100px">
+                            <HeaderStyle Width="130px" />
                         </asp:BoundField>
-                        <asp:BoundField SortExpression="Cil40" DataField="Cil40" HeaderText="Cilindro 40"
-                            >
-                            <%--<HeaderStyle Width="130px" />--%>
-                        </asp:BoundField>
-                        <asp:BoundField SortExpression="Cil80" DataField="Cil80" HeaderText="Cilindro 80"
-                            >
-                            <%--<HeaderStyle Width="130px" />--%>
-                        </asp:BoundField>
-                        <asp:BoundField SortExpression="Cil100" DataField="Cil100" HeaderText="Cilindro 100"
-                            >
-                            <%--<HeaderStyle Width="130px" />--%>
+                        <asp:BoundField SortExpression="Tamamo" DataField="Tamano" HeaderStyle-HorizontalAlign="Center"  HeaderText="Tamaño"
+                            HeaderStyle-Width="100px">
+                            <HeaderStyle Width="110px" />
                         </asp:BoundField>
                         <asp:BoundField SortExpression="TipoCil" DataField="TipoCil" HeaderText="Tipo de Cilindro"
-                            >
-                            <%--<HeaderStyle Width="130px" />--%>
-                        </asp:BoundField>
+                            HeaderStyle-Width="100px">
+                            <HeaderStyle Width="130px" />
+                        </asp:BoundField>                       
                     </Columns>
-                    <EditRowStyle BackColor="#7C6F57" />
+                    <EditRowStyle BackColor="#7C6F57"  />
                     <FooterStyle BackColor="#1C5E55" Font-Bold="True" ForeColor="White" />
                     <HeaderStyle BackColor="#AC3332" Font-Bold="True" ForeColor="White" />
-                    <PagerStyle BackColor="#666666"
-                     ForeColor="White" HorizontalAlign="Center" />
-                    <RowStyle BackColor="#EFF3FB" />
+                    <PagerStyle BackColor="#666666" ForeColor="White" HorizontalAlign="Center" />
+                    <RowStyle BackColor="#EFF3FB"  />
                     <SelectedRowStyle BackColor="#C5BBAF" Font-Bold="True" ForeColor="#333333" />
                     <SortedAscendingCellStyle BackColor="#F8FAFA" />
                     <SortedAscendingHeaderStyle BackColor="#246B61" />
                     <SortedDescendingCellStyle BackColor="#D4DFE1" />
                     <SortedDescendingHeaderStyle BackColor="#15524A" />
                 </asp:GridView>
-             
+       
+             <h4>
+             <asp:Label ID="lblTotalCil" runat="server" Text="Total Cilindros:"></asp:Label>
+             </h4>  
+             <br />
+               <asp:GridView ID="gvCantidad" runat="server" AutoGenerateColumns="False" 
+                    CellPadding="5" ForeColor="#333333" GridLines="Both"  >
+                    <AlternatingRowStyle BackColor="White"  />                    
+                    <Columns>
+                        <asp:BoundField SortExpression="Ubicacion" HeaderStyle-VerticalAlign="Middle" DataField="Ubicacion"  HeaderText="Ubicación Cilindros"
+                            HeaderStyle-Width="100px">
+                            <HeaderStyle Width="130px" />
+                        </asp:BoundField>
+                        <asp:BoundField SortExpression="Cantidad" DataField="Cantidad" HeaderText="Cantidad"
+                            HeaderStyle-Width="100px">
+                            <HeaderStyle Width="130px" />
+                        </asp:BoundField>
+                    </Columns>
+                    <EditRowStyle BackColor="#7C6F57"  />
+                    <FooterStyle BackColor="#1C5E55" Font-Bold="True" ForeColor="White" />
+                    <HeaderStyle BackColor="#AC3332" Font-Bold="True" ForeColor="White" />
+                    <PagerStyle BackColor="#666666" ForeColor="White" HorizontalAlign="Center" />
+                    <RowStyle BackColor="#EFF3FB"  />
+                    <SelectedRowStyle BackColor="#C5BBAF" Font-Bold="True" ForeColor="#333333" />
+                    <SortedAscendingCellStyle BackColor="#F8FAFA" />
+                    <SortedAscendingHeaderStyle BackColor="#246B61" />
+                    <SortedDescendingCellStyle BackColor="#D4DFE1" />
+                    <SortedDescendingHeaderStyle BackColor="#15524A" />
+                </asp:GridView>    
         </fieldset>
     </div>
     <div class="submitButton" id="divBotones" runat="server" visible="false">

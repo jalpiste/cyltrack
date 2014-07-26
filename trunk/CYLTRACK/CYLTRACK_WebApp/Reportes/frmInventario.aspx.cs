@@ -5,82 +5,83 @@ using System.Web;
 using System.Web.UI;
 using System.Web.UI.WebControls;
 using Unisangil.CYLTRACK.CYLTRACK_WebApp.Reportes;
+using CYLTRACK_WebApp.CilindroService;
 using Unisangil.CYLTRACK.CYLTRACK_BE;
 using CYLTRACK_WebApp.ReporteService;
+using CYLTRACK_WebApp.VehiculoService;
 using System.Data;
+using System.Windows.Forms;
 
 namespace Unisangil.CYLTRACK.CYLTRACK_WebApp
 {
     public partial class Inventario : System.Web.UI.Page
     {
+        List<CilindroBE> lstDetail = new List<CilindroBE>();
+        DataTable objdtLista;
+
         protected void Page_Load(object sender, EventArgs e)
         {
-            if (!IsPostBack)
+            ReporteServiceClient servReporte = new ReporteServiceClient();
+         
+            try
             {
-                List<string> tipoCil = Auxiliar.ConsultaTipoCilindro();
-                foreach (string tip in tipoCil)
+                if (!IsPostBack)
                 {
-                    lstTipoCil.Items.Add(tip);
+                    List<string> tipoCil = Auxiliar.ConsultaTipoCilindro();
+                    foreach (string tip in tipoCil)
+                    {
+                        lstTipoCil.Items.Add(tip);
+                    }
+
+                    lstUbicacion.DataSource = servReporte.ConsultaTipoUbicacion().Skip(1);
+                    lstUbicacion.DataValueField = "Id_Tipo_Ubica";
+                    lstUbicacion.DataTextField = "Nombre_Ubicacion";
+                    lstUbicacion.DataBind();
+
+                    objdtLista = new DataTable();
+                    CrearTabla();
                 }
             }
-
-            if (!IsPostBack)
-            {
-                List<string> lstUbica = Auxiliar.ConsultarUbicacion();
-
-                lstUbica.Add("Todos");
-                foreach (string datos in lstUbica)
+                catch (Exception ex)
                 {
-                    lstUbicacion.Items.Add(datos);
+                    Response.Redirect("~/About.aspx");
                 }
-                
-            }
+
+                finally
+                {
+                    servReporte.Close();
+                }                      
         }
 
-        protected void Ubicacion_SelectedIndexChanged(object sender, EventArgs e)
+        protected DataTable objdtTabla
         {
-            ReporteServiceClient servReport = new ReporteServiceClient();
-            ReportesBE reporte = new ReportesBE();
-            
-            try 
+            get
             {
-
-                if (lstUbicacion.SelectedIndex == 5)
+                if (ViewState["objdtTabla"] != null)
                 {
-                    Tipo_UbicacionBE tipUbi = new Tipo_UbicacionBE();
-                    UbicacionBE ubi = new UbicacionBE();
-                    ubi.Tipo_Ubicacion = tipUbi;
-                    reporte.Ubicacion = ubi;
-                    CilindroBE cil = new CilindroBE();
-                    cil.Tipo_Cilindro = lstTipoCil.SelectedValue;
-                    reporte.Cilindro = cil;
-                    reporte.Ubicacion.Tipo_Ubicacion.Nombre_Ubicacion = lstUbicacion.SelectedValue;
-                    List<ReportesBE> lstReporte = new List<ReportesBE>(servReport.Inventario(reporte));
-
-                    foreach (ReportesBE datos in lstReporte)
-                    {
-                        lstPlacaVehículo.Items.Add(datos.Ubicacion.Tipo_Ubicacion.Nombre_Ubicacion);
-                    }
-                    divPlaca.Visible = true;
+                    return (DataTable)ViewState["objdtTabla"];
                 }
                 else
                 {
-                    divPlaca.Visible = false;
-                    lstPlacaVehículo.ClearSelection();
+                    return objdtLista;
                 }
-                               
             }
-            catch (Exception ex)
+            set
             {
-                Response.Redirect("~/About.aspx");
+                ViewState["objdtTabla"] = value;
             }
-            finally 
-            {
-                servReport.Close();
-            }
-            
         }
-
+       
+        private void CrearTabla()
+        {
+            objdtLista.Columns.Add("Ubicacion");
+            objdtLista.Columns.Add("CodigosCil");
+            objdtLista.Columns.Add("Tamano");
+            objdtLista.Columns.Add("TipoCil");
+            objdtLista.Columns.Add("TotaCil");
+            objdtTabla = objdtLista;
+        }
+        
         protected void btnMenu_Click(object sender, EventArgs e)
         {
             Response.Redirect("~/Default.aspx");
@@ -90,42 +91,50 @@ namespace Unisangil.CYLTRACK.CYLTRACK_WebApp
         {
             ReporteServiceClient servReporte = new ReporteServiceClient();
             ReportesBE reporte = new ReportesBE();
-            DataTable tabla = new DataTable();
+            DataTable table = new DataTable();
+            DataTable tabla2 = new DataTable();
             try 
             {
+                reporte.Tipo_Cilindro = lstTipoCil.SelectedItem.Text;
+                reporte.IdUbicacion = lstUbicacion.SelectedItem.Text;
+                reporte.IdVehiculo = lstPlacaVehículo.SelectedValue;
                 reporte.Fecha_Reporte = Convert.ToDateTime(txtFecha.Text);
-                Tipo_UbicacionBE tipoUbica = new Tipo_UbicacionBE();
-                tipoUbica.Nombre_Ubicacion = lstUbicacion.SelectedValue;
-                UbicacionBE ubi = new UbicacionBE();
-                ubi.Tipo_Ubicacion = tipoUbica;
-                reporte.Ubicacion = ubi;
-                VehiculoBE veh = new VehiculoBE();
-                veh.Placa = lstPlacaVehículo.SelectedValue;
-                reporte.Vehiculo = veh;
-                CilindroBE cil = new CilindroBE();
-                cil.Tipo_Cilindro = lstTipoCil.SelectedValue;
-                reporte.Cilindro = cil;
-                List<ReportesBE> lstInventario = new List<ReportesBE>(servReporte.Inventario(reporte));
 
-                tabla.Columns.Add("Ubicacion");
-                tabla.Columns.Add("Cil30");
-                tabla.Columns.Add("Cil40");
-                tabla.Columns.Add("Cil80");
-                tabla.Columns.Add("Cil100");
-                tabla.Columns.Add("TipoCil");
+                List<Ubicacion_CilindroBE> datosConsulta = new List<Ubicacion_CilindroBE>(servReporte.ConsultarCilInventario(reporte));
 
-                foreach (ReportesBE datos in lstInventario)
+            table.Columns.Add("Ubicacion");
+            table.Columns.Add("CodigosCil");
+            table.Columns.Add("Tamano");
+            table.Columns.Add("TipoCil");
+            tabla2.Columns.Add("Ubicacion");
+            tabla2.Columns.Add("Cantidad");
+            foreach (Ubicacion_CilindroBE datos in datosConsulta)
+            {
+                table.Rows.Add(datos.Nombre_Ubicacion, datos.Cilindro.Codigo_Cilindro, datos.Cilindro.NTamano.Tamano, datos.Cilindro.Tipo_Cilindro);
+                if (datos.Cilindro.NTamano.Tamano == "30")
                 {
-                    tabla.Rows.Add(datos.Ubicacion.Tipo_Ubicacion.Nombre_Ubicacion, datos.Cilindro.Cantidad, datos.Cilindro.Cantidad,
-                    datos.Cilindro.Cantidad, datos.Cilindro.Cantidad, datos.Cilindro.Tipo_Cilindro);
-                    gvInventario.DataSource = tabla;
-                    gvInventario.DataBind();
-         
+                    tabla2.Rows.Add(datos.Nombre_Ubicacion, datos.Reportes.SumCil30);
                 }
+                if (datos.Cilindro.NTamano.Tamano == "40")
+                {
+                    tabla2.Rows.Add(datos.Nombre_Ubicacion, datos.Reportes.SumCil40);
+                }
+                if (datos.Cilindro.NTamano.Tamano == "80")
+                {
+                    tabla2.Rows.Add(datos.Nombre_Ubicacion, datos.Reportes.SumCil80);
+                }
+                if (datos.Cilindro.NTamano.Tamano == "100")
+                {
+                    tabla2.Rows.Add(datos.Nombre_Ubicacion, datos.Reportes.SumCil100);
+                }
+            }
+            gvInventario.DataSource = table;
+            gvInventario.DataBind();
+            gvCantidad.DataSource = tabla2;
+            gvCantidad.DataBind();
+            divInventario.Visible = true;
+            divBotones.Visible = true;
 
-                divInventario.Visible = true;
-                divBotones.Visible = true;
-            
             }
             catch (Exception ex) 
             {
@@ -134,9 +143,36 @@ namespace Unisangil.CYLTRACK.CYLTRACK_WebApp
             finally 
             {
                 servReporte.Close();
-            }       
-            
+            }  
+        }
 
+        protected void lstUbicacion_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            VehiculoServiceClient serVehiculo = new VehiculoServiceClient();
+            try
+            {
+                if (lstUbicacion.SelectedItem.Text == Ubicacion.VEHICULO.ToString())
+                {
+                    lstPlacaVehículo.DataSource = serVehiculo.ConsultarVehiculo(string.Empty);
+                    lstPlacaVehículo.DataValueField = "Id_Vehiculo";
+                    lstPlacaVehículo.DataTextField = "Placa";
+                    lstPlacaVehículo.DataBind();
+                    divPlaca.Visible = true;
+                }
+                else 
+                {
+                    divPlaca.Visible = true;                    
+                }
+            }
+
+            catch (Exception ex)
+            {
+                Response.Redirect("~/About.aspx");
+            }
+            finally
+            {
+                serVehiculo.Close();
+            }  
         }
      }
 }

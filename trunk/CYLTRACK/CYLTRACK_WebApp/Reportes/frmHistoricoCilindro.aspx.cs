@@ -44,7 +44,7 @@ namespace Unisangil.CYLTRACK.CYLTRACK_WebApp.Reportes
 
                  foreach (ReportesBE datos in resp)
                  {
-                     tabla.Rows.Add(datos.Cilindro.Codigo_Cilindro, datos.Cilindro.NTamano.Tamano, datos.Fecha_Reporte, datos.Ubicacion.Tipo_Ubicacion.Nombre_Ubicacion);
+                    // tabla.Rows.Add(datos.Cilindro.Codigo_Cilindro, datos.Cilindro.NTamano.Tamano, datos.Fecha_Reporte, datos.Ubicacion_Cilindro.Tipo_Ubicacion.Nombre_Ubicacion);
                      gvCargue.DataSource = tabla;
                      gvCargue.DataBind();
 

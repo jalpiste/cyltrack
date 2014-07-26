@@ -202,6 +202,24 @@ namespace Unisangil.CYLTRACK.CYLTRACK_WebApp {
         protected global::System.Web.UI.WebControls.GridView gvInventario;
         
         /// <summary>
+        /// Control lblTotalCil.
+        /// </summary>
+        /// <remarks>
+        /// Campo generado automáticamente.
+        /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Label lblTotalCil;
+        
+        /// <summary>
+        /// Control gvCantidad.
+        /// </summary>
+        /// <remarks>
+        /// Campo generado automáticamente.
+        /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.GridView gvCantidad;
+        
+        /// <summary>
         /// Control divBotones.
         /// </summary>
         /// <remarks>
