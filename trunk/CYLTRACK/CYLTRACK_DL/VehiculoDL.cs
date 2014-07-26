@@ -881,6 +881,73 @@ namespace Unisangil.CYLTRACK.CYLTRACK_DL
             return veh;
         }
 
+        public List<Ubicacion_CilindroBE> ConsultarCilPorVehiculo(string IdVehiculo)
+        {
+            List<Ubicacion_CilindroBE> ubicacionCil = new List<Ubicacion_CilindroBE>();
+            try
+            {
+                string nameSP = "ConsultarCilPorVehiculo";
+                BaseDatos db = new BaseDatos();
+                db.Conectar();
+                db.CrearComandoSP(nameSP);
+                DbParameter[] parametros = new DbParameter[3];
+                parametros[0] = db.Comando.CreateParameter();
+                parametros[0].ParameterName = "vrIdVehiculo";
+                parametros[0].Value = IdVehiculo;
+                parametros[0].Direction = ParameterDirection.Input;
+                db.Comando.Parameters.Add(parametros[0]);
+
+                parametros[1] = db.Comando.CreateParameter();
+                parametros[1].ParameterName = "vrCodResult";
+                parametros[1].Value = 0;
+                parametros[1].Direction = ParameterDirection.Output;
+                db.Comando.Parameters.Add(parametros[1]);
+
+                parametros[2] = db.Comando.CreateParameter();
+                parametros[2].ParameterName = "vrDescResult";
+                parametros[2].Value = "";
+                parametros[2].Direction = ParameterDirection.Output;
+                parametros[2].Size = 200;
+                parametros[2].DbType = DbType.String;
+                db.Comando.Parameters.Add(parametros[2]);
+
+                DbDataReader datos = db.EjecutarConsulta();
+                Ubicacion_CilindroBE ub = null;
+
+                while (datos.Read())
+                {
+                    try
+                    {
+                        ub = new Ubicacion_CilindroBE();
+                        CilindroBE cilindro = new CilindroBE();
+                        cilindro.Codigo_Cilindro = (datos.GetString(0));
+                        cilindro.Tipo_Cilindro = datos.GetString(1);
+                        ub.Cilindro = cilindro;
+                        TamanoBE tam = new TamanoBE();
+                        tam.Tamano = (datos.GetString(2));
+                        cilindro.NTamano = tam;
+                        ubicacionCil.Add(ub);
+
+                    }
+                    catch (InvalidCastException ex)
+                    {
+                        throw new Exception("Los tipos no coinciden.", ex);
+                    }
+                    catch (DataException ex)
+                    {
+                        throw new Exception("Error de ADO.NET.", ex);
+                    }
+                }
+                datos.Close();
+                db.Desconectar();
+            }
+            catch (Exception ex)
+            {
+                throw new Exception("Error al acceder a la base de datos para obtener los VehiculoBEs.");
+            }
+            return ubicacionCil;
+        }
+
 
     }
 }

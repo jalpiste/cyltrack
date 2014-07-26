@@ -173,7 +173,7 @@ namespace Unisangil.CYLTRACK.CYLTRACK_DL
                         Tipo_UbicacionBE tipUbi = new Tipo_UbicacionBE();
                         tipUbi.Nombre_Ubicacion= datos.GetString(7);
                         UbicacionBE ubi = new UbicacionBE();
-                        ubi.Id_Ubicacion = int.Parse(datos.GetValue(8).ToString());
+                        ubi.Id_Ubicacion = datos.GetValue(8).ToString();
                         tipUbi.Ubicacion = ubi;
                         c.Tipo_Ubicacion = tipUbi;
                         TamanoBE tam = new TamanoBE();
@@ -314,19 +314,20 @@ namespace Unisangil.CYLTRACK.CYLTRACK_DL
         
         }
 
-        public List<Ubicacion_CilindroBE> ConsultarCilUbicacion(string ubica)
+        public List<Ubicacion_CilindroBE> ConsultarCilUbicacion(Ubicacion_CilindroBE ubicaCil)
         {
             List<Ubicacion_CilindroBE> ubicacionCil = new List<Ubicacion_CilindroBE>();
             try
             {
-                string nameSP = "ConsultarUbicacionCilindros";
+                string nameSP = "ConsultarCilPorNomUbicacion";
                 BaseDatos db = new BaseDatos();
                 db.Conectar();
                 db.CrearComandoSP(nameSP);
                 DbParameter[] parametros = new DbParameter[3];
+
                 parametros[0] = db.Comando.CreateParameter();
                 parametros[0].ParameterName = "vrTipoUbicacion";
-                parametros[0].Value = ubica;
+                parametros[0].Value = ubicaCil.Id_Ubicacion_Cilindro;
                 parametros[0].Direction = ParameterDirection.Input;
                 db.Comando.Parameters.Add(parametros[0]);
 
@@ -359,13 +360,9 @@ namespace Unisangil.CYLTRACK.CYLTRACK_DL
                         TamanoBE tam = new TamanoBE();
                         tam.Tamano = (datos.GetString(2));
                         cilindro.NTamano = tam;
-                        //VehiculoBE vehiculo = new VehiculoBE();
-                        //UbicacionBE ubicacion = new UbicacionBE();
-                        //vehiculo.Placa = (datos.GetString(3));
-                        //ubicacion.Vehiculo = vehiculo;
-                        //ub.Ubicacion = ubicacion;
+                        ub.Nombre_Ubicacion = datos.GetString(3);
+                                            
                         ubicacionCil.Add(ub);
-
                     }
                     catch (InvalidCastException ex)
                     {
