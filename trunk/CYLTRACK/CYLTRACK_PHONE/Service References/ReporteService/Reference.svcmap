@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
-<ReferenceGroup xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema" ID="de803d19-9ed6-4022-bbfb-a34bf1581474" xmlns="urn:schemas-microsoft-com:xml-wcfservicemap">
+<ReferenceGroup xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema" ID="f553a1ba-8a81-4a62-942a-e6a596bc2b69" xmlns="urn:schemas-microsoft-com:xml-wcfservicemap">
   <ClientOptions>
     <GenerateAsynchronousMethods>true</GenerateAsynchronousMethods>
     <EnableDataBinding>true</EnableDataBinding>
@@ -23,12 +23,11 @@
     <MetadataSource Address="http://localhost:51651/CYLTRACK_Services/ReporteService.svc" Protocol="http" SourceId="1" />
   </MetadataSources>
   <Metadata>
-    <MetadataFile FileName="ReporteService.xsd" MetadataType="Schema" ID="a03cae78-7632-413d-aea4-1a25de842193" SourceId="1" SourceUrl="http://localhost:51651/CYLTRACK_Services/ReporteService.svc?xsd=xsd1" />
-    <MetadataFile FileName="ReporteService.wsdl" MetadataType="Wsdl" ID="12b69f32-3601-4598-9075-763a40fea935" SourceId="1" SourceUrl="http://localhost:51651/CYLTRACK_Services/ReporteService.svc?wsdl" />
-    <MetadataFile FileName="ReporteService1.xsd" MetadataType="Schema" ID="0a81b6bb-00b6-4dc7-aced-3855e972d290" SourceId="1" SourceUrl="http://localhost:51651/CYLTRACK_Services/ReporteService.svc?xsd=xsd3" />
-    <MetadataFile FileName="ReporteService2.xsd" MetadataType="Schema" ID="2189d605-1fbf-44f8-b2bc-fc6b811381b9" SourceId="1" SourceUrl="http://localhost:51651/CYLTRACK_Services/ReporteService.svc?xsd=xsd0" />
-    <MetadataFile FileName="ReporteService3.xsd" MetadataType="Schema" ID="90f981c4-8c5d-4a75-977a-7bd461658e34" SourceId="1" SourceUrl="http://localhost:51651/CYLTRACK_Services/ReporteService.svc?xsd=xsd2" />
-    <MetadataFile FileName="ReporteService.disco" MetadataType="Disco" ID="fb0173ed-b467-4003-bcb7-b814c0a0929d" SourceId="1" SourceUrl="http://localhost:51651/CYLTRACK_Services/ReporteService.svc?disco" />
+    <MetadataFile FileName="ReporteService.wsdl" MetadataType="Wsdl" ID="15e9f85d-52a3-49fd-8b72-aeef14b5b5c0" SourceId="1" SourceUrl="http://localhost:51651/CYLTRACK_Services/ReporteService.svc?wsdl" />
+    <MetadataFile FileName="ReporteService.xsd" MetadataType="Schema" ID="a61cb731-4d1e-40dc-a34e-f953b2f68810" SourceId="1" SourceUrl="http://localhost:51651/CYLTRACK_Services/ReporteService.svc?xsd=xsd0" />
+    <MetadataFile FileName="ReporteService1.xsd" MetadataType="Schema" ID="9aa38367-9e5f-46e0-9051-05a66d08346f" SourceId="1" SourceUrl="http://localhost:51651/CYLTRACK_Services/ReporteService.svc?xsd=xsd2" />
+    <MetadataFile FileName="ReporteService.disco" MetadataType="Disco" ID="05bac6e4-f4a5-4017-a65d-634e7534f466" SourceId="1" SourceUrl="http://localhost:51651/CYLTRACK_Services/ReporteService.svc?disco" />
+    <MetadataFile FileName="ReporteService2.xsd" MetadataType="Schema" ID="8adb544a-6ae6-4e44-b7a6-3c6de305b307" SourceId="1" SourceUrl="http://localhost:51651/CYLTRACK_Services/ReporteService.svc?xsd=xsd1" />
   </Metadata>
   <Extensions>
     <ExtensionFile FileName="configuration91.svcinfo" Name="configuration91.svcinfo" />

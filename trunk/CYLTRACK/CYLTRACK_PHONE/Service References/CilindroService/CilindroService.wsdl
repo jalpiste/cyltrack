@@ -1,18 +1,10 @@
 <?xml version="1.0" encoding="utf-8"?>
-<wsdl:definitions xmlns:wsap="http://schemas.xmlsoap.org/ws/2004/08/addressing/policy" xmlns:wsa10="http://www.w3.org/2005/08/addressing" xmlns:tns="http://servicios.cyltrack.com.co/cyltrack/" xmlns:msc="http://schemas.microsoft.com/ws/2005/12/wsdl/contract" xmlns:soapenc="http://schemas.xmlsoap.org/soap/encoding/" xmlns:wsx="http://schemas.xmlsoap.org/ws/2004/09/mex" xmlns:wsp="http://schemas.xmlsoap.org/ws/2004/09/policy" xmlns:wsam="http://www.w3.org/2007/05/addressing/metadata" xmlns:soap12="http://schemas.xmlsoap.org/wsdl/soap12/" xmlns:wsa="http://schemas.xmlsoap.org/ws/2004/08/addressing" xmlns:wsaw="http://www.w3.org/2006/05/addressing/wsdl" xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:wsu="http://docs.oasis-open.org/wss/2004/01/oasis-200401-wss-wssecurity-utility-1.0.xsd" xmlns:xsd="http://www.w3.org/2001/XMLSchema" name="CilindroService" targetNamespace="http://servicios.cyltrack.com.co/cyltrack/" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">
-  <wsp:Policy wsu:Id="BasicHttpBinding_ICilindroService_policy">
-    <wsp:ExactlyOne>
-      <wsp:All>
-        <wsoma:OptimizedMimeSerialization xmlns:wsoma="http://schemas.xmlsoap.org/ws/2004/09/policy/optimizedmimeserialization" />
-      </wsp:All>
-    </wsp:ExactlyOne>
-  </wsp:Policy>
+<wsdl:definitions xmlns:wsap="http://schemas.xmlsoap.org/ws/2004/08/addressing/policy" xmlns:wsa10="http://www.w3.org/2005/08/addressing" xmlns:tns="http://servicios.cyltrack.com.co/cyltrack/" xmlns:msc="http://schemas.microsoft.com/ws/2005/12/wsdl/contract" xmlns:soapenc="http://schemas.xmlsoap.org/soap/encoding/" xmlns:wsx="http://schemas.xmlsoap.org/ws/2004/09/mex" xmlns:wsp="http://schemas.xmlsoap.org/ws/2004/09/policy" xmlns:wsam="http://www.w3.org/2007/05/addressing/metadata" xmlns:wsa="http://schemas.xmlsoap.org/ws/2004/08/addressing" xmlns:soap12="http://schemas.xmlsoap.org/wsdl/soap12/" xmlns:wsaw="http://www.w3.org/2006/05/addressing/wsdl" xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:wsu="http://docs.oasis-open.org/wss/2004/01/oasis-200401-wss-wssecurity-utility-1.0.xsd" xmlns:xsd="http://www.w3.org/2001/XMLSchema" name="CilindroService" targetNamespace="http://servicios.cyltrack.com.co/cyltrack/" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">
   <wsdl:types>
     <xsd:schema targetNamespace="http://servicios.cyltrack.com.co/cyltrack/Imports">
       <xsd:import schemaLocation="http://localhost:51651/CYLTRACK_Services/CilindroService.svc?xsd=xsd0" namespace="http://servicios.cyltrack.com.co/cyltrack/" />
       <xsd:import schemaLocation="http://localhost:51651/CYLTRACK_Services/CilindroService.svc?xsd=xsd1" namespace="http://schemas.microsoft.com/2003/10/Serialization/" />
       <xsd:import schemaLocation="http://localhost:51651/CYLTRACK_Services/CilindroService.svc?xsd=xsd2" namespace="http://schemas.datacontract.org/2004/07/Unisangil.CYLTRACK.CYLTRACK_BE" />
-      <xsd:import schemaLocation="http://localhost:51651/CYLTRACK_Services/CilindroService.svc?xsd=xsd3" namespace="http://schemas.microsoft.com/2003/10/Serialization/Arrays" />
     </xsd:schema>
   </wsdl:types>
   <wsdl:message name="ICilindroService_RegistrarCilindro_InputMessage">
@@ -27,29 +19,29 @@
   <wsdl:message name="ICilindroService_ConsultarCilindro_OutputMessage">
     <wsdl:part name="parameters" element="tns:ConsultarCilindroResponse" />
   </wsdl:message>
-  <wsdl:message name="ICilindroService_AsignarUbicacion_InputMessage">
-    <wsdl:part name="parameters" element="tns:AsignarUbicacion" />
-  </wsdl:message>
-  <wsdl:message name="ICilindroService_AsignarUbicacion_OutputMessage">
-    <wsdl:part name="parameters" element="tns:AsignarUbicacionResponse" />
-  </wsdl:message>
   <wsdl:message name="ICilindroService_ConsultarCilUbicacion_InputMessage">
     <wsdl:part name="parameters" element="tns:ConsultarCilUbicacion" />
   </wsdl:message>
   <wsdl:message name="ICilindroService_ConsultarCilUbicacion_OutputMessage">
     <wsdl:part name="parameters" element="tns:ConsultarCilUbicacionResponse" />
   </wsdl:message>
-  <wsdl:message name="ICilindroService_CargueyDescargueCilindros_InputMessage">
-    <wsdl:part name="parameters" element="tns:CargueyDescargueCilindros" />
+  <wsdl:message name="ICilindroService_ModificarUbicaCilindro_InputMessage">
+    <wsdl:part name="parameters" element="tns:ModificarUbicaCilindro" />
   </wsdl:message>
-  <wsdl:message name="ICilindroService_CargueyDescargueCilindros_OutputMessage">
-    <wsdl:part name="parameters" element="tns:CargueyDescargueCilindrosResponse" />
+  <wsdl:message name="ICilindroService_ModificarUbicaCilindro_OutputMessage">
+    <wsdl:part name="parameters" element="tns:ModificarUbicaCilindroResponse" />
   </wsdl:message>
-  <wsdl:message name="ICilindroService_consultadeExistencia_InputMessage">
-    <wsdl:part name="parameters" element="tns:consultadeExistencia" />
+  <wsdl:message name="ICilindroService_ConsultarExistenciaCilindro_InputMessage">
+    <wsdl:part name="parameters" element="tns:ConsultarExistenciaCilindro" />
   </wsdl:message>
-  <wsdl:message name="ICilindroService_consultadeExistencia_OutputMessage">
-    <wsdl:part name="parameters" element="tns:consultadeExistenciaResponse" />
+  <wsdl:message name="ICilindroService_ConsultarExistenciaCilindro_OutputMessage">
+    <wsdl:part name="parameters" element="tns:ConsultarExistenciaCilindroResponse" />
+  </wsdl:message>
+  <wsdl:message name="ICilindroService_consultaCodigoFabricante_InputMessage">
+    <wsdl:part name="parameters" element="tns:consultaCodigoFabricante" />
+  </wsdl:message>
+  <wsdl:message name="ICilindroService_consultaCodigoFabricante_OutputMessage">
+    <wsdl:part name="parameters" element="tns:consultaCodigoFabricanteResponse" />
   </wsdl:message>
   <wsdl:portType name="ICilindroService">
     <wsdl:operation name="RegistrarCilindro">
@@ -60,25 +52,24 @@
       <wsdl:input wsaw:Action="http://servicios.cyltrack.com.co/cyltrack/ICilindroService/ConsultarCilindro" message="tns:ICilindroService_ConsultarCilindro_InputMessage" />
       <wsdl:output wsaw:Action="http://servicios.cyltrack.com.co/cyltrack/ICilindroService/ConsultarCilindroResponse" message="tns:ICilindroService_ConsultarCilindro_OutputMessage" />
     </wsdl:operation>
-    <wsdl:operation name="AsignarUbicacion">
-      <wsdl:input wsaw:Action="http://servicios.cyltrack.com.co/cyltrack/ICilindroService/AsignarUbicacion" message="tns:ICilindroService_AsignarUbicacion_InputMessage" />
-      <wsdl:output wsaw:Action="http://servicios.cyltrack.com.co/cyltrack/ICilindroService/AsignarUbicacionResponse" message="tns:ICilindroService_AsignarUbicacion_OutputMessage" />
-    </wsdl:operation>
     <wsdl:operation name="ConsultarCilUbicacion">
       <wsdl:input wsaw:Action="http://servicios.cyltrack.com.co/cyltrack/ICilindroService/ConsultarCilUbicacion" message="tns:ICilindroService_ConsultarCilUbicacion_InputMessage" />
       <wsdl:output wsaw:Action="http://servicios.cyltrack.com.co/cyltrack/ICilindroService/ConsultarCilUbicacionResponse" message="tns:ICilindroService_ConsultarCilUbicacion_OutputMessage" />
     </wsdl:operation>
-    <wsdl:operation name="CargueyDescargueCilindros">
-      <wsdl:input wsaw:Action="http://servicios.cyltrack.com.co/cyltrack/ICilindroService/CargueyDescargueCilindros" message="tns:ICilindroService_CargueyDescargueCilindros_InputMessage" />
-      <wsdl:output wsaw:Action="http://servicios.cyltrack.com.co/cyltrack/ICilindroService/CargueyDescargueCilindrosResponse" message="tns:ICilindroService_CargueyDescargueCilindros_OutputMessage" />
+    <wsdl:operation name="ModificarUbicaCilindro">
+      <wsdl:input wsaw:Action="http://servicios.cyltrack.com.co/cyltrack/ICilindroService/ModificarUbicaCilindro" message="tns:ICilindroService_ModificarUbicaCilindro_InputMessage" />
+      <wsdl:output wsaw:Action="http://servicios.cyltrack.com.co/cyltrack/ICilindroService/ModificarUbicaCilindroResponse" message="tns:ICilindroService_ModificarUbicaCilindro_OutputMessage" />
     </wsdl:operation>
-    <wsdl:operation name="consultadeExistencia">
-      <wsdl:input wsaw:Action="http://servicios.cyltrack.com.co/cyltrack/ICilindroService/consultadeExistencia" message="tns:ICilindroService_consultadeExistencia_InputMessage" />
-      <wsdl:output wsaw:Action="http://servicios.cyltrack.com.co/cyltrack/ICilindroService/consultadeExistenciaResponse" message="tns:ICilindroService_consultadeExistencia_OutputMessage" />
+    <wsdl:operation name="ConsultarExistenciaCilindro">
+      <wsdl:input wsaw:Action="http://servicios.cyltrack.com.co/cyltrack/ICilindroService/ConsultarExistenciaCilindro" message="tns:ICilindroService_ConsultarExistenciaCilindro_InputMessage" />
+      <wsdl:output wsaw:Action="http://servicios.cyltrack.com.co/cyltrack/ICilindroService/ConsultarExistenciaCilindroResponse" message="tns:ICilindroService_ConsultarExistenciaCilindro_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="consultaCodigoFabricante">
+      <wsdl:input wsaw:Action="http://servicios.cyltrack.com.co/cyltrack/ICilindroService/consultaCodigoFabricante" message="tns:ICilindroService_consultaCodigoFabricante_InputMessage" />
+      <wsdl:output wsaw:Action="http://servicios.cyltrack.com.co/cyltrack/ICilindroService/consultaCodigoFabricanteResponse" message="tns:ICilindroService_consultaCodigoFabricante_OutputMessage" />
     </wsdl:operation>
   </wsdl:portType>
   <wsdl:binding name="BasicHttpBinding_ICilindroService" type="tns:ICilindroService">
-    <wsp:PolicyReference URI="#BasicHttpBinding_ICilindroService_policy" />
     <soap:binding transport="http://schemas.xmlsoap.org/soap/http" />
     <wsdl:operation name="RegistrarCilindro">
       <soap:operation soapAction="http://servicios.cyltrack.com.co/cyltrack/ICilindroService/RegistrarCilindro" style="document" />
@@ -98,15 +89,6 @@
         <soap:body use="literal" />
       </wsdl:output>
     </wsdl:operation>
-    <wsdl:operation name="AsignarUbicacion">
-      <soap:operation soapAction="http://servicios.cyltrack.com.co/cyltrack/ICilindroService/AsignarUbicacion" style="document" />
-      <wsdl:input>
-        <soap:body use="literal" />
-      </wsdl:input>
-      <wsdl:output>
-        <soap:body use="literal" />
-      </wsdl:output>
-    </wsdl:operation>
     <wsdl:operation name="ConsultarCilUbicacion">
       <soap:operation soapAction="http://servicios.cyltrack.com.co/cyltrack/ICilindroService/ConsultarCilUbicacion" style="document" />
       <wsdl:input>
@@ -116,8 +98,8 @@
         <soap:body use="literal" />
       </wsdl:output>
     </wsdl:operation>
-    <wsdl:operation name="CargueyDescargueCilindros">
-      <soap:operation soapAction="http://servicios.cyltrack.com.co/cyltrack/ICilindroService/CargueyDescargueCilindros" style="document" />
+    <wsdl:operation name="ModificarUbicaCilindro">
+      <soap:operation soapAction="http://servicios.cyltrack.com.co/cyltrack/ICilindroService/ModificarUbicaCilindro" style="document" />
       <wsdl:input>
         <soap:body use="literal" />
       </wsdl:input>
@@ -125,8 +107,17 @@
         <soap:body use="literal" />
       </wsdl:output>
     </wsdl:operation>
-    <wsdl:operation name="consultadeExistencia">
-      <soap:operation soapAction="http://servicios.cyltrack.com.co/cyltrack/ICilindroService/consultadeExistencia" style="document" />
+    <wsdl:operation name="ConsultarExistenciaCilindro">
+      <soap:operation soapAction="http://servicios.cyltrack.com.co/cyltrack/ICilindroService/ConsultarExistenciaCilindro" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="consultaCodigoFabricante">
+      <soap:operation soapAction="http://servicios.cyltrack.com.co/cyltrack/ICilindroService/consultaCodigoFabricante" style="document" />
       <wsdl:input>
         <soap:body use="literal" />
       </wsdl:input>

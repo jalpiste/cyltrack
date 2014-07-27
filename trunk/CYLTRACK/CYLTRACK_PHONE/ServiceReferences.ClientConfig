@@ -14,6 +14,10 @@
                     maxReceivedMessageSize="2147483647">
                     <security mode="None" />
                 </binding>
+                <binding name="BasicHttpBinding_IUsuarioService" maxBufferSize="2147483647"
+                    maxReceivedMessageSize="2147483647">
+                    <security mode="None" />
+                </binding>
                 <binding name="BasicHttpBinding_IVehiculoService" maxBufferSize="2147483647"
                     maxReceivedMessageSize="2147483647">
                     <security mode="None" />
@@ -22,7 +26,11 @@
                     maxReceivedMessageSize="2147483647">
                     <security mode="None" />
                 </binding>
-                <binding name="BasicHttpBinding_IUsuarioService" maxBufferSize="2147483647"
+                <binding name="BasicHttpBinding_ICilindroService" maxBufferSize="2147483647"
+                    maxReceivedMessageSize="2147483647">
+                    <security mode="None" />
+                </binding>
+                <binding name="BasicHttpBinding_IClienteService" maxBufferSize="2147483647"
                     maxReceivedMessageSize="2147483647">
                     <security mode="None" />
                 </binding>
@@ -38,15 +46,21 @@
             <endpoint address="http://localhost:51651/CYLTRACK_Services/RutaService.svc"
                 binding="basicHttpBinding" bindingConfiguration="BasicHttpBinding_IRutaServices"
                 contract="RutaService.IRutaServices" name="BasicHttpBinding_IRutaServices" />
+            <endpoint address="http://localhost:51651/CYLTRACK_Services/UsuarioService.svc"
+                binding="basicHttpBinding" bindingConfiguration="BasicHttpBinding_IUsuarioService"
+                contract="UsuarioService.IUsuarioService" name="BasicHttpBinding_IUsuarioService" />
             <endpoint address="http://localhost:51651/CYLTRACK_Services/VehiculoService.svc"
                 binding="basicHttpBinding" bindingConfiguration="BasicHttpBinding_IVehiculoService"
                 contract="VehiculoService.IVehiculoService" name="BasicHttpBinding_IVehiculoService" />
             <endpoint address="http://localhost:51651/CYLTRACK_Services/VentaService.svc"
                 binding="basicHttpBinding" bindingConfiguration="BasicHttpBinding_IVentaService"
                 contract="VentaService.IVentaService" name="BasicHttpBinding_IVentaService" />
-            <endpoint address="http://localhost:51651/CYLTRACK_Services/UsuarioService.svc"
-                binding="basicHttpBinding" bindingConfiguration="BasicHttpBinding_IUsuarioService"
-                contract="UsuarioService.IUsuarioService" name="BasicHttpBinding_IUsuarioService" />
+            <endpoint address="http://localhost:51651/CYLTRACK_Services/CilindroService.svc"
+                binding="basicHttpBinding" bindingConfiguration="BasicHttpBinding_ICilindroService"
+                contract="CilindroService.ICilindroService" name="BasicHttpBinding_ICilindroService" />
+            <endpoint address="http://localhost:51651/CYLTRACK_Services/ClienteService.svc"
+                binding="basicHttpBinding" bindingConfiguration="BasicHttpBinding_IClienteService"
+                contract="ClienteService.IClienteService" name="BasicHttpBinding_IClienteService" />
         </client>
     </system.serviceModel>
 </configuration>

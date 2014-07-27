@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
-<ReferenceGroup xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema" ID="089cafab-b25f-4b28-8e69-61b0c073898d" xmlns="urn:schemas-microsoft-com:xml-wcfservicemap">
+<ReferenceGroup xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema" ID="62e4f6c3-94f9-40a0-b2a2-506a3ebb99f0" xmlns="urn:schemas-microsoft-com:xml-wcfservicemap">
   <ClientOptions>
     <GenerateAsynchronousMethods>true</GenerateAsynchronousMethods>
     <EnableDataBinding>true</EnableDataBinding>
@@ -23,11 +23,11 @@
     <MetadataSource Address="http://localhost:51651/CYLTRACK_Services/RutaService.svc" Protocol="http" SourceId="1" />
   </MetadataSources>
   <Metadata>
-    <MetadataFile FileName="RutaService.xsd" MetadataType="Schema" ID="560c7f84-d157-4a05-8c21-e0d47411b588" SourceId="1" SourceUrl="http://localhost:51651/CYLTRACK_Services/RutaService.svc?xsd=xsd1" />
-    <MetadataFile FileName="RutaService.disco" MetadataType="Disco" ID="2f06e421-0350-48ef-acfb-96bbbb9acad7" SourceId="1" SourceUrl="http://localhost:51651/CYLTRACK_Services/RutaService.svc?disco" />
-    <MetadataFile FileName="RutaService1.xsd" MetadataType="Schema" ID="96f3995b-6c36-4d6b-8bbc-b481fd4d32b9" SourceId="1" SourceUrl="http://localhost:51651/CYLTRACK_Services/RutaService.svc?xsd=xsd2" />
-    <MetadataFile FileName="RutaService.wsdl" MetadataType="Wsdl" ID="8e245e23-c23c-4550-9653-cf745ad95aae" SourceId="1" SourceUrl="http://localhost:51651/CYLTRACK_Services/RutaService.svc?wsdl" />
-    <MetadataFile FileName="RutaService2.xsd" MetadataType="Schema" ID="ead8cf08-38b1-43b0-82f0-b64f556dc154" SourceId="1" SourceUrl="http://localhost:51651/CYLTRACK_Services/RutaService.svc?xsd=xsd0" />
+    <MetadataFile FileName="RutaService.xsd" MetadataType="Schema" ID="cede39c0-0f19-41e7-be0c-c9f697ae87a9" SourceId="1" SourceUrl="http://localhost:51651/CYLTRACK_Services/RutaService.svc?xsd=xsd1" />
+    <MetadataFile FileName="RutaService.disco" MetadataType="Disco" ID="332b8410-ae78-4b5f-8f51-0ef05b38e797" SourceId="1" SourceUrl="http://localhost:51651/CYLTRACK_Services/RutaService.svc?disco" />
+    <MetadataFile FileName="RutaService.wsdl" MetadataType="Wsdl" ID="f832cf7f-399f-424f-8ff6-b7de5c88237d" SourceId="1" SourceUrl="http://localhost:51651/CYLTRACK_Services/RutaService.svc?wsdl" />
+    <MetadataFile FileName="RutaService1.xsd" MetadataType="Schema" ID="3c1da3de-a176-4a2f-8d20-683d3ae2579d" SourceId="1" SourceUrl="http://localhost:51651/CYLTRACK_Services/RutaService.svc?xsd=xsd2" />
+    <MetadataFile FileName="RutaService2.xsd" MetadataType="Schema" ID="f5b67786-70c4-464d-8460-949e2768896d" SourceId="1" SourceUrl="http://localhost:51651/CYLTRACK_Services/RutaService.svc?xsd=xsd0" />
   </Metadata>
   <Extensions>
     <ExtensionFile FileName="configuration91.svcinfo" Name="configuration91.svcinfo" />
