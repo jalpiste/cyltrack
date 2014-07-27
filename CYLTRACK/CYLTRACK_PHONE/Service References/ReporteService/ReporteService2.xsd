@@ -1,123 +1,42 @@
 <?xml version="1.0" encoding="utf-8"?>
-<xs:schema xmlns:tns="http://servicios.cyltrack.com.co/cyltrack/" elementFormDefault="qualified" targetNamespace="http://servicios.cyltrack.com.co/cyltrack/" xmlns:xs="http://www.w3.org/2001/XMLSchema">
-  <xs:import schemaLocation="http://localhost:51651/CYLTRACK_Services/ReporteService.svc?xsd=xsd2" namespace="http://schemas.datacontract.org/2004/07/Unisangil.CYLTRACK.CYLTRACK_BE" />
-  <xs:element name="HistoricoCilindro">
-    <xs:complexType>
-      <xs:sequence>
-        <xs:element minOccurs="0" name="reporte" nillable="true" type="xs:string" />
-      </xs:sequence>
-    </xs:complexType>
-  </xs:element>
-  <xs:element name="HistoricoCilindroResponse">
-    <xs:complexType>
-      <xs:sequence>
-        <xs:element xmlns:q1="http://schemas.datacontract.org/2004/07/Unisangil.CYLTRACK.CYLTRACK_BE" minOccurs="0" name="HistoricoCilindroResult" nillable="true" type="q1:ArrayOfReportesBE" />
-      </xs:sequence>
-    </xs:complexType>
-  </xs:element>
-  <xs:element name="Inventario">
-    <xs:complexType>
-      <xs:sequence>
-        <xs:element xmlns:q2="http://schemas.datacontract.org/2004/07/Unisangil.CYLTRACK.CYLTRACK_BE" minOccurs="0" name="reporte" nillable="true" type="q2:ReportesBE" />
-      </xs:sequence>
-    </xs:complexType>
-  </xs:element>
-  <xs:element name="InventarioResponse">
-    <xs:complexType>
-      <xs:sequence>
-        <xs:element xmlns:q3="http://schemas.datacontract.org/2004/07/Unisangil.CYLTRACK.CYLTRACK_BE" minOccurs="0" name="InventarioResult" nillable="true" type="q3:ArrayOfReportesBE" />
-      </xs:sequence>
-    </xs:complexType>
-  </xs:element>
-  <xs:element name="ConsultaReporteCiudades">
-    <xs:complexType>
-      <xs:sequence>
-        <xs:element minOccurs="0" name="ciudad" nillable="true" type="xs:string" />
-        <xs:element minOccurs="0" name="tipoCil" nillable="true" type="xs:string" />
-      </xs:sequence>
-    </xs:complexType>
-  </xs:element>
-  <xs:element name="ConsultaReporteCiudadesResponse">
-    <xs:complexType>
-      <xs:sequence>
-        <xs:element xmlns:q4="http://schemas.datacontract.org/2004/07/Unisangil.CYLTRACK.CYLTRACK_BE" minOccurs="0" name="ConsultaReporteCiudadesResult" nillable="true" type="q4:ArrayOfUbicacionBE" />
-      </xs:sequence>
-    </xs:complexType>
-  </xs:element>
-  <xs:element name="ReporteCilindro">
-    <xs:complexType>
-      <xs:sequence>
-        <xs:element minOccurs="0" name="tipoCil" nillable="true" type="xs:string" />
-      </xs:sequence>
-    </xs:complexType>
-  </xs:element>
-  <xs:element name="ReporteCilindroResponse">
-    <xs:complexType>
-      <xs:sequence>
-        <xs:element xmlns:q5="http://schemas.datacontract.org/2004/07/Unisangil.CYLTRACK.CYLTRACK_BE" minOccurs="0" name="ReporteCilindroResult" nillable="true" type="q5:ArrayOfCilindroBE" />
-      </xs:sequence>
-    </xs:complexType>
-  </xs:element>
-  <xs:element name="ReporteporPlacas">
-    <xs:complexType>
-      <xs:sequence>
-        <xs:element minOccurs="0" name="tipoCil" nillable="true" type="xs:string" />
-      </xs:sequence>
-    </xs:complexType>
-  </xs:element>
-  <xs:element name="ReporteporPlacasResponse">
-    <xs:complexType>
-      <xs:sequence>
-        <xs:element xmlns:q6="http://schemas.datacontract.org/2004/07/Unisangil.CYLTRACK.CYLTRACK_BE" minOccurs="0" name="ReporteporPlacasResult" nillable="true" type="q6:ArrayOfUbicacionBE" />
-      </xs:sequence>
-    </xs:complexType>
-  </xs:element>
-  <xs:element name="ReporteClientes">
-    <xs:complexType>
-      <xs:sequence />
-    </xs:complexType>
-  </xs:element>
-  <xs:element name="ReporteClientesResponse">
-    <xs:complexType>
-      <xs:sequence>
-        <xs:element xmlns:q7="http://schemas.datacontract.org/2004/07/Unisangil.CYLTRACK.CYLTRACK_BE" minOccurs="0" name="ReporteClientesResult" nillable="true" type="q7:ArrayOfClienteBE" />
-      </xs:sequence>
-    </xs:complexType>
-  </xs:element>
-  <xs:element name="ReportePedidos">
-    <xs:complexType>
-      <xs:sequence />
-    </xs:complexType>
-  </xs:element>
-  <xs:element name="ReportePedidosResponse">
-    <xs:complexType>
-      <xs:sequence>
-        <xs:element xmlns:q8="http://schemas.datacontract.org/2004/07/Unisangil.CYLTRACK.CYLTRACK_BE" minOccurs="0" name="ReportePedidosResult" nillable="true" type="q8:ArrayOfPedidoBE" />
-      </xs:sequence>
-    </xs:complexType>
-  </xs:element>
-  <xs:element name="ConsultarRuta">
-    <xs:complexType>
-      <xs:sequence />
-    </xs:complexType>
-  </xs:element>
-  <xs:element name="ConsultarRutaResponse">
-    <xs:complexType>
-      <xs:sequence>
-        <xs:element xmlns:q9="http://schemas.datacontract.org/2004/07/Unisangil.CYLTRACK.CYLTRACK_BE" minOccurs="0" name="ConsultarRutaResult" nillable="true" type="q9:ArrayOfRutaBE" />
-      </xs:sequence>
-    </xs:complexType>
-  </xs:element>
-  <xs:element name="ReporteUsuario">
-    <xs:complexType>
-      <xs:sequence />
-    </xs:complexType>
-  </xs:element>
-  <xs:element name="ReporteUsuarioResponse">
-    <xs:complexType>
-      <xs:sequence>
-        <xs:element xmlns:q10="http://schemas.datacontract.org/2004/07/Unisangil.CYLTRACK.CYLTRACK_BE" minOccurs="0" name="ReporteUsuarioResult" nillable="true" type="q10:ArrayOfUsuarioBE" />
-      </xs:sequence>
-    </xs:complexType>
-  </xs:element>
+<xs:schema xmlns:tns="http://schemas.microsoft.com/2003/10/Serialization/" attributeFormDefault="qualified" elementFormDefault="qualified" targetNamespace="http://schemas.microsoft.com/2003/10/Serialization/" xmlns:xs="http://www.w3.org/2001/XMLSchema">
+  <xs:element name="anyType" nillable="true" type="xs:anyType" />
+  <xs:element name="anyURI" nillable="true" type="xs:anyURI" />
+  <xs:element name="base64Binary" nillable="true" type="xs:base64Binary" />
+  <xs:element name="boolean" nillable="true" type="xs:boolean" />
+  <xs:element name="byte" nillable="true" type="xs:byte" />
+  <xs:element name="dateTime" nillable="true" type="xs:dateTime" />
+  <xs:element name="decimal" nillable="true" type="xs:decimal" />
+  <xs:element name="double" nillable="true" type="xs:double" />
+  <xs:element name="float" nillable="true" type="xs:float" />
+  <xs:element name="int" nillable="true" type="xs:int" />
+  <xs:element name="long" nillable="true" type="xs:long" />
+  <xs:element name="QName" nillable="true" type="xs:QName" />
+  <xs:element name="short" nillable="true" type="xs:short" />
+  <xs:element name="string" nillable="true" type="xs:string" />
+  <xs:element name="unsignedByte" nillable="true" type="xs:unsignedByte" />
+  <xs:element name="unsignedInt" nillable="true" type="xs:unsignedInt" />
+  <xs:element name="unsignedLong" nillable="true" type="xs:unsignedLong" />
+  <xs:element name="unsignedShort" nillable="true" type="xs:unsignedShort" />
+  <xs:element name="char" nillable="true" type="tns:char" />
+  <xs:simpleType name="char">
+    <xs:restriction base="xs:int" />
+  </xs:simpleType>
+  <xs:element name="duration" nillable="true" type="tns:duration" />
+  <xs:simpleType name="duration">
+    <xs:restriction base="xs:duration">
+      <xs:pattern value="\-?P(\d*D)?(T(\d*H)?(\d*M)?(\d*(\.\d*)?S)?)?" />
+      <xs:minInclusive value="-P10675199DT2H48M5.4775808S" />
+      <xs:maxInclusive value="P10675199DT2H48M5.4775807S" />
+    </xs:restriction>
+  </xs:simpleType>
+  <xs:element name="guid" nillable="true" type="tns:guid" />
+  <xs:simpleType name="guid">
+    <xs:restriction base="xs:string">
+      <xs:pattern value="[\da-fA-F]{8}-[\da-fA-F]{4}-[\da-fA-F]{4}-[\da-fA-F]{4}-[\da-fA-F]{12}" />
+    </xs:restriction>
+  </xs:simpleType>
+  <xs:attribute name="FactoryType" type="xs:QName" />
+  <xs:attribute name="Id" type="xs:ID" />
+  <xs:attribute name="Ref" type="xs:IDREF" />
 </xs:schema>

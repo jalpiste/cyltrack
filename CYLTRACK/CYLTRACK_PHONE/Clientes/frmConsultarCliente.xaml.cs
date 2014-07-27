@@ -10,7 +10,7 @@ using System.Windows.Media;
 using System.Windows.Media.Animation;
 using System.Windows.Shapes;
 using Microsoft.Phone.Controls;
-
+using CYLTRACK_PHONE.ClienteService;
 namespace Unisangil.CYLTRACK.Cyltrack_phone.Clientes
 {
     public partial class frmConsultarCliente : PhoneApplicationPage
@@ -21,9 +21,22 @@ namespace Unisangil.CYLTRACK.Cyltrack_phone.Clientes
         }
 
         private void btnRegistrar_Click(object sender, RoutedEventArgs e)
+        {            
+            ClienteServiceClient servCliente = new ClienteServiceClient();
+            servCliente.ConsultarExistenciasClientesAsync(txtCedula.Text);
+            servCliente.ConsultarExistenciasClientesCompleted+=new EventHandler<ConsultarExistenciasClientesCompletedEventArgs>(PoblarCliente);
+        }
+
+        private void PoblarCliente(object sender, ConsultarExistenciasClientesCompletedEventArgs e)
         {
-            ContentBusq.Visibility = System.Windows.Visibility.Collapsed;
-            ContentDatosP.Visibility = System.Windows.Visibility.Visible;
+            if (e.Result > 0)
+            {
+                ContentBusq.Visibility = System.Windows.Visibility.Collapsed;
+                ContentDatosP.Visibility = System.Windows.Visibility.Visible;
+            }
+            else
+                MessageBox.Show("Cliente no existe");
+
         }
        
         private void hplModificarCliente_Click(object sender, RoutedEventArgs e)

@@ -33,6 +33,9 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <ItemGroup>
+    <Reference Include="AjaxControlToolkit">
+      <HintPath>..\..\..\..\INSTALL\ASP.Net-Ajax4.0\FilesUncompresed\AjaxControlToolkit.dll</HintPath>
+    </Reference>
     <Reference Include="Microsoft.CSharp" />
     <Reference Include="System" />
     <Reference Include="System.Data" />
@@ -41,6 +44,7 @@
     <Reference Include="System.Runtime.Serialization" />
     <Reference Include="System.ServiceModel" />
     <Reference Include="System.Web.Extensions" />
+    <Reference Include="System.Windows.Forms" />
     <Reference Include="System.Xml.Linq" />
     <Reference Include="System.Drawing" />
     <Reference Include="System.Web" />
@@ -59,6 +63,9 @@
     <Content Include="Cilindros\frmCargaryDescargarCilindros.aspx" />
     <Content Include="frmRecuperarContrasena.aspx" />
     <Content Include="Imagenes\banner_01.png" />
+    <Content Include="Imagenes\Calendar_scheduleHS.png" />
+    <Content Include="Imagenes\GASGLP.png" />
+    <Content Include="Imagenes\Inicio.png" />
     <Content Include="nada.html" />
     <Content Include="Pedido\frmCancelarPedido.aspx" />
     <Content Include="Pedido\frmModificarPedido.aspx" />
@@ -68,7 +75,6 @@
     <Content Include="Cilindros\frmRegistrarCilindro.aspx" />
     <Content Include="Clientes\frmRegistrarCliente.aspx" />
     <Content Include="Clientes\frmModificarCliente.aspx" />
-    <Content Include="Reportes\Fabiancito.aspx" />
     <Content Include="Reportes\frmHistoricoCilindro.aspx" />
     <Content Include="Reportes\frmInventario.aspx" />
     <Content Include="Autenticacion\frmOlvidoContrasena.aspx" />
@@ -81,14 +87,75 @@
     <Content Include="Rutas\frmRegistrarRuta.aspx" />
     <None Include="Properties\DataSources\Unisangil.CYLTRACK.CYLTRACK_BE.CasosBE.datasource" />
     <None Include="Properties\DataSources\Unisangil.CYLTRACK.CYLTRACK_BE.CilindroBE.datasource" />
+    <None Include="Properties\DataSources\Unisangil.CYLTRACK.CYLTRACK_BE.CiudadBE.datasource" />
     <None Include="Properties\DataSources\Unisangil.CYLTRACK.CYLTRACK_BE.ClienteBE.datasource" />
+    <None Include="Properties\DataSources\Unisangil.CYLTRACK.CYLTRACK_BE.ConductorBE.datasource" />
+    <None Include="Properties\DataSources\Unisangil.CYLTRACK.CYLTRACK_BE.ContratistaBE.datasource" />
+    <None Include="Properties\DataSources\Unisangil.CYLTRACK.CYLTRACK_BE.DepartamentoBE.datasource" />
+    <None Include="Properties\DataSources\Unisangil.CYLTRACK.CYLTRACK_BE.PedidoBE.datasource" />
+    <None Include="Properties\DataSources\Unisangil.CYLTRACK.CYLTRACK_BE.PerfilBE.datasource" />
+    <None Include="Properties\DataSources\Unisangil.CYLTRACK.CYLTRACK_BE.ReportesBE.datasource" />
     <None Include="Properties\DataSources\Unisangil.CYLTRACK.CYLTRACK_BE.RutaBE1.datasource" />
+    <None Include="Properties\DataSources\Unisangil.CYLTRACK.CYLTRACK_BE.TamanoBE.datasource" />
+    <None Include="Properties\DataSources\Unisangil.CYLTRACK.CYLTRACK_BE.Tipo_UbicacionBE.datasource" />
+    <None Include="Properties\DataSources\Unisangil.CYLTRACK.CYLTRACK_BE.UbicacionBE.datasource" />
     <None Include="Properties\DataSources\Unisangil.CYLTRACK.CYLTRACK_BE.Ubicacion_CilindroBE.datasource" />
+    <None Include="Properties\DataSources\Unisangil.CYLTRACK.CYLTRACK_BE.UsuarioBE.datasource" />
+    <None Include="Properties\DataSources\Unisangil.CYLTRACK.CYLTRACK_BE.VehiculoBE.datasource" />
     <None Include="Properties\DataSources\Unisangil.CYLTRACK.CYLTRACK_BE.VentaBE.datasource" />
     <None Include="Service References\CilindroService\CilindroService.disco" />
     <None Include="Service References\CilindroService\configuration91.svcinfo" />
     <None Include="Service References\CilindroService\configuration.svcinfo" />
     <None Include="Service References\CilindroService\Reference.svcmap">
+      <Generator>WCF Proxy Generator</Generator>
+      <LastGenOutput>Reference.cs</LastGenOutput>
+    </None>
+    <None Include="Service References\ClienteService\ClienteService.disco" />
+    <None Include="Service References\ClienteService\configuration91.svcinfo" />
+    <None Include="Service References\ClienteService\configuration.svcinfo" />
+    <None Include="Service References\ClienteService\Reference.svcmap">
+      <Generator>WCF Proxy Generator</Generator>
+      <LastGenOutput>Reference.cs</LastGenOutput>
+    </None>
+    <None Include="Service References\PedidoService\PedidoService.disco" />
+    <None Include="Service References\PedidoService\configuration91.svcinfo" />
+    <None Include="Service References\PedidoService\configuration.svcinfo" />
+    <None Include="Service References\PedidoService\Reference.svcmap">
+      <Generator>WCF Proxy Generator</Generator>
+      <LastGenOutput>Reference.cs</LastGenOutput>
+    </None>
+    <None Include="Service References\ReporteService\ReporteService.disco" />
+    <None Include="Service References\ReporteService\configuration91.svcinfo" />
+    <None Include="Service References\ReporteService\configuration.svcinfo" />
+    <None Include="Service References\ReporteService\Reference.svcmap">
+      <Generator>WCF Proxy Generator</Generator>
+      <LastGenOutput>Reference.cs</LastGenOutput>
+    </None>
+    <None Include="Service References\RutaService\RutaService.disco" />
+    <None Include="Service References\RutaService\configuration91.svcinfo" />
+    <None Include="Service References\RutaService\configuration.svcinfo" />
+    <None Include="Service References\RutaService\Reference.svcmap">
+      <Generator>WCF Proxy Generator</Generator>
+      <LastGenOutput>Reference.cs</LastGenOutput>
+    </None>
+    <None Include="Service References\UsuarioService\UsuarioService.disco" />
+    <None Include="Service References\UsuarioService\configuration91.svcinfo" />
+    <None Include="Service References\UsuarioService\configuration.svcinfo" />
+    <None Include="Service References\UsuarioService\Reference.svcmap">
+      <Generator>WCF Proxy Generator</Generator>
+      <LastGenOutput>Reference.cs</LastGenOutput>
+    </None>
+    <None Include="Service References\VehiculoService\VehiculoService.disco" />
+    <None Include="Service References\VehiculoService\configuration91.svcinfo" />
+    <None Include="Service References\VehiculoService\configuration.svcinfo" />
+    <None Include="Service References\VehiculoService\Reference.svcmap">
+      <Generator>WCF Proxy Generator</Generator>
+      <LastGenOutput>Reference.cs</LastGenOutput>
+    </None>
+    <None Include="Service References\VentaService\VentaService.disco" />
+    <None Include="Service References\VentaService\configuration91.svcinfo" />
+    <None Include="Service References\VentaService\configuration.svcinfo" />
+    <None Include="Service References\VentaService\Reference.svcmap">
       <Generator>WCF Proxy Generator</Generator>
       <LastGenOutput>Reference.cs</LastGenOutput>
     </None>
@@ -121,6 +188,76 @@
     <None Include="Service References\CilindroService\CilindroService2.xsd">
       <SubType>Designer</SubType>
     </None>
+    <None Include="Service References\ClienteService\ClienteService.wsdl" />
+    <None Include="Service References\ClienteService\ClienteService.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Service References\ClienteService\ClienteService1.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Service References\ClienteService\ClienteService2.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Service References\PedidoService\PedidoService.wsdl" />
+    <None Include="Service References\PedidoService\PedidoService.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Service References\PedidoService\PedidoService1.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Service References\PedidoService\PedidoService2.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Service References\ReporteService\ReporteService.wsdl" />
+    <None Include="Service References\ReporteService\ReporteService.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Service References\ReporteService\ReporteService1.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Service References\ReporteService\ReporteService2.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Service References\RutaService\RutaService.wsdl" />
+    <None Include="Service References\RutaService\RutaService.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Service References\RutaService\RutaService1.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Service References\RutaService\RutaService2.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Service References\UsuarioService\UsuarioService.wsdl" />
+    <None Include="Service References\UsuarioService\UsuarioService.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Service References\UsuarioService\UsuarioService1.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Service References\UsuarioService\UsuarioService2.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Service References\VehiculoService\VehiculoService.wsdl" />
+    <None Include="Service References\VehiculoService\VehiculoService.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Service References\VehiculoService\VehiculoService1.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Service References\VehiculoService\VehiculoService2.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Service References\VentaService\VentaService.wsdl" />
+    <None Include="Service References\VentaService\VentaService.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Service References\VentaService\VentaService1.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Service References\VentaService\VentaService2.xsd">
+      <SubType>Designer</SubType>
+    </None>
   </ItemGroup>
   <ItemGroup>
     <Compile Include="About.aspx.cs">
@@ -137,6 +274,7 @@
     <Compile Include="Autenticacion\frmAutenticacion.aspx.designer.cs">
       <DependentUpon>frmAutenticacion.aspx</DependentUpon>
     </Compile>
+    <Compile Include="Auxiliar.cs" />
     <Compile Include="Clientes\frmNuevaUbicacion.aspx.cs">
       <DependentUpon>frmNuevaUbicacion.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
@@ -214,13 +352,6 @@
     <Compile Include="Clientes\frmModificarCliente.aspx.designer.cs">
       <DependentUpon>frmModificarCliente.aspx</DependentUpon>
     </Compile>
-    <Compile Include="Reportes\Fabiancito.aspx.cs">
-      <DependentUpon>Fabiancito.aspx</DependentUpon>
-      <SubType>ASPXCodeBehind</SubType>
-    </Compile>
-    <Compile Include="Reportes\Fabiancito.aspx.designer.cs">
-      <DependentUpon>Fabiancito.aspx</DependentUpon>
-    </Compile>
     <Compile Include="Reportes\frmHistoricoCilindro.aspx.cs">
       <DependentUpon>frmHistoricoCilindro.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
@@ -288,7 +419,6 @@
     <Compile Include="Reportes\frmReporteSiembras.aspx.designer.cs">
       <DependentUpon>frmReporteSiembras.aspx</DependentUpon>
     </Compile>
-    <Compile Include="Reportes\ProcesoInventario.cs" />
     <Compile Include="Rutas\frmModificarRuta.aspx.cs">
       <DependentUpon>frmModificarRuta.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
@@ -304,6 +434,41 @@
       <DependentUpon>frmRegistrarRuta.aspx</DependentUpon>
     </Compile>
     <Compile Include="Service References\CilindroService\Reference.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </Compile>
+    <Compile Include="Service References\ClienteService\Reference.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </Compile>
+    <Compile Include="Service References\PedidoService\Reference.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </Compile>
+    <Compile Include="Service References\ReporteService\Reference.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </Compile>
+    <Compile Include="Service References\RutaService\Reference.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </Compile>
+    <Compile Include="Service References\UsuarioService\Reference.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </Compile>
+    <Compile Include="Service References\VehiculoService\Reference.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </Compile>
+    <Compile Include="Service References\VentaService\Reference.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
       <DependentUpon>Reference.svcmap</DependentUpon>
@@ -381,6 +546,13 @@
   </ItemGroup>
   <ItemGroup>
     <WCFMetadataStorage Include="Service References\CilindroService\" />
+    <WCFMetadataStorage Include="Service References\ClienteService\" />
+    <WCFMetadataStorage Include="Service References\PedidoService\" />
+    <WCFMetadataStorage Include="Service References\ReporteService\" />
+    <WCFMetadataStorage Include="Service References\RutaService\" />
+    <WCFMetadataStorage Include="Service References\UsuarioService\" />
+    <WCFMetadataStorage Include="Service References\VehiculoService\" />
+    <WCFMetadataStorage Include="Service References\VentaService\" />
   </ItemGroup>
   <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.targets" />
   <Import Project="$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v10.0\WebApplications\Microsoft.WebApplication.targets" />

@@ -1,6 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
 <xs:schema xmlns:tns="http://schemas.datacontract.org/2004/07/Unisangil.CYLTRACK.CYLTRACK_BE" elementFormDefault="qualified" targetNamespace="http://schemas.datacontract.org/2004/07/Unisangil.CYLTRACK.CYLTRACK_BE" xmlns:xs="http://www.w3.org/2001/XMLSchema">
-  <xs:import schemaLocation="http://localhost:51651/CYLTRACK_Services/ReporteService.svc?xsd=xsd3" namespace="http://schemas.microsoft.com/2003/10/Serialization/Arrays" />
   <xs:complexType name="ArrayOfReportesBE">
     <xs:sequence>
       <xs:element minOccurs="0" maxOccurs="unbounded" name="ReportesBE" nillable="true" type="tns:ReportesBE" />
@@ -29,7 +28,8 @@
       <xs:element minOccurs="0" name="NTamano" nillable="true" type="tns:TamanoBE" />
       <xs:element minOccurs="0" name="Serial_Cilindro" nillable="true" type="xs:string" />
       <xs:element minOccurs="0" name="Tipo_Cilindro" nillable="true" type="xs:string" />
-      <xs:element minOccurs="0" name="Ubicacion" nillable="true" type="tns:UbicacionBE" />
+      <xs:element minOccurs="0" name="Tipo_Ubicacion" nillable="true" type="tns:Tipo_UbicacionBE" />
+      <xs:element minOccurs="0" name="Vehiculo" nillable="true" type="tns:VehiculoBE" />
     </xs:sequence>
   </xs:complexType>
   <xs:element name="CilindroBE" nillable="true" type="tns:CilindroBE" />
@@ -37,7 +37,7 @@
     <xs:sequence>
       <xs:element minOccurs="0" name="Codigo_Fabricante" nillable="true" type="xs:string" />
       <xs:element minOccurs="0" name="Direccion" nillable="true" type="xs:string" />
-      <xs:element minOccurs="0" name="Id_Fabricante" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="Id_Fabricante" type="xs:int" />
       <xs:element minOccurs="0" name="Nit" nillable="true" type="xs:string" />
       <xs:element minOccurs="0" name="Nombre_Fabricante" nillable="true" type="xs:string" />
       <xs:element minOccurs="0" name="Telefono" nillable="true" type="xs:string" />
@@ -52,14 +52,25 @@
     </xs:sequence>
   </xs:complexType>
   <xs:element name="TamanoBE" nillable="true" type="tns:TamanoBE" />
+  <xs:complexType name="Tipo_UbicacionBE">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="Descripcion" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="Id_Tipo_Ubica" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="Nombre_Ubicacion" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="Ubicacion" nillable="true" type="tns:UbicacionBE" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="Tipo_UbicacionBE" nillable="true" type="tns:Tipo_UbicacionBE" />
   <xs:complexType name="UbicacionBE">
     <xs:sequence>
       <xs:element minOccurs="0" name="Barrio" nillable="true" type="xs:string" />
       <xs:element minOccurs="0" name="Ciudad" nillable="true" type="tns:CiudadBE" />
       <xs:element minOccurs="0" name="Cliente" nillable="true" type="tns:ClienteBE" />
       <xs:element minOccurs="0" name="Descripcion" nillable="true" type="xs:string" />
-      <xs:element xmlns:q1="http://schemas.microsoft.com/2003/10/Serialization/Arrays" minOccurs="0" name="Direccion" nillable="true" type="q1:ArrayOfstring" />
-      <xs:element minOccurs="0" name="Id_Ubicacion" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="Direccion" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="Direccion2" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="Direccion3" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="Id_Ubicacion" type="xs:int" />
       <xs:element minOccurs="0" name="Telefono_1" nillable="true" type="xs:string" />
       <xs:element minOccurs="0" name="Telefono_2" nillable="true" type="xs:string" />
       <xs:element minOccurs="0" name="Tipo_Ubicacion" nillable="true" type="tns:Tipo_UbicacionBE" />
@@ -155,19 +166,16 @@
   <xs:element name="ContratistaBE" nillable="true" type="tns:ContratistaBE" />
   <xs:complexType name="VehiculoBE">
     <xs:sequence>
-      <xs:element minOccurs="0" name="Apellido_1_Prop" nillable="true" type="xs:string" />
-      <xs:element minOccurs="0" name="Apellido_2_Prop" nillable="true" type="xs:string" />
-      <xs:element minOccurs="0" name="Ced_Prop" nillable="true" type="xs:string" />
       <xs:element minOccurs="0" name="Chasis" nillable="true" type="xs:string" />
       <xs:element minOccurs="0" name="Cilindraje" nillable="true" type="xs:string" />
       <xs:element minOccurs="0" name="Conductor" nillable="true" type="tns:ConductorBE" />
-      <xs:element minOccurs="0" name="Conductor_Vehiculo" nillable="true" type="tns:Conductor_VehiculoBE" />
+      <xs:element minOccurs="0" name="Contratista" nillable="true" type="tns:ContratistaBE" />
       <xs:element minOccurs="0" name="Estado" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="Id_Ubicacion" nillable="true" type="xs:string" />
       <xs:element minOccurs="0" name="Id_Vehiculo" nillable="true" type="xs:string" />
       <xs:element minOccurs="0" name="Marca" nillable="true" type="xs:string" />
       <xs:element minOccurs="0" name="Modelo" nillable="true" type="xs:string" />
       <xs:element minOccurs="0" name="Motor" nillable="true" type="xs:string" />
-      <xs:element minOccurs="0" name="Nombres_Prop" nillable="true" type="xs:string" />
       <xs:element minOccurs="0" name="Placa" nillable="true" type="xs:string" />
       <xs:element minOccurs="0" name="Ruta" nillable="true" type="tns:RutaBE" />
     </xs:sequence>
@@ -177,7 +185,9 @@
     <xs:sequence>
       <xs:element minOccurs="0" name="Apellido_1" nillable="true" type="xs:string" />
       <xs:element minOccurs="0" name="Apellido_2" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="Barrio" nillable="true" type="xs:string" />
       <xs:element minOccurs="0" name="Cedula" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="Ciudad" nillable="true" type="tns:CiudadBE" />
       <xs:element minOccurs="0" name="Direccion" nillable="true" type="xs:string" />
       <xs:element minOccurs="0" name="Id_Conductor" nillable="true" type="xs:string" />
       <xs:element minOccurs="0" name="Nombres_Conductor" nillable="true" type="xs:string" />
@@ -185,19 +195,8 @@
     </xs:sequence>
   </xs:complexType>
   <xs:element name="ConductorBE" nillable="true" type="tns:ConductorBE" />
-  <xs:complexType name="Conductor_VehiculoBE">
-    <xs:sequence>
-      <xs:element minOccurs="0" name="Conductor" nillable="true" type="tns:ConductorBE" />
-      <xs:element minOccurs="0" name="Fecha_Fin" type="xs:dateTime" />
-      <xs:element minOccurs="0" name="Fecha_Inicio" type="xs:dateTime" />
-      <xs:element minOccurs="0" name="Id_Conductor_Vehiculo" nillable="true" type="xs:string" />
-      <xs:element minOccurs="0" name="Vehiculo" nillable="true" type="tns:VehiculoBE" />
-    </xs:sequence>
-  </xs:complexType>
-  <xs:element name="Conductor_VehiculoBE" nillable="true" type="tns:Conductor_VehiculoBE" />
   <xs:complexType name="RutaBE">
     <xs:sequence>
-      <xs:element minOccurs="0" name="Ciudad" nillable="true" type="tns:CiudadBE" />
       <xs:element minOccurs="0" name="Ciudad_Ruta" nillable="true" type="tns:Ciudad_RutaBE" />
       <xs:element minOccurs="0" name="Id_Ruta" nillable="true" type="xs:string" />
       <xs:element minOccurs="0" name="Nombre_Ruta" nillable="true" type="xs:string" />
@@ -207,24 +206,20 @@
   <xs:element name="RutaBE" nillable="true" type="tns:RutaBE" />
   <xs:complexType name="Ciudad_RutaBE">
     <xs:sequence>
-      <xs:element minOccurs="0" name="Ciudad" nillable="true" type="tns:ArrayOfCiudadBE" />
+      <xs:element minOccurs="0" name="Ciudad" nillable="true" type="tns:CiudadBE" />
       <xs:element minOccurs="0" name="Id_Ciudad_Ruta" nillable="true" type="xs:string" />
     </xs:sequence>
   </xs:complexType>
   <xs:element name="Ciudad_RutaBE" nillable="true" type="tns:Ciudad_RutaBE" />
-  <xs:complexType name="ArrayOfCiudadBE">
-    <xs:sequence>
-      <xs:element minOccurs="0" maxOccurs="unbounded" name="CiudadBE" nillable="true" type="tns:CiudadBE" />
-    </xs:sequence>
-  </xs:complexType>
-  <xs:element name="ArrayOfCiudadBE" nillable="true" type="tns:ArrayOfCiudadBE" />
   <xs:complexType name="Ruta_VehiculoBE">
     <xs:sequence>
+      <xs:element minOccurs="0" name="Ciudad" nillable="true" type="tns:CiudadBE" />
       <xs:element minOccurs="0" name="Estado" nillable="true" type="xs:string" />
       <xs:element minOccurs="0" name="Fecha_Fin" nillable="true" type="xs:string" />
       <xs:element minOccurs="0" name="Fecha_Inicio" nillable="true" type="xs:string" />
       <xs:element minOccurs="0" name="Id_Ruta_Vehiculo" nillable="true" type="xs:string" />
-      <xs:element minOccurs="0" name="Vehiculo" nillable="true" type="tns:ArrayOfVehiculoBE" />
+      <xs:element minOccurs="0" name="ListaVehiculo" nillable="true" type="tns:ArrayOfVehiculoBE" />
+      <xs:element minOccurs="0" name="Vehiculo" nillable="true" type="tns:VehiculoBE" />
     </xs:sequence>
   </xs:complexType>
   <xs:element name="Ruta_VehiculoBE" nillable="true" type="tns:Ruta_VehiculoBE" />
@@ -240,14 +235,12 @@
       <xs:element minOccurs="0" name="Ciudad" nillable="true" type="tns:CiudadBE" />
       <xs:element minOccurs="0" name="Cliente" nillable="true" type="tns:ClienteBE" />
       <xs:element minOccurs="0" name="Detalle" nillable="true" type="xs:string" />
-      <xs:element minOccurs="0" name="Detalle_Ped" nillable="true" type="tns:ArrayOfDetalle_PedidoBE" />
+      <xs:element minOccurs="0" name="Detalle_Ped" nillable="true" type="tns:Detalle_PedidoBE" />
       <xs:element minOccurs="0" name="Fecha" type="xs:dateTime" />
       <xs:element minOccurs="0" name="Id_Pedido" nillable="true" type="xs:string" />
       <xs:element minOccurs="0" name="Motivo_Cancel" nillable="true" type="xs:string" />
       <xs:element minOccurs="0" name="Ruta" nillable="true" type="tns:RutaBE" />
-      <xs:element minOccurs="0" name="Ubicacion" nillable="true" type="tns:UbicacionBE" />
       <xs:element minOccurs="0" name="Vehiculo" nillable="true" type="tns:VehiculoBE" />
-      <xs:element minOccurs="0" name="Venta" nillable="true" type="tns:VentaBE" />
     </xs:sequence>
   </xs:complexType>
   <xs:element name="PedidoBE" nillable="true" type="tns:PedidoBE" />
@@ -257,12 +250,6 @@
     </xs:sequence>
   </xs:complexType>
   <xs:element name="ArrayOfCilindroBE" nillable="true" type="tns:ArrayOfCilindroBE" />
-  <xs:complexType name="ArrayOfDetalle_PedidoBE">
-    <xs:sequence>
-      <xs:element minOccurs="0" maxOccurs="unbounded" name="Detalle_PedidoBE" nillable="true" type="tns:Detalle_PedidoBE" />
-    </xs:sequence>
-  </xs:complexType>
-  <xs:element name="ArrayOfDetalle_PedidoBE" nillable="true" type="tns:ArrayOfDetalle_PedidoBE" />
   <xs:complexType name="Detalle_PedidoBE">
     <xs:sequence>
       <xs:element minOccurs="0" name="Cantidad" nillable="true" type="xs:string" />
@@ -270,14 +257,6 @@
     </xs:sequence>
   </xs:complexType>
   <xs:element name="Detalle_PedidoBE" nillable="true" type="tns:Detalle_PedidoBE" />
-  <xs:complexType name="Tipo_UbicacionBE">
-    <xs:sequence>
-      <xs:element minOccurs="0" name="Descripcion" nillable="true" type="xs:string" />
-      <xs:element minOccurs="0" name="Id_Tipo_Ubica" nillable="true" type="xs:string" />
-      <xs:element minOccurs="0" name="Nombre_Ubicacion" nillable="true" type="xs:string" />
-    </xs:sequence>
-  </xs:complexType>
-  <xs:element name="Tipo_UbicacionBE" nillable="true" type="tns:Tipo_UbicacionBE" />
   <xs:complexType name="Ubicacion_CilindroBE">
     <xs:sequence>
       <xs:element minOccurs="0" name="Actual" nillable="true" type="xs:string" />
@@ -363,4 +342,16 @@
     </xs:sequence>
   </xs:complexType>
   <xs:element name="PerfilBE" nillable="true" type="tns:PerfilBE" />
+  <xs:complexType name="ArrayOfTipo_UbicacionBE">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="Tipo_UbicacionBE" nillable="true" type="tns:Tipo_UbicacionBE" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ArrayOfTipo_UbicacionBE" nillable="true" type="tns:ArrayOfTipo_UbicacionBE" />
+  <xs:complexType name="ArrayOfTamanoBE">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="TamanoBE" nillable="true" type="tns:TamanoBE" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ArrayOfTamanoBE" nillable="true" type="tns:ArrayOfTamanoBE" />
 </xs:schema>

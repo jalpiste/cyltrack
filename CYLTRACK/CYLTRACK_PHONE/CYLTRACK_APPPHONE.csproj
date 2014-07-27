@@ -70,6 +70,12 @@
       <DependentUpon>OlvidoContrasena.xaml</DependentUpon>
     </Compile>
     <Compile Include="Auxiliar.cs" />
+    <Compile Include="Clientes\frmCambiarTelefono.xaml.cs">
+      <DependentUpon>frmCambiarTelefono.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Clientes\frmCambioDireccion.xaml.cs">
+      <DependentUpon>frmCambioDireccion.xaml</DependentUpon>
+    </Compile>
     <Compile Include="Clientes\frmConsultarCliente.xaml.cs">
       <DependentUpon>frmConsultarCliente.xaml</DependentUpon>
     </Compile>
@@ -153,6 +159,14 @@
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </Page>
+    <Page Include="Clientes\frmCambiarTelefono.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Clientes\frmCambioDireccion.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
     <Page Include="Clientes\frmConsultarCliente.xaml">
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
@@ -203,27 +217,21 @@
     <None Include="Service References\CilindroService\CilindroService2.xsd">
       <SubType>Designer</SubType>
     </None>
-    <None Include="Service References\CilindroService\CilindroService3.xsd">
-      <SubType>Designer</SubType>
-    </None>
     <None Include="Service References\CilindroService\CYLTRACK_PHONE.CilindroService.CilindroBE.datasource">
       <DependentUpon>Reference.svcmap</DependentUpon>
     </None>
-    <None Include="Service References\ClienteService\ClienteService.wsdl" />
-    <None Include="Service References\ClienteService\ClienteService.xsd">
-      <SubType>Designer</SubType>
+    <None Include="Service References\CilindroService\CYLTRACK_PHONE.CilindroService.Ubicacion_CilindroBE.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
     </None>
-    <None Include="Service References\ClienteService\ClienteService1.xsd">
-      <SubType>Designer</SubType>
-    </None>
-    <None Include="Service References\ClienteService\ClienteService2.xsd">
-      <SubType>Designer</SubType>
-    </None>
-    <None Include="Service References\ClienteService\ClienteService3.xsd">
-      <SubType>Designer</SubType>
-    </None>
+    <None Include="Service References\ClienteService\ClienteService.disco" />
+    <None Include="Service References\ClienteService\configuration91.svcinfo" />
+    <None Include="Service References\ClienteService\configuration.svcinfo" />
     <None Include="Service References\ClienteService\CYLTRACK_PHONE.ClienteService.ClienteBE.datasource">
       <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\ClienteService\Reference.svcmap">
+      <Generator>WCF Proxy Generator</Generator>
+      <LastGenOutput>Reference.cs</LastGenOutput>
     </None>
     <None Include="Service References\PedidoService\CYLTRACK_PHONE.PedidoService.PedidoBE.datasource">
       <DependentUpon>Reference.svcmap</DependentUpon>
@@ -250,6 +258,12 @@
     <None Include="Service References\ReporteService\CYLTRACK_PHONE.ReporteService.RutaBE.datasource">
       <DependentUpon>Reference.svcmap</DependentUpon>
     </None>
+    <None Include="Service References\ReporteService\CYLTRACK_PHONE.ReporteService.TamanoBE.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\ReporteService\CYLTRACK_PHONE.ReporteService.Tipo_UbicacionBE.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
     <None Include="Service References\ReporteService\CYLTRACK_PHONE.ReporteService.UbicacionBE.datasource">
       <DependentUpon>Reference.svcmap</DependentUpon>
     </None>
@@ -266,6 +280,9 @@
     <None Include="Service References\RutaService\CYLTRACK_PHONE.RutaService.CiudadBE.datasource">
       <DependentUpon>Reference.svcmap</DependentUpon>
     </None>
+    <None Include="Service References\RutaService\CYLTRACK_PHONE.RutaService.DepartamentoBE.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
     <None Include="Service References\RutaService\CYLTRACK_PHONE.RutaService.RutaBE.datasource">
       <DependentUpon>Reference.svcmap</DependentUpon>
     </None>
@@ -279,15 +296,18 @@
     <None Include="Service References\UsuarioService\CYLTRACK_PHONE.UsuarioService.PerfilBE.datasource">
       <DependentUpon>Reference.svcmap</DependentUpon>
     </None>
-    <None Include="Service References\UsuarioService\UsuarioService.wsdl" />
-    <None Include="Service References\UsuarioService\UsuarioService.xsd">
-      <SubType>Designer</SubType>
+    <None Include="Service References\UsuarioService\UsuarioService.disco" />
+    <None Include="Service References\UsuarioService\configuration91.svcinfo" />
+    <None Include="Service References\UsuarioService\configuration.svcinfo" />
+    <None Include="Service References\UsuarioService\Reference.svcmap">
+      <Generator>WCF Proxy Generator</Generator>
+      <LastGenOutput>Reference.cs</LastGenOutput>
     </None>
-    <None Include="Service References\UsuarioService\UsuarioService1.xsd">
-      <SubType>Designer</SubType>
+    <None Include="Service References\VehiculoService\CYLTRACK_PHONE.VehiculoService.ConductorBE.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
     </None>
-    <None Include="Service References\UsuarioService\UsuarioService2.xsd">
-      <SubType>Designer</SubType>
+    <None Include="Service References\VehiculoService\CYLTRACK_PHONE.VehiculoService.ContratistaBE.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
     </None>
     <None Include="Service References\VehiculoService\CYLTRACK_PHONE.VehiculoService.VehiculoBE.datasource">
       <DependentUpon>Reference.svcmap</DependentUpon>
@@ -315,21 +335,17 @@
       <Generator>WCF Proxy Generator</Generator>
       <LastGenOutput>Reference.cs</LastGenOutput>
     </None>
-    <None Include="Service References\ClienteService\ClienteService.disco" />
-    <None Include="Service References\ClienteService\configuration91.svcinfo" />
-    <None Include="Service References\ClienteService\configuration.svcinfo" />
-    <None Include="Service References\ClienteService\Reference.svcmap">
-      <Generator>WCF Proxy Generator</Generator>
-      <LastGenOutput>Reference.cs</LastGenOutput>
-    </None>
-    <None Include="Service References\UsuarioService\UsuarioService.disco" />
-    <None Include="Service References\UsuarioService\configuration91.svcinfo" />
-    <None Include="Service References\UsuarioService\configuration.svcinfo" />
-    <None Include="Service References\UsuarioService\Reference.svcmap">
-      <Generator>WCF Proxy Generator</Generator>
-      <LastGenOutput>Reference.cs</LastGenOutput>
-    </None>
     <Content Include="ServiceReferences.ClientConfig" />
+    <None Include="Service References\ClienteService\ClienteService.wsdl" />
+    <None Include="Service References\ClienteService\ClienteService.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Service References\ClienteService\ClienteService1.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Service References\ClienteService\ClienteService2.xsd">
+      <SubType>Designer</SubType>
+    </None>
     <None Include="Service References\PedidoService\PedidoService.wsdl" />
     <None Include="Service References\PedidoService\PedidoService.xsd">
       <SubType>Designer</SubType>
@@ -338,9 +354,6 @@
       <SubType>Designer</SubType>
     </None>
     <None Include="Service References\PedidoService\PedidoService2.xsd">
-      <SubType>Designer</SubType>
-    </None>
-    <None Include="Service References\PedidoService\PedidoService3.xsd">
       <SubType>Designer</SubType>
     </None>
     <None Include="Service References\ReporteService\ReporteService.wsdl" />
@@ -353,9 +366,6 @@
     <None Include="Service References\ReporteService\ReporteService2.xsd">
       <SubType>Designer</SubType>
     </None>
-    <None Include="Service References\ReporteService\ReporteService3.xsd">
-      <SubType>Designer</SubType>
-    </None>
     <None Include="Service References\RutaService\RutaService.wsdl" />
     <None Include="Service References\RutaService\RutaService.xsd">
       <SubType>Designer</SubType>
@@ -364,6 +374,16 @@
       <SubType>Designer</SubType>
     </None>
     <None Include="Service References\RutaService\RutaService2.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Service References\UsuarioService\UsuarioService.wsdl" />
+    <None Include="Service References\UsuarioService\UsuarioService.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Service References\UsuarioService\UsuarioService1.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Service References\UsuarioService\UsuarioService2.xsd">
       <SubType>Designer</SubType>
     </None>
     <None Include="Service References\VehiculoService\VehiculoService.wsdl" />
@@ -376,9 +396,6 @@
     <None Include="Service References\VehiculoService\VehiculoService2.xsd">
       <SubType>Designer</SubType>
     </None>
-    <None Include="Service References\VehiculoService\VehiculoService3.xsd">
-      <SubType>Designer</SubType>
-    </None>
     <None Include="Service References\VentaService\VentaService.wsdl" />
     <None Include="Service References\VentaService\VentaService.xsd">
       <SubType>Designer</SubType>
@@ -389,9 +406,10 @@
     <None Include="Service References\VentaService\VentaService2.xsd">
       <SubType>Designer</SubType>
     </None>
-    <None Include="Service References\VentaService\VentaService3.xsd">
-      <SubType>Designer</SubType>
-    </None>
+    <Resource Include="Images\casos.png" />
+    <Resource Include="Images\cliente.png" />
+    <Resource Include="Images\pedido.png" />
+    <Resource Include="Images\venta.png" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="ApplicationIcon.png">
