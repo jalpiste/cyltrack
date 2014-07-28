@@ -50,6 +50,7 @@
     <Compile Include="ReporteDL.cs" />
     <Compile Include="RutaDL.cs" />
     <Compile Include="VehiculoDL.cs" />
+    <Compile Include="VentaDL.cs" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\CYLTRACK_BE\CYLTRACK_BE.csproj">
