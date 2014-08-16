@@ -118,7 +118,7 @@ namespace Unisangil.CYLTRACK.Cyltrack_phone.Pedidos
             {
                 
                 cancelar_ped.Motivo_Cancel = txtObservaciones.Text;
-                cancelar_ped.Fecha = Convert.ToDateTime(lblFecha.Text);
+                //cancelar_ped.Fecha = Convert.ToDateTime(lblFecha.Text);
 
                 //resp = servPedido.Cancelar_PedidoAsync(cancelar_ped);
 
