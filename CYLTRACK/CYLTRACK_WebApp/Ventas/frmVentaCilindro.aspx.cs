@@ -100,8 +100,7 @@ namespace Unisangil.CYLTRACK.CYLTRACK_WebApp.Ventas
                     }
                     gvDirecciones.Visible = true;
                     divDirCliente.Visible = true;
-                    divInfoCliente.Visible = true;
-                    DivDetalleVenta.Visible = true;
+                    divInfoCliente.Visible = true;                   
                     txtCedula.Text = "";
                     txtNumPedido.Text = "";                 
                 }
@@ -122,7 +121,8 @@ namespace Unisangil.CYLTRACK.CYLTRACK_WebApp.Ventas
         {
             PedidoServiceClient servPedido = new PedidoServiceClient();
             ClienteServiceClient servCliente = new ClienteServiceClient();
-            DataTable table = new DataTable();
+            DataTable table1 = new DataTable();
+            DataTable table2 = new DataTable();
 
             long respExisPedido;
 
@@ -140,43 +140,51 @@ namespace Unisangil.CYLTRACK.CYLTRACK_WebApp.Ventas
                 }
                 else
                 {
-                    ClienteBE objCliente = servCliente.Consultar_Cliente(Convert.ToString(respExisPedido));
+                    PedidoBE objPedido = servPedido.Consultar_Pedido(txtNumPedido.Text);
 
-                    txtCedulaCliente.Text = objCliente.Cedula;
-                    txtNombreCliente.Text = objCliente.Nombres_Cliente;
-                    lblCodigoPedido.Text = respExisPedido.ToString();
-                    lblCodigoPedido.Visible = true;
-                    lblPedido.Visible = true;
-                    table.Columns.Add("IdUbicacion");
-                    table.Columns.Add("Direccion");
-                    table.Columns.Add("Barrio");
-                    table.Columns.Add("Telefono");
-                    table.Columns.Add("Ciudad");
-
-                    foreach (UbicacionBE datos in objCliente.ListaDirecciones)
+                    if (objPedido.Estado == "2")
                     {
-                        table.Rows.Add(datos.Id_Ubicacion, datos.Direccion, datos.Barrio, datos.Telefono_1, datos.Ciudad.Nombre_Ciudad);
+                        MessageBox.Show("El pedido se encuentra cancelado en el sistema", "Consultar Pedido");
+                        divInfoCliente.Visible = false;
+                        txtCedula.Text = "";
+                        txtNumPedido.Text = "";
+                        txtCedula.Focus();
                     }
-                    gvDirecciones.DataSource = table;
-                    gvDirecciones.DataBind();
-                    divInfoCliente.Visible = true;
-                    DivDetalleVenta.Visible = true;
-                    divDirCliente.Visible = true;                    
-
-                    PedidoBE objPedido = servPedido.Consultar_Pedido(respExisPedido.ToString());
-
-                    table.Columns.Add("TamanoCil");
-                    table.Columns.Add("CantidadPedido");
-
-                    foreach (Detalle_PedidoBE datos in objPedido.List_Detalle_Ped)
+                    else
                     {
-                        table.Rows.Add(datos.Tamano, datos.Cantidad);
+                        table2.Columns.Add("Tamano");
+                        table2.Columns.Add("Cantidad");
+
+                        foreach (Detalle_PedidoBE datos in objPedido.List_Detalle_Ped)
+                        {
+                            table2.Rows.Add(datos.Tamano, datos.Cantidad);
+                            gvPedido.DataSource = table2;
+                            gvPedido.DataBind();
+                        }
+
+                        DivInfoPedido.Visible = true;
+
+                        ClienteBE objCliente = servCliente.Consultar_Cliente(Convert.ToString(respExisPedido));
+
+                        txtCedulaCliente.Text = objCliente.Cedula;
+                        txtNombreCliente.Text = objCliente.Nombres_Cliente + " " + objCliente.Apellido_1 + " " + objCliente.Apellido_2;
+                        lblCodigoPedido.Text = txtNumPedido.Text;
+                        table1.Columns.Add("IdUbicacion");
+                        table1.Columns.Add("Direccion");
+                        table1.Columns.Add("Barrio");
+                        table1.Columns.Add("Telefono");
+                        table1.Columns.Add("Ciudad");
+
+                        foreach (UbicacionBE datos in objCliente.ListaDirecciones)
+                        {
+                            table1.Rows.Add(datos.Id_Ubicacion, datos.Direccion, datos.Barrio, datos.Telefono_1, datos.Ciudad.Nombre_Ciudad);
+                            gvDirecciones.DataSource = table1;
+                            gvDirecciones.DataBind();
+                        }
+
+                        divInfoCliente.Visible = true;
+                        divDirCliente.Visible = true;
                     }
-                    lblCodigoPedido.Text = objPedido.Id_Pedido;
-                    lblIdCliente.Text = objPedido.IdCliente;
-                    gvPedido.DataSource = table;
-                    gvPedido.DataBind();
-                    DivInfoPedido.Visible = true;
                 }
             }
             catch (Exception ex)
@@ -203,6 +211,8 @@ namespace Unisangil.CYLTRACK.CYLTRACK_WebApp.Ventas
         {
             VentaServiceClient servVentas = new VentaServiceClient();
             VentaBE ventas = new VentaBE();
+            List<Detalle_VentaBE> lstDetalle_venta = new List<Detalle_VentaBE>();
+            
            
             long resp;
             try
@@ -213,34 +223,55 @@ namespace Unisangil.CYLTRACK.CYLTRACK_WebApp.Ventas
                 ventas.Observaciones = txtObservacion.Text;
                 ventas.Id_Ubicacion = lblIdUbica.Text;
                 ventas.IdVehiculo = lblIdVehiculo.Text;
+                listaCilVehSelec = (List<string>)Session["VehiculoSelect"];
+                listaCilCliSelec = (List<string>)Session["ClienteSelect"];
+                int cantVehiculo=listaCilVehSelec.Count;
+                int cantCliente = listaCilCliSelec.Count;
+                if (cantCliente == cantVehiculo)
+                {
+                    foreach (string dato in listaCilVehSelec)
+                    {
+                        foreach (string info in listaCilCliSelec)
+                        {
+                            Detalle_VentaBE detVenta = new Detalle_VentaBE();
+                            detVenta.Id_Cilindro_Salida = dato;
+                            detVenta.Tamano = lstTamano.SelectedItem.Text.ToString();
+                            detVenta.Id_Cilindro_Entrada = info;
+                            detVenta.Tipo_Cilindro = Tipo_Cilindro.MARCADO.ToString();
+                            lstDetalle_venta.Add(detVenta);                            
+                        }
+                    }
+                    ventas.Lista_Detalle_Venta= lstDetalle_venta;
+                    resp = servVentas.RegistrarVenta(ventas);
 
-             //   foreach (DataRow dato in objdtTablaDetVenta.Rows)
-             //{
-             //    Detalle_VentaBE detVenta = new Detalle_VentaBE();
-             //    detVenta.Id_Cilindro_Salida = Convert.ToString(dato["CodigosVehiculo"]);
-             //    detVenta.Tamano = Convert.ToString(dato["Tamano"]);
-             //    detVenta.Id_Cilindro_Entrada = Convert.ToString(dato["CodigosCliente"] );
-             //    ventas.Lista_Detalle_Venta.Add(detVenta);
-             //}           
+                    MessageBox.Show("La venta fue registrada satisfactoriamente en el sistema bajo el código: " + resp, "Venta de Cilindros");
+           
+                }
+                else
+                {
+                    if (cantCliente==0 && cantVehiculo==1)
+                    {
+                        foreach (string dato in listaCilVehSelec)
+                        {
+                            Detalle_VentaBE detVenta = new Detalle_VentaBE();
+                            detVenta.Id_Cilindro_Salida = dato;
+                            detVenta.Tamano = lstTamano.SelectedItem.Text.ToString();
+                            detVenta.Id_Cilindro_Entrada = "999999999999";
+                            detVenta.Tipo_Cilindro = Tipo_Cilindro.UNIVERSAL.ToString();
+                            lstDetalle_venta.Add(detVenta);
+                        }
+                        ventas.Lista_Detalle_Venta = lstDetalle_venta;
+                        resp = servVentas.RegistrarVenta(ventas);
 
-             
-             //if (detVenta.Id_Cilindro_Entrada.Length <= 12) 
-             //{
-             //    if (txtCilSiembra.Text == "")
-             //    {
-             //        detVenta.Id_Cilindro_Entrada = "999999999999";
-             //        detVenta.Tamano = lstTamano.SelectedItem.Text;
-             //        detVenta.Tipo_Cilindro = Tipo_Cilindro.UNIVERSAL.ToString();
-             //    }
-             //    else
-             //    {
-             //        detVenta.Id_Cilindro_Entrada = txtCilSiembra.Text;
-             //        detVenta.Tamano = lstTamSiembra.SelectedItem.Text;
-             //        detVenta.Tipo_Cilindro = lstTipoCil.SelectedItem.Text;
-             //    }
-             //}
+                        MessageBox.Show("La venta fue registrada satisfactoriamente en el sistema bajo el código: " + resp, "Venta de Cilindros");
+                    }
 
-             resp=servVentas.RegistrarVenta(ventas);
+                    else 
+                    {
+                        MessageBox.Show("La cantidad de cilindros prestados no puede ser mayor que uno (1), rectifique la cantidad", "Venta de Cilindros");
+                    }                   
+                    
+                }                     
             }
             catch(Exception ex)
             {
@@ -249,6 +280,7 @@ namespace Unisangil.CYLTRACK.CYLTRACK_WebApp.Ventas
             finally
             {
                 servVentas.Close();
+                Response.Redirect("~/Ventas/frmVentaCilindro.aspx");
             }
         }
 
@@ -262,11 +294,10 @@ namespace Unisangil.CYLTRACK.CYLTRACK_WebApp.Ventas
              
              try
              {
-                 Session["VehiculoSelect"] = listaCilVehSelec;
                  List<Ubicacion_CilindroBE> lstCilVehiculos = new List<Ubicacion_CilindroBE>(servVehiculo.ConsultarCilPorVehiculo("1"));
                  List<Ubicacion_CilindroBE> lstCilCliente = new List<Ubicacion_CilindroBE>(servCliente.ConsultarCilPorCliente(lblIdUbica.Text));
                  tabla.Columns.Add("CodigosCilVehiculo");
-                 tabla2.Columns.Add("CodigosCliSeleccionados");
+                 tabla2.Columns.Add("CodigosCilCliente");
                  
                  foreach (Ubicacion_CilindroBE datos in lstCilVehiculos )
                  {
@@ -286,19 +317,28 @@ namespace Unisangil.CYLTRACK.CYLTRACK_WebApp.Ventas
                      {
                          tabla2.Rows.Add(datos.Cilindro.Codigo_Cilindro);
                          listaCilCli.Add(datos.Cilindro.Codigo_Cilindro);
-                     }
+                     }                    
                  }
                  Session["Cliente"] = listaCilCli;
                  gdCodClientes.DataSource = tabla2;
                  gdCodClientes.DataBind();
-                 foreach (DataRow datos in tabla2.Rows)
-                 {
-                 if ((Convert.ToString(datos["CodigosCliente"]))=="")
+                 btnGuardar.Visible = true;
+                 gdCilSelecCliente.Visible = true;
+                 gdCodClientes.Visible = true;
+                 gvCilVehiculo.Visible = true;
+                 gvSeleccion.Visible = true;
+                 btnQuitar.Visible = true;
+                 btnQuitar2.Visible = true;
+                 btnSeleccionar.Visible = true;
+                 btnSelect.Visible = true;  
+                 if (tabla2.Rows.Count==0)
                  {
                      divCilSiembra.Visible = true;
+                     btnQuitar2.Visible = false;
+                     btnSelect.Visible = false;
+                     gdCilSelecCliente.Visible = false;
+                     gdCodClientes.Visible = false;
                  }
-                 }
-                 
              }
              catch (Exception ex)
              {
@@ -309,8 +349,7 @@ namespace Unisangil.CYLTRACK.CYLTRACK_WebApp.Ventas
                  servCliente.Close();
                  servVehiculo.Close();
                  gdCilSelecCliente.Focus();
-                 gdCodClientes.Visible = true;
-                 btnGuardar.Visible = true;
+                 
              }
          }
          protected void Seleccion_onClick(object sender, EventArgs e)
@@ -319,7 +358,10 @@ namespace Unisangil.CYLTRACK.CYLTRACK_WebApp.Ventas
              {
                  string idUbica = ((System.Web.UI.WebControls.RadioButton)sender).Attributes["value"].ToString();
                  lblIdUbica.Text = idUbica;
-                 ((System.Web.UI.WebControls.RadioButton)sender).Checked = false;
+                 //((System.Web.UI.WebControls.RadioButton)sender).Checked = false;
+                 DivDetalleVenta.Visible = true;
+                 Session["VehiculoSelect"] = listaCilVehSelec;
+                 Session["ClienteSelect"] = listaCilCliSelec;
              }
              catch (Exception ex)
              {
@@ -359,7 +401,10 @@ namespace Unisangil.CYLTRACK.CYLTRACK_WebApp.Ventas
                          }
                      }
                      listaCilVehSelec.Add(codCli);
-                     Session["VehiculoSelect"] = listaCilVehSelec;                     
+                     Session["VehiculoSelect"] = listaCilVehSelec;
+                     listaCilVeh = (List<string>)Session["Vehiculo"];
+                     listaCilVeh.Remove(codCli);
+                     Session["lista"] = listaCilVeh;
                  }
                  else 
                  {
@@ -386,7 +431,7 @@ namespace Unisangil.CYLTRACK.CYLTRACK_WebApp.Ventas
              }
          }
 
-    protected void btnSeleccionarVehiculo_Click(object sender, EventArgs e){
+         protected void btnSeleccionarVehiculo_Click(object sender, EventArgs e){
         listaCilVehSelec = (List<string>)Session["VehiculoSelect"];
         listaCilVeh = (List<string>)Session["Vehiculo"];
 
@@ -402,17 +447,193 @@ namespace Unisangil.CYLTRACK.CYLTRACK_WebApp.Ventas
          gvSeleccion.DataBind();
 
          tabla2.Columns.Add("CodigosCilVehiculo");
-         tabla2.Rows.Add(listaCilVeh);
+         foreach (string datos in listaCilVeh)
+         {
+             tabla2.Rows.Add(datos);
+         }
+         
          gvCilVehiculo.DataSource = tabla2;
          gvCilVehiculo.DataBind(); 
      }
 
-    protected void btnQuitar_Click(object sender, EventArgs e){
+        protected void CheckSelecVehiculo_onClick(object sender, EventArgs e)
+    {
+        DataTable tabla = new DataTable();
+        try
+        {
+            string codCli = ((System.Web.UI.WebControls.CheckBox)sender).Attributes["value"].ToString();
+            listaCilVeh = (List<string>)Session["Vehiculo"];
 
-        string CodigoCil = ((System.Web.UI.WebControls.CheckBox)sender).Attributes["value"].ToString();
+            string aux = ((System.Web.UI.WebControls.CheckBox)sender).Checked.ToString();
 
-       
+            if (aux == "True")
+            {
+                foreach (string dato in listaCilVeh)
+                {
+                    if (dato == codCli)
+                    {
+                        listaCilVeh.Remove(dato);
+                        break;
+                    }
+                }
+                listaCilVeh.Add(codCli);
+                Session["Vehiculo"] = listaCilVeh;
+                listaCilVehSelec = (List<string>)Session["VehiculoSelect"];
+                listaCilVehSelec.Remove(codCli);
+                Session["lista"] = listaCilVehSelec;
+            }
+            else
+            {
+                foreach (string dato in listaCilVeh)
+                {
+                    if (dato == codCli)
+                    {
+                        listaCilVeh.Remove(dato);
+                        Session["Vehiculo"] = listaCilVeh;
+                        listaCilVehSelec.Add(codCli);
+                        Session["VehiculoSelect"] = listaCilVehSelec;
+                        break;
+                    }
+                }
+            }
+        }
+        catch (Exception ex)
+        {
+            Response.Redirect("~/About.aspx");
+        }
+        finally
+        {
+            btnGuardar.Focus();
+        }
     }
-   
+
+        protected void CheckCliente_onClick(object sender, EventArgs e)
+        {
+            DataTable tabla = new DataTable();
+            try
+            {
+                string codCli = ((System.Web.UI.WebControls.CheckBox)sender).Attributes["value"].ToString();
+                listaCilCliSelec = (List<string>)Session["ClienteSelect"];
+
+                string aux = ((System.Web.UI.WebControls.CheckBox)sender).Checked.ToString();
+
+                if (aux == "True")
+                {
+                    foreach (string dato in listaCilCliSelec)
+                    {
+                        if (dato == codCli)
+                        {
+                            listaCilCliSelec.Remove(dato);
+                            break;
+                        }
+                    }
+                    listaCilCliSelec.Add(codCli);
+                    Session["ClienteSelect"] = listaCilCliSelec;
+                    listaCilCli = (List<string>)Session["Cliente"];
+                    listaCilCli.Remove(codCli);
+                    Session["lista"] = listaCilCli;
+                }
+                else
+                {
+                    foreach (string dato in listaCilCliSelec)
+                    {
+                        if (dato == codCli)
+                        {
+                            listaCilCliSelec.Remove(dato);
+                            Session["ClienteSelect"] = listaCilCliSelec;
+                            listaCilCli.Add(codCli);
+                            Session["Cliente"] = listaCilCli;
+                            break;
+                        }
+                    }
+                }
+            }
+            catch (Exception ex)
+            {
+                Response.Redirect("~/About.aspx");
+            }
+            finally
+            {
+                btnGuardar.Focus();
+            }
+        }
+
+        protected void btnSeleccionarCliente_Click(object sender, EventArgs e)
+        {
+            listaCilCliSelec = (List<string>)Session["ClienteSelect"];
+            listaCilCli = (List<string>)Session["Cliente"];
+
+            DataTable tabla = new DataTable();
+            DataTable tabla2 = new DataTable();
+            tabla.Columns.Add("CodigosCliSeleccionados");
+
+            foreach (string datos in listaCilCliSelec)
+            {
+                tabla.Rows.Add(datos);
+            }
+            gdCilSelecCliente.DataSource = tabla;
+            gdCilSelecCliente.DataBind();
+
+            tabla2.Columns.Add("CodigosCilCliente");
+            foreach (string datos in listaCilCli)
+            {
+                tabla2.Rows.Add(datos);
+            }
+
+            gdCodClientes.DataSource = tabla2;
+            gdCodClientes.DataBind();
+        }
+
+        protected void CheckSelecCliente_onClick(object sender, EventArgs e)
+        {
+            DataTable tabla = new DataTable();
+            try
+            {
+                string codCli = ((System.Web.UI.WebControls.CheckBox)sender).Attributes["value"].ToString();
+                listaCilCli = (List<string>)Session["Cliente"];
+
+                string aux = ((System.Web.UI.WebControls.CheckBox)sender).Checked.ToString();
+
+                if (aux == "True")
+                {
+                    foreach (string dato in listaCilCli)
+                    {
+                        if (dato == codCli)
+                        {
+                            listaCilCli.Remove(dato);
+                            break;
+                        }
+                    }
+                    listaCilCli.Add(codCli);
+                    Session["Cliente"] = listaCilCli;
+                    listaCilCliSelec = (List<string>)Session["ClienteSelect"];
+                    listaCilCliSelec.Remove(codCli);
+                    Session["lista"] = listaCilCliSelec;
+                }
+                else
+                {
+                    foreach (string dato in listaCilCli)
+                    {
+                        if (dato == codCli)
+                        {
+                            listaCilCli.Remove(dato);
+                            Session["Cliente"] = listaCilCli;
+                            listaCilCliSelec.Add(codCli);
+                            Session["ClienteSelect"] = listaCilCliSelec;
+                            break;
+                        }
+                    }
+                }
+            }
+            catch (Exception ex)
+            {
+                Response.Redirect("~/About.aspx");
+            }
+            finally
+            {
+                btnGuardar.Focus();
+            }
+        }
+
     }
 }

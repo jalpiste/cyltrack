@@ -69,7 +69,7 @@ namespace Unisangil.CYLTRACK.CYLTRACK_WebApp.Ventas
             VentaServiceClient serventa = new VentaServiceClient();
             try
             {
-                respuesta = serventa.CasosEspeciales(id_Caso);
+                //respuesta = serventa.CasosEspeciales(id_Caso);
                 MessageBox.Show("El caso fue registrado satisfactoriamente", "Revision de Casos Especiales");
             }
             catch (Exception ex)

@@ -131,5 +131,63 @@ namespace Unisangil.CYLTRACK.CYLTRACK_WebApp.Ventas
                 servCliente.Close();
             }
         }
+
+        protected void txtCodVenta_TextChanged(object sender, EventArgs e)
+        {
+            VentaServiceClient serVenta = new VentaServiceClient();
+            ClienteServiceClient serCliente = new ClienteServiceClient();
+            try
+            {
+                DataTable table = new DataTable();
+                long consultarExistencia = serVenta.ConsultarExistenciaVenta(txtCodVenta.Text);
+
+                if (consultarExistencia == 0)
+                {
+                    MessageBox.Show("El código de la venta ingresado no esta registrado en el sistema", "Consultar Venta");
+                }
+                else
+                {
+                    VentaBE datosVenta = serVenta.ConsultarVenta(txtCodVenta.Text);
+
+                    txtFecha.Text = Convert.ToString(datosVenta.Fecha);
+                    txtHora.Text = Convert.ToString(datosVenta.Fecha.TimeOfDay);
+                    txtObservacion.Text = datosVenta.Observaciones;
+
+                    ClienteBE cliente = serCliente.Consultar_Cliente(consultarExistencia.ToString());
+
+                    txtCedula2.Text = cliente.Cedula;
+                    lblIdCliente.Text = cliente.Id_Cliente;
+                    txtNombreCliente.Text = cliente.Nombres_Cliente + " " + cliente.Apellido_1 + " " + cliente.Apellido_2;
+
+                    table.Columns.Add("IdUbicacion");
+                    table.Columns.Add("Direccion");
+                    table.Columns.Add("Barrio");
+                    table.Columns.Add("Telefono");
+                    table.Columns.Add("Ciudad");
+
+                    foreach (UbicacionBE datos in cliente.ListaDirecciones)
+                    {
+                        table.Rows.Add(datos.Id_Ubicacion, datos.Direccion, datos.Barrio, datos.Telefono_1, datos.Ciudad.Nombre_Ciudad);
+
+                    }
+                    gvDirecciones.DataSource = table;
+                    gvDirecciones.DataBind();
+                    divDirCliente.Visible = true;
+                    divInfoCilindro.Visible = true;
+                    DivInfoVenta.Visible = true;
+                    btnNuevaConsulta.Visible = true;
+                }
+            }
+            catch (Exception ex)
+            {
+                Response.Redirect("~/About.aspx");
+            }
+            finally
+            {
+                serVenta.Close();
+                txtCedulaCliente.Text = "";
+                txtCodVenta.Text = "";
+            }            
+        }
     }
 }
