@@ -81,7 +81,7 @@ namespace Unisangil.CYLTRACK.CYLTRACK_WebApp.Pedido
                     table2.Columns.Add("TamanoCil");
                     table2.Columns.Add("CantidadPedido");
                     table2.Columns.Add("FechaPedido");
-                    
+                   
                     foreach(Detalle_PedidoBE datos in objPedido.List_Detalle_Ped)
                     {
                         table2.Rows.Add(datos.Tamano, datos.Cantidad, datos.Fecha);                        
@@ -106,6 +106,9 @@ namespace Unisangil.CYLTRACK.CYLTRACK_WebApp.Pedido
                 txtCedula.Text = "";
                 txtNumPedido.Text = "";
                 btnNuevaConsulta.Visible = true;
+                lblCodigoPedido.Visible = false;
+                lblPedido.Visible = false;
+                btnNuevaConsulta.Focus();
             }          
         }
 
@@ -161,14 +164,19 @@ namespace Unisangil.CYLTRACK.CYLTRACK_WebApp.Pedido
                         table2.Columns.Add("CantidadPedido");
                         table2.Columns.Add("FechaPedido");
 
+                        if (objPedido.Estado == "2")
+                        {
+                            lblPedidoCancelado.Text = "PEDIDO CANCELADO POR EL CLIENTE";
+                            lblPedidoCancelado.Visible = true;
+                        }
+                    
                         foreach (Detalle_PedidoBE datos in objPedido.List_Detalle_Ped)
                         {
                             table2.Rows.Add(datos.Tamano, datos.Cantidad, datos.Fecha);
                             gvPedido.DataSource = table2;
                             gvPedido.DataBind();
                         }
-                        divInfoPedido.Visible = true;
-                        
+                        divInfoPedido.Visible = true;                        
                     }                
             }
             catch (Exception ex)
@@ -184,6 +192,7 @@ namespace Unisangil.CYLTRACK.CYLTRACK_WebApp.Pedido
                 txtCedula.Text = "";
                 txtNumPedido.Text = "";
                 btnNuevaConsulta.Visible = true;
+                btnNuevaConsulta.Focus();
             }                       
         
         }
