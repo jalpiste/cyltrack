@@ -17,87 +17,7 @@ namespace Unisangil.CYLTRACK.CYLTRACK_WebApp.Pedido
     {
         protected void Page_Load(object sender, EventArgs e)
         {
-            txtCedula.Focus();
-        }
-
-        protected void txtCedula_TextChanged(object sender, EventArgs e)
-        {
-            PedidoServiceClient servPedido = new PedidoServiceClient();
-            ClienteServiceClient servCliente = new ClienteServiceClient();
-            DataTable table = new DataTable();
-
-            long respExisCliente;
-            long respExisPedido;
-
-            try
-            {
-                respExisCliente = servCliente.ConsultarExistenciasClientes(txtCedula.Text);
-
-                if (respExisCliente == 0)
-                {
-                    MessageBox.Show("El cliente no se encuentra registrado en el sistema", "Consultar Pedido");
-                    divInfoCliente.Visible = false;
-                    txtCedula.Text = "";
-                    txtCedula.Focus();
-                }
-
-                else
-                {
-                    respExisPedido = servPedido.ConsultarExistenciaPedido(txtCedula.Text);
-
-                    if (respExisPedido == 0)
-                    {
-                        MessageBox.Show("El pedido no se encuentra registrado en el sistema", "Consultar Pedido");
-                        divInfoCliente.Visible = false;
-                        txtCedula.Text = "";
-                        txtNumPedido.Text = "";
-                        txtCedula.Focus();
-                    }
-                    else
-                    {
-                        ClienteBE objCliente = servCliente.Consultar_Cliente(txtCedula.Text);
-
-                        txtCedulaCliente.Text = objCliente.Cedula;
-                        txtNombreCliente.Text = objCliente.Nombres_Cliente;
-                        txtPrimerApellido.Text = objCliente.Apellido_1;
-                        txtSegundoApellido.Text = objCliente.Apellido_2;
-                        txtDireccion.Text = objCliente.Ubicacion.Direccion;
-                        txtBarrio.Text = objCliente.Ubicacion.Barrio;
-                        txtCiudad.Text = objCliente.Ubicacion.Ciudad.Nombre_Ciudad;
-                        txtDepartamento.Text = objCliente.Ubicacion.Ciudad.Departamento.Nombre_Departamento;
-                        txtTelefono.Text = objCliente.Ubicacion.Telefono_1;
-                        divInfoCliente.Visible = true;
-
-                        PedidoBE objPedido = servPedido.Consultar_Pedido(txtCedulaCliente.Text);
-
-                        table.Columns.Add("TamanoCil");
-                        table.Columns.Add("CantidadPedido");
-                        table.Columns.Add("FechaPedido");
-                        lblCodigoPedido.Text = objPedido.Id_Pedido;
-                        foreach (Detalle_PedidoBE datos in objPedido.List_Detalle_Ped)
-                        {
-                            table.Rows.Add(datos.Tamano, datos.Cantidad, datos.Fecha);
-                        }
-                        gvPedido.DataSource = table;
-                        gvPedido.DataBind();
-                    }
-                }
-            }
-            catch (Exception ex)
-            {
-                Response.Redirect("~/About.aspx");
-            }
-            finally
-            {
-                servCliente.Close();
-                servPedido.Close();
-                lblCodigoPedido.Visible = true;
-                lblPedido.Visible = true;
-                txtCedula.Text = "";
-                txtNumPedido.Text = "";
-                btnGuardar.Visible = true;
-            }                       
-        
+            txtNumPedido.Focus();
         }
 
         protected void txtNumPedido_TextChanged(object sender, EventArgs e)
@@ -105,7 +25,8 @@ namespace Unisangil.CYLTRACK.CYLTRACK_WebApp.Pedido
             txtMotivoCancelacion.Focus();
             PedidoServiceClient servPedido = new PedidoServiceClient();
             ClienteServiceClient servCliente = new ClienteServiceClient();
-            DataTable table = new DataTable();
+            DataTable table1 = new DataTable();
+            DataTable table2 = new DataTable();
 
             long respExisPedido;
 
@@ -115,40 +36,58 @@ namespace Unisangil.CYLTRACK.CYLTRACK_WebApp.Pedido
 
                 if (respExisPedido == 0)
                 {
-                    MessageBox.Show("El pedido no se encuentra registrado en el sistema", "Consultar Pedido");
-                    divInfoCliente.Visible = false;
-                    txtCedula.Text = "";
+                    MessageBox.Show("El pedido no se encuentra registrado en el sistema", "Cancelar Pedido");
+                    divInfoCliente.Visible = false;                    
                     txtNumPedido.Text = "";
-                    txtCedula.Focus();
+                    txtNumPedido.Focus();
                 }
                 else
                 {
-                    ClienteBE objCliente = servCliente.Consultar_Cliente(Convert.ToString(respExisPedido));
-
-                    txtCedulaCliente.Text = objCliente.Cedula;
-                    txtNombreCliente.Text = objCliente.Nombres_Cliente;
-                    txtPrimerApellido.Text = objCliente.Apellido_1;
-                    txtSegundoApellido.Text = objCliente.Apellido_2;
-                    txtDireccion.Text = objCliente.Ubicacion.Direccion;
-                    txtBarrio.Text = objCliente.Ubicacion.Barrio;
-                    txtCiudad.Text = objCliente.Ubicacion.Ciudad.Nombre_Ciudad;
-                    txtDepartamento.Text = objCliente.Ubicacion.Ciudad.Departamento.Nombre_Departamento;
-                    txtTelefono.Text = objCliente.Ubicacion.Telefono_1;
-                    divInfoCliente.Visible = true;
-
                     PedidoBE objPedido = servPedido.Consultar_Pedido(txtNumPedido.Text);
 
-                    table.Columns.Add("TamanoCil");
-                    table.Columns.Add("CantidadPedido");
-                    table.Columns.Add("FechaPedido");
-
-                    foreach (Detalle_PedidoBE datos in objPedido.List_Detalle_Ped)
+                    if (objPedido.Estado != "2")
                     {
-                        table.Rows.Add(datos.Tamano, datos.Cantidad, datos.Fecha);
+                        table2.Columns.Add("TamanoCil");
+                        table2.Columns.Add("CantidadPedido");
+                        table2.Columns.Add("FechaPedido");
+
+                        foreach (Detalle_PedidoBE datos in objPedido.List_Detalle_Ped)
+                        {
+                            table2.Rows.Add(datos.Tamano, datos.Cantidad, datos.Fecha);
+                            gvPedido.DataSource = table2;
+                            gvPedido.DataBind();
+                        }
+                        divInfoPedido.Visible = true;
+
+                        ClienteBE objCliente = servCliente.Consultar_Cliente(Convert.ToString(respExisPedido));
+
+                        txtCedulaCliente.Text = objCliente.Cedula;
+                        txtNombreCliente.Text = objCliente.Nombres_Cliente;
+                        txtPrimerApellido.Text = objCliente.Apellido_1;
+                        txtSegundoApellido.Text = objCliente.Apellido_2;
+                        lblCodigoPedido.Text = txtNumPedido.Text;
+                        table1.Columns.Add("IdUbicacion");
+                        table1.Columns.Add("Direccion");
+                        table1.Columns.Add("Barrio");
+                        table1.Columns.Add("Telefono");
+                        table1.Columns.Add("Ciudad");
+
+                        foreach (UbicacionBE datos in objCliente.ListaDirecciones)
+                        {
+                            table1.Rows.Add(datos.Id_Ubicacion, datos.Direccion, datos.Barrio, datos.Telefono_1, datos.Ciudad.Nombre_Ciudad);
+                            gvDirecciones.DataSource = table1;
+                            gvDirecciones.DataBind();
+                        }
+
+                        divInfoCliente.Visible = true;
+                        divDirCliente.Visible = true;
                     }
-                    lblCodigoPedido.Text = txtNumPedido.Text;
-                    gvPedido.DataSource = table;
-                    gvPedido.DataBind();
+                    else {
+                        MessageBox.Show("El pedido ya se encuentra cancelado en el sistema", "Cancelar Pedido");
+                        divInfoCliente.Visible = false;
+                        txtNumPedido.Text = "";
+                        txtNumPedido.Focus();
+                    }
                 }
             }
             catch (Exception ex)
@@ -160,15 +99,15 @@ namespace Unisangil.CYLTRACK.CYLTRACK_WebApp.Pedido
                 servCliente.Close();
                 servPedido.Close();
                 lblCodigoPedido.Visible = true;
-                lblPedido.Visible = true;
-                txtCedula.Text = "";
-                txtNumPedido.Text = "";
-                btnGuardar.Visible = true;
-            }
+                lblPedido.Visible = true;               
+                txtNumPedido.Text = "";                
+            }                       
+        
         }
 
         protected void btnMenuPrincipal_Click(object sender, EventArgs e)
         {
+            if(!IsPostBack)
             Response.Redirect("~/Default.aspx");
         }
 
@@ -198,10 +137,11 @@ namespace Unisangil.CYLTRACK.CYLTRACK_WebApp.Pedido
             }
         }
 
-        protected void btnLimpiar_Click(object sender, EventArgs e)
+        protected void txtMotivoCancelacion_TextChanged(object sender, EventArgs e)
         {
-
+            btnGuardar.Visible = true;
+            btnGuardar.Focus();
         }
-
+       
     }
 }

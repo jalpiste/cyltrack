@@ -16,28 +16,14 @@
                 <fieldset class="login">
                     <legend>Modificación de Pedidos</legend>
                       <p>
-                        <asp:Label ID="lblCedula" runat="server" AssociatedControlID="txtCedula" >Número de Cédula:</asp:Label>
-                        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
                         <asp:Label ID="lblNumPedido" runat="server" Text="Número de Pedido: "></asp:Label>
                         <br />
-                        <asp:TextBox ID="txtCedula" runat="server" CssClass="textEntry" 
-                            Width="197px" ontextchanged="txtCedula_TextChanged"></asp:TextBox>
-                    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-                        <asp:TextBox ID="txtNumPedido" CssClass="textEntry" runat="server" 
+                    <asp:TextBox ID="txtNumPedido" CssClass="textEntry" runat="server" 
                             Width="112px" ontextchanged="TxtNumPedido_TextChanged"  ></asp:TextBox><br />
                         <asp:RequiredFieldValidator ID="ValidarDatosPedido" runat="server" ControlToValidate="txtNumPedido" 
                              CssClass="failureNotification" ErrorMessage="El número del pedido es obligatorio." 
                              ValidationGroup="Validar" Font-Size = "Small" Display ="Dynamic"></asp:RequiredFieldValidator>
                     
-                        <asp:RequiredFieldValidator ID="txtCedulaRequired" runat="server" ControlToValidate="txtCedula" 
-                             CssClass="failureNotification" ErrorMessage="El número de cédula del cliente es obligatorio." ToolTip="El número de cédula del cliente es obligatorio." 
-                             ValidationGroup="Validar" Font-Size = "Small" Display ="Dynamic"></asp:RequiredFieldValidator>
-                       
-                        <asp:RegularExpressionValidator ID="ValidarDatosCedula" runat="server" ControlToValidate="txtCedula" 
-                            CssClass="failureNotification" ErrorMessage="El número de cédula debe contener entre 6 y 10 dígitos." 
-                            ValidationExpression="^([\d]{6,10})$"  Font-Size = "Small" Display ="Dynamic"
-                            ValidationGroup="Validar" ></asp:RegularExpressionValidator>
-                     
                      <asp:RegularExpressionValidator ID="ValidarPedido" runat="server" ControlToValidate="txtNumPedido" 
                             CssClass="failureNotification" ErrorMessage="El pedido debe contener solo dígitos numéricos" 
                             ValidationExpression="\d*"  Font-Size = "Small" Display ="Dynamic"
@@ -149,9 +135,7 @@
                    </div>
                 </fieldset>
                 <p class="submitButton">
-                    <asp:Button ID="btnLimpiar" runat="server" Text="Limpiar" Width="121px" 
-                        onclick="btnLimpiar_Click"/> 
-                    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; &nbsp; 
+                  
                     <asp:Button ID="btnGuardar" runat="server" Text="Guardar" Width="121px"  Visible="false"
                         OnClick="btnGuardar_Click" ValidationGroup="ModificarPedido"/> 
                     &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; &nbsp; 

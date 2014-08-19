@@ -96,10 +96,9 @@ namespace Unisangil.CYLTRACK.CYLTRACK_WebApp.Pedido
                        gvDirecciones.DataBind();
                    }
                    divDirCliente.Visible = true;
-                   divInfoCliente.Visible = true;
-                   btnGuardar.Visible = true;
-                   gvDirecciones.Focus();
-                   
+                   divInfoCliente.Visible = true;                   
+                   lstTamanos.Focus();
+                   txtCedula.Text = "";                   
                }
             }
             catch (Exception ex)
@@ -111,18 +110,6 @@ namespace Unisangil.CYLTRACK.CYLTRACK_WebApp.Pedido
                 servCliente.Close();
                 servVeh.Close();                
             }                       
-        }
-
-        protected void btnLimpiar_Click(object sender, EventArgs e)
-        {
-            //txtNombreCliente.Text = " ";
-            //txtPrimerApellido.Text = " ";
-            //txtSegundoApellido.Text = " ";
-            //txtBarrio.Text = " ";
-            //txtCiudad.Text = " ";
-            //txtDepartamento.Text = " ";
-            //txtTelefono.Text = " ";
-            //txtCantidadCilindro.Text = " ";
         }
 
        protected void btnGuardar_Click(object sender, EventArgs e)
@@ -148,7 +135,7 @@ namespace Unisangil.CYLTRACK.CYLTRACK_WebApp.Pedido
 
                 resp = servPedido.Registrar_Pedido(ped);
 
-               MessageBox.Show("El pedido fue registrado satisfactoriamente", "Registrar Pedido");
+               MessageBox.Show("El pedido fue registrado satisfactoriamente bajo el número: "+resp, "Registrar Pedido");
                   
             }
             catch (Exception ex)
@@ -165,7 +152,10 @@ namespace Unisangil.CYLTRACK.CYLTRACK_WebApp.Pedido
 
        protected void btnMenuPrincipal_Click(object sender, EventArgs e)
         {
-            Response.Redirect("~/Default.aspx");
+           if (!IsPostBack)
+            {
+                Response.Redirect("~/Default.aspx");
+            }
         }
 
        protected DataTable objdtTabla
@@ -205,6 +195,7 @@ namespace Unisangil.CYLTRACK.CYLTRACK_WebApp.Pedido
             txtCantidad.Text = lista[e.NewEditIndex].Cantidad.ToString();
             Session["indiceModificar"] = e.NewEditIndex;
             e.Cancel = true;
+            txtObservaciones.Focus();
         }
 
         protected void grvPrueba_RowDeleting(object sender, GridViewDeleteEventArgs e)
@@ -214,6 +205,7 @@ namespace Unisangil.CYLTRACK.CYLTRACK_WebApp.Pedido
             Session["lista"] = lista;
             grvPrueba.DataSource = lista;
             grvPrueba.DataBind();
+            txtObservaciones.Focus();
         }
 
         protected void btnModificar_Click(object sender, EventArgs e)
@@ -243,7 +235,7 @@ namespace Unisangil.CYLTRACK.CYLTRACK_WebApp.Pedido
             grvPrueba.DataBind();
             btnEjecutar.Enabled = true;
             btnModificar.Enabled = false;
-
+            txtObservaciones.Focus();
         }
 
         protected void btnEjecutar_Click(object sender, EventArgs e)
@@ -269,6 +261,8 @@ namespace Unisangil.CYLTRACK.CYLTRACK_WebApp.Pedido
             Session["lista"] = lista;
             grvPrueba.DataSource = lista;
             grvPrueba.DataBind();
+            txtObservaciones.Focus();
+            btnGuardar.Visible = true;
         }
 
         private void CargaInicialGridView()

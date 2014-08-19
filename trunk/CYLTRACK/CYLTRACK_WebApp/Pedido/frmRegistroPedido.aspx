@@ -15,11 +15,6 @@
                  <asp:ValidationSummary ID="ValidarOrdenPedidoValidationSummary" runat="server" CssClass="failureNotification" 
                  ValidationGroup="ValidarPedido" Font-Size = "Small"/>
 
-       <h5>
-                <asp:Label ID="lblCodigoPedido" runat="server" Text="Código Pedido:   " visible="false"></asp:Label>
-                <asp:Label ID="lblNumeroPedido" runat="server" Text="" visible="false"></asp:Label>
-            </h5>
-             
             <div class="accountInfo">
                  <fieldset class="login">
                     <legend>Registro de Pedidos</legend>
@@ -131,11 +126,8 @@
                       <br />
                      </p>
                    </div>
-                </fieldset>
-                <p class="submitButton">
-                <asp:Button ID="btnLimpiar" runat="server" Text="Limpiar" Width="121px" 
-                        onclick="btnLimpiar_Click" /> 
-                    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; &nbsp; 
+                </fieldset><p class="submitButton">
+                     &nbsp; &nbsp; 
                     <asp:Button ID="btnGuardar" runat="server" Text="Guardar" Width="121px" Visible="false" 
                         onclick="btnGuardar_Click" ValidationGroup="RegistroPedido"/>  
                     &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; &nbsp;  
