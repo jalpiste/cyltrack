@@ -102,28 +102,30 @@ namespace Unisangil.CYLTRACK.CYLTRACK_BL
 
             try
             {
-                if (pedido.Detalle == "")
+                if (pedido.Detalle != "")
                 {
-                    pedido.Detalle = "0";
+                    respModPedido = pedidoDL.ModificarPedido(pedido);
                 }
-                respModPedido = pedidoDL.ModificarPedido(pedido);
+                
                 foreach(Detalle_PedidoBE datos in pedido.List_Detalle_Ped)
                 {
-                   // if()
-                    Detalle_PedidoBE det = new Detalle_PedidoBE();
-                    det.Tamano = datos.Tamano;
-                    det.Cantidad = datos.Cantidad;
-                    det.Id_Pedido = pedido.Id_Pedido;
-                    respModDetallePedido = pedidoDL.ModificarDetallePedido(det);
+                   if(datos.Id_Tamano!=null)
+                   {
+                       Detalle_PedidoBE det = new Detalle_PedidoBE();
+                       det.Tamano = datos.Tamano;
+                       det.Cantidad = datos.Cantidad;
+                       det.Id_Pedido = pedido.Id_Pedido;
+                       respModDetallePedido = pedidoDL.ModificarDetallePedido(det);
+                   }                    
                 }
             }
             catch (Exception ex)
             {
                 //guardar exepcion en el log de bd
-                respModPedido = -1;
+                respModDetallePedido = -1;
             }
 
-            return respModPedido;
+            return respModDetallePedido;
         }
         /// <summary>
         /// Método para la cancelación de pedidos en el sistema

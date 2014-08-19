@@ -43,7 +43,7 @@ namespace Unisangil.CYLTRACK.CYLTRACK_BL
                 {
                     cilindro.Vehiculo.Id_Vehiculo = "0";
                 }
-
+                cilindro.Tipo_Cilindro = "MARCADO";
                resp = cil.CrearCilindro(cilindro);
             }
             catch (Exception ex)
