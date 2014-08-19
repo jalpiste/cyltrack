@@ -61,6 +61,18 @@ namespace Unisangil.CYLTRACK.CYLTRACK_BE
         /// </summary>
         [DataMember]
         public String IdVenta { get; set; }
+
+        /// <summary>
+        /// Identificador del Vehiculo
+        /// </summary>
+        [DataMember]
+        public String Id_Vehiculo { get; set; }
+
+        /// <summary>
+        /// Identificador de la ubicacion del cliente
+        /// </summary>
+        [DataMember]
+        public String Id_Ubicacion { get; set; }
         
     }
 }
