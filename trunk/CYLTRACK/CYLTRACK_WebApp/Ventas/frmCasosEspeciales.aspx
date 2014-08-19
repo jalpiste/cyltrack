@@ -22,7 +22,8 @@
                         CssClass="failureNotification" ErrorMessage="El número de cédula del cliente es obligatorio."
                         ToolTip="El número de cédula del cliente es obligatorio." ValidationGroup="ConsultarVentaValidationGroup">*</asp:RequiredFieldValidator>
                     &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;
-                <asp:TextBox ID="txtCodVenta" runat="server" CssClass="textEntry"></asp:TextBox>
+                <asp:TextBox ID="txtCodVenta" runat="server" CssClass="textEntry" 
+                    ontextchanged="txtCodVenta_TextChanged"></asp:TextBox>
                     <br />
         <div id="DivInfoVenta" runat = "server" visible ="false" >
                 <div class="post">Información Venta</div>   
@@ -33,6 +34,7 @@
                 <asp:Label ID="lblHora" runat="server" Text="Hora: "></asp:Label>
                 &nbsp;
                 <asp:TextBox ID="txtHora" runat="server" Width="90px" enabled ="false" CssClass="textEntry" ></asp:TextBox>
+                <asp:Label ID="lblIdVehiculo" runat="server" Visible="false" ></asp:Label>
                 <br />
                 <br />
                 <p>
@@ -109,7 +111,9 @@
                         <br />
 
                     <div id="divGrid" runat="server" visible="false">
-                    <h3>Seleccione el cilindro del caso a registrar: </h3>
+                    <h3>Seleccione el cilindro del caso a registrar: 
+                        <asp:Label ID="lblIdDetalleV" runat="server" Visible="false"></asp:Label>
+                        </h3>
                     
                     <asp:Label ID="lblMsn" runat="server" Visible="False"></asp:Label>
                     <br />
@@ -117,6 +121,10 @@
                     CellPadding="5" ForeColor="#333333" GridLines="None" >
                     <AlternatingRowStyle BackColor="White" />
                     <Columns>
+                    <asp:BoundField SortExpression="Id_Det_Venta" DataField="Id_Det_Venta" Visible="false"
+                            HeaderStyle-Width="100px">
+                            <HeaderStyle Width="130px" />
+                        </asp:BoundField>
                         <asp:BoundField SortExpression="CodigosCilindros" DataField="CodigosCil" HeaderText="Códigos Cilindros"
                             HeaderStyle-Width="100px">
                             <HeaderStyle Width="130px" />
@@ -132,7 +140,7 @@
                         <asp:TemplateField HeaderText="Seleccionar">
                             <ItemTemplate>
                                 <asp:RadioButton ID="Agregar" runat="server" Width="100px"   
-                                AutoPostBack="true" value='<%# Eval("CodigosCil")%>'  />
+                                AutoPostBack="true" value='<%# Eval("Id_Det_Venta")%>' value2='<%# Eval("CodigosCil")%>'  OnCheckedChanged="SeleccionCilCaso_onClick"  />
                             </ItemTemplate>
                         </asp:TemplateField>
                      </Columns>
@@ -159,7 +167,8 @@
              <br />
                  <asp:Label ID="lblCodigoVerific" runat="server" Text="Digite el código del cilindro correcto:"></asp:Label> 
                  <br />
-                 <asp:TextBox ID="txtCodigoVerific" runat="server" CssClass="textEntry"></asp:TextBox>
+                 <asp:TextBox ID="txtCodigoVerific" runat="server" CssClass="textEntry" 
+                   ontextchanged="txtCodigoVerific_TextChanged"></asp:TextBox>
            </div>
                <br />
                     <asp:Label ID="lblObserva" runat="server" Text="Observaciones"></asp:Label>

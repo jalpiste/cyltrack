@@ -59,8 +59,11 @@
                        </div>
                       <div id="divDirCliente" runat="server" visible="false">  
                    <div class="post">Direcciones del Cliente</div> 
+                   <h3>
+                    Seleccione la dirección del cliente en donde se realizará la venta: 
+                    </h3>
                     <asp:GridView ID="gvDirecciones" runat="server" AutoGenerateColumns="False" 
-                    CellPadding="7" ForeColor="#333333" GridLines="None" Visible="false">
+                    CellPadding="7" ForeColor="#333333" GridLines="None" >
                     <AlternatingRowStyle BackColor="White" />
                     <Columns>
                         <asp:BoundField SortExpression="IdUbicacion" DataField="IdUbicacion" HeaderText="IdUbicacion"
@@ -109,7 +112,7 @@
                       </div> 
                                            
       <asp:GridView ID="gvPedido" runat="server" AutoGenerateColumns="False" 
-                    CellPadding="5" ForeColor="#333333" GridLines="None" Visible="false">
+                    CellPadding="5" ForeColor="#333333" GridLines="None" >
                     <AlternatingRowStyle BackColor="White" />
                     <Columns>
                         <asp:BoundField SortExpression="Tamamo" DataField="Tamano"  HeaderText="Tamaño"
@@ -159,7 +162,7 @@
         <tr>
             <td valign="top">
                  <asp:GridView ID="gvCilVehiculo" runat="server" AutoGenerateColumns="False" 
-                        CellPadding="4" ForeColor="#333333" GridLines="None" >
+                        CellPadding="4" ForeColor="#333333" GridLines="None" Visible="false" >
                     <RowStyle BackColor="#EFF3FB" />
                     <Columns>
                         <asp:TemplateField>                        
@@ -181,18 +184,18 @@
                 </asp:GridView>
             </td>
             <td valign="middle">
-                <asp:Button ID="btnSeleccionar" runat="server"  Text=">>" 
+                <asp:Button ID="btnSeleccionar" Visible="false" runat="server"  Text=">>" 
                     onclick="btnSeleccionarVehiculo_Click" /> <br/><br/>
-                <asp:Button ID="btnQuitar" runat="server" Text="<<" onclick="btnQuitar_Click" />
+                <asp:Button ID="btnQuitar" runat="server" Visible="false" Text="<<" onclick="btnSeleccionarVehiculo_Click" />
             </td>
             <td valign="top">
                 <asp:GridView ID="gvSeleccion" runat="server" AutoGenerateColumns="False" 
-                    CellPadding="4" ForeColor="#333333" GridLines="None" >
+                    CellPadding="4" ForeColor="#333333" GridLines="None" Visible="false" >
                     <RowStyle BackColor="#EFF3FB" />
                     <Columns>
                         <asp:TemplateField>                        
                             <ItemTemplate>
-                                <asp:CheckBox ID="chkSeleccion" runat="server"  />
+                                <asp:CheckBox ID="chkSeleccion" runat="server" value='<%# Eval("CodigosVehiSeleccionados")%>' OnCheckedChanged="CheckSelecVehiculo_onClick" />
                             </ItemTemplate>
                         
                         </asp:TemplateField>
@@ -213,12 +216,12 @@
             <td></td>
             <td valign="top">
                  <asp:GridView ID="gdCodClientes" runat="server" AutoGenerateColumns="False" 
-                        CellPadding="4" ForeColor="#333333" GridLines="None" >
+                        CellPadding="4" ForeColor="#333333" GridLines="None" Visible="false" >
                     <RowStyle BackColor="#EFF3FB" />
                     <Columns>
                         <asp:TemplateField>                        
                             <ItemTemplate>
-                                <asp:CheckBox ID="chkSeleccion2"  runat="server" />
+                                <asp:CheckBox ID="chkSeleccion2"  runat="server" value='<%# Eval("CodigosCilCliente")%>' OnCheckedChanged="CheckCliente_onClick" />
                             </ItemTemplate>                        
                         </asp:TemplateField>
                         <asp:BoundField DataField="CodigosCilCliente" HeaderText="Cilindros Cliente" />                        
@@ -235,18 +238,18 @@
                 </asp:GridView>
             </td>
             <td valign="middle">
-                <asp:Button ID="btnSelect" runat="server"  Text=">>" 
-                         /> <br/><br/>
-                <asp:Button ID="btnQuitar2" runat="server"  Text="<<"  />
+                <asp:Button ID="btnSelect" runat="server" Visible="false" Text=">>" 
+                 onclick="btnSeleccionarCliente_Click"         /> <br/><br/>
+                <asp:Button ID="btnQuitar2" runat="server" Visible="false" Text="<<" onclick="btnSeleccionarCliente_Click"  />
             </td>
             <td valign="top">
                 <asp:GridView ID="gdCilSelecCliente" runat="server" AutoGenerateColumns="False" 
-                    CellPadding="4" ForeColor="#333333" GridLines="None" >
+                    CellPadding="4" ForeColor="#333333" GridLines="None" Visible="false" >
                     <RowStyle BackColor="#EFF3FB" />
                     <Columns>
                         <asp:TemplateField>                        
                             <ItemTemplate>
-                                <asp:CheckBox ID="chkSeleccion3" runat="server" />
+                                <asp:CheckBox ID="chkSeleccion3" runat="server" value='<%# Eval("CodigosCliSeleccionados")%>' OnCheckedChanged="CheckSelecCliente_onClick" />
                             </ItemTemplate>
                         
                         </asp:TemplateField>

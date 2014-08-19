@@ -103,6 +103,15 @@ namespace Unisangil.CYLTRACK.CYLTRACK_WebApp.Ventas {
         protected global::System.Web.UI.WebControls.TextBox txtHora;
         
         /// <summary>
+        /// Control lblIdVehiculo.
+        /// </summary>
+        /// <remarks>
+        /// Campo generado automáticamente.
+        /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Label lblIdVehiculo;
+        
+        /// <summary>
         /// Control lblCedula2.
         /// </summary>
         /// <remarks>
@@ -209,6 +218,15 @@ namespace Unisangil.CYLTRACK.CYLTRACK_WebApp.Ventas {
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
         protected global::System.Web.UI.HtmlControls.HtmlGenericControl divGrid;
+        
+        /// <summary>
+        /// Control lblIdDetalleV.
+        /// </summary>
+        /// <remarks>
+        /// Campo generado automáticamente.
+        /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Label lblIdDetalleV;
         
         /// <summary>
         /// Control lblMsn.

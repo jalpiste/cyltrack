@@ -24,7 +24,8 @@
                         CssClass="failureNotification" ErrorMessage="El número de cédula del cliente es obligatorio."
                         ToolTip="El número de cédula del cliente es obligatorio." ValidationGroup="ConsultarVentaValidationGroup">*</asp:RequiredFieldValidator>
                     &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;
-                <asp:TextBox ID="txtCodVenta" runat="server" CssClass="textEntry"></asp:TextBox>
+                <asp:TextBox ID="txtCodVenta" runat="server" CssClass="textEntry" 
+                    ontextchanged="txtCodVenta_TextChanged"></asp:TextBox>
                     <br />
          <div id="DivInfoVenta" runat = "server" visible ="false" >
                 <div class="post">Información Venta</div>   
