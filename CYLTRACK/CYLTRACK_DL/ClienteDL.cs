@@ -454,10 +454,10 @@ namespace Unisangil.CYLTRACK.CYLTRACK_DL
                         cilindro.Tipo_Cilindro = datos.GetString(1);
                         ub.Cilindro = cilindro;
                         TamanoBE tam = new TamanoBE();
-                        tam.Tamano = (datos.GetString(2));
+                        tam.Tamano = (datos.GetString(2));                        
                         cilindro.NTamano = tam;
+                        ub.Id_Detalle_Venta = datos.GetValue(3).ToString();
                         lstubicacionCil.Add(ub);
-
                     }
                     catch (InvalidCastException ex)
                     {
@@ -473,7 +473,7 @@ namespace Unisangil.CYLTRACK.CYLTRACK_DL
             }
             catch (Exception ex)
             {
-                throw new Exception("Error al acceder a la base de datos para obtener los VehiculoBEs.");
+                throw new Exception("Error al acceder a la base de datos para obtener los Ubicacion_CilindroBE.");
             }
             return lstubicacionCil;
         }

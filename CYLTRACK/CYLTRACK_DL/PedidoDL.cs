@@ -265,7 +265,7 @@ namespace Unisangil.CYLTRACK.CYLTRACK_DL
             catch (Exception ex)
             {
                 db.CancelarTransaccion();
-                throw new Exception("Error al crear el PedidoBE.", ex);
+                throw new Exception("Error al modificar el PedidoBE.", ex);
             }
 
             finally
@@ -330,7 +330,7 @@ namespace Unisangil.CYLTRACK.CYLTRACK_DL
            catch (Exception ex)
            {
                db.CancelarTransaccion();
-               throw new Exception("Error al crear el Detalle_PedidoBE.", ex);
+               throw new Exception("Error al modificar el Detalle_PedidoBE.", ex);
            }
 
            finally
@@ -339,92 +339,6 @@ namespace Unisangil.CYLTRACK.CYLTRACK_DL
            }
            return codigo;
        }
-
-        public long AgregarUbicacionCliente(ClienteBE cliente)
-        {
-            long codigo = 0;
-            BaseDatos db = new BaseDatos();
-            try
-            {
-                db.Conectar();
-                db.ComenzarTransaccion();
-                string nameSP = "IngresaNuevaUbiCliente";
-                db.CrearComandoSP(nameSP);
-
-                DbParameter[] parametros = new DbParameter[8];
-
-                parametros[0] = db.Comando.CreateParameter();
-                parametros[0].ParameterName = "vrCedula";
-                parametros[0].Value = cliente.Cedula;
-                parametros[0].Direction = ParameterDirection.Input;
-                parametros[0].Size = 12;
-                db.Comando.Parameters.Add(parametros[0]);
-
-                parametros[1] = db.Comando.CreateParameter();
-                parametros[1].ParameterName = "vrDireccion";
-                parametros[1].Value = Convert.ToString(cliente.Ubicacion.Direccion);
-                parametros[1].Direction = ParameterDirection.Input;
-                parametros[1].Size = 30;
-                db.Comando.Parameters.Add(parametros[1]);
-
-                parametros[2] = db.Comando.CreateParameter();
-                parametros[2].ParameterName = "vrBarrio";
-                parametros[2].Value = cliente.Ubicacion.Barrio;
-                parametros[2].Direction = ParameterDirection.Input;
-                parametros[2].Size = 30;
-                db.Comando.Parameters.Add(parametros[2]);
-
-                parametros[3] = db.Comando.CreateParameter();
-                parametros[3].ParameterName = "vrTelefono";
-                parametros[3].Value = cliente.Ubicacion.Telefono_1;
-                parametros[3].Direction = ParameterDirection.Input;
-                parametros[3].Size = 10;
-                db.Comando.Parameters.Add(parametros[3]);
-
-                parametros[4] = db.Comando.CreateParameter();
-                parametros[4].ParameterName = "vrCiudad";
-                parametros[4].Value = cliente.Ubicacion.Ciudad.Nombre_Ciudad;
-                parametros[4].Direction = ParameterDirection.Input;
-                parametros[4].Size = 20;
-                db.Comando.Parameters.Add(parametros[4]);
-
-                parametros[5] = db.Comando.CreateParameter();
-                parametros[5].ParameterName = "vrDepartamento";
-                parametros[5].Value = cliente.Ubicacion.Ciudad.Departamento.Nombre_Departamento;
-                parametros[5].Direction = ParameterDirection.Input;
-                parametros[5].Size = 20;
-                db.Comando.Parameters.Add(parametros[5]);
-
-                parametros[6] = db.Comando.CreateParameter();
-                parametros[6].ParameterName = "vrCodResult";
-                parametros[6].Value = 0;
-                parametros[6].Direction = ParameterDirection.Output;
-                db.Comando.Parameters.Add(parametros[6]);
-
-                parametros[7] = db.Comando.CreateParameter();
-                parametros[7].ParameterName = "vrDescResult";
-                parametros[7].Value = "";
-                parametros[7].Direction = ParameterDirection.Output;
-                parametros[7].Size = 200;
-                parametros[7].DbType = DbType.String;
-                db.Comando.Parameters.Add(parametros[7]);
-
-                db.EjecutarComando();
-                codigo = long.Parse(db.Comando.Parameters[6].Value.ToString());
-                db.ConfirmarTransaccion();
-            }
-            catch (Exception ex)
-            {
-                db.CancelarTransaccion();
-                throw new Exception("Error al agregar ubicación del ClienteBE.", ex);
-            }
-
-            finally
-            {
-                db.Desconectar();
-            }
-            return codigo;
-        }
 
         public long ConsultaExistenciaPedido(string pedido)
         {
