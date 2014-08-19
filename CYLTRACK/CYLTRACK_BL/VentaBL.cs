@@ -39,6 +39,7 @@ namespace Unisangil.CYLTRACK.CYLTRACK_BL
                     det.Id_Cilindro_Entrada = datos.Id_Cilindro_Entrada;
                     det.Id_Cilindro_Salida = datos.Id_Cilindro_Salida;
                     det.Tipo_Cilindro = datos.Tipo_Cilindro;
+                    det.Tamano = datos.Tamano;
                     venta.Detalle_Venta = det;
                     respDetalleVenta = ven.RegistrarDetalleVenta(venta);
                 }
@@ -87,24 +88,6 @@ namespace Unisangil.CYLTRACK.CYLTRACK_BL
             return resp;
         }
 
-        public List<CilindroBE> ConsultarCarguePlaca() 
-        {
-            List<CilindroBE> lstCod = new List<CilindroBE>();
-            Random ran = new Random();
-                for (int i = 0; i < 7; i++)
-                {
-                    CilindroBE datCil = new CilindroBE();
-                    datCil.Codigo_Cilindro = ((DateTime.Now.Hour + DateTime.Now.Second) * ran.Next(1, 10)).ToString();
-                    datCil.Tipo_Cilindro = "Universal";
-                    TamanoBE tam = new TamanoBE();
-                    tam.Tamano = "40";
-                    datCil.NTamano = tam;                    
-                    lstCod.Add(datCil);
-                 }
-
-            return lstCod;
-        }
-
         public List<CasosBE> RevisionCasosEspeciales(string casos)
         {
             List<CasosBE> lstCaso = new List<CasosBE>();
@@ -125,11 +108,66 @@ namespace Unisangil.CYLTRACK.CYLTRACK_BL
             return lstCaso;
         }
 
-        public string CasosEspeciales(CasosBE casos)
+        public long CasosEspeciales(CasosBE casos)
         {
-            string resp = "Ok";
+            VentaDL ven = new VentaDL();
+            CilindroDL cil = new CilindroDL();
+
+            long respRegCaso ;
+            long respRegModV;
+            long respRegModUbica;
+            try
+            {
+                if (casos.Observaciones == "") 
+                {
+                    casos.Observaciones = "0";
+                }
+                casos.EstadoCaso = "1";
+                if (casos.Tipo_Caso.Nombre_Caso == "ESCAPE" || casos.Tipo_Caso.Nombre_Caso == "CODIGO ERRADO")
+                {
+                    respRegModV = ModificarVenta(casos.Detalle_Venta);
+                }
+                else 
+                {
+                    CilindroBE objCil = new CilindroBE();
+                    objCil.Codigo_Cilindro = casos.Detalle_Venta.Id_Cilindro_Entrada;
+                    Tipo_UbicacionBE tipUbica = new Tipo_UbicacionBE();
+                    tipUbica.Nombre_Ubicacion = "VEHICULO";
+                    objCil.Tipo_Ubicacion = tipUbica;
+                    VehiculoBE veh = new VehiculoBE();
+                    veh.Id_Vehiculo = casos.Detalle_Venta.Id_Vehiculo;
+                    objCil.Vehiculo = veh;
+
+                    respRegModUbica = cil.ModificarUbicacionCilindro(objCil);
+                }
+                respRegCaso = ven.RegistrarCasoEspecial(casos);
+
+            }
+            catch (Exception ex)
+            {
+                //guardar exepcion en el log de bd
+                respRegCaso = -1;
+            }
+            return respRegCaso;
+        }
+
+        public long ModificarVenta(Detalle_VentaBE detVenta)
+        {
+            VentaDL ven = new VentaDL();
+
+            long resp = 0;
+            try
+            {
+                resp = ven.ModificarVenta(detVenta);
+            }
+            catch (Exception ex)
+            {
+                //guardar exepcion en el log de bd
+                resp = -1;
+            }
             return resp;
         }
+
         #endregion
         #region Metodos privados
         #endregion
