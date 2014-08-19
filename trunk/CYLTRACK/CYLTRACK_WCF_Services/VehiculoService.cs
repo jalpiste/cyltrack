@@ -46,6 +46,7 @@ namespace Unisangil.CYLTRACK.CYLTRACK_WCF_Services
             return consultarVehiculo.ConsultarVehiculo(placa);
         }
 
+        
         /// <summary>
         /// Encargado de recibir la confirmación de existencia de vehículo de los canales front de venta y llamar
         /// al metodo de negocio para consultar la existencia de un vehículo
