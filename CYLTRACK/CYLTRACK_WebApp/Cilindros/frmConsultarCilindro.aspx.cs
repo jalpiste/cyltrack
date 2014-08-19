@@ -50,7 +50,7 @@ namespace Unisangil.CYLTRACK.CYLTRACK_WebApp.Cilindros
                     if (TxtUbicacion.Text == Ubicacion.VEHICULO.ToString())
                     {
                         TxtPlaca.Text = respConsultaCilindro.Vehiculo.Placa;
-                        TxtConductor.Text = respConsultaCilindro.Vehiculo.Conductor.Nombres_Conductor;
+                        TxtConductor.Text = respConsultaCilindro.Vehiculo.Conductor.Nombres_Conductor + " " + respConsultaCilindro.Vehiculo.Conductor.Apellido_1 + " " + respConsultaCilindro.Vehiculo.Conductor.Apellido_2;
                         TxtRuta.Text = respConsultaCilindro.Vehiculo.Ruta.Nombre_Ruta;
 
                         DivInfoVehiculo.Visible = true;

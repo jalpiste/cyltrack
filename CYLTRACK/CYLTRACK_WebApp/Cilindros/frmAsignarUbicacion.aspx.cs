@@ -20,10 +20,9 @@ namespace Unisangil.CYLTRACK.CYLTRACK_WebApp.Cilindros
             if (!IsPostBack)
             {
                 ReporteServiceClient servReporte = new ReporteServiceClient();
-                    
                 try
                 {
-                    lstUbica.DataSource = servReporte.ConsultaTipoUbicacion();
+                    lstUbica.DataSource = servReporte.ConsultaTipoUbicacion().Skip(1);
                     lstUbica.DataValueField = "Id_Tipo_Ubica";
                     lstUbica.DataTextField = "Nombre_Ubicacion";
                     lstUbica.DataBind();
@@ -32,18 +31,20 @@ namespace Unisangil.CYLTRACK.CYLTRACK_WebApp.Cilindros
                 {
                     Response.Redirect("~/About.aspx");
                 }
-            finally
-            {
-                servReporte.Close();
-                txtCodeCilindro.Focus();
-            }
+                finally
+                {
+                    servReporte.Close();
+                    txtCodeCilindro.Focus();
+                }
             }
         }
 
         protected void txtCodeCilindro_TextChanged(object sender, EventArgs e)
         {
             CilindroServiceClient servCilindro = new CilindroServiceClient();
-            
+            ReporteServiceClient servReporte = new ReporteServiceClient();
+            List<Tipo_UbicacionBE> lstTipoUbi = new List<Tipo_UbicacionBE>(servReporte.ConsultaTipoUbicacion()); 
+       
             long consultarExistencia;
             try
             {
@@ -62,7 +63,7 @@ namespace Unisangil.CYLTRACK.CYLTRACK_WebApp.Cilindros
                 {
                     CilindroBE ConsultarCilindro = servCilindro.ConsultarCilindro(txtCodeCilindro.Text);
                     txtCodigo.Text = ConsultarCilindro.Codigo_Cilindro;
-                    txtUbicacionActual.Text = ConsultarCilindro.Tipo_Ubicacion.Nombre_Ubicacion;
+                    txtUbicacionActual.Text = ConsultarCilindro.Tipo_Ubicacion.Nombre_Ubicacion;                      
                     DivUbicacionCil.Visible = true;
                     DivNuevaUbicacion.Visible = true;
                     txtCodeCilindro.Text = "";

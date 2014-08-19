@@ -49,31 +49,31 @@ namespace Unisangil.CYLTRACK.CYLTRACK_WebApp.Cilindros {
         protected global::System.Web.UI.WebControls.ValidationSummary validarCodigo;
         
         /// <summary>
-        /// Control LblCodigoCilindro.
+        /// Control lblCodigoCilindro.
         /// </summary>
         /// <remarks>
         /// Campo generado automáticamente.
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Label LblCodigoCilindro;
+        protected global::System.Web.UI.WebControls.Label lblCodigoCilindro;
         
         /// <summary>
-        /// Control TxtCodigoCilindro.
+        /// Control txtCodigoCilindro.
         /// </summary>
         /// <remarks>
         /// Campo generado automáticamente.
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox TxtCodigoCilindro;
+        protected global::System.Web.UI.WebControls.TextBox txtCodigoCilindro;
         
         /// <summary>
-        /// Control TxtCodigoCilindroRequired.
+        /// Control txtCodigoCilindroRequired.
         /// </summary>
         /// <remarks>
         /// Campo generado automáticamente.
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.RequiredFieldValidator TxtCodigoCilindroRequired;
+        protected global::System.Web.UI.WebControls.RequiredFieldValidator txtCodigoCilindroRequired;
         
         /// <summary>
         /// Control ValidarDatosCilindro.
@@ -94,13 +94,13 @@ namespace Unisangil.CYLTRACK.CYLTRACK_WebApp.Cilindros {
         protected global::System.Web.UI.HtmlControls.HtmlGenericControl DivDatosCilindro;
         
         /// <summary>
-        /// Control LblPoster.
+        /// Control lblPoster.
         /// </summary>
         /// <remarks>
         /// Campo generado automáticamente.
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Label LblPoster;
+        protected global::System.Web.UI.WebControls.Label lblPoster;
         
         /// <summary>
         /// Control lblCil.
@@ -121,40 +121,40 @@ namespace Unisangil.CYLTRACK.CYLTRACK_WebApp.Cilindros {
         protected global::System.Web.UI.WebControls.TextBox txtCil;
         
         /// <summary>
-        /// Control LblAno.
+        /// Control lblAno.
         /// </summary>
         /// <remarks>
         /// Campo generado automáticamente.
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Label LblAno;
+        protected global::System.Web.UI.WebControls.Label lblAno;
         
         /// <summary>
-        /// Control LblEmpresa.
+        /// Control lblEmpresa.
         /// </summary>
         /// <remarks>
         /// Campo generado automáticamente.
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Label LblEmpresa;
+        protected global::System.Web.UI.WebControls.Label lblEmpresa;
         
         /// <summary>
-        /// Control LblCodigo.
+        /// Control lblCodigo.
         /// </summary>
         /// <remarks>
         /// Campo generado automáticamente.
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Label LblCodigo;
+        protected global::System.Web.UI.WebControls.Label lblCodigo;
         
         /// <summary>
-        /// Control LstAno.
+        /// Control lstAno.
         /// </summary>
         /// <remarks>
         /// Campo generado automáticamente.
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.ListBox LstAno;
+        protected global::System.Web.UI.WebControls.ListBox lstAno;
         
         /// <summary>
         /// Control ValidAno.
@@ -166,13 +166,13 @@ namespace Unisangil.CYLTRACK.CYLTRACK_WebApp.Cilindros {
         protected global::System.Web.UI.WebControls.RequiredFieldValidator ValidAno;
         
         /// <summary>
-        /// Control TxtEmpresa.
+        /// Control txtEmpresa.
         /// </summary>
         /// <remarks>
         /// Campo generado automáticamente.
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox TxtEmpresa;
+        protected global::System.Web.UI.WebControls.TextBox txtEmpresa;
         
         /// <summary>
         /// Control validEmpresa.
@@ -193,13 +193,13 @@ namespace Unisangil.CYLTRACK.CYLTRACK_WebApp.Cilindros {
         protected global::System.Web.UI.WebControls.RegularExpressionValidator validarDatosEmpresa;
         
         /// <summary>
-        /// Control TxtCodigo.
+        /// Control txtCodigo.
         /// </summary>
         /// <remarks>
         /// Campo generado automáticamente.
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox TxtCodigo;
+        protected global::System.Web.UI.WebControls.TextBox txtCodigo;
         
         /// <summary>
         /// Control validSerial.
@@ -220,13 +220,13 @@ namespace Unisangil.CYLTRACK.CYLTRACK_WebApp.Cilindros {
         protected global::System.Web.UI.WebControls.RegularExpressionValidator ValidarSerialCil;
         
         /// <summary>
-        /// Control LblUbicacion.
+        /// Control lblUbicacion.
         /// </summary>
         /// <remarks>
         /// Campo generado automáticamente.
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Label LblUbicacion;
+        protected global::System.Web.UI.WebControls.Label lblUbicacion;
         
         /// <summary>
         /// Control lblTamano.
@@ -265,13 +265,13 @@ namespace Unisangil.CYLTRACK.CYLTRACK_WebApp.Cilindros {
         protected global::System.Web.UI.WebControls.RequiredFieldValidator validUbicacion;
         
         /// <summary>
-        /// Control LstTamano.
+        /// Control lstTamano.
         /// </summary>
         /// <remarks>
         /// Campo generado automáticamente.
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.ListBox LstTamano;
+        protected global::System.Web.UI.WebControls.ListBox lstTamano;
         
         /// <summary>
         /// Control validTamano.
@@ -301,21 +301,21 @@ namespace Unisangil.CYLTRACK.CYLTRACK_WebApp.Cilindros {
         protected global::System.Web.UI.WebControls.RequiredFieldValidator validPlaca;
         
         /// <summary>
-        /// Control BtnGuardar.
+        /// Control btnGuardar.
         /// </summary>
         /// <remarks>
         /// Campo generado automáticamente.
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Button BtnGuardar;
+        protected global::System.Web.UI.WebControls.Button btnGuardar;
         
         /// <summary>
-        /// Control BtnMenu.
+        /// Control btnMenu.
         /// </summary>
         /// <remarks>
         /// Campo generado automáticamente.
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Button BtnMenu;
+        protected global::System.Web.UI.WebControls.Button btnMenu;
     }
 }

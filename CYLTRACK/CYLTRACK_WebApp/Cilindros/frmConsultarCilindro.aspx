@@ -18,7 +18,7 @@
                        CssClass="failureNotification" ErrorMessage="El codigo del cilindro es obligatorio" ToolTip="El Codigo del Cilindro es obligatorio" 
                              ValidationGroup="ConsultaCilindro">*</asp:RequiredFieldValidator>
                        <asp:RegularExpressionValidator ID="validCodigo" runat="server" ControlToValidate="txtCodigoCilindro" 
-                       ValidationExpression="^([\d]{11,12})$" CssClass="failureNotification" Display="Static" Font-Size="Small" ErrorMessage=" El codigo del cilindro debe contener entre 11 y 12 dígitos" ToolTip="El Codigo del Cilindro es obligatorio" 
+                       ValidationExpression="^([\d]{12})$" CssClass="failureNotification" Display="Static" Font-Size="Small" ErrorMessage=" El codigo del cilindro debe contener 12 dígitos" ToolTip="El Codigo del Cilindro es obligatorio" 
                              ValidationGroup="ConsultaCilindro"></asp:RegularExpressionValidator>              
                         </p>
                     <div id="DivDatosCilindro" runat="server" visible="false">
