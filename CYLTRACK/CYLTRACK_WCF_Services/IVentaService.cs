@@ -47,15 +47,6 @@ namespace Unisangil.CYLTRACK.CYLTRACK_WCF_Services
         VentaBE ConsultarVenta(string datoConsulta);
 
         /// <summary>
-        /// Método encargado de la consulta de cilindros por placa en el sistema. Permite
-        /// que las aplicaciones llamen a los objetos de negocio directamente.
-        /// </summary>
-        /// <param name="ventas">ciudad del cliente</param>
-        /// <returns>codigos cilindros</returns>
-        [OperationContract]
-        List<CilindroBE> ConsultarCarguePlaca();
-
-        /// <summary>
         /// Método encargado de la revisión de casos especiales en el sistema. Permite
         /// que las aplicaciones llamen a los objetos de negocio directamente.
         /// </summary>
@@ -71,7 +62,16 @@ namespace Unisangil.CYLTRACK.CYLTRACK_WCF_Services
         /// <param name="ventas">Objeto de negocio ventas</param>
         /// <returns>cédula del cliente</returns>
         [OperationContract]
-        string CasosEspeciales(CasosBE casos);
+        long CasosEspeciales(CasosBE casos);
+
+        /// <summary>
+        /// Método encargado de la modificacion de ventas en el sistema. Permite
+        /// que las aplicaciones llamen a los objetos de negocio directamente.
+        /// </summary>
+        /// <param name="objeto ventas">Objeto de negocio ventas</param>
+        /// <returns>identificador detalleventas</returns>
+        [OperationContract]
+        long ModificarVenta(Detalle_VentaBE detVenta);
 
     }
 }

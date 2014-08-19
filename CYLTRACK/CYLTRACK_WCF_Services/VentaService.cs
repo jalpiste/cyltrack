@@ -60,20 +60,6 @@ namespace Unisangil.CYLTRACK.CYLTRACK_WCF_Services
         }
 
         /// <summary>
-        /// Encargado de recibir una ciudad de los canales front de venta y llamar
-        /// al metodo de negocio para consultar cargue de vehiculo
-        /// </summary>
-        /// <param name="ventas">ciudad de ubicacion del cliente</param>
-        /// <returns>codigos de cilindros</returns>
-        public List<CilindroBE> ConsultarCarguePlaca()
-        {
-            List<CilindroBE> resp;
-            VentaBL consultaPlaca = new VentaBL();
-            resp = consultaPlaca.ConsultarCarguePlaca();
-            return resp;
-        }
-
-        /// <summary>
         /// Encargado de recibir la cédula del cliente de los canales front de venta y llamar
         /// al metodo de negocio para Revisar los casos especiales registrados
         /// </summary>
@@ -93,11 +79,25 @@ namespace Unisangil.CYLTRACK.CYLTRACK_WCF_Services
         /// </summary>
         /// <param name="casos">Objeto de negocio Venta</param>
         /// <returns>ventas</returns>
-        public String CasosEspeciales(CasosBE casos)
+        public long CasosEspeciales(CasosBE casos)
         {
-            String resp;
+            long resp=0;
             VentaBL casosEspeciles = new VentaBL();
             resp = casosEspeciles.CasosEspeciales(casos);
+            return resp;
+        }
+
+        /// <summary>
+        /// Encargado de recibir la cédula del cliente de los canales front de venta y llamar
+        /// al metodo de negocio modificar venta
+        /// </summary>
+        /// <param name="objeto Detalle venta">Objeto de negocio DetalleVenta</param>
+        /// <returns>identificador venta</returns>
+        public long ModificarVenta(Detalle_VentaBE detVenta)
+        {
+            long resp = 0;
+            VentaBL modificarVenta = new VentaBL();
+            resp = modificarVenta.ModificarVenta(detVenta);
             return resp;
         }
     }
