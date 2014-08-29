@@ -21,13 +21,13 @@ namespace Unisangil.CYLTRACK.CYLTRACK_WCF_Services
         /// Encargado de recibir el código del cilindro de los canales front de venta y llamar
         /// al metodo de negocio para consultar el historico del cilindro
         /// </summary>
-        /// <param name="reporte">Objeto de negocio Reporte</param>
-        /// <returns>codigo cilindro</returns>
-        public List<ReportesBE> HistoricoCilindro(string reporte)
+        /// <param name="codigo">codigo cilindro</param>
+        /// <returns>Objeto de negocio Reporte</returns>
+        public List<Ubicacion_CilindroBE> HistoricoCilindro(string codigo)
         {
-            List<ReportesBE> resp ;
+            List<Ubicacion_CilindroBE> resp ;
             ReporteBL historicoCil = new ReporteBL();
-            resp = historicoCil.HistoricoCilindro(reporte);
+            resp = historicoCil.HistoricoCilindro(codigo);
             return resp;
 
         }
@@ -43,97 +43,6 @@ namespace Unisangil.CYLTRACK.CYLTRACK_WCF_Services
             List<Ubicacion_CilindroBE> resp;
             ReporteBL consultaUbicacion = new ReporteBL();
             resp = consultaUbicacion.ConsultarCilInventario(reporte);
-            return resp;
-        }
-
-
-        ///<summary>
-        ///Encargado de recibir una ciudad de los canales front de venta y llamar
-        ///al metodo de negocio para consultar la ciudad del reporte
-        ///</summary>
-        ///<param name="ciudad">ciudad</param>
-        ///<returns>cantidad y cilindros por ciudades</returns>
-        public List<UbicacionBE> ConsultaReporteCiudades(string ciudad, string tipoCil)
-        {
-            List<UbicacionBE> resp;
-            ReporteBL consultaReporteCiudades = new ReporteBL();
-            resp = consultaReporteCiudades.ConsultaReporteCiudades(ciudad, tipoCil);
-            return resp;
-        }
-
-        /// <summary>
-        /// Encargado de llamar al metodo de negocio para consultar los registros de cilindros
-        /// </summary>
-        /// <param name="cilindro">Objeto de negocio cilindro</param>
-        /// <returns>Códigos internos de los Cilindros</returns>
-        public List<CilindroBE> ReporteCilindro(string tipoCil)
-        {
-            List<CilindroBE> resp;
-            ReporteBL reportCil = new ReporteBL();
-            resp = reportCil.ReporteCilindros(tipoCil);
-            return resp;
-        }
-
-         /// <summary>
-        /// Encargado de llamar al metodo de negocio para consultar los registros de cilindros
-        /// </summary>
-        /// <param name="cilindro">Objeto de negocio cilindro</param>
-        /// <returns>Códigos internos de los Cilindros</returns>
-        public List<UbicacionBE> ReporteporPlacas(string tipoCil)
-        {
-            List<UbicacionBE> resp;
-            ReporteBL reportPlacas = new ReporteBL();
-            resp = reportPlacas.ReporteporPlacas(tipoCil);
-            return resp;
-        }
-
-         /// <summary>
-        /// Encargado de llamar al metodo de negocio para consultar los registros de cilindros
-        /// </summary>
-        /// <param name="cilindro">Objeto de negocio cilindro</param>
-        /// <returns>Códigos internos de los Cilindros</returns>
-        public List<ClienteBE> ReporteClientes()
-        {
-            List<ClienteBE> resp;
-            ReporteBL reportClientes = new ReporteBL();
-            resp = reportClientes.ReporteClientes();
-            return resp;
-        }
-        
-         /// <summary>
-        /// Encargado de llamar al metodo de negocio para consultar los registros de pedidos
-        /// <returns>listados de pedidos</returns>
-        public List<PedidoBE> ReportePedidos() 
-        {
-            List<PedidoBE> resp;
-            ReporteBL reportClientes = new ReporteBL();
-            resp = reportClientes.ReportePedidos();
-            return resp;
-        }
-
-        ///<summary>
-        ///Encargado de recibir una ruta de los canales front de venta y llamar
-        ///al metodo de negocio para consultar ruta
-        ///</summary>
-        ///<param name="ruta">Objeto de negocio ruta</param>
-        ///<returns>Nombre de ruta</returns>
-        public List<RutaBE> ConsultarRuta()
-        {
-            List<RutaBE> resp;
-            ReporteBL consultarRuta = new ReporteBL();
-            resp = consultarRuta.ReporteRuta();
-            return resp;
-        }
-
-        ///<summary>
-        ///Encargado llamar al metodo de negocio para consultar usuarios
-        ///</summary>
-        ///<returns>listado de datos usuario</returns>
-        public List<UsuarioBE> ReporteUsuario()
-        {
-            List<UsuarioBE> resp;
-            ReporteBL reporteUsuarios = new ReporteBL();
-            resp = reporteUsuarios.ReporteUsuario();
             return resp;
         }
 
@@ -180,6 +89,21 @@ namespace Unisangil.CYLTRACK.CYLTRACK_WCF_Services
             resp = consultarTipoCasos.ConsultaTipoCasos();
             return resp;
         }
-        
+
+        public List<CilindroBE> ReporteSiembrasCilindro(ReportesBE reporte)
+        {
+            List<CilindroBE> resp;
+            ReporteBL reporteSiembraCil = new ReporteBL();
+            resp = reporteSiembraCil.ReporteSiembrasCilindro(reporte);
+            return resp;
+        }
+
+        public List<CilindroBE> ReporteSiembrasCiudad(ReportesBE reporte)
+        {
+            List<CilindroBE> resp;
+            ReporteBL reporteSiembraCil = new ReporteBL();
+            resp = reporteSiembraCil.ReporteSiembrasCiudad(reporte);
+            return resp;
+        }
     }
 }

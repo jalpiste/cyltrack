@@ -23,10 +23,10 @@ namespace Unisangil.CYLTRACK.CYLTRACK_WCF_Services
         /// Método encargado de la consulta del historico de cilindros en el sistema. Permite
         /// que las aplicaciones llamen a los objetos de negocio directamente.
         /// </summary>
-        /// <param name="reporte">Objeto de negocio reporte</param>
-        /// <returns>código del cilindro</returns>
+        /// <param name="reporte">código del cilindro</param>
+        /// <returns>Objeto de negocio reporte</returns>
         [OperationContract]
-        List<ReportesBE> HistoricoCilindro(string reporte);
+        List<Ubicacion_CilindroBE> HistoricoCilindro(string codigo);
 
 
         /// <summary>
@@ -37,68 +37,6 @@ namespace Unisangil.CYLTRACK.CYLTRACK_WCF_Services
         /// <returns>Objeto cilindro</returns>
         [OperationContract]
         List<Ubicacion_CilindroBE> ConsultarCilInventario(ReportesBE reporte);
-
-        /// <summary>
-        /// Método encargado de la consulta de ciudades en el sistema. Permite
-        /// que las aplicaciones llamen a los objetos de negocio directamente.
-        /// </summary>
-        /// <param name="ruta">Objeto de negocio ciudad</param> 
-        /// <returns>nombre de ciudades cantidad de cilindros</returns>
-        [OperationContract]
-        List<UbicacionBE> ConsultaReporteCiudades(string ciudad, string tipoCil);
-
-        /// <summary>
-        /// Método encargado de la consulta de cilindros en el sistema. Permite
-        /// que las aplicaciones llamen a los objetos de negocio directamente.
-        /// </summary>
-        /// <param name="cilindro">Objeto de negocio cilindro</param>
-        /// <returns>código cilindro</returns>
-        [OperationContract]
-        List<CilindroBE> ReporteCilindro(string tipoCil);
-        
-        
-        /// <summary>
-        /// Método encargado de la consulta de placas en el sistema. Permite
-        /// que las aplicaciones llamen a los objetos de negocio directamente.
-        /// </summary>
-        /// <param name="cilindro">Objeto de negocio placas</param>
-        /// <returns>cantidad cilindros por placas</returns>
-        [OperationContract]
-        List<UbicacionBE> ReporteporPlacas(string tipoCil);
-
-        /// <summary>
-        /// Método encargado de la consulta de placas en el sistema. Permite
-        /// que las aplicaciones llamen a los objetos de negocio directamente.
-        /// </summary>
-        /// <param name="cilindro">Objeto de negocio placas</param>
-        /// <returns>cantidad cilindros por placas</returns>
-        [OperationContract]
-        List<ClienteBE> ReporteClientes();
-
-        /// <summary>
-        /// Método encargado de la consulta de pedidos en el sistema. Permite
-        /// que las aplicaciones llamen a los objetos de negocio directamente.
-        /// </summary>
-        /// <returns>listado de pedidos</returns>
-        [OperationContract]
-        List<PedidoBE> ReportePedidos();
-
-        /// <summary>
-        /// Método encargado de la consulta de rutas en el sistema. Permite
-        /// que las aplicaciones llamen a los objetos de negocio directamente.
-        /// </summary>
-        /// <param name="ruta">Objeto de negocio ruta</param> 
-        /// <returns>nombre de la ruta</returns>
-        [OperationContract]
-        List<RutaBE> ConsultarRuta();
-
-        /// <summary>
-        /// Método encargado de la consulta de usuarios en el sistema. Permite
-        /// que las aplicaciones llamen a los objetos de negocio directamente.
-        /// </summary>
-        /// <returns>listado de usuarios</returns>
-        [OperationContract]
-        List<UsuarioBE> ReporteUsuario();
 
         /// <summary>
         /// Método encargado de la consulta de los tipos de ubicaciones de cilindros en el sistema. Permite
@@ -132,5 +70,24 @@ namespace Unisangil.CYLTRACK.CYLTRACK_WCF_Services
         /// <returns>listado de objetos de tipos de casos </returns>
         [OperationContract]
         List<Tipo_CasoBE> ConsultaTiposCasos();
+
+        /// <summary>
+        /// Método encargado de la consulta de reporte de siembras por ciudades en el sistema. Permite
+        /// que las aplicaciones llamen a los objetos de negocio directamente.
+        /// </summary>
+        /// <param name="reporteBE">Objeto de negocio reporte </param>
+        /// <returns>listado de objetos de cilindros </returns>
+         [OperationContract]
+        List<CilindroBE> ReporteSiembrasCiudad(ReportesBE reporte);
+
+
+        /// <summary>
+        /// Método encargado de la consulta de reporte de siembras por cilindros en el sistema. Permite
+        /// que las aplicaciones llamen a los objetos de negocio directamente.
+        /// </summary>
+        /// <param name="reporteBE">Objeto de negocio reporte </param>
+        /// <returns>listado de objetos de cilindros </returns>
+         [OperationContract]
+        List<CilindroBE> ReporteSiembrasCilindro(ReportesBE reporte);
     }
 }

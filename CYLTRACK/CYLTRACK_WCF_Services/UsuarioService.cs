@@ -23,9 +23,9 @@ namespace Unisangil.CYLTRACK.CYLTRACK_WCF_Services
         /// </summary>
         /// <param name="usuario">Objeto de negocio Usuario</param>
         /// <returns>Código interno del cilindro</returns>
-        public string RegistrarUsuario(UsuarioBE usuario)
+        public long RegistrarUsuario(UsuarioBE usuario)
         {
-            string resp;
+            long resp;
             UsuarioBL regUsuario = new UsuarioBL();
             resp = regUsuario.RegistrarUsuario(usuario);
             return resp;
@@ -48,11 +48,11 @@ namespace Unisangil.CYLTRACK.CYLTRACK_WCF_Services
         /// Encargado de recibir el nombre de usuario de los canales front de venta y llamar
         /// al metodo de negocio para crear un registro del usuario
         /// </summary>
-        /// <param name="usuario">Objeto de negocio Usuario</param>
-        /// <returns>Código interno del cilindro</returns>
-        public string ConsultarExistencia(string usuario)
+        /// <param name="usuario">Nombre de Usuario</param>
+        /// <returns>Identificador del usuario</returns>
+        public long ConsultarExistencia(string usuario)
         {
-            string resp;
+            long resp;
             UsuarioBL consultaExis = new UsuarioBL();
             resp = consultaExis.ConsultarExistencia(usuario);
             return resp;
