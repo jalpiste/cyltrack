@@ -72,18 +72,7 @@
                              ValidationGroup="ValidarBusqueda">*</asp:RequiredFieldValidator>
         <br />
         
-        <div id="divTipoCil" runat="server" >
-        <h3>
-         <asp:Label ID="lblTipoCil" runat="server" Text="Tipo de Cilindro:"></asp:Label>
-         </h3>
-            <asp:ListBox ID="lstTipoCil" runat="server" AutoPostBack="True" Rows="1">
-            <asp:ListItem>Seleccionar...</asp:ListItem>
-        </asp:ListBox>
-                         <asp:RequiredFieldValidator ID="RequiredTipoCil" runat="server" ControlToValidate="lstTipoCil" 
-                             CssClass="failureNotification" ErrorMessage="El tipo de cilindro es obligatorio" ToolTip="El tipo de cilindro es obligatorio" 
-                             ValidationGroup="ValidarBusqueda">*</asp:RequiredFieldValidator>
-        </div>
-           <br />
+       
         
         <div id="divCiudad" runat="server" visible="false">
         <asp:Label ID="lblDepartamento" runat="server" Text="Departamento: " ></asp:Label>
@@ -91,7 +80,8 @@
         <asp:Label ID="lblCiudad" runat="server" Text="Ciudad: " ></asp:Label>
         <br />
         
-        <asp:ListBox ID="lstDepto" runat="server" Width="176px" AutoPostBack="True" Rows="1" >
+        <asp:ListBox ID="lstDepto" runat="server" Width="176px" AutoPostBack="True" 
+                Rows="1" onselectedindexchanged="lstDepto_SelectedIndexChanged" >
         <asp:ListItem>Seleccionar...</asp:ListItem>
         </asp:ListBox>
                  <asp:RequiredFieldValidator ID="RequiridoDepartamento" runat="server" ControlToValidate="lstDepto" 
@@ -125,19 +115,19 @@
                             HeaderStyle-Width="100px">
                             <HeaderStyle Width="130px" />
                         </asp:BoundField>
-                        <asp:BoundField SortExpression="Cil30" DataField="Cil30" HeaderText="Cil 30"
+                        <asp:BoundField SortExpression="Cil30" DataField="Cil30" HeaderText="Cilindro 30"
                             HeaderStyle-Width="70px">
                             <HeaderStyle Width="70px" />
                         </asp:BoundField>
-                        <asp:BoundField SortExpression="Cil40" DataField="Cil40" HeaderText="Cil 40"
+                        <asp:BoundField SortExpression="Cil40" DataField="Cil40" HeaderText="Cilindro 40"
                             HeaderStyle-Width="70px">
                             <HeaderStyle Width="70px" />
                         </asp:BoundField>
-                        <asp:BoundField SortExpression="Cil80" DataField="Cil80" HeaderText="Cil 80"
+                        <asp:BoundField SortExpression="Cil80" DataField="Cil80" HeaderText="Cilindro 80"
                             HeaderStyle-Width="70px">
                             <HeaderStyle Width="70px" />
                         </asp:BoundField>
-                        <asp:BoundField SortExpression="Cil100" DataField="Cil100" HeaderText="Cil 100"
+                        <asp:BoundField SortExpression="Cil100" DataField="Cil100" HeaderText="Cilindro 100"
                             HeaderStyle-Width="70px">
                             <HeaderStyle Width="70px" />
                         </asp:BoundField>
@@ -168,19 +158,7 @@
                             HeaderStyle-Width="100px">
                             <HeaderStyle Width="130px" />
                         </asp:BoundField>
-                        <asp:BoundField SortExpression="Cil30" DataField="Cil30" HeaderText="Cil 30"
-                            HeaderStyle-Width="70px">
-                            <HeaderStyle Width="70px" />
-                        </asp:BoundField>
-                        <asp:BoundField SortExpression="Cil40" DataField="Cil40" HeaderText="Cil 40"
-                            HeaderStyle-Width="70px">
-                            <HeaderStyle Width="70px" />
-                        </asp:BoundField>
-                        <asp:BoundField SortExpression="Cil80" DataField="Cil80" HeaderText="Cil 80"
-                            HeaderStyle-Width="70px">
-                            <HeaderStyle Width="70px" />
-                        </asp:BoundField>
-                        <asp:BoundField SortExpression="Cil100" DataField="Cil100" HeaderText="Cil 100"
+                        <asp:BoundField SortExpression="Tamano" DataField="Tamano" HeaderText="Tamaño Cilindro"
                             HeaderStyle-Width="70px">
                             <HeaderStyle Width="70px" />
                         </asp:BoundField>
@@ -209,11 +187,23 @@
                               
                     <AlternatingRowStyle BackColor="White"  />
                     <Columns>
-                        <asp:BoundField SortExpression="Tamano" DataField="Tamano" HeaderText="Tamaño Cilindro"
+                        <asp:BoundField SortExpression="Cil30" DataField="Cil30" HeaderText="Cilindro 30"
                             HeaderStyle-Width="70px">
                             <HeaderStyle Width="70px" />
                         </asp:BoundField>
-                        <asp:BoundField SortExpression="Cantidad" DataField="Cantidad" HeaderText="Cantidad"
+                        <asp:BoundField SortExpression="Cil40" DataField="Cil40" HeaderText="Cilindro 40"
+                            HeaderStyle-Width="70px">
+                            <HeaderStyle Width="70px" />
+                        </asp:BoundField>
+                        <asp:BoundField SortExpression="Cil80" DataField="Cil80" HeaderText="Cilindro 80"
+                            HeaderStyle-Width="70px">
+                            <HeaderStyle Width="70px" />
+                        </asp:BoundField>
+                        <asp:BoundField SortExpression="Cil100" DataField="Cil100" HeaderText="Cilindro 100"
+                            HeaderStyle-Width="70px">
+                            <HeaderStyle Width="70px" />
+                        </asp:BoundField>
+                        <asp:BoundField SortExpression="Total" DataField="Total" HeaderText="Total Siembra"
                             HeaderStyle-Width="70px">
                             <HeaderStyle Width="70px" />
                         </asp:BoundField>

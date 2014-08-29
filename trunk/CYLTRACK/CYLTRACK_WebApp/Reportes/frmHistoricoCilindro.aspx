@@ -38,11 +38,7 @@
                     CellPadding="5" ForeColor="#333333" GridLines="None"  >
                     <AlternatingRowStyle BackColor="White" />
                     <Columns>
-                        <asp:BoundField SortExpression="CodigoCilindro" DataField="CodigosCil" HeaderText="Código Cilindro"
-                           >
-                            <%--<HeaderStyle Width="130px" />--%>
-                        </asp:BoundField>
-                        <asp:BoundField SortExpression="Tamamo" DataField="Tamano" HeaderText="Tamaño"
+                        <asp:BoundField SortExpression="Usuario" DataField="Usuario" HeaderText="Usuario"
                            >
                             <%--<HeaderStyle Width="110px" />--%>
                         </asp:BoundField>
@@ -51,6 +47,10 @@
                             <%--<HeaderStyle Width="130px" />--%>
                         </asp:BoundField>
                         <asp:BoundField SortExpression="Ubicacion" DataField="Ubicacion" HeaderText="Ubicación"
+                            >
+                            <%--<HeaderStyle Width="130px" />--%>
+                        </asp:BoundField>
+                        <asp:BoundField SortExpression="Descripcion" DataField="Descripcion" HeaderText="Descripción"
                             >
                             <%--<HeaderStyle Width="130px" />--%>
                         </asp:BoundField>

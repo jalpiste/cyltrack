@@ -18,7 +18,6 @@ namespace Unisangil.CYLTRACK.CYLTRACK_WebApp
     {
         List<CilindroBE> lstDetail = new List<CilindroBE>();
         DataTable objdtLista;
-
         protected void Page_Load(object sender, EventArgs e)
         {
             ReporteServiceClient servReporte = new ReporteServiceClient();
@@ -37,7 +36,6 @@ namespace Unisangil.CYLTRACK.CYLTRACK_WebApp
                     lstUbicacion.DataValueField = "Id_Tipo_Ubica";
                     lstUbicacion.DataTextField = "Nombre_Ubicacion";
                     lstUbicacion.DataBind();
-
                     objdtLista = new DataTable();
                     CrearTabla();
                 }
@@ -95,10 +93,10 @@ namespace Unisangil.CYLTRACK.CYLTRACK_WebApp
             DataTable tabla2 = new DataTable();
             try 
             {
-                reporte.Tipo_Cilindro = lstTipoCil.SelectedItem.Text;
-                reporte.IdUbicacion = lstUbicacion.SelectedItem.Text;
-                reporte.IdVehiculo = lstPlacaVehículo.SelectedValue;
-                reporte.Fecha_Reporte = Convert.ToDateTime(txtFecha.Text);
+                reporte.Tipo_Cilindro = "'" + lstTipoCil.SelectedItem.Text + "'";
+                reporte.IdUbicacion = "'" + lstUbicacion.SelectedItem.Text + "'";
+                reporte.IdVehiculo = "'" + lstPlacaVehículo.SelectedValue + "'";
+                reporte.Fecha_Inicial = Convert.ToDateTime(txtFecha.Text);
 
                 List<Ubicacion_CilindroBE> datosConsulta = new List<Ubicacion_CilindroBE>(servReporte.ConsultarCilInventario(reporte));
 
@@ -108,25 +106,26 @@ namespace Unisangil.CYLTRACK.CYLTRACK_WebApp
             table.Columns.Add("TipoCil");
             tabla2.Columns.Add("Ubicacion");
             tabla2.Columns.Add("Cantidad");
+            tabla2.Columns.Add("Tamano");
             foreach (Ubicacion_CilindroBE datos in datosConsulta)
             {
                 table.Rows.Add(datos.Nombre_Ubicacion, datos.Cilindro.Codigo_Cilindro, datos.Cilindro.NTamano.Tamano, datos.Cilindro.Tipo_Cilindro);
-                if (datos.Cilindro.NTamano.Tamano == "30")
-                {
-                    tabla2.Rows.Add(datos.Nombre_Ubicacion, datos.Reportes.SumCil30);
-                }
-                if (datos.Cilindro.NTamano.Tamano == "40")
-                {
-                    tabla2.Rows.Add(datos.Nombre_Ubicacion, datos.Reportes.SumCil40);
-                }
-                if (datos.Cilindro.NTamano.Tamano == "80")
-                {
-                    tabla2.Rows.Add(datos.Nombre_Ubicacion, datos.Reportes.SumCil80);
-                }
-                if (datos.Cilindro.NTamano.Tamano == "100")
-                {
-                    tabla2.Rows.Add(datos.Nombre_Ubicacion, datos.Reportes.SumCil100);
-                }
+                //if (datos.Cilindro.NTamano.Tamano == "30")
+                //{
+                tabla2.Rows.Add(datos.Nombre_Ubicacion, datos.Reportes.SumCil30, datos.Cilindro.NTamano.Tamano);
+                //}
+                //if (datos.Cilindro.NTamano.Tamano == "40")
+                //{
+                tabla2.Rows.Add(datos.Nombre_Ubicacion, datos.Reportes.SumCil40, datos.Cilindro.NTamano.Tamano);
+                //}
+                //if (datos.Cilindro.NTamano.Tamano == "80")
+                //{
+                tabla2.Rows.Add(datos.Nombre_Ubicacion, datos.Reportes.SumCil80, datos.Cilindro.NTamano.Tamano);
+                //}
+                //if (datos.Cilindro.NTamano.Tamano == "100")
+                //{
+                tabla2.Rows.Add(datos.Nombre_Ubicacion, datos.Reportes.SumCil100, datos.Cilindro.NTamano.Tamano);
+                //}
             }
             gvInventario.DataSource = table;
             gvInventario.DataBind();
