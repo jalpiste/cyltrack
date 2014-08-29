@@ -42,11 +42,7 @@ namespace Unisangil.CYLTRACK.CYLTRACK_WebApp.Ventas
                     lstTamSiembra.DataTextField = "Tamano";
                     lstTamSiembra.DataBind();
 
-                    List<string> tipoCil = Auxiliar.ConsultaTipoCilindro();
-                    foreach (string dato in tipoCil)
-                    {
-                        lstTipoCil.Items.Add(dato);
-                    }
+                    
                     //CAMBIAR AL REALIZAR LA AUTENTICACION DEL USUARIO
                     lblIdVehiculo.Text = "1";
 
@@ -146,6 +142,8 @@ namespace Unisangil.CYLTRACK.CYLTRACK_WebApp.Ventas
                     {
                         MessageBox.Show("El pedido se encuentra cancelado en el sistema", "Consultar Pedido");
                         divInfoCliente.Visible = false;
+                        divDirCliente.Visible = false;
+                        DivInfoPedido.Visible = false;
                         txtCedula.Text = "";
                         txtNumPedido.Text = "";
                         txtCedula.Focus();
@@ -238,7 +236,8 @@ namespace Unisangil.CYLTRACK.CYLTRACK_WebApp.Ventas
                             detVenta.Tamano = lstTamano.SelectedItem.Text.ToString();
                             detVenta.Id_Cilindro_Entrada = info;
                             detVenta.Tipo_Cilindro = Tipo_Cilindro.MARCADO.ToString();
-                            lstDetalle_venta.Add(detVenta);                            
+                            lstDetalle_venta.Add(detVenta);
+                            detVenta.Tipo_Venta = radioTipoDeVenta.SelectedItem.Text;
                         }
                     }
                     ventas.Lista_Detalle_Venta= lstDetalle_venta;
@@ -259,6 +258,7 @@ namespace Unisangil.CYLTRACK.CYLTRACK_WebApp.Ventas
                             detVenta.Id_Cilindro_Entrada = "999999999999";
                             detVenta.Tipo_Cilindro = Tipo_Cilindro.UNIVERSAL.ToString();
                             lstDetalle_venta.Add(detVenta);
+                            detVenta.Tipo_Venta = radioTipoDeVenta.SelectedItem.Text;
                         }
                         ventas.Lista_Detalle_Venta = lstDetalle_venta;
                         resp = servVentas.RegistrarVenta(ventas);
@@ -338,6 +338,7 @@ namespace Unisangil.CYLTRACK.CYLTRACK_WebApp.Ventas
                      btnSelect.Visible = false;
                      gdCilSelecCliente.Visible = false;
                      gdCodClientes.Visible = false;
+                     
                  }
              }
              catch (Exception ex)
@@ -374,9 +375,13 @@ namespace Unisangil.CYLTRACK.CYLTRACK_WebApp.Ventas
          }
          protected void SelectTipoVenta(object sender, EventArgs e)
          {
-             if(radioTipoDeVenta.SelectedItem.Text=="Intercambio")
+             if (radioTipoDeVenta.SelectedItem.Text == "Intercambio")
              {
-             divIntercambioCil.Visible = true;
+                 divIntercambioCil.Visible = true;
+             }
+             else 
+             {
+                 divIntercambioCil.Visible = false;
              }
          }
 
