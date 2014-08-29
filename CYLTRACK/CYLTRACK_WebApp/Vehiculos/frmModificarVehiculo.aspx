@@ -135,22 +135,12 @@
                     <asp:RequiredFieldValidator ID="ValidarRegisNomProp" runat="server" ControlToValidate="txtNombre" 
                              CssClass="failureNotification" ErrorMessage="El nombre del propietario del vehículo es obligatorio." ToolTip="El nombre del propietario del vehículo es obligatorio." 
                              ValidationGroup="ModificarVehiculo">*</asp:RequiredFieldValidator>
-                    <asp:RegularExpressionValidator ID="ValidarDatosNomProp" runat="server" ControlToValidate="txtNombre" 
-                    CssClass="failureNotification" ErrorMessage="El nombre debe contener sólo caracteres alfabéticos." 
-                        ValidationExpression="^([A-Za-z]{0,20})$"  
-                    ValidationGroup="ModificarVehiculo" >*</asp:RegularExpressionValidator>
-                    
+                   
                     &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
                     <asp:TextBox ID="txtApellidos" runat="server" CssClass= "textEntry" Width="160px" Enabled="false" ></asp:TextBox>                                       
                     <asp:RequiredFieldValidator ID="ValidarRegisApeProp" runat="server" ControlToValidate="txtApellidos" 
                              CssClass="failureNotification" ErrorMessage="El apellido del propietario del vehículo es obligatorio." ToolTip="El apellido del propietario del vehículo es obligatorio." 
                              ValidationGroup="ModificarVehiculo">*</asp:RequiredFieldValidator>
-                    <asp:RegularExpressionValidator ID="ValidarDatosApeProp" runat="server" ControlToValidate="txtApellidos" 
-                    CssClass="failureNotification" ErrorMessage="El apellido debe contener sólo caracteres alfabéticos." 
-                        ValidationExpression="^([A-Za-z]{0,20})$"  
-                    ValidationGroup="ModificarVehiculo" >*</asp:RegularExpressionValidator>
-                    
-
                                 
                 </div> 
                     

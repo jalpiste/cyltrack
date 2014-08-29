@@ -400,15 +400,6 @@ namespace Unisangil.CYLTRACK.CYLTRACK_WebApp.Vehiculos {
         protected global::System.Web.UI.WebControls.RequiredFieldValidator ValidarRegisNomProp;
         
         /// <summary>
-        /// Control ValidarDatosNomProp.
-        /// </summary>
-        /// <remarks>
-        /// Campo generado automáticamente.
-        /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.RegularExpressionValidator ValidarDatosNomProp;
-        
-        /// <summary>
         /// Control txtApellidos.
         /// </summary>
         /// <remarks>
@@ -425,15 +416,6 @@ namespace Unisangil.CYLTRACK.CYLTRACK_WebApp.Vehiculos {
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
         protected global::System.Web.UI.WebControls.RequiredFieldValidator ValidarRegisApeProp;
-        
-        /// <summary>
-        /// Control ValidarDatosApeProp.
-        /// </summary>
-        /// <remarks>
-        /// Campo generado automáticamente.
-        /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.RegularExpressionValidator ValidarDatosApeProp;
         
         /// <summary>
         /// Control DivAsignacionConductor.

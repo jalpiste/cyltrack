@@ -45,7 +45,7 @@
 
                         <asp:RegularExpressionValidator ID="ValidarDatosNom" runat="server" ControlToValidate="txtNombreContratista" 
                     CssClass="failureNotification" ErrorMessage="El nombre debe contener sólo caracteres alfabéticos." 
-                        ValidationExpression="^([A-Za-z]{0,20})$"  
+                        ValidationExpression="^([A-Za-z](.{0,20}))$"  
                     ValidationGroup="RegistrarContratistaValidationGroup" >*</asp:RegularExpressionValidator>
                     
                     </p>
@@ -60,7 +60,7 @@
 
                              <asp:RegularExpressionValidator ID="ValidarDatosApe" runat="server" ControlToValidate="txtPrimerApellido" 
                     CssClass="failureNotification" ErrorMessage="El apellido debe contener sólo caracteres alfabéticos." 
-                        ValidationExpression="^([A-Za-z]{0,20})$"  
+                        ValidationExpression="^([A-Za-z](.{0,20}))$"  
                     ValidationGroup="RegistrarContratistaValidationGroup" >*</asp:RegularExpressionValidator>
                     
                             &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
@@ -75,11 +75,7 @@
                         <asp:RequiredFieldValidator ID="txtDirecciónRequired" runat="server" ControlToValidate="txtDireccion" 
                              CssClass="failureNotification" ErrorMessage="La dirección del Contratista es obligatoria." ToolTip="La dirección del Contratista es obligatoria." 
                              ValidationGroup="RegistrarContratistaValidationGroup">*</asp:RequiredFieldValidator>
-                    <asp:RegularExpressionValidator ID="ValidarDatosDir" runat="server" ControlToValidate="txtDireccion" 
-                    CssClass="failureNotification" ErrorMessage="La dirección debe contener sólo caracteres alfanuméricos. Ej, Calle 43 N 2 56"  
-                    ValidationGroup="RegistrarContratistaValidationGroup" 
-                            ValidationExpression="\w{1,20}\ \d{1,3}\ N \d{1,3}\ \d{1,3}">*</asp:RegularExpressionValidator>
-                    </p> 
+                                      </p> 
                      <p> 
                          <asp:Label ID="lblTelefono" runat="server" Text="Teléfono:"></asp:Label>
                     <br />
