@@ -88,6 +88,16 @@ namespace Unisangil.CYLTRACK.CYLTRACK_BL
                     datVeh = veh.ConsultaPlacaPorUbicacion(var);
                     resp.Vehiculo = datVeh;
                 }
+                if (resp.Tipo_Ubicacion.Nombre_Ubicacion == "CLIENTE")
+                {
+                    ClienteDL cli = new ClienteDL();
+                    UbicacionBE datCli = new UbicacionBE();
+                    string idUbica = resp.Tipo_Ubicacion.Ubicacion.Id_Ubicacion;
+                    datCli = cli.ConsultarDirClientePorUbicacion(idUbica);
+                    resp.Ubicacion= datCli;
+                    string idCliente = resp.Ubicacion.Cliente.Id_Cliente;
+                    resp.Cliente = cli.ConsultarCliente(idCliente);
+                }
             }
             catch (Exception ex)
             {

@@ -30,6 +30,7 @@ namespace Unisangil.CYLTRACK.CYLTRACK_BL
                 {
                     venta.Observaciones = "0";
                 }
+                
                 respVenta = ven.RegistrarVenta(venta);
                 venta.Id_Venta= respVenta.ToString();
 
@@ -39,7 +40,19 @@ namespace Unisangil.CYLTRACK.CYLTRACK_BL
                     det.Id_Cilindro_Entrada = datos.Id_Cilindro_Entrada;
                     det.Id_Cilindro_Salida = datos.Id_Cilindro_Salida;
                     det.Tipo_Cilindro = datos.Tipo_Cilindro;
-                    det.Tamano = datos.Tamano;
+                    det.Tamano = datos.Tamano;                    
+                    if (datos.Tipo_Venta == "Prestamo")
+                    {
+                        det.Tipo_Venta = "3";
+                    }
+                    if (datos.Tipo_Venta == "Intercambio" && datos.Tipo_Cilindro == "UNIVERSAL")
+                    {
+                        det.Tipo_Venta = "2";
+                    }
+                    else
+                    {
+                        det.Tipo_Venta = "1";
+                    }
                     venta.Detalle_Venta = det;
                     respDetalleVenta = ven.RegistrarDetalleVenta(venta);
                 }

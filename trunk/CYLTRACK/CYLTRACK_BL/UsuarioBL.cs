@@ -9,6 +9,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using Unisangil.CYLTRACK.CYLTRACK_BE;
+using Unisangil.CYLTRACK.CYLTRACK_DL;
 
 namespace Unisangil.CYLTRACK.CYLTRACK_BL
 {
@@ -18,11 +19,21 @@ namespace Unisangil.CYLTRACK.CYLTRACK_BL
 
         #endregion
         #region Metodos publicos
-        public string RegistrarUsuario(UsuarioBE usuario)
+        public long RegistrarUsuario(UsuarioBE usuario)
         {
-            string resp;
-            resp = "Ok";
-            return resp;   
+            UsuarioDL user = new UsuarioDL();
+            long resp = 0;
+            try
+            {
+                resp = user.CrearUsuario(usuario);
+            }
+            catch (Exception ex)
+            {
+                //guardar exepcion en el log de bd
+                resp = -1;
+            }
+
+            return resp;  
         }
 
         public List<PerfilBE> consultarCargos()
@@ -34,10 +45,20 @@ namespace Unisangil.CYLTRACK.CYLTRACK_BL
                 return lstPerfil;
         }
 
-        public string ConsultarExistencia(string usuario)
+        public long ConsultarExistencia(string usuario)
         {
-            string resp;
-            resp = "Ok";
+            UsuarioDL user = new UsuarioDL();
+            long resp = 0;
+            try
+            {
+                resp = user.ConsultarExistenciaUsuarios(usuario);
+            }
+            catch (Exception ex)
+            {
+                //guardar exepcion en el log de bd
+                resp = -1;
+            }
+
             return resp;
         }
 
