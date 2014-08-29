@@ -299,7 +299,6 @@
                         <asp:Label ID="lblCilSiembra" runat="server" Text="Código Cilindro Recibido: "></asp:Label>
                         &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; <asp:Label ID="lblTamano" runat="server" Text="Tamaño: " ></asp:Label>
                         &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-                        <asp:Label ID="lblTipoCilSiembra" runat="server" Text="Tipo de Cilindro:"></asp:Label>
                         <br />
                         <asp:TextBox ID="txtCilSiembra" runat="server" CssClass="textEntry"></asp:TextBox>
                        <asp:RequiredFieldValidator ID="TxtCodigoCilindroRequired" runat="server" ControlToValidate="txtCilSiembra" 
@@ -317,12 +316,7 @@
                              ValidationGroup="ValidarSiembra">*</asp:RequiredFieldValidator>
                             &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
 
-                        <asp:ListBox ID="lstTipoCil" runat="server"  Rows="1" AutoPostBack="True"></asp:ListBox>
-                     <asp:RequiredFieldValidator ID="RequiredFieldValidator3" runat="server" ControlToValidate="lstTipoCil" 
-                             CssClass="failureNotification" ErrorMessage="El tipo de cilindro es obligatorio." ToolTip="El tipo de cilindro es obligatorio." 
-                             ValidationGroup="ValidarSiembra">*</asp:RequiredFieldValidator>
-                            
-                    </p>
+                        </p>
                     </div>
                     <p>                    
                         <asp:Label ID="lblObservacion" runat="server" Text="Observación: "></asp:Label><br />
