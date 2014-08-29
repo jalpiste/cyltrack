@@ -73,6 +73,12 @@ namespace Unisangil.CYLTRACK.CYLTRACK_BE
         /// </summary>
         [DataMember]
         public String Id_Ubicacion { get; set; }
+
+        /// <summary>
+        /// Tipo de venta (1) Recompra (2) Siembra (3) Préstamo
+        /// </summary>
+        [DataMember]
+        public String Tipo_Venta { get; set; }  
         
     }
 }
