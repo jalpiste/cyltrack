@@ -107,7 +107,6 @@ namespace Unisangil.CYLTRACK.CYLTRACK_WebApp.Vehiculos
                 servVehiculo.Close();
             }
         }
-
      
         protected void btnGuardar_Click(object sender, EventArgs e)
         {
@@ -153,7 +152,6 @@ namespace Unisangil.CYLTRACK.CYLTRACK_WebApp.Vehiculos
             }
         }
 
-        
         protected void btnMenuPrincipal_Click(object sender, EventArgs e)
         {
             Response.Redirect("~/Default.aspx");
@@ -168,7 +166,6 @@ namespace Unisangil.CYLTRACK.CYLTRACK_WebApp.Vehiculos
         {
             VehiculoServiceClient servVehiculo = new VehiculoServiceClient();
             VehiculoBE vehiculo = new VehiculoBE();
-            
 
             try
             {
@@ -205,38 +202,6 @@ namespace Unisangil.CYLTRACK.CYLTRACK_WebApp.Vehiculos
             finally
             {
                 servVehiculo.Close();
-            }
-        }
-
-        protected void txtCedula_TextChanged(object sender, EventArgs e)
-        {
-            VehiculoServiceClient servVehiculo = new VehiculoServiceClient();
-             try
-            {
-                long consultarPropVehiculo = servVehiculo.ConsultarExistenciaContratista(txtCedula.Text);
-
-                if (consultarPropVehiculo == 0)
-                {
-                    MessageBox.Show("El contratista no se encuentra registrado en el sistema", "Modificar Vehículo");
-                }
-                else
-                {
-                    txtCedula2.Text = txtCedula.Text;
-                    ContratistaBE objContratista = servVehiculo.ConsultarPropVehiculo(txtCedula2.Text);
-                    txtNombre.Text = objContratista.Nombres;
-                    txtApellidos.Text = objContratista.Apellidos;
-                    txtNombre.Enabled = false;
-                    txtApellidos.Enabled = false;
-                    
-                }
-            }
-            catch (Exception ex)
-            {
-                Response.Redirect("~/About.aspx");
-            }
-            finally
-            {
-                servVehiculo.Close();                
             }
         }
 

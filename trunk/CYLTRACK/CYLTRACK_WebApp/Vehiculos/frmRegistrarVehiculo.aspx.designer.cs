@@ -382,15 +382,6 @@ namespace Unisangil.CYLTRACK.CYLTRACK_WebApp.Vehiculos {
         protected global::System.Web.UI.WebControls.RequiredFieldValidator validarCedProp;
         
         /// <summary>
-        /// Control validarExpreProp.
-        /// </summary>
-        /// <remarks>
-        /// Campo generado automáticamente.
-        /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.RegularExpressionValidator validarExpreProp;
-        
-        /// <summary>
         /// Control lblNombres.
         /// </summary>
         /// <remarks>
@@ -499,15 +490,6 @@ namespace Unisangil.CYLTRACK.CYLTRACK_WebApp.Vehiculos {
         protected global::System.Web.UI.WebControls.RequiredFieldValidator validarCedulaCond;
         
         /// <summary>
-        /// Control RegularExpressionValidator1.
-        /// </summary>
-        /// <remarks>
-        /// Campo generado automáticamente.
-        /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.RegularExpressionValidator RegularExpressionValidator1;
-        
-        /// <summary>
         /// Control lblNombreCond.
         /// </summary>
         /// <remarks>
@@ -553,15 +535,6 @@ namespace Unisangil.CYLTRACK.CYLTRACK_WebApp.Vehiculos {
         protected global::System.Web.UI.WebControls.RequiredFieldValidator validarNombreCond;
         
         /// <summary>
-        /// Control validarExpresionCond.
-        /// </summary>
-        /// <remarks>
-        /// Campo generado automáticamente.
-        /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.RegularExpressionValidator validarExpresionCond;
-        
-        /// <summary>
         /// Control txtPrimerApellidoCond.
         /// </summary>
         /// <remarks>
@@ -580,15 +553,6 @@ namespace Unisangil.CYLTRACK.CYLTRACK_WebApp.Vehiculos {
         protected global::System.Web.UI.WebControls.RequiredFieldValidator validarApellidoCond;
         
         /// <summary>
-        /// Control validarExpresionApellido.
-        /// </summary>
-        /// <remarks>
-        /// Campo generado automáticamente.
-        /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.RegularExpressionValidator validarExpresionApellido;
-        
-        /// <summary>
         /// Control txtSegundoApellidoCond.
         /// </summary>
         /// <remarks>
@@ -605,15 +569,6 @@ namespace Unisangil.CYLTRACK.CYLTRACK_WebApp.Vehiculos {
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
         protected global::System.Web.UI.WebControls.RequiredFieldValidator validarSegundApellido;
-        
-        /// <summary>
-        /// Control validarExpresionSegApellido.
-        /// </summary>
-        /// <remarks>
-        /// Campo generado automáticamente.
-        /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.RegularExpressionValidator validarExpresionSegApellido;
         
         /// <summary>
         /// Control DivSelRuta.
