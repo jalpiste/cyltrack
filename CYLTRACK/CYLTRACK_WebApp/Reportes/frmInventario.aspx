@@ -128,6 +128,10 @@
                             HeaderStyle-Width="100px">
                             <HeaderStyle Width="130px" />
                         </asp:BoundField>
+                        <asp:BoundField SortExpression="Tamano" DataField="Tamano" HeaderText="Tamaño"
+                            HeaderStyle-Width="100px">
+                            <HeaderStyle Width="130px" />
+                        </asp:BoundField>
                     </Columns>
                     <EditRowStyle BackColor="#7C6F57"  />
                     <FooterStyle BackColor="#1C5E55" Font-Bold="True" ForeColor="White" />
