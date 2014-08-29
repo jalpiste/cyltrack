@@ -86,7 +86,7 @@ namespace Unisangil.CYLTRACK.CYLTRACK_DL
                 string nameSP = "CrearRegistroDetalleVenta";
                 db.CrearComandoSP(nameSP);
 
-                DbParameter[] parametros = new DbParameter[9];
+                DbParameter[] parametros = new DbParameter[10];
 
                 parametros[0] = db.Comando.CreateParameter();
                 parametros[0].ParameterName = "vrIdVenta";
@@ -138,21 +138,28 @@ namespace Unisangil.CYLTRACK.CYLTRACK_DL
                 db.Comando.Parameters.Add(parametros[6]);
 
                 parametros[7] = db.Comando.CreateParameter();
-                parametros[7].ParameterName = "vrCodResult";
-                parametros[7].Value = 0;
-                parametros[7].Direction = ParameterDirection.Output;
+                parametros[7].ParameterName = "vrTipoVenta";
+                parametros[7].Value = venta.Detalle_Venta.Tipo_Venta;
+                parametros[7].Direction = ParameterDirection.Input;
+                parametros[7].Size = 1;
                 db.Comando.Parameters.Add(parametros[7]);
 
                 parametros[8] = db.Comando.CreateParameter();
-                parametros[8].ParameterName = "vrDescResult";
-                parametros[8].Value = "";
+                parametros[8].ParameterName = "vrCodResult";
+                parametros[8].Value = 0;
                 parametros[8].Direction = ParameterDirection.Output;
-                parametros[8].Size = 200;
-                parametros[8].DbType = DbType.String;
                 db.Comando.Parameters.Add(parametros[8]);
 
+                parametros[9] = db.Comando.CreateParameter();
+                parametros[9].ParameterName = "vrDescResult";
+                parametros[9].Value = "";
+                parametros[9].Direction = ParameterDirection.Output;
+                parametros[9].Size = 200;
+                parametros[9].DbType = DbType.String;
+                db.Comando.Parameters.Add(parametros[9]);
+
                 db.EjecutarComando();
-                codigo = long.Parse(db.Comando.Parameters[7].Value.ToString());
+                codigo = long.Parse(db.Comando.Parameters[8].Value.ToString());
                 db.ConfirmarTransaccion();
             }
             catch (Exception ex)

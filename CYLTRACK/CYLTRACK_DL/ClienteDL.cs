@@ -525,6 +525,9 @@ namespace Unisangil.CYLTRACK.CYLTRACK_DL
                         DepartamentoBE dep = new DepartamentoBE();
                         dep.Nombre_Departamento = datos.GetString(5);
                         dep.Id_Departamento = datos.GetValue(6).ToString();
+                        ClienteBE cli = new ClienteBE();
+                        cli.Id_Cliente = datos.GetValue(7).ToString();
+                        u.Cliente = cli;
                         ciu.Departamento = dep;
                         u.Ciudad = ciu;
                         ubicacion=u;
