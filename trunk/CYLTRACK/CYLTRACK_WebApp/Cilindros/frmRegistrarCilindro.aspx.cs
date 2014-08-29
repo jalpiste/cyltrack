@@ -218,7 +218,7 @@ namespace Unisangil.CYLTRACK.CYLTRACK_WebApp.Cilindros
             }
         }
 
-        protected void lstUbicacion_SelectedIndexChanged(object sender, EventArgs e)
+        protected void lstUbicacion_SelectedIndexChanged1(object sender, EventArgs e)
         {
             if (lstUbicacion.SelectedItem.Text == Ubicacion.VEHICULO.ToString())
             {
@@ -239,6 +239,6 @@ namespace Unisangil.CYLTRACK.CYLTRACK_WebApp.Cilindros
                     lstPlacas.Visible = false;
                     lblPlaca.Visible = false;
                 }
-        }               
+        }
      }
 }

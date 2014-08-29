@@ -81,7 +81,7 @@
                         </p>
                         <p>
                         <asp:ListBox ID="lstUbicacion" runat="server" Rows="1" 
-                                onselectedindexchanged="lstUbicacion_SelectedIndexChanged" >
+                          AutoPostBack="True"      onselectedindexchanged="lstUbicacion_SelectedIndexChanged1" >
                             <asp:ListItem>Seleccionar...</asp:ListItem>
                         </asp:ListBox>
                            <asp:RequiredFieldValidator ID="validUbicacion" runat="server" ControlToValidate="lstUbicacion" 

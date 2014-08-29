@@ -58,15 +58,15 @@ namespace Unisangil.CYLTRACK.CYLTRACK_WebApp.Cilindros
 
                     if (TxtUbicacion.Text == Ubicacion.CLIENTE.ToString())
                     {
-                        txtCedula.Text = respConsultaCilindro.Tipo_Ubicacion.Ubicacion.Cliente.Cedula;
-                        TxtNombreCliente.Text = respConsultaCilindro.Tipo_Ubicacion.Ubicacion.Cliente.Nombres_Cliente;
-                        TxtPrimerApellido.Text = respConsultaCilindro.Tipo_Ubicacion.Ubicacion.Cliente.Apellido_1;
-                        TxtSegundoApellido.Text = respConsultaCilindro.Tipo_Ubicacion.Ubicacion.Cliente.Apellido_2;
-                        TxtDireccion.Text = respConsultaCilindro.Tipo_Ubicacion.Ubicacion.Direccion;
-                        TxtBarrio.Text = respConsultaCilindro.Tipo_Ubicacion.Ubicacion.Barrio;
-                        TxtCiudad.Text = respConsultaCilindro.Tipo_Ubicacion.Ubicacion.Ciudad.Nombre_Ciudad;
-                        TxtDepartamento.Text = respConsultaCilindro.Tipo_Ubicacion.Ubicacion.Ciudad.Departamento.Nombre_Departamento;
-                        TxtTelefono.Text = respConsultaCilindro.Tipo_Ubicacion.Ubicacion.Telefono_1;
+                        txtCedula.Text = respConsultaCilindro.Cliente.Cedula;
+                        TxtNombreCliente.Text = respConsultaCilindro.Cliente.Nombres_Cliente;
+                        TxtPrimerApellido.Text = respConsultaCilindro.Cliente.Apellido_1;
+                        TxtSegundoApellido.Text = respConsultaCilindro.Cliente.Apellido_2;
+                        TxtDireccion.Text = respConsultaCilindro.Ubicacion.Direccion;
+                        TxtBarrio.Text = respConsultaCilindro.Ubicacion.Barrio;
+                        TxtCiudad.Text = respConsultaCilindro.Ubicacion.Ciudad.Nombre_Ciudad;
+                        TxtDepartamento.Text = respConsultaCilindro.Ubicacion.Ciudad.Departamento.Nombre_Departamento;
+                        TxtTelefono.Text = respConsultaCilindro.Ubicacion.Telefono_1;
                         Txtentrega.Text = Convert.ToString(respConsultaCilindro.Fecha);
 
                         DivInfoCilindro.Visible = true;
