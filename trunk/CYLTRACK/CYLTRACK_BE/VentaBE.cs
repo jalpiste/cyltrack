@@ -67,7 +67,6 @@ namespace Unisangil.CYLTRACK.CYLTRACK_BE
         /// </summary>
         [DataMember]
         public String IdCliente { get; set; }
-
-              
+    
     }
 }

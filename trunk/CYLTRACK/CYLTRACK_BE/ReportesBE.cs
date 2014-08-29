@@ -36,10 +36,16 @@ namespace Unisangil.CYLTRACK.CYLTRACK_BE
         public String Tipo_Cilindro { get; set; }
 
         /// <summary>
-        /// Vehículo
+        /// Fecha Inicial del Reporte 
         /// </summary>
         [DataMember]
-        public DateTime Fecha_Reporte { get; set; }
+        public DateTime Fecha_Inicial { get; set; }
+
+        /// <summary>
+        /// Fecha Final Reporte 
+        /// </summary>
+        [DataMember]
+        public DateTime Fecha_Final { get; set; }
 
         /// <summary>
         ///Sumatoria de Cilindros de 30 Libras
