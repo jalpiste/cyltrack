@@ -34,6 +34,7 @@ namespace Unisangil.CYLTRACK.CYLTRACK_WebApp.Cilindros
                 }
                 else
                 {
+                    BtnNuevaConsulta.Focus();
                     CilindroBE respConsultaCilindro = servCilindro.ConsultarCilindro(txtCodigoCilindro.Text);
 
                     TxtAno.Text = respConsultaCilindro.Ano;
@@ -81,6 +82,7 @@ namespace Unisangil.CYLTRACK.CYLTRACK_WebApp.Cilindros
             finally
             {
                 servCilindro.Close();
+                txtCodigoCilindro.Text = "";                
             }
 
         }
