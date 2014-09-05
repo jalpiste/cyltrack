@@ -61,7 +61,12 @@ namespace Unisangil.CYLTRACK.CYLTRACK_WebApp.Cilindros
                 }
                 else
                 {
+                    txtCodeCilindro.Enabled = false;
                     CilindroBE ConsultarCilindro = servCilindro.ConsultarCilindro(txtCodeCilindro.Text);
+                    if(ConsultarCilindro.Tipo_Ubicacion.Nombre_Ubicacion==Ubicacion.VEHICULO.ToString())
+                    {
+                        txtPlacaActual.Text = ConsultarCilindro.Vehiculo.Placa;
+                    }
                     txtCodigo.Text = ConsultarCilindro.Codigo_Cilindro;
                     txtUbicacionActual.Text = ConsultarCilindro.Tipo_Ubicacion.Nombre_Ubicacion;                      
                     DivUbicacionCil.Visible = true;
@@ -95,11 +100,12 @@ namespace Unisangil.CYLTRACK.CYLTRACK_WebApp.Cilindros
                     lstPlacaVehiculo.DataTextField = "Placa";
                     lstPlacaVehiculo.DataBind();
                     diVehiculo.Visible = true;
-                    lstPlacaVehiculo.Focus();
+                    lstPlacaVehiculo.Focus();                    
                 }
                 else 
                 {
                     diVehiculo.Visible = false;
+                    DivConductor.Visible = false;
                     lstPlacaVehiculo.Controls.Clear();
                 }
             }
@@ -115,7 +121,6 @@ namespace Unisangil.CYLTRACK.CYLTRACK_WebApp.Cilindros
             }
 
         }
-
 
         protected void BtnMenu_Click(object sender, EventArgs e)
         {
@@ -148,7 +153,7 @@ namespace Unisangil.CYLTRACK.CYLTRACK_WebApp.Cilindros
                 }
                 resp = servAsig.ModificarUbicaCilindro(cilindro);
 
-                MessageBox.Show("La asignación de ubicación fue cambiada satisfactoriamente", "Asignar Ubicación");
+                MessageBox.Show("La asignación de ubicación fue realizada satisfactoriamente", "Asignar Ubicación");
             }
             catch (Exception ex)
             {
@@ -174,8 +179,9 @@ namespace Unisangil.CYLTRACK.CYLTRACK_WebApp.Cilindros
                 {
                     TxtConductor.Text = datos.Conductor.Nombres_Conductor+" "+datos.Conductor.Apellido_1+" "+datos.Conductor.Apellido_2;
                     LblRutaVehiculo.Text = datos.Ruta.Nombre_Ruta;
+                    
                 }
-                
+                DivConductor.Visible = true;               
         
             }
             catch (Exception ex)

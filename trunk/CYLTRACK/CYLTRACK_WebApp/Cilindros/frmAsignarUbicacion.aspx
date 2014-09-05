@@ -45,6 +45,10 @@
                             Enabled="False"></asp:Label>
                         &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
                         <asp:TextBox ID="txtUbicacionActual" runat="server" CssClass="textEntry" Enabled="False"></asp:TextBox>                       
+                        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                      <asp:Label ID="lblPlacaActual" runat="server" Text="Placa: "></asp:Label>
+&nbsp;&nbsp;&nbsp;                       
+                        <asp:TextBox ID="txtPlacaActual" runat="server" CssClass="textEntry" Enabled="False"></asp:TextBox>
                         <br />
                     </div>
                     <br />
@@ -65,6 +69,7 @@
                           <asp:ListItem>Seleccionar...</asp:ListItem>                            
                          </asp:ListBox>
                          <br /><br />
+                         <div id = "DivConductor" runat ="server" visible ="False">
                         <asp:Label ID="LblConductor" runat="server" Text="Conductor Vehiculo:" ></asp:Label>
 
                         &nbsp;&nbsp;&nbsp;
@@ -77,6 +82,7 @@
                             <asp:Label ID="LblRuta" runat="server" Text="Ruta:" ></asp:Label>
                         &nbsp;&nbsp;&nbsp;
                                     <asp:Label ID="LblRutaVehiculo" runat="server" ></asp:Label>
+                                    </div>
                         </div>
                         </div>
        </fieldset><p class="submitButton">

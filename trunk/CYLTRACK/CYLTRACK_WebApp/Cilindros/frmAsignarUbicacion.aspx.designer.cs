@@ -130,6 +130,24 @@ namespace Unisangil.CYLTRACK.CYLTRACK_WebApp.Cilindros {
         protected global::System.Web.UI.WebControls.TextBox txtUbicacionActual;
         
         /// <summary>
+        /// Control lblPlacaActual.
+        /// </summary>
+        /// <remarks>
+        /// Campo generado automáticamente.
+        /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Label lblPlacaActual;
+        
+        /// <summary>
+        /// Control txtPlacaActual.
+        /// </summary>
+        /// <remarks>
+        /// Campo generado automáticamente.
+        /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.TextBox txtPlacaActual;
+        
+        /// <summary>
         /// Control DivNuevaUbicacion.
         /// </summary>
         /// <remarks>
@@ -182,6 +200,15 @@ namespace Unisangil.CYLTRACK.CYLTRACK_WebApp.Cilindros {
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
         protected global::System.Web.UI.WebControls.ListBox lstPlacaVehiculo;
+        
+        /// <summary>
+        /// Control DivConductor.
+        /// </summary>
+        /// <remarks>
+        /// Campo generado automáticamente.
+        /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
+        /// </remarks>
+        protected global::System.Web.UI.HtmlControls.HtmlGenericControl DivConductor;
         
         /// <summary>
         /// Control LblConductor.
