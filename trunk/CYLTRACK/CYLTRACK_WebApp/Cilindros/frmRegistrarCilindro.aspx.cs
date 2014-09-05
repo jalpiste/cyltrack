@@ -45,10 +45,10 @@ namespace Unisangil.CYLTRACK.CYLTRACK_WebApp.Cilindros
                     //    lstAno.Items.Add(datosAnos.ToString());
                     //}
 
-                        //lstPlacas.DataSource = servVehiculo.ConsultarVehiculo(string.Empty);
-                        //lstPlacas.DataValueField = "Id_Vehiculo";
-                        //lstPlacas.DataTextField = "Placa";
-                        //lstPlacas.DataBind();
+                        lstPlacas.DataSource = servVehiculo.ConsultarVehiculo(string.Empty);
+                        lstPlacas.DataValueField = "Id_Vehiculo";
+                        lstPlacas.DataTextField = "Placa";
+                        lstPlacas.DataBind();
                  }
                 catch (Exception ex)
                 {
