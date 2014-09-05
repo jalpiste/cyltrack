@@ -42,9 +42,8 @@ namespace Unisangil.CYLTRACK.CYLTRACK_WebApp.Clientes
                 }
                 else
                 {
-
+                    txtCedula.Enabled = false;
                     ClienteBE consulta = serCliente.Consultar_Cliente(txtCedula.Text);
-
                     txtCedulaCli.Text = consulta.Cedula;
                     txtNombreCliente.Text = consulta.Nombres_Cliente;
                     txtPrimerApellido.Text = consulta.Apellido_1;
@@ -84,12 +83,13 @@ namespace Unisangil.CYLTRACK.CYLTRACK_WebApp.Clientes
 
         protected void btnMenuPrincipal_Click(object sender, EventArgs e)
         {
-            //Response.Redirect("~/Default.aspx");
+            Response.Redirect("~/Default.aspx");
         }
 
         protected void btnNuevaConsulta_Click(object sender, EventArgs e)
         {
             txtCedula.Text = "";
+            txtCedula.Enabled = true;
             divInfoCliente.Visible = false;
             btnNuevaConsulta.Visible = false;
 
