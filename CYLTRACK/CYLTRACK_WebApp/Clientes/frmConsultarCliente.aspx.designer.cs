@@ -157,15 +157,6 @@ namespace Unisangil.CYLTRACK.CYLTRACK_WebApp.Clientes {
         protected global::System.Web.UI.WebControls.GridView gvDirecciones;
         
         /// <summary>
-        /// Control gdCilindrosCli.
-        /// </summary>
-        /// <remarks>
-        /// Campo generado automáticamente.
-        /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.GridView gdCilindrosCli;
-        
-        /// <summary>
         /// Control btnNuevaConsulta.
         /// </summary>
         /// <remarks>
