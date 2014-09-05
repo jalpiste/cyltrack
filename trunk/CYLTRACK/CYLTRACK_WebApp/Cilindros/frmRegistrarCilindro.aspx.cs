@@ -22,13 +22,12 @@ namespace Unisangil.CYLTRACK.CYLTRACK_WebApp.Cilindros
             if (!IsPostBack)
             {
                 txtCodigoCilindro.Focus();
-
+                btnMenu.Visible = true;
                 ReporteServiceClient servReporte = new ReporteServiceClient();
                 VehiculoServiceClient servVehiculo = new VehiculoServiceClient();
 
                 try
                 {
-                 
                         lstUbicacion.DataSource = servReporte.ConsultaTipoUbicacion().Skip(1);
                         lstUbicacion.DataValueField = "Id_Tipo_Ubica";
                         lstUbicacion.DataTextField = "Nombre_Ubicacion";
@@ -39,17 +38,17 @@ namespace Unisangil.CYLTRACK.CYLTRACK_WebApp.Cilindros
                         lstTamano.DataTextField = "Tamano";
                         lstTamano.DataBind();
 
-                    Anos[] anos = Auxiliar.ConsultarAnos();
-                    IEnumerable<Anos> listaAnos = anos.Skip(1).OrderByDescending(g => g);
-                    foreach (Anos datosAnos in listaAnos)
-                    {
-                        lstAno.Items.Add(datosAnos.ToString());
-                    }
+                    //Anos[] anos = Auxiliar.ConsultarAnos();
+                    //IEnumerable<Anos> listaAnos = anos.Skip(1).OrderByDescending(g => g);
+                    //foreach (Anos datosAnos in listaAnos)
+                    //{
+                    //    lstAno.Items.Add(datosAnos.ToString());
+                    //}
 
-                        lstPlacas.DataSource = servVehiculo.ConsultarVehiculo(string.Empty);
-                        lstPlacas.DataValueField = "Id_Vehiculo";
-                        lstPlacas.DataTextField = "Placa";
-                        lstPlacas.DataBind();
+                        //lstPlacas.DataSource = servVehiculo.ConsultarVehiculo(string.Empty);
+                        //lstPlacas.DataValueField = "Id_Vehiculo";
+                        //lstPlacas.DataTextField = "Placa";
+                        //lstPlacas.DataBind();
                  }
                 catch (Exception ex)
                 {
@@ -65,7 +64,6 @@ namespace Unisangil.CYLTRACK.CYLTRACK_WebApp.Cilindros
         }
         protected void txtCodigoCilindro_TextChanged(object sender, EventArgs e)
         {
-            SetFocus(btnGuardar);
             CilindroServiceClient servCilindro = new CilindroServiceClient();
             CilindroBE cilindro = new CilindroBE();
             long codigo;
@@ -81,42 +79,43 @@ namespace Unisangil.CYLTRACK.CYLTRACK_WebApp.Cilindros
                     txtCodigoCilindro.Text = "";
                     DivDatosCilindro.Visible = false;
                     btnGuardar.Visible = false;
-                    txtCodigoCilindro.Focus();                    
+                    txtCodigoCilindro.Focus();
+                    txtEmpresa.Text = "";
+                    txtAno.Text = "";
+                    txtCodigo.Text = "";
                 }
                 else
                 {
                     txtCil.Text = txtCodigoCilindro.Text;
                     txtCodigoCilindro.Text = "";
-                    DivDatosCilindro.Visible = true;
-                    btnGuardar.Visible = true;
+                    DivDatosCilindro.Visible = true;                    
                     lstUbicacion.Focus();                    
                     txtEmpresa.Text = txtCil.Text.Substring(2, 4);
                     txtCodigo.Text = txtCil.Text.Substring(6);
-                   
 
                     if (Convert.ToInt32(varAno) >= 0)
                     {
                         if (Convert.ToInt32(varAno) <= anoActual)
                         {
-                            lstAno.SelectedValue = ("20" + varAno);
+                            txtAno.Text = ("20" + varAno);
                             txtEmpresa_TextChanged(sender, e);
                         }
                         else
                         {
-                            if (Convert.ToInt32(varAno) > anoActual)
+                            if (Convert.ToInt32(varAno) < anoActual)
                             {
                                 MessageBox.Show("El año de fabricación del cilindro no es válido, rectifique los datos", "Registrar Cilindro");
                                 txtCodigoCilindro.Text = "";
                                 DivDatosCilindro.Visible = false;
                                 btnGuardar.Visible = false;
-                                txtCodigoCilindro.Focus(); 
+                                txtCodigoCilindro.Focus();
                             }
                             else
                             {
-                            lstAno.SelectedValue = ("19" + varAno);
-                            txtEmpresa_TextChanged(sender, e);
+                                txtAno.Text = ("19" + varAno);
+                                txtEmpresa_TextChanged(sender, e);
                             }
-                        }                        
+                        }
                     }                    
                 }
             }
@@ -139,12 +138,12 @@ namespace Unisangil.CYLTRACK.CYLTRACK_WebApp.Cilindros
 
             try
             {
-                cilindro.Ano = lstAno.SelectedValue;
+                cilindro.Ano = txtAno.Text;
                 FabricanteBE fab = new FabricanteBE();
                 fab.Codigo_Fabricante = txtEmpresa.Text;
                 cilindro.Fabricante = fab;
                 cilindro.Serial_Cilindro = txtCodigo.Text;
-                cilindro.Codigo_Cilindro = (lstAno.SelectedValue).Substring(2) + "" + txtEmpresa.Text + "" + txtCodigo.Text;
+                cilindro.Codigo_Cilindro = (txtAno.Text).Substring(2) + "" + txtEmpresa.Text + "" + txtCodigo.Text;
                 VehiculoBE veh = new VehiculoBE();
                 veh.Id_Vehiculo = (lstPlacas.SelectedValue);
                 cilindro.Vehiculo = veh;
@@ -155,20 +154,24 @@ namespace Unisangil.CYLTRACK.CYLTRACK_WebApp.Cilindros
                 TamanoBE tam = new TamanoBE();
                 tam.Id_Tamano = lstTamano.SelectedValue;
                 cilindro.NTamano = tam;
-                
+
                 if (txtCil.Text == cilindro.Codigo_Cilindro)
                 {
                     resp = servCilindro.RegistrarCilindro(cilindro);
-
-                    MessageBox.Show("El Cilindro fue registrado satisfactoriamente", "Registrar Cilindro");
-                    
+                    if (resp != -1)
+                    {
+                        MessageBox.Show("El Cilindro fue registrado satisfactoriamente", "Registrar Cilindro");
+                    }
+                    else 
+                    {
+                        Response.Redirect("~/About.aspx");
+                    }
                 }
                 else
                 {
                     MessageBox.Show("El código escrito no coincide con los datos ingresados", "Registrar Cilindro");
                     txtCodigoCilindro.Text = "";
                 }
-
             }
             catch (Exception ex)
             {
@@ -187,7 +190,7 @@ namespace Unisangil.CYLTRACK.CYLTRACK_WebApp.Cilindros
             if (!IsPostBack)
             {
                 Response.Redirect("~/Default.aspx");
-            }
+            }            
         }
 
         protected void txtEmpresa_TextChanged(object sender, EventArgs e)
@@ -200,7 +203,7 @@ namespace Unisangil.CYLTRACK.CYLTRACK_WebApp.Cilindros
 
                 if (codigo == 0)
                 {
-                    MessageBox.Show("El código del fabricante no se encuentra registrado en el sistema, comuniquese con el administrador del sistema", "Registrar Cilindro");
+                    MessageBox.Show("El código del fabricante no se encuentra registrado en el sistema, comuníquese con el administrador del sistema", "Registrar Cilindro");
                     txtCodigoCilindro.Text = "";
                     DivDatosCilindro.Visible = false;
                     btnGuardar.Visible = false;
@@ -220,13 +223,16 @@ namespace Unisangil.CYLTRACK.CYLTRACK_WebApp.Cilindros
 
         protected void lstUbicacion_SelectedIndexChanged1(object sender, EventArgs e)
         {
+            btnGuardar.Visible = true;
+            btnGuardar.Focus();
             if (lstUbicacion.SelectedItem.Text == Ubicacion.VEHICULO.ToString())
             {
                 if (lstPlacas.Items.Count == 0)
                 {
-                    MessageBox.Show("No se ha realizado registros de vehiculos en el sistema", "Registrar Cilindro");
+                    MessageBox.Show("No se ha realizado registros de vehículos en el sistema", "Registrar Cilindro");
                     lstPlacas.Visible = false;
                     lblPlaca.Visible = false;
+                    lstUbicacion.Items.RemoveAt(lstUbicacion.SelectedIndex);
                 }
                 else
                 {

@@ -49,9 +49,12 @@
                            <asp:Label ID="lblCodigo" runat="server" Text="Identificador Cilindro:" ></asp:Label>
                     </p>
                     <p>
-                         <asp:ListBox ID="lstAno" runat="server" AutoPostBack="True" Rows="1" Enabled="false" />
+                         
                              
-                             <asp:RequiredFieldValidator ID="ValidAno" runat="server" ControlToValidate="lstAno" 
+                             <asp:TextBox ID="txtAno" runat="server" Width="80px" CssClass="textEntry" Enabled="false"></asp:TextBox>
+                         
+                             
+                             <asp:RequiredFieldValidator ID="ValidAno" runat="server" ControlToValidate="txtAno" 
                              CssClass="failureNotification" ErrorMessage="El año de fabricación es obligatorio." ToolTip="El año de fabricacion es obligatorio." 
                              ValidationGroup="RegistrodeCilindro">*</asp:RequiredFieldValidator>
                          &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 
@@ -97,8 +100,7 @@
                              ValidationGroup="RegistrodeCilindro">*</asp:RequiredFieldValidator>
                     &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
                             <asp:ListBox ID="lstPlacas" runat="server" AutoPostBack="True" Rows="1" Visible = "false"  >
-                            <asp:ListItem>Seleccionar...</asp:ListItem>
-                        </asp:ListBox>
+                             </asp:ListBox>
                         <asp:RequiredFieldValidator ID="validPlaca" runat="server" ControlToValidate="lstPlacas" 
                              CssClass="failureNotification" ErrorMessage="La placa del vehículo es obligatorio." ToolTip="La placa del vehículo es obligatorio." 
                              ValidationGroup="validarPlaca">*</asp:RequiredFieldValidator>
@@ -111,7 +113,7 @@
                     <asp:Button ID="btnGuardar" runat="server" Text="Guardar" visible="false" Width="115px"
                         onclick="btnGuardar_Click" ValidationGroup="RegistrodeCilindro"  />  
                     &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; &nbsp;  
-                    <asp:Button ID="btnMenu" runat="server" Text="Menú Principal" 
+                    <asp:Button ID="btnMenu" runat="server" Text="Menú Principal" Visible="false" 
                         onclick="btnMenu_Click" />
                         &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; &nbsp;  
                </p>
