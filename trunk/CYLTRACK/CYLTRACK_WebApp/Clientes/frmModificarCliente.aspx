@@ -21,11 +21,10 @@
                             Width="197px" ontextchanged="txtCedula_TextChanged"></asp:TextBox>
                         <asp:RequiredFieldValidator ID="txtCedulaRequired" runat="server" ControlToValidate="txtCedula" 
                              CssClass="failureNotification" ErrorMessage="El número de cédula del cliente es obligatorio." ToolTip="El número de cédula del cliente es obligatorio." 
-                             ValidationGroup="ValidarCedula" Font-Size = "Small" Display ="Dynamic"></asp:RequiredFieldValidator>
+                             ValidationGroup="ValidarCedula" >*</asp:RequiredFieldValidator>
                         <asp:RegularExpressionValidator ID="ValidarDatosCedula" runat="server" ControlToValidate="txtCedula" 
                             CssClass="failureNotification" ErrorMessage="El número de cédula debe contener entre 6 y 10 dígitos." 
-                            ValidationExpression="^([\d]{6,10})$"  Font-Size = "Small" Display ="Dynamic"
-                            ValidationGroup="ValidarCedula" ></asp:RegularExpressionValidator>
+                            ValidationExpression="^([\d]{6,10})$"  ValidationGroup="ValidarCedula" >*</asp:RegularExpressionValidator>
                     
                         </p>
                     <div id="divInfoCliente" runat="server" visible="false">
@@ -33,12 +32,13 @@
                     <p>
                         <asp:Label ID="lblCedulaCli" runat="server" >Número de Cédula:</asp:Label><br />
                         <asp:TextBox ID="txtCedulaCli" runat="server" CssClass="textEntry" Enabled="false"
-                            Width="197px" ontextchanged="txtCedulaCli_TextChanged" ></asp:TextBox>                         
+                            Width="197px"  ></asp:TextBox>                         
                         <asp:Label ID="lblIdCliente" runat="server" Visible="false"></asp:Label>
                     </p>
                     <p>
                         <asp:Label ID="lblNombreCliente" runat="server" >Nombre del Cliente:</asp:Label><br />
-                        <asp:TextBox ID="txtNombreCliente" runat="server" CssClass="textEntry" Width="197px"></asp:TextBox>
+                        <asp:TextBox ID="txtNombreCliente" runat="server" CssClass="textEntry" 
+                            Width="197px" ontextchanged="txtNombreCliente_TextChanged"></asp:TextBox>
                               <asp:RequiredFieldValidator ID="ValidarNombre" runat="server" ControlToValidate="txtNombreCliente" 
                              CssClass="failureNotification" ErrorMessage="El nombre del cliente es obligatorio." ToolTip="El nombre del cliente es obligatorio." 
                              ValidationGroup="ModificarCliente">*</asp:RequiredFieldValidator>
@@ -53,7 +53,8 @@
                         &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; &nbsp;
                         <asp:Label ID="lblSegundoApellido" runat="server" Text="Segundo Apellido:"></asp:Label>
                    <br />
-                        <asp:TextBox ID="txtPrimerApellido" runat="server" CssClass="textEntry" Width="197px"></asp:TextBox>
+                        <asp:TextBox ID="txtPrimerApellido" runat="server" CssClass="textEntry" 
+                            Width="197px" ontextchanged="txtPrimerApellido_TextChanged"></asp:TextBox>
                                    <asp:RequiredFieldValidator ID="ValidarApellido" runat="server" ControlToValidate="txtPrimerApellido" 
                              CssClass="failureNotification" ErrorMessage="El apellido del cliente es obligatorio." ToolTip="El apellido del cliente es obligatorio." 
                              ValidationGroup="ModificarCliente">*</asp:RequiredFieldValidator>
@@ -64,7 +65,7 @@
                     
                             &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
                             <asp:TextBox ID="txtSegundoApellido" runat="server" CssClass="textEntry" 
-                                Width="197px" ></asp:TextBox>
+                                Width="197px" ontextchanged="txtSegundoApellido_TextChanged" ></asp:TextBox>
                                         <asp:RegularExpressionValidator ID="ValidarDatosApe2" runat="server" ControlToValidate="txtSegundoApellido" 
                     CssClass="failureNotification" ErrorMessage="El apellido debe contener sólo caracteres alfabéticos." 
                         ValidationExpression="^([A-Za-z]{0,20} {0,20})$"   
@@ -124,13 +125,14 @@
                     &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; &nbsp; &nbsp;
                         <asp:Label ID="lblBarrio" runat="server" Text="Barrio:"  ></asp:Label>
                         <br />
-                        <asp:TextBox ID="txtDireccion" runat="server" CssClass="textEntry" Width="197px" ></asp:TextBox>
+                        <asp:TextBox ID="txtDireccion" runat="server" CssClass="textEntry" 
+                            Width="197px" ontextchanged="txtDireccion_TextChanged" ></asp:TextBox>
                         <asp:RequiredFieldValidator ID="txtDirecciónRequired" runat="server" ControlToValidate="txtDireccion" 
                              CssClass="failureNotification" ErrorMessage="La dirección del cliente es obligatoria." ToolTip="La dirección del cliente es obligatoria." 
                              ValidationGroup="RegistrarClienteValidationGroup">*</asp:RequiredFieldValidator>
                                               &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;&nbsp; &nbsp;
                           <asp:TextBox ID="txtBarrio" runat="server" CssClass="textEntry" 
-                                Width="197px" ></asp:TextBox>
+                                Width="197px" ontextchanged="txtBarrio_TextChanged" ></asp:TextBox>
                                 <asp:RequiredFieldValidator ID="txtBarrioRequired" runat="server" ControlToValidate="txtBarrio" 
                              CssClass="failureNotification" ErrorMessage="El barrio es obligatorio." ToolTip="El barrio es obligatorio." 
                              ValidationGroup="RegistrarClienteValidationGroup">*</asp:RequiredFieldValidator>
@@ -157,15 +159,16 @@
                         <asp:ListBox ID="lstCiudad" runat="server" Rows="1" 
                                  onselectedindexchanged="lstCiudad_SelectedIndexChanged" />
 
-                     <asp:RequiredFieldValidator ID="lstCiudadRequired" runat="server" ControlToValidate="LstCiudad" 
+                     <asp:RequiredFieldValidator ID="lstCiudadRequired" runat="server" ControlToValidate="lstCiudad" 
                              CssClass="failureNotification" ErrorMessage="La ciudad es obligatorio." ToolTip="La ciudad es obligatorio." 
-                             ValidationGroup="RegistrarClienteValidationGroup">*</asp:RequiredFieldValidator>
+                             ValidationGroup="ModificarCliente">*</asp:RequiredFieldValidator>
                              <asp:Label ID="lblIdUbica" runat="server" Visible="false"></asp:Label>
                            </p>
                   <p> 
                          <asp:Label ID="lblTelefono" runat="server" Text="Teléfono:"></asp:Label>
                     <br />
-                            <asp:TextBox ID="txtTelefono" runat="server" CssClass="textEntry" ></asp:TextBox>
+                            <asp:TextBox ID="txtTelefono" runat="server" CssClass="textEntry" 
+                             ontextchanged="txtTelefono_TextChanged" ></asp:TextBox>
                             <asp:RequiredFieldValidator ID="txtTelefonoRequiredField" runat="server" ControlToValidate="txtTelefono" 
                              CssClass="failureNotification" ErrorMessage="El teléfono del cliente es obligatorio." ToolTip="El teléfono del cliente es obligatorio." 
                              ValidationGroup="RegistrarClienteValidationGroup">*</asp:RequiredFieldValidator>
@@ -183,14 +186,11 @@
                      </div>
                 </fieldset>
                 <p class="submitButton">
-                <asp:Button ID="btnLimpiar" runat="server" Text="Limpiar" Width="115px" 
-                        onclick="btnLimpiar_Click"/> 
-                    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; &nbsp; 
                     <asp:Button ID="btnGuardar" runat="server" Text="Guardar" visible="false"
                         Width="115px" onclick="btnGuardar_Click" ValidationGroup="ModificarCliente"/>  
                     &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; &nbsp;  
                     <asp:Button ID="btnMenuPrincipal" runat="server" Text="Menú Principal" 
-                        Width="115px" onclick="btnMenuPrincipal_Click" />
+                        Width="115px" Visible="false" onclick="btnMenuPrincipal_Click" />
                </p>
             </div>
 </asp:Content>
