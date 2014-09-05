@@ -19,7 +19,7 @@ namespace Unisangil.CYLTRACK.CYLTRACK_WebApp.Clientes
 
         protected void Page_Load(object sender, EventArgs e)
         {
-            txtCedula.Focus();
+            
             if (IsPostBack)
             {
                 hprNuevaUbicacion.NavigateUrl = "frmNuevaUbicacion.aspx?ReturnUrl=" + HttpUtility.UrlEncode(Request.QueryString["ReturnUrl"]) + Server.UrlEncode(txtCedula.Text);
@@ -28,6 +28,7 @@ namespace Unisangil.CYLTRACK.CYLTRACK_WebApp.Clientes
             {
                 objdtLista = new DataTable();
                 CrearTabla();
+                txtCedula.Focus();
             }
 
         }
@@ -103,13 +104,13 @@ namespace Unisangil.CYLTRACK.CYLTRACK_WebApp.Clientes
                     }
                     gvDirecciones.DataSource = table;
                     gvDirecciones.DataBind();
-                    
                     divInfoCliente.Visible = true;
                     divDireccionesCli.Visible = true;
-                    divNuevaDir.Visible = true;
-                    btnGuardar.Visible = true;
+                    divNuevaDir.Visible = true;                    
                     txtCedula.Text = "";
+                    txtCedula.Enabled = true;
                     divNuevaDir.Visible = true;
+                    btnMenuPrincipal.Visible = true;
                     gvDirecciones.Focus();
                 }
             }
@@ -133,6 +134,7 @@ namespace Unisangil.CYLTRACK.CYLTRACK_WebApp.Clientes
                 lstCiudad.DataValueField = "Id_Ciudad";
                 lstCiudad.DataTextField = "Nombre_Ciudad";
                 lstCiudad.DataBind();
+                btnGuardar.Visible = true;
 
             }
             catch (Exception ex)
@@ -153,7 +155,7 @@ namespace Unisangil.CYLTRACK.CYLTRACK_WebApp.Clientes
             long respCliente;
             long respUbicacion;
             ClienteBE cliente = new ClienteBE();
-
+           
             try
             {
                 cliente.Nombres_Cliente = txtNombreCliente.Text;
@@ -196,7 +198,10 @@ namespace Unisangil.CYLTRACK.CYLTRACK_WebApp.Clientes
 
         protected void btnMenuPrincipal_Click(object sender, EventArgs e)
         {
+            if(!IsPostBack)
+            {
             Response.Redirect("~/Default.aspx");
+            }
         }
 
         protected void btnLimpiar_Click(object sender, EventArgs e)
@@ -212,7 +217,6 @@ namespace Unisangil.CYLTRACK.CYLTRACK_WebApp.Clientes
             //txtTelefono.Text = "";
         }
 
-        
         protected void txtCedulaCli_TextChanged(object sender, EventArgs e)
         {
             ClienteServiceClient servCliente = new ClienteServiceClient();
@@ -243,7 +247,7 @@ namespace Unisangil.CYLTRACK.CYLTRACK_WebApp.Clientes
 
         protected void Agregar_onClick(object sender, EventArgs e)
         {
-
+            
             RutaServicesClient servRuta = new RutaServicesClient();
             DataTable table = new DataTable();
             try
@@ -252,7 +256,7 @@ namespace Unisangil.CYLTRACK.CYLTRACK_WebApp.Clientes
                 lstDepartamento.DataValueField = "Id_Departamento";
                 lstDepartamento.DataTextField = "Nombre_Departamento";
                 lstDepartamento.DataBind();
-
+               
                 string dato = ((System.Web.UI.WebControls.Button)sender).Attributes["value"].ToString();
 
                 foreach (DataRow info in objdtTabla.Rows)
@@ -280,8 +284,38 @@ namespace Unisangil.CYLTRACK.CYLTRACK_WebApp.Clientes
 
         protected void lstCiudad_SelectedIndexChanged(object sender, EventArgs e)
         {           
+            btnGuardar.Visible = true;                
+        }
+
+        protected void txtNombreCliente_TextChanged(object sender, EventArgs e)
+        {
+            btnGuardar.Visible = true;             
+           
+        }
+
+        protected void txtPrimerApellido_TextChanged(object sender, EventArgs e)
+        {
             btnGuardar.Visible = true;
-            btnLimpiar.Visible = true;       
+        }
+
+        protected void txtSegundoApellido_TextChanged(object sender, EventArgs e)
+        {
+            btnGuardar.Visible = true;
+        }
+
+        protected void txtDireccion_TextChanged(object sender, EventArgs e)
+        {
+            btnGuardar.Visible = true;
+        }
+
+        protected void txtBarrio_TextChanged(object sender, EventArgs e)
+        {
+            btnGuardar.Visible = true;
+        }
+
+        protected void txtTelefono_TextChanged(object sender, EventArgs e)
+        {
+            btnGuardar.Visible = true;
         }       
     }
 }
