@@ -120,9 +120,8 @@ namespace Unisangil.CYLTRACK.CYLTRACK_WebApp
         }
         public enum Sexo
         {
-            Mujer = 1,
-            Hombre = 2,
-            Indefinido = 3
+            MUJER = 1,
+            HOMBRE = 2,          
         }
         public enum Tipo_Casos
         {
