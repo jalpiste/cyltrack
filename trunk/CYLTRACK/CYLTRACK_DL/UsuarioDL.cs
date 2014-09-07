@@ -286,7 +286,6 @@ namespace Unisangil.CYLTRACK.CYLTRACK_DL
                         p = new PerfilBE();
                         p.Id_Perfil = datos.GetValue(0).ToString();
                         p.Perfil = datos.GetString(1);
-                        p.Observaciones = (datos.GetString(2));
                         lstPerfil.Add(p);
                     }
                     catch (InvalidCastException ex)
