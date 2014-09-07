@@ -25,7 +25,7 @@ namespace Unisangil.CYLTRACK.CYLTRACK_WebApp
         protected void btnEnviar_Click(object sender, EventArgs e)
         {
             UsuarioServiceClient servUsuario = new UsuarioServiceClient();
-            long datosUsuario;
+             long datosUsuario;
 
             try
             {
