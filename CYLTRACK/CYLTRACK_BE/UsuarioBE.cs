@@ -159,10 +159,16 @@ namespace Unisangil.CYLTRACK.CYLTRACK_BE
         public String Telefono { get; set; }
 
         /// <summary>
+        /// Lista de Perfil 
+        /// </summary>
+        [DataMember]
+        public List<PerfilBE> Lista_Perfil { get; set; }
+
+        /// <summary>
         /// Perfil de Usuario
         /// </summary>
         [DataMember]
-        public List<PerfilBE> Perfil { get; set; }
+        public PerfilBE Perfil { get; set; }
 
     }
 }
