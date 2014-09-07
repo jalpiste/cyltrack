@@ -40,7 +40,7 @@ namespace Unisangil.CYLTRACK.CYLTRACK_WCF_Services
         {
             List<PerfilBE> resp;
             UsuarioBL regUsuario = new UsuarioBL();
-            resp = regUsuario.consultarCargos();
+            resp = regUsuario.consultarPerfiles();
             return resp;
         }
 
@@ -78,9 +78,9 @@ namespace Unisangil.CYLTRACK.CYLTRACK_WCF_Services
         /// </summary>
         /// <param name="usuario">Objeto de negocio Usuario</param>
         /// <returns>Nombre de usuario</returns>
-        public string RecuperarContrasena(string usuario)
+        public long RecuperarContrasena(string usuario)
         {
-            string resp;
+            long resp;
             UsuarioBL recuperarContrasena = new UsuarioBL();
             resp = recuperarContrasena.RecuperarContrasena(usuario);
             return resp;

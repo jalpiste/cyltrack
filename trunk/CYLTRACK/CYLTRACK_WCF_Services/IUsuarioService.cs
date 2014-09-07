@@ -62,6 +62,6 @@ namespace Unisangil.CYLTRACK.CYLTRACK_WCF_Services
         /// <param name="usuario">Objeto de negocio usuario</param>
         /// <returns>nombre de usuario</returns>
         [OperationContract]
-        string RecuperarContrasena(string usuario);
+        long RecuperarContrasena(string usuario);
     }
 }
