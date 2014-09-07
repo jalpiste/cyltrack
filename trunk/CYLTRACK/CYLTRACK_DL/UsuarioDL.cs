@@ -116,7 +116,7 @@ namespace Unisangil.CYLTRACK.CYLTRACK_DL
 
                 parametros[4] = db.Comando.CreateParameter();
                 parametros[4].ParameterName = "vrContraseña";
-                parametros[4].Value = usuario.Contrasena_1;
+                parametros[4].Value = Convert.ToByte(usuario.Contrasena_1);
                 parametros[4].Direction = ParameterDirection.Input;
                 parametros[4].Size = 80;
                 db.Comando.Parameters.Add(parametros[4]);
@@ -165,7 +165,7 @@ namespace Unisangil.CYLTRACK.CYLTRACK_DL
 
                 parametros[11] = db.Comando.CreateParameter();
                 parametros[11].ParameterName = "vrId_Perfil";
-                parametros[11].Value = usuario.Perfil;
+                parametros[11].Value = usuario.Perfil.Id_Perfil;
                 parametros[11].Direction = ParameterDirection.Input;
                 parametros[11].Size = 18;
                 db.Comando.Parameters.Add(parametros[11]);
@@ -201,5 +201,111 @@ namespace Unisangil.CYLTRACK.CYLTRACK_DL
             return codigo;
         }
 
+        public long RecuperarConstrasena(String correo)
+        {
+            long codigo = 0;
+            BaseDatos db = new BaseDatos();
+            try
+            {
+                db.Conectar();
+                db.ComenzarTransaccion();
+                string nameSP = "RecoperarContrasena";
+                db.CrearComandoSP(nameSP);
+
+                DbParameter[] parametros = new DbParameter[3];
+
+                parametros[0] = db.Comando.CreateParameter();
+                parametros[0].ParameterName = "vrCorreo";
+                parametros[0].Value = correo;
+                parametros[0].Direction = ParameterDirection.Input;
+                parametros[0].Size = 50;
+                db.Comando.Parameters.Add(parametros[0]);
+
+                parametros[1] = db.Comando.CreateParameter();
+                parametros[1].ParameterName = "vrCodResult";
+                parametros[1].Value = 0;
+                parametros[1].Direction = ParameterDirection.Output;
+                db.Comando.Parameters.Add(parametros[1]);
+
+                parametros[2] = db.Comando.CreateParameter();
+                parametros[2].ParameterName = "vrDescResult";
+                parametros[2].Value = "";
+                parametros[2].Direction = ParameterDirection.Output;
+                parametros[2].Size = 200;
+                parametros[2].DbType = DbType.String;
+                db.Comando.Parameters.Add(parametros[2]);
+
+                db.EjecutarComando();
+                codigo = long.Parse(db.Comando.Parameters[1].Value.ToString());
+                db.ConfirmarTransaccion();
+            }
+            catch (Exception ex)
+            {
+                db.CancelarTransaccion();
+                throw new Exception("Error al crear el UsuarioBE.", ex);
+            }
+
+            finally
+            {
+                db.Desconectar();
+            }
+            return codigo;
+        }
+
+        public List<PerfilBE> ConsultarPerfiles()
+        {
+            List<PerfilBE> lstPerfil = new List<PerfilBE>();
+            BaseDatos db = new BaseDatos();
+            try
+            {
+                string nameSP = "ConsultarPerfiles";
+                db.Conectar();
+                db.CrearComandoSP(nameSP);
+                DbParameter[] parametros = new DbParameter[2];
+
+                parametros[0] = db.Comando.CreateParameter();
+                parametros[0].ParameterName = "vrCodResult";
+                parametros[0].Value = 0;
+                parametros[0].Direction = ParameterDirection.Output;
+                db.Comando.Parameters.Add(parametros[0]);
+
+                parametros[1] = db.Comando.CreateParameter();
+                parametros[1].ParameterName = "vrDescResult";
+                parametros[1].Value = "";
+                parametros[1].Direction = ParameterDirection.Output;
+                parametros[1].Size = 200;
+                parametros[1].DbType = DbType.String;
+                db.Comando.Parameters.Add(parametros[1]);
+
+                DbDataReader datos = db.EjecutarConsulta();                
+                PerfilBE p = null;
+                while (datos.Read())
+                {
+                    try
+                    {
+                        p = new PerfilBE();
+                        p.Id_Perfil = datos.GetValue(0).ToString();
+                        p.Perfil = datos.GetString(1);
+                        p.Observaciones = (datos.GetString(2));
+                        lstPerfil.Add(p);
+                    }
+                    catch (InvalidCastException ex)
+                    {
+                        throw new Exception("Los tipos no coinciden.", ex);
+                    }
+                    catch (DataException ex)
+                    {
+                        throw new Exception("Error de ADO.NET.", ex);
+                    }
+                }
+                datos.Close();
+                db.Desconectar();
+            }
+            catch (Exception ex)
+            {
+                throw new Exception("Error al acceder a la base de datos para obtener los PerfilesBEs.");
+            }
+            return lstPerfil;
+        }
     }
 }
