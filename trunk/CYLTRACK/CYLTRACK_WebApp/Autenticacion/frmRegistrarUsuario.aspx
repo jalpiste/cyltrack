@@ -74,6 +74,9 @@
                                  ErrorMessage="El número de cédula es obligatorio." 
                                  ToolTip="El número de cédula es obligatorio." 
                                  ValidationGroup="RegistrodeUsuarios">*</asp:RequiredFieldValidator>
+                                 <asp:RegularExpressionValidator ID="ValidarDatosCedula" runat="server" ControlToValidate="txtCedula" 
+                            CssClass="failureNotification" ErrorMessage="El número de cédula debe contener entre 6 y 10 dígitos." 
+                            ValidationExpression="^([\d]{6,10})$"  ValidationGroup="ValidarCedula" >*</asp:RegularExpressionValidator>
                             <br />
                             
                              
@@ -85,6 +88,10 @@
                                  ErrorMessage="El nombre es obligatorio." 
                                  ToolTip="El nombre es obligatorio." 
                                  ValidationGroup="RegistrodeUsuarios">*</asp:RequiredFieldValidator>
+                                  <asp:RegularExpressionValidator ID="ValidarDatosNom" runat="server" ControlToValidate="txtNombre" 
+                    CssClass="failureNotification" ErrorMessage="El nombre debe contener sólo caracteres alfabéticos." 
+                        ValidationExpression="^[a-zA-Z\s]+$"  
+                    ValidationGroup="RegistrarClienteValidationGroup" >*</asp:RegularExpressionValidator>
                              <br />
                              <asp:Label ID="lblApellidos" runat="server" Text="Apellido: "></asp:Label>
                              <br />
@@ -94,6 +101,10 @@
                                  ErrorMessage="El apellido es obligatorio." 
                                  ToolTip="El apellido es obligatorio." 
                                  ValidationGroup="RegistrodeUsuarios">*</asp:RequiredFieldValidator>
+                                 <asp:RegularExpressionValidator ID="RegularExpressionValidator1" runat="server" ControlToValidate="txtApellidos" 
+                    CssClass="failureNotification" ErrorMessage="El nombre debe contener sólo caracteres alfabéticos." 
+                        ValidationExpression="^[a-zA-Z\s]+$"  
+                    ValidationGroup="RegistrarClienteValidationGroup" >*</asp:RegularExpressionValidator>
                              <br />
                              <asp:Label ID="lblDireccion" runat="server" Text="Dirección: "></asp:Label>
                              <br />
@@ -108,14 +119,18 @@
                              <br />
                              <asp:TextBox ID="txtTelefono" runat="server" CssClass="textEntry" Width="150px"></asp:TextBox>
                              <asp:RequiredFieldValidator ID="RequiredFieldValidator3" runat="server" 
-                                 ControlToValidate="txtApellidos" CssClass="failureNotification" 
+                                 ControlToValidate="txtTelefono" CssClass="failureNotification" 
                                  ErrorMessage="El telefono del usuario es obligatorio." 
                                  ToolTip="El telefono del usuario es obligatorio." 
                                  ValidationGroup="RegistrodeUsuarios">*</asp:RequiredFieldValidator>
+                                  <asp:RegularExpressionValidator ID="ValidarDatosTel" runat="server" ControlToValidate="txtTelefono" 
+                    CssClass="failureNotification" ErrorMessage="El número de teléfono (fijo o móvil) debe contener entre 7 y 10 dígitos." 
+                        ValidationExpression="^([\d]{7,10})$"  ToolTip="Sólo caractéres numéricos." 
+                    ValidationGroup="RegistrarClienteValidationGroup" >*</asp:RegularExpressionValidator>
                              <br />
                              <asp:Label ID="lblGenero" runat="server" Text="Sexo: "></asp:Label>
                              <br />
-                             <asp:ListBox ID="lstGenero" runat="server" AutoPostBack="True" Rows="1" 
+                             <asp:ListBox ID="lstGenero" runat="server"  Rows="1" 
                                  onselectedindexchanged="lstGenero_SelectedIndexChanged" />
                              <asp:RequiredFieldValidator ID="validSexo" runat="server" 
                                  ControlToValidate="lstGenero" CssClass="failureNotification" 
@@ -125,7 +140,7 @@
                              <br />
                              <asp:Label ID="lblFechaNacimiento" runat="server" Text="Fecha de nacimiento: "></asp:Label>
                              <br />
-                             <asp:ListBox ID="lstDia" runat="server" AutoPostBack="True" Rows="1" 
+                             <asp:ListBox ID="lstDia" runat="server"  Rows="1" 
                                  Width="70px" onselectedindexchanged="lstDia_SelectedIndexChanged"/>
                             <asp:RequiredFieldValidator ID="validDia" runat="server" 
                                  ControlToValidate="lstDia" CssClass="failureNotification" 
@@ -133,7 +148,7 @@
                                  ToolTip="El dia de nacimiento es obligatorio." 
                                  ValidationGroup="RegistrodeUsuarios">*</asp:RequiredFieldValidator>
                              &nbsp;&nbsp;&nbsp;
-                             <asp:ListBox ID="lstMes" runat="server" AutoPostBack="True" Rows="1" 
+                             <asp:ListBox ID="lstMes" runat="server"  Rows="1" 
                                  Width="100px" onselectedindexchanged="lstMes_SelectedIndexChanged">
                              <asp:ListItem>Mes</asp:ListItem>
                              </asp:ListBox>
@@ -144,7 +159,7 @@
                                  ValidationGroup="RegistrodeUsuarios">*</asp:RequiredFieldValidator>
                            
                              &nbsp;&nbsp;&nbsp;
-                             <asp:ListBox ID="lstAno" runat="server" AutoPostBack="True" Rows="1" 
+                             <asp:ListBox ID="lstAno" runat="server"  Rows="1" 
                                  Width="70px" onselectedindexchanged="lstAno_SelectedIndexChanged" />
                              <asp:RequiredFieldValidator ID="validAno" runat="server" 
                                  ControlToValidate="lstAno" CssClass="failureNotification" 
@@ -154,7 +169,7 @@
                              <br />
                           <asp:Label ID="lblCargo" runat="server" Text="Perfil: "></asp:Label>
                           <br />
-                          <asp:ListBox ID="lstCargo" runat="server" AutoPostBack="True" Rows="1" 
+                          <asp:ListBox ID="lstCargo" runat="server" Rows="1" 
                                  Width="200px" onselectedindexchanged="lstCargo_SelectedIndexChanged">
                              <asp:ListItem>Seleccione un cargo</asp:ListItem>
                              </asp:ListBox>

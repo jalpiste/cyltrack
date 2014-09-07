@@ -25,13 +25,24 @@ namespace Unisangil.CYLTRACK.CYLTRACK_WebApp
         protected void btnEnviar_Click(object sender, EventArgs e)
         {
             UsuarioServiceClient servUsuario = new UsuarioServiceClient();
-            UsuarioBE usuario = new UsuarioBE();
-            string datosUsuario;
+            long datosUsuario;
 
             try
             {
-                datosUsuario = servUsuario.RecuperarContrasena(txtNombreUsuario.Text);
-                MessageBox.Show("La contraseña ha sido enviada a su correo electronico", "Olvido Contraseña");
+                long consultaUsuario = servUsuario.ConsultarExistencia(txtNombreUsuario.Text);
+
+                if (consultaUsuario == 0)
+                {
+                    MessageBox.Show("El usuario digitado no se encuentra registrado en el sistema", "Olvido Contraseña");
+                }
+
+                else
+                {
+                    datosUsuario = servUsuario.RecuperarContrasena(txtNombreUsuario.Text);
+                    MessageBox.Show("La contraseña ha sido enviada a su correo electronico", "Olvido Contraseña");
+                }
+                
+                
             }
             catch (Exception ex)
             {

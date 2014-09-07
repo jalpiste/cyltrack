@@ -17,62 +17,41 @@ namespace Unisangil.CYLTRACK.CYLTRACK_WebApp.Autenticacion
 
         protected void Page_Load(object sender, EventArgs e)
         {
-
-            if (!IsPostBack)
-            {
-                txtNombreUsuario.Focus();                
-            }
-
-
-            if (!IsPostBack)
-            {
-                List<string> meses = Auxiliar.ConsultarMeses();
-                foreach (string datosMeses in meses)
-                {
-                    lstMes.Items.Add(datosMeses);
-                }
-            }
-
-            if (!IsPostBack)
-            {
-                Dias[] dias = Auxiliar.ConsultarDias();
-                foreach (Dias datosDias in dias)
-                {
-                    lstDia.Items.Add(datosDias.ToString());
-                }
-            }
-            if (!IsPostBack)
-            {
-                Anos[] anos = Auxiliar.ConsultarAnos();
-                IEnumerable<Anos> listaAnos = anos.OrderByDescending(g => g).Skip(15);
-                foreach (Anos datosAnos in listaAnos)
-                {
-                    lstAno.Items.Add(datosAnos.ToString());
-                }
-
-            }
-            if (!IsPostBack)
-            {
-                List<string> sexo = Auxiliar.ConsultarSexo();
-                foreach (string datosSexo in sexo)
-                {
-                    lstGenero.Items.Add(datosSexo);
-                }
-            }
-            
-
             if (!IsPostBack)
             {
                 UsuarioServiceClient servUsuario = new UsuarioServiceClient();
                 UsuarioBE usuario = new UsuarioBE();
                 try
                 {
-                    List<PerfilBE> lstPerfiles = new List<PerfilBE>(servUsuario.ConsultarCargos());
-                   
-                    foreach(PerfilBE datos in lstPerfiles)
+                    lstCargo.DataSource = servUsuario.ConsultarCargos();
+                    lstCargo.DataValueField = "Id_Perfil";
+                    lstCargo.DataTextField = "Perfil";
+                    lstCargo.DataBind();
+
+                    List<string> meses = Auxiliar.ConsultarMeses();
+                    foreach (string datosMeses in meses)
                     {
-                        lstCargo.Items.Add(datos.Perfil);
-                    }                    
+                        lstMes.Items.Add(datosMeses);
+                    }
+
+                    txtNombreUsuario.Focus();
+                    Dias[] dias = Auxiliar.ConsultarDias();
+                    foreach (Dias datosDias in dias)
+                    {
+                        lstDia.Items.Add(datosDias.ToString());
+                    }
+
+                    Anos[] anos = Auxiliar.ConsultarAnos();
+                    IEnumerable<Anos> listaAnos = anos.OrderByDescending(g => g).Skip(15);
+                    foreach (Anos datosAnos in listaAnos)
+                    {
+                        lstAno.Items.Add(datosAnos.ToString());
+                    }
+                    List<string> sexo = Auxiliar.ConsultarSexo();
+                    foreach (string datosSexo in sexo)
+                    {
+                        lstGenero.Items.Add(datosSexo);
+                    }
                 }
                 catch (Exception ex)
                 {
@@ -81,23 +60,21 @@ namespace Unisangil.CYLTRACK.CYLTRACK_WebApp.Autenticacion
                 finally
                 {
                     servUsuario.Close();
-                }
-
-            }
-
+                }               
+            }           
         }
 
         protected void btnCrearUsuario_Click(object sender, EventArgs e)
         {
             UsuarioServiceClient servUsuario = new UsuarioServiceClient();
             UsuarioBE usuario = new UsuarioBE();
-            string registrar;
+            long registrar;
             
             try
             {
-                string consultaUsuario = servUsuario.ConsultarExistencia(txtNombreUsuario.Text);
+                long consultaUsuario = servUsuario.ConsultarExistencia(txtNombreUsuario.Text);
 
-                if(consultaUsuario!="Ok")
+                if(consultaUsuario!=0)
                 {
                     MessageBox.Show("El usuario digitado ya se encuentra registrado en el sistema", "Registrar Usuario");
                 }
@@ -105,20 +82,18 @@ namespace Unisangil.CYLTRACK.CYLTRACK_WebApp.Autenticacion
                 else
                 {
                 usuario.Usuario = txtNombreUsuario.Text;
-                usuario.Contrasena_1 = txtContrasena.Text;
+                usuario.Contrasena_1 = (txtContrasena.Text);
                 usuario.Correo = txtEmail.Text;
                 usuario.Cedula = txtCedula.Text;
                 usuario.Nombre = txtNombre.Text;
                 usuario.Apellido = txtApellidos.Text;
                 usuario.Direccion = txtDireccion.Text;
                 usuario.Telefono = txtTelefono.Text;
-                usuario.Genero = lstGenero.SelectedValue;
+                usuario.Genero = lstGenero.SelectedItem.Text;
                 usuario.Fecha_Nacim = lstDia.SelectedValue + "," + lstMes.SelectedValue + "," + lstAno.SelectedValue;
                 PerfilBE pp = new PerfilBE();
-                pp.Perfil = lstCargo.SelectedValue;
-                List<PerfilBE> perfiles = new List<PerfilBE>();
-                perfiles.Add(pp);
-                usuario.Perfil = perfiles;
+                pp.Id_Perfil = lstCargo.SelectedValue;                
+                usuario.Perfil= pp;
 
                 registrar = servUsuario.RegistrarUsuario(usuario);
 
