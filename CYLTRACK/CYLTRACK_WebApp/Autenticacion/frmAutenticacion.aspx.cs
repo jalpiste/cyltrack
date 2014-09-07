@@ -29,7 +29,7 @@ namespace Unisangil.CYLTRACK.CYLTRACK_WebApp.Autenticacion
             {
                 string autentic;
                 usuario.Usuario = txtNombreUsuario.Text;
-                usuario.Contrasena_1 = txtContrasena.Text;
+                usuario.Contrasena_1 = ( txtContrasena.Text);
 
                 autentic = servUsuario.Autenticacion(usuario);
 
@@ -70,7 +70,7 @@ namespace Unisangil.CYLTRACK.CYLTRACK_WebApp.Autenticacion
             {
                 if (txtNuevaContrasena.Text == txtConfirmarContrasena.Text)
                 {
-                    user.Contrasena_1 = txtConfirmarContrasena.Text;
+                    user.Contrasena_1 =(txtConfirmarContrasena.Text);
                     user.Usuario = txtNombreUsuario.Text;
                     serUser.Autenticacion(user);
                 }
