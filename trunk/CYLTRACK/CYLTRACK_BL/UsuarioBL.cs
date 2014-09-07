@@ -25,6 +25,16 @@ namespace Unisangil.CYLTRACK.CYLTRACK_BL
             long resp = 0;
             try
             {
+                if (usuario.Genero == "MUJER")
+                {
+                    usuario.Genero = "M";
+                }
+                else 
+                {
+                    usuario.Genero = "F";
+                }
+                usuario.Estado = "1";
+               
                 resp = user.CrearUsuario(usuario);
             }
             catch (Exception ex)
@@ -36,13 +46,21 @@ namespace Unisangil.CYLTRACK.CYLTRACK_BL
             return resp;  
         }
 
-        public List<PerfilBE> consultarCargos()
+        public List<PerfilBE> consultarPerfiles()
         {
-                List<PerfilBE> lstPerfil = new List<PerfilBE>();
-                PerfilBE perfil = new PerfilBE();    
-                perfil.Perfil = "Administrador";
-                lstPerfil.Add(perfil);
-                return lstPerfil;
+            List<PerfilBE> lstResp = new List<PerfilBE>();
+
+            UsuarioDL usu = new UsuarioDL();
+            try
+            {
+                lstResp = usu.ConsultarPerfiles();
+            }
+            catch (Exception ex)
+            {
+
+            }
+
+            return lstResp;
         }
 
         public long ConsultarExistencia(string usuario)
@@ -69,9 +87,9 @@ namespace Unisangil.CYLTRACK.CYLTRACK_BL
             return resp;            
         }
 
-        public string RecuperarContrasena(string usuario)
+        public long RecuperarContrasena(string usuario)
         {
-            string resp = "contraseña enviada a correo electronico";
+            long resp = 1;
             return resp;
         }
 
