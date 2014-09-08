@@ -12,11 +12,10 @@
 
                        &nbsp;<asp:ValidationSummary ID="NuevaUbicValidationSummary" runat="server" CssClass="failureNotification" 
                  ValidationGroup="NuevaUbic" Font-Size = "Small"/>
-
                        <p>
 
                        <asp:Label ID="lblNuevaDireccion" runat="server" Text="Nueva Dirección: "></asp:Label>
-                           &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                           &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; &nbsp;
                       <asp:Label ID="lblNuevoBarrio" runat="server" Text="Barrio:"></asp:Label>
                       &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
                       <asp:Label ID="lblTelefono" runat="server" Text="Teléfono:"></asp:Label>
@@ -44,7 +43,7 @@
                        <asp:TextBox ID="txtTelefono" CssClass="textEntry" runat="server"></asp:TextBox>
                         <asp:RequiredFieldValidator ID="ValidarTel" runat="server" ControlToValidate="txtTelefono" CssClass="failureNotification" 
                      ErrorMessage="El teléfono del cliente es obligatorio." ToolTip="El teléfono del cliente es obligatorio." 
-                     ValidationGroup="NuevaUbic"> * </asp:RequiredFieldValidator>
+                     ValidationGroup="NuevaUbic">*</asp:RequiredFieldValidator>
                      <asp:RegularExpressionValidator ID="ValidarDatosTel" runat="server" ControlToValidate="txtTelefono" 
                     CssClass="failureNotification" ErrorMessage="El número de teléfono (fijo o móvil) debe contener entre 7 y 10 dígitos." 
                         ValidationExpression="^([\d]{7,10})$"  ToolTip="Sólo caractéres numéricos." 
@@ -55,7 +54,7 @@
                <asp:Label ID="lblDepartamento" runat="server" AssociatedControlID="lstDepartamento" 
                             Width="679px">Departamento:</asp:Label>
                        
-               &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                   &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
                        
                <asp:Label ID="lblCiudad" runat="server" AssociatedControlID="LstCiudad" Width="685px" >Ciudad:</asp:Label>
                             <br />
@@ -67,7 +66,7 @@
                      ErrorMessage="La selección del departamento es obligatoria." ToolTip="La selección del departamento es obligatoria." 
                      ValidationGroup="NuevaUbic"> * </asp:RequiredFieldValidator>
                      
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                   &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
                      
                            <asp:ListBox ID="lstCiudad" runat="server" Rows="1"   AutoPostBack="false"
                        onselectedindexchanged="lstCiudad_SelectedIndexChanged">
