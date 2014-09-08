@@ -15,16 +15,15 @@ namespace Unisangil.CYLTRACK.CYLTRACK_WebApp.Clientes
     {
         protected void Page_Load(object sender, EventArgs e)
         {
-            txtCedula.Focus();
-            if (IsPostBack)
+            if (!IsPostBack)
             {
-                btnNuevaConsulta.Visible = true;
+                txtCedula.Focus();
             }
         }
 
         protected void txtCedula_TextChanged(object sender, EventArgs e)
         {
-            btnNuevaConsulta.Focus();
+           
             ClienteServiceClient serCliente = new ClienteServiceClient();
             DataTable table = new DataTable();
 
@@ -66,6 +65,7 @@ namespace Unisangil.CYLTRACK.CYLTRACK_WebApp.Clientes
                     divDireccionesCli.Visible = true;
                     btnNuevaConsulta.Visible = true;
                     txtCedula.Text = "";
+                    btnNuevaConsulta.Focus();
 
                 }
             }
