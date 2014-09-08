@@ -108,10 +108,10 @@ namespace Unisangil.CYLTRACK.CYLTRACK_WebApp.Clientes
                     divDireccionesCli.Visible = true;
                     divNuevaDir.Visible = true;                    
                     txtCedula.Text = "";
-                    txtCedula.Enabled = true;
-                    divNuevaDir.Visible = true;
-                    btnMenuPrincipal.Visible = true;
+                    txtCedula.Enabled = false;
+                    divNuevaDir.Visible = true;                   
                     gvDirecciones.Focus();
+                    
                 }
             }
             catch (Exception ex)
