@@ -37,11 +37,6 @@ namespace Unisangil.CYLTRACK.CYLTRACK_WebApp.Ventas
                     lstTamano.DataTextField = "Tamano";
                     lstTamano.DataBind();
 
-                    lstTamSiembra.DataSource = servReporte.ConsultaTamanoCilindro();
-                    lstTamSiembra.DataValueField = "Id_Tamano";
-                    lstTamSiembra.DataTextField = "Tamano";
-                    lstTamSiembra.DataBind();
-
                     
                     //CAMBIAR AL REALIZAR LA AUTENTICACION DEL USUARIO
                     lblIdVehiculo.Text = "1";

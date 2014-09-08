@@ -297,7 +297,7 @@
                        </p>
                        <p>
                         <asp:Label ID="lblCilSiembra" runat="server" Text="Código Cilindro Recibido: "></asp:Label>
-                        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; <asp:Label ID="lblTamano" runat="server" Text="Tamaño: " ></asp:Label>
+                        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 
                         &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
                         <br />
                         <asp:TextBox ID="txtCilSiembra" runat="server" CssClass="textEntry"></asp:TextBox>
@@ -309,11 +309,6 @@
                             ValidationExpression="^([\d]{11,12})$"  Font-Size = "Small" ValidationGroup="ValidarSiembra">*</asp:RegularExpressionValidator>
                        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
                        
-                       <asp:ListBox ID="lstTamSiembra" runat="server" AutoPostBack="True" Rows="1"  Width="116px" >         
-                        </asp:ListBox>
-                            <asp:RequiredFieldValidator ID="validTamano" runat="server" ControlToValidate="lstTamSiembra" 
-                             CssClass="failureNotification" ErrorMessage="El tamaño del cilindro es obligatorio." ToolTip="El tamaño del cilindro es obligatorio." 
-                             ValidationGroup="ValidarSiembra">*</asp:RequiredFieldValidator>
                             &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
 
                         </p>

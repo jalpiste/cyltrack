@@ -436,15 +436,6 @@ namespace Unisangil.CYLTRACK.CYLTRACK_WebApp.Ventas {
         protected global::System.Web.UI.WebControls.Label lblCilSiembra;
         
         /// <summary>
-        /// Control lblTamano.
-        /// </summary>
-        /// <remarks>
-        /// Campo generado automáticamente.
-        /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.Label lblTamano;
-        
-        /// <summary>
         /// Control txtCilSiembra.
         /// </summary>
         /// <remarks>
@@ -470,24 +461,6 @@ namespace Unisangil.CYLTRACK.CYLTRACK_WebApp.Ventas {
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
         protected global::System.Web.UI.WebControls.RegularExpressionValidator validarDatosCilindro;
-        
-        /// <summary>
-        /// Control lstTamSiembra.
-        /// </summary>
-        /// <remarks>
-        /// Campo generado automáticamente.
-        /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.ListBox lstTamSiembra;
-        
-        /// <summary>
-        /// Control validTamano.
-        /// </summary>
-        /// <remarks>
-        /// Campo generado automáticamente.
-        /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.RequiredFieldValidator validTamano;
         
         /// <summary>
         /// Control lblObservacion.
