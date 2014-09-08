@@ -183,14 +183,15 @@
                 <p>
                    <asp:HyperLink ID="hprNuevaUbicacion" runat="server" >Agregar Nueva Ubicación del cliente</asp:HyperLink>
                 </p> 
-                     </div>
+                     </div>                    
                 </fieldset>
+                 </div> 
                 <p class="submitButton">
                     <asp:Button ID="btnGuardar" runat="server" Text="Guardar" visible="false"
                         Width="115px" onclick="btnGuardar_Click" ValidationGroup="ModificarCliente"/>  
                     &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; &nbsp;  
                     <asp:Button ID="btnMenuPrincipal" runat="server" Text="Menú Principal" 
-                        Width="115px" Visible="false" onclick="btnMenuPrincipal_Click" />
+                        Width="115px"  onclick="btnMenuPrincipal_Click" />
                </p>
-            </div>
+           
 </asp:Content>
