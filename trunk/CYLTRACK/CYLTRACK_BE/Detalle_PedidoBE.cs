@@ -50,5 +50,11 @@ namespace Unisangil.CYLTRACK.CYLTRACK_BE
         [DataMember]
         public DateTime Fecha { get; set; }
 
+        /// <summary>
+        /// Decripcion detalle pedido
+        /// </summary>
+        [DataMember]
+        public String Descripcion { get; set; }
+
     }
 }
