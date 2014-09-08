@@ -46,9 +46,9 @@
                         &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
                         <asp:TextBox ID="txtUbicacionActual" runat="server" CssClass="textEntry" Enabled="False"></asp:TextBox>                       
                         &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-                      <asp:Label ID="lblPlacaActual" runat="server" Text="Placa: "></asp:Label>
+                      <asp:Label ID="lblPlacaActual" runat="server" Text="Placa: " Visible="false"></asp:Label>
 &nbsp;&nbsp;&nbsp;                       
-                        <asp:TextBox ID="txtPlacaActual" runat="server" CssClass="textEntry" Enabled="False"></asp:TextBox>
+                        <asp:TextBox ID="txtPlacaActual" runat="server" CssClass="textEntry" Enabled="False" Visible="false"></asp:TextBox>
                         <br />
                     </div>
                     <br />
