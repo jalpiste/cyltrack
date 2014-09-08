@@ -81,12 +81,15 @@ namespace Unisangil.CYLTRACK.CYLTRACK_WebApp.Pedido
 
                         divInfoCliente.Visible = true;
                         divDirCliente.Visible = true;
+                        btnGuardar.Visible = true;
                     }
                     else {
                         MessageBox.Show("El pedido ya se encuentra cancelado en el sistema", "Cancelar Pedido");
                         divInfoCliente.Visible = false;
                         txtNumPedido.Text = "";
                         txtNumPedido.Focus();
+                        btnMenuPrincipal.Visible = true;
+                        
                     }
                 }
             }
@@ -107,8 +110,10 @@ namespace Unisangil.CYLTRACK.CYLTRACK_WebApp.Pedido
 
         protected void btnMenuPrincipal_Click(object sender, EventArgs e)
         {
-            if(!IsPostBack)
-            Response.Redirect("~/Default.aspx");
+            if (!IsPostBack)
+            {
+                Response.Redirect("~/Default.aspx");
+            }
         }
 
         protected void btnGuardar_Click(object sender, EventArgs e)

@@ -129,11 +129,10 @@
                       <p>
                           <asp:Label ID="lblMotivoCancelacion" runat="server" Text="Motivo de la cancelación:"></asp:Label><br />
                           <asp:TextBox ID="txtMotivoCancelacion"  runat="server" Height="71px" 
-                              Width="306px" ontextchanged="txtMotivoCancelacion_TextChanged"></asp:TextBox>
+                              Width="306px" TextMode="MultiLine" ontextchanged="txtMotivoCancelacion_TextChanged"></asp:TextBox>
                     <asp:RequiredFieldValidator ID="ValidarMotivo" runat="server" ControlToValidate="txtMotivoCancelacion" 
                              CssClass="failureNotification" ErrorMessage="El motivo de cancelación del pedido es obligatorio." ToolTip="El motivo de cancelación del pedido es obligatorio." 
                              ValidationGroup="CancelarPedido">*</asp:RequiredFieldValidator>
-
                       </p>
                    </div>
                 </fieldset>
@@ -142,7 +141,7 @@
                         onclick="btnGuardar_Click" ValidationGroup="CancelarPedido"/> 
                     &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; &nbsp; 
                     <asp:Button ID="btnMenuPrincipal" runat="server" Text="Menú Principal" 
-                        Width="121px" onclick="btnMenuPrincipal_Click"/>  
+                        Width="121px" onclick="btnMenuPrincipal_Click" />  
                     
                     </p>
             </div>
