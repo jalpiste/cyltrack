@@ -61,11 +61,18 @@ namespace Unisangil.CYLTRACK.CYLTRACK_WebApp.Cilindros
                 }
                 else
                 {
-                    txtCodeCilindro.Enabled = false;
+                    
                     CilindroBE ConsultarCilindro = servCilindro.ConsultarCilindro(txtCodeCilindro.Text);
-                    if(ConsultarCilindro.Tipo_Ubicacion.Nombre_Ubicacion==Ubicacion.VEHICULO.ToString())
+                    if (ConsultarCilindro.Tipo_Ubicacion.Nombre_Ubicacion == Ubicacion.VEHICULO.ToString())
                     {
                         txtPlacaActual.Text = ConsultarCilindro.Vehiculo.Placa;
+                        txtPlacaActual.Visible = true;
+                        lblPlacaActual.Visible= true;
+                    }
+                    else 
+                    {
+                        txtPlacaActual.Visible = false;
+                        lblPlacaActual.Visible = false;
                     }
                     txtCodigo.Text = ConsultarCilindro.Codigo_Cilindro;
                     txtUbicacionActual.Text = ConsultarCilindro.Tipo_Ubicacion.Nombre_Ubicacion;                      
