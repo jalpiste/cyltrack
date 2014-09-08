@@ -109,14 +109,22 @@ namespace Unisangil.CYLTRACK.CYLTRACK_BL
                 
                 foreach(Detalle_PedidoBE datos in pedido.List_Detalle_Ped)
                 {
-                   if(datos.Id_Tamano!=null)
+                   if(datos.Descripcion=="M")
                    {
                        Detalle_PedidoBE det = new Detalle_PedidoBE();
                        det.Tamano = datos.Tamano;
                        det.Cantidad = datos.Cantidad;
                        det.Id_Pedido = pedido.Id_Pedido;
                        respModDetallePedido = pedidoDL.ModificarDetallePedido(det);
-                   }                    
+                   }
+                   else
+                   {
+                       Detalle_PedidoBE det = new Detalle_PedidoBE();
+                       det.Tamano = datos.Tamano;
+                       det.Cantidad = datos.Cantidad;
+                       det.Id_Pedido = pedido.Id_Pedido;
+                       respModDetallePedido = pedidoDL.CrearRegistroDetallePedido(det);
+                   }
                 }
             }
             catch (Exception ex)
