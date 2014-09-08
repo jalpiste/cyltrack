@@ -18,11 +18,11 @@
                                            ontextchanged="txtCedula_TextChanged"></asp:TextBox>
               <asp:RequiredFieldValidator ID="txtCedulaRequired" runat="server" ControlToValidate="txtCedula" 
                              CssClass="failureNotification" ErrorMessage="El número de cédula del cliente es obligatorio." ToolTip="El número de cédula del cliente es obligatorio." 
-                             ValidationGroup="ConsultarClienteValidationGroup" Font-Size = "Small" Display ="Dynamic"></asp:RequiredFieldValidator>
+                             ValidationGroup="ConsultarClienteValidationGroup" >*</asp:RequiredFieldValidator>
                         <asp:RegularExpressionValidator ID="ValidarDatosCedula" runat="server" ControlToValidate="txtCedula" 
                             CssClass="failureNotification" ErrorMessage="El número de cédula debe contener entre 6 y 10 dígitos." 
-                            ValidationExpression="^([\d]{6,10})$"  Font-Size = "Small" Display ="Dynamic"
-                            ValidationGroup="ConsultarClienteValidationGroup" ></asp:RegularExpressionValidator>
+                            ValidationExpression="^([\d]{6,10})$"  
+                            ValidationGroup="ConsultarClienteValidationGroup" >*</asp:RegularExpressionValidator>
                     
                     </p>
                     <div id="divInfoCliente" runat="server" visible="false">
@@ -85,15 +85,15 @@
                 </asp:GridView>
                 <br />
                 </div>
-                   
+                   </div>
                 </fieldset>
                 <p class="submitButton">
                 <asp:Button ID="btnNuevaConsulta" runat="server" Text="Nueva Consulta" 
                         visible="false" onclick="btnNuevaConsulta_Click"/> 
                     &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; &nbsp; 
                     <asp:Button ID="btnMenuPrincipal" runat="server" Text="Menú Principal" 
-                        onclick="btnMenuPrincipal_Click" />  
-                    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; &nbsp;  
+                        />  
+                    
                     </p>
             </div>
 </asp:Content>
