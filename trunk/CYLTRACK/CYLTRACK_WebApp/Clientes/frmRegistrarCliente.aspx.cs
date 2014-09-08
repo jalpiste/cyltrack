@@ -113,12 +113,15 @@ namespace Unisangil.CYLTRACK.CYLTRACK_WebApp.Clientes
                 ciucli.Id_Ciudad = lstCiudad.SelectedValue;
                 ubicacion.Ciudad = ciucli;
                 cliente.Ubicacion = ubicacion;
-
-
                 resp = servCliente.Registrar_Cliente(cliente);
-
-                MessageBox.Show("El cliente fue registrado satisfactoriamente", "Registrar Cliente");
-
+                if (resp != -1)
+                {
+                    MessageBox.Show("El cliente fue registrado satisfactoriamente", "Registrar Cliente");
+                }
+                else
+                {
+                    Response.Redirect("~/About.aspx");
+                }              
             }
             catch (Exception ex)
             {
@@ -133,12 +136,15 @@ namespace Unisangil.CYLTRACK.CYLTRACK_WebApp.Clientes
 
         protected void btnLimpiar_Click(object sender, EventArgs e)
         {
+            if(!IsPostBack)
+            {   
             txtNombreCliente.Text = "";
             txtPrimerApellido.Text = "";
             txtSegundoApellido.Text = "";
             txtDireccion.Text = "";
             txtBarrio.Text = "";
             txtTelefono.Text = "";
+            }
         }
 
         protected void lstCiudad_SelectedIndexChanged(object sender, EventArgs e)
