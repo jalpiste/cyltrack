@@ -106,14 +106,14 @@ namespace Unisangil.CYLTRACK.CYLTRACK_DL
                 parametros[1].ParameterName = "vrCantidad";
                 parametros[1].Value = Detalle_Pedido.Cantidad;
                 parametros[1].Direction = ParameterDirection.Input;
-                parametros[1].Size = 100;
+                parametros[1].Size = 4;
                 db.Comando.Parameters.Add(parametros[1]);
 
                 parametros[2] = db.Comando.CreateParameter();
                 parametros[2].ParameterName = "vrTamano";
                 parametros[2].Value = Detalle_Pedido.Tamano;
                 parametros[2].Direction = ParameterDirection.Input;
-                parametros[2].Size = 100;
+                parametros[2].Size = 3;
                 db.Comando.Parameters.Add(parametros[2]);
                                 
                 parametros[3] = db.Comando.CreateParameter();
@@ -185,9 +185,9 @@ namespace Unisangil.CYLTRACK.CYLTRACK_DL
                     try
                     {
                         p = new PedidoBE();
-                        p.Id_Pedido = datos.GetValue(0).ToString();
-                        p.IdCliente = datos.GetValue(1).ToString();
                         Detalle_PedidoBE detPed = new Detalle_PedidoBE();
+                        detPed.Id_Pedido = datos.GetValue(0).ToString();
+                        p.IdCliente = datos.GetValue(1).ToString();                        
                         detPed.Fecha = datos.GetDateTime(2);
                         p.Detalle = (datos.GetString(3));                        
                         detPed.Cantidad = datos.GetString(4);
