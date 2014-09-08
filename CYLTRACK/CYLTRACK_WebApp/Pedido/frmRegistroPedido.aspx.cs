@@ -38,12 +38,19 @@ namespace Unisangil.CYLTRACK.CYLTRACK_WebApp.Pedido
             if (!IsPostBack)
             {
                 ReporteServiceClient servReporte = new ReporteServiceClient();
+                VehiculoServiceClient servVehiculo = new VehiculoServiceClient();
+
                 try
                 {
                     lstTamanos.DataSource = servReporte.ConsultaTamanoCilindro();
                     lstTamanos.DataValueField = "Id_Tamano";
                     lstTamanos.DataTextField = "Tamano";
                     lstTamanos.DataBind();
+
+                    lstPlacas.DataSource = servVehiculo.ConsultarVehiculo(string.Empty);
+                    lstPlacas.DataValueField = "Id_Vehiculo";
+                    lstPlacas.DataTextField = "Placa";
+                    lstPlacas.DataBind();
                 }
                 catch (Exception ex)
                 {
@@ -52,6 +59,7 @@ namespace Unisangil.CYLTRACK.CYLTRACK_WebApp.Pedido
                 finally
                 {
                     servReporte.Close();
+                    servVehiculo.Close();
                 }
             }
         }
@@ -98,7 +106,8 @@ namespace Unisangil.CYLTRACK.CYLTRACK_WebApp.Pedido
                    divDirCliente.Visible = true;
                    divInfoCliente.Visible = true;                   
                    lstTamanos.Focus();
-                   txtCedula.Text = "";                   
+                   txtCedula.Text = "";
+                   btnMenuPrincipal.Visible = true;
                }
             }
             catch (Exception ex)
@@ -135,7 +144,7 @@ namespace Unisangil.CYLTRACK.CYLTRACK_WebApp.Pedido
 
                 resp = servPedido.Registrar_Pedido(ped);
 
-               MessageBox.Show("El pedido fue registrado satisfactoriamente bajo el número: "+resp, "Registrar Pedido");
+                MessageBox.Show("El pedido fue registrado satisfactoriamente con el código de pedido No: " + resp, "Registrar Pedido");
                   
             }
             catch (Exception ex)
@@ -152,7 +161,7 @@ namespace Unisangil.CYLTRACK.CYLTRACK_WebApp.Pedido
 
        protected void btnMenuPrincipal_Click(object sender, EventArgs e)
         {
-           if (!IsPostBack)
+            if (!IsPostBack)
             {
                 Response.Redirect("~/Default.aspx");
             }
@@ -195,7 +204,7 @@ namespace Unisangil.CYLTRACK.CYLTRACK_WebApp.Pedido
             txtCantidad.Text = lista[e.NewEditIndex].Cantidad.ToString();
             Session["indiceModificar"] = e.NewEditIndex;
             e.Cancel = true;
-            txtObservaciones.Focus();
+            txtCantidad.Focus();
         }
 
         protected void grvPrueba_RowDeleting(object sender, GridViewDeleteEventArgs e)
@@ -205,11 +214,13 @@ namespace Unisangil.CYLTRACK.CYLTRACK_WebApp.Pedido
             Session["lista"] = lista;
             grvPrueba.DataSource = lista;
             grvPrueba.DataBind();
-            txtObservaciones.Focus();
+            txtCantidad.Focus();
+            txtCantidad.Text = "";
         }
 
         protected void btnModificar_Click(object sender, EventArgs e)
         {
+            DataTable table = new DataTable();
             lista = (List<TamanoBE>)Session["lista"];
             int indice = (int)Session["indiceModificar"];
             Session.Remove("indiceModificar");
@@ -231,15 +242,24 @@ namespace Unisangil.CYLTRACK.CYLTRACK_WebApp.Pedido
             }
             lista.Add(tamano);
             Session["lista"] = lista;
-            grvPrueba.DataSource = lista;
+            table.Columns.Add("Tamano");
+            table.Columns.Add("Cantidad");
+
+            foreach (TamanoBE datos in lista)
+            {
+                table.Rows.Add(datos.Tamano, datos.Cantidad);
+            }
+            grvPrueba.DataSource = table;
             grvPrueba.DataBind();
             btnEjecutar.Enabled = true;
             btnModificar.Enabled = false;
-            txtObservaciones.Focus();
+            txtCantidad.Focus();
+            txtCantidad.Text = "";
         }
 
         protected void btnEjecutar_Click(object sender, EventArgs e)
         {
+            DataTable table = new DataTable();
             lista = (List<TamanoBE>)Session["lista"];
             TamanoBE tamano = new TamanoBE();
             tamano.Tamano = lstTamanos.SelectedItem.Text;
@@ -256,13 +276,21 @@ namespace Unisangil.CYLTRACK.CYLTRACK_WebApp.Pedido
                     break;
                 }
             }
-           
             lista.Add(tamano);
             Session["lista"] = lista;
-            grvPrueba.DataSource = lista;
+
+            table.Columns.Add("Tamano");
+            table.Columns.Add("Cantidad");
+
+            foreach (TamanoBE datos in lista)
+            {
+                table.Rows.Add(datos.Tamano, datos.Cantidad);
+            }
+            grvPrueba.DataSource = table;
             grvPrueba.DataBind();
-            txtObservaciones.Focus();
+            txtCantidad.Focus();
             btnGuardar.Visible = true;
+            txtCantidad.Text = "";
         }
 
         private void CargaInicialGridView()
@@ -270,6 +298,11 @@ namespace Unisangil.CYLTRACK.CYLTRACK_WebApp.Pedido
             grvPrueba.DataSource = lista;
             grvPrueba.DataBind();
             Session["lista"] = lista;
+        }
+
+        protected void lstTamanos_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            txtCantidad.Focus();
         }
     }
 }
