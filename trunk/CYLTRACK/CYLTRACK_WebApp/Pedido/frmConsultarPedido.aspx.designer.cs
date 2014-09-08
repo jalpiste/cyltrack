@@ -49,13 +49,13 @@ namespace Unisangil.CYLTRACK.CYLTRACK_WebApp.Pedido {
         protected global::System.Web.UI.WebControls.TextBox txtCedula;
         
         /// <summary>
-        /// Control txtNumPedido.
+        /// Control ValidarDatosCedula.
         /// </summary>
         /// <remarks>
         /// Campo generado automáticamente.
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox txtNumPedido;
+        protected global::System.Web.UI.WebControls.RegularExpressionValidator ValidarDatosCedula;
         
         /// <summary>
         /// Control txtCedulaRequired.
@@ -67,13 +67,13 @@ namespace Unisangil.CYLTRACK.CYLTRACK_WebApp.Pedido {
         protected global::System.Web.UI.WebControls.RequiredFieldValidator txtCedulaRequired;
         
         /// <summary>
-        /// Control ValidarDatosCedula.
+        /// Control txtNumPedido.
         /// </summary>
         /// <remarks>
         /// Campo generado automáticamente.
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.RegularExpressionValidator ValidarDatosCedula;
+        protected global::System.Web.UI.WebControls.TextBox txtNumPedido;
         
         /// <summary>
         /// Control ValidarDatosPedido.

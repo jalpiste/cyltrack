@@ -36,7 +36,7 @@ namespace Unisangil.CYLTRACK.CYLTRACK_WebApp.Pedido
 
                 if (respExisCliente == 0)
                 {
-                    MessageBox.Show("El cliente no se encuentra registrado en el sistema", "Consultar Pedido");
+                    MessageBox.Show("El cliente no ha solicitado pedido de cilindros", "Consultar Pedido");
                     divInfoCliente.Visible = false;
                     txtCedula.Text = "";
                     txtCedula.Focus();
@@ -48,7 +48,7 @@ namespace Unisangil.CYLTRACK.CYLTRACK_WebApp.Pedido
 
                 if (respExisPedido == 0)
                 {
-                    MessageBox.Show("El pedido no se encuentra registrado en el sistema", "Consultar Pedido");
+                    MessageBox.Show("El cliente no tiene no se encuentra registrado en el sistema", "Consultar Pedido");
                     divInfoCliente.Visible = false;
                     txtCedula.Text = "";
                     txtNumPedido.Text = "";
@@ -81,10 +81,11 @@ namespace Unisangil.CYLTRACK.CYLTRACK_WebApp.Pedido
                     table2.Columns.Add("TamanoCil");
                     table2.Columns.Add("CantidadPedido");
                     table2.Columns.Add("FechaPedido");
+                    table2.Columns.Add("CodigoPedido");
                    
                     foreach(Detalle_PedidoBE datos in objPedido.List_Detalle_Ped)
                     {
-                        table2.Rows.Add(datos.Tamano, datos.Cantidad, datos.Fecha);                        
+                        table2.Rows.Add(datos.Tamano, datos.Cantidad, datos.Fecha, datos.Id_Pedido);                        
                     }
                     gvPedido.DataSource = table2;
                     gvPedido.DataBind();
@@ -92,6 +93,7 @@ namespace Unisangil.CYLTRACK.CYLTRACK_WebApp.Pedido
                     divInfoPedido.Visible = true;
                     divInfoCliente.Visible = true;
                     divDirCliente.Visible = true;
+                    btnMenuPrincipal.Visible = true;
                  }
               }
             }
@@ -163,6 +165,7 @@ namespace Unisangil.CYLTRACK.CYLTRACK_WebApp.Pedido
                         table2.Columns.Add("TamanoCil");
                         table2.Columns.Add("CantidadPedido");
                         table2.Columns.Add("FechaPedido");
+                        table2.Columns.Add("CodigoPedido");
 
                         if (objPedido.Estado == "2")
                         {
@@ -172,7 +175,7 @@ namespace Unisangil.CYLTRACK.CYLTRACK_WebApp.Pedido
                     
                         foreach (Detalle_PedidoBE datos in objPedido.List_Detalle_Ped)
                         {
-                            table2.Rows.Add(datos.Tamano, datos.Cantidad, datos.Fecha);
+                            table2.Rows.Add(datos.Tamano, datos.Cantidad, datos.Fecha, datos.Id_Pedido);
                             gvPedido.DataSource = table2;
                             gvPedido.DataBind();
                         }
@@ -204,7 +207,10 @@ namespace Unisangil.CYLTRACK.CYLTRACK_WebApp.Pedido
 
         protected void btnMenuPrincipal_Click(object sender, EventArgs e)
         {
-            //Response.Redirect("~/Default.aspx");
+            if (!IsPostBack)
+            {
+                Response.Redirect("~/Default.aspx");
+            }
         }
 
     }

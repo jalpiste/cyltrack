@@ -19,27 +19,29 @@
 &nbsp;&nbsp; <br />
                         <asp:TextBox ID="txtCedula" runat="server" CssClass="textEntry" 
                             Width="197px" ontextchanged="txtCedula_TextChanged"></asp:TextBox>
+                            <asp:RegularExpressionValidator ID="ValidarDatosCedula" runat="server" ControlToValidate="txtCedula" 
+                            CssClass="failureNotification" ErrorMessage="El número de cédula debe contener entre 6 y 10 dígitos." 
+                            ValidationExpression="^([\d]{6,10})$"  Font-Size = "Small" Display ="Dynamic"
+                            ValidationGroup="Validar" >*</asp:RegularExpressionValidator>
+                            <asp:RequiredFieldValidator ID="txtCedulaRequired" runat="server" ControlToValidate="txtCedula" 
+                             CssClass="failureNotification" ErrorMessage="El número de cédula del cliente es obligatorio." ToolTip="El número de cédula del cliente es obligatorio." 
+                             ValidationGroup="Validar" >*</asp:RequiredFieldValidator>
                      
                                        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;
                         <asp:TextBox ID="txtNumPedido" CssClass="textEntry" runat="server" 
-                                  Width="112px" ontextchanged="NumPedidoTxt_TextChanged"></asp:TextBox><br />
-
-                       <asp:RequiredFieldValidator ID="txtCedulaRequired" runat="server" ControlToValidate="txtCedula" 
-                             CssClass="failureNotification" ErrorMessage="El número de cédula del cliente es obligatorio." ToolTip="El número de cédula del cliente es obligatorio." 
-                             ValidationGroup="Validar" Font-Size = "Small" Display ="Dynamic"></asp:RequiredFieldValidator>
-                     <asp:RegularExpressionValidator ID="ValidarDatosCedula" runat="server" ControlToValidate="txtCedula" 
-                            CssClass="failureNotification" ErrorMessage="El número de cédula debe contener entre 6 y 10 dígitos." 
-                            ValidationExpression="^([\d]{6,10})$"  Font-Size = "Small" Display ="Dynamic"
-                            ValidationGroup="Validar" ></asp:RegularExpressionValidator>
-                 <br />
-
-                        <asp:RequiredFieldValidator ID="ValidarDatosPedido" runat="server" ControlToValidate="txtNumPedido" 
+                                  Width="112px" ontextchanged="NumPedidoTxt_TextChanged"></asp:TextBox>
+                                   <asp:RequiredFieldValidator ID="ValidarDatosPedido" runat="server" ControlToValidate="txtNumPedido" 
                              CssClass="failureNotification" ErrorMessage="El número del pedido es obligatorio." 
-                             ValidationGroup="Validar" Font-Size = "Small" Display ="Dynamic"></asp:RequiredFieldValidator>
+                             ValidationGroup="Validar" >*</asp:RequiredFieldValidator>
                      <asp:RegularExpressionValidator ID="ValidarPedido" runat="server" ControlToValidate="txtNumPedido" 
                             CssClass="failureNotification" ErrorMessage="El número del pedido debe contener entre 3 y 5 dígitos." 
-                            ValidationExpression="\d*"  Font-Size = "Small" Display ="Dynamic"
-                            ValidationGroup="Validar" ></asp:RegularExpressionValidator>
+                            ValidationExpression="\d*"  
+                            ValidationGroup="Validar" >*</asp:RegularExpressionValidator>
+                       
+                     
+                 <br />
+
+                       
                         
                         </p>
                     <div id="divInfoCliente" runat="server" visible="false">
@@ -124,6 +126,10 @@
                             <HeaderStyle Width="130px" />
                         </asp:BoundField>
                         <asp:BoundField SortExpression="FechaPedido" DataField="FechaPedido" HeaderText="Fecha "
+                            HeaderStyle-Width="100px">
+                            <HeaderStyle Width="200px" />
+                        </asp:BoundField>
+                         <asp:BoundField SortExpression="CodigoPedido" DataField="CodigoPedido" HeaderText="Código Pedido "
                             HeaderStyle-Width="100px">
                             <HeaderStyle Width="200px" />
                         </asp:BoundField>
