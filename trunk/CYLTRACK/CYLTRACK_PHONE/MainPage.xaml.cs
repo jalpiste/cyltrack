@@ -28,7 +28,6 @@ namespace Unisangil.CYLTRACK.Cyltrack_phone
 
             listaCyltrack.Add(new ProcesoCyltrack("Cliente"));
             listaCyltrack.Add(new ProcesoCyltrack("Venta"));
-            listaCyltrack.Add(new ProcesoCyltrack("Pedido"));
             ListProcesoCyltrack.ItemsSource = listaCyltrack;
 
         }
@@ -38,13 +37,7 @@ namespace Unisangil.CYLTRACK.Cyltrack_phone
                 NavigationService.Navigate(new Uri("/Clientes/frmRegistrarCliente.xaml", UriKind.Relative));
             else if (((System.Windows.Controls.ContentControl)(sender)).Content.ToString() == "Consultar Cliente")
                 NavigationService.Navigate(new Uri("/Clientes/frmConsultarCliente.xaml", UriKind.Relative));
-
-
-            if (((System.Windows.Controls.ContentControl)(sender)).Content.ToString() == "Registrar Pedido")
-                NavigationService.Navigate(new Uri("/Pedidos/frmRegistrarPedido.xaml", UriKind.Relative));
-            else if (((System.Windows.Controls.ContentControl)(sender)).Content.ToString() == "Consultar Pedido")
-                NavigationService.Navigate(new Uri("/Pedidos/frmConsultarPedido.xaml", UriKind.Relative));
-
+  
 
             if (((System.Windows.Controls.ContentControl)(sender)).Content.ToString() == "Registrar Venta")
                 NavigationService.Navigate(new Uri("/Ventas/frmRegistrarVenta.xaml", UriKind.Relative));

@@ -49,6 +49,7 @@
   </PropertyGroup>
   <ItemGroup>
     <Reference Include="Microsoft.Phone" />
+    <Reference Include="Microsoft.Phone.Controls, Version=7.0.0.0, Culture=neutral, PublicKeyToken=24eec0d8c86cda1e, processorArchitecture=MSIL" />
     <Reference Include="Microsoft.Phone.Interop" />
     <Reference Include="System.Runtime.Serialization" />
     <Reference Include="System.ServiceModel" />
@@ -70,12 +71,6 @@
       <DependentUpon>OlvidoContrasena.xaml</DependentUpon>
     </Compile>
     <Compile Include="Auxiliar.cs" />
-    <Compile Include="Clientes\frmCambiarTelefono.xaml.cs">
-      <DependentUpon>frmCambiarTelefono.xaml</DependentUpon>
-    </Compile>
-    <Compile Include="Clientes\frmCambioDireccion.xaml.cs">
-      <DependentUpon>frmCambioDireccion.xaml</DependentUpon>
-    </Compile>
     <Compile Include="Clientes\frmConsultarCliente.xaml.cs">
       <DependentUpon>frmConsultarCliente.xaml</DependentUpon>
     </Compile>
@@ -84,15 +79,6 @@
     </Compile>
     <Compile Include="MainPage.xaml.cs">
       <DependentUpon>MainPage.xaml</DependentUpon>
-    </Compile>
-    <Compile Include="Pedidos\frmConsultarPedido.xaml.cs">
-      <DependentUpon>frmConsultarPedido.xaml</DependentUpon>
-    </Compile>
-    <Compile Include="Pedidos\frmModificarPedido.xaml.cs">
-      <DependentUpon>frmModificarPedido.xaml</DependentUpon>
-    </Compile>
-    <Compile Include="Pedidos\frmRegistrarPedido.xaml.cs">
-      <DependentUpon>frmRegistrarPedido.xaml</DependentUpon>
     </Compile>
     <Compile Include="ProcesoCyltrack.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
@@ -159,14 +145,6 @@
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </Page>
-    <Page Include="Clientes\frmCambiarTelefono.xaml">
-      <Generator>MSBuild:Compile</Generator>
-      <SubType>Designer</SubType>
-    </Page>
-    <Page Include="Clientes\frmCambioDireccion.xaml">
-      <Generator>MSBuild:Compile</Generator>
-      <SubType>Designer</SubType>
-    </Page>
     <Page Include="Clientes\frmConsultarCliente.xaml">
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
@@ -178,18 +156,6 @@
     <Page Include="MainPage.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
-    </Page>
-    <Page Include="Pedidos\frmConsultarPedido.xaml">
-      <Generator>MSBuild:Compile</Generator>
-      <SubType>Designer</SubType>
-    </Page>
-    <Page Include="Pedidos\frmModificarPedido.xaml">
-      <Generator>MSBuild:Compile</Generator>
-      <SubType>Designer</SubType>
-    </Page>
-    <Page Include="Pedidos\frmRegistrarPedido.xaml">
-      <Generator>MSBuild:Compile</Generator>
-      <SubType>Designer</SubType>
     </Page>
     <Page Include="Ventas\frmConsultaCilindro.xaml">
       <Generator>MSBuild:Compile</Generator>
@@ -229,6 +195,12 @@
     <None Include="Service References\ClienteService\CYLTRACK_PHONE.ClienteService.ClienteBE.datasource">
       <DependentUpon>Reference.svcmap</DependentUpon>
     </None>
+    <None Include="Service References\ClienteService\CYLTRACK_PHONE.ClienteService.UbicacionBE.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\ClienteService\CYLTRACK_PHONE.ClienteService.Ubicacion_CilindroBE.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
     <None Include="Service References\ClienteService\Reference.svcmap">
       <Generator>WCF Proxy Generator</Generator>
       <LastGenOutput>Reference.cs</LastGenOutput>
@@ -246,28 +218,16 @@
     <None Include="Service References\ReporteService\CYLTRACK_PHONE.ReporteService.CilindroBE.datasource">
       <DependentUpon>Reference.svcmap</DependentUpon>
     </None>
-    <None Include="Service References\ReporteService\CYLTRACK_PHONE.ReporteService.ClienteBE.datasource">
-      <DependentUpon>Reference.svcmap</DependentUpon>
-    </None>
-    <None Include="Service References\ReporteService\CYLTRACK_PHONE.ReporteService.PedidoBE.datasource">
-      <DependentUpon>Reference.svcmap</DependentUpon>
-    </None>
-    <None Include="Service References\ReporteService\CYLTRACK_PHONE.ReporteService.ReportesBE.datasource">
-      <DependentUpon>Reference.svcmap</DependentUpon>
-    </None>
-    <None Include="Service References\ReporteService\CYLTRACK_PHONE.ReporteService.RutaBE.datasource">
-      <DependentUpon>Reference.svcmap</DependentUpon>
-    </None>
     <None Include="Service References\ReporteService\CYLTRACK_PHONE.ReporteService.TamanoBE.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\ReporteService\CYLTRACK_PHONE.ReporteService.Tipo_CasoBE.datasource">
       <DependentUpon>Reference.svcmap</DependentUpon>
     </None>
     <None Include="Service References\ReporteService\CYLTRACK_PHONE.ReporteService.Tipo_UbicacionBE.datasource">
       <DependentUpon>Reference.svcmap</DependentUpon>
     </None>
-    <None Include="Service References\ReporteService\CYLTRACK_PHONE.ReporteService.UbicacionBE.datasource">
-      <DependentUpon>Reference.svcmap</DependentUpon>
-    </None>
-    <None Include="Service References\ReporteService\CYLTRACK_PHONE.ReporteService.UsuarioBE.datasource">
+    <None Include="Service References\ReporteService\CYLTRACK_PHONE.ReporteService.Ubicacion_CilindroBE.datasource">
       <DependentUpon>Reference.svcmap</DependentUpon>
     </None>
     <None Include="Service References\ReporteService\ReporteService.disco" />
@@ -309,6 +269,9 @@
     <None Include="Service References\VehiculoService\CYLTRACK_PHONE.VehiculoService.ContratistaBE.datasource">
       <DependentUpon>Reference.svcmap</DependentUpon>
     </None>
+    <None Include="Service References\VehiculoService\CYLTRACK_PHONE.VehiculoService.Ubicacion_CilindroBE.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
     <None Include="Service References\VehiculoService\CYLTRACK_PHONE.VehiculoService.VehiculoBE.datasource">
       <DependentUpon>Reference.svcmap</DependentUpon>
     </None>
@@ -320,9 +283,6 @@
       <LastGenOutput>Reference.cs</LastGenOutput>
     </None>
     <None Include="Service References\VentaService\CYLTRACK_PHONE.VentaService.CasosBE.datasource">
-      <DependentUpon>Reference.svcmap</DependentUpon>
-    </None>
-    <None Include="Service References\VentaService\CYLTRACK_PHONE.VentaService.CilindroBE.datasource">
       <DependentUpon>Reference.svcmap</DependentUpon>
     </None>
     <None Include="Service References\VentaService\CYLTRACK_PHONE.VentaService.VentaBE.datasource">
