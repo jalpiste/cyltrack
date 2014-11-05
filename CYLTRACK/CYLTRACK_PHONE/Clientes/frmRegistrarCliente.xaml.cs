@@ -59,8 +59,8 @@ namespace Unisangil.CYLTRACK.CYLTRACK_PHONE.Clientes
                     
                     txtNombres.Focus();
                     lblCedulaCli.Text = txtCedula.Text;
-                    
-                    
+
+
                     txtNombres.Text = "";
                     txtPrApellido.Text = "";
                     txtSgApellido.Text = "";
@@ -95,15 +95,15 @@ namespace Unisangil.CYLTRACK.CYLTRACK_PHONE.Clientes
             ClienteBE cliente = new ClienteBE();
 
 
-                cliente.Cedula = lblCedulaCli.Text;
-                cliente.Nombres_Cliente = txtNombres.Text;
-                cliente.Apellido_1 = txtPrApellido.Text;
-                cliente.Apellido_2 = txtSgApellido.Text;
+                cliente.Cedula = lblCedulaCli.Text.ToUpper();
+                cliente.Nombres_Cliente = txtNombres.Text.ToUpper();
+                cliente.Apellido_1 = txtPrApellido.Text.ToUpper();
+                cliente.Apellido_2 = txtSgApellido.Text.ToUpper();
 
                 UbicacionBE ubicacion = new UbicacionBE();
-                ubicacion.Direccion = txtDir.Text;
-                ubicacion.Barrio = txtBarrio.Text;
-                ubicacion.Telefono_1 = txtTel.Text;
+                ubicacion.Direccion = txtDir.Text.ToUpper();
+                ubicacion.Barrio = txtBarrio.Text.ToUpper();
+                ubicacion.Telefono_1 = txtTel.Text.ToUpper();
                 CiudadBE ciudad = new CiudadBE();
                 ciudad.Id_Ciudad = "1";
                 ubicacion.Ciudad = ciudad;                          
