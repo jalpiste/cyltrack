@@ -46,10 +46,10 @@ namespace Unisangil.CYLTRACK.Cyltrack_phone.Clientes
                     ContentBusq.Visibility = System.Windows.Visibility.Collapsed;
                     ContentDatosP.Visibility = System.Windows.Visibility.Visible;
 
-                    lblCedulaCli.Text = e.Result.Cedula;
-                    txtNombres.Text = e.Result.Nombres_Cliente;
-                    txtPrApellido.Text = e.Result.Apellido_1;
-                    txtSgApellido.Text = e.Result.Apellido_2;
+                    lblCedulaCli.Text = e.Result.Cedula.ToUpper();
+                    txtNombres.Text = e.Result.Nombres_Cliente.ToUpper();
+                    txtPrApellido.Text = e.Result.Apellido_1.ToUpper();
+                    txtSgApellido.Text = e.Result.Apellido_2.ToUpper();
                     lblDirecciones.Text = "";
                    
                     foreach (UbicacionBE ubi in e.Result.ListaDirecciones)
@@ -83,9 +83,9 @@ namespace Unisangil.CYLTRACK.Cyltrack_phone.Clientes
             ClienteBE nuevadir = new ClienteBE();
                         
             UbicacionBE ubicacion = new UbicacionBE();
-            ubicacion.Direccion = txtNuevaDir.Text;
-            ubicacion.Barrio = txtNuevoBarrio.Text;
-            ubicacion.Telefono_1 = txtTelefono.Text;
+            ubicacion.Direccion = txtNuevaDir.Text.ToUpper();
+            ubicacion.Barrio = txtNuevoBarrio.Text.ToUpper();
+            ubicacion.Telefono_1 = txtTelefono.Text.ToUpper();
             CiudadBE ciudad = new CiudadBE();
             ciudad.Id_Ciudad = "1";
             ubicacion.Ciudad = ciudad;
@@ -157,10 +157,10 @@ namespace Unisangil.CYLTRACK.Cyltrack_phone.Clientes
                     PageTitle.Text = "MODIFICAR CLIENTE";
 
 
-                    lblCedulaCli2.Text =lblCedulaCli.Text;
-                    txtNombres2.Text = e.Result.Nombres_Cliente;
-                    txtPrApellido2.Text = e.Result.Apellido_1;
-                    txtSgApellido2.Text = e.Result.Apellido_2;
+                    lblCedulaCli2.Text = lblCedulaCli.Text.ToUpper();
+                    txtNombres2.Text = e.Result.Nombres_Cliente.ToUpper();
+                    txtPrApellido2.Text = e.Result.Apellido_1.ToUpper();
+                    txtSgApellido2.Text = e.Result.Apellido_2.ToUpper();
                     
                 }
             }
@@ -197,18 +197,18 @@ namespace Unisangil.CYLTRACK.Cyltrack_phone.Clientes
             ClienteBE cliente = new ClienteBE();
 
 
-            cliente.Nombres_Cliente = txtNombres2.Text;
-            cliente.Apellido_1 = txtPrApellido2.Text;
-            cliente.Apellido_2 = txtSgApellido2.Text;
+            cliente.Nombres_Cliente = txtNombres2.Text.ToUpper();
+            cliente.Apellido_1 = txtPrApellido2.Text.ToUpper();
+            cliente.Apellido_2 = txtSgApellido2.Text.ToUpper();
 
             UbicacionBE ubi = new UbicacionBE();
 
             if (Convert.ToBoolean(lblDireccion.Visibility = System.Windows.Visibility.Visible))
             {
 
-                ubi.Direccion = txtDir.Text;
-                ubi.Barrio = txtBarrio.Text;
-                ubi.Telefono_1 = txtTel.Text;
+                ubi.Direccion = txtDir.Text.ToUpper();
+                ubi.Barrio = txtBarrio.Text.ToUpper();
+                ubi.Telefono_1 = txtTel.Text.ToUpper();
                 ubi.Ciudad.Id_Ciudad = "1";
                 ubi.Ciudad.Departamento.Id_Departamento = "1";
 
@@ -245,6 +245,7 @@ namespace Unisangil.CYLTRACK.Cyltrack_phone.Clientes
                 NavigationService.Navigate(new Uri("/Clientes/frmConsultarCliente.xaml", UriKind.Relative));
             }
         }
+        
         private void ModificarCliente(object sender, ModificarNombreClienteCompletedEventArgs e)
         {
             MessageBox.Show("El cliente fue modificado satisfactoriamente");
@@ -310,9 +311,9 @@ namespace Unisangil.CYLTRACK.Cyltrack_phone.Clientes
                 }
                 else
                 {
-                    txtDir.Text = e.Result.Direccion;
-                    txtBarrio.Text = e.Result.Barrio;
-                    txtTel.Text = e.Result.Telefono_1;
+                    txtDir.Text = e.Result.Direccion.ToUpper();
+                    txtBarrio.Text = e.Result.Barrio.ToUpper();
+                    txtTel.Text = e.Result.Telefono_1.ToUpper();
 
                     lblDireccion.Visibility = System.Windows.Visibility.Visible;
                     txtDir.Visibility = System.Windows.Visibility.Visible;
@@ -336,7 +337,6 @@ namespace Unisangil.CYLTRACK.Cyltrack_phone.Clientes
             finally
             {
                 NavigationService.Navigate(new Uri("/Clientes/frmConsultarCliente.xaml", UriKind.Relative));
-
             }
         }
 
