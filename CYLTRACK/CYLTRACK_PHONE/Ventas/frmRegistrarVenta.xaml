@@ -21,78 +21,71 @@
         </Grid.RowDefinitions>
 
         <!--TitlePanel contiene el nombre de la aplicación y el título de la página-->
-        <StackPanel x:Name="nuevo" Margin="0,17,0,28" Style="{StaticResource fondo}">
+        <StackPanel x:Name="nuevo" Margin="12,17,0,28" Style="{StaticResource fondo}">
         <StackPanel Name="barra" Width="467"  Style= "{StaticResource encabezado}" >
             <TextBlock x:Name="ApplicationTitle" Text="CYLTRACK" Style="{StaticResource PhoneTextNormalStyle}"/>
             <TextBlock x:Name="PageTitle" Text="REGISTRAR VENTA" Margin="9,-7,0,0" Style="{StaticResource PhoneTextExtraLargeStyle}" />
         </StackPanel>
 
             <!--ContentPanel. Colocar aquí el contenido adicional-->
-            <ScrollViewer HorizontalScrollBarVisibility="Auto">
-                <Grid x:Name="ContentCliente" Grid.Row="1" Margin="14,0,10,-2" Visibility="Collapsed">
-                    <TextBlock Height="49" HorizontalAlignment="Right" Margin="0,6,79,0" Name="lblDatos" Text="Datos Personales" VerticalAlignment="Top" Width="346" Style="{StaticResource h2}" />
-                    <TextBlock Height="30" Margin="19,61,249,582" Name="lblNombres" Text="Nombres: " Style="{StaticResource h3}" Width="182" />
-                    <TextBox Height="Auto" HorizontalAlignment="Left" Margin="2,89,0,0" Name="txtNombres" VerticalAlignment="Top" Width="320" Style="{StaticResource textboxSolos}" />
-                    <TextBlock Height="30" HorizontalAlignment="Left" Margin="19,153,0,0" Name="lblPrApellido" Text="Primer Apellido: " VerticalAlignment="Top" />
-                    <TextBox Height="Auto" HorizontalAlignment="Left" Margin="3,170,0,0" Name="txtPrApellido" VerticalAlignment="Top" Width="320" Style="{StaticResource textboxSolos}" />
-                    <TextBlock Height="30" HorizontalAlignment="Left" Margin="19,231,0,0" Name="lblSgApellido" Text="Segundo Apellido: " VerticalAlignment="Top" />
-                    <TextBox Height="Auto" HorizontalAlignment="Left" Margin="2,248,0,0" Name="txtSgApellido" VerticalAlignment="Top" Width="320"  Style="{StaticResource textboxSolos}"/>
-                    <TextBlock HorizontalAlignment="Left" Margin="19,309,0,307" Name="lblDireccion" Text="Dirección: " />
-                    <ListBox Height="28" HorizontalAlignment="Left" Margin="19,350,0,0" Name="lstDir" VerticalAlignment="Top" Width="195" Style="{StaticResource listas}" >
-                        <ListBoxItem Content="Seleccionar..." />
-                        <ListBoxItem>Boyacá</ListBoxItem>
-                    </ListBox>
-                    <TextBlock HorizontalAlignment="Left" Margin="241,309,0,307" Name="lblBarrio" Text="Barrio: " />
-                    <TextBox Height="Auto" HorizontalAlignment="Left" Margin="224,326,0,0" Name="txtBarrio" VerticalAlignment="Top" Width="226" Style="{StaticResource textboxSolos}" />
-                    <TextBlock HorizontalAlignment="Left" Margin="19,388,0,228" Name="lblDep" Text="Departamento: " />
-                    <TextBox Height="Auto" HorizontalAlignment="Left" Margin="0,400,0,0" Name="txtDep" VerticalAlignment="Top" Width="226" InputScope="TelephoneNumber" Style="{StaticResource textboxSolos}"/>
-                    <TextBlock HorizontalAlignment="Left" Margin="241,388,0,228" Name="lblCiudad" Text="Ciudad: " />
-                    <TextBox Height="Auto" HorizontalAlignment="Left" Margin="224,400,0,0" Name="txtCiudad" VerticalAlignment="Top" Width="226" Style="{StaticResource textboxSolos}" />
-                    <TextBlock Height="30" HorizontalAlignment="Left" Margin="19,458,0,0" Name="lblTel" Text="Teléfono: " VerticalAlignment="Top" />
-                    <TextBox Height="Auto" HorizontalAlignment="Left" Margin="0,473,0,0" Name="txtTel" VerticalAlignment="Top" Width="226" InputScope="TelephoneNumber" Style="{StaticResource textboxSolos}"/>
-                    <Button Content="Nueva Consulta" Height="72" HorizontalAlignment="Left" Margin="197,537,0,0" Name="btnCancelar" VerticalAlignment="Top" Width="229" Click="btnCancelar_Click" />
-                    <Button Content="Aceptar" Height="72" HorizontalAlignment="Left" Margin="17,537,0,0" Name="btnAceptar" VerticalAlignment="Top" Width="198" Click="btnAceptar_Click" />
-
-                </Grid>
-            </ScrollViewer>
-
-            <Grid x:Name="ContentInicial" Grid.Row="1" Margin="14,0,10,-2" Visibility="Visible">
+            <Grid x:Name="ContentInicial" Grid.Row="1" Margin="12,0,12,0" Visibility="Collapsed">
+                <TextBlock Height="50" HorizontalAlignment="Left" Name="lblEntregaCil" Text="Venta de Cilindro" VerticalAlignment="Top" Style="{StaticResource h2}" Width="373" Margin="0,6,0,0" />
                 <TextBlock Height="30" HorizontalAlignment="Left" Name="lblCedula" Text="Número de Cédula: " Margin="6,83,0,171" />
-                <TextBox Height="Auto" HorizontalAlignment="Left" Name="txtCedula" Text="" VerticalAlignment="Top" Width="303" Style="{StaticResource textboxSolos}" Margin="-12,118,0,0" InputScope="TelephoneNumber"/>
+                <TextBox Height="Auto" HorizontalAlignment="Left" Name="txtCedula" Text="" VerticalAlignment="Top" Width="303" Style="{StaticResource textboxConsulta}" Margin="-12,118,0,0" InputScope="TelephoneNumber"/>
+
                 <Button Content="Registrar" Height="72" HorizontalAlignment="Left" Name="btnRegistrar" VerticalAlignment="Top" Width="160" Margin="50,196,0,0" Click="btnRegistrar_Click" />
-                <TextBlock Height="50" HorizontalAlignment="Left" Name="lblEntregaCil" Text="Entrega de Cilindro" VerticalAlignment="Top" Style="{StaticResource h2}" Width="373" Margin="0,6,0,0" />
                 <Button Content="Menú" Height="72" HorizontalAlignment="Left" Margin="231,196,0,0" Name="btnCancelarRegistro" VerticalAlignment="Top" Width="160" Click="btnCancelarRegistro_Click" />
             </Grid>
-            
-            <ScrollViewer HorizontalScrollBarVisibility="Auto">
-                <Grid x:Name="ContentCilindro" Grid.Row="1" Margin="14,0,10,-2" Visibility="Collapsed" Background="White">
-                    <TextBlock Height="37" HorizontalAlignment="Left" Margin="9,10,0,0" Name="lblInfoCilCli" Text="Información del Cilindro del cliente" VerticalAlignment="Top" Style="{StaticResource h2}" />
-                    <TextBlock Height="30" HorizontalAlignment="Left" Margin="20,69,0,0" Name="lblCodigCil" Text="Código del cilindro: " VerticalAlignment="Top" />
-                    <TextBox Height="72" HorizontalAlignment="Left" Margin="6,105,0,0" Name="txtCodigCil" VerticalAlignment="Top" Width="175" Style="{StaticResource textboxSolos}" />
-                    <TextBlock Height="30" HorizontalAlignment="Left" Margin="254,69,0,0" Name="lblTamanoCil" Text="Tamaño:" VerticalAlignment="Top"  />
-                    <TextBox Height="72" HorizontalAlignment="Left" Margin="242,105,0,0" Name="txtTamanoCil" VerticalAlignment="Top" Width="175" Style="{StaticResource textboxSolos}" />
-                    <TextBlock Height="41" HorizontalAlignment="Left" Margin="9,172,0,0" Name="lblInfoCilEnt" Text="Información del cilindro a entregar" VerticalAlignment="Top" Style="{StaticResource h2}"  />
-                    <TextBlock Height="30" HorizontalAlignment="Left" Margin="20,230,0,0" Name="lblTamanoEnt" Text="Tamaño:" VerticalAlignment="Top" />
-                    <ListBox Height="27" HorizontalAlignment="Left" Margin="27,270,0,0" Name="lstTamano" VerticalAlignment="Top" Width="69" Style="{StaticResource listas}">
-                        <ListBoxItem Content="30 lb" />
-                        <ListBoxItem Content="40 lb" />
-                        <ListBoxItem Content="80 lb" />
-                        <ListBoxItem Content="100 lb" />
-                    </ListBox>
-                    <TextBlock Height="30" HorizontalAlignment="Left" Margin="254,230,0,0" Name="lblCant" Text="Cantidad:" VerticalAlignment="Top" />
-                    <TextBox Height="72" HorizontalAlignment="Left" Margin="240,249,0,0" Name="txtCant" VerticalAlignment="Top" Width="129" Style="{StaticResource textboxSolos}" InputScope="TelephoneNumber"  />
-                    <TextBlock Height="30" HorizontalAlignment="Left" Margin="20,324,0,0" Name="lblCodigCilEnt" Text="Código del cilindro:" VerticalAlignment="Top" Style="{StaticResource h3}" />
-                    <ListBox Height="27" HorizontalAlignment="Left" Margin="20,360,0,0" Name="lstCilDisponibles" VerticalAlignment="Top" Width="157" Style="{StaticResource listas}" SelectedItem="lstCilDisponibles_SelectedItem">
-                        <ListBoxItem Content="Seleccionar..." />
-                        <ListBoxItem Content="12345654322" />
-                        <ListBoxItem Content="48833237374" />
-                    </ListBox>
-                    <TextBlock Height="30" HorizontalAlignment="Left" Margin="20,421,0,0" Name="lblObser" Text="Observaciones:" VerticalAlignment="Top" />
-                    <TextBox Height="101" HorizontalAlignment="Left" Margin="0,440,0,0" Name="txtObser" VerticalAlignment="Top" Width="416" Style="{StaticResource textboxSolos}" TextWrapping="Wrap" />
-                    <Button Content="Guardar" Height="72" HorizontalAlignment="Left" Margin="21,538,0,0" Name="btnGuardar" VerticalAlignment="Top" Width="160" Click="btnGuardar_Click" />
-                    <Button Content="Menú" Height="72" HorizontalAlignment="Left" Margin="241,538,0,0" Name="btnCancelarInt" VerticalAlignment="Top" Width="160" Click="btnCancelarInt_Click" />
+
+         
+            <Grid x:Name="ContentCliente" Grid.Row="1" Margin="10,0,10,-2" Visibility="Collapsed">
+                <TextBlock Height="30" HorizontalAlignment="Left" Margin="19,05,0,0" Name="lblDatos" Text="Datos Personales" VerticalAlignment="Top" Width="269" Style="{StaticResource h2}" />
+                <TextBlock Height="30" HorizontalAlignment="Left" Margin="19,50,0,0" Name="lblNumCedula" Text="Número de Cédula:" VerticalAlignment="Top" Width="269" />
+                <TextBlock Height="30" HorizontalAlignment="Left" Margin="179,50,0,0" Name="lblCedulaCli" Text="" VerticalAlignment="Top" Width="269" FontStyle="Italic" FontWeight="Bold" Foreground="#FFBA2121" />
+                <TextBlock Height="30" HorizontalAlignment="Left" Margin="19,78,0,0" Name="lblNombres" Text="Nombres: " VerticalAlignment="Top" Style="{StaticResource textArea}" />
+                <TextBox Height="Auto" HorizontalAlignment="Left" Margin="2,89,0,0" Name="txtNombres" Text="" VerticalAlignment="Top" Width="320" Style="{StaticResource textboxSolos}" Grid.Column="0" Grid.Row="0" DataContext="{Binding}" />
+                <TextBlock Height="30" HorizontalAlignment="Left" Margin="19,156,0,0" Name="lblPrApellido" Text="Primer Apellido: " VerticalAlignment="Top" Style="{StaticResource textArea}" />
+                <TextBox Height="Auto" HorizontalAlignment="Left" Margin="2,170,0,0" Name="txtPrApellido" Text="" VerticalAlignment="Top" Width="320" Style="{StaticResource textboxSolos}" Grid.Column="0" Grid.Row="1"/>
+                <TextBlock Height="30" HorizontalAlignment="Left" Margin="19,234,0,0" Name="lblSgApellido" Text="Segundo Apellido: " VerticalAlignment="Top" Style="{StaticResource textArea}" />
+                <TextBox Height="Auto" HorizontalAlignment="Left" Margin="2,248,0,0" Name="txtSgApellido" Text="" VerticalAlignment="Top" Width="320" Style="{StaticResource textboxSolos}" Grid.Column="0" Grid.Row="2"/>
+                <TextBlock Height="30" HorizontalAlignment="Left" Margin="19,326,0,0" Name="lblMensaje" Text="Digite el código de la dirección de la venta: " VerticalAlignment="Top" Style="{StaticResource textArea}" Grid.Column="0" Grid.Row="2"/>
+                <TextBox Height="65" HorizontalAlignment="Left" Margin="356,303,0,0" Name="txtDir" Text="" VerticalAlignment="Top" Width="90" Style="{StaticResource textboxConsulta}" InputScope="TelephoneNumber"/>
+                <TextBlock Height="30" HorizontalAlignment="Left" Margin="19,365,0,0" Name="lblDireccionesCli" Text="Direcciones Cliente" VerticalAlignment="Top" Width="269" Style="{StaticResource h2}" />
+                <TextBlock Height="30" HorizontalAlignment="Left" Margin="26,396,0,0" Name="lblDatosDir" Text="Id  Ciudad    Barrio      Dirección     Teléfono" VerticalAlignment="Top" Width="433" Style="{StaticResource h2}" FontSize="24" />
+                <TextBlock Height="Auto" HorizontalAlignment="Left" Margin="19,440,0,0" Name="lblDirecciones" Text="" VerticalAlignment="Top" Style="{StaticResource textArea}" Width="388" FontSize="18"/>
+                <Button Content="Aceptar" Height="72" HorizontalAlignment="Left" Margin="27,627,0,0" Name="btnAceptar" VerticalAlignment="Top" Width="178" Click="btnAceptar_Click" />
+                <Button Content="Cancelar" Height="72" HorizontalAlignment="Right" Margin="0,627,54,0" Name="btnCancelar" VerticalAlignment="Top" Width="178" Click="btnCancelar_Click" />
                 </Grid>
-            </ScrollViewer>
+         
+            <ScrollViewer Height="1100" HorizontalAlignment="Left" Margin="12,0,0,0"  Name="scrollViewer" VerticalAlignment="Top" Width="auto">
+                <Grid x:Name="ContentVenta" Grid.Row="1" Margin="10,0,10,0" Visibility="Visible" Background="White" Width="476">
+                    <TextBlock Height="37" HorizontalAlignment="Left" Margin="9,10,0,0" Name="lblInfoVenta" Text="Información de Venta" VerticalAlignment="Top" Style="{StaticResource h2}" />
+                    <TextBlock Height="30" HorizontalAlignment="Left" Margin="20,69,0,0" Name="lblTamanoCil" Text="Tamaño Cilindro: " VerticalAlignment="Top" />
+
+                    <RadioButton Content="30 lb" Height="71" HorizontalAlignment="Left" Margin="20,83,0,0" Name="rb30lb" VerticalAlignment="Top" Width="177" GroupName="gbtnTamanoCil" Style="{StaticResource radio}" />
+                    <RadioButton Content="40 lb" Height="71" HorizontalAlignment="Left" Margin="120,83,0,0" Name="rb40lb" VerticalAlignment="Top" Width="177" GroupName="gbtnTamanoCil" Style="{StaticResource radio}" />
+                    <RadioButton Content="80 lb" Height="71" HorizontalAlignment="Left" Margin="220,83,0,0" Name="rb80lb" VerticalAlignment="Top" Width="177" GroupName="gbtnTamanoCil" Style="{StaticResource radio}" />
+                    <RadioButton Content="100 lb" Height="71" HorizontalAlignment="Left" Margin="320,83,0,0" Name="rb100lb" VerticalAlignment="Top" Width="177" GroupName="gbtnTamanoCil" Style="{StaticResource radio}" />
+                   
+                <TextBlock Height="41" HorizontalAlignment="Left" Margin="9,152,0,0" Name="lblInfoCilEnt" Text="Información del Cilindro a Entregar" VerticalAlignment="Top" Style="{StaticResource h2}" />
+                <TextBlock Height="30" HorizontalAlignment="Left" Margin="20,189,0,0" Name="lblCilindroVeh" Text="Cilindro Vehículo: " VerticalAlignment="Top" />
+                <TextBox Height="Auto" HorizontalAlignment="Left" Margin="20,208,0,0" Name="txtCodCilEntregado" Text="" VerticalAlignment="Top" Width="220" Style="{StaticResource textboxConsulta}" IsEnabled="True" InputScope="TelephoneNumber"/>
+                <TextBlock Height="41" HorizontalAlignment="Left" Margin="9,282,0,0" Name="lblTipoEntrega" Text="Tipo de Entrega de Cilindro " VerticalAlignment="Top" Style="{StaticResource h2}" />
+                <RadioButton Content="Intercambio" Height="71" HorizontalAlignment="Left" Margin="20,329,0,0" Name="rbIntercambio" VerticalAlignment="Top" Width="177" GroupName="gbtnTipoEntrega" Style="{StaticResource radio}" Checked="rbIntercambio_Checked_1" />
+                <RadioButton Content="Préstamo" Height="77" HorizontalAlignment="Left" Margin="20,379,0,0" Name="rbPrestamo" VerticalAlignment="Top" Width="177" GroupName="gbtnTipoEntrega" Style="{StaticResource radio}" Checked="rbPrestamo_Checked_1" />
+                <TextBlock Height="41" HorizontalAlignment="Left" Margin="9,450,0,0" Name="lblTipoCil" Text="Tipo de Cilindro " VerticalAlignment="Top" Style="{StaticResource h2}" Visibility="Collapsed" />
+                <RadioButton Content="Universal" Height="74" HorizontalAlignment="Left" Margin="20,477,0,0" Name="rbUniversal" VerticalAlignment="Top" Width="177" GroupName="gbtnTipoCilindro" Style="{StaticResource radio}" Checked="rbUniversal_Checked" Visibility="Collapsed" />
+                <RadioButton Content="Marcado" Height="74" HorizontalAlignment="Left" Margin="20,533,0,0" Name="rbMarcado" VerticalAlignment="Top" Width="177" GroupName="gbtnTipoCilindro" Style="{StaticResource radio}" Checked="rbMarcado_Checked" Visibility="Collapsed" />
+                <TextBlock Height="30" HorizontalAlignment="Left" Margin="200,497,0,0" Name="lblCilRecibido" Text="Código de Cilindro Recibido:" VerticalAlignment="Top" Visibility="Collapsed" />
+                <TextBox Height="Auto" HorizontalAlignment="Left" Margin="200,507,0,0" Name="txtCodCilRecibido" Text="" VerticalAlignment="Top" Width="220" Style="{StaticResource textboxConsulta}" IsEnabled="True" Visibility="Collapsed" InputScope="TelephoneNumber"/>
+                <TextBlock Height="30" HorizontalAlignment="Left" Margin="20,609,0,0" Name="lblObser" Text="Observaciones:" VerticalAlignment="Top" Visibility="Collapsed" />
+                <TextBox Height="101" HorizontalAlignment="Left" Margin="0,628,0,0" Name="txtObser" VerticalAlignment="Top" Width="416" Style="{StaticResource textboxConsulta}" TextWrapping="Wrap" Visibility="Collapsed" />
+                <Button Content="Guardar" Height="72" HorizontalAlignment="Left" Margin="21,726,0,0" Name="btnGuardar" VerticalAlignment="Top" Width="160" Click="btnGuardar_Click" Visibility="Collapsed" />
+                <Button Content="Menú" Height="72" HorizontalAlignment="Left" Margin="221,726,0,0" Name="btnCancelarInt" VerticalAlignment="Top" Width="160" Click="btnCancelarInt_Click" />
+                    
+                </Grid>
+
+        </ScrollViewer>
         </StackPanel>
     </Grid>
 
