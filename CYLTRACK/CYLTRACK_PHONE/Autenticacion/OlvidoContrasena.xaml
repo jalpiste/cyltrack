@@ -29,7 +29,7 @@
                 <TextBlock Height="50" HorizontalAlignment="Left" Name="lblRecuperarContrasena" Text="Recupar Contraseña" VerticalAlignment="Top" Style="{StaticResource h2}" Width="373" Margin="0,0,0,0" />
                 <TextBlock Height="51" HorizontalAlignment="Left" Name="lblInformacion" Text="Digite su nombre de usuario y a continuación seleccione el botón enviar. " VerticalAlignment="Top" Style="{StaticResource h3}" Width="401" TextWrapping="Wrap" Margin="13,57,0,0" />
                 <TextBlock Height="30" HorizontalAlignment="Left" Name="lblNombUsuario" Text="Nombre de usuario: "  Margin="14,120,0,249" />
-                <TextBox Height="Auto" HorizontalAlignment="Left" Name="txtNombUsuario" Text="" VerticalAlignment="Top" Width="303" Style="{StaticResource textboxSolos}" Margin="2,146,0,0" />
+                <TextBox Height="Auto" HorizontalAlignment="Left" Name="txtNombUsuario" Text="" VerticalAlignment="Top" Width="303" Style="{StaticResource textboxConsulta}" Margin="2,146,0,0" />
                 <Button Content="Enviar " Height="72" HorizontalAlignment="Left" Margin="9,250,0,0" Name="btonEnviar" VerticalAlignment="Top" Width="200" Click="btonEnviar_Click" />
                 <Button Content=" Menú " Height="72" HorizontalAlignment="Left" Margin="210,250,0,0" Name="btnMenu" VerticalAlignment="Top" Width="160" Click="btnMenu_Click" />
             </Grid>
