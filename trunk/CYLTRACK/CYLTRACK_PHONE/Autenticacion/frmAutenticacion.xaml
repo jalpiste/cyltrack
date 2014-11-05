@@ -27,11 +27,11 @@
                 <TextBlock x:Name="PageTitle" Text="INICIO DE SESION" Margin="9,-7,0,0" Style="{StaticResource PhoneTextExtraLargeStyle}" />
             </StackPanel>
             <Grid x:Name="ContRegistrar" Visibility="Visible" Margin="12,20,12,0" >
-                <TextBlock Height="50" HorizontalAlignment="Left" Name="lblRegistarUsuario" Text="Informacion de cuenta " VerticalAlignment="Top" Style="{StaticResource h2}" Width="373" Margin="0,0,0,0" />
+                <TextBlock Height="50" HorizontalAlignment="Left" Name="lblRegistarUsuario" Text="Información de cuenta " VerticalAlignment="Top" Style="{StaticResource h2}" Width="373" Margin="0,0,0,0" />
                 <TextBlock Height="30" HorizontalAlignment="Left" Name="lblNomUsuario" Text="Nombre de usuario: "  Margin="10,58,0,311"/>
-                <TextBox Height="Auto" HorizontalAlignment="Left" Name="txtNomUsuario" Text="" VerticalAlignment="Top" Width="303" Style="{StaticResource textboxSolos}" Margin="2,81,0,0" />
+                <TextBox Height="Auto" HorizontalAlignment="Left" Name="txtNomUsuario" Text="" VerticalAlignment="Top" Width="303" Style="{StaticResource textboxConsulta}" Margin="2,81,0,0" />
                 <TextBlock Height="30" HorizontalAlignment="Left" Name="lblContrasena" Text="Contraseña: "  Margin="10,155,0,214" />
-                <TextBox Height="Auto" HorizontalAlignment="Left" Name="txtContrasena" Text="" VerticalAlignment="Top" Width="303" Style="{StaticResource textboxSolos}" Margin="2,173,0,0" />
+                <PasswordBox Height="Auto" HorizontalAlignment="Left" Name="pwContrasena" VerticalAlignment="Top" Width="303" Style="{StaticResource contraseña}" Margin="2,173,0,0" />
                 <HyperlinkButton Content="Olvidó Contraseña" Height="30" HorizontalAlignment="Left" Margin="12,236,0,0" Name="hprlkOlvidoContrasena" VerticalAlignment="Top" Width="200" Style="{StaticResource link}" Click="hprlkOlvidoContrasena_Click" />
                 <CheckBox Content="Mantener la sesión iniciada" Height="72" HorizontalAlignment="Left" Margin="2,267,0,0" Name="checkSesionActiva" VerticalAlignment="Top" />
                 <Button Content="Iniciar Sesión " Height="72" HorizontalAlignment="Left" Margin="9,340,0,0" Name="btonIniciarSesion" VerticalAlignment="Top" Width="200" Click="btonIniciarSesion_Click" />
@@ -41,9 +41,9 @@
             <Grid x:Name="ContIngresoPrimVez" Visibility="Collapsed" Margin="12,20,12,0" >
                 <TextBlock Height="91" HorizontalAlignment="Left" Name="lblIngresoPrimVez" Text="Ingreso por primera vez. Por favor digite su nueva contraseña" VerticalAlignment="Top" Style="{StaticResource h2}" Width="401" TextWrapping="Wrap" />
                 <TextBlock Height="30" HorizontalAlignment="Left" Name="lblNuevaContrasena" Text="Nueva Contraseña: "  Margin="10,97,0,272"/>
-                <TextBox Height="Auto" HorizontalAlignment="Left" Name="txtNuevaContrasena" Text="" VerticalAlignment="Top" Width="303" Style="{StaticResource textboxSolos}" Margin="2,120,0,0" />
+                <TextBox Height="Auto" HorizontalAlignment="Left" Name="txtNuevaContrasena" Text="" VerticalAlignment="Top" Width="303" Style="{StaticResource textboxConsulta}" Margin="2,120,0,0" />
                 <TextBlock Height="30" HorizontalAlignment="Left" Name="lblConfirContrasena" Text="Confirmar Nueva Contraseña: "  Margin="10,194,0,175" />
-                <TextBox Height="Auto" HorizontalAlignment="Left" Name="txtConfirContrasena" Text="" VerticalAlignment="Top" Width="303" Style="{StaticResource textboxSolos}" Margin="2,212,0,0" />
+                <TextBox Height="Auto" HorizontalAlignment="Left" Name="txtConfirContrasena" Text="" VerticalAlignment="Top" Width="303" Style="{StaticResource textboxConsulta}" Margin="2,212,0,0" />
                 <Button Content="Iniciar Sesión " Height="72" HorizontalAlignment="Left" Margin="126,290,0,0" Name="btnInicioConfig" VerticalAlignment="Top" Width="200" Click="btnInicioConfig_Click" />
             </Grid>
         </StackPanel>
