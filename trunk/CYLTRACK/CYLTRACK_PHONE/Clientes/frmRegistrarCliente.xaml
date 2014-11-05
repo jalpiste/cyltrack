@@ -26,7 +26,7 @@
             <TextBlock x:Name="PageTitle" Text="REGISTRAR CLIENTE" Margin="9,-7,0,0" Style="{StaticResource PhoneTextExtraLargeStyle}" />
         </StackPanel>
         <!--ContentPanel. Colocar aquí el contenido adicional-->
-        <Grid x:Name="ContentBusq" Grid.Row="1" Margin="12,0,12,0" Visibility="Collapsed" Background="White">
+        <Grid x:Name="ContentBusq" Grid.Row="1" Margin="12,0,12,0" Visibility="Visible" Background="White">
             <TextBlock Height="30" HorizontalAlignment="Left" Margin="25,76,0,0" Name="lblCedula" Text="Número de Cédula: " VerticalAlignment="Top" Style="{StaticResource textArea}" />
             <TextBox Height="Auto" HorizontalAlignment="Left" Margin="8,95,0,0" Name="txtCedula" Text="" VerticalAlignment="Top" Width="303" Style="{StaticResource textboxConsulta}" InputScope="TelephoneNumber" />
             <Button Content="Registrar" Height="72" HorizontalAlignment="Left" Margin="70,188,0,0" Name="btnRegistrar" VerticalAlignment="Top" Width="160" Click="btnRegistrar_Click" />
@@ -34,12 +34,12 @@
             <TextBlock Height="43" HorizontalAlignment="Left" Margin="27,27,0,0" Name="txtRegistrarCli" Text="Registrar Cliente" VerticalAlignment="Top" Style="{StaticResource h2}"  />
         </Grid>
         
-        <Grid x:Name="ContentDatosP" Grid.Row="1" Margin="12,0,12,0" Background="White" Visibility="Visible" >
+        <Grid x:Name="ContentDatosP" Grid.Row="1" Margin="12,0,12,0" Background="White" Visibility="Collapsed" >
             <TextBlock Height="30" HorizontalAlignment="Left" Margin="19,05,0,0" Name="lblDatos" Text="Datos Personales" VerticalAlignment="Top" Width="269" Style="{StaticResource h2}" />
             <TextBlock Height="30" HorizontalAlignment="Left" Margin="19,50,0,0" Name="lblNumCedula" Text="Número de Cédula:" VerticalAlignment="Top" Width="269" />
             <TextBlock Height="30" HorizontalAlignment="Left" Margin="179,50,0,0" Name="lblCedulaCli" Text="" VerticalAlignment="Top" Width="269" FontStyle="Italic" FontWeight="Bold" Foreground="#FFBA2121" />
             <TextBlock Height="30" HorizontalAlignment="Left" Margin="19,75,0,0" Name="lblNombres" Text="Nombres: " VerticalAlignment="Top" Style="{StaticResource textArea}" />
-            <TextBox Height="Auto" HorizontalAlignment="Left" Margin="2,89,0,0" Name="txtNombres" Text="" VerticalAlignment="Top" Width="320" Style="{StaticResource textboxConsulta}" CharacterCasing="Upper"/>
+            <TextBox Height="Auto" HorizontalAlignment="Left" Margin="2,89,0,0" Name="txtNombres" Text="" VerticalAlignment="Top" Width="320" Style="{StaticResource textboxConsulta}" /> 
             <TextBlock Height="30" HorizontalAlignment="Left" Margin="19,153,0,0" Name="lblPrApellido" Text="Primer Apellido: " VerticalAlignment="Top" Style="{StaticResource textArea}" />
             <TextBox Height="Auto" HorizontalAlignment="Left" Margin="2,170,0,0" Name="txtPrApellido" Text="" VerticalAlignment="Top" Width="320" Style="{StaticResource textboxConsulta}"/>
             <TextBlock Height="30" HorizontalAlignment="Left" Margin="19,231,0,0" Name="lblSgApellido" Text="Segundo Apellido: " VerticalAlignment="Top" Style="{StaticResource textArea}" />
