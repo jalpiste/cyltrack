@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
-<ReferenceGroup xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema" ID="31223bf4-42c8-4499-8b75-735618e8d05e" xmlns="urn:schemas-microsoft-com:xml-wcfservicemap">
+<ReferenceGroup xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema" ID="47fef3af-30ef-4089-887c-faf0bfb6e965" xmlns="urn:schemas-microsoft-com:xml-wcfservicemap">
   <ClientOptions>
     <GenerateAsynchronousMethods>true</GenerateAsynchronousMethods>
     <EnableDataBinding>true</EnableDataBinding>
@@ -20,14 +20,14 @@
     <ServiceContractMappings />
   </ClientOptions>
   <MetadataSources>
-    <MetadataSource Address="http://localhost:51651/CYLTRACK_Services/VehiculoService.svc" Protocol="http" SourceId="1" />
+    <MetadataSource Address="http://localhost:1993/CYLTRACK_Services/VehiculoService.svc" Protocol="http" SourceId="1" />
   </MetadataSources>
   <Metadata>
-    <MetadataFile FileName="VehiculoService.disco" MetadataType="Disco" ID="f5b3947d-30a5-4bf6-a65c-34d6e9c8f711" SourceId="1" SourceUrl="http://localhost:51651/CYLTRACK_Services/VehiculoService.svc?disco" />
-    <MetadataFile FileName="VehiculoService.wsdl" MetadataType="Wsdl" ID="c5db4080-05b1-488a-b64d-a07dc821915c" SourceId="1" SourceUrl="http://localhost:51651/CYLTRACK_Services/VehiculoService.svc?wsdl" />
-    <MetadataFile FileName="VehiculoService.xsd" MetadataType="Schema" ID="8a54d1f0-0bca-478b-8479-289efc3d856f" SourceId="1" SourceUrl="http://localhost:51651/CYLTRACK_Services/VehiculoService.svc?xsd=xsd1" />
-    <MetadataFile FileName="VehiculoService1.xsd" MetadataType="Schema" ID="4db03bf8-399c-4831-bc3e-186314934bdd" SourceId="1" SourceUrl="http://localhost:51651/CYLTRACK_Services/VehiculoService.svc?xsd=xsd0" />
-    <MetadataFile FileName="VehiculoService2.xsd" MetadataType="Schema" ID="d4c710ed-7508-4116-a3d8-db2687a19e07" SourceId="1" SourceUrl="http://localhost:51651/CYLTRACK_Services/VehiculoService.svc?xsd=xsd2" />
+    <MetadataFile FileName="VehiculoService.xsd" MetadataType="Schema" ID="9d4d9d0d-4712-4e92-a360-b07d72e8015c" SourceId="1" SourceUrl="http://localhost:1993/CYLTRACK_Services/VehiculoService.svc?xsd=xsd0" />
+    <MetadataFile FileName="VehiculoService.wsdl" MetadataType="Wsdl" ID="15b2af58-8d51-485a-be4f-3f0647829b64" SourceId="1" SourceUrl="http://localhost:1993/CYLTRACK_Services/VehiculoService.svc?wsdl" />
+    <MetadataFile FileName="VehiculoService1.xsd" MetadataType="Schema" ID="a5c02468-9922-457b-b7b6-2ac524aa8df6" SourceId="1" SourceUrl="http://localhost:1993/CYLTRACK_Services/VehiculoService.svc?xsd=xsd2" />
+    <MetadataFile FileName="VehiculoService.disco" MetadataType="Disco" ID="a3d8f15d-1cf5-46ef-ab82-5bb11e6f9d3e" SourceId="1" SourceUrl="http://localhost:1993/CYLTRACK_Services/VehiculoService.svc?disco" />
+    <MetadataFile FileName="VehiculoService2.xsd" MetadataType="Schema" ID="64324f7d-efc4-4b37-8f55-8f88c151ac69" SourceId="1" SourceUrl="http://localhost:1993/CYLTRACK_Services/VehiculoService.svc?xsd=xsd1" />
   </Metadata>
   <Extensions>
     <ExtensionFile FileName="configuration91.svcinfo" Name="configuration91.svcinfo" />

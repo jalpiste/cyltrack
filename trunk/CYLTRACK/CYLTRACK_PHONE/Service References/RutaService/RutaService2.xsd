@@ -1,100 +1,114 @@
 <?xml version="1.0" encoding="utf-8"?>
-<xs:schema xmlns:tns="http://servicios.cyltrack.com.co/cyltrack/" elementFormDefault="qualified" targetNamespace="http://servicios.cyltrack.com.co/cyltrack/" xmlns:xs="http://www.w3.org/2001/XMLSchema">
-  <xs:import schemaLocation="http://localhost:51651/CYLTRACK_Services/RutaService.svc?xsd=xsd2" namespace="http://schemas.datacontract.org/2004/07/Unisangil.CYLTRACK.CYLTRACK_BE" />
-  <xs:element name="RegistrarRuta">
-    <xs:complexType>
-      <xs:sequence>
-        <xs:element xmlns:q1="http://schemas.datacontract.org/2004/07/Unisangil.CYLTRACK.CYLTRACK_BE" minOccurs="0" name="ruta" nillable="true" type="q1:RutaBE" />
-      </xs:sequence>
-    </xs:complexType>
-  </xs:element>
-  <xs:element name="RegistrarRutaResponse">
-    <xs:complexType>
-      <xs:sequence>
-        <xs:element minOccurs="0" name="RegistrarRutaResult" type="xs:long" />
-      </xs:sequence>
-    </xs:complexType>
-  </xs:element>
-  <xs:element name="ModificarRuta">
-    <xs:complexType>
-      <xs:sequence>
-        <xs:element xmlns:q2="http://schemas.datacontract.org/2004/07/Unisangil.CYLTRACK.CYLTRACK_BE" minOccurs="0" name="ruta" nillable="true" type="q2:RutaBE" />
-      </xs:sequence>
-    </xs:complexType>
-  </xs:element>
-  <xs:element name="ModificarRutaResponse">
-    <xs:complexType>
-      <xs:sequence>
-        <xs:element minOccurs="0" name="ModificarRutaResult" type="xs:long" />
-      </xs:sequence>
-    </xs:complexType>
-  </xs:element>
-  <xs:element name="ConsultarRuta">
-    <xs:complexType>
-      <xs:sequence>
-        <xs:element minOccurs="0" name="ruta" nillable="true" type="xs:string" />
-      </xs:sequence>
-    </xs:complexType>
-  </xs:element>
-  <xs:element name="ConsultarRutaResponse">
-    <xs:complexType>
-      <xs:sequence>
-        <xs:element xmlns:q3="http://schemas.datacontract.org/2004/07/Unisangil.CYLTRACK.CYLTRACK_BE" minOccurs="0" name="ConsultarRutaResult" nillable="true" type="q3:ArrayOfRutaBE" />
-      </xs:sequence>
-    </xs:complexType>
-  </xs:element>
-  <xs:element name="ConsultarRutaPorPlaca">
-    <xs:complexType>
-      <xs:sequence>
-        <xs:element xmlns:q4="http://schemas.datacontract.org/2004/07/Unisangil.CYLTRACK.CYLTRACK_BE" minOccurs="0" name="rutaVehiculo" nillable="true" type="q4:Ruta_VehiculoBE" />
-      </xs:sequence>
-    </xs:complexType>
-  </xs:element>
-  <xs:element name="ConsultarRutaPorPlacaResponse">
-    <xs:complexType>
-      <xs:sequence>
-        <xs:element xmlns:q5="http://schemas.datacontract.org/2004/07/Unisangil.CYLTRACK.CYLTRACK_BE" minOccurs="0" name="ConsultarRutaPorPlacaResult" nillable="true" type="q5:RutaBE" />
-      </xs:sequence>
-    </xs:complexType>
-  </xs:element>
-  <xs:element name="ConsultaDepartamento">
-    <xs:complexType>
-      <xs:sequence />
-    </xs:complexType>
-  </xs:element>
-  <xs:element name="ConsultaDepartamentoResponse">
-    <xs:complexType>
-      <xs:sequence>
-        <xs:element xmlns:q6="http://schemas.datacontract.org/2004/07/Unisangil.CYLTRACK.CYLTRACK_BE" minOccurs="0" name="ConsultaDepartamentoResult" nillable="true" type="q6:ArrayOfDepartamentoBE" />
-      </xs:sequence>
-    </xs:complexType>
-  </xs:element>
-  <xs:element name="ConsultaCiudades">
-    <xs:complexType>
-      <xs:sequence>
-        <xs:element minOccurs="0" name="id_dep" nillable="true" type="xs:string" />
-      </xs:sequence>
-    </xs:complexType>
-  </xs:element>
-  <xs:element name="ConsultaCiudadesResponse">
-    <xs:complexType>
-      <xs:sequence>
-        <xs:element xmlns:q7="http://schemas.datacontract.org/2004/07/Unisangil.CYLTRACK.CYLTRACK_BE" minOccurs="0" name="ConsultaCiudadesResult" nillable="true" type="q7:ArrayOfCiudadBE" />
-      </xs:sequence>
-    </xs:complexType>
-  </xs:element>
-  <xs:element name="ConsultaExistenciaRuta">
-    <xs:complexType>
-      <xs:sequence>
-        <xs:element minOccurs="0" name="ruta" nillable="true" type="xs:string" />
-      </xs:sequence>
-    </xs:complexType>
-  </xs:element>
-  <xs:element name="ConsultaExistenciaRutaResponse">
-    <xs:complexType>
-      <xs:sequence>
-        <xs:element minOccurs="0" name="ConsultaExistenciaRutaResult" type="xs:long" />
-      </xs:sequence>
-    </xs:complexType>
-  </xs:element>
+<xs:schema xmlns:tns="http://schemas.datacontract.org/2004/07/Unisangil.CYLTRACK.CYLTRACK_BE" elementFormDefault="qualified" targetNamespace="http://schemas.datacontract.org/2004/07/Unisangil.CYLTRACK.CYLTRACK_BE" xmlns:xs="http://www.w3.org/2001/XMLSchema">
+  <xs:complexType name="RutaBE">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="Ciudad_Ruta" nillable="true" type="tns:Ciudad_RutaBE" />
+      <xs:element minOccurs="0" name="Conductor" nillable="true" type="tns:ConductorBE" />
+      <xs:element minOccurs="0" name="Id_Ruta" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="Nombre_Ruta" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="Ruta_Vehiculo" nillable="true" type="tns:Ruta_VehiculoBE" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="RutaBE" nillable="true" type="tns:RutaBE" />
+  <xs:complexType name="Ciudad_RutaBE">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="Ciudad" nillable="true" type="tns:CiudadBE" />
+      <xs:element minOccurs="0" name="Id_Ciudad_Ruta" nillable="true" type="xs:string" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="Ciudad_RutaBE" nillable="true" type="tns:Ciudad_RutaBE" />
+  <xs:complexType name="CiudadBE">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="Departamento" nillable="true" type="tns:DepartamentoBE" />
+      <xs:element minOccurs="0" name="Id_Ciudad" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="Nombre_Ciudad" nillable="true" type="xs:string" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="CiudadBE" nillable="true" type="tns:CiudadBE" />
+  <xs:complexType name="DepartamentoBE">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="Ciudad" nillable="true" type="tns:CiudadBE" />
+      <xs:element minOccurs="0" name="Id_Departamento" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="Nombre_Departamento" nillable="true" type="xs:string" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="DepartamentoBE" nillable="true" type="tns:DepartamentoBE" />
+  <xs:complexType name="ConductorBE">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="Apellido_1" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="Apellido_2" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="Barrio" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="Cedula" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="Ciudad" nillable="true" type="tns:CiudadBE" />
+      <xs:element minOccurs="0" name="Direccion" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="Id_Conductor" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="Nombres_Conductor" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="Telefono" nillable="true" type="xs:string" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ConductorBE" nillable="true" type="tns:ConductorBE" />
+  <xs:complexType name="Ruta_VehiculoBE">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="Ciudad" nillable="true" type="tns:CiudadBE" />
+      <xs:element minOccurs="0" name="Estado" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="Fecha_Fin" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="Fecha_Inicio" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="Id_Ruta_Vehiculo" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="ListaVehiculo" nillable="true" type="tns:ArrayOfVehiculoBE" />
+      <xs:element minOccurs="0" name="Vehiculo" nillable="true" type="tns:VehiculoBE" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="Ruta_VehiculoBE" nillable="true" type="tns:Ruta_VehiculoBE" />
+  <xs:complexType name="ArrayOfVehiculoBE">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="VehiculoBE" nillable="true" type="tns:VehiculoBE" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ArrayOfVehiculoBE" nillable="true" type="tns:ArrayOfVehiculoBE" />
+  <xs:complexType name="VehiculoBE">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="Chasis" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="Cilindraje" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="Conductor" nillable="true" type="tns:ConductorBE" />
+      <xs:element minOccurs="0" name="Contratista" nillable="true" type="tns:ContratistaBE" />
+      <xs:element minOccurs="0" name="Estado" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="Id_Ubicacion" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="Id_Vehiculo" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="Marca" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="Modelo" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="Motor" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="Placa" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="Ruta" nillable="true" type="tns:RutaBE" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="VehiculoBE" nillable="true" type="tns:VehiculoBE" />
+  <xs:complexType name="ContratistaBE">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="Apellidos" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="Cedula" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="Direccion" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="Id_Contratista" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="Nombres" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="Telefono" nillable="true" type="xs:string" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ContratistaBE" nillable="true" type="tns:ContratistaBE" />
+  <xs:complexType name="ArrayOfRutaBE">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="RutaBE" nillable="true" type="tns:RutaBE" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ArrayOfRutaBE" nillable="true" type="tns:ArrayOfRutaBE" />
+  <xs:complexType name="ArrayOfDepartamentoBE">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="DepartamentoBE" nillable="true" type="tns:DepartamentoBE" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ArrayOfDepartamentoBE" nillable="true" type="tns:ArrayOfDepartamentoBE" />
+  <xs:complexType name="ArrayOfCiudadBE">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="CiudadBE" nillable="true" type="tns:CiudadBE" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ArrayOfCiudadBE" nillable="true" type="tns:ArrayOfCiudadBE" />
 </xs:schema>

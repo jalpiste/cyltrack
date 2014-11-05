@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <xs:schema xmlns:tns="http://servicios.cyltrack.com.co/cyltrack/" elementFormDefault="qualified" targetNamespace="http://servicios.cyltrack.com.co/cyltrack/" xmlns:xs="http://www.w3.org/2001/XMLSchema">
-  <xs:import schemaLocation="http://localhost:51651/CYLTRACK_Services/ClienteService.svc?xsd=xsd2" namespace="http://schemas.datacontract.org/2004/07/Unisangil.CYLTRACK.CYLTRACK_BE" />
+  <xs:import schemaLocation="http://localhost:1993/CYLTRACK_Services/ClienteService.svc?xsd=xsd2" namespace="http://schemas.datacontract.org/2004/07/Unisangil.CYLTRACK.CYLTRACK_BE" />
   <xs:element name="Registrar_Cliente">
     <xs:complexType>
       <xs:sequence>
@@ -43,17 +43,59 @@
       </xs:sequence>
     </xs:complexType>
   </xs:element>
-  <xs:element name="Modificar_Cliente">
+  <xs:element name="ModificarDirCliente">
     <xs:complexType>
       <xs:sequence>
-        <xs:element xmlns:q4="http://schemas.datacontract.org/2004/07/Unisangil.CYLTRACK.CYLTRACK_BE" minOccurs="0" name="cliente" nillable="true" type="q4:ClienteBE" />
+        <xs:element xmlns:q4="http://schemas.datacontract.org/2004/07/Unisangil.CYLTRACK.CYLTRACK_BE" minOccurs="0" name="ubicacion" nillable="true" type="q4:UbicacionBE" />
       </xs:sequence>
     </xs:complexType>
   </xs:element>
-  <xs:element name="Modificar_ClienteResponse">
+  <xs:element name="ModificarDirClienteResponse">
     <xs:complexType>
       <xs:sequence>
-        <xs:element minOccurs="0" name="Modificar_ClienteResult" type="xs:long" />
+        <xs:element minOccurs="0" name="ModificarDirClienteResult" type="xs:long" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="ModificarNombreCliente">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q5="http://schemas.datacontract.org/2004/07/Unisangil.CYLTRACK.CYLTRACK_BE" minOccurs="0" name="cliente" nillable="true" type="q5:ClienteBE" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="ModificarNombreClienteResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="ModificarNombreClienteResult" type="xs:long" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="ConsultarCilPorCliente">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="idCliente" nillable="true" type="xs:string" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="ConsultarCilPorClienteResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q6="http://schemas.datacontract.org/2004/07/Unisangil.CYLTRACK.CYLTRACK_BE" minOccurs="0" name="ConsultarCilPorClienteResult" nillable="true" type="q6:ArrayOfUbicacion_CilindroBE" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="ConsultarDirCliPorUbica">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="idUbica" nillable="true" type="xs:string" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="ConsultarDirCliPorUbicaResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q7="http://schemas.datacontract.org/2004/07/Unisangil.CYLTRACK.CYLTRACK_BE" minOccurs="0" name="ConsultarDirCliPorUbicaResult" nillable="true" type="q7:UbicacionBE" />
       </xs:sequence>
     </xs:complexType>
   </xs:element>

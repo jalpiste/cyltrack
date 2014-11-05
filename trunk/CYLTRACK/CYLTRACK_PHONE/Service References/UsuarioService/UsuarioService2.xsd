@@ -1,46 +1,72 @@
 <?xml version="1.0" encoding="utf-8"?>
-<xs:schema xmlns:tns="http://schemas.datacontract.org/2004/07/Unisangil.CYLTRACK.CYLTRACK_BE" elementFormDefault="qualified" targetNamespace="http://schemas.datacontract.org/2004/07/Unisangil.CYLTRACK.CYLTRACK_BE" xmlns:xs="http://www.w3.org/2001/XMLSchema">
-  <xs:complexType name="UsuarioBE">
-    <xs:sequence>
-      <xs:element minOccurs="0" name="Apellido" nillable="true" type="xs:string" />
-      <xs:element minOccurs="0" name="Cedula" nillable="true" type="xs:string" />
-      <xs:element minOccurs="0" name="Contrasena_1" nillable="true" type="xs:string" />
-      <xs:element minOccurs="0" name="Contrasena_10" nillable="true" type="xs:string" />
-      <xs:element minOccurs="0" name="Contrasena_2" nillable="true" type="xs:string" />
-      <xs:element minOccurs="0" name="Contrasena_3" nillable="true" type="xs:string" />
-      <xs:element minOccurs="0" name="Contrasena_4" nillable="true" type="xs:string" />
-      <xs:element minOccurs="0" name="Contrasena_5" nillable="true" type="xs:string" />
-      <xs:element minOccurs="0" name="Contrasena_6" nillable="true" type="xs:string" />
-      <xs:element minOccurs="0" name="Contrasena_7" nillable="true" type="xs:string" />
-      <xs:element minOccurs="0" name="Contrasena_8" nillable="true" type="xs:string" />
-      <xs:element minOccurs="0" name="Contrasena_9" nillable="true" type="xs:string" />
-      <xs:element minOccurs="0" name="Correo" nillable="true" type="xs:string" />
-      <xs:element minOccurs="0" name="Direccion" nillable="true" type="xs:string" />
-      <xs:element minOccurs="0" name="Estado" nillable="true" type="xs:string" />
-      <xs:element minOccurs="0" name="Fecha_Mod_Contrasena" nillable="true" type="xs:string" />
-      <xs:element minOccurs="0" name="Fecha_Nacim" nillable="true" type="xs:string" />
-      <xs:element minOccurs="0" name="Genero" nillable="true" type="xs:string" />
-      <xs:element minOccurs="0" name="Id_Usuario" nillable="true" type="xs:string" />
-      <xs:element minOccurs="0" name="Nombre" nillable="true" type="xs:string" />
-      <xs:element minOccurs="0" name="Perfil" nillable="true" type="tns:ArrayOfPerfilBE" />
-      <xs:element minOccurs="0" name="Primera_Vez" type="xs:boolean" />
-      <xs:element minOccurs="0" name="Telefono" nillable="true" type="xs:string" />
-      <xs:element minOccurs="0" name="Usuario" nillable="true" type="xs:string" />
-    </xs:sequence>
-  </xs:complexType>
-  <xs:element name="UsuarioBE" nillable="true" type="tns:UsuarioBE" />
-  <xs:complexType name="ArrayOfPerfilBE">
-    <xs:sequence>
-      <xs:element minOccurs="0" maxOccurs="unbounded" name="PerfilBE" nillable="true" type="tns:PerfilBE" />
-    </xs:sequence>
-  </xs:complexType>
-  <xs:element name="ArrayOfPerfilBE" nillable="true" type="tns:ArrayOfPerfilBE" />
-  <xs:complexType name="PerfilBE">
-    <xs:sequence>
-      <xs:element minOccurs="0" name="Id_Perfil" nillable="true" type="xs:string" />
-      <xs:element minOccurs="0" name="Observaciones" nillable="true" type="xs:string" />
-      <xs:element minOccurs="0" name="Perfil" nillable="true" type="xs:string" />
-    </xs:sequence>
-  </xs:complexType>
-  <xs:element name="PerfilBE" nillable="true" type="tns:PerfilBE" />
+<xs:schema xmlns:tns="http://servicios.cyltrack.com.co/cyltrack/" elementFormDefault="qualified" targetNamespace="http://servicios.cyltrack.com.co/cyltrack/" xmlns:xs="http://www.w3.org/2001/XMLSchema">
+  <xs:import schemaLocation="http://localhost:1993/CYLTRACK_Services/UsuarioService.svc?xsd=xsd2" namespace="http://schemas.datacontract.org/2004/07/Unisangil.CYLTRACK.CYLTRACK_BE" />
+  <xs:element name="RegistrarUsuario">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q1="http://schemas.datacontract.org/2004/07/Unisangil.CYLTRACK.CYLTRACK_BE" minOccurs="0" name="usuario" nillable="true" type="q1:UsuarioBE" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="RegistrarUsuarioResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="RegistrarUsuarioResult" type="xs:long" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="ConsultarCargos">
+    <xs:complexType>
+      <xs:sequence />
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="ConsultarCargosResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q2="http://schemas.datacontract.org/2004/07/Unisangil.CYLTRACK.CYLTRACK_BE" minOccurs="0" name="ConsultarCargosResult" nillable="true" type="q2:ArrayOfPerfilBE" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="ConsultarExistencia">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="usuario" nillable="true" type="xs:string" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="ConsultarExistenciaResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="ConsultarExistenciaResult" type="xs:long" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="Autenticacion">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q3="http://schemas.datacontract.org/2004/07/Unisangil.CYLTRACK.CYLTRACK_BE" minOccurs="0" name="usuario" nillable="true" type="q3:UsuarioBE" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="AutenticacionResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="AutenticacionResult" nillable="true" type="xs:string" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="RecuperarContrasena">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="usuario" nillable="true" type="xs:string" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="RecuperarContrasenaResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="RecuperarContrasenaResult" type="xs:long" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
 </xs:schema>

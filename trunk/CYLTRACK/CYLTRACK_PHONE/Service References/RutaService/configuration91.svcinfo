@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
-<SavedWcfConfigurationInformation xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema" Version="9.1" CheckSum="BifHtbhRYjotrWN2gzeGal9l00Q=">
+<SavedWcfConfigurationInformation xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema" Version="9.1" CheckSum="69LQr7T1sjdLKGkayQLRN2XHFfA=">
   <bindingConfigurations>
     <bindingConfiguration bindingType="basicHttpBinding" name="BasicHttpBinding_IRutaServices">
       <properties>
@@ -112,10 +112,10 @@
     </bindingConfiguration>
   </bindingConfigurations>
   <endpoints>
-    <endpoint name="BasicHttpBinding_IRutaServices" contract="RutaService.IRutaServices" bindingType="basicHttpBinding" address="http://localhost:51651/CYLTRACK_Services/RutaService.svc" bindingConfiguration="BasicHttpBinding_IRutaServices">
+    <endpoint name="BasicHttpBinding_IRutaServices" contract="RutaService.IRutaServices" bindingType="basicHttpBinding" address="http://localhost:1993/CYLTRACK_Services/RutaService.svc" bindingConfiguration="BasicHttpBinding_IRutaServices">
       <properties>
         <property path="/address" isComplexType="false" isExplicitlyDefined="true" clrType="System.Uri, System, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
-          <serializedValue>http://localhost:51651/CYLTRACK_Services/RutaService.svc</serializedValue>
+          <serializedValue>http://localhost:1993/CYLTRACK_Services/RutaService.svc</serializedValue>
         </property>
         <property path="/behaviorConfiguration" isComplexType="false" isExplicitlyDefined="false" clrType="System.String, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
           <serializedValue />

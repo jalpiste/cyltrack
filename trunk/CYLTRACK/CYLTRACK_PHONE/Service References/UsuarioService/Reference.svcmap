@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
-<ReferenceGroup xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema" ID="92cc3c72-c133-4e23-926e-e33b68c9830f" xmlns="urn:schemas-microsoft-com:xml-wcfservicemap">
+<ReferenceGroup xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema" ID="c811e152-dab8-4eba-a16d-7226e2a4430f" xmlns="urn:schemas-microsoft-com:xml-wcfservicemap">
   <ClientOptions>
     <GenerateAsynchronousMethods>true</GenerateAsynchronousMethods>
     <EnableDataBinding>true</EnableDataBinding>
@@ -20,14 +20,14 @@
     <ServiceContractMappings />
   </ClientOptions>
   <MetadataSources>
-    <MetadataSource Address="http://localhost:51651/CYLTRACK_Services/UsuarioService.svc" Protocol="http" SourceId="1" />
+    <MetadataSource Address="http://localhost:1993/CYLTRACK_Services/UsuarioService.svc" Protocol="http" SourceId="1" />
   </MetadataSources>
   <Metadata>
-    <MetadataFile FileName="UsuarioService.wsdl" MetadataType="Wsdl" ID="670c7e2e-6389-4433-9229-942e90a8ab27" SourceId="1" SourceUrl="http://localhost:51651/CYLTRACK_Services/UsuarioService.svc?wsdl" />
-    <MetadataFile FileName="UsuarioService.xsd" MetadataType="Schema" ID="6de8b207-0861-46e9-87a6-2ae946d5ad2e" SourceId="1" SourceUrl="http://localhost:51651/CYLTRACK_Services/UsuarioService.svc?xsd=xsd0" />
-    <MetadataFile FileName="UsuarioService.disco" MetadataType="Disco" ID="8bc3bf52-9b04-461f-9bee-65276e90bae2" SourceId="1" SourceUrl="http://localhost:51651/CYLTRACK_Services/UsuarioService.svc?disco" />
-    <MetadataFile FileName="UsuarioService1.xsd" MetadataType="Schema" ID="fa858912-73fd-4c6f-a4aa-8fc5d44c46d8" SourceId="1" SourceUrl="http://localhost:51651/CYLTRACK_Services/UsuarioService.svc?xsd=xsd1" />
-    <MetadataFile FileName="UsuarioService2.xsd" MetadataType="Schema" ID="474b2ad0-f1b1-4088-b9bd-377e9c7d31ae" SourceId="1" SourceUrl="http://localhost:51651/CYLTRACK_Services/UsuarioService.svc?xsd=xsd2" />
+    <MetadataFile FileName="UsuarioService.disco" MetadataType="Disco" ID="15ffe262-9c90-4527-b4be-b98b3c02036b" SourceId="1" SourceUrl="http://localhost:1993/CYLTRACK_Services/UsuarioService.svc?disco" />
+    <MetadataFile FileName="UsuarioService.xsd" MetadataType="Schema" ID="b5b9307c-45e8-4536-a6b9-9438e06a2b3f" SourceId="1" SourceUrl="http://localhost:1993/CYLTRACK_Services/UsuarioService.svc?xsd=xsd2" />
+    <MetadataFile FileName="UsuarioService1.xsd" MetadataType="Schema" ID="01272877-91ad-42b9-a654-2428d7066423" SourceId="1" SourceUrl="http://localhost:1993/CYLTRACK_Services/UsuarioService.svc?xsd=xsd1" />
+    <MetadataFile FileName="UsuarioService2.xsd" MetadataType="Schema" ID="dfca08ed-8b80-4c1f-a910-0fc15ce57a26" SourceId="1" SourceUrl="http://localhost:1993/CYLTRACK_Services/UsuarioService.svc?xsd=xsd0" />
+    <MetadataFile FileName="UsuarioService.wsdl" MetadataType="Wsdl" ID="0a264f85-1188-4fc8-a401-6db6b35ab6a0" SourceId="1" SourceUrl="http://localhost:1993/CYLTRACK_Services/UsuarioService.svc?wsdl" />
   </Metadata>
   <Extensions>
     <ExtensionFile FileName="configuration91.svcinfo" Name="configuration91.svcinfo" />

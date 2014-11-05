@@ -58,9 +58,11 @@ namespace CYLTRACK_PHONE.UsuarioService {
         
         private string Id_UsuarioField;
         
+        private System.Collections.ObjectModel.ObservableCollection<CYLTRACK_PHONE.UsuarioService.PerfilBE> Lista_PerfilField;
+        
         private string NombreField;
         
-        private System.Collections.ObjectModel.ObservableCollection<CYLTRACK_PHONE.UsuarioService.PerfilBE> PerfilField;
+        private CYLTRACK_PHONE.UsuarioService.PerfilBE PerfilField;
         
         private bool Primera_VezField;
         
@@ -316,6 +318,19 @@ namespace CYLTRACK_PHONE.UsuarioService {
         }
         
         [System.Runtime.Serialization.DataMemberAttribute()]
+        public System.Collections.ObjectModel.ObservableCollection<CYLTRACK_PHONE.UsuarioService.PerfilBE> Lista_Perfil {
+            get {
+                return this.Lista_PerfilField;
+            }
+            set {
+                if ((object.ReferenceEquals(this.Lista_PerfilField, value) != true)) {
+                    this.Lista_PerfilField = value;
+                    this.RaisePropertyChanged("Lista_Perfil");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
         public string Nombre {
             get {
                 return this.NombreField;
@@ -329,7 +344,7 @@ namespace CYLTRACK_PHONE.UsuarioService {
         }
         
         [System.Runtime.Serialization.DataMemberAttribute()]
-        public System.Collections.ObjectModel.ObservableCollection<CYLTRACK_PHONE.UsuarioService.PerfilBE> Perfil {
+        public CYLTRACK_PHONE.UsuarioService.PerfilBE Perfil {
             get {
                 return this.PerfilField;
             }
@@ -458,7 +473,7 @@ namespace CYLTRACK_PHONE.UsuarioService {
             "e")]
         System.IAsyncResult BeginRegistrarUsuario(CYLTRACK_PHONE.UsuarioService.UsuarioBE usuario, System.AsyncCallback callback, object asyncState);
         
-        string EndRegistrarUsuario(System.IAsyncResult result);
+        long EndRegistrarUsuario(System.IAsyncResult result);
         
         [System.ServiceModel.OperationContractAttribute(AsyncPattern=true, Action="http://servicios.cyltrack.com.co/cyltrack/IUsuarioService/ConsultarCargos", ReplyAction="http://servicios.cyltrack.com.co/cyltrack/IUsuarioService/ConsultarCargosResponse" +
             "")]
@@ -470,7 +485,7 @@ namespace CYLTRACK_PHONE.UsuarioService {
             "onse")]
         System.IAsyncResult BeginConsultarExistencia(string usuario, System.AsyncCallback callback, object asyncState);
         
-        string EndConsultarExistencia(System.IAsyncResult result);
+        long EndConsultarExistencia(System.IAsyncResult result);
         
         [System.ServiceModel.OperationContractAttribute(AsyncPattern=true, Action="http://servicios.cyltrack.com.co/cyltrack/IUsuarioService/Autenticacion", ReplyAction="http://servicios.cyltrack.com.co/cyltrack/IUsuarioService/AutenticacionResponse")]
         System.IAsyncResult BeginAutenticacion(CYLTRACK_PHONE.UsuarioService.UsuarioBE usuario, System.AsyncCallback callback, object asyncState);
@@ -481,7 +496,7 @@ namespace CYLTRACK_PHONE.UsuarioService {
             "onse")]
         System.IAsyncResult BeginRecuperarContrasena(string usuario, System.AsyncCallback callback, object asyncState);
         
-        string EndRecuperarContrasena(System.IAsyncResult result);
+        long EndRecuperarContrasena(System.IAsyncResult result);
     }
     
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
@@ -499,10 +514,10 @@ namespace CYLTRACK_PHONE.UsuarioService {
             this.results = results;
         }
         
-        public string Result {
+        public long Result {
             get {
                 base.RaiseExceptionIfNecessary();
-                return ((string)(this.results[0]));
+                return ((long)(this.results[0]));
             }
         }
     }
@@ -537,10 +552,10 @@ namespace CYLTRACK_PHONE.UsuarioService {
             this.results = results;
         }
         
-        public string Result {
+        public long Result {
             get {
                 base.RaiseExceptionIfNecessary();
-                return ((string)(this.results[0]));
+                return ((long)(this.results[0]));
             }
         }
     }
@@ -575,10 +590,10 @@ namespace CYLTRACK_PHONE.UsuarioService {
             this.results = results;
         }
         
-        public string Result {
+        public long Result {
             get {
                 base.RaiseExceptionIfNecessary();
-                return ((string)(this.results[0]));
+                return ((long)(this.results[0]));
             }
         }
     }
@@ -690,7 +705,7 @@ namespace CYLTRACK_PHONE.UsuarioService {
         }
         
         [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
-        string CYLTRACK_PHONE.UsuarioService.IUsuarioService.EndRegistrarUsuario(System.IAsyncResult result) {
+        long CYLTRACK_PHONE.UsuarioService.IUsuarioService.EndRegistrarUsuario(System.IAsyncResult result) {
             return base.Channel.EndRegistrarUsuario(result);
         }
         
@@ -700,7 +715,7 @@ namespace CYLTRACK_PHONE.UsuarioService {
         }
         
         private object[] OnEndRegistrarUsuario(System.IAsyncResult result) {
-            string retVal = ((CYLTRACK_PHONE.UsuarioService.IUsuarioService)(this)).EndRegistrarUsuario(result);
+            long retVal = ((CYLTRACK_PHONE.UsuarioService.IUsuarioService)(this)).EndRegistrarUsuario(result);
             return new object[] {
                     retVal};
         }
@@ -780,7 +795,7 @@ namespace CYLTRACK_PHONE.UsuarioService {
         }
         
         [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
-        string CYLTRACK_PHONE.UsuarioService.IUsuarioService.EndConsultarExistencia(System.IAsyncResult result) {
+        long CYLTRACK_PHONE.UsuarioService.IUsuarioService.EndConsultarExistencia(System.IAsyncResult result) {
             return base.Channel.EndConsultarExistencia(result);
         }
         
@@ -790,7 +805,7 @@ namespace CYLTRACK_PHONE.UsuarioService {
         }
         
         private object[] OnEndConsultarExistencia(System.IAsyncResult result) {
-            string retVal = ((CYLTRACK_PHONE.UsuarioService.IUsuarioService)(this)).EndConsultarExistencia(result);
+            long retVal = ((CYLTRACK_PHONE.UsuarioService.IUsuarioService)(this)).EndConsultarExistencia(result);
             return new object[] {
                     retVal};
         }
@@ -872,7 +887,7 @@ namespace CYLTRACK_PHONE.UsuarioService {
         }
         
         [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
-        string CYLTRACK_PHONE.UsuarioService.IUsuarioService.EndRecuperarContrasena(System.IAsyncResult result) {
+        long CYLTRACK_PHONE.UsuarioService.IUsuarioService.EndRecuperarContrasena(System.IAsyncResult result) {
             return base.Channel.EndRecuperarContrasena(result);
         }
         
@@ -882,7 +897,7 @@ namespace CYLTRACK_PHONE.UsuarioService {
         }
         
         private object[] OnEndRecuperarContrasena(System.IAsyncResult result) {
-            string retVal = ((CYLTRACK_PHONE.UsuarioService.IUsuarioService)(this)).EndRecuperarContrasena(result);
+            long retVal = ((CYLTRACK_PHONE.UsuarioService.IUsuarioService)(this)).EndRecuperarContrasena(result);
             return new object[] {
                     retVal};
         }
@@ -995,9 +1010,9 @@ namespace CYLTRACK_PHONE.UsuarioService {
                 return _result;
             }
             
-            public string EndRegistrarUsuario(System.IAsyncResult result) {
+            public long EndRegistrarUsuario(System.IAsyncResult result) {
                 object[] _args = new object[0];
-                string _result = ((string)(base.EndInvoke("RegistrarUsuario", _args, result)));
+                long _result = ((long)(base.EndInvoke("RegistrarUsuario", _args, result)));
                 return _result;
             }
             
@@ -1020,9 +1035,9 @@ namespace CYLTRACK_PHONE.UsuarioService {
                 return _result;
             }
             
-            public string EndConsultarExistencia(System.IAsyncResult result) {
+            public long EndConsultarExistencia(System.IAsyncResult result) {
                 object[] _args = new object[0];
-                string _result = ((string)(base.EndInvoke("ConsultarExistencia", _args, result)));
+                long _result = ((long)(base.EndInvoke("ConsultarExistencia", _args, result)));
                 return _result;
             }
             
@@ -1046,9 +1061,9 @@ namespace CYLTRACK_PHONE.UsuarioService {
                 return _result;
             }
             
-            public string EndRecuperarContrasena(System.IAsyncResult result) {
+            public long EndRecuperarContrasena(System.IAsyncResult result) {
                 object[] _args = new object[0];
-                string _result = ((string)(base.EndInvoke("RecuperarContrasena", _args, result)));
+                long _result = ((long)(base.EndInvoke("RecuperarContrasena", _args, result)));
                 return _result;
             }
         }
