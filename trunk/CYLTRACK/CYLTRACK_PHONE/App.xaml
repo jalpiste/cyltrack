@@ -38,8 +38,7 @@
             <Setter Property="Foreground" Value="Black"/>
         </Style>
         <Style TargetType="TextBox" x:Key="textboxSolos">
-            <Setter Property="Foreground" Value="Black"/>
-            <Setter Property="BorderBrush" Value="#BA2121"/>
+            <Setter Property="Foreground" Value="#FFBA2121"/>
             <Setter Property="HorizontalAlignment" Value="Right"/>
             <Setter Property="Width" Value="237"></Setter>
 
@@ -95,6 +94,15 @@
             <Setter Property="FontWeight" Value="Bold"/>
         </Style>
 
+        <Style TargetType="CheckBox" x:Key="checkBox">
+            <Setter Property="FontFamily" Value="Calibri"/>
+            <Setter Property="FontSize" Value="20"/>
+            <Setter Property="Foreground" Value="Black"/>
+            <Setter Property="Background" Value="#966262"/>
+            <Setter Property="BorderBrush" Value="#BA2121"/>
+            <Setter Property="FontWeight" Value="Normal"/>
+        </Style>
+
         <Style TargetType="TextBlock" x:Key="textArea">
             <Setter Property="FontFamily" Value="Calibri"/>
             <Setter Property="FontSize" Value="20"/>
@@ -108,6 +116,7 @@
             <Setter Property="BorderBrush" Value="#BA2121"/>
             <Setter Property="HorizontalAlignment" Value="Right"/>
             <Setter Property="IsEnabled" Value="True"/>
+            
             <Setter Property="Width" Value="237"></Setter>
         </Style>
     </Application.Resources>
