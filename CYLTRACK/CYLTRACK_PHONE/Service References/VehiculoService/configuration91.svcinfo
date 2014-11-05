@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
-<SavedWcfConfigurationInformation xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema" Version="9.1" CheckSum="88nA5LTaJ1uYTcGSz4SqemfDlIs=">
+<SavedWcfConfigurationInformation xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema" Version="9.1" CheckSum="4RFxgQeX/04obLDeDlGUfvMu9I8=">
   <bindingConfigurations>
     <bindingConfiguration bindingType="basicHttpBinding" name="BasicHttpBinding_IVehiculoService">
       <properties>
@@ -112,10 +112,10 @@
     </bindingConfiguration>
   </bindingConfigurations>
   <endpoints>
-    <endpoint name="BasicHttpBinding_IVehiculoService" contract="VehiculoService.IVehiculoService" bindingType="basicHttpBinding" address="http://localhost:51651/CYLTRACK_Services/VehiculoService.svc" bindingConfiguration="BasicHttpBinding_IVehiculoService">
+    <endpoint name="BasicHttpBinding_IVehiculoService" contract="VehiculoService.IVehiculoService" bindingType="basicHttpBinding" address="http://localhost:1993/CYLTRACK_Services/VehiculoService.svc" bindingConfiguration="BasicHttpBinding_IVehiculoService">
       <properties>
         <property path="/address" isComplexType="false" isExplicitlyDefined="true" clrType="System.Uri, System, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
-          <serializedValue>http://localhost:51651/CYLTRACK_Services/VehiculoService.svc</serializedValue>
+          <serializedValue>http://localhost:1993/CYLTRACK_Services/VehiculoService.svc</serializedValue>
         </property>
         <property path="/behaviorConfiguration" isComplexType="false" isExplicitlyDefined="false" clrType="System.String, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
           <serializedValue />

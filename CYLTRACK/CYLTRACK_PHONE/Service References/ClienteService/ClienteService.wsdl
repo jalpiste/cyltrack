@@ -2,9 +2,9 @@
 <wsdl:definitions xmlns:wsap="http://schemas.xmlsoap.org/ws/2004/08/addressing/policy" xmlns:wsa10="http://www.w3.org/2005/08/addressing" xmlns:tns="http://servicios.cyltrack.com.co/cyltrack/" xmlns:msc="http://schemas.microsoft.com/ws/2005/12/wsdl/contract" xmlns:soapenc="http://schemas.xmlsoap.org/soap/encoding/" xmlns:wsx="http://schemas.xmlsoap.org/ws/2004/09/mex" xmlns:wsp="http://schemas.xmlsoap.org/ws/2004/09/policy" xmlns:wsam="http://www.w3.org/2007/05/addressing/metadata" xmlns:wsa="http://schemas.xmlsoap.org/ws/2004/08/addressing" xmlns:soap12="http://schemas.xmlsoap.org/wsdl/soap12/" xmlns:wsaw="http://www.w3.org/2006/05/addressing/wsdl" xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:wsu="http://docs.oasis-open.org/wss/2004/01/oasis-200401-wss-wssecurity-utility-1.0.xsd" xmlns:xsd="http://www.w3.org/2001/XMLSchema" name="ClienteService" targetNamespace="http://servicios.cyltrack.com.co/cyltrack/" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">
   <wsdl:types>
     <xsd:schema targetNamespace="http://servicios.cyltrack.com.co/cyltrack/Imports">
-      <xsd:import schemaLocation="http://localhost:51651/CYLTRACK_Services/ClienteService.svc?xsd=xsd0" namespace="http://servicios.cyltrack.com.co/cyltrack/" />
-      <xsd:import schemaLocation="http://localhost:51651/CYLTRACK_Services/ClienteService.svc?xsd=xsd1" namespace="http://schemas.microsoft.com/2003/10/Serialization/" />
-      <xsd:import schemaLocation="http://localhost:51651/CYLTRACK_Services/ClienteService.svc?xsd=xsd2" namespace="http://schemas.datacontract.org/2004/07/Unisangil.CYLTRACK.CYLTRACK_BE" />
+      <xsd:import schemaLocation="http://localhost:1993/CYLTRACK_Services/ClienteService.svc?xsd=xsd0" namespace="http://servicios.cyltrack.com.co/cyltrack/" />
+      <xsd:import schemaLocation="http://localhost:1993/CYLTRACK_Services/ClienteService.svc?xsd=xsd1" namespace="http://schemas.microsoft.com/2003/10/Serialization/" />
+      <xsd:import schemaLocation="http://localhost:1993/CYLTRACK_Services/ClienteService.svc?xsd=xsd2" namespace="http://schemas.datacontract.org/2004/07/Unisangil.CYLTRACK.CYLTRACK_BE" />
     </xsd:schema>
   </wsdl:types>
   <wsdl:message name="IClienteService_Registrar_Cliente_InputMessage">
@@ -25,11 +25,29 @@
   <wsdl:message name="IClienteService_Consultar_Cliente_OutputMessage">
     <wsdl:part name="parameters" element="tns:Consultar_ClienteResponse" />
   </wsdl:message>
-  <wsdl:message name="IClienteService_Modificar_Cliente_InputMessage">
-    <wsdl:part name="parameters" element="tns:Modificar_Cliente" />
+  <wsdl:message name="IClienteService_ModificarDirCliente_InputMessage">
+    <wsdl:part name="parameters" element="tns:ModificarDirCliente" />
   </wsdl:message>
-  <wsdl:message name="IClienteService_Modificar_Cliente_OutputMessage">
-    <wsdl:part name="parameters" element="tns:Modificar_ClienteResponse" />
+  <wsdl:message name="IClienteService_ModificarDirCliente_OutputMessage">
+    <wsdl:part name="parameters" element="tns:ModificarDirClienteResponse" />
+  </wsdl:message>
+  <wsdl:message name="IClienteService_ModificarNombreCliente_InputMessage">
+    <wsdl:part name="parameters" element="tns:ModificarNombreCliente" />
+  </wsdl:message>
+  <wsdl:message name="IClienteService_ModificarNombreCliente_OutputMessage">
+    <wsdl:part name="parameters" element="tns:ModificarNombreClienteResponse" />
+  </wsdl:message>
+  <wsdl:message name="IClienteService_ConsultarCilPorCliente_InputMessage">
+    <wsdl:part name="parameters" element="tns:ConsultarCilPorCliente" />
+  </wsdl:message>
+  <wsdl:message name="IClienteService_ConsultarCilPorCliente_OutputMessage">
+    <wsdl:part name="parameters" element="tns:ConsultarCilPorClienteResponse" />
+  </wsdl:message>
+  <wsdl:message name="IClienteService_ConsultarDirCliPorUbica_InputMessage">
+    <wsdl:part name="parameters" element="tns:ConsultarDirCliPorUbica" />
+  </wsdl:message>
+  <wsdl:message name="IClienteService_ConsultarDirCliPorUbica_OutputMessage">
+    <wsdl:part name="parameters" element="tns:ConsultarDirCliPorUbicaResponse" />
   </wsdl:message>
   <wsdl:message name="IClienteService_ConsultarExistenciasClientes_InputMessage">
     <wsdl:part name="parameters" element="tns:ConsultarExistenciasClientes" />
@@ -50,9 +68,21 @@
       <wsdl:input wsaw:Action="http://servicios.cyltrack.com.co/cyltrack/IClienteService/Consultar_Cliente" message="tns:IClienteService_Consultar_Cliente_InputMessage" />
       <wsdl:output wsaw:Action="http://servicios.cyltrack.com.co/cyltrack/IClienteService/Consultar_ClienteResponse" message="tns:IClienteService_Consultar_Cliente_OutputMessage" />
     </wsdl:operation>
-    <wsdl:operation name="Modificar_Cliente">
-      <wsdl:input wsaw:Action="http://servicios.cyltrack.com.co/cyltrack/IClienteService/Modificar_Cliente" message="tns:IClienteService_Modificar_Cliente_InputMessage" />
-      <wsdl:output wsaw:Action="http://servicios.cyltrack.com.co/cyltrack/IClienteService/Modificar_ClienteResponse" message="tns:IClienteService_Modificar_Cliente_OutputMessage" />
+    <wsdl:operation name="ModificarDirCliente">
+      <wsdl:input wsaw:Action="http://servicios.cyltrack.com.co/cyltrack/IClienteService/ModificarDirCliente" message="tns:IClienteService_ModificarDirCliente_InputMessage" />
+      <wsdl:output wsaw:Action="http://servicios.cyltrack.com.co/cyltrack/IClienteService/ModificarDirClienteResponse" message="tns:IClienteService_ModificarDirCliente_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="ModificarNombreCliente">
+      <wsdl:input wsaw:Action="http://servicios.cyltrack.com.co/cyltrack/IClienteService/ModificarNombreCliente" message="tns:IClienteService_ModificarNombreCliente_InputMessage" />
+      <wsdl:output wsaw:Action="http://servicios.cyltrack.com.co/cyltrack/IClienteService/ModificarNombreClienteResponse" message="tns:IClienteService_ModificarNombreCliente_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="ConsultarCilPorCliente">
+      <wsdl:input wsaw:Action="http://servicios.cyltrack.com.co/cyltrack/IClienteService/ConsultarCilPorCliente" message="tns:IClienteService_ConsultarCilPorCliente_InputMessage" />
+      <wsdl:output wsaw:Action="http://servicios.cyltrack.com.co/cyltrack/IClienteService/ConsultarCilPorClienteResponse" message="tns:IClienteService_ConsultarCilPorCliente_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="ConsultarDirCliPorUbica">
+      <wsdl:input wsaw:Action="http://servicios.cyltrack.com.co/cyltrack/IClienteService/ConsultarDirCliPorUbica" message="tns:IClienteService_ConsultarDirCliPorUbica_InputMessage" />
+      <wsdl:output wsaw:Action="http://servicios.cyltrack.com.co/cyltrack/IClienteService/ConsultarDirCliPorUbicaResponse" message="tns:IClienteService_ConsultarDirCliPorUbica_OutputMessage" />
     </wsdl:operation>
     <wsdl:operation name="ConsultarExistenciasClientes">
       <wsdl:input wsaw:Action="http://servicios.cyltrack.com.co/cyltrack/IClienteService/ConsultarExistenciasClientes" message="tns:IClienteService_ConsultarExistenciasClientes_InputMessage" />
@@ -88,8 +118,35 @@
         <soap:body use="literal" />
       </wsdl:output>
     </wsdl:operation>
-    <wsdl:operation name="Modificar_Cliente">
-      <soap:operation soapAction="http://servicios.cyltrack.com.co/cyltrack/IClienteService/Modificar_Cliente" style="document" />
+    <wsdl:operation name="ModificarDirCliente">
+      <soap:operation soapAction="http://servicios.cyltrack.com.co/cyltrack/IClienteService/ModificarDirCliente" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="ModificarNombreCliente">
+      <soap:operation soapAction="http://servicios.cyltrack.com.co/cyltrack/IClienteService/ModificarNombreCliente" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="ConsultarCilPorCliente">
+      <soap:operation soapAction="http://servicios.cyltrack.com.co/cyltrack/IClienteService/ConsultarCilPorCliente" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="ConsultarDirCliPorUbica">
+      <soap:operation soapAction="http://servicios.cyltrack.com.co/cyltrack/IClienteService/ConsultarDirCliPorUbica" style="document" />
       <wsdl:input>
         <soap:body use="literal" />
       </wsdl:input>
@@ -109,7 +166,7 @@
   </wsdl:binding>
   <wsdl:service name="ClienteService">
     <wsdl:port name="BasicHttpBinding_IClienteService" binding="tns:BasicHttpBinding_IClienteService">
-      <soap:address location="http://localhost:51651/CYLTRACK_Services/ClienteService.svc" />
+      <soap:address location="http://localhost:1993/CYLTRACK_Services/ClienteService.svc" />
     </wsdl:port>
   </wsdl:service>
 </wsdl:definitions>

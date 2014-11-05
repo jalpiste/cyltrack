@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
-<SavedWcfConfigurationInformation xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema" Version="9.1" CheckSum="WSYAAiG0SJIkzfObHiFXrrF0dag=">
+<SavedWcfConfigurationInformation xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema" Version="9.1" CheckSum="H9DP7YQh+icG4yqCDlfMGjmhTm4=">
   <bindingConfigurations>
     <bindingConfiguration bindingType="basicHttpBinding" name="BasicHttpBinding_IVentaService">
       <properties>
@@ -112,10 +112,10 @@
     </bindingConfiguration>
   </bindingConfigurations>
   <endpoints>
-    <endpoint name="BasicHttpBinding_IVentaService" contract="VentaService.IVentaService" bindingType="basicHttpBinding" address="http://localhost:51651/CYLTRACK_Services/VentaService.svc" bindingConfiguration="BasicHttpBinding_IVentaService">
+    <endpoint name="BasicHttpBinding_IVentaService" contract="VentaService.IVentaService" bindingType="basicHttpBinding" address="http://localhost:1993/CYLTRACK_Services/VentaService.svc" bindingConfiguration="BasicHttpBinding_IVentaService">
       <properties>
         <property path="/address" isComplexType="false" isExplicitlyDefined="true" clrType="System.Uri, System, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
-          <serializedValue>http://localhost:51651/CYLTRACK_Services/VentaService.svc</serializedValue>
+          <serializedValue>http://localhost:1993/CYLTRACK_Services/VentaService.svc</serializedValue>
         </property>
         <property path="/behaviorConfiguration" isComplexType="false" isExplicitlyDefined="false" clrType="System.String, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
           <serializedValue />

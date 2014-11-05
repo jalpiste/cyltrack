@@ -20,45 +20,21 @@ namespace CYLTRACK_PHONE.VentaService {
     [System.Runtime.Serialization.DataContractAttribute(Name="VentaBE", Namespace="http://schemas.datacontract.org/2004/07/Unisangil.CYLTRACK.CYLTRACK_BE")]
     public partial class VentaBE : object, System.ComponentModel.INotifyPropertyChanged {
         
-        private CYLTRACK_PHONE.VentaService.ClienteBE ClienteField;
-        
-        private CYLTRACK_PHONE.VentaService.ContratistaBE ContratistaField;
-        
         private CYLTRACK_PHONE.VentaService.Detalle_VentaBE Detalle_VentaField;
         
         private System.DateTime FechaField;
         
+        private string IdClienteField;
+        
+        private string IdVehiculoField;
+        
+        private string Id_UbicacionField;
+        
         private string Id_VentaField;
         
+        private System.Collections.ObjectModel.ObservableCollection<CYLTRACK_PHONE.VentaService.Detalle_VentaBE> Lista_Detalle_VentaField;
+        
         private string ObservacionesField;
-        
-        private CYLTRACK_PHONE.VentaService.VehiculoBE VehiculoField;
-        
-        [System.Runtime.Serialization.DataMemberAttribute()]
-        public CYLTRACK_PHONE.VentaService.ClienteBE Cliente {
-            get {
-                return this.ClienteField;
-            }
-            set {
-                if ((object.ReferenceEquals(this.ClienteField, value) != true)) {
-                    this.ClienteField = value;
-                    this.RaisePropertyChanged("Cliente");
-                }
-            }
-        }
-        
-        [System.Runtime.Serialization.DataMemberAttribute()]
-        public CYLTRACK_PHONE.VentaService.ContratistaBE Contratista {
-            get {
-                return this.ContratistaField;
-            }
-            set {
-                if ((object.ReferenceEquals(this.ContratistaField, value) != true)) {
-                    this.ContratistaField = value;
-                    this.RaisePropertyChanged("Contratista");
-                }
-            }
-        }
         
         [System.Runtime.Serialization.DataMemberAttribute()]
         public CYLTRACK_PHONE.VentaService.Detalle_VentaBE Detalle_Venta {
@@ -87,6 +63,45 @@ namespace CYLTRACK_PHONE.VentaService {
         }
         
         [System.Runtime.Serialization.DataMemberAttribute()]
+        public string IdCliente {
+            get {
+                return this.IdClienteField;
+            }
+            set {
+                if ((object.ReferenceEquals(this.IdClienteField, value) != true)) {
+                    this.IdClienteField = value;
+                    this.RaisePropertyChanged("IdCliente");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public string IdVehiculo {
+            get {
+                return this.IdVehiculoField;
+            }
+            set {
+                if ((object.ReferenceEquals(this.IdVehiculoField, value) != true)) {
+                    this.IdVehiculoField = value;
+                    this.RaisePropertyChanged("IdVehiculo");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public string Id_Ubicacion {
+            get {
+                return this.Id_UbicacionField;
+            }
+            set {
+                if ((object.ReferenceEquals(this.Id_UbicacionField, value) != true)) {
+                    this.Id_UbicacionField = value;
+                    this.RaisePropertyChanged("Id_Ubicacion");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
         public string Id_Venta {
             get {
                 return this.Id_VentaField;
@@ -100,6 +115,19 @@ namespace CYLTRACK_PHONE.VentaService {
         }
         
         [System.Runtime.Serialization.DataMemberAttribute()]
+        public System.Collections.ObjectModel.ObservableCollection<CYLTRACK_PHONE.VentaService.Detalle_VentaBE> Lista_Detalle_Venta {
+            get {
+                return this.Lista_Detalle_VentaField;
+            }
+            set {
+                if ((object.ReferenceEquals(this.Lista_Detalle_VentaField, value) != true)) {
+                    this.Lista_Detalle_VentaField = value;
+                    this.RaisePropertyChanged("Lista_Detalle_Venta");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
         public string Observaciones {
             get {
                 return this.ObservacionesField;
@@ -108,274 +136,6 @@ namespace CYLTRACK_PHONE.VentaService {
                 if ((object.ReferenceEquals(this.ObservacionesField, value) != true)) {
                     this.ObservacionesField = value;
                     this.RaisePropertyChanged("Observaciones");
-                }
-            }
-        }
-        
-        [System.Runtime.Serialization.DataMemberAttribute()]
-        public CYLTRACK_PHONE.VentaService.VehiculoBE Vehiculo {
-            get {
-                return this.VehiculoField;
-            }
-            set {
-                if ((object.ReferenceEquals(this.VehiculoField, value) != true)) {
-                    this.VehiculoField = value;
-                    this.RaisePropertyChanged("Vehiculo");
-                }
-            }
-        }
-        
-        public event System.ComponentModel.PropertyChangedEventHandler PropertyChanged;
-        
-        protected void RaisePropertyChanged(string propertyName) {
-            System.ComponentModel.PropertyChangedEventHandler propertyChanged = this.PropertyChanged;
-            if ((propertyChanged != null)) {
-                propertyChanged(this, new System.ComponentModel.PropertyChangedEventArgs(propertyName));
-            }
-        }
-    }
-    
-    [System.Diagnostics.DebuggerStepThroughAttribute()]
-    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Runtime.Serialization", "4.0.0.0")]
-    [System.Runtime.Serialization.DataContractAttribute(Name="ClienteBE", Namespace="http://schemas.datacontract.org/2004/07/Unisangil.CYLTRACK.CYLTRACK_BE")]
-    public partial class ClienteBE : object, System.ComponentModel.INotifyPropertyChanged {
-        
-        private string Apellido_1Field;
-        
-        private string Apellido_2Field;
-        
-        private string CedulaField;
-        
-        private CYLTRACK_PHONE.VentaService.Detalle_VentaBE Detalle_VentaField;
-        
-        private string Id_ClienteField;
-        
-        private string Nombres_ClienteField;
-        
-        private CYLTRACK_PHONE.VentaService.PedidoBE PedidoField;
-        
-        private CYLTRACK_PHONE.VentaService.UbicacionBE UbicacionField;
-        
-        private CYLTRACK_PHONE.VentaService.VentaBE VentaField;
-        
-        [System.Runtime.Serialization.DataMemberAttribute()]
-        public string Apellido_1 {
-            get {
-                return this.Apellido_1Field;
-            }
-            set {
-                if ((object.ReferenceEquals(this.Apellido_1Field, value) != true)) {
-                    this.Apellido_1Field = value;
-                    this.RaisePropertyChanged("Apellido_1");
-                }
-            }
-        }
-        
-        [System.Runtime.Serialization.DataMemberAttribute()]
-        public string Apellido_2 {
-            get {
-                return this.Apellido_2Field;
-            }
-            set {
-                if ((object.ReferenceEquals(this.Apellido_2Field, value) != true)) {
-                    this.Apellido_2Field = value;
-                    this.RaisePropertyChanged("Apellido_2");
-                }
-            }
-        }
-        
-        [System.Runtime.Serialization.DataMemberAttribute()]
-        public string Cedula {
-            get {
-                return this.CedulaField;
-            }
-            set {
-                if ((object.ReferenceEquals(this.CedulaField, value) != true)) {
-                    this.CedulaField = value;
-                    this.RaisePropertyChanged("Cedula");
-                }
-            }
-        }
-        
-        [System.Runtime.Serialization.DataMemberAttribute()]
-        public CYLTRACK_PHONE.VentaService.Detalle_VentaBE Detalle_Venta {
-            get {
-                return this.Detalle_VentaField;
-            }
-            set {
-                if ((object.ReferenceEquals(this.Detalle_VentaField, value) != true)) {
-                    this.Detalle_VentaField = value;
-                    this.RaisePropertyChanged("Detalle_Venta");
-                }
-            }
-        }
-        
-        [System.Runtime.Serialization.DataMemberAttribute()]
-        public string Id_Cliente {
-            get {
-                return this.Id_ClienteField;
-            }
-            set {
-                if ((object.ReferenceEquals(this.Id_ClienteField, value) != true)) {
-                    this.Id_ClienteField = value;
-                    this.RaisePropertyChanged("Id_Cliente");
-                }
-            }
-        }
-        
-        [System.Runtime.Serialization.DataMemberAttribute()]
-        public string Nombres_Cliente {
-            get {
-                return this.Nombres_ClienteField;
-            }
-            set {
-                if ((object.ReferenceEquals(this.Nombres_ClienteField, value) != true)) {
-                    this.Nombres_ClienteField = value;
-                    this.RaisePropertyChanged("Nombres_Cliente");
-                }
-            }
-        }
-        
-        [System.Runtime.Serialization.DataMemberAttribute()]
-        public CYLTRACK_PHONE.VentaService.PedidoBE Pedido {
-            get {
-                return this.PedidoField;
-            }
-            set {
-                if ((object.ReferenceEquals(this.PedidoField, value) != true)) {
-                    this.PedidoField = value;
-                    this.RaisePropertyChanged("Pedido");
-                }
-            }
-        }
-        
-        [System.Runtime.Serialization.DataMemberAttribute()]
-        public CYLTRACK_PHONE.VentaService.UbicacionBE Ubicacion {
-            get {
-                return this.UbicacionField;
-            }
-            set {
-                if ((object.ReferenceEquals(this.UbicacionField, value) != true)) {
-                    this.UbicacionField = value;
-                    this.RaisePropertyChanged("Ubicacion");
-                }
-            }
-        }
-        
-        [System.Runtime.Serialization.DataMemberAttribute()]
-        public CYLTRACK_PHONE.VentaService.VentaBE Venta {
-            get {
-                return this.VentaField;
-            }
-            set {
-                if ((object.ReferenceEquals(this.VentaField, value) != true)) {
-                    this.VentaField = value;
-                    this.RaisePropertyChanged("Venta");
-                }
-            }
-        }
-        
-        public event System.ComponentModel.PropertyChangedEventHandler PropertyChanged;
-        
-        protected void RaisePropertyChanged(string propertyName) {
-            System.ComponentModel.PropertyChangedEventHandler propertyChanged = this.PropertyChanged;
-            if ((propertyChanged != null)) {
-                propertyChanged(this, new System.ComponentModel.PropertyChangedEventArgs(propertyName));
-            }
-        }
-    }
-    
-    [System.Diagnostics.DebuggerStepThroughAttribute()]
-    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Runtime.Serialization", "4.0.0.0")]
-    [System.Runtime.Serialization.DataContractAttribute(Name="ContratistaBE", Namespace="http://schemas.datacontract.org/2004/07/Unisangil.CYLTRACK.CYLTRACK_BE")]
-    public partial class ContratistaBE : object, System.ComponentModel.INotifyPropertyChanged {
-        
-        private string ApellidosField;
-        
-        private string CedulaField;
-        
-        private string DireccionField;
-        
-        private string Id_ContratistaField;
-        
-        private string NombresField;
-        
-        private string TelefonoField;
-        
-        [System.Runtime.Serialization.DataMemberAttribute()]
-        public string Apellidos {
-            get {
-                return this.ApellidosField;
-            }
-            set {
-                if ((object.ReferenceEquals(this.ApellidosField, value) != true)) {
-                    this.ApellidosField = value;
-                    this.RaisePropertyChanged("Apellidos");
-                }
-            }
-        }
-        
-        [System.Runtime.Serialization.DataMemberAttribute()]
-        public string Cedula {
-            get {
-                return this.CedulaField;
-            }
-            set {
-                if ((object.ReferenceEquals(this.CedulaField, value) != true)) {
-                    this.CedulaField = value;
-                    this.RaisePropertyChanged("Cedula");
-                }
-            }
-        }
-        
-        [System.Runtime.Serialization.DataMemberAttribute()]
-        public string Direccion {
-            get {
-                return this.DireccionField;
-            }
-            set {
-                if ((object.ReferenceEquals(this.DireccionField, value) != true)) {
-                    this.DireccionField = value;
-                    this.RaisePropertyChanged("Direccion");
-                }
-            }
-        }
-        
-        [System.Runtime.Serialization.DataMemberAttribute()]
-        public string Id_Contratista {
-            get {
-                return this.Id_ContratistaField;
-            }
-            set {
-                if ((object.ReferenceEquals(this.Id_ContratistaField, value) != true)) {
-                    this.Id_ContratistaField = value;
-                    this.RaisePropertyChanged("Id_Contratista");
-                }
-            }
-        }
-        
-        [System.Runtime.Serialization.DataMemberAttribute()]
-        public string Nombres {
-            get {
-                return this.NombresField;
-            }
-            set {
-                if ((object.ReferenceEquals(this.NombresField, value) != true)) {
-                    this.NombresField = value;
-                    this.RaisePropertyChanged("Nombres");
-                }
-            }
-        }
-        
-        [System.Runtime.Serialization.DataMemberAttribute()]
-        public string Telefono {
-            get {
-                return this.TelefonoField;
-            }
-            set {
-                if ((object.ReferenceEquals(this.TelefonoField, value) != true)) {
-                    this.TelefonoField = value;
-                    this.RaisePropertyChanged("Telefono");
                 }
             }
         }
@@ -397,9 +157,7 @@ namespace CYLTRACK_PHONE.VentaService {
         
         private CYLTRACK_PHONE.VentaService.CasosBE Casos_EspecialesField;
         
-        private string Cod_Cil_ActualField;
-        
-        private string Cod_Cil_NuevoField;
+        private string IdVentaField;
         
         private string Id_Cilindro_EntradaField;
         
@@ -407,11 +165,15 @@ namespace CYLTRACK_PHONE.VentaService {
         
         private string Id_Detalle_VentaField;
         
+        private string Id_UbicacionField;
+        
+        private string Id_VehiculoField;
+        
         private string TamanoField;
         
         private string Tipo_CilindroField;
         
-        private CYLTRACK_PHONE.VentaService.VentaBE VentaField;
+        private string Tipo_VentaField;
         
         [System.Runtime.Serialization.DataMemberAttribute()]
         public CYLTRACK_PHONE.VentaService.CasosBE Casos_Especiales {
@@ -427,27 +189,14 @@ namespace CYLTRACK_PHONE.VentaService {
         }
         
         [System.Runtime.Serialization.DataMemberAttribute()]
-        public string Cod_Cil_Actual {
+        public string IdVenta {
             get {
-                return this.Cod_Cil_ActualField;
+                return this.IdVentaField;
             }
             set {
-                if ((object.ReferenceEquals(this.Cod_Cil_ActualField, value) != true)) {
-                    this.Cod_Cil_ActualField = value;
-                    this.RaisePropertyChanged("Cod_Cil_Actual");
-                }
-            }
-        }
-        
-        [System.Runtime.Serialization.DataMemberAttribute()]
-        public string Cod_Cil_Nuevo {
-            get {
-                return this.Cod_Cil_NuevoField;
-            }
-            set {
-                if ((object.ReferenceEquals(this.Cod_Cil_NuevoField, value) != true)) {
-                    this.Cod_Cil_NuevoField = value;
-                    this.RaisePropertyChanged("Cod_Cil_Nuevo");
+                if ((object.ReferenceEquals(this.IdVentaField, value) != true)) {
+                    this.IdVentaField = value;
+                    this.RaisePropertyChanged("IdVenta");
                 }
             }
         }
@@ -492,149 +241,6 @@ namespace CYLTRACK_PHONE.VentaService {
         }
         
         [System.Runtime.Serialization.DataMemberAttribute()]
-        public string Tamano {
-            get {
-                return this.TamanoField;
-            }
-            set {
-                if ((object.ReferenceEquals(this.TamanoField, value) != true)) {
-                    this.TamanoField = value;
-                    this.RaisePropertyChanged("Tamano");
-                }
-            }
-        }
-        
-        [System.Runtime.Serialization.DataMemberAttribute()]
-        public string Tipo_Cilindro {
-            get {
-                return this.Tipo_CilindroField;
-            }
-            set {
-                if ((object.ReferenceEquals(this.Tipo_CilindroField, value) != true)) {
-                    this.Tipo_CilindroField = value;
-                    this.RaisePropertyChanged("Tipo_Cilindro");
-                }
-            }
-        }
-        
-        [System.Runtime.Serialization.DataMemberAttribute()]
-        public CYLTRACK_PHONE.VentaService.VentaBE Venta {
-            get {
-                return this.VentaField;
-            }
-            set {
-                if ((object.ReferenceEquals(this.VentaField, value) != true)) {
-                    this.VentaField = value;
-                    this.RaisePropertyChanged("Venta");
-                }
-            }
-        }
-        
-        public event System.ComponentModel.PropertyChangedEventHandler PropertyChanged;
-        
-        protected void RaisePropertyChanged(string propertyName) {
-            System.ComponentModel.PropertyChangedEventHandler propertyChanged = this.PropertyChanged;
-            if ((propertyChanged != null)) {
-                propertyChanged(this, new System.ComponentModel.PropertyChangedEventArgs(propertyName));
-            }
-        }
-    }
-    
-    [System.Diagnostics.DebuggerStepThroughAttribute()]
-    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Runtime.Serialization", "4.0.0.0")]
-    [System.Runtime.Serialization.DataContractAttribute(Name="VehiculoBE", Namespace="http://schemas.datacontract.org/2004/07/Unisangil.CYLTRACK.CYLTRACK_BE")]
-    public partial class VehiculoBE : object, System.ComponentModel.INotifyPropertyChanged {
-        
-        private string ChasisField;
-        
-        private string CilindrajeField;
-        
-        private CYLTRACK_PHONE.VentaService.ConductorBE ConductorField;
-        
-        private CYLTRACK_PHONE.VentaService.ContratistaBE ContratistaField;
-        
-        private string EstadoField;
-        
-        private string Id_UbicacionField;
-        
-        private string Id_VehiculoField;
-        
-        private string MarcaField;
-        
-        private string ModeloField;
-        
-        private string MotorField;
-        
-        private string PlacaField;
-        
-        private CYLTRACK_PHONE.VentaService.RutaBE RutaField;
-        
-        [System.Runtime.Serialization.DataMemberAttribute()]
-        public string Chasis {
-            get {
-                return this.ChasisField;
-            }
-            set {
-                if ((object.ReferenceEquals(this.ChasisField, value) != true)) {
-                    this.ChasisField = value;
-                    this.RaisePropertyChanged("Chasis");
-                }
-            }
-        }
-        
-        [System.Runtime.Serialization.DataMemberAttribute()]
-        public string Cilindraje {
-            get {
-                return this.CilindrajeField;
-            }
-            set {
-                if ((object.ReferenceEquals(this.CilindrajeField, value) != true)) {
-                    this.CilindrajeField = value;
-                    this.RaisePropertyChanged("Cilindraje");
-                }
-            }
-        }
-        
-        [System.Runtime.Serialization.DataMemberAttribute()]
-        public CYLTRACK_PHONE.VentaService.ConductorBE Conductor {
-            get {
-                return this.ConductorField;
-            }
-            set {
-                if ((object.ReferenceEquals(this.ConductorField, value) != true)) {
-                    this.ConductorField = value;
-                    this.RaisePropertyChanged("Conductor");
-                }
-            }
-        }
-        
-        [System.Runtime.Serialization.DataMemberAttribute()]
-        public CYLTRACK_PHONE.VentaService.ContratistaBE Contratista {
-            get {
-                return this.ContratistaField;
-            }
-            set {
-                if ((object.ReferenceEquals(this.ContratistaField, value) != true)) {
-                    this.ContratistaField = value;
-                    this.RaisePropertyChanged("Contratista");
-                }
-            }
-        }
-        
-        [System.Runtime.Serialization.DataMemberAttribute()]
-        public string Estado {
-            get {
-                return this.EstadoField;
-            }
-            set {
-                if ((object.ReferenceEquals(this.EstadoField, value) != true)) {
-                    this.EstadoField = value;
-                    this.RaisePropertyChanged("Estado");
-                }
-            }
-        }
-        
-        [System.Runtime.Serialization.DataMemberAttribute()]
         public string Id_Ubicacion {
             get {
                 return this.Id_UbicacionField;
@@ -661,456 +267,40 @@ namespace CYLTRACK_PHONE.VentaService {
         }
         
         [System.Runtime.Serialization.DataMemberAttribute()]
-        public string Marca {
+        public string Tamano {
             get {
-                return this.MarcaField;
+                return this.TamanoField;
             }
             set {
-                if ((object.ReferenceEquals(this.MarcaField, value) != true)) {
-                    this.MarcaField = value;
-                    this.RaisePropertyChanged("Marca");
+                if ((object.ReferenceEquals(this.TamanoField, value) != true)) {
+                    this.TamanoField = value;
+                    this.RaisePropertyChanged("Tamano");
                 }
             }
         }
         
         [System.Runtime.Serialization.DataMemberAttribute()]
-        public string Modelo {
+        public string Tipo_Cilindro {
             get {
-                return this.ModeloField;
+                return this.Tipo_CilindroField;
             }
             set {
-                if ((object.ReferenceEquals(this.ModeloField, value) != true)) {
-                    this.ModeloField = value;
-                    this.RaisePropertyChanged("Modelo");
+                if ((object.ReferenceEquals(this.Tipo_CilindroField, value) != true)) {
+                    this.Tipo_CilindroField = value;
+                    this.RaisePropertyChanged("Tipo_Cilindro");
                 }
             }
         }
         
         [System.Runtime.Serialization.DataMemberAttribute()]
-        public string Motor {
+        public string Tipo_Venta {
             get {
-                return this.MotorField;
+                return this.Tipo_VentaField;
             }
             set {
-                if ((object.ReferenceEquals(this.MotorField, value) != true)) {
-                    this.MotorField = value;
-                    this.RaisePropertyChanged("Motor");
-                }
-            }
-        }
-        
-        [System.Runtime.Serialization.DataMemberAttribute()]
-        public string Placa {
-            get {
-                return this.PlacaField;
-            }
-            set {
-                if ((object.ReferenceEquals(this.PlacaField, value) != true)) {
-                    this.PlacaField = value;
-                    this.RaisePropertyChanged("Placa");
-                }
-            }
-        }
-        
-        [System.Runtime.Serialization.DataMemberAttribute()]
-        public CYLTRACK_PHONE.VentaService.RutaBE Ruta {
-            get {
-                return this.RutaField;
-            }
-            set {
-                if ((object.ReferenceEquals(this.RutaField, value) != true)) {
-                    this.RutaField = value;
-                    this.RaisePropertyChanged("Ruta");
-                }
-            }
-        }
-        
-        public event System.ComponentModel.PropertyChangedEventHandler PropertyChanged;
-        
-        protected void RaisePropertyChanged(string propertyName) {
-            System.ComponentModel.PropertyChangedEventHandler propertyChanged = this.PropertyChanged;
-            if ((propertyChanged != null)) {
-                propertyChanged(this, new System.ComponentModel.PropertyChangedEventArgs(propertyName));
-            }
-        }
-    }
-    
-    [System.Diagnostics.DebuggerStepThroughAttribute()]
-    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Runtime.Serialization", "4.0.0.0")]
-    [System.Runtime.Serialization.DataContractAttribute(Name="PedidoBE", Namespace="http://schemas.datacontract.org/2004/07/Unisangil.CYLTRACK.CYLTRACK_BE")]
-    public partial class PedidoBE : object, System.ComponentModel.INotifyPropertyChanged {
-        
-        private System.Collections.ObjectModel.ObservableCollection<CYLTRACK_PHONE.VentaService.CilindroBE> CilindroField;
-        
-        private CYLTRACK_PHONE.VentaService.CiudadBE CiudadField;
-        
-        private CYLTRACK_PHONE.VentaService.ClienteBE ClienteField;
-        
-        private string DetalleField;
-        
-        private CYLTRACK_PHONE.VentaService.Detalle_PedidoBE Detalle_PedField;
-        
-        private System.DateTime FechaField;
-        
-        private string Id_PedidoField;
-        
-        private string Motivo_CancelField;
-        
-        private CYLTRACK_PHONE.VentaService.RutaBE RutaField;
-        
-        private CYLTRACK_PHONE.VentaService.VehiculoBE VehiculoField;
-        
-        [System.Runtime.Serialization.DataMemberAttribute()]
-        public System.Collections.ObjectModel.ObservableCollection<CYLTRACK_PHONE.VentaService.CilindroBE> Cilindro {
-            get {
-                return this.CilindroField;
-            }
-            set {
-                if ((object.ReferenceEquals(this.CilindroField, value) != true)) {
-                    this.CilindroField = value;
-                    this.RaisePropertyChanged("Cilindro");
-                }
-            }
-        }
-        
-        [System.Runtime.Serialization.DataMemberAttribute()]
-        public CYLTRACK_PHONE.VentaService.CiudadBE Ciudad {
-            get {
-                return this.CiudadField;
-            }
-            set {
-                if ((object.ReferenceEquals(this.CiudadField, value) != true)) {
-                    this.CiudadField = value;
-                    this.RaisePropertyChanged("Ciudad");
-                }
-            }
-        }
-        
-        [System.Runtime.Serialization.DataMemberAttribute()]
-        public CYLTRACK_PHONE.VentaService.ClienteBE Cliente {
-            get {
-                return this.ClienteField;
-            }
-            set {
-                if ((object.ReferenceEquals(this.ClienteField, value) != true)) {
-                    this.ClienteField = value;
-                    this.RaisePropertyChanged("Cliente");
-                }
-            }
-        }
-        
-        [System.Runtime.Serialization.DataMemberAttribute()]
-        public string Detalle {
-            get {
-                return this.DetalleField;
-            }
-            set {
-                if ((object.ReferenceEquals(this.DetalleField, value) != true)) {
-                    this.DetalleField = value;
-                    this.RaisePropertyChanged("Detalle");
-                }
-            }
-        }
-        
-        [System.Runtime.Serialization.DataMemberAttribute()]
-        public CYLTRACK_PHONE.VentaService.Detalle_PedidoBE Detalle_Ped {
-            get {
-                return this.Detalle_PedField;
-            }
-            set {
-                if ((object.ReferenceEquals(this.Detalle_PedField, value) != true)) {
-                    this.Detalle_PedField = value;
-                    this.RaisePropertyChanged("Detalle_Ped");
-                }
-            }
-        }
-        
-        [System.Runtime.Serialization.DataMemberAttribute()]
-        public System.DateTime Fecha {
-            get {
-                return this.FechaField;
-            }
-            set {
-                if ((this.FechaField.Equals(value) != true)) {
-                    this.FechaField = value;
-                    this.RaisePropertyChanged("Fecha");
-                }
-            }
-        }
-        
-        [System.Runtime.Serialization.DataMemberAttribute()]
-        public string Id_Pedido {
-            get {
-                return this.Id_PedidoField;
-            }
-            set {
-                if ((object.ReferenceEquals(this.Id_PedidoField, value) != true)) {
-                    this.Id_PedidoField = value;
-                    this.RaisePropertyChanged("Id_Pedido");
-                }
-            }
-        }
-        
-        [System.Runtime.Serialization.DataMemberAttribute()]
-        public string Motivo_Cancel {
-            get {
-                return this.Motivo_CancelField;
-            }
-            set {
-                if ((object.ReferenceEquals(this.Motivo_CancelField, value) != true)) {
-                    this.Motivo_CancelField = value;
-                    this.RaisePropertyChanged("Motivo_Cancel");
-                }
-            }
-        }
-        
-        [System.Runtime.Serialization.DataMemberAttribute()]
-        public CYLTRACK_PHONE.VentaService.RutaBE Ruta {
-            get {
-                return this.RutaField;
-            }
-            set {
-                if ((object.ReferenceEquals(this.RutaField, value) != true)) {
-                    this.RutaField = value;
-                    this.RaisePropertyChanged("Ruta");
-                }
-            }
-        }
-        
-        [System.Runtime.Serialization.DataMemberAttribute()]
-        public CYLTRACK_PHONE.VentaService.VehiculoBE Vehiculo {
-            get {
-                return this.VehiculoField;
-            }
-            set {
-                if ((object.ReferenceEquals(this.VehiculoField, value) != true)) {
-                    this.VehiculoField = value;
-                    this.RaisePropertyChanged("Vehiculo");
-                }
-            }
-        }
-        
-        public event System.ComponentModel.PropertyChangedEventHandler PropertyChanged;
-        
-        protected void RaisePropertyChanged(string propertyName) {
-            System.ComponentModel.PropertyChangedEventHandler propertyChanged = this.PropertyChanged;
-            if ((propertyChanged != null)) {
-                propertyChanged(this, new System.ComponentModel.PropertyChangedEventArgs(propertyName));
-            }
-        }
-    }
-    
-    [System.Diagnostics.DebuggerStepThroughAttribute()]
-    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Runtime.Serialization", "4.0.0.0")]
-    [System.Runtime.Serialization.DataContractAttribute(Name="UbicacionBE", Namespace="http://schemas.datacontract.org/2004/07/Unisangil.CYLTRACK.CYLTRACK_BE")]
-    public partial class UbicacionBE : object, System.ComponentModel.INotifyPropertyChanged {
-        
-        private string BarrioField;
-        
-        private CYLTRACK_PHONE.VentaService.CiudadBE CiudadField;
-        
-        private CYLTRACK_PHONE.VentaService.ClienteBE ClienteField;
-        
-        private string DescripcionField;
-        
-        private string DireccionField;
-        
-        private string Direccion2Field;
-        
-        private string Direccion3Field;
-        
-        private int Id_UbicacionField;
-        
-        private string Telefono_1Field;
-        
-        private string Telefono_2Field;
-        
-        private CYLTRACK_PHONE.VentaService.Tipo_UbicacionBE Tipo_UbicacionField;
-        
-        private CYLTRACK_PHONE.VentaService.Ubicacion_CilindroBE Ubicacion_CilindroField;
-        
-        private CYLTRACK_PHONE.VentaService.VehiculoBE VehiculoField;
-        
-        private string fechaField;
-        
-        [System.Runtime.Serialization.DataMemberAttribute()]
-        public string Barrio {
-            get {
-                return this.BarrioField;
-            }
-            set {
-                if ((object.ReferenceEquals(this.BarrioField, value) != true)) {
-                    this.BarrioField = value;
-                    this.RaisePropertyChanged("Barrio");
-                }
-            }
-        }
-        
-        [System.Runtime.Serialization.DataMemberAttribute()]
-        public CYLTRACK_PHONE.VentaService.CiudadBE Ciudad {
-            get {
-                return this.CiudadField;
-            }
-            set {
-                if ((object.ReferenceEquals(this.CiudadField, value) != true)) {
-                    this.CiudadField = value;
-                    this.RaisePropertyChanged("Ciudad");
-                }
-            }
-        }
-        
-        [System.Runtime.Serialization.DataMemberAttribute()]
-        public CYLTRACK_PHONE.VentaService.ClienteBE Cliente {
-            get {
-                return this.ClienteField;
-            }
-            set {
-                if ((object.ReferenceEquals(this.ClienteField, value) != true)) {
-                    this.ClienteField = value;
-                    this.RaisePropertyChanged("Cliente");
-                }
-            }
-        }
-        
-        [System.Runtime.Serialization.DataMemberAttribute()]
-        public string Descripcion {
-            get {
-                return this.DescripcionField;
-            }
-            set {
-                if ((object.ReferenceEquals(this.DescripcionField, value) != true)) {
-                    this.DescripcionField = value;
-                    this.RaisePropertyChanged("Descripcion");
-                }
-            }
-        }
-        
-        [System.Runtime.Serialization.DataMemberAttribute()]
-        public string Direccion {
-            get {
-                return this.DireccionField;
-            }
-            set {
-                if ((object.ReferenceEquals(this.DireccionField, value) != true)) {
-                    this.DireccionField = value;
-                    this.RaisePropertyChanged("Direccion");
-                }
-            }
-        }
-        
-        [System.Runtime.Serialization.DataMemberAttribute()]
-        public string Direccion2 {
-            get {
-                return this.Direccion2Field;
-            }
-            set {
-                if ((object.ReferenceEquals(this.Direccion2Field, value) != true)) {
-                    this.Direccion2Field = value;
-                    this.RaisePropertyChanged("Direccion2");
-                }
-            }
-        }
-        
-        [System.Runtime.Serialization.DataMemberAttribute()]
-        public string Direccion3 {
-            get {
-                return this.Direccion3Field;
-            }
-            set {
-                if ((object.ReferenceEquals(this.Direccion3Field, value) != true)) {
-                    this.Direccion3Field = value;
-                    this.RaisePropertyChanged("Direccion3");
-                }
-            }
-        }
-        
-        [System.Runtime.Serialization.DataMemberAttribute()]
-        public int Id_Ubicacion {
-            get {
-                return this.Id_UbicacionField;
-            }
-            set {
-                if ((this.Id_UbicacionField.Equals(value) != true)) {
-                    this.Id_UbicacionField = value;
-                    this.RaisePropertyChanged("Id_Ubicacion");
-                }
-            }
-        }
-        
-        [System.Runtime.Serialization.DataMemberAttribute()]
-        public string Telefono_1 {
-            get {
-                return this.Telefono_1Field;
-            }
-            set {
-                if ((object.ReferenceEquals(this.Telefono_1Field, value) != true)) {
-                    this.Telefono_1Field = value;
-                    this.RaisePropertyChanged("Telefono_1");
-                }
-            }
-        }
-        
-        [System.Runtime.Serialization.DataMemberAttribute()]
-        public string Telefono_2 {
-            get {
-                return this.Telefono_2Field;
-            }
-            set {
-                if ((object.ReferenceEquals(this.Telefono_2Field, value) != true)) {
-                    this.Telefono_2Field = value;
-                    this.RaisePropertyChanged("Telefono_2");
-                }
-            }
-        }
-        
-        [System.Runtime.Serialization.DataMemberAttribute()]
-        public CYLTRACK_PHONE.VentaService.Tipo_UbicacionBE Tipo_Ubicacion {
-            get {
-                return this.Tipo_UbicacionField;
-            }
-            set {
-                if ((object.ReferenceEquals(this.Tipo_UbicacionField, value) != true)) {
-                    this.Tipo_UbicacionField = value;
-                    this.RaisePropertyChanged("Tipo_Ubicacion");
-                }
-            }
-        }
-        
-        [System.Runtime.Serialization.DataMemberAttribute()]
-        public CYLTRACK_PHONE.VentaService.Ubicacion_CilindroBE Ubicacion_Cilindro {
-            get {
-                return this.Ubicacion_CilindroField;
-            }
-            set {
-                if ((object.ReferenceEquals(this.Ubicacion_CilindroField, value) != true)) {
-                    this.Ubicacion_CilindroField = value;
-                    this.RaisePropertyChanged("Ubicacion_Cilindro");
-                }
-            }
-        }
-        
-        [System.Runtime.Serialization.DataMemberAttribute()]
-        public CYLTRACK_PHONE.VentaService.VehiculoBE Vehiculo {
-            get {
-                return this.VehiculoField;
-            }
-            set {
-                if ((object.ReferenceEquals(this.VehiculoField, value) != true)) {
-                    this.VehiculoField = value;
-                    this.RaisePropertyChanged("Vehiculo");
-                }
-            }
-        }
-        
-        [System.Runtime.Serialization.DataMemberAttribute()]
-        public string fecha {
-            get {
-                return this.fechaField;
-            }
-            set {
-                if ((object.ReferenceEquals(this.fechaField, value) != true)) {
-                    this.fechaField = value;
-                    this.RaisePropertyChanged("fecha");
+                if ((object.ReferenceEquals(this.Tipo_VentaField, value) != true)) {
+                    this.Tipo_VentaField = value;
+                    this.RaisePropertyChanged("Tipo_Venta");
                 }
             }
         }
@@ -1130,13 +320,43 @@ namespace CYLTRACK_PHONE.VentaService {
     [System.Runtime.Serialization.DataContractAttribute(Name="CasosBE", Namespace="http://schemas.datacontract.org/2004/07/Unisangil.CYLTRACK.CYLTRACK_BE")]
     public partial class CasosBE : object, System.ComponentModel.INotifyPropertyChanged {
         
+        private CYLTRACK_PHONE.VentaService.Detalle_VentaBE Detalle_VentaField;
+        
+        private string EstadoCasoField;
+        
         private string Id_CasosField;
+        
+        private string Id_ClienteField;
         
         private string ObservacionesField;
         
         private CYLTRACK_PHONE.VentaService.Tipo_CasoBE Tipo_CasoField;
         
-        private CYLTRACK_PHONE.VentaService.VentaBE VentaField;
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public CYLTRACK_PHONE.VentaService.Detalle_VentaBE Detalle_Venta {
+            get {
+                return this.Detalle_VentaField;
+            }
+            set {
+                if ((object.ReferenceEquals(this.Detalle_VentaField, value) != true)) {
+                    this.Detalle_VentaField = value;
+                    this.RaisePropertyChanged("Detalle_Venta");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public string EstadoCaso {
+            get {
+                return this.EstadoCasoField;
+            }
+            set {
+                if ((object.ReferenceEquals(this.EstadoCasoField, value) != true)) {
+                    this.EstadoCasoField = value;
+                    this.RaisePropertyChanged("EstadoCaso");
+                }
+            }
+        }
         
         [System.Runtime.Serialization.DataMemberAttribute()]
         public string Id_Casos {
@@ -1147,6 +367,19 @@ namespace CYLTRACK_PHONE.VentaService {
                 if ((object.ReferenceEquals(this.Id_CasosField, value) != true)) {
                     this.Id_CasosField = value;
                     this.RaisePropertyChanged("Id_Casos");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public string Id_Cliente {
+            get {
+                return this.Id_ClienteField;
+            }
+            set {
+                if ((object.ReferenceEquals(this.Id_ClienteField, value) != true)) {
+                    this.Id_ClienteField = value;
+                    this.RaisePropertyChanged("Id_Cliente");
                 }
             }
         }
@@ -1173,19 +406,6 @@ namespace CYLTRACK_PHONE.VentaService {
                 if ((object.ReferenceEquals(this.Tipo_CasoField, value) != true)) {
                     this.Tipo_CasoField = value;
                     this.RaisePropertyChanged("Tipo_Caso");
-                }
-            }
-        }
-        
-        [System.Runtime.Serialization.DataMemberAttribute()]
-        public CYLTRACK_PHONE.VentaService.VentaBE Venta {
-            get {
-                return this.VentaField;
-            }
-            set {
-                if ((object.ReferenceEquals(this.VentaField, value) != true)) {
-                    this.VentaField = value;
-                    this.RaisePropertyChanged("Venta");
                 }
             }
         }
@@ -1260,1141 +480,25 @@ namespace CYLTRACK_PHONE.VentaService {
         }
     }
     
-    [System.Diagnostics.DebuggerStepThroughAttribute()]
-    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Runtime.Serialization", "4.0.0.0")]
-    [System.Runtime.Serialization.DataContractAttribute(Name="CiudadBE", Namespace="http://schemas.datacontract.org/2004/07/Unisangil.CYLTRACK.CYLTRACK_BE")]
-    public partial class CiudadBE : object, System.ComponentModel.INotifyPropertyChanged {
-        
-        private CYLTRACK_PHONE.VentaService.DepartamentoBE DepartamentoField;
-        
-        private string Id_CiudadField;
-        
-        private string Nombre_CiudadField;
-        
-        [System.Runtime.Serialization.DataMemberAttribute()]
-        public CYLTRACK_PHONE.VentaService.DepartamentoBE Departamento {
-            get {
-                return this.DepartamentoField;
-            }
-            set {
-                if ((object.ReferenceEquals(this.DepartamentoField, value) != true)) {
-                    this.DepartamentoField = value;
-                    this.RaisePropertyChanged("Departamento");
-                }
-            }
-        }
-        
-        [System.Runtime.Serialization.DataMemberAttribute()]
-        public string Id_Ciudad {
-            get {
-                return this.Id_CiudadField;
-            }
-            set {
-                if ((object.ReferenceEquals(this.Id_CiudadField, value) != true)) {
-                    this.Id_CiudadField = value;
-                    this.RaisePropertyChanged("Id_Ciudad");
-                }
-            }
-        }
-        
-        [System.Runtime.Serialization.DataMemberAttribute()]
-        public string Nombre_Ciudad {
-            get {
-                return this.Nombre_CiudadField;
-            }
-            set {
-                if ((object.ReferenceEquals(this.Nombre_CiudadField, value) != true)) {
-                    this.Nombre_CiudadField = value;
-                    this.RaisePropertyChanged("Nombre_Ciudad");
-                }
-            }
-        }
-        
-        public event System.ComponentModel.PropertyChangedEventHandler PropertyChanged;
-        
-        protected void RaisePropertyChanged(string propertyName) {
-            System.ComponentModel.PropertyChangedEventHandler propertyChanged = this.PropertyChanged;
-            if ((propertyChanged != null)) {
-                propertyChanged(this, new System.ComponentModel.PropertyChangedEventArgs(propertyName));
-            }
-        }
-    }
-    
-    [System.Diagnostics.DebuggerStepThroughAttribute()]
-    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Runtime.Serialization", "4.0.0.0")]
-    [System.Runtime.Serialization.DataContractAttribute(Name="Detalle_PedidoBE", Namespace="http://schemas.datacontract.org/2004/07/Unisangil.CYLTRACK.CYLTRACK_BE")]
-    public partial class Detalle_PedidoBE : object, System.ComponentModel.INotifyPropertyChanged {
-        
-        private string CantidadField;
-        
-        private CYLTRACK_PHONE.VentaService.TamanoBE TamanoField;
-        
-        [System.Runtime.Serialization.DataMemberAttribute()]
-        public string Cantidad {
-            get {
-                return this.CantidadField;
-            }
-            set {
-                if ((object.ReferenceEquals(this.CantidadField, value) != true)) {
-                    this.CantidadField = value;
-                    this.RaisePropertyChanged("Cantidad");
-                }
-            }
-        }
-        
-        [System.Runtime.Serialization.DataMemberAttribute()]
-        public CYLTRACK_PHONE.VentaService.TamanoBE Tamano {
-            get {
-                return this.TamanoField;
-            }
-            set {
-                if ((object.ReferenceEquals(this.TamanoField, value) != true)) {
-                    this.TamanoField = value;
-                    this.RaisePropertyChanged("Tamano");
-                }
-            }
-        }
-        
-        public event System.ComponentModel.PropertyChangedEventHandler PropertyChanged;
-        
-        protected void RaisePropertyChanged(string propertyName) {
-            System.ComponentModel.PropertyChangedEventHandler propertyChanged = this.PropertyChanged;
-            if ((propertyChanged != null)) {
-                propertyChanged(this, new System.ComponentModel.PropertyChangedEventArgs(propertyName));
-            }
-        }
-    }
-    
-    [System.Diagnostics.DebuggerStepThroughAttribute()]
-    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Runtime.Serialization", "4.0.0.0")]
-    [System.Runtime.Serialization.DataContractAttribute(Name="RutaBE", Namespace="http://schemas.datacontract.org/2004/07/Unisangil.CYLTRACK.CYLTRACK_BE")]
-    public partial class RutaBE : object, System.ComponentModel.INotifyPropertyChanged {
-        
-        private CYLTRACK_PHONE.VentaService.Ciudad_RutaBE Ciudad_RutaField;
-        
-        private string Id_RutaField;
-        
-        private string Nombre_RutaField;
-        
-        private CYLTRACK_PHONE.VentaService.Ruta_VehiculoBE Ruta_VehiculoField;
-        
-        [System.Runtime.Serialization.DataMemberAttribute()]
-        public CYLTRACK_PHONE.VentaService.Ciudad_RutaBE Ciudad_Ruta {
-            get {
-                return this.Ciudad_RutaField;
-            }
-            set {
-                if ((object.ReferenceEquals(this.Ciudad_RutaField, value) != true)) {
-                    this.Ciudad_RutaField = value;
-                    this.RaisePropertyChanged("Ciudad_Ruta");
-                }
-            }
-        }
-        
-        [System.Runtime.Serialization.DataMemberAttribute()]
-        public string Id_Ruta {
-            get {
-                return this.Id_RutaField;
-            }
-            set {
-                if ((object.ReferenceEquals(this.Id_RutaField, value) != true)) {
-                    this.Id_RutaField = value;
-                    this.RaisePropertyChanged("Id_Ruta");
-                }
-            }
-        }
-        
-        [System.Runtime.Serialization.DataMemberAttribute()]
-        public string Nombre_Ruta {
-            get {
-                return this.Nombre_RutaField;
-            }
-            set {
-                if ((object.ReferenceEquals(this.Nombre_RutaField, value) != true)) {
-                    this.Nombre_RutaField = value;
-                    this.RaisePropertyChanged("Nombre_Ruta");
-                }
-            }
-        }
-        
-        [System.Runtime.Serialization.DataMemberAttribute()]
-        public CYLTRACK_PHONE.VentaService.Ruta_VehiculoBE Ruta_Vehiculo {
-            get {
-                return this.Ruta_VehiculoField;
-            }
-            set {
-                if ((object.ReferenceEquals(this.Ruta_VehiculoField, value) != true)) {
-                    this.Ruta_VehiculoField = value;
-                    this.RaisePropertyChanged("Ruta_Vehiculo");
-                }
-            }
-        }
-        
-        public event System.ComponentModel.PropertyChangedEventHandler PropertyChanged;
-        
-        protected void RaisePropertyChanged(string propertyName) {
-            System.ComponentModel.PropertyChangedEventHandler propertyChanged = this.PropertyChanged;
-            if ((propertyChanged != null)) {
-                propertyChanged(this, new System.ComponentModel.PropertyChangedEventArgs(propertyName));
-            }
-        }
-    }
-    
-    [System.Diagnostics.DebuggerStepThroughAttribute()]
-    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Runtime.Serialization", "4.0.0.0")]
-    [System.Runtime.Serialization.DataContractAttribute(Name="CilindroBE", Namespace="http://schemas.datacontract.org/2004/07/Unisangil.CYLTRACK.CYLTRACK_BE")]
-    public partial class CilindroBE : object, System.ComponentModel.INotifyPropertyChanged {
-        
-        private string AnoField;
-        
-        private int CantidadField;
-        
-        private string Codigo_CilindroField;
-        
-        private string EstadoField;
-        
-        private CYLTRACK_PHONE.VentaService.FabricanteBE FabricanteField;
-        
-        private System.DateTime FechaField;
-        
-        private string Id_CilindroField;
-        
-        private CYLTRACK_PHONE.VentaService.TamanoBE NTamanoField;
-        
-        private string Serial_CilindroField;
-        
-        private string Tipo_CilindroField;
-        
-        private CYLTRACK_PHONE.VentaService.Tipo_UbicacionBE Tipo_UbicacionField;
-        
-        private CYLTRACK_PHONE.VentaService.VehiculoBE VehiculoField;
-        
-        [System.Runtime.Serialization.DataMemberAttribute()]
-        public string Ano {
-            get {
-                return this.AnoField;
-            }
-            set {
-                if ((object.ReferenceEquals(this.AnoField, value) != true)) {
-                    this.AnoField = value;
-                    this.RaisePropertyChanged("Ano");
-                }
-            }
-        }
-        
-        [System.Runtime.Serialization.DataMemberAttribute()]
-        public int Cantidad {
-            get {
-                return this.CantidadField;
-            }
-            set {
-                if ((this.CantidadField.Equals(value) != true)) {
-                    this.CantidadField = value;
-                    this.RaisePropertyChanged("Cantidad");
-                }
-            }
-        }
-        
-        [System.Runtime.Serialization.DataMemberAttribute()]
-        public string Codigo_Cilindro {
-            get {
-                return this.Codigo_CilindroField;
-            }
-            set {
-                if ((object.ReferenceEquals(this.Codigo_CilindroField, value) != true)) {
-                    this.Codigo_CilindroField = value;
-                    this.RaisePropertyChanged("Codigo_Cilindro");
-                }
-            }
-        }
-        
-        [System.Runtime.Serialization.DataMemberAttribute()]
-        public string Estado {
-            get {
-                return this.EstadoField;
-            }
-            set {
-                if ((object.ReferenceEquals(this.EstadoField, value) != true)) {
-                    this.EstadoField = value;
-                    this.RaisePropertyChanged("Estado");
-                }
-            }
-        }
-        
-        [System.Runtime.Serialization.DataMemberAttribute()]
-        public CYLTRACK_PHONE.VentaService.FabricanteBE Fabricante {
-            get {
-                return this.FabricanteField;
-            }
-            set {
-                if ((object.ReferenceEquals(this.FabricanteField, value) != true)) {
-                    this.FabricanteField = value;
-                    this.RaisePropertyChanged("Fabricante");
-                }
-            }
-        }
-        
-        [System.Runtime.Serialization.DataMemberAttribute()]
-        public System.DateTime Fecha {
-            get {
-                return this.FechaField;
-            }
-            set {
-                if ((this.FechaField.Equals(value) != true)) {
-                    this.FechaField = value;
-                    this.RaisePropertyChanged("Fecha");
-                }
-            }
-        }
-        
-        [System.Runtime.Serialization.DataMemberAttribute()]
-        public string Id_Cilindro {
-            get {
-                return this.Id_CilindroField;
-            }
-            set {
-                if ((object.ReferenceEquals(this.Id_CilindroField, value) != true)) {
-                    this.Id_CilindroField = value;
-                    this.RaisePropertyChanged("Id_Cilindro");
-                }
-            }
-        }
-        
-        [System.Runtime.Serialization.DataMemberAttribute()]
-        public CYLTRACK_PHONE.VentaService.TamanoBE NTamano {
-            get {
-                return this.NTamanoField;
-            }
-            set {
-                if ((object.ReferenceEquals(this.NTamanoField, value) != true)) {
-                    this.NTamanoField = value;
-                    this.RaisePropertyChanged("NTamano");
-                }
-            }
-        }
-        
-        [System.Runtime.Serialization.DataMemberAttribute()]
-        public string Serial_Cilindro {
-            get {
-                return this.Serial_CilindroField;
-            }
-            set {
-                if ((object.ReferenceEquals(this.Serial_CilindroField, value) != true)) {
-                    this.Serial_CilindroField = value;
-                    this.RaisePropertyChanged("Serial_Cilindro");
-                }
-            }
-        }
-        
-        [System.Runtime.Serialization.DataMemberAttribute()]
-        public string Tipo_Cilindro {
-            get {
-                return this.Tipo_CilindroField;
-            }
-            set {
-                if ((object.ReferenceEquals(this.Tipo_CilindroField, value) != true)) {
-                    this.Tipo_CilindroField = value;
-                    this.RaisePropertyChanged("Tipo_Cilindro");
-                }
-            }
-        }
-        
-        [System.Runtime.Serialization.DataMemberAttribute()]
-        public CYLTRACK_PHONE.VentaService.Tipo_UbicacionBE Tipo_Ubicacion {
-            get {
-                return this.Tipo_UbicacionField;
-            }
-            set {
-                if ((object.ReferenceEquals(this.Tipo_UbicacionField, value) != true)) {
-                    this.Tipo_UbicacionField = value;
-                    this.RaisePropertyChanged("Tipo_Ubicacion");
-                }
-            }
-        }
-        
-        [System.Runtime.Serialization.DataMemberAttribute()]
-        public CYLTRACK_PHONE.VentaService.VehiculoBE Vehiculo {
-            get {
-                return this.VehiculoField;
-            }
-            set {
-                if ((object.ReferenceEquals(this.VehiculoField, value) != true)) {
-                    this.VehiculoField = value;
-                    this.RaisePropertyChanged("Vehiculo");
-                }
-            }
-        }
-        
-        public event System.ComponentModel.PropertyChangedEventHandler PropertyChanged;
-        
-        protected void RaisePropertyChanged(string propertyName) {
-            System.ComponentModel.PropertyChangedEventHandler propertyChanged = this.PropertyChanged;
-            if ((propertyChanged != null)) {
-                propertyChanged(this, new System.ComponentModel.PropertyChangedEventArgs(propertyName));
-            }
-        }
-    }
-    
-    [System.Diagnostics.DebuggerStepThroughAttribute()]
-    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Runtime.Serialization", "4.0.0.0")]
-    [System.Runtime.Serialization.DataContractAttribute(Name="FabricanteBE", Namespace="http://schemas.datacontract.org/2004/07/Unisangil.CYLTRACK.CYLTRACK_BE")]
-    public partial class FabricanteBE : object, System.ComponentModel.INotifyPropertyChanged {
-        
-        private string Codigo_FabricanteField;
-        
-        private string DireccionField;
-        
-        private int Id_FabricanteField;
-        
-        private string NitField;
-        
-        private string Nombre_FabricanteField;
-        
-        private string TelefonoField;
-        
-        [System.Runtime.Serialization.DataMemberAttribute()]
-        public string Codigo_Fabricante {
-            get {
-                return this.Codigo_FabricanteField;
-            }
-            set {
-                if ((object.ReferenceEquals(this.Codigo_FabricanteField, value) != true)) {
-                    this.Codigo_FabricanteField = value;
-                    this.RaisePropertyChanged("Codigo_Fabricante");
-                }
-            }
-        }
-        
-        [System.Runtime.Serialization.DataMemberAttribute()]
-        public string Direccion {
-            get {
-                return this.DireccionField;
-            }
-            set {
-                if ((object.ReferenceEquals(this.DireccionField, value) != true)) {
-                    this.DireccionField = value;
-                    this.RaisePropertyChanged("Direccion");
-                }
-            }
-        }
-        
-        [System.Runtime.Serialization.DataMemberAttribute()]
-        public int Id_Fabricante {
-            get {
-                return this.Id_FabricanteField;
-            }
-            set {
-                if ((this.Id_FabricanteField.Equals(value) != true)) {
-                    this.Id_FabricanteField = value;
-                    this.RaisePropertyChanged("Id_Fabricante");
-                }
-            }
-        }
-        
-        [System.Runtime.Serialization.DataMemberAttribute()]
-        public string Nit {
-            get {
-                return this.NitField;
-            }
-            set {
-                if ((object.ReferenceEquals(this.NitField, value) != true)) {
-                    this.NitField = value;
-                    this.RaisePropertyChanged("Nit");
-                }
-            }
-        }
-        
-        [System.Runtime.Serialization.DataMemberAttribute()]
-        public string Nombre_Fabricante {
-            get {
-                return this.Nombre_FabricanteField;
-            }
-            set {
-                if ((object.ReferenceEquals(this.Nombre_FabricanteField, value) != true)) {
-                    this.Nombre_FabricanteField = value;
-                    this.RaisePropertyChanged("Nombre_Fabricante");
-                }
-            }
-        }
-        
-        [System.Runtime.Serialization.DataMemberAttribute()]
-        public string Telefono {
-            get {
-                return this.TelefonoField;
-            }
-            set {
-                if ((object.ReferenceEquals(this.TelefonoField, value) != true)) {
-                    this.TelefonoField = value;
-                    this.RaisePropertyChanged("Telefono");
-                }
-            }
-        }
-        
-        public event System.ComponentModel.PropertyChangedEventHandler PropertyChanged;
-        
-        protected void RaisePropertyChanged(string propertyName) {
-            System.ComponentModel.PropertyChangedEventHandler propertyChanged = this.PropertyChanged;
-            if ((propertyChanged != null)) {
-                propertyChanged(this, new System.ComponentModel.PropertyChangedEventArgs(propertyName));
-            }
-        }
-    }
-    
-    [System.Diagnostics.DebuggerStepThroughAttribute()]
-    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Runtime.Serialization", "4.0.0.0")]
-    [System.Runtime.Serialization.DataContractAttribute(Name="TamanoBE", Namespace="http://schemas.datacontract.org/2004/07/Unisangil.CYLTRACK.CYLTRACK_BE")]
-    public partial class TamanoBE : object, System.ComponentModel.INotifyPropertyChanged {
-        
-        private string DescripcionField;
-        
-        private string Id_TamanoField;
-        
-        private string TamanoField;
-        
-        [System.Runtime.Serialization.DataMemberAttribute()]
-        public string Descripcion {
-            get {
-                return this.DescripcionField;
-            }
-            set {
-                if ((object.ReferenceEquals(this.DescripcionField, value) != true)) {
-                    this.DescripcionField = value;
-                    this.RaisePropertyChanged("Descripcion");
-                }
-            }
-        }
-        
-        [System.Runtime.Serialization.DataMemberAttribute()]
-        public string Id_Tamano {
-            get {
-                return this.Id_TamanoField;
-            }
-            set {
-                if ((object.ReferenceEquals(this.Id_TamanoField, value) != true)) {
-                    this.Id_TamanoField = value;
-                    this.RaisePropertyChanged("Id_Tamano");
-                }
-            }
-        }
-        
-        [System.Runtime.Serialization.DataMemberAttribute()]
-        public string Tamano {
-            get {
-                return this.TamanoField;
-            }
-            set {
-                if ((object.ReferenceEquals(this.TamanoField, value) != true)) {
-                    this.TamanoField = value;
-                    this.RaisePropertyChanged("Tamano");
-                }
-            }
-        }
-        
-        public event System.ComponentModel.PropertyChangedEventHandler PropertyChanged;
-        
-        protected void RaisePropertyChanged(string propertyName) {
-            System.ComponentModel.PropertyChangedEventHandler propertyChanged = this.PropertyChanged;
-            if ((propertyChanged != null)) {
-                propertyChanged(this, new System.ComponentModel.PropertyChangedEventArgs(propertyName));
-            }
-        }
-    }
-    
-    [System.Diagnostics.DebuggerStepThroughAttribute()]
-    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Runtime.Serialization", "4.0.0.0")]
-    [System.Runtime.Serialization.DataContractAttribute(Name="Tipo_UbicacionBE", Namespace="http://schemas.datacontract.org/2004/07/Unisangil.CYLTRACK.CYLTRACK_BE")]
-    public partial class Tipo_UbicacionBE : object, System.ComponentModel.INotifyPropertyChanged {
-        
-        private string DescripcionField;
-        
-        private string Id_Tipo_UbicaField;
-        
-        private string Nombre_UbicacionField;
-        
-        private CYLTRACK_PHONE.VentaService.UbicacionBE UbicacionField;
-        
-        [System.Runtime.Serialization.DataMemberAttribute()]
-        public string Descripcion {
-            get {
-                return this.DescripcionField;
-            }
-            set {
-                if ((object.ReferenceEquals(this.DescripcionField, value) != true)) {
-                    this.DescripcionField = value;
-                    this.RaisePropertyChanged("Descripcion");
-                }
-            }
-        }
-        
-        [System.Runtime.Serialization.DataMemberAttribute()]
-        public string Id_Tipo_Ubica {
-            get {
-                return this.Id_Tipo_UbicaField;
-            }
-            set {
-                if ((object.ReferenceEquals(this.Id_Tipo_UbicaField, value) != true)) {
-                    this.Id_Tipo_UbicaField = value;
-                    this.RaisePropertyChanged("Id_Tipo_Ubica");
-                }
-            }
-        }
-        
-        [System.Runtime.Serialization.DataMemberAttribute()]
-        public string Nombre_Ubicacion {
-            get {
-                return this.Nombre_UbicacionField;
-            }
-            set {
-                if ((object.ReferenceEquals(this.Nombre_UbicacionField, value) != true)) {
-                    this.Nombre_UbicacionField = value;
-                    this.RaisePropertyChanged("Nombre_Ubicacion");
-                }
-            }
-        }
-        
-        [System.Runtime.Serialization.DataMemberAttribute()]
-        public CYLTRACK_PHONE.VentaService.UbicacionBE Ubicacion {
-            get {
-                return this.UbicacionField;
-            }
-            set {
-                if ((object.ReferenceEquals(this.UbicacionField, value) != true)) {
-                    this.UbicacionField = value;
-                    this.RaisePropertyChanged("Ubicacion");
-                }
-            }
-        }
-        
-        public event System.ComponentModel.PropertyChangedEventHandler PropertyChanged;
-        
-        protected void RaisePropertyChanged(string propertyName) {
-            System.ComponentModel.PropertyChangedEventHandler propertyChanged = this.PropertyChanged;
-            if ((propertyChanged != null)) {
-                propertyChanged(this, new System.ComponentModel.PropertyChangedEventArgs(propertyName));
-            }
-        }
-    }
-    
-    [System.Diagnostics.DebuggerStepThroughAttribute()]
-    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Runtime.Serialization", "4.0.0.0")]
-    [System.Runtime.Serialization.DataContractAttribute(Name="Ubicacion_CilindroBE", Namespace="http://schemas.datacontract.org/2004/07/Unisangil.CYLTRACK.CYLTRACK_BE")]
-    public partial class Ubicacion_CilindroBE : object, System.ComponentModel.INotifyPropertyChanged {
-        
-        private string ActualField;
-        
-        private CYLTRACK_PHONE.VentaService.CilindroBE CilindroField;
-        
-        private System.DateTime Fecha_FinalField;
-        
-        private System.DateTime Fecha_InicialField;
-        
-        private string Id_Ubicacion_CilindroField;
-        
-        private string ObservacionesField;
-        
-        private CYLTRACK_PHONE.VentaService.UbicacionBE UbicacionField;
-        
-        [System.Runtime.Serialization.DataMemberAttribute()]
-        public string Actual {
-            get {
-                return this.ActualField;
-            }
-            set {
-                if ((object.ReferenceEquals(this.ActualField, value) != true)) {
-                    this.ActualField = value;
-                    this.RaisePropertyChanged("Actual");
-                }
-            }
-        }
-        
-        [System.Runtime.Serialization.DataMemberAttribute()]
-        public CYLTRACK_PHONE.VentaService.CilindroBE Cilindro {
-            get {
-                return this.CilindroField;
-            }
-            set {
-                if ((object.ReferenceEquals(this.CilindroField, value) != true)) {
-                    this.CilindroField = value;
-                    this.RaisePropertyChanged("Cilindro");
-                }
-            }
-        }
-        
-        [System.Runtime.Serialization.DataMemberAttribute()]
-        public System.DateTime Fecha_Final {
-            get {
-                return this.Fecha_FinalField;
-            }
-            set {
-                if ((this.Fecha_FinalField.Equals(value) != true)) {
-                    this.Fecha_FinalField = value;
-                    this.RaisePropertyChanged("Fecha_Final");
-                }
-            }
-        }
-        
-        [System.Runtime.Serialization.DataMemberAttribute()]
-        public System.DateTime Fecha_Inicial {
-            get {
-                return this.Fecha_InicialField;
-            }
-            set {
-                if ((this.Fecha_InicialField.Equals(value) != true)) {
-                    this.Fecha_InicialField = value;
-                    this.RaisePropertyChanged("Fecha_Inicial");
-                }
-            }
-        }
-        
-        [System.Runtime.Serialization.DataMemberAttribute()]
-        public string Id_Ubicacion_Cilindro {
-            get {
-                return this.Id_Ubicacion_CilindroField;
-            }
-            set {
-                if ((object.ReferenceEquals(this.Id_Ubicacion_CilindroField, value) != true)) {
-                    this.Id_Ubicacion_CilindroField = value;
-                    this.RaisePropertyChanged("Id_Ubicacion_Cilindro");
-                }
-            }
-        }
-        
-        [System.Runtime.Serialization.DataMemberAttribute()]
-        public string Observaciones {
-            get {
-                return this.ObservacionesField;
-            }
-            set {
-                if ((object.ReferenceEquals(this.ObservacionesField, value) != true)) {
-                    this.ObservacionesField = value;
-                    this.RaisePropertyChanged("Observaciones");
-                }
-            }
-        }
-        
-        [System.Runtime.Serialization.DataMemberAttribute()]
-        public CYLTRACK_PHONE.VentaService.UbicacionBE Ubicacion {
-            get {
-                return this.UbicacionField;
-            }
-            set {
-                if ((object.ReferenceEquals(this.UbicacionField, value) != true)) {
-                    this.UbicacionField = value;
-                    this.RaisePropertyChanged("Ubicacion");
-                }
-            }
-        }
-        
-        public event System.ComponentModel.PropertyChangedEventHandler PropertyChanged;
-        
-        protected void RaisePropertyChanged(string propertyName) {
-            System.ComponentModel.PropertyChangedEventHandler propertyChanged = this.PropertyChanged;
-            if ((propertyChanged != null)) {
-                propertyChanged(this, new System.ComponentModel.PropertyChangedEventArgs(propertyName));
-            }
-        }
-    }
-    
-    [System.Diagnostics.DebuggerStepThroughAttribute()]
-    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Runtime.Serialization", "4.0.0.0")]
-    [System.Runtime.Serialization.DataContractAttribute(Name="DepartamentoBE", Namespace="http://schemas.datacontract.org/2004/07/Unisangil.CYLTRACK.CYLTRACK_BE")]
-    public partial class DepartamentoBE : object, System.ComponentModel.INotifyPropertyChanged {
-        
-        private CYLTRACK_PHONE.VentaService.CiudadBE CiudadField;
-        
-        private string Id_DepartamentoField;
-        
-        private string Nombre_DepartamentoField;
-        
-        [System.Runtime.Serialization.DataMemberAttribute()]
-        public CYLTRACK_PHONE.VentaService.CiudadBE Ciudad {
-            get {
-                return this.CiudadField;
-            }
-            set {
-                if ((object.ReferenceEquals(this.CiudadField, value) != true)) {
-                    this.CiudadField = value;
-                    this.RaisePropertyChanged("Ciudad");
-                }
-            }
-        }
-        
-        [System.Runtime.Serialization.DataMemberAttribute()]
-        public string Id_Departamento {
-            get {
-                return this.Id_DepartamentoField;
-            }
-            set {
-                if ((object.ReferenceEquals(this.Id_DepartamentoField, value) != true)) {
-                    this.Id_DepartamentoField = value;
-                    this.RaisePropertyChanged("Id_Departamento");
-                }
-            }
-        }
-        
-        [System.Runtime.Serialization.DataMemberAttribute()]
-        public string Nombre_Departamento {
-            get {
-                return this.Nombre_DepartamentoField;
-            }
-            set {
-                if ((object.ReferenceEquals(this.Nombre_DepartamentoField, value) != true)) {
-                    this.Nombre_DepartamentoField = value;
-                    this.RaisePropertyChanged("Nombre_Departamento");
-                }
-            }
-        }
-        
-        public event System.ComponentModel.PropertyChangedEventHandler PropertyChanged;
-        
-        protected void RaisePropertyChanged(string propertyName) {
-            System.ComponentModel.PropertyChangedEventHandler propertyChanged = this.PropertyChanged;
-            if ((propertyChanged != null)) {
-                propertyChanged(this, new System.ComponentModel.PropertyChangedEventArgs(propertyName));
-            }
-        }
-    }
-    
-    [System.Diagnostics.DebuggerStepThroughAttribute()]
-    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Runtime.Serialization", "4.0.0.0")]
-    [System.Runtime.Serialization.DataContractAttribute(Name="ConductorBE", Namespace="http://schemas.datacontract.org/2004/07/Unisangil.CYLTRACK.CYLTRACK_BE")]
-    public partial class ConductorBE : object, System.ComponentModel.INotifyPropertyChanged {
-        
-        private string Apellido_1Field;
-        
-        private string Apellido_2Field;
-        
-        private string BarrioField;
-        
-        private string CedulaField;
-        
-        private CYLTRACK_PHONE.VentaService.CiudadBE CiudadField;
-        
-        private string DireccionField;
-        
-        private string Id_ConductorField;
-        
-        private string Nombres_ConductorField;
-        
-        private string TelefonoField;
-        
-        [System.Runtime.Serialization.DataMemberAttribute()]
-        public string Apellido_1 {
-            get {
-                return this.Apellido_1Field;
-            }
-            set {
-                if ((object.ReferenceEquals(this.Apellido_1Field, value) != true)) {
-                    this.Apellido_1Field = value;
-                    this.RaisePropertyChanged("Apellido_1");
-                }
-            }
-        }
-        
-        [System.Runtime.Serialization.DataMemberAttribute()]
-        public string Apellido_2 {
-            get {
-                return this.Apellido_2Field;
-            }
-            set {
-                if ((object.ReferenceEquals(this.Apellido_2Field, value) != true)) {
-                    this.Apellido_2Field = value;
-                    this.RaisePropertyChanged("Apellido_2");
-                }
-            }
-        }
-        
-        [System.Runtime.Serialization.DataMemberAttribute()]
-        public string Barrio {
-            get {
-                return this.BarrioField;
-            }
-            set {
-                if ((object.ReferenceEquals(this.BarrioField, value) != true)) {
-                    this.BarrioField = value;
-                    this.RaisePropertyChanged("Barrio");
-                }
-            }
-        }
-        
-        [System.Runtime.Serialization.DataMemberAttribute()]
-        public string Cedula {
-            get {
-                return this.CedulaField;
-            }
-            set {
-                if ((object.ReferenceEquals(this.CedulaField, value) != true)) {
-                    this.CedulaField = value;
-                    this.RaisePropertyChanged("Cedula");
-                }
-            }
-        }
-        
-        [System.Runtime.Serialization.DataMemberAttribute()]
-        public CYLTRACK_PHONE.VentaService.CiudadBE Ciudad {
-            get {
-                return this.CiudadField;
-            }
-            set {
-                if ((object.ReferenceEquals(this.CiudadField, value) != true)) {
-                    this.CiudadField = value;
-                    this.RaisePropertyChanged("Ciudad");
-                }
-            }
-        }
-        
-        [System.Runtime.Serialization.DataMemberAttribute()]
-        public string Direccion {
-            get {
-                return this.DireccionField;
-            }
-            set {
-                if ((object.ReferenceEquals(this.DireccionField, value) != true)) {
-                    this.DireccionField = value;
-                    this.RaisePropertyChanged("Direccion");
-                }
-            }
-        }
-        
-        [System.Runtime.Serialization.DataMemberAttribute()]
-        public string Id_Conductor {
-            get {
-                return this.Id_ConductorField;
-            }
-            set {
-                if ((object.ReferenceEquals(this.Id_ConductorField, value) != true)) {
-                    this.Id_ConductorField = value;
-                    this.RaisePropertyChanged("Id_Conductor");
-                }
-            }
-        }
-        
-        [System.Runtime.Serialization.DataMemberAttribute()]
-        public string Nombres_Conductor {
-            get {
-                return this.Nombres_ConductorField;
-            }
-            set {
-                if ((object.ReferenceEquals(this.Nombres_ConductorField, value) != true)) {
-                    this.Nombres_ConductorField = value;
-                    this.RaisePropertyChanged("Nombres_Conductor");
-                }
-            }
-        }
-        
-        [System.Runtime.Serialization.DataMemberAttribute()]
-        public string Telefono {
-            get {
-                return this.TelefonoField;
-            }
-            set {
-                if ((object.ReferenceEquals(this.TelefonoField, value) != true)) {
-                    this.TelefonoField = value;
-                    this.RaisePropertyChanged("Telefono");
-                }
-            }
-        }
-        
-        public event System.ComponentModel.PropertyChangedEventHandler PropertyChanged;
-        
-        protected void RaisePropertyChanged(string propertyName) {
-            System.ComponentModel.PropertyChangedEventHandler propertyChanged = this.PropertyChanged;
-            if ((propertyChanged != null)) {
-                propertyChanged(this, new System.ComponentModel.PropertyChangedEventArgs(propertyName));
-            }
-        }
-    }
-    
-    [System.Diagnostics.DebuggerStepThroughAttribute()]
-    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Runtime.Serialization", "4.0.0.0")]
-    [System.Runtime.Serialization.DataContractAttribute(Name="Ciudad_RutaBE", Namespace="http://schemas.datacontract.org/2004/07/Unisangil.CYLTRACK.CYLTRACK_BE")]
-    public partial class Ciudad_RutaBE : object, System.ComponentModel.INotifyPropertyChanged {
-        
-        private CYLTRACK_PHONE.VentaService.CiudadBE CiudadField;
-        
-        private string Id_Ciudad_RutaField;
-        
-        [System.Runtime.Serialization.DataMemberAttribute()]
-        public CYLTRACK_PHONE.VentaService.CiudadBE Ciudad {
-            get {
-                return this.CiudadField;
-            }
-            set {
-                if ((object.ReferenceEquals(this.CiudadField, value) != true)) {
-                    this.CiudadField = value;
-                    this.RaisePropertyChanged("Ciudad");
-                }
-            }
-        }
-        
-        [System.Runtime.Serialization.DataMemberAttribute()]
-        public string Id_Ciudad_Ruta {
-            get {
-                return this.Id_Ciudad_RutaField;
-            }
-            set {
-                if ((object.ReferenceEquals(this.Id_Ciudad_RutaField, value) != true)) {
-                    this.Id_Ciudad_RutaField = value;
-                    this.RaisePropertyChanged("Id_Ciudad_Ruta");
-                }
-            }
-        }
-        
-        public event System.ComponentModel.PropertyChangedEventHandler PropertyChanged;
-        
-        protected void RaisePropertyChanged(string propertyName) {
-            System.ComponentModel.PropertyChangedEventHandler propertyChanged = this.PropertyChanged;
-            if ((propertyChanged != null)) {
-                propertyChanged(this, new System.ComponentModel.PropertyChangedEventArgs(propertyName));
-            }
-        }
-    }
-    
-    [System.Diagnostics.DebuggerStepThroughAttribute()]
-    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Runtime.Serialization", "4.0.0.0")]
-    [System.Runtime.Serialization.DataContractAttribute(Name="Ruta_VehiculoBE", Namespace="http://schemas.datacontract.org/2004/07/Unisangil.CYLTRACK.CYLTRACK_BE")]
-    public partial class Ruta_VehiculoBE : object, System.ComponentModel.INotifyPropertyChanged {
-        
-        private CYLTRACK_PHONE.VentaService.CiudadBE CiudadField;
-        
-        private string EstadoField;
-        
-        private string Fecha_FinField;
-        
-        private string Fecha_InicioField;
-        
-        private string Id_Ruta_VehiculoField;
-        
-        private System.Collections.ObjectModel.ObservableCollection<CYLTRACK_PHONE.VentaService.VehiculoBE> ListaVehiculoField;
-        
-        private CYLTRACK_PHONE.VentaService.VehiculoBE VehiculoField;
-        
-        [System.Runtime.Serialization.DataMemberAttribute()]
-        public CYLTRACK_PHONE.VentaService.CiudadBE Ciudad {
-            get {
-                return this.CiudadField;
-            }
-            set {
-                if ((object.ReferenceEquals(this.CiudadField, value) != true)) {
-                    this.CiudadField = value;
-                    this.RaisePropertyChanged("Ciudad");
-                }
-            }
-        }
-        
-        [System.Runtime.Serialization.DataMemberAttribute()]
-        public string Estado {
-            get {
-                return this.EstadoField;
-            }
-            set {
-                if ((object.ReferenceEquals(this.EstadoField, value) != true)) {
-                    this.EstadoField = value;
-                    this.RaisePropertyChanged("Estado");
-                }
-            }
-        }
-        
-        [System.Runtime.Serialization.DataMemberAttribute()]
-        public string Fecha_Fin {
-            get {
-                return this.Fecha_FinField;
-            }
-            set {
-                if ((object.ReferenceEquals(this.Fecha_FinField, value) != true)) {
-                    this.Fecha_FinField = value;
-                    this.RaisePropertyChanged("Fecha_Fin");
-                }
-            }
-        }
-        
-        [System.Runtime.Serialization.DataMemberAttribute()]
-        public string Fecha_Inicio {
-            get {
-                return this.Fecha_InicioField;
-            }
-            set {
-                if ((object.ReferenceEquals(this.Fecha_InicioField, value) != true)) {
-                    this.Fecha_InicioField = value;
-                    this.RaisePropertyChanged("Fecha_Inicio");
-                }
-            }
-        }
-        
-        [System.Runtime.Serialization.DataMemberAttribute()]
-        public string Id_Ruta_Vehiculo {
-            get {
-                return this.Id_Ruta_VehiculoField;
-            }
-            set {
-                if ((object.ReferenceEquals(this.Id_Ruta_VehiculoField, value) != true)) {
-                    this.Id_Ruta_VehiculoField = value;
-                    this.RaisePropertyChanged("Id_Ruta_Vehiculo");
-                }
-            }
-        }
-        
-        [System.Runtime.Serialization.DataMemberAttribute()]
-        public System.Collections.ObjectModel.ObservableCollection<CYLTRACK_PHONE.VentaService.VehiculoBE> ListaVehiculo {
-            get {
-                return this.ListaVehiculoField;
-            }
-            set {
-                if ((object.ReferenceEquals(this.ListaVehiculoField, value) != true)) {
-                    this.ListaVehiculoField = value;
-                    this.RaisePropertyChanged("ListaVehiculo");
-                }
-            }
-        }
-        
-        [System.Runtime.Serialization.DataMemberAttribute()]
-        public CYLTRACK_PHONE.VentaService.VehiculoBE Vehiculo {
-            get {
-                return this.VehiculoField;
-            }
-            set {
-                if ((object.ReferenceEquals(this.VehiculoField, value) != true)) {
-                    this.VehiculoField = value;
-                    this.RaisePropertyChanged("Vehiculo");
-                }
-            }
-        }
-        
-        public event System.ComponentModel.PropertyChangedEventHandler PropertyChanged;
-        
-        protected void RaisePropertyChanged(string propertyName) {
-            System.ComponentModel.PropertyChangedEventHandler propertyChanged = this.PropertyChanged;
-            if ((propertyChanged != null)) {
-                propertyChanged(this, new System.ComponentModel.PropertyChangedEventArgs(propertyName));
-            }
-        }
-    }
-    
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
     [System.ServiceModel.ServiceContractAttribute(Namespace="http://servicios.cyltrack.com.co/cyltrack/", ConfigurationName="VentaService.IVentaService")]
     public interface IVentaService {
         
-        [System.ServiceModel.OperationContractAttribute(AsyncPattern=true, Action="http://servicios.cyltrack.com.co/cyltrack/IVentaService/VentaCilindro", ReplyAction="http://servicios.cyltrack.com.co/cyltrack/IVentaService/VentaCilindroResponse")]
-        System.IAsyncResult BeginVentaCilindro(CYLTRACK_PHONE.VentaService.VentaBE ventas, System.AsyncCallback callback, object asyncState);
+        [System.ServiceModel.OperationContractAttribute(AsyncPattern=true, Action="http://servicios.cyltrack.com.co/cyltrack/IVentaService/RegistrarVenta", ReplyAction="http://servicios.cyltrack.com.co/cyltrack/IVentaService/RegistrarVentaResponse")]
+        System.IAsyncResult BeginRegistrarVenta(CYLTRACK_PHONE.VentaService.VentaBE ventas, System.AsyncCallback callback, object asyncState);
         
-        string EndVentaCilindro(System.IAsyncResult result);
+        long EndRegistrarVenta(System.IAsyncResult result);
         
-        [System.ServiceModel.OperationContractAttribute(AsyncPattern=true, Action="http://servicios.cyltrack.com.co/cyltrack/IVentaService/ConsultarExistencia", ReplyAction="http://servicios.cyltrack.com.co/cyltrack/IVentaService/ConsultarExistenciaRespon" +
-            "se")]
-        System.IAsyncResult BeginConsultarExistencia(string ventas, System.AsyncCallback callback, object asyncState);
+        [System.ServiceModel.OperationContractAttribute(AsyncPattern=true, Action="http://servicios.cyltrack.com.co/cyltrack/IVentaService/ConsultarExistenciaVenta", ReplyAction="http://servicios.cyltrack.com.co/cyltrack/IVentaService/ConsultarExistenciaVentaR" +
+            "esponse")]
+        System.IAsyncResult BeginConsultarExistenciaVenta(string ventas, System.AsyncCallback callback, object asyncState);
         
-        string EndConsultarExistencia(System.IAsyncResult result);
+        long EndConsultarExistenciaVenta(System.IAsyncResult result);
         
         [System.ServiceModel.OperationContractAttribute(AsyncPattern=true, Action="http://servicios.cyltrack.com.co/cyltrack/IVentaService/ConsultarVenta", ReplyAction="http://servicios.cyltrack.com.co/cyltrack/IVentaService/ConsultarVentaResponse")]
-        System.IAsyncResult BeginConsultarVenta(string ventas, System.AsyncCallback callback, object asyncState);
+        System.IAsyncResult BeginConsultarVenta(string datoConsulta, System.AsyncCallback callback, object asyncState);
         
         CYLTRACK_PHONE.VentaService.VentaBE EndConsultarVenta(System.IAsyncResult result);
-        
-        [System.ServiceModel.OperationContractAttribute(AsyncPattern=true, Action="http://servicios.cyltrack.com.co/cyltrack/IVentaService/ConsultarCarguePlaca", ReplyAction="http://servicios.cyltrack.com.co/cyltrack/IVentaService/ConsultarCarguePlacaRespo" +
-            "nse")]
-        System.IAsyncResult BeginConsultarCarguePlaca(System.AsyncCallback callback, object asyncState);
-        
-        System.Collections.ObjectModel.ObservableCollection<CYLTRACK_PHONE.VentaService.CilindroBE> EndConsultarCarguePlaca(System.IAsyncResult result);
         
         [System.ServiceModel.OperationContractAttribute(AsyncPattern=true, Action="http://servicios.cyltrack.com.co/cyltrack/IVentaService/RevisionCasosEspeciales", ReplyAction="http://servicios.cyltrack.com.co/cyltrack/IVentaService/RevisionCasosEspecialesRe" +
             "sponse")]
@@ -2405,7 +509,12 @@ namespace CYLTRACK_PHONE.VentaService {
         [System.ServiceModel.OperationContractAttribute(AsyncPattern=true, Action="http://servicios.cyltrack.com.co/cyltrack/IVentaService/CasosEspeciales", ReplyAction="http://servicios.cyltrack.com.co/cyltrack/IVentaService/CasosEspecialesResponse")]
         System.IAsyncResult BeginCasosEspeciales(CYLTRACK_PHONE.VentaService.CasosBE casos, System.AsyncCallback callback, object asyncState);
         
-        string EndCasosEspeciales(System.IAsyncResult result);
+        long EndCasosEspeciales(System.IAsyncResult result);
+        
+        [System.ServiceModel.OperationContractAttribute(AsyncPattern=true, Action="http://servicios.cyltrack.com.co/cyltrack/IVentaService/ModificarVenta", ReplyAction="http://servicios.cyltrack.com.co/cyltrack/IVentaService/ModificarVentaResponse")]
+        System.IAsyncResult BeginModificarVenta(CYLTRACK_PHONE.VentaService.Detalle_VentaBE detVenta, System.AsyncCallback callback, object asyncState);
+        
+        long EndModificarVenta(System.IAsyncResult result);
     }
     
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
@@ -2414,38 +523,38 @@ namespace CYLTRACK_PHONE.VentaService {
     
     [System.Diagnostics.DebuggerStepThroughAttribute()]
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
-    public partial class VentaCilindroCompletedEventArgs : System.ComponentModel.AsyncCompletedEventArgs {
+    public partial class RegistrarVentaCompletedEventArgs : System.ComponentModel.AsyncCompletedEventArgs {
         
         private object[] results;
         
-        public VentaCilindroCompletedEventArgs(object[] results, System.Exception exception, bool cancelled, object userState) : 
+        public RegistrarVentaCompletedEventArgs(object[] results, System.Exception exception, bool cancelled, object userState) : 
                 base(exception, cancelled, userState) {
             this.results = results;
         }
         
-        public string Result {
+        public long Result {
             get {
                 base.RaiseExceptionIfNecessary();
-                return ((string)(this.results[0]));
+                return ((long)(this.results[0]));
             }
         }
     }
     
     [System.Diagnostics.DebuggerStepThroughAttribute()]
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
-    public partial class ConsultarExistenciaCompletedEventArgs : System.ComponentModel.AsyncCompletedEventArgs {
+    public partial class ConsultarExistenciaVentaCompletedEventArgs : System.ComponentModel.AsyncCompletedEventArgs {
         
         private object[] results;
         
-        public ConsultarExistenciaCompletedEventArgs(object[] results, System.Exception exception, bool cancelled, object userState) : 
+        public ConsultarExistenciaVentaCompletedEventArgs(object[] results, System.Exception exception, bool cancelled, object userState) : 
                 base(exception, cancelled, userState) {
             this.results = results;
         }
         
-        public string Result {
+        public long Result {
             get {
                 base.RaiseExceptionIfNecessary();
-                return ((string)(this.results[0]));
+                return ((long)(this.results[0]));
             }
         }
     }
@@ -2465,25 +574,6 @@ namespace CYLTRACK_PHONE.VentaService {
             get {
                 base.RaiseExceptionIfNecessary();
                 return ((CYLTRACK_PHONE.VentaService.VentaBE)(this.results[0]));
-            }
-        }
-    }
-    
-    [System.Diagnostics.DebuggerStepThroughAttribute()]
-    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
-    public partial class ConsultarCarguePlacaCompletedEventArgs : System.ComponentModel.AsyncCompletedEventArgs {
-        
-        private object[] results;
-        
-        public ConsultarCarguePlacaCompletedEventArgs(object[] results, System.Exception exception, bool cancelled, object userState) : 
-                base(exception, cancelled, userState) {
-            this.results = results;
-        }
-        
-        public System.Collections.ObjectModel.ObservableCollection<CYLTRACK_PHONE.VentaService.CilindroBE> Result {
-            get {
-                base.RaiseExceptionIfNecessary();
-                return ((System.Collections.ObjectModel.ObservableCollection<CYLTRACK_PHONE.VentaService.CilindroBE>)(this.results[0]));
             }
         }
     }
@@ -2518,10 +608,29 @@ namespace CYLTRACK_PHONE.VentaService {
             this.results = results;
         }
         
-        public string Result {
+        public long Result {
             get {
                 base.RaiseExceptionIfNecessary();
-                return ((string)(this.results[0]));
+                return ((long)(this.results[0]));
+            }
+        }
+    }
+    
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
+    public partial class ModificarVentaCompletedEventArgs : System.ComponentModel.AsyncCompletedEventArgs {
+        
+        private object[] results;
+        
+        public ModificarVentaCompletedEventArgs(object[] results, System.Exception exception, bool cancelled, object userState) : 
+                base(exception, cancelled, userState) {
+            this.results = results;
+        }
+        
+        public long Result {
+            get {
+                base.RaiseExceptionIfNecessary();
+                return ((long)(this.results[0]));
             }
         }
     }
@@ -2530,29 +639,23 @@ namespace CYLTRACK_PHONE.VentaService {
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
     public partial class VentaServiceClient : System.ServiceModel.ClientBase<CYLTRACK_PHONE.VentaService.IVentaService>, CYLTRACK_PHONE.VentaService.IVentaService {
         
-        private BeginOperationDelegate onBeginVentaCilindroDelegate;
+        private BeginOperationDelegate onBeginRegistrarVentaDelegate;
         
-        private EndOperationDelegate onEndVentaCilindroDelegate;
+        private EndOperationDelegate onEndRegistrarVentaDelegate;
         
-        private System.Threading.SendOrPostCallback onVentaCilindroCompletedDelegate;
+        private System.Threading.SendOrPostCallback onRegistrarVentaCompletedDelegate;
         
-        private BeginOperationDelegate onBeginConsultarExistenciaDelegate;
+        private BeginOperationDelegate onBeginConsultarExistenciaVentaDelegate;
         
-        private EndOperationDelegate onEndConsultarExistenciaDelegate;
+        private EndOperationDelegate onEndConsultarExistenciaVentaDelegate;
         
-        private System.Threading.SendOrPostCallback onConsultarExistenciaCompletedDelegate;
+        private System.Threading.SendOrPostCallback onConsultarExistenciaVentaCompletedDelegate;
         
         private BeginOperationDelegate onBeginConsultarVentaDelegate;
         
         private EndOperationDelegate onEndConsultarVentaDelegate;
         
         private System.Threading.SendOrPostCallback onConsultarVentaCompletedDelegate;
-        
-        private BeginOperationDelegate onBeginConsultarCarguePlacaDelegate;
-        
-        private EndOperationDelegate onEndConsultarCarguePlacaDelegate;
-        
-        private System.Threading.SendOrPostCallback onConsultarCarguePlacaCompletedDelegate;
         
         private BeginOperationDelegate onBeginRevisionCasosEspecialesDelegate;
         
@@ -2565,6 +668,12 @@ namespace CYLTRACK_PHONE.VentaService {
         private EndOperationDelegate onEndCasosEspecialesDelegate;
         
         private System.Threading.SendOrPostCallback onCasosEspecialesCompletedDelegate;
+        
+        private BeginOperationDelegate onBeginModificarVentaDelegate;
+        
+        private EndOperationDelegate onEndModificarVentaDelegate;
+        
+        private System.Threading.SendOrPostCallback onModificarVentaCompletedDelegate;
         
         private BeginOperationDelegate onBeginOpenDelegate;
         
@@ -2619,117 +728,117 @@ namespace CYLTRACK_PHONE.VentaService {
             }
         }
         
-        public event System.EventHandler<VentaCilindroCompletedEventArgs> VentaCilindroCompleted;
+        public event System.EventHandler<RegistrarVentaCompletedEventArgs> RegistrarVentaCompleted;
         
-        public event System.EventHandler<ConsultarExistenciaCompletedEventArgs> ConsultarExistenciaCompleted;
+        public event System.EventHandler<ConsultarExistenciaVentaCompletedEventArgs> ConsultarExistenciaVentaCompleted;
         
         public event System.EventHandler<ConsultarVentaCompletedEventArgs> ConsultarVentaCompleted;
-        
-        public event System.EventHandler<ConsultarCarguePlacaCompletedEventArgs> ConsultarCarguePlacaCompleted;
         
         public event System.EventHandler<RevisionCasosEspecialesCompletedEventArgs> RevisionCasosEspecialesCompleted;
         
         public event System.EventHandler<CasosEspecialesCompletedEventArgs> CasosEspecialesCompleted;
+        
+        public event System.EventHandler<ModificarVentaCompletedEventArgs> ModificarVentaCompleted;
         
         public event System.EventHandler<System.ComponentModel.AsyncCompletedEventArgs> OpenCompleted;
         
         public event System.EventHandler<System.ComponentModel.AsyncCompletedEventArgs> CloseCompleted;
         
         [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
-        System.IAsyncResult CYLTRACK_PHONE.VentaService.IVentaService.BeginVentaCilindro(CYLTRACK_PHONE.VentaService.VentaBE ventas, System.AsyncCallback callback, object asyncState) {
-            return base.Channel.BeginVentaCilindro(ventas, callback, asyncState);
+        System.IAsyncResult CYLTRACK_PHONE.VentaService.IVentaService.BeginRegistrarVenta(CYLTRACK_PHONE.VentaService.VentaBE ventas, System.AsyncCallback callback, object asyncState) {
+            return base.Channel.BeginRegistrarVenta(ventas, callback, asyncState);
         }
         
         [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
-        string CYLTRACK_PHONE.VentaService.IVentaService.EndVentaCilindro(System.IAsyncResult result) {
-            return base.Channel.EndVentaCilindro(result);
+        long CYLTRACK_PHONE.VentaService.IVentaService.EndRegistrarVenta(System.IAsyncResult result) {
+            return base.Channel.EndRegistrarVenta(result);
         }
         
-        private System.IAsyncResult OnBeginVentaCilindro(object[] inValues, System.AsyncCallback callback, object asyncState) {
+        private System.IAsyncResult OnBeginRegistrarVenta(object[] inValues, System.AsyncCallback callback, object asyncState) {
             CYLTRACK_PHONE.VentaService.VentaBE ventas = ((CYLTRACK_PHONE.VentaService.VentaBE)(inValues[0]));
-            return ((CYLTRACK_PHONE.VentaService.IVentaService)(this)).BeginVentaCilindro(ventas, callback, asyncState);
+            return ((CYLTRACK_PHONE.VentaService.IVentaService)(this)).BeginRegistrarVenta(ventas, callback, asyncState);
         }
         
-        private object[] OnEndVentaCilindro(System.IAsyncResult result) {
-            string retVal = ((CYLTRACK_PHONE.VentaService.IVentaService)(this)).EndVentaCilindro(result);
+        private object[] OnEndRegistrarVenta(System.IAsyncResult result) {
+            long retVal = ((CYLTRACK_PHONE.VentaService.IVentaService)(this)).EndRegistrarVenta(result);
             return new object[] {
                     retVal};
         }
         
-        private void OnVentaCilindroCompleted(object state) {
-            if ((this.VentaCilindroCompleted != null)) {
+        private void OnRegistrarVentaCompleted(object state) {
+            if ((this.RegistrarVentaCompleted != null)) {
                 InvokeAsyncCompletedEventArgs e = ((InvokeAsyncCompletedEventArgs)(state));
-                this.VentaCilindroCompleted(this, new VentaCilindroCompletedEventArgs(e.Results, e.Error, e.Cancelled, e.UserState));
+                this.RegistrarVentaCompleted(this, new RegistrarVentaCompletedEventArgs(e.Results, e.Error, e.Cancelled, e.UserState));
             }
         }
         
-        public void VentaCilindroAsync(CYLTRACK_PHONE.VentaService.VentaBE ventas) {
-            this.VentaCilindroAsync(ventas, null);
+        public void RegistrarVentaAsync(CYLTRACK_PHONE.VentaService.VentaBE ventas) {
+            this.RegistrarVentaAsync(ventas, null);
         }
         
-        public void VentaCilindroAsync(CYLTRACK_PHONE.VentaService.VentaBE ventas, object userState) {
-            if ((this.onBeginVentaCilindroDelegate == null)) {
-                this.onBeginVentaCilindroDelegate = new BeginOperationDelegate(this.OnBeginVentaCilindro);
+        public void RegistrarVentaAsync(CYLTRACK_PHONE.VentaService.VentaBE ventas, object userState) {
+            if ((this.onBeginRegistrarVentaDelegate == null)) {
+                this.onBeginRegistrarVentaDelegate = new BeginOperationDelegate(this.OnBeginRegistrarVenta);
             }
-            if ((this.onEndVentaCilindroDelegate == null)) {
-                this.onEndVentaCilindroDelegate = new EndOperationDelegate(this.OnEndVentaCilindro);
+            if ((this.onEndRegistrarVentaDelegate == null)) {
+                this.onEndRegistrarVentaDelegate = new EndOperationDelegate(this.OnEndRegistrarVenta);
             }
-            if ((this.onVentaCilindroCompletedDelegate == null)) {
-                this.onVentaCilindroCompletedDelegate = new System.Threading.SendOrPostCallback(this.OnVentaCilindroCompleted);
+            if ((this.onRegistrarVentaCompletedDelegate == null)) {
+                this.onRegistrarVentaCompletedDelegate = new System.Threading.SendOrPostCallback(this.OnRegistrarVentaCompleted);
             }
-            base.InvokeAsync(this.onBeginVentaCilindroDelegate, new object[] {
-                        ventas}, this.onEndVentaCilindroDelegate, this.onVentaCilindroCompletedDelegate, userState);
+            base.InvokeAsync(this.onBeginRegistrarVentaDelegate, new object[] {
+                        ventas}, this.onEndRegistrarVentaDelegate, this.onRegistrarVentaCompletedDelegate, userState);
         }
         
         [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
-        System.IAsyncResult CYLTRACK_PHONE.VentaService.IVentaService.BeginConsultarExistencia(string ventas, System.AsyncCallback callback, object asyncState) {
-            return base.Channel.BeginConsultarExistencia(ventas, callback, asyncState);
+        System.IAsyncResult CYLTRACK_PHONE.VentaService.IVentaService.BeginConsultarExistenciaVenta(string ventas, System.AsyncCallback callback, object asyncState) {
+            return base.Channel.BeginConsultarExistenciaVenta(ventas, callback, asyncState);
         }
         
         [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
-        string CYLTRACK_PHONE.VentaService.IVentaService.EndConsultarExistencia(System.IAsyncResult result) {
-            return base.Channel.EndConsultarExistencia(result);
+        long CYLTRACK_PHONE.VentaService.IVentaService.EndConsultarExistenciaVenta(System.IAsyncResult result) {
+            return base.Channel.EndConsultarExistenciaVenta(result);
         }
         
-        private System.IAsyncResult OnBeginConsultarExistencia(object[] inValues, System.AsyncCallback callback, object asyncState) {
+        private System.IAsyncResult OnBeginConsultarExistenciaVenta(object[] inValues, System.AsyncCallback callback, object asyncState) {
             string ventas = ((string)(inValues[0]));
-            return ((CYLTRACK_PHONE.VentaService.IVentaService)(this)).BeginConsultarExistencia(ventas, callback, asyncState);
+            return ((CYLTRACK_PHONE.VentaService.IVentaService)(this)).BeginConsultarExistenciaVenta(ventas, callback, asyncState);
         }
         
-        private object[] OnEndConsultarExistencia(System.IAsyncResult result) {
-            string retVal = ((CYLTRACK_PHONE.VentaService.IVentaService)(this)).EndConsultarExistencia(result);
+        private object[] OnEndConsultarExistenciaVenta(System.IAsyncResult result) {
+            long retVal = ((CYLTRACK_PHONE.VentaService.IVentaService)(this)).EndConsultarExistenciaVenta(result);
             return new object[] {
                     retVal};
         }
         
-        private void OnConsultarExistenciaCompleted(object state) {
-            if ((this.ConsultarExistenciaCompleted != null)) {
+        private void OnConsultarExistenciaVentaCompleted(object state) {
+            if ((this.ConsultarExistenciaVentaCompleted != null)) {
                 InvokeAsyncCompletedEventArgs e = ((InvokeAsyncCompletedEventArgs)(state));
-                this.ConsultarExistenciaCompleted(this, new ConsultarExistenciaCompletedEventArgs(e.Results, e.Error, e.Cancelled, e.UserState));
+                this.ConsultarExistenciaVentaCompleted(this, new ConsultarExistenciaVentaCompletedEventArgs(e.Results, e.Error, e.Cancelled, e.UserState));
             }
         }
         
-        public void ConsultarExistenciaAsync(string ventas) {
-            this.ConsultarExistenciaAsync(ventas, null);
+        public void ConsultarExistenciaVentaAsync(string ventas) {
+            this.ConsultarExistenciaVentaAsync(ventas, null);
         }
         
-        public void ConsultarExistenciaAsync(string ventas, object userState) {
-            if ((this.onBeginConsultarExistenciaDelegate == null)) {
-                this.onBeginConsultarExistenciaDelegate = new BeginOperationDelegate(this.OnBeginConsultarExistencia);
+        public void ConsultarExistenciaVentaAsync(string ventas, object userState) {
+            if ((this.onBeginConsultarExistenciaVentaDelegate == null)) {
+                this.onBeginConsultarExistenciaVentaDelegate = new BeginOperationDelegate(this.OnBeginConsultarExistenciaVenta);
             }
-            if ((this.onEndConsultarExistenciaDelegate == null)) {
-                this.onEndConsultarExistenciaDelegate = new EndOperationDelegate(this.OnEndConsultarExistencia);
+            if ((this.onEndConsultarExistenciaVentaDelegate == null)) {
+                this.onEndConsultarExistenciaVentaDelegate = new EndOperationDelegate(this.OnEndConsultarExistenciaVenta);
             }
-            if ((this.onConsultarExistenciaCompletedDelegate == null)) {
-                this.onConsultarExistenciaCompletedDelegate = new System.Threading.SendOrPostCallback(this.OnConsultarExistenciaCompleted);
+            if ((this.onConsultarExistenciaVentaCompletedDelegate == null)) {
+                this.onConsultarExistenciaVentaCompletedDelegate = new System.Threading.SendOrPostCallback(this.OnConsultarExistenciaVentaCompleted);
             }
-            base.InvokeAsync(this.onBeginConsultarExistenciaDelegate, new object[] {
-                        ventas}, this.onEndConsultarExistenciaDelegate, this.onConsultarExistenciaCompletedDelegate, userState);
+            base.InvokeAsync(this.onBeginConsultarExistenciaVentaDelegate, new object[] {
+                        ventas}, this.onEndConsultarExistenciaVentaDelegate, this.onConsultarExistenciaVentaCompletedDelegate, userState);
         }
         
         [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
-        System.IAsyncResult CYLTRACK_PHONE.VentaService.IVentaService.BeginConsultarVenta(string ventas, System.AsyncCallback callback, object asyncState) {
-            return base.Channel.BeginConsultarVenta(ventas, callback, asyncState);
+        System.IAsyncResult CYLTRACK_PHONE.VentaService.IVentaService.BeginConsultarVenta(string datoConsulta, System.AsyncCallback callback, object asyncState) {
+            return base.Channel.BeginConsultarVenta(datoConsulta, callback, asyncState);
         }
         
         [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
@@ -2738,8 +847,8 @@ namespace CYLTRACK_PHONE.VentaService {
         }
         
         private System.IAsyncResult OnBeginConsultarVenta(object[] inValues, System.AsyncCallback callback, object asyncState) {
-            string ventas = ((string)(inValues[0]));
-            return ((CYLTRACK_PHONE.VentaService.IVentaService)(this)).BeginConsultarVenta(ventas, callback, asyncState);
+            string datoConsulta = ((string)(inValues[0]));
+            return ((CYLTRACK_PHONE.VentaService.IVentaService)(this)).BeginConsultarVenta(datoConsulta, callback, asyncState);
         }
         
         private object[] OnEndConsultarVenta(System.IAsyncResult result) {
@@ -2755,11 +864,11 @@ namespace CYLTRACK_PHONE.VentaService {
             }
         }
         
-        public void ConsultarVentaAsync(string ventas) {
-            this.ConsultarVentaAsync(ventas, null);
+        public void ConsultarVentaAsync(string datoConsulta) {
+            this.ConsultarVentaAsync(datoConsulta, null);
         }
         
-        public void ConsultarVentaAsync(string ventas, object userState) {
+        public void ConsultarVentaAsync(string datoConsulta, object userState) {
             if ((this.onBeginConsultarVentaDelegate == null)) {
                 this.onBeginConsultarVentaDelegate = new BeginOperationDelegate(this.OnBeginConsultarVenta);
             }
@@ -2770,51 +879,7 @@ namespace CYLTRACK_PHONE.VentaService {
                 this.onConsultarVentaCompletedDelegate = new System.Threading.SendOrPostCallback(this.OnConsultarVentaCompleted);
             }
             base.InvokeAsync(this.onBeginConsultarVentaDelegate, new object[] {
-                        ventas}, this.onEndConsultarVentaDelegate, this.onConsultarVentaCompletedDelegate, userState);
-        }
-        
-        [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
-        System.IAsyncResult CYLTRACK_PHONE.VentaService.IVentaService.BeginConsultarCarguePlaca(System.AsyncCallback callback, object asyncState) {
-            return base.Channel.BeginConsultarCarguePlaca(callback, asyncState);
-        }
-        
-        [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
-        System.Collections.ObjectModel.ObservableCollection<CYLTRACK_PHONE.VentaService.CilindroBE> CYLTRACK_PHONE.VentaService.IVentaService.EndConsultarCarguePlaca(System.IAsyncResult result) {
-            return base.Channel.EndConsultarCarguePlaca(result);
-        }
-        
-        private System.IAsyncResult OnBeginConsultarCarguePlaca(object[] inValues, System.AsyncCallback callback, object asyncState) {
-            return ((CYLTRACK_PHONE.VentaService.IVentaService)(this)).BeginConsultarCarguePlaca(callback, asyncState);
-        }
-        
-        private object[] OnEndConsultarCarguePlaca(System.IAsyncResult result) {
-            System.Collections.ObjectModel.ObservableCollection<CYLTRACK_PHONE.VentaService.CilindroBE> retVal = ((CYLTRACK_PHONE.VentaService.IVentaService)(this)).EndConsultarCarguePlaca(result);
-            return new object[] {
-                    retVal};
-        }
-        
-        private void OnConsultarCarguePlacaCompleted(object state) {
-            if ((this.ConsultarCarguePlacaCompleted != null)) {
-                InvokeAsyncCompletedEventArgs e = ((InvokeAsyncCompletedEventArgs)(state));
-                this.ConsultarCarguePlacaCompleted(this, new ConsultarCarguePlacaCompletedEventArgs(e.Results, e.Error, e.Cancelled, e.UserState));
-            }
-        }
-        
-        public void ConsultarCarguePlacaAsync() {
-            this.ConsultarCarguePlacaAsync(null);
-        }
-        
-        public void ConsultarCarguePlacaAsync(object userState) {
-            if ((this.onBeginConsultarCarguePlacaDelegate == null)) {
-                this.onBeginConsultarCarguePlacaDelegate = new BeginOperationDelegate(this.OnBeginConsultarCarguePlaca);
-            }
-            if ((this.onEndConsultarCarguePlacaDelegate == null)) {
-                this.onEndConsultarCarguePlacaDelegate = new EndOperationDelegate(this.OnEndConsultarCarguePlaca);
-            }
-            if ((this.onConsultarCarguePlacaCompletedDelegate == null)) {
-                this.onConsultarCarguePlacaCompletedDelegate = new System.Threading.SendOrPostCallback(this.OnConsultarCarguePlacaCompleted);
-            }
-            base.InvokeAsync(this.onBeginConsultarCarguePlacaDelegate, null, this.onEndConsultarCarguePlacaDelegate, this.onConsultarCarguePlacaCompletedDelegate, userState);
+                        datoConsulta}, this.onEndConsultarVentaDelegate, this.onConsultarVentaCompletedDelegate, userState);
         }
         
         [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
@@ -2869,7 +934,7 @@ namespace CYLTRACK_PHONE.VentaService {
         }
         
         [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
-        string CYLTRACK_PHONE.VentaService.IVentaService.EndCasosEspeciales(System.IAsyncResult result) {
+        long CYLTRACK_PHONE.VentaService.IVentaService.EndCasosEspeciales(System.IAsyncResult result) {
             return base.Channel.EndCasosEspeciales(result);
         }
         
@@ -2879,7 +944,7 @@ namespace CYLTRACK_PHONE.VentaService {
         }
         
         private object[] OnEndCasosEspeciales(System.IAsyncResult result) {
-            string retVal = ((CYLTRACK_PHONE.VentaService.IVentaService)(this)).EndCasosEspeciales(result);
+            long retVal = ((CYLTRACK_PHONE.VentaService.IVentaService)(this)).EndCasosEspeciales(result);
             return new object[] {
                     retVal};
         }
@@ -2907,6 +972,52 @@ namespace CYLTRACK_PHONE.VentaService {
             }
             base.InvokeAsync(this.onBeginCasosEspecialesDelegate, new object[] {
                         casos}, this.onEndCasosEspecialesDelegate, this.onCasosEspecialesCompletedDelegate, userState);
+        }
+        
+        [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
+        System.IAsyncResult CYLTRACK_PHONE.VentaService.IVentaService.BeginModificarVenta(CYLTRACK_PHONE.VentaService.Detalle_VentaBE detVenta, System.AsyncCallback callback, object asyncState) {
+            return base.Channel.BeginModificarVenta(detVenta, callback, asyncState);
+        }
+        
+        [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
+        long CYLTRACK_PHONE.VentaService.IVentaService.EndModificarVenta(System.IAsyncResult result) {
+            return base.Channel.EndModificarVenta(result);
+        }
+        
+        private System.IAsyncResult OnBeginModificarVenta(object[] inValues, System.AsyncCallback callback, object asyncState) {
+            CYLTRACK_PHONE.VentaService.Detalle_VentaBE detVenta = ((CYLTRACK_PHONE.VentaService.Detalle_VentaBE)(inValues[0]));
+            return ((CYLTRACK_PHONE.VentaService.IVentaService)(this)).BeginModificarVenta(detVenta, callback, asyncState);
+        }
+        
+        private object[] OnEndModificarVenta(System.IAsyncResult result) {
+            long retVal = ((CYLTRACK_PHONE.VentaService.IVentaService)(this)).EndModificarVenta(result);
+            return new object[] {
+                    retVal};
+        }
+        
+        private void OnModificarVentaCompleted(object state) {
+            if ((this.ModificarVentaCompleted != null)) {
+                InvokeAsyncCompletedEventArgs e = ((InvokeAsyncCompletedEventArgs)(state));
+                this.ModificarVentaCompleted(this, new ModificarVentaCompletedEventArgs(e.Results, e.Error, e.Cancelled, e.UserState));
+            }
+        }
+        
+        public void ModificarVentaAsync(CYLTRACK_PHONE.VentaService.Detalle_VentaBE detVenta) {
+            this.ModificarVentaAsync(detVenta, null);
+        }
+        
+        public void ModificarVentaAsync(CYLTRACK_PHONE.VentaService.Detalle_VentaBE detVenta, object userState) {
+            if ((this.onBeginModificarVentaDelegate == null)) {
+                this.onBeginModificarVentaDelegate = new BeginOperationDelegate(this.OnBeginModificarVenta);
+            }
+            if ((this.onEndModificarVentaDelegate == null)) {
+                this.onEndModificarVentaDelegate = new EndOperationDelegate(this.OnEndModificarVenta);
+            }
+            if ((this.onModificarVentaCompletedDelegate == null)) {
+                this.onModificarVentaCompletedDelegate = new System.Threading.SendOrPostCallback(this.OnModificarVentaCompleted);
+            }
+            base.InvokeAsync(this.onBeginModificarVentaDelegate, new object[] {
+                        detVenta}, this.onEndModificarVentaDelegate, this.onModificarVentaCompletedDelegate, userState);
         }
         
         private System.IAsyncResult OnBeginOpen(object[] inValues, System.AsyncCallback callback, object asyncState) {
@@ -2985,35 +1096,35 @@ namespace CYLTRACK_PHONE.VentaService {
                     base(client) {
             }
             
-            public System.IAsyncResult BeginVentaCilindro(CYLTRACK_PHONE.VentaService.VentaBE ventas, System.AsyncCallback callback, object asyncState) {
+            public System.IAsyncResult BeginRegistrarVenta(CYLTRACK_PHONE.VentaService.VentaBE ventas, System.AsyncCallback callback, object asyncState) {
                 object[] _args = new object[1];
                 _args[0] = ventas;
-                System.IAsyncResult _result = base.BeginInvoke("VentaCilindro", _args, callback, asyncState);
+                System.IAsyncResult _result = base.BeginInvoke("RegistrarVenta", _args, callback, asyncState);
                 return _result;
             }
             
-            public string EndVentaCilindro(System.IAsyncResult result) {
+            public long EndRegistrarVenta(System.IAsyncResult result) {
                 object[] _args = new object[0];
-                string _result = ((string)(base.EndInvoke("VentaCilindro", _args, result)));
+                long _result = ((long)(base.EndInvoke("RegistrarVenta", _args, result)));
                 return _result;
             }
             
-            public System.IAsyncResult BeginConsultarExistencia(string ventas, System.AsyncCallback callback, object asyncState) {
+            public System.IAsyncResult BeginConsultarExistenciaVenta(string ventas, System.AsyncCallback callback, object asyncState) {
                 object[] _args = new object[1];
                 _args[0] = ventas;
-                System.IAsyncResult _result = base.BeginInvoke("ConsultarExistencia", _args, callback, asyncState);
+                System.IAsyncResult _result = base.BeginInvoke("ConsultarExistenciaVenta", _args, callback, asyncState);
                 return _result;
             }
             
-            public string EndConsultarExistencia(System.IAsyncResult result) {
+            public long EndConsultarExistenciaVenta(System.IAsyncResult result) {
                 object[] _args = new object[0];
-                string _result = ((string)(base.EndInvoke("ConsultarExistencia", _args, result)));
+                long _result = ((long)(base.EndInvoke("ConsultarExistenciaVenta", _args, result)));
                 return _result;
             }
             
-            public System.IAsyncResult BeginConsultarVenta(string ventas, System.AsyncCallback callback, object asyncState) {
+            public System.IAsyncResult BeginConsultarVenta(string datoConsulta, System.AsyncCallback callback, object asyncState) {
                 object[] _args = new object[1];
-                _args[0] = ventas;
+                _args[0] = datoConsulta;
                 System.IAsyncResult _result = base.BeginInvoke("ConsultarVenta", _args, callback, asyncState);
                 return _result;
             }
@@ -3021,18 +1132,6 @@ namespace CYLTRACK_PHONE.VentaService {
             public CYLTRACK_PHONE.VentaService.VentaBE EndConsultarVenta(System.IAsyncResult result) {
                 object[] _args = new object[0];
                 CYLTRACK_PHONE.VentaService.VentaBE _result = ((CYLTRACK_PHONE.VentaService.VentaBE)(base.EndInvoke("ConsultarVenta", _args, result)));
-                return _result;
-            }
-            
-            public System.IAsyncResult BeginConsultarCarguePlaca(System.AsyncCallback callback, object asyncState) {
-                object[] _args = new object[0];
-                System.IAsyncResult _result = base.BeginInvoke("ConsultarCarguePlaca", _args, callback, asyncState);
-                return _result;
-            }
-            
-            public System.Collections.ObjectModel.ObservableCollection<CYLTRACK_PHONE.VentaService.CilindroBE> EndConsultarCarguePlaca(System.IAsyncResult result) {
-                object[] _args = new object[0];
-                System.Collections.ObjectModel.ObservableCollection<CYLTRACK_PHONE.VentaService.CilindroBE> _result = ((System.Collections.ObjectModel.ObservableCollection<CYLTRACK_PHONE.VentaService.CilindroBE>)(base.EndInvoke("ConsultarCarguePlaca", _args, result)));
                 return _result;
             }
             
@@ -3056,9 +1155,22 @@ namespace CYLTRACK_PHONE.VentaService {
                 return _result;
             }
             
-            public string EndCasosEspeciales(System.IAsyncResult result) {
+            public long EndCasosEspeciales(System.IAsyncResult result) {
                 object[] _args = new object[0];
-                string _result = ((string)(base.EndInvoke("CasosEspeciales", _args, result)));
+                long _result = ((long)(base.EndInvoke("CasosEspeciales", _args, result)));
+                return _result;
+            }
+            
+            public System.IAsyncResult BeginModificarVenta(CYLTRACK_PHONE.VentaService.Detalle_VentaBE detVenta, System.AsyncCallback callback, object asyncState) {
+                object[] _args = new object[1];
+                _args[0] = detVenta;
+                System.IAsyncResult _result = base.BeginInvoke("ModificarVenta", _args, callback, asyncState);
+                return _result;
+            }
+            
+            public long EndModificarVenta(System.IAsyncResult result) {
+                object[] _args = new object[0];
+                long _result = ((long)(base.EndInvoke("ModificarVenta", _args, result)));
                 return _result;
             }
         }

@@ -2,9 +2,9 @@
 <wsdl:definitions xmlns:wsap="http://schemas.xmlsoap.org/ws/2004/08/addressing/policy" xmlns:wsa10="http://www.w3.org/2005/08/addressing" xmlns:tns="http://servicios.cyltrack.com.co/cyltrack/" xmlns:msc="http://schemas.microsoft.com/ws/2005/12/wsdl/contract" xmlns:soapenc="http://schemas.xmlsoap.org/soap/encoding/" xmlns:wsx="http://schemas.xmlsoap.org/ws/2004/09/mex" xmlns:wsp="http://schemas.xmlsoap.org/ws/2004/09/policy" xmlns:wsam="http://www.w3.org/2007/05/addressing/metadata" xmlns:wsa="http://schemas.xmlsoap.org/ws/2004/08/addressing" xmlns:soap12="http://schemas.xmlsoap.org/wsdl/soap12/" xmlns:wsaw="http://www.w3.org/2006/05/addressing/wsdl" xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:wsu="http://docs.oasis-open.org/wss/2004/01/oasis-200401-wss-wssecurity-utility-1.0.xsd" xmlns:xsd="http://www.w3.org/2001/XMLSchema" name="ReporteService" targetNamespace="http://servicios.cyltrack.com.co/cyltrack/" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">
   <wsdl:types>
     <xsd:schema targetNamespace="http://servicios.cyltrack.com.co/cyltrack/Imports">
-      <xsd:import schemaLocation="http://localhost:51651/CYLTRACK_Services/ReporteService.svc?xsd=xsd0" namespace="http://servicios.cyltrack.com.co/cyltrack/" />
-      <xsd:import schemaLocation="http://localhost:51651/CYLTRACK_Services/ReporteService.svc?xsd=xsd1" namespace="http://schemas.microsoft.com/2003/10/Serialization/" />
-      <xsd:import schemaLocation="http://localhost:51651/CYLTRACK_Services/ReporteService.svc?xsd=xsd2" namespace="http://schemas.datacontract.org/2004/07/Unisangil.CYLTRACK.CYLTRACK_BE" />
+      <xsd:import schemaLocation="http://localhost:1993/CYLTRACK_Services/ReporteService.svc?xsd=xsd0" namespace="http://servicios.cyltrack.com.co/cyltrack/" />
+      <xsd:import schemaLocation="http://localhost:1993/CYLTRACK_Services/ReporteService.svc?xsd=xsd1" namespace="http://schemas.microsoft.com/2003/10/Serialization/" />
+      <xsd:import schemaLocation="http://localhost:1993/CYLTRACK_Services/ReporteService.svc?xsd=xsd2" namespace="http://schemas.datacontract.org/2004/07/Unisangil.CYLTRACK.CYLTRACK_BE" />
     </xsd:schema>
   </wsdl:types>
   <wsdl:message name="IReporteService_HistoricoCilindro_InputMessage">
@@ -13,53 +13,11 @@
   <wsdl:message name="IReporteService_HistoricoCilindro_OutputMessage">
     <wsdl:part name="parameters" element="tns:HistoricoCilindroResponse" />
   </wsdl:message>
-  <wsdl:message name="IReporteService_Inventario_InputMessage">
-    <wsdl:part name="parameters" element="tns:Inventario" />
+  <wsdl:message name="IReporteService_ConsultarCilInventario_InputMessage">
+    <wsdl:part name="parameters" element="tns:ConsultarCilInventario" />
   </wsdl:message>
-  <wsdl:message name="IReporteService_Inventario_OutputMessage">
-    <wsdl:part name="parameters" element="tns:InventarioResponse" />
-  </wsdl:message>
-  <wsdl:message name="IReporteService_ConsultaReporteCiudades_InputMessage">
-    <wsdl:part name="parameters" element="tns:ConsultaReporteCiudades" />
-  </wsdl:message>
-  <wsdl:message name="IReporteService_ConsultaReporteCiudades_OutputMessage">
-    <wsdl:part name="parameters" element="tns:ConsultaReporteCiudadesResponse" />
-  </wsdl:message>
-  <wsdl:message name="IReporteService_ReporteCilindro_InputMessage">
-    <wsdl:part name="parameters" element="tns:ReporteCilindro" />
-  </wsdl:message>
-  <wsdl:message name="IReporteService_ReporteCilindro_OutputMessage">
-    <wsdl:part name="parameters" element="tns:ReporteCilindroResponse" />
-  </wsdl:message>
-  <wsdl:message name="IReporteService_ReporteporPlacas_InputMessage">
-    <wsdl:part name="parameters" element="tns:ReporteporPlacas" />
-  </wsdl:message>
-  <wsdl:message name="IReporteService_ReporteporPlacas_OutputMessage">
-    <wsdl:part name="parameters" element="tns:ReporteporPlacasResponse" />
-  </wsdl:message>
-  <wsdl:message name="IReporteService_ReporteClientes_InputMessage">
-    <wsdl:part name="parameters" element="tns:ReporteClientes" />
-  </wsdl:message>
-  <wsdl:message name="IReporteService_ReporteClientes_OutputMessage">
-    <wsdl:part name="parameters" element="tns:ReporteClientesResponse" />
-  </wsdl:message>
-  <wsdl:message name="IReporteService_ReportePedidos_InputMessage">
-    <wsdl:part name="parameters" element="tns:ReportePedidos" />
-  </wsdl:message>
-  <wsdl:message name="IReporteService_ReportePedidos_OutputMessage">
-    <wsdl:part name="parameters" element="tns:ReportePedidosResponse" />
-  </wsdl:message>
-  <wsdl:message name="IReporteService_ConsultarRuta_InputMessage">
-    <wsdl:part name="parameters" element="tns:ConsultarRuta" />
-  </wsdl:message>
-  <wsdl:message name="IReporteService_ConsultarRuta_OutputMessage">
-    <wsdl:part name="parameters" element="tns:ConsultarRutaResponse" />
-  </wsdl:message>
-  <wsdl:message name="IReporteService_ReporteUsuario_InputMessage">
-    <wsdl:part name="parameters" element="tns:ReporteUsuario" />
-  </wsdl:message>
-  <wsdl:message name="IReporteService_ReporteUsuario_OutputMessage">
-    <wsdl:part name="parameters" element="tns:ReporteUsuarioResponse" />
+  <wsdl:message name="IReporteService_ConsultarCilInventario_OutputMessage">
+    <wsdl:part name="parameters" element="tns:ConsultarCilInventarioResponse" />
   </wsdl:message>
   <wsdl:message name="IReporteService_ConsultaTipoUbicacion_InputMessage">
     <wsdl:part name="parameters" element="tns:ConsultaTipoUbicacion" />
@@ -79,48 +37,32 @@
   <wsdl:message name="IReporteService_consultadeExistencia_OutputMessage">
     <wsdl:part name="parameters" element="tns:consultadeExistenciaResponse" />
   </wsdl:message>
-  <wsdl:message name="IReporteService_consultadeExistenciaVarios_InputMessage">
-    <wsdl:part name="parameters" element="tns:consultadeExistenciaVarios" />
+  <wsdl:message name="IReporteService_ConsultaTiposCasos_InputMessage">
+    <wsdl:part name="parameters" element="tns:ConsultaTiposCasos" />
   </wsdl:message>
-  <wsdl:message name="IReporteService_consultadeExistenciaVarios_OutputMessage">
-    <wsdl:part name="parameters" element="tns:consultadeExistenciaVariosResponse" />
+  <wsdl:message name="IReporteService_ConsultaTiposCasos_OutputMessage">
+    <wsdl:part name="parameters" element="tns:ConsultaTiposCasosResponse" />
+  </wsdl:message>
+  <wsdl:message name="IReporteService_ReporteSiembrasCiudad_InputMessage">
+    <wsdl:part name="parameters" element="tns:ReporteSiembrasCiudad" />
+  </wsdl:message>
+  <wsdl:message name="IReporteService_ReporteSiembrasCiudad_OutputMessage">
+    <wsdl:part name="parameters" element="tns:ReporteSiembrasCiudadResponse" />
+  </wsdl:message>
+  <wsdl:message name="IReporteService_ReporteSiembrasCilindro_InputMessage">
+    <wsdl:part name="parameters" element="tns:ReporteSiembrasCilindro" />
+  </wsdl:message>
+  <wsdl:message name="IReporteService_ReporteSiembrasCilindro_OutputMessage">
+    <wsdl:part name="parameters" element="tns:ReporteSiembrasCilindroResponse" />
   </wsdl:message>
   <wsdl:portType name="IReporteService">
     <wsdl:operation name="HistoricoCilindro">
       <wsdl:input wsaw:Action="http://servicios.cyltrack.com.co/cyltrack/IReporteService/HistoricoCilindro" message="tns:IReporteService_HistoricoCilindro_InputMessage" />
       <wsdl:output wsaw:Action="http://servicios.cyltrack.com.co/cyltrack/IReporteService/HistoricoCilindroResponse" message="tns:IReporteService_HistoricoCilindro_OutputMessage" />
     </wsdl:operation>
-    <wsdl:operation name="Inventario">
-      <wsdl:input wsaw:Action="http://servicios.cyltrack.com.co/cyltrack/IReporteService/Inventario" message="tns:IReporteService_Inventario_InputMessage" />
-      <wsdl:output wsaw:Action="http://servicios.cyltrack.com.co/cyltrack/IReporteService/InventarioResponse" message="tns:IReporteService_Inventario_OutputMessage" />
-    </wsdl:operation>
-    <wsdl:operation name="ConsultaReporteCiudades">
-      <wsdl:input wsaw:Action="http://servicios.cyltrack.com.co/cyltrack/IReporteService/ConsultaReporteCiudades" message="tns:IReporteService_ConsultaReporteCiudades_InputMessage" />
-      <wsdl:output wsaw:Action="http://servicios.cyltrack.com.co/cyltrack/IReporteService/ConsultaReporteCiudadesResponse" message="tns:IReporteService_ConsultaReporteCiudades_OutputMessage" />
-    </wsdl:operation>
-    <wsdl:operation name="ReporteCilindro">
-      <wsdl:input wsaw:Action="http://servicios.cyltrack.com.co/cyltrack/IReporteService/ReporteCilindro" message="tns:IReporteService_ReporteCilindro_InputMessage" />
-      <wsdl:output wsaw:Action="http://servicios.cyltrack.com.co/cyltrack/IReporteService/ReporteCilindroResponse" message="tns:IReporteService_ReporteCilindro_OutputMessage" />
-    </wsdl:operation>
-    <wsdl:operation name="ReporteporPlacas">
-      <wsdl:input wsaw:Action="http://servicios.cyltrack.com.co/cyltrack/IReporteService/ReporteporPlacas" message="tns:IReporteService_ReporteporPlacas_InputMessage" />
-      <wsdl:output wsaw:Action="http://servicios.cyltrack.com.co/cyltrack/IReporteService/ReporteporPlacasResponse" message="tns:IReporteService_ReporteporPlacas_OutputMessage" />
-    </wsdl:operation>
-    <wsdl:operation name="ReporteClientes">
-      <wsdl:input wsaw:Action="http://servicios.cyltrack.com.co/cyltrack/IReporteService/ReporteClientes" message="tns:IReporteService_ReporteClientes_InputMessage" />
-      <wsdl:output wsaw:Action="http://servicios.cyltrack.com.co/cyltrack/IReporteService/ReporteClientesResponse" message="tns:IReporteService_ReporteClientes_OutputMessage" />
-    </wsdl:operation>
-    <wsdl:operation name="ReportePedidos">
-      <wsdl:input wsaw:Action="http://servicios.cyltrack.com.co/cyltrack/IReporteService/ReportePedidos" message="tns:IReporteService_ReportePedidos_InputMessage" />
-      <wsdl:output wsaw:Action="http://servicios.cyltrack.com.co/cyltrack/IReporteService/ReportePedidosResponse" message="tns:IReporteService_ReportePedidos_OutputMessage" />
-    </wsdl:operation>
-    <wsdl:operation name="ConsultarRuta">
-      <wsdl:input wsaw:Action="http://servicios.cyltrack.com.co/cyltrack/IReporteService/ConsultarRuta" message="tns:IReporteService_ConsultarRuta_InputMessage" />
-      <wsdl:output wsaw:Action="http://servicios.cyltrack.com.co/cyltrack/IReporteService/ConsultarRutaResponse" message="tns:IReporteService_ConsultarRuta_OutputMessage" />
-    </wsdl:operation>
-    <wsdl:operation name="ReporteUsuario">
-      <wsdl:input wsaw:Action="http://servicios.cyltrack.com.co/cyltrack/IReporteService/ReporteUsuario" message="tns:IReporteService_ReporteUsuario_InputMessage" />
-      <wsdl:output wsaw:Action="http://servicios.cyltrack.com.co/cyltrack/IReporteService/ReporteUsuarioResponse" message="tns:IReporteService_ReporteUsuario_OutputMessage" />
+    <wsdl:operation name="ConsultarCilInventario">
+      <wsdl:input wsaw:Action="http://servicios.cyltrack.com.co/cyltrack/IReporteService/ConsultarCilInventario" message="tns:IReporteService_ConsultarCilInventario_InputMessage" />
+      <wsdl:output wsaw:Action="http://servicios.cyltrack.com.co/cyltrack/IReporteService/ConsultarCilInventarioResponse" message="tns:IReporteService_ConsultarCilInventario_OutputMessage" />
     </wsdl:operation>
     <wsdl:operation name="ConsultaTipoUbicacion">
       <wsdl:input wsaw:Action="http://servicios.cyltrack.com.co/cyltrack/IReporteService/ConsultaTipoUbicacion" message="tns:IReporteService_ConsultaTipoUbicacion_InputMessage" />
@@ -134,9 +76,17 @@
       <wsdl:input wsaw:Action="http://servicios.cyltrack.com.co/cyltrack/IReporteService/consultadeExistencia" message="tns:IReporteService_consultadeExistencia_InputMessage" />
       <wsdl:output wsaw:Action="http://servicios.cyltrack.com.co/cyltrack/IReporteService/consultadeExistenciaResponse" message="tns:IReporteService_consultadeExistencia_OutputMessage" />
     </wsdl:operation>
-    <wsdl:operation name="consultadeExistenciaVarios">
-      <wsdl:input wsaw:Action="http://servicios.cyltrack.com.co/cyltrack/IReporteService/consultadeExistenciaVarios" message="tns:IReporteService_consultadeExistenciaVarios_InputMessage" />
-      <wsdl:output wsaw:Action="http://servicios.cyltrack.com.co/cyltrack/IReporteService/consultadeExistenciaVariosResponse" message="tns:IReporteService_consultadeExistenciaVarios_OutputMessage" />
+    <wsdl:operation name="ConsultaTiposCasos">
+      <wsdl:input wsaw:Action="http://servicios.cyltrack.com.co/cyltrack/IReporteService/ConsultaTiposCasos" message="tns:IReporteService_ConsultaTiposCasos_InputMessage" />
+      <wsdl:output wsaw:Action="http://servicios.cyltrack.com.co/cyltrack/IReporteService/ConsultaTiposCasosResponse" message="tns:IReporteService_ConsultaTiposCasos_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="ReporteSiembrasCiudad">
+      <wsdl:input wsaw:Action="http://servicios.cyltrack.com.co/cyltrack/IReporteService/ReporteSiembrasCiudad" message="tns:IReporteService_ReporteSiembrasCiudad_InputMessage" />
+      <wsdl:output wsaw:Action="http://servicios.cyltrack.com.co/cyltrack/IReporteService/ReporteSiembrasCiudadResponse" message="tns:IReporteService_ReporteSiembrasCiudad_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="ReporteSiembrasCilindro">
+      <wsdl:input wsaw:Action="http://servicios.cyltrack.com.co/cyltrack/IReporteService/ReporteSiembrasCilindro" message="tns:IReporteService_ReporteSiembrasCilindro_InputMessage" />
+      <wsdl:output wsaw:Action="http://servicios.cyltrack.com.co/cyltrack/IReporteService/ReporteSiembrasCilindroResponse" message="tns:IReporteService_ReporteSiembrasCilindro_OutputMessage" />
     </wsdl:operation>
   </wsdl:portType>
   <wsdl:binding name="BasicHttpBinding_IReporteService" type="tns:IReporteService">
@@ -150,71 +100,8 @@
         <soap:body use="literal" />
       </wsdl:output>
     </wsdl:operation>
-    <wsdl:operation name="Inventario">
-      <soap:operation soapAction="http://servicios.cyltrack.com.co/cyltrack/IReporteService/Inventario" style="document" />
-      <wsdl:input>
-        <soap:body use="literal" />
-      </wsdl:input>
-      <wsdl:output>
-        <soap:body use="literal" />
-      </wsdl:output>
-    </wsdl:operation>
-    <wsdl:operation name="ConsultaReporteCiudades">
-      <soap:operation soapAction="http://servicios.cyltrack.com.co/cyltrack/IReporteService/ConsultaReporteCiudades" style="document" />
-      <wsdl:input>
-        <soap:body use="literal" />
-      </wsdl:input>
-      <wsdl:output>
-        <soap:body use="literal" />
-      </wsdl:output>
-    </wsdl:operation>
-    <wsdl:operation name="ReporteCilindro">
-      <soap:operation soapAction="http://servicios.cyltrack.com.co/cyltrack/IReporteService/ReporteCilindro" style="document" />
-      <wsdl:input>
-        <soap:body use="literal" />
-      </wsdl:input>
-      <wsdl:output>
-        <soap:body use="literal" />
-      </wsdl:output>
-    </wsdl:operation>
-    <wsdl:operation name="ReporteporPlacas">
-      <soap:operation soapAction="http://servicios.cyltrack.com.co/cyltrack/IReporteService/ReporteporPlacas" style="document" />
-      <wsdl:input>
-        <soap:body use="literal" />
-      </wsdl:input>
-      <wsdl:output>
-        <soap:body use="literal" />
-      </wsdl:output>
-    </wsdl:operation>
-    <wsdl:operation name="ReporteClientes">
-      <soap:operation soapAction="http://servicios.cyltrack.com.co/cyltrack/IReporteService/ReporteClientes" style="document" />
-      <wsdl:input>
-        <soap:body use="literal" />
-      </wsdl:input>
-      <wsdl:output>
-        <soap:body use="literal" />
-      </wsdl:output>
-    </wsdl:operation>
-    <wsdl:operation name="ReportePedidos">
-      <soap:operation soapAction="http://servicios.cyltrack.com.co/cyltrack/IReporteService/ReportePedidos" style="document" />
-      <wsdl:input>
-        <soap:body use="literal" />
-      </wsdl:input>
-      <wsdl:output>
-        <soap:body use="literal" />
-      </wsdl:output>
-    </wsdl:operation>
-    <wsdl:operation name="ConsultarRuta">
-      <soap:operation soapAction="http://servicios.cyltrack.com.co/cyltrack/IReporteService/ConsultarRuta" style="document" />
-      <wsdl:input>
-        <soap:body use="literal" />
-      </wsdl:input>
-      <wsdl:output>
-        <soap:body use="literal" />
-      </wsdl:output>
-    </wsdl:operation>
-    <wsdl:operation name="ReporteUsuario">
-      <soap:operation soapAction="http://servicios.cyltrack.com.co/cyltrack/IReporteService/ReporteUsuario" style="document" />
+    <wsdl:operation name="ConsultarCilInventario">
+      <soap:operation soapAction="http://servicios.cyltrack.com.co/cyltrack/IReporteService/ConsultarCilInventario" style="document" />
       <wsdl:input>
         <soap:body use="literal" />
       </wsdl:input>
@@ -249,8 +136,26 @@
         <soap:body use="literal" />
       </wsdl:output>
     </wsdl:operation>
-    <wsdl:operation name="consultadeExistenciaVarios">
-      <soap:operation soapAction="http://servicios.cyltrack.com.co/cyltrack/IReporteService/consultadeExistenciaVarios" style="document" />
+    <wsdl:operation name="ConsultaTiposCasos">
+      <soap:operation soapAction="http://servicios.cyltrack.com.co/cyltrack/IReporteService/ConsultaTiposCasos" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="ReporteSiembrasCiudad">
+      <soap:operation soapAction="http://servicios.cyltrack.com.co/cyltrack/IReporteService/ReporteSiembrasCiudad" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="ReporteSiembrasCilindro">
+      <soap:operation soapAction="http://servicios.cyltrack.com.co/cyltrack/IReporteService/ReporteSiembrasCilindro" style="document" />
       <wsdl:input>
         <soap:body use="literal" />
       </wsdl:input>
@@ -261,7 +166,7 @@
   </wsdl:binding>
   <wsdl:service name="ReporteService">
     <wsdl:port name="BasicHttpBinding_IReporteService" binding="tns:BasicHttpBinding_IReporteService">
-      <soap:address location="http://localhost:51651/CYLTRACK_Services/ReporteService.svc" />
+      <soap:address location="http://localhost:1993/CYLTRACK_Services/ReporteService.svc" />
     </wsdl:port>
   </wsdl:service>
 </wsdl:definitions>

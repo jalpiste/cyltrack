@@ -1,86 +1,62 @@
 <?xml version="1.0" encoding="utf-8"?>
-<xs:schema xmlns:tns="http://servicios.cyltrack.com.co/cyltrack/" elementFormDefault="qualified" targetNamespace="http://servicios.cyltrack.com.co/cyltrack/" xmlns:xs="http://www.w3.org/2001/XMLSchema">
-  <xs:import schemaLocation="http://localhost:51651/CYLTRACK_Services/VentaService.svc?xsd=xsd2" namespace="http://schemas.datacontract.org/2004/07/Unisangil.CYLTRACK.CYLTRACK_BE" />
-  <xs:element name="VentaCilindro">
-    <xs:complexType>
-      <xs:sequence>
-        <xs:element xmlns:q1="http://schemas.datacontract.org/2004/07/Unisangil.CYLTRACK.CYLTRACK_BE" minOccurs="0" name="ventas" nillable="true" type="q1:VentaBE" />
-      </xs:sequence>
-    </xs:complexType>
-  </xs:element>
-  <xs:element name="VentaCilindroResponse">
-    <xs:complexType>
-      <xs:sequence>
-        <xs:element minOccurs="0" name="VentaCilindroResult" nillable="true" type="xs:string" />
-      </xs:sequence>
-    </xs:complexType>
-  </xs:element>
-  <xs:element name="ConsultarExistencia">
-    <xs:complexType>
-      <xs:sequence>
-        <xs:element minOccurs="0" name="ventas" nillable="true" type="xs:string" />
-      </xs:sequence>
-    </xs:complexType>
-  </xs:element>
-  <xs:element name="ConsultarExistenciaResponse">
-    <xs:complexType>
-      <xs:sequence>
-        <xs:element minOccurs="0" name="ConsultarExistenciaResult" nillable="true" type="xs:string" />
-      </xs:sequence>
-    </xs:complexType>
-  </xs:element>
-  <xs:element name="ConsultarVenta">
-    <xs:complexType>
-      <xs:sequence>
-        <xs:element minOccurs="0" name="ventas" nillable="true" type="xs:string" />
-      </xs:sequence>
-    </xs:complexType>
-  </xs:element>
-  <xs:element name="ConsultarVentaResponse">
-    <xs:complexType>
-      <xs:sequence>
-        <xs:element xmlns:q2="http://schemas.datacontract.org/2004/07/Unisangil.CYLTRACK.CYLTRACK_BE" minOccurs="0" name="ConsultarVentaResult" nillable="true" type="q2:VentaBE" />
-      </xs:sequence>
-    </xs:complexType>
-  </xs:element>
-  <xs:element name="ConsultarCarguePlaca">
-    <xs:complexType>
-      <xs:sequence />
-    </xs:complexType>
-  </xs:element>
-  <xs:element name="ConsultarCarguePlacaResponse">
-    <xs:complexType>
-      <xs:sequence>
-        <xs:element xmlns:q3="http://schemas.datacontract.org/2004/07/Unisangil.CYLTRACK.CYLTRACK_BE" minOccurs="0" name="ConsultarCarguePlacaResult" nillable="true" type="q3:ArrayOfCilindroBE" />
-      </xs:sequence>
-    </xs:complexType>
-  </xs:element>
-  <xs:element name="RevisionCasosEspeciales">
-    <xs:complexType>
-      <xs:sequence>
-        <xs:element minOccurs="0" name="casos" nillable="true" type="xs:string" />
-      </xs:sequence>
-    </xs:complexType>
-  </xs:element>
-  <xs:element name="RevisionCasosEspecialesResponse">
-    <xs:complexType>
-      <xs:sequence>
-        <xs:element xmlns:q4="http://schemas.datacontract.org/2004/07/Unisangil.CYLTRACK.CYLTRACK_BE" minOccurs="0" name="RevisionCasosEspecialesResult" nillable="true" type="q4:ArrayOfCasosBE" />
-      </xs:sequence>
-    </xs:complexType>
-  </xs:element>
-  <xs:element name="CasosEspeciales">
-    <xs:complexType>
-      <xs:sequence>
-        <xs:element xmlns:q5="http://schemas.datacontract.org/2004/07/Unisangil.CYLTRACK.CYLTRACK_BE" minOccurs="0" name="casos" nillable="true" type="q5:CasosBE" />
-      </xs:sequence>
-    </xs:complexType>
-  </xs:element>
-  <xs:element name="CasosEspecialesResponse">
-    <xs:complexType>
-      <xs:sequence>
-        <xs:element minOccurs="0" name="CasosEspecialesResult" nillable="true" type="xs:string" />
-      </xs:sequence>
-    </xs:complexType>
-  </xs:element>
+<xs:schema xmlns:tns="http://schemas.datacontract.org/2004/07/Unisangil.CYLTRACK.CYLTRACK_BE" elementFormDefault="qualified" targetNamespace="http://schemas.datacontract.org/2004/07/Unisangil.CYLTRACK.CYLTRACK_BE" xmlns:xs="http://www.w3.org/2001/XMLSchema">
+  <xs:complexType name="VentaBE">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="Detalle_Venta" nillable="true" type="tns:Detalle_VentaBE" />
+      <xs:element minOccurs="0" name="Fecha" type="xs:dateTime" />
+      <xs:element minOccurs="0" name="IdCliente" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="IdVehiculo" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="Id_Ubicacion" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="Id_Venta" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="Lista_Detalle_Venta" nillable="true" type="tns:ArrayOfDetalle_VentaBE" />
+      <xs:element minOccurs="0" name="Observaciones" nillable="true" type="xs:string" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="VentaBE" nillable="true" type="tns:VentaBE" />
+  <xs:complexType name="Detalle_VentaBE">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="Casos_Especiales" nillable="true" type="tns:CasosBE" />
+      <xs:element minOccurs="0" name="IdVenta" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="Id_Cilindro_Entrada" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="Id_Cilindro_Salida" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="Id_Detalle_Venta" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="Id_Ubicacion" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="Id_Vehiculo" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="Tamano" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="Tipo_Cilindro" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="Tipo_Venta" nillable="true" type="xs:string" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="Detalle_VentaBE" nillable="true" type="tns:Detalle_VentaBE" />
+  <xs:complexType name="CasosBE">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="Detalle_Venta" nillable="true" type="tns:Detalle_VentaBE" />
+      <xs:element minOccurs="0" name="EstadoCaso" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="Id_Casos" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="Id_Cliente" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="Observaciones" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="Tipo_Caso" nillable="true" type="tns:Tipo_CasoBE" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="CasosBE" nillable="true" type="tns:CasosBE" />
+  <xs:complexType name="Tipo_CasoBE">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="Descripcion_Tipo_Caso" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="Id_Tipo_Caso" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="Nombre_Caso" nillable="true" type="xs:string" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="Tipo_CasoBE" nillable="true" type="tns:Tipo_CasoBE" />
+  <xs:complexType name="ArrayOfDetalle_VentaBE">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="Detalle_VentaBE" nillable="true" type="tns:Detalle_VentaBE" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ArrayOfDetalle_VentaBE" nillable="true" type="tns:ArrayOfDetalle_VentaBE" />
+  <xs:complexType name="ArrayOfCasosBE">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="CasosBE" nillable="true" type="tns:CasosBE" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ArrayOfCasosBE" nillable="true" type="tns:ArrayOfCasosBE" />
 </xs:schema>

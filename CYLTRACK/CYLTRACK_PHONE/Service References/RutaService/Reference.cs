@@ -22,6 +22,8 @@ namespace CYLTRACK_PHONE.RutaService {
         
         private CYLTRACK_PHONE.RutaService.Ciudad_RutaBE Ciudad_RutaField;
         
+        private CYLTRACK_PHONE.RutaService.ConductorBE ConductorField;
+        
         private string Id_RutaField;
         
         private string Nombre_RutaField;
@@ -37,6 +39,19 @@ namespace CYLTRACK_PHONE.RutaService {
                 if ((object.ReferenceEquals(this.Ciudad_RutaField, value) != true)) {
                     this.Ciudad_RutaField = value;
                     this.RaisePropertyChanged("Ciudad_Ruta");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public CYLTRACK_PHONE.RutaService.ConductorBE Conductor {
+            get {
+                return this.ConductorField;
+            }
+            set {
+                if ((object.ReferenceEquals(this.ConductorField, value) != true)) {
+                    this.ConductorField = value;
+                    this.RaisePropertyChanged("Conductor");
                 }
             }
         }
@@ -121,6 +136,156 @@ namespace CYLTRACK_PHONE.RutaService {
                 if ((object.ReferenceEquals(this.Id_Ciudad_RutaField, value) != true)) {
                     this.Id_Ciudad_RutaField = value;
                     this.RaisePropertyChanged("Id_Ciudad_Ruta");
+                }
+            }
+        }
+        
+        public event System.ComponentModel.PropertyChangedEventHandler PropertyChanged;
+        
+        protected void RaisePropertyChanged(string propertyName) {
+            System.ComponentModel.PropertyChangedEventHandler propertyChanged = this.PropertyChanged;
+            if ((propertyChanged != null)) {
+                propertyChanged(this, new System.ComponentModel.PropertyChangedEventArgs(propertyName));
+            }
+        }
+    }
+    
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Runtime.Serialization", "4.0.0.0")]
+    [System.Runtime.Serialization.DataContractAttribute(Name="ConductorBE", Namespace="http://schemas.datacontract.org/2004/07/Unisangil.CYLTRACK.CYLTRACK_BE")]
+    public partial class ConductorBE : object, System.ComponentModel.INotifyPropertyChanged {
+        
+        private string Apellido_1Field;
+        
+        private string Apellido_2Field;
+        
+        private string BarrioField;
+        
+        private string CedulaField;
+        
+        private CYLTRACK_PHONE.RutaService.CiudadBE CiudadField;
+        
+        private string DireccionField;
+        
+        private string Id_ConductorField;
+        
+        private string Nombres_ConductorField;
+        
+        private string TelefonoField;
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public string Apellido_1 {
+            get {
+                return this.Apellido_1Field;
+            }
+            set {
+                if ((object.ReferenceEquals(this.Apellido_1Field, value) != true)) {
+                    this.Apellido_1Field = value;
+                    this.RaisePropertyChanged("Apellido_1");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public string Apellido_2 {
+            get {
+                return this.Apellido_2Field;
+            }
+            set {
+                if ((object.ReferenceEquals(this.Apellido_2Field, value) != true)) {
+                    this.Apellido_2Field = value;
+                    this.RaisePropertyChanged("Apellido_2");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public string Barrio {
+            get {
+                return this.BarrioField;
+            }
+            set {
+                if ((object.ReferenceEquals(this.BarrioField, value) != true)) {
+                    this.BarrioField = value;
+                    this.RaisePropertyChanged("Barrio");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public string Cedula {
+            get {
+                return this.CedulaField;
+            }
+            set {
+                if ((object.ReferenceEquals(this.CedulaField, value) != true)) {
+                    this.CedulaField = value;
+                    this.RaisePropertyChanged("Cedula");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public CYLTRACK_PHONE.RutaService.CiudadBE Ciudad {
+            get {
+                return this.CiudadField;
+            }
+            set {
+                if ((object.ReferenceEquals(this.CiudadField, value) != true)) {
+                    this.CiudadField = value;
+                    this.RaisePropertyChanged("Ciudad");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public string Direccion {
+            get {
+                return this.DireccionField;
+            }
+            set {
+                if ((object.ReferenceEquals(this.DireccionField, value) != true)) {
+                    this.DireccionField = value;
+                    this.RaisePropertyChanged("Direccion");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public string Id_Conductor {
+            get {
+                return this.Id_ConductorField;
+            }
+            set {
+                if ((object.ReferenceEquals(this.Id_ConductorField, value) != true)) {
+                    this.Id_ConductorField = value;
+                    this.RaisePropertyChanged("Id_Conductor");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public string Nombres_Conductor {
+            get {
+                return this.Nombres_ConductorField;
+            }
+            set {
+                if ((object.ReferenceEquals(this.Nombres_ConductorField, value) != true)) {
+                    this.Nombres_ConductorField = value;
+                    this.RaisePropertyChanged("Nombres_Conductor");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public string Telefono {
+            get {
+                return this.TelefonoField;
+            }
+            set {
+                if ((object.ReferenceEquals(this.TelefonoField, value) != true)) {
+                    this.TelefonoField = value;
+                    this.RaisePropertyChanged("Telefono");
                 }
             }
         }
@@ -556,156 +721,6 @@ namespace CYLTRACK_PHONE.RutaService {
                 if ((object.ReferenceEquals(this.RutaField, value) != true)) {
                     this.RutaField = value;
                     this.RaisePropertyChanged("Ruta");
-                }
-            }
-        }
-        
-        public event System.ComponentModel.PropertyChangedEventHandler PropertyChanged;
-        
-        protected void RaisePropertyChanged(string propertyName) {
-            System.ComponentModel.PropertyChangedEventHandler propertyChanged = this.PropertyChanged;
-            if ((propertyChanged != null)) {
-                propertyChanged(this, new System.ComponentModel.PropertyChangedEventArgs(propertyName));
-            }
-        }
-    }
-    
-    [System.Diagnostics.DebuggerStepThroughAttribute()]
-    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Runtime.Serialization", "4.0.0.0")]
-    [System.Runtime.Serialization.DataContractAttribute(Name="ConductorBE", Namespace="http://schemas.datacontract.org/2004/07/Unisangil.CYLTRACK.CYLTRACK_BE")]
-    public partial class ConductorBE : object, System.ComponentModel.INotifyPropertyChanged {
-        
-        private string Apellido_1Field;
-        
-        private string Apellido_2Field;
-        
-        private string BarrioField;
-        
-        private string CedulaField;
-        
-        private CYLTRACK_PHONE.RutaService.CiudadBE CiudadField;
-        
-        private string DireccionField;
-        
-        private string Id_ConductorField;
-        
-        private string Nombres_ConductorField;
-        
-        private string TelefonoField;
-        
-        [System.Runtime.Serialization.DataMemberAttribute()]
-        public string Apellido_1 {
-            get {
-                return this.Apellido_1Field;
-            }
-            set {
-                if ((object.ReferenceEquals(this.Apellido_1Field, value) != true)) {
-                    this.Apellido_1Field = value;
-                    this.RaisePropertyChanged("Apellido_1");
-                }
-            }
-        }
-        
-        [System.Runtime.Serialization.DataMemberAttribute()]
-        public string Apellido_2 {
-            get {
-                return this.Apellido_2Field;
-            }
-            set {
-                if ((object.ReferenceEquals(this.Apellido_2Field, value) != true)) {
-                    this.Apellido_2Field = value;
-                    this.RaisePropertyChanged("Apellido_2");
-                }
-            }
-        }
-        
-        [System.Runtime.Serialization.DataMemberAttribute()]
-        public string Barrio {
-            get {
-                return this.BarrioField;
-            }
-            set {
-                if ((object.ReferenceEquals(this.BarrioField, value) != true)) {
-                    this.BarrioField = value;
-                    this.RaisePropertyChanged("Barrio");
-                }
-            }
-        }
-        
-        [System.Runtime.Serialization.DataMemberAttribute()]
-        public string Cedula {
-            get {
-                return this.CedulaField;
-            }
-            set {
-                if ((object.ReferenceEquals(this.CedulaField, value) != true)) {
-                    this.CedulaField = value;
-                    this.RaisePropertyChanged("Cedula");
-                }
-            }
-        }
-        
-        [System.Runtime.Serialization.DataMemberAttribute()]
-        public CYLTRACK_PHONE.RutaService.CiudadBE Ciudad {
-            get {
-                return this.CiudadField;
-            }
-            set {
-                if ((object.ReferenceEquals(this.CiudadField, value) != true)) {
-                    this.CiudadField = value;
-                    this.RaisePropertyChanged("Ciudad");
-                }
-            }
-        }
-        
-        [System.Runtime.Serialization.DataMemberAttribute()]
-        public string Direccion {
-            get {
-                return this.DireccionField;
-            }
-            set {
-                if ((object.ReferenceEquals(this.DireccionField, value) != true)) {
-                    this.DireccionField = value;
-                    this.RaisePropertyChanged("Direccion");
-                }
-            }
-        }
-        
-        [System.Runtime.Serialization.DataMemberAttribute()]
-        public string Id_Conductor {
-            get {
-                return this.Id_ConductorField;
-            }
-            set {
-                if ((object.ReferenceEquals(this.Id_ConductorField, value) != true)) {
-                    this.Id_ConductorField = value;
-                    this.RaisePropertyChanged("Id_Conductor");
-                }
-            }
-        }
-        
-        [System.Runtime.Serialization.DataMemberAttribute()]
-        public string Nombres_Conductor {
-            get {
-                return this.Nombres_ConductorField;
-            }
-            set {
-                if ((object.ReferenceEquals(this.Nombres_ConductorField, value) != true)) {
-                    this.Nombres_ConductorField = value;
-                    this.RaisePropertyChanged("Nombres_Conductor");
-                }
-            }
-        }
-        
-        [System.Runtime.Serialization.DataMemberAttribute()]
-        public string Telefono {
-            get {
-                return this.TelefonoField;
-            }
-            set {
-                if ((object.ReferenceEquals(this.TelefonoField, value) != true)) {
-                    this.TelefonoField = value;
-                    this.RaisePropertyChanged("Telefono");
                 }
             }
         }

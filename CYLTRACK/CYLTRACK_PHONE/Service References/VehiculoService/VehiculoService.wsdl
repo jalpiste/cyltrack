@@ -2,9 +2,9 @@
 <wsdl:definitions xmlns:wsap="http://schemas.xmlsoap.org/ws/2004/08/addressing/policy" xmlns:wsa10="http://www.w3.org/2005/08/addressing" xmlns:tns="http://servicios.cyltrack.com.co/cyltrack/" xmlns:msc="http://schemas.microsoft.com/ws/2005/12/wsdl/contract" xmlns:soapenc="http://schemas.xmlsoap.org/soap/encoding/" xmlns:wsx="http://schemas.xmlsoap.org/ws/2004/09/mex" xmlns:wsp="http://schemas.xmlsoap.org/ws/2004/09/policy" xmlns:wsam="http://www.w3.org/2007/05/addressing/metadata" xmlns:wsa="http://schemas.xmlsoap.org/ws/2004/08/addressing" xmlns:soap12="http://schemas.xmlsoap.org/wsdl/soap12/" xmlns:wsaw="http://www.w3.org/2006/05/addressing/wsdl" xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:wsu="http://docs.oasis-open.org/wss/2004/01/oasis-200401-wss-wssecurity-utility-1.0.xsd" xmlns:xsd="http://www.w3.org/2001/XMLSchema" name="VehiculoService" targetNamespace="http://servicios.cyltrack.com.co/cyltrack/" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">
   <wsdl:types>
     <xsd:schema targetNamespace="http://servicios.cyltrack.com.co/cyltrack/Imports">
-      <xsd:import schemaLocation="http://localhost:51651/CYLTRACK_Services/VehiculoService.svc?xsd=xsd0" namespace="http://servicios.cyltrack.com.co/cyltrack/" />
-      <xsd:import schemaLocation="http://localhost:51651/CYLTRACK_Services/VehiculoService.svc?xsd=xsd1" namespace="http://schemas.microsoft.com/2003/10/Serialization/" />
-      <xsd:import schemaLocation="http://localhost:51651/CYLTRACK_Services/VehiculoService.svc?xsd=xsd2" namespace="http://schemas.datacontract.org/2004/07/Unisangil.CYLTRACK.CYLTRACK_BE" />
+      <xsd:import schemaLocation="http://localhost:1993/CYLTRACK_Services/VehiculoService.svc?xsd=xsd0" namespace="http://servicios.cyltrack.com.co/cyltrack/" />
+      <xsd:import schemaLocation="http://localhost:1993/CYLTRACK_Services/VehiculoService.svc?xsd=xsd1" namespace="http://schemas.microsoft.com/2003/10/Serialization/" />
+      <xsd:import schemaLocation="http://localhost:1993/CYLTRACK_Services/VehiculoService.svc?xsd=xsd2" namespace="http://schemas.datacontract.org/2004/07/Unisangil.CYLTRACK.CYLTRACK_BE" />
     </xsd:schema>
   </wsdl:types>
   <wsdl:message name="IVehiculoService_Registrar_Vehiculo_InputMessage">
@@ -24,6 +24,12 @@
   </wsdl:message>
   <wsdl:message name="IVehiculoService_ConsultarExistenciaVehiculo_OutputMessage">
     <wsdl:part name="parameters" element="tns:ConsultarExistenciaVehiculoResponse" />
+  </wsdl:message>
+  <wsdl:message name="IVehiculoService_ConsultarCilPorVehiculo_InputMessage">
+    <wsdl:part name="parameters" element="tns:ConsultarCilPorVehiculo" />
+  </wsdl:message>
+  <wsdl:message name="IVehiculoService_ConsultarCilPorVehiculo_OutputMessage">
+    <wsdl:part name="parameters" element="tns:ConsultarCilPorVehiculoResponse" />
   </wsdl:message>
   <wsdl:message name="IVehiculoService_ConsultarExistenciaContratista_InputMessage">
     <wsdl:part name="parameters" element="tns:ConsultarExistenciaContratista" />
@@ -80,6 +86,10 @@
       <wsdl:input wsaw:Action="http://servicios.cyltrack.com.co/cyltrack/IVehiculoService/ConsultarExistenciaVehiculo" message="tns:IVehiculoService_ConsultarExistenciaVehiculo_InputMessage" />
       <wsdl:output wsaw:Action="http://servicios.cyltrack.com.co/cyltrack/IVehiculoService/ConsultarExistenciaVehiculoResponse" message="tns:IVehiculoService_ConsultarExistenciaVehiculo_OutputMessage" />
     </wsdl:operation>
+    <wsdl:operation name="ConsultarCilPorVehiculo">
+      <wsdl:input wsaw:Action="http://servicios.cyltrack.com.co/cyltrack/IVehiculoService/ConsultarCilPorVehiculo" message="tns:IVehiculoService_ConsultarCilPorVehiculo_InputMessage" />
+      <wsdl:output wsaw:Action="http://servicios.cyltrack.com.co/cyltrack/IVehiculoService/ConsultarCilPorVehiculoResponse" message="tns:IVehiculoService_ConsultarCilPorVehiculo_OutputMessage" />
+    </wsdl:operation>
     <wsdl:operation name="ConsultarExistenciaContratista">
       <wsdl:input wsaw:Action="http://servicios.cyltrack.com.co/cyltrack/IVehiculoService/ConsultarExistenciaContratista" message="tns:IVehiculoService_ConsultarExistenciaContratista_InputMessage" />
       <wsdl:output wsaw:Action="http://servicios.cyltrack.com.co/cyltrack/IVehiculoService/ConsultarExistenciaContratistaResponse" message="tns:IVehiculoService_ConsultarExistenciaContratista_OutputMessage" />
@@ -131,6 +141,15 @@
     </wsdl:operation>
     <wsdl:operation name="ConsultarExistenciaVehiculo">
       <soap:operation soapAction="http://servicios.cyltrack.com.co/cyltrack/IVehiculoService/ConsultarExistenciaVehiculo" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="ConsultarCilPorVehiculo">
+      <soap:operation soapAction="http://servicios.cyltrack.com.co/cyltrack/IVehiculoService/ConsultarCilPorVehiculo" style="document" />
       <wsdl:input>
         <soap:body use="literal" />
       </wsdl:input>
@@ -204,7 +223,7 @@
   </wsdl:binding>
   <wsdl:service name="VehiculoService">
     <wsdl:port name="BasicHttpBinding_IVehiculoService" binding="tns:BasicHttpBinding_IVehiculoService">
-      <soap:address location="http://localhost:51651/CYLTRACK_Services/VehiculoService.svc" />
+      <soap:address location="http://localhost:1993/CYLTRACK_Services/VehiculoService.svc" />
     </wsdl:port>
   </wsdl:service>
 </wsdl:definitions>
