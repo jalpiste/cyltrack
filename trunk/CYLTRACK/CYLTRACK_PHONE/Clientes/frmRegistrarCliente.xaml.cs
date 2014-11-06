@@ -95,7 +95,7 @@ namespace Unisangil.CYLTRACK.CYLTRACK_PHONE.Clientes
             ClienteBE cliente = new ClienteBE();
 
 
-                cliente.Cedula = lblCedulaCli.Text.ToUpper();
+                cliente.Cedula = lblCedulaCli.Text;
                 cliente.Nombres_Cliente = txtNombres.Text.ToUpper();
                 cliente.Apellido_1 = txtPrApellido.Text.ToUpper();
                 cliente.Apellido_2 = txtSgApellido.Text.ToUpper();
@@ -103,16 +103,16 @@ namespace Unisangil.CYLTRACK.CYLTRACK_PHONE.Clientes
                 UbicacionBE ubicacion = new UbicacionBE();
                 ubicacion.Direccion = txtDir.Text.ToUpper();
                 ubicacion.Barrio = txtBarrio.Text.ToUpper();
-                ubicacion.Telefono_1 = txtTel.Text.ToUpper();
+                ubicacion.Telefono_1 = txtTel.Text;
                 CiudadBE ciudad = new CiudadBE();
-                ciudad.Id_Ciudad = "1";
+                ciudad.Nombre_Ciudad = lblCiudadNombre.Text.ToUpper();
                 ubicacion.Ciudad = ciudad;                          
                 cliente.Ubicacion = ubicacion;
 
             
             servCliente.Registrar_ClienteAsync(cliente);
             servCliente.Registrar_ClienteCompleted += new EventHandler<Registrar_ClienteCompletedEventArgs>(RegistrarCliente);
-                        
+            servCliente.CloseAsync();
         }
 
         private void RegistrarCliente(object sender, Registrar_ClienteCompletedEventArgs e)
