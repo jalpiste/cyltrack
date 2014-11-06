@@ -187,7 +187,7 @@ namespace Unisangil.CYLTRACK.Cyltrack_phone.Clientes
                 ubi.Direccion = txtDir.Text.ToUpper();
                 ubi.Barrio = txtBarrio.Text.ToUpper();
                 ubi.Telefono_1 = txtTel.Text.ToUpper();
-                ubi.Ciudad.Id_Ciudad = "1";
+                ubi.Ciudad.Id_Ciudad = "231";
 
                 btnGuardarModif.Margin = new Thickness(19, 643, 0, 0);
                 btnMenuConsul.Margin = new Thickness(224, 643, 0, 0);
@@ -275,7 +275,7 @@ namespace Unisangil.CYLTRACK.Cyltrack_phone.Clientes
             ubicacion.Barrio = txtNuevoBarrio.Text.ToUpper();
             ubicacion.Telefono_1 = txtTelefono.Text.ToUpper();
             CiudadBE ciu = new CiudadBE();
-            ciu.Nombre_Ciudad = "1";
+            ciu.Nombre_Ciudad = "231";
             ubicacion.Ciudad = ciu;
             nuevadir.Ubicacion = ubicacion;
 
