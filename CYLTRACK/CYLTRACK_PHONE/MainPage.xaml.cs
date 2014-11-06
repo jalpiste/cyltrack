@@ -41,8 +41,6 @@ namespace Unisangil.CYLTRACK.Cyltrack_phone
 
             if (((System.Windows.Controls.ContentControl)(sender)).Content.ToString() == "Registrar Venta")
                 NavigationService.Navigate(new Uri("/Ventas/frmRegistrarVenta.xaml", UriKind.Relative));
-            else if (((System.Windows.Controls.ContentControl)(sender)).Content.ToString() == "Consultar Venta")
-                NavigationService.Navigate(new Uri("/Ventas/frmConsultaVenta.xaml", UriKind.Relative));
             else if (((System.Windows.Controls.ContentControl)(sender)).Content.ToString() == "Consultar Cilindro")
                 NavigationService.Navigate(new Uri("/Ventas/frmConsultaCilindro.xaml", UriKind.Relative));
 
