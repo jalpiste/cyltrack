@@ -125,9 +125,6 @@
     <Compile Include="Ventas\frmConsultaCilindro.xaml.cs">
       <DependentUpon>frmConsultaCilindro.xaml</DependentUpon>
     </Compile>
-    <Compile Include="Ventas\frmConsultaVenta.xaml.cs">
-      <DependentUpon>frmConsultaVenta.xaml</DependentUpon>
-    </Compile>
     <Compile Include="Ventas\frmRegistrarVenta.xaml.cs">
       <DependentUpon>frmRegistrarVenta.xaml</DependentUpon>
     </Compile>
@@ -158,10 +155,6 @@
       <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="Ventas\frmConsultaCilindro.xaml">
-      <Generator>MSBuild:Compile</Generator>
-      <SubType>Designer</SubType>
-    </Page>
-    <Page Include="Ventas\frmConsultaVenta.xaml">
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </Page>
