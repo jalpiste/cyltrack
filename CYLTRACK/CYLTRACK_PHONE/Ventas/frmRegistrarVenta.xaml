@@ -21,7 +21,7 @@
         </Grid.RowDefinitions>
 
         <!--TitlePanel contiene el nombre de la aplicación y el título de la página-->
-        <StackPanel x:Name="nuevo" Margin="12,17,0,28" Style="{StaticResource fondo}">
+        <StackPanel x:Name="nuevo" Margin="12,0,0,28" Style="{StaticResource fondo}">
         <StackPanel Name="barra" Width="467"  Style= "{StaticResource encabezado}" >
             <TextBlock x:Name="ApplicationTitle" Text="CYLTRACK" Style="{StaticResource PhoneTextNormalStyle}"/>
             <TextBlock x:Name="PageTitle" Text="REGISTRAR VENTA" Margin="9,-7,0,0" Style="{StaticResource PhoneTextExtraLargeStyle}" />
