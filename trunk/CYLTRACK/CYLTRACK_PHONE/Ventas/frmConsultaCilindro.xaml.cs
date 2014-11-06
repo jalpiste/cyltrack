@@ -28,29 +28,27 @@ namespace Unisangil.CYLTRACK.Cyltrack_phone.Ventas
             servCilindro.ConsultarCilindroAsync(txtCedula.Text);
             servCilindro.ConsultarCilindroCompleted += new EventHandler<ConsultarCilindroCompletedEventArgs>(PoblarCilindro);
 
-            //ClienteServiceClient serCliente = new ClienteServiceClient();
-            //serCliente.Consultar_ClienteAsync(txtCedula.Text);
-            //serCliente.Consultar_ClienteCompleted += new EventHandler<Consultar_ClienteCompletedEventArgs>(PoblarCliente);
+           
             
         }
 
-        //private void PoblarCliente(object sender, Consultar_ClienteCompletedEventArgs e)
-        //{
-        //    if (txtUbicacion.Text == "CLIENTE")
-        //    {
-        //        txtCedula.Text = e.Result.Cedula;
-        //        txtNombres.Text = e.Result.Nombres_Cliente;
-        //        txtPrApellido.Text = e.Result.Apellido_1;
-        //        txtSgApellido.Text = e.Result.Apellido_2;
-        //        txtDir.Text = e.Result.Ubicacion.Direccion;
-        //        txtBarrio.Text = e.Result.Ubicacion.Barrio;
-        //        txtDepartamento.Text = e.Result.Ubicacion.Ciudad.Departamento.Nombre_Departamento;
-        //        txtCiudad.Text = e.Result.Ubicacion.Ciudad.Nombre_Ciudad;
-        //        txtTel.Text = e.Result.Ubicacion.Telefono_1;
-        //        btnContinuarDatos.Visibility = System.Windows.Visibility.Visible;
-        //        btnConsultaNueva.Visibility = System.Windows.Visibility.Collapsed;
-        //    }
-        //}
+        private void PoblarCliente(object sender, Consultar_ClienteCompletedEventArgs e)
+        {
+            if (txtUbicacion.Text == "CLIENTE")
+            {
+                txtCedula.Text = e.Result.Cedula.ToUpper();
+                txtNombres.Text = e.Result.Nombres_Cliente.ToUpper();
+                txtPrApellido.Text = e.Result.Apellido_1.ToUpper();
+                txtSgApellido.Text = e.Result.Apellido_2.ToUpper();
+                txtDir.Text = e.Result.Ubicacion.Direccion.ToUpper();
+                txtBarrio.Text = e.Result.Ubicacion.Barrio.ToUpper();
+                txtDepartamento.Text = e.Result.Ubicacion.Ciudad.Departamento.Nombre_Departamento.ToUpper();
+                txtCiudad.Text = e.Result.Ubicacion.Ciudad.Nombre_Ciudad.ToUpper();
+                txtTel.Text = e.Result.Ubicacion.Telefono_1.ToUpper();
+                btnContinuarDatos.Visibility = System.Windows.Visibility.Visible;
+                btnConsultaNueva.Visibility = System.Windows.Visibility.Collapsed;
+            }
+        }
 
         private void PoblarCilindro(object sender, ConsultarCilindroCompletedEventArgs e)
         {
@@ -63,13 +61,13 @@ namespace Unisangil.CYLTRACK.Cyltrack_phone.Ventas
                 }
                 else
                 {
-                    
+
                     lblCilindro.Text = e.Result.Codigo_Cilindro;
                     txtAnoFab.Text = e.Result.Ano;
                     txtCodEmpresa.Text = e.Result.Fabricante.Nombre_Fabricante;
                     txtCodigoCil.Text = e.Result.Serial_Cilindro;
                     txtTamano.Text = e.Result.NTamano.Tamano;
-                    txtUbicacion.Text = e.Result.Tipo_Ubicacion.Nombre_Ubicacion;
+                    txtUbicacion.Text = e.Result.Tipo_Ubicacion.Nombre_Ubicacion.ToUpper();
                     txtFecha.Text = Convert.ToString(e.Result.Fecha);
 
                     ContentBusq.Visibility = System.Windows.Visibility.Collapsed;
@@ -78,9 +76,9 @@ namespace Unisangil.CYLTRACK.Cyltrack_phone.Ventas
                     if (txtUbicacion.Text == "VEHICULO")
                     {
                         txtPlaca.Text = e.Result.Vehiculo.Placa;
-                        txtNomCond.Text = e.Result.Vehiculo.Conductor.Nombres_Conductor + " ";
-                        txtApellidosCond.Text = e.Result.Vehiculo.Conductor.Apellido_1 + " " + e.Result.Vehiculo.Conductor.Apellido_2;
-                        txtRuta.Text = e.Result.Vehiculo.Ruta.Nombre_Ruta;
+                        txtNomCond.Text = e.Result.Vehiculo.Conductor.Nombres_Conductor.ToUpper();
+                        txtApellidosCond.Text = e.Result.Vehiculo.Conductor.Apellido_1 + " " + e.Result.Vehiculo.Conductor.Apellido_2.ToUpper();
+                        txtRuta.Text = e.Result.Vehiculo.Ruta.Nombre_Ruta.ToUpper();
                         btnContinuarDatos.Visibility = System.Windows.Visibility.Visible;
                         btnConsultaNueva.Visibility = System.Windows.Visibility.Collapsed;
                     }
@@ -88,11 +86,11 @@ namespace Unisangil.CYLTRACK.Cyltrack_phone.Ventas
                     else if (txtUbicacion.Text == "CLIENTE")
                     {
                         txtCedula.Text = e.Result.Cliente.Cedula;
-                        txtNombres.Text = e.Result.Cliente.Nombres_Cliente;
-                        txtPrApellido.Text = e.Result.Cliente.Apellido_1;
-                        txtSgApellido.Text = e.Result.Cliente.Apellido_2;
-                        txtDir.Text = e.Result.Ubicacion.Direccion;
-                        txtBarrio.Text = e.Result.Ubicacion.Barrio;
+                        txtNombres.Text = e.Result.Cliente.Nombres_Cliente.ToUpper();
+                        txtPrApellido.Text = e.Result.Cliente.Apellido_1.ToUpper();
+                        txtSgApellido.Text = e.Result.Cliente.Apellido_2.ToUpper();
+                        txtDir.Text = e.Result.Ubicacion.Direccion.ToUpper();
+                        txtBarrio.Text = e.Result.Ubicacion.Barrio.ToUpper();
                         txtDepartamento.Text = e.Result.Ubicacion.Ciudad.Departamento.Nombre_Departamento;
                         txtCiudad.Text = e.Result.Ubicacion.Ciudad.Nombre_Ciudad;
                         txtTel.Text = e.Result.Ubicacion.Telefono_1;
@@ -101,7 +99,11 @@ namespace Unisangil.CYLTRACK.Cyltrack_phone.Ventas
                     }
 
                    
-                    txtCedula.Text = "";    
+                    txtCedula.Text = "";
+
+                    ClienteServiceClient serCliente = new ClienteServiceClient();
+                    serCliente.Consultar_ClienteAsync(txtCedula.Text);
+                    serCliente.Consultar_ClienteCompleted += new EventHandler<Consultar_ClienteCompletedEventArgs>(PoblarCliente);
                 }
                 
             }
