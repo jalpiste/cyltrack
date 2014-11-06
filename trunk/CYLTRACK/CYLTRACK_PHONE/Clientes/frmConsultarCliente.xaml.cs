@@ -50,11 +50,11 @@ namespace Unisangil.CYLTRACK.Cyltrack_phone.Clientes
                     txtNombres.Text = e.Result.Nombres_Cliente.ToUpper();
                     txtPrApellido.Text = e.Result.Apellido_1.ToUpper();
                     txtSgApellido.Text = e.Result.Apellido_2.ToUpper();
-                    lblDirecciones.Text = "";
+                    txtDirecciones.Text = "";
                    
                     foreach (UbicacionBE ubi in e.Result.ListaDirecciones)
                     {
-                        lblDirecciones.Text += ubi.Id_Ubicacion + "--"+ ubi.Ciudad.Nombre_Ciudad + "--" + ubi.Barrio + "--"+ (ubi.Direccion.Length > 20 ? ubi.Direccion.Substring(0,20): ubi.Direccion) + "--" + ubi.Telefono_1 +"\n";
+                        txtDirecciones.Text += ubi.Id_Ubicacion + "--"+ ubi.Ciudad.Nombre_Ciudad + "--" + ubi.Barrio + "--"+ (ubi.Direccion.Length > 20 ? ubi.Direccion.Substring(0,20): ubi.Direccion) + "--" + ubi.Telefono_1 +"\n";
                     }
    
                 }
@@ -75,48 +75,27 @@ namespace Unisangil.CYLTRACK.Cyltrack_phone.Clientes
         private void hplAgregarNuevaUbi_Click(object sender, RoutedEventArgs e)
         {
 
+            txtNuevaDir.Text = "";
+            txtNuevoBarrio.Text = "";
+            txtTelefono.Text = "";
+
             ContentModificarCliente2.Visibility = System.Windows.Visibility.Collapsed;
             ContentAgregarUbicacion.Visibility = System.Windows.Visibility.Visible;
-
-            ClienteServiceClient servCliente = new ClienteServiceClient();
-
-            ClienteBE nuevadir = new ClienteBE();
-                        
-            UbicacionBE ubicacion = new UbicacionBE();
-            ubicacion.Direccion = txtNuevaDir.Text.ToUpper();
-            ubicacion.Barrio = txtNuevoBarrio.Text.ToUpper();
-            ubicacion.Telefono_1 = txtTelefono.Text.ToUpper();
-            CiudadBE ciudad = new CiudadBE();
-            ciudad.Id_Ciudad = "1";
-            ubicacion.Ciudad = ciudad;
-            nuevadir.Ubicacion = ubicacion;
-
-
-            servCliente.Agregar_UbicacionAsync(nuevadir);
-            servCliente.Agregar_UbicacionCompleted += new EventHandler<Agregar_UbicacionCompletedEventArgs>(AgregarUbiNueva);
-            servCliente.CloseAsync();
-
-            
-
+            PageTitle.Text = "REGISTRAR UBICACIÓN";
         }
 
         private void AgregarUbiNueva(object sender, Agregar_UbicacionCompletedEventArgs e)
         {
             
-            ContentModificarCliente2.Visibility = System.Windows.Visibility.Visible;
-            ContentAgregarUbicacion.Visibility = System.Windows.Visibility.Collapsed;
-            
             try
             {
                 if (e.Result < 0)
                 {
-                    MessageBox.Show("Error al registrar la nueva dirección, Por favor intente de nuevo");
-
+                    MessageBox.Show("Error al registrar la nueva dirección, por favor intente de nuevo");
                 }
                 else
                     MessageBox.Show("La dirección fue registrada satisfactoriamente");
             }
-
 
             catch (Exception ex)
             {
@@ -132,7 +111,6 @@ namespace Unisangil.CYLTRACK.Cyltrack_phone.Clientes
        
         private void hplModificarCliente_Click(object sender, RoutedEventArgs e)
         {
-            
             ClienteServiceClient servCliente = new ClienteServiceClient();
             servCliente.Consultar_ClienteAsync(lblCedulaCli.Text);
             servCliente.Consultar_ClienteCompleted += new EventHandler<Consultar_ClienteCompletedEventArgs>(ModificarCli);
@@ -181,12 +159,12 @@ namespace Unisangil.CYLTRACK.Cyltrack_phone.Clientes
         {
             NavigationService.Navigate(new Uri("/MainPage.xaml", UriKind.Relative));
         }
-
-
+        
         private void btnMenuConsul_Click(object sender, RoutedEventArgs e)
         {
             ContentModificarCliente2.Visibility = System.Windows.Visibility.Collapsed;
             ContentDatosP.Visibility = System.Windows.Visibility.Visible;
+            PageTitle.Text = "CONSUTAR CLIENTE";
         }
 
         private void btnGuardarModif_Click(object sender, RoutedEventArgs e)
@@ -196,34 +174,38 @@ namespace Unisangil.CYLTRACK.Cyltrack_phone.Clientes
 
             ClienteBE cliente = new ClienteBE();
 
-
+            cliente.Cedula = lblCedulaCli2.Text;
             cliente.Nombres_Cliente = txtNombres2.Text.ToUpper();
             cliente.Apellido_1 = txtPrApellido2.Text.ToUpper();
             cliente.Apellido_2 = txtSgApellido2.Text.ToUpper();
 
             UbicacionBE ubi = new UbicacionBE();
 
-            if (Convert.ToBoolean(lblDireccion.Visibility = System.Windows.Visibility.Visible))
+            if (Convert.ToBoolean(lblDireccion.Visibility == System.Windows.Visibility.Visible))
             {
-
+                ubi.Id_Ubicacion = lblIdDir.Text;
                 ubi.Direccion = txtDir.Text.ToUpper();
                 ubi.Barrio = txtBarrio.Text.ToUpper();
                 ubi.Telefono_1 = txtTel.Text.ToUpper();
                 ubi.Ciudad.Id_Ciudad = "1";
-                ubi.Ciudad.Departamento.Id_Departamento = "1";
 
+                btnGuardarModif.Margin = new Thickness(19, 643, 0, 0);
+                btnMenuConsul.Margin = new Thickness(224, 643, 0, 0);
+
+                servCliente.ModificarDirClienteAsync(ubi);
+                servCliente.ModificarDirClienteCompleted += new EventHandler<ModificarDirClienteCompletedEventArgs>(ModificarUbicacion);
             }
 
             servCliente.ModificarNombreClienteAsync(cliente);
             servCliente.ModificarNombreClienteCompleted += new EventHandler<ModificarNombreClienteCompletedEventArgs>(ModificarCliente);
-            servCliente.ModificarDirClienteAsync(ubi);
-            servCliente.ModificarDirClienteCompleted += new EventHandler<ModificarDirClienteCompletedEventArgs>(ModificarUbicacion);
+            
             servCliente.CloseAsync();
                         
         }
+
         private void ModificarUbicacion(object sender, ModificarDirClienteCompletedEventArgs e)
         {
-            MessageBox.Show("El cliente fue modificado satisfactoriamente");
+            
             ContentModificarCliente2.Visibility = System.Windows.Visibility.Collapsed;
             ContentBusq.Visibility = System.Windows.Visibility.Visible;
             try
@@ -248,18 +230,18 @@ namespace Unisangil.CYLTRACK.Cyltrack_phone.Clientes
         
         private void ModificarCliente(object sender, ModificarNombreClienteCompletedEventArgs e)
         {
-            MessageBox.Show("El cliente fue modificado satisfactoriamente");
+            
             ContentModificarCliente2.Visibility = System.Windows.Visibility.Collapsed;
             ContentBusq.Visibility = System.Windows.Visibility.Visible;
             try
             {
                 if (e.Result < 0)
                 {
-                    MessageBox.Show("Error al crear el cliente, Por favor intente de nuevo");
+                    MessageBox.Show("Error al modificar el cliente, Por favor intente de nuevo");
 
                 }
                 else
-                    MessageBox.Show("El cliente fue registrado satisfactoriamente. Código: " + e.Result);
+                    MessageBox.Show("El cliente fue modificado satisfactoriamente");
             }
             catch (Exception ex)
             {
@@ -268,7 +250,7 @@ namespace Unisangil.CYLTRACK.Cyltrack_phone.Clientes
             }
             finally
             {
-                NavigationService.Navigate(new Uri("/Clientes/frmRegistrarCliente.xaml", UriKind.Relative));
+                NavigationService.Navigate(new Uri("/Clientes/frmConsultarCliente.xaml", UriKind.Relative));
             }
 
         }
@@ -277,13 +259,30 @@ namespace Unisangil.CYLTRACK.Cyltrack_phone.Clientes
         {
             ContentAgregarUbicacion.Visibility = System.Windows.Visibility.Collapsed;
             ContentModificarCliente2.Visibility = System.Windows.Visibility.Visible;
+            PageTitle.Text = "MODIFICAR CLIENTE";
         }
 
         private void btnGuardar_Click(object sender, RoutedEventArgs e)
         {
-            MessageBox.Show("Sus datos fueron enviados satisfactoriamente");
-            ContentAgregarUbicacion.Visibility = System.Windows.Visibility.Collapsed;
-            ContentModificarCliente2.Visibility = System.Windows.Visibility.Visible;
+           
+            ClienteServiceClient servCliente = new ClienteServiceClient();
+
+            ClienteBE nuevadir = new ClienteBE();
+            nuevadir.Cedula = lblCedulaCli2.Text;
+
+            UbicacionBE ubicacion = new UbicacionBE();
+            ubicacion.Direccion = txtNuevaDir.Text.ToUpper();
+            ubicacion.Barrio = txtNuevoBarrio.Text.ToUpper();
+            ubicacion.Telefono_1 = txtTelefono.Text.ToUpper();
+            CiudadBE ciu = new CiudadBE();
+            ciu.Nombre_Ciudad = "1";
+            ubicacion.Ciudad = ciu;
+            nuevadir.Ubicacion = ubicacion;
+
+
+            servCliente.Agregar_UbicacionAsync(nuevadir);
+            servCliente.Agregar_UbicacionCompleted += new EventHandler<Agregar_UbicacionCompletedEventArgs>(AgregarUbiNueva);
+            servCliente.CloseAsync();
         }
 
         private void btnNuevaCons_Click(object sender, RoutedEventArgs e)
@@ -297,7 +296,7 @@ namespace Unisangil.CYLTRACK.Cyltrack_phone.Clientes
             ClienteServiceClient servCliente = new ClienteServiceClient();
             servCliente.ConsultarDirCliPorUbicaAsync(txtIdDir.Text);
             servCliente.ConsultarDirCliPorUbicaCompleted += new EventHandler<ConsultarDirCliPorUbicaCompletedEventArgs>(ModificarDireccion);
-            servCliente.CloseAsync();
+     
         }
 
         private void ModificarDireccion(object sender, ConsultarDirCliPorUbicaCompletedEventArgs e)
@@ -311,10 +310,13 @@ namespace Unisangil.CYLTRACK.Cyltrack_phone.Clientes
                 }
                 else
                 {
+                    lblIdDir.Text = e.Result.Id_Ubicacion;
                     txtDir.Text = e.Result.Direccion.ToUpper();
                     txtBarrio.Text = e.Result.Barrio.ToUpper();
                     txtTel.Text = e.Result.Telefono_1.ToUpper();
 
+                    lblIdDirec.Visibility = System.Windows.Visibility.Visible;
+                    lblIdDir.Visibility = System.Windows.Visibility.Visible;
                     lblDireccion.Visibility = System.Windows.Visibility.Visible;
                     txtDir.Visibility = System.Windows.Visibility.Visible;
                     lblBarrio.Visibility = System.Windows.Visibility.Visible;
