@@ -75,7 +75,7 @@
                         &nbsp;&nbsp;&nbsp;
 
                         <asp:TextBox ID="TxtConductor" runat="server" CssClass="textEntry" Enabled="false" 
-                                Width="242px"></asp:TextBox>
+                                Width="294px"></asp:TextBox>
                        
                             &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
                        

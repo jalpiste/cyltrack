@@ -89,8 +89,6 @@ namespace Unisangil.CYLTRACK.CYLTRACK_WebApp.Cilindros
 
         }
 
-
-
         protected void BtnNuevaConsulta_Click(object sender, EventArgs e)
         {
             try
