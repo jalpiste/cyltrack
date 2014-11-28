@@ -26,21 +26,21 @@ namespace Unisangil.CYLTRACK.CYLTRACK_BL
             long respDetalleVenta = 0;
             try
             {
-                if(venta.Observaciones=="")
+                if (venta.Observaciones == "")
                 {
                     venta.Observaciones = "0";
                 }
-                
-                respVenta = ven.RegistrarVenta(venta);
-                venta.Id_Venta= respVenta.ToString();
 
-                foreach(Detalle_VentaBE datos in venta.Lista_Detalle_Venta)
+                respVenta = ven.RegistrarVenta(venta);
+                venta.Id_Venta = respVenta.ToString();
+
+                foreach (Detalle_VentaBE datos in venta.Lista_Detalle_Venta)
                 {
                     Detalle_VentaBE det = new Detalle_VentaBE();
                     det.Id_Cilindro_Entrada = datos.Id_Cilindro_Entrada;
                     det.Id_Cilindro_Salida = datos.Id_Cilindro_Salida;
                     det.Tipo_Cilindro = datos.Tipo_Cilindro;
-                    det.Tamano = datos.Tamano;                    
+                    det.Tamano = datos.Tamano;
                     if (datos.Tipo_Venta == "Prestamo")
                     {
                         det.Tipo_Venta = "3";
@@ -56,7 +56,7 @@ namespace Unisangil.CYLTRACK.CYLTRACK_BL
                     venta.Detalle_Venta = det;
                     respDetalleVenta = ven.RegistrarDetalleVenta(venta);
                 }
-                
+
             }
             catch (Exception ex)
             {
@@ -95,7 +95,7 @@ namespace Unisangil.CYLTRACK.CYLTRACK_BL
             }
             catch (Exception ex)
             {
-                
+
             }
 
             return resp;
@@ -103,22 +103,19 @@ namespace Unisangil.CYLTRACK.CYLTRACK_BL
 
         public List<CasosBE> RevisionCasosEspeciales(string casos)
         {
-            List<CasosBE> lstCaso = new List<CasosBE>();
-            Random ran = new Random();
-            for (int i = 0; i < 7; i++)
+            VentaDL CasosDL = new VentaDL();
+            List<CasosBE> lstCasos = new List<CasosBE>();
+
+            try
             {
-                 VentaBE datosVenta= new VentaBE();
-                 datosVenta = ConsultarVenta(casos);
-                 CasosBE casosEspeciales = new CasosBE();
-                 //casosEspeciales.Id_Detalle_Venta = datosVenta;
-                 casosEspeciales.Id_Casos = ((DateTime.Now.Hour + DateTime.Now.Second) * ran.Next(1, 10)).ToString();
-                 Tipo_CasoBE tipCaso = new Tipo_CasoBE();
-                 tipCaso.Nombre_Caso = "Escape";
-                 casosEspeciales.Tipo_Caso = tipCaso;
-                 lstCaso.Add(casosEspeciales);
+                lstCasos = CasosDL.ConsultarCaso(casos);
             }
-                      
-            return lstCaso;
+            catch (Exception ex)
+            {
+
+            }
+
+            return lstCasos;
         }
 
         public long CasosEspeciales(CasosBE casos)
@@ -126,12 +123,12 @@ namespace Unisangil.CYLTRACK.CYLTRACK_BL
             VentaDL ven = new VentaDL();
             CilindroDL cil = new CilindroDL();
 
-            long respRegCaso ;
+            long respRegCaso;
             long respRegModV;
             long respRegModUbica;
             try
             {
-                if (casos.Observaciones == "") 
+                if (casos.Observaciones == "")
                 {
                     casos.Observaciones = "0";
                 }
@@ -140,7 +137,7 @@ namespace Unisangil.CYLTRACK.CYLTRACK_BL
                 {
                     respRegModV = ModificarVenta(casos.Detalle_Venta);
                 }
-                else 
+                else
                 {
                     CilindroBE objCil = new CilindroBE();
                     objCil.Codigo_Cilindro = casos.Detalle_Venta.Id_Cilindro_Entrada;
@@ -178,6 +175,23 @@ namespace Unisangil.CYLTRACK.CYLTRACK_BL
                 //guardar exepcion en el log de bd
                 resp = -1;
             }
+            return resp;
+        }
+
+        public Detalle_VentaBE ConsultarDetalleVenta(string datoConsulta)
+        {
+            VentaDL ven = new VentaDL();
+            Detalle_VentaBE resp = new Detalle_VentaBE();
+
+            try
+            {
+                resp = ven.ConsultarDetalleVenta(datoConsulta);
+            }
+            catch (Exception ex)
+            {
+
+            }
+
             return resp;
         }
 
