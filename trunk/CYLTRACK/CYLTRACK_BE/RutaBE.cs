@@ -38,11 +38,11 @@ namespace Unisangil.CYLTRACK.CYLTRACK_BE
         [DataMember]
         public Ruta_VehiculoBE Ruta_Vehiculo { get; set; }
 
-        /// <summary>
-        /// Ciudad Ruta
-        /// </summary>
-        [DataMember]
-        public Ciudad_RutaBE Ciudad_Ruta { get; set; }
+        ///// <summary>
+        ///// Ciudad Ruta
+        ///// </summary>
+        //[DataMember]
+        //public Ciudad_RutaBE Ciudad_Ruta { get; set; }
 
         /// <summary>
         /// Conductor
@@ -50,6 +50,22 @@ namespace Unisangil.CYLTRACK.CYLTRACK_BE
         [DataMember]
         public ConductorBE Conductor { get; set; }
 
+        /// <summary>
+        /// Lista Ciudades Rutas
+        /// </summary>
+        [DataMember]
+        public List<CiudadBE> Lista_Ciudades { get; set; }
 
+        /// <summary>
+        /// Descripcion ruta 
+        /// </summary>
+        [DataMember]
+        public String Descripcion { get; set; }
+
+        /// <summary>
+        /// Identificador de la Ciudad_Ruta
+        /// </summary>
+        [DataMember]
+        public String Id_Ciudad_Ruta { get; set; }
     }
 }

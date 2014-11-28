@@ -26,10 +26,16 @@ namespace Unisangil.CYLTRACK.CYLTRACK_BE
         public String Id_Ciudad_Ruta { get; set; }
 
         /// <summary>
-        /// Ciudad_Ruta
+        /// Identificador Ruta
         /// </summary>
         [DataMember]
-        public CiudadBE Ciudad { get; set; }
+        public String Id_Ciudad { get; set; }
+
+        /// <summary>
+        /// Identificador Ruta
+        /// </summary>
+        [DataMember]
+        public String Id_Ruta { get; set; }
 
 
     }
