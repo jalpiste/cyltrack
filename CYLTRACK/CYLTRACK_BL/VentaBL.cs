@@ -45,7 +45,7 @@ namespace Unisangil.CYLTRACK.CYLTRACK_BL
                     {
                         det.Tipo_Venta = "3";
                     }
-                    if (datos.Tipo_Venta == "Intercambio" && datos.Tipo_Cilindro == "UNIVERSAL")
+                    if (datos.Tipo_Venta == "Intercambio")
                     {
                         det.Tipo_Venta = "2";
                     }
