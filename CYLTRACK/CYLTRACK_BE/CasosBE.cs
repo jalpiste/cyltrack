@@ -33,6 +33,12 @@ namespace Unisangil.CYLTRACK.CYLTRACK_BE
         public String Observaciones { get; set; }
 
         /// <summary>
+        /// Fecha de registro del caso
+        /// </summary>
+        [DataMember]
+        public DateTime Fecha { get; set; }
+
+        /// <summary>
         /// Tipo de caso
         /// </summary>
         [DataMember]

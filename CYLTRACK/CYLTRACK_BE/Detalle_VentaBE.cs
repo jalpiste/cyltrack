@@ -27,6 +27,12 @@ namespace Unisangil.CYLTRACK.CYLTRACK_BE
         public String Id_Detalle_Venta { get; set; }
 
         /// <summary>
+        /// Identificador de un cliente
+        /// </summary>
+        [DataMember]
+        public String Id_Cliente { get; set; }
+
+        /// <summary>
         /// Tamaño del cilindro
         /// </summary>
         [DataMember]
@@ -78,7 +84,13 @@ namespace Unisangil.CYLTRACK.CYLTRACK_BE
         /// Tipo de venta (1) Recompra (2) Siembra (3) Préstamo
         /// </summary>
         [DataMember]
-        public String Tipo_Venta { get; set; }  
+        public String Tipo_Venta { get; set; }
+
+        /// <summary>
+        /// VentaBE
+        /// </summary>
+        [DataMember]
+        public VentaBE Venta { get; set; } 
         
     }
 }

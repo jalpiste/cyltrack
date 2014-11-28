@@ -38,5 +38,12 @@ namespace Unisangil.CYLTRACK.CYLTRACK_BE
         [DataMember]
         public DepartamentoBE Departamento { get; set; }
 
+        /// <summary>
+        /// Identificador de la Ciudad_Ruta
+        /// </summary>
+        [DataMember]
+        public String Id_Ciudad_Ruta { get; set; }
+
+
     }
 }
