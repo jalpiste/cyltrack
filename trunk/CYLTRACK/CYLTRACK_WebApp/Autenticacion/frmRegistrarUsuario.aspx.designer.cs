@@ -31,6 +31,15 @@ namespace Unisangil.CYLTRACK.CYLTRACK_WebApp.Autenticacion {
         protected global::System.Web.UI.WebControls.ValidationSummary RegistrarUsuarios;
         
         /// <summary>
+        /// Control ConsultarUsuarios.
+        /// </summary>
+        /// <remarks>
+        /// Campo generado automáticamente.
+        /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.ValidationSummary ConsultarUsuarios;
+        
+        /// <summary>
         /// Control lblNombreUsuario.
         /// </summary>
         /// <remarks>
@@ -83,6 +92,15 @@ namespace Unisangil.CYLTRACK.CYLTRACK_WebApp.Autenticacion {
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
         protected global::System.Web.UI.WebControls.RequiredFieldValidator PasswordRequired;
+        
+        /// <summary>
+        /// Control lblContra.
+        /// </summary>
+        /// <remarks>
+        /// Campo generado automáticamente.
+        /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Label lblContra;
         
         /// <summary>
         /// Control lblConfirmarContrasena.
@@ -452,6 +470,15 @@ namespace Unisangil.CYLTRACK.CYLTRACK_WebApp.Autenticacion {
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
         protected global::System.Web.UI.WebControls.RequiredFieldValidator validCargo;
+        
+        /// <summary>
+        /// Control btnConsulta.
+        /// </summary>
+        /// <remarks>
+        /// Campo generado automáticamente.
+        /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Button btnConsulta;
         
         /// <summary>
         /// Control btnCrearUsuario.

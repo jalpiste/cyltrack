@@ -17,6 +17,8 @@
                     </span>
                     <asp:ValidationSummary ID="RegistrarUsuarios" runat="server" CssClass="failureNotification" 
                          ValidationGroup="RegistrodeUsuarios" Width="385px"/>
+                    <asp:ValidationSummary ID="ConsultarUsuarios" runat="server" CssClass="failureNotification" 
+                         ValidationGroup="ConsultarUsuarios" Width="385px"/>
                     <div class="accountInfo">
                         <fieldset class="register">
                             <legend>Información de cuenta</legend>
@@ -28,7 +30,7 @@
                              <asp:RequiredFieldValidator ID="UserRequired" runat="server" 
                                  ControlToValidate="txtNombreUsuario" CssClass="failureNotification" 
                                  ErrorMessage="El nombre de usuario es obligatorio." 
-                                 ValidationGroup="RegistrodeUsuarios">*</asp:RequiredFieldValidator>
+                                 ValidationGroup="ConsultarUsuarios">*</asp:RequiredFieldValidator>
                              <br />
                              <asp:Label ID="lblContrasena" runat="server" Text="Contraseña:"></asp:Label>
                              <br />
@@ -38,7 +40,8 @@
                                  ControlToValidate="txtContrasena" CssClass="failureNotification" 
                                  ErrorMessage="La contraseña es obligatoria." 
                                  ToolTip="La contraseña es obligatoria." 
-                                 ValidationGroup="RegistrodeUsuarios">*</asp:RequiredFieldValidator>
+                                 ValidationGroup="ConsultarUsuarios">*</asp:RequiredFieldValidator>
+                             <asp:Label ID="lblContra" runat="server" Visible="false"></asp:Label>
                              <br />
                              <asp:Label ID="lblConfirmarContrasena" runat="server" Text="Confirmar contraseña:"></asp:Label>
                              <br />
@@ -47,7 +50,7 @@
                                 ></asp:TextBox>
                               <asp:CompareValidator ID="PasswordCompare" runat="server" ControlToCompare="txtContrasena"
                         ControlToValidate="txtConfirmarContrasena" CssClass="failureNotification" Display="Dynamic"
-                        ErrorMessage="Contraseña y Confirmar contraseña deben coincidir." ValidationGroup="RegistrodeUsuarios"
+                        ErrorMessage="Contraseña y Confirmar contraseña deben coincidir." ValidationGroup="ConsultarUsuarios"
                        >*</asp:CompareValidator>
                        <br />
                              <asp:Label ID="lblCorreo" runat="server" Text="Correo electrónico:"></asp:Label>
@@ -57,11 +60,11 @@
                              <asp:RequiredFieldValidator ID="EmailRequired" runat="server" 
                                  ControlToValidate="txtEmail" CssClass="failureNotification" 
                                  ErrorMessage="El correo electrónico es obligatorio." 
-                                 ValidationGroup="RegistrodeUsuarios">*</asp:RequiredFieldValidator>
+                                 ValidationGroup="ConsultarUsuarios">*</asp:RequiredFieldValidator>
                                  <asp:regularexpressionvalidator ID="revEmail" runat="server" ControlToValidate="txtEmail" CssClass="failureNotification"
                                  ErrorMessage="Formato de correo no valido" ValidationGroup="RegistrodeUsuarios" ValidationExpression="\w+([-+.]\w+)*@\w+([-.]\w+)*\.\w+([-.]\w+)*">**</asp:regularexpressionvalidator>
                             <br /><br />
-                      <div id= "DatosPersonales" runat ="server"> 
+                      <div id= "DatosPersonales" runat ="server" visible="false"> 
                              <div class="post" >
                              <asp:Label ID="LblPoster" runat="server" Text="Datos Personales"></asp:Label>
                                </div> 
@@ -184,15 +187,16 @@
                              </div>
                              </fieldset>
                         <p class="submitButton">
+                            <asp:Button ID="btnConsulta" runat="server" Text="Consultar Usuario" Width="125px"
+                           ValidationGroup="ConsultarUsuarios" onclick="btnConsulta_Click" 
+                                 />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
                             <asp:Button ID="btnCrearUsuario" runat="server" Text="Crear usuario" Width="115px"
                            ValidationGroup="RegistrodeUsuarios" 
-                                onclick="btnCrearUsuario_Click"  />
+                                onclick="btnCrearUsuario_Click" Visible="false" />
                             &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
                             <asp:Button ID="btnMenu" runat="server" Text="Menú Principal" Width="115px" 
                                 onclick="btnMenu_Click" />
-                            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-                            &nbsp;&nbsp;&nbsp;
-                            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+
                         </p>
                     </div>
                
