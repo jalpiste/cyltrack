@@ -105,7 +105,7 @@ namespace Unisangil.CYLTRACK.CYLTRACK_PHONE.Clientes
                 ubicacion.Barrio = txtBarrio.Text.ToUpper();
                 ubicacion.Telefono_1 = txtTel.Text;
                 CiudadBE ciudad = new CiudadBE();
-                ciudad.Nombre_Ciudad = lblCiudadNombre.Text.ToUpper();
+                ciudad.Id_Ciudad = "231";
                 ubicacion.Ciudad = ciudad;                          
                 cliente.Ubicacion = ubicacion;
 
@@ -127,7 +127,7 @@ namespace Unisangil.CYLTRACK.CYLTRACK_PHONE.Clientes
 
             }
             else
-               MessageBox.Show("El cliente fue registrado satisfactoriamente. Código: " + e.Result);
+               MessageBox.Show("El cliente fue registrado satisfactoriamente");
             }
             catch (Exception ex)
             {
