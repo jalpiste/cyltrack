@@ -15,6 +15,7 @@ namespace Unisangil.CYLTRACK.CYLTRACK_WebApp.Rutas
     {
         List<CiudadBE> lstDetail = new List<CiudadBE>();
         DataTable objdtLista;
+        List<CiudadBE> listaCiudades = new List<CiudadBE>();
         protected void Page_Load(object sender, EventArgs e)
         {
             if(!IsPostBack)
@@ -60,10 +61,34 @@ namespace Unisangil.CYLTRACK.CYLTRACK_WebApp.Rutas
             try
             {
 
-                    objdtTabla.Rows.Add(lstCiudad.SelectedItem.Text);
-                    gdAdd.DataSource = objdtTabla;
-                    gdAdd.DataBind();
-                
+            DataTable table = new DataTable();
+            listaCiudades = (List<CiudadBE>)Session["listaCiudades"];
+            CiudadBE ciu = new CiudadBE();
+            ciu.Nombre_Ciudad = lstCiudad.SelectedItem.Text;
+            ciu.Id_Ciudad = Convert.ToString(lstCiudad.SelectedIndex);
+            //ciu.Descripcion = "N";
+
+            foreach (CiudadBE ent in listaCiudades)
+            {
+                if (ent.Nombre_Ciudad == lstCiudad.SelectedItem.Text)
+                {                    
+                    listaCiudades.Remove(ent);
+                    break;
+                }
+            }
+
+            listaCiudades.Add(ciu);
+            Session["listaCiudades"] = listaCiudades;
+            table.Columns.Add("CiudadesAdd");
+            table.Columns.Add("IdCiudad");
+            foreach (CiudadBE datos in listaCiudades)
+            {
+                table.Rows.Add(datos.Nombre_Ciudad, datos.Id_Ciudad);
+            }
+            gdAdd.DataSource = table;
+            gdAdd.DataBind();           
+            btnGuardar.Visible = true;
+        
             }
             catch (Exception ex)
             {
@@ -99,21 +124,23 @@ namespace Unisangil.CYLTRACK.CYLTRACK_WebApp.Rutas
         private void CrearTabla()
         {
             objdtLista.Columns.Add("CiudadesAdd");
+            objdtLista.Columns.Add("Id_Ciudad");
             objdtTabla = objdtLista;
         }
 
-        protected void btnModificar_Click(object sender, EventArgs e)
+        protected void btnModificarIni_Click(object sender, EventArgs e)
         {
-                DivModificarDatos.Visible = true;
-                btnModificar.Visible = false;
-                txtNuevoNombre.Enabled = true;
-                gdAdd.Enabled = true;        
+            DivModificarDatos.Visible = true;
+            txtNuevoNombre.Enabled = true;
+            txtNombreRuta.Enabled = false;
+            gdAdd.Enabled = true;
+            btnModificarIni.Visible = false;
+            
         }
         
         protected void txtNombreRuta_TextChanged(object sender, EventArgs e)
         {
             RutaServicesClient servRuta = new RutaServicesClient();
-            RutaBE ruta = new RutaBE();
             DataTable tabla = new DataTable();
             
             try 
@@ -127,29 +154,38 @@ namespace Unisangil.CYLTRACK.CYLTRACK_WebApp.Rutas
                         DivDatos.Visible = false;
                         DivModificarDatos.Visible = false;
                         DivPost.Visible = false;
+                        txtNombreRuta.Enabled = true;
                         txtNombreRuta.Focus();
                     }
                     else
                     {
-                       List<RutaBE> consultaRuta = new List<RutaBE>(servRuta.ConsultarRuta(txtNombreRuta.Text));
 
-                       tabla.Columns.Add("CiudadesAdd");
+                      RutaBE  objRuta = servRuta.ConsultarRuta(txtNombreRuta.Text);
 
-                        foreach(RutaBE datos in consultaRuta)
+                        tabla.Columns.Add("CiudadesAdd");
+                        tabla.Columns.Add("IdCiudad");
+                        txtNuevoNombre.Text = objRuta.Nombre_Ruta;
+                        lblIdRuta.Text = objRuta.Id_Ruta;
+                        listaCiudades = objRuta.Lista_Ciudades;
+                        lstDetail = objRuta.Lista_Ciudades;
+                        foreach (CiudadBE info in listaCiudades)
                        {
-                           txtNuevoNombre.Text = datos.Nombre_Ruta;
-                           lblIdRuta.Text = datos.Id_Ruta;
-                           objdtTabla.Rows.Add(datos.Ciudad_Ruta.Ciudad.Nombre_Ciudad);
-                           gdAdd.DataSource = objdtTabla;
-                           gdAdd.DataBind();
+                          tabla.Rows.Add(info.Nombre_Ciudad, info.Id_Ciudad);
                        }
+                          gdAdd.DataSource = tabla;
+                          gdAdd.DataBind();
+                          Session["listaCiudades"] = listaCiudades;
+                          Session["lstDetail"] = lstDetail;
+                      
                         txtNuevoNombre.Text = txtNombreRuta.Text;
- 
+                       
                         DivPost.Visible = true;
                         DivDatos.Visible = true;
                         DivCiudad.Visible = true;
                         btnGuardar.Visible = true;
-                        gdAdd.Visible = true;                                                              
+                        gdAdd.Visible = true;
+                        txtNombreRuta.Enabled = false;
+                        txtNuevoNombre.Enabled = false;         
                     }
             }
             catch (Exception ex)
@@ -161,89 +197,152 @@ namespace Unisangil.CYLTRACK.CYLTRACK_WebApp.Rutas
                 servRuta.Close();
                 gdAdd.Visible = true;
             }
-                    
         }
-        protected void gdAdd_RowDeleting(Object sender, GridViewDeleteEventArgs e)
+       
+        protected void gdAdd_RowEditing(object sender, GridViewEditEventArgs e)
         {
-            objdtTabla.Rows.RemoveAt(e.RowIndex);
-            gdAdd.DataSource = objdtTabla;
-            gdAdd.DataBind();
-            btnGuardar.Focus();
+            listaCiudades = (List<CiudadBE>)Session["listaCiudades"];
+            lstCiudad.SelectedIndex = Convert.ToInt32(listaCiudades[e.NewEditIndex].Id_Ciudad);
+            Session["indiceModificar"] = e.NewEditIndex;
+            e.Cancel = true;
+            btnGuardar.Visible = true;
         }
+
+        protected void gdAdd_RowDeleting(object sender, GridViewDeleteEventArgs e)
+        {
+            DataTable tabla = new DataTable();
+            tabla.Columns.Add("CiudadesAdd");
+            tabla.Columns.Add("IdCiudad");
+
+            listaCiudades = (List<CiudadBE>)Session["listaCiudades"];
+            
+
+           listaCiudades.Remove(listaCiudades[e.RowIndex]);
+            Session["listaCiudades"] = listaCiudades;
+            lstDetail = (List<CiudadBE>)Session["lstDetail"];
+            
+            foreach (CiudadBE dato in lstDetail)
+            {
+                foreach (CiudadBE info in listaCiudades)
+                {
+                    if (dato.Nombre_Ciudad != info.Nombre_Ciudad)
+                    {
+                        dato.Nombre_Ciudad = "DatoBorrado";
+                    }
+                }
+
+                if(listaCiudades.Count==0)
+                {
+                dato.Nombre_Ciudad = "DatoBorrado";
+                }
+            }
+            foreach (CiudadBE datos in listaCiudades)
+            {
+                tabla.Rows.Add(datos.Nombre_Ciudad, datos.Id_Ciudad);
+            }
+            gdAdd.DataSource = tabla;
+            gdAdd.DataBind();                       
+            btnGuardar.Visible = true;
+        }
+
+        protected void btnModificar_Click(object sender, EventArgs e)
+        {
+            DataTable table = new DataTable();
+            listaCiudades = (List<CiudadBE>)Session["listaCiudades"];
+            int indice = (int)Session["indiceModificar"];
+            Session.Remove("indiceModificar");
+            CiudadBE ciu = new CiudadBE();
+            ciu.Nombre_Ciudad = lstCiudad.SelectedItem.Text;
+            ciu.Id_Ciudad = Convert.ToString(lstCiudad.SelectedIndex);
+           // ciu.Descripcion = "M";                      
+            listaCiudades.Remove(listaCiudades[indice]);
+
+            //foreach (CiudadBE ent in listaCiudades)
+            //{
+            //    if (ent.Nombre_Ciudad == lstCiudad.SelectedItem.Text)
+            //    {
+            //        ciu.Cantidad += ent.Cantidad;
+            //        lista.Remove(ent);
+            //        break;
+            //    }
+            //}
+            listaCiudades.Add(ciu);
+            Session["listaCiudades"] = listaCiudades;
+            table.Columns.Add("CiudadesAdd");
+           
+            foreach (CiudadBE datos in listaCiudades)
+            {
+                table.Rows.Add(datos.Nombre_Ciudad);
+            }
+            gdAdd.DataSource = table;
+            gdAdd.DataBind();            
+            btnGuardar.Visible = true;            
+            txtNuevoNombre.Enabled = true;
+            txtNombreRuta.Enabled = false;
+            gdAdd.Enabled = true;  
+        }
+
         protected void btnGuardar_Click(object sender, EventArgs e)
         {
             RutaServicesClient servRuta = new RutaServicesClient();
-            long datos;
             RutaBE ruta = new RutaBE();
 
-            try 
+            long resp;
+            listaCiudades = (List<CiudadBE>)Session["listaCiudades"];
+            lstDetail = (List<CiudadBE>)Session["lstDetail"];
+
+            try
             {
-                    ruta.Nombre_Ruta = txtNuevoNombre.Text;
-                    CiudadBE ciudad = new CiudadBE();
-                    Ciudad_RutaBE ciuRuta = new Ciudad_RutaBE();
-                    foreach (DataRow row in objdtTabla.Rows)
-                    {                      
-                        ciudad.Nombre_Ciudad += (Convert.ToString(row["CiudadesAdd"])+",");
-                        ciuRuta.Ciudad = ciudad;
-                    }
-
-                    int var = ciudad.Nombre_Ciudad.Length;
-                    ciudad.Nombre_Ciudad = ciudad.Nombre_Ciudad.Substring(0, var - 1);
-                    ruta.Ciudad_Ruta = ciuRuta;
-                    ruta.Id_Ruta = lblIdRuta.Text;
-                    datos = servRuta.ModificarRuta(ruta);
-
-                    MessageBox.Show("La ruta fue modificada satisfactoriamente", "Modificar Ruta");
+                if (txtNombreRuta.Text == txtNuevoNombre.Text)
+                {
+                    ruta.Nombre_Ruta = "";
                 }
-           
+                else 
+                {
+                    ruta.Nombre_Ruta = txtNuevoNombre.Text;
+                }
+                
+                List<CiudadBE> lstCiud = new List<CiudadBE>();
+                foreach (CiudadBE dato in listaCiudades)
+                {
+                    foreach (CiudadBE info in lstDetail)
+                        {
+                               if (dato.Nombre_Ciudad != info.Nombre_Ciudad)
+                                {
+                                    CiudadBE ciu = new CiudadBE();
+                                    ciu.Nombre_Ciudad = dato.Nombre_Ciudad;
+                                    ciu.Id_Ciudad = dato.Id_Ciudad;
+                                    lstCiud.Add(ciu);
+                                }
+
+                               if (info.Nombre_Ciudad == "DatoBorrado")
+                               {
+                                   CiudadBE ciu = new CiudadBE();
+                                   ciu.Nombre_Ciudad = info.Nombre_Ciudad;
+                                   ciu.Id_Ciudad = info.Id_Ciudad;
+                                   ciu.Id_Ciudad_Ruta = info.Id_Ciudad_Ruta;
+                                   lstCiud.Add(ciu);
+                               }
+                    }
+                }
+                ruta.Lista_Ciudades = lstCiud;
+                resp = servRuta.ModificarRuta(ruta);
+
+                MessageBox.Show("La ruta fue modificada satisfactoriamente", "Modificar Ruta");
+
+            }
             catch (Exception ex)
             {
                 Response.Redirect("~/About.aspx");
             }
-            finally 
+            finally
             {
                 servRuta.Close();
-                Response.Redirect("~/Rutas/frmModificarRuta.aspx");
+                Response.Redirect("~/Pedido/frmModificarPedido.aspx");
             }
+
             
        }
-
-        //protected void btnRemover_Click(object sender, EventArgs e)
-        //{
-        //    RutaBE ruta = new RutaBE();
-        //    DataTable tabla = new DataTable();
-
-        //    try
-        //    {
-        //        string registro = ((System.Web.UI.WebControls.Button)sender).Attributes["value"].ToString();
-                
-        //        foreach (string datos in lstCiudades)
-        //        {
-        //            if (datos == registro)
-        //            {
-        //                lstCiudades.Remove(registro);
-        //            }
-        //        }
-
-        //        tabla.Columns.Add("CiudadesAdd");
-
-        //        foreach (string info in lstCiudades)
-        //        {
-        //            tabla.Rows.Add(info);
-        //            gdAdd.DataSource = tabla;
-        //            gdAdd.DataBind();
-        //        }
-
-        //    }
-        //    catch (Exception ex)
-        //    {
-        //        Response.Redirect("~/About.aspx");
-        //    }
-        //    finally
-        //    {
-        //        gdAdd.Visible = true;
-        //    }
-        //}
 
         protected void txtNuevoNombre_TextChanged(object sender, EventArgs e)
         {
@@ -317,6 +416,6 @@ namespace Unisangil.CYLTRACK.CYLTRACK_WebApp.Rutas
             }
            
         }                
-        
+
     }
 }

@@ -193,13 +193,13 @@ namespace Unisangil.CYLTRACK.CYLTRACK_WebApp.Rutas {
         protected global::System.Web.UI.WebControls.GridView gdAdd;
         
         /// <summary>
-        /// Control btnModificar.
+        /// Control btnModificarIni.
         /// </summary>
         /// <remarks>
         /// Campo generado automáticamente.
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Button btnModificar;
+        protected global::System.Web.UI.WebControls.Button btnModificarIni;
         
         /// <summary>
         /// Control btnGuardar.
