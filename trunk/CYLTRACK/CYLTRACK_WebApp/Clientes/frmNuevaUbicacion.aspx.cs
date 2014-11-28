@@ -47,11 +47,7 @@ namespace Unisangil.CYLTRACK.CYLTRACK_WebApp.Clientes
             }
         }
 
-        protected void btnLimpiar_Click(object sender, EventArgs e)
-        {
-
-        }
-
+       
         protected void btnGuardar_Click(object sender, EventArgs e)
         {
             ClienteServiceClient servCliente = new ClienteServiceClient();
@@ -120,7 +116,7 @@ namespace Unisangil.CYLTRACK.CYLTRACK_WebApp.Clientes
         protected void lstCiudad_SelectedIndexChanged(object sender, EventArgs e)
         {
             btnGuardar.Visible = true;
-            btnLimpiar.Visible = true;
+           
         }
     }
 }
