@@ -285,35 +285,35 @@ namespace Unisangil.CYLTRACK.CYLTRACK_DL
                 parametros[1].ParameterName = "vrNombres";
                 parametros[1].Value = conductor.Nombres_Conductor;
                 parametros[1].Direction = ParameterDirection.Input;
-                parametros[1].Size = 20;
+                parametros[1].Size = 50;
                 db.Comando.Parameters.Add(parametros[1]);
 
                 parametros[2] = db.Comando.CreateParameter();
                 parametros[2].ParameterName = "vrApellido_1";
                 parametros[2].Value = conductor.Apellido_1;
                 parametros[2].Direction = ParameterDirection.Input;
-                parametros[2].Size = 12;
+                parametros[2].Size = 50;
                 db.Comando.Parameters.Add(parametros[2]);
 
                 parametros[3] = db.Comando.CreateParameter();
                 parametros[3].ParameterName = "vrApellido_2";
                 parametros[3].Value = conductor.Apellido_2;
                 parametros[3].Direction = ParameterDirection.Input;
-                parametros[3].Size = 15;
+                parametros[3].Size = 50;
                 db.Comando.Parameters.Add(parametros[3]);
 
                 parametros[4] = db.Comando.CreateParameter();
                 parametros[4].ParameterName = "vrDireccion";
                 parametros[4].Value = conductor.Direccion;
                 parametros[4].Direction = ParameterDirection.Input;
-                parametros[4].Size = 30;
+                parametros[4].Size = 50;
                 db.Comando.Parameters.Add(parametros[4]);
 
                 parametros[5] = db.Comando.CreateParameter();
                 parametros[5].ParameterName = "vrBarrio";
                 parametros[5].Value = conductor.Barrio;
                 parametros[5].Direction = ParameterDirection.Input;
-                parametros[5].Size = 30;
+                parametros[5].Size = 50;
                 db.Comando.Parameters.Add(parametros[5]);
 
                 parametros[6] = db.Comando.CreateParameter();
@@ -327,7 +327,7 @@ namespace Unisangil.CYLTRACK.CYLTRACK_DL
                 parametros[7].ParameterName = "vrCiudad";
                 parametros[7].Value = conductor.Ciudad.Nombre_Ciudad;
                 parametros[7].Direction = ParameterDirection.Input;
-                parametros[7].Size = 20;
+                parametros[7].Size = 50;
                 db.Comando.Parameters.Add(parametros[7]);
 
                 parametros[8] = db.Comando.CreateParameter();
@@ -756,21 +756,21 @@ namespace Unisangil.CYLTRACK.CYLTRACK_DL
                 parametros[1].ParameterName = "vrNombres";
                 parametros[1].Value = contratista.Nombres;
                 parametros[1].Direction = ParameterDirection.Input;
-                parametros[1].Size = 20;
+                parametros[1].Size = 50;
                 db.Comando.Parameters.Add(parametros[1]);
 
                 parametros[2] = db.Comando.CreateParameter();
                 parametros[2].ParameterName = "vrApellidos";
                 parametros[2].Value = contratista.Apellidos;
                 parametros[2].Direction = ParameterDirection.Input;
-                parametros[2].Size = 12;
+                parametros[2].Size = 50;
                 db.Comando.Parameters.Add(parametros[2]);
 
                 parametros[3] = db.Comando.CreateParameter();
                 parametros[3].ParameterName = "vrDireccion";
                 parametros[3].Value = contratista.Direccion;
                 parametros[3].Direction = ParameterDirection.Input;
-                parametros[3].Size = 30;
+                parametros[3].Size = 50;
                 db.Comando.Parameters.Add(parametros[3]);
 
                 parametros[4] = db.Comando.CreateParameter();
