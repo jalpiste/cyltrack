@@ -442,5 +442,134 @@ namespace Unisangil.CYLTRACK.CYLTRACK_DL
             return codigo;
         }
 
+        public List <CasosBE> ConsultarCaso(string id_Caso)
+        {
+           List<CasosBE> lstCaso = new List<CasosBE>();
+            try
+            {
+                string nameSP = "ConsultarCasos";
+                BaseDatos db = new BaseDatos();
+                db.Conectar();
+                db.CrearComandoSP(nameSP);
+                DbParameter[] parametros = new DbParameter[3];
+                parametros[0] = db.Comando.CreateParameter();
+                parametros[0].ParameterName = "vrId_TipoCaso";
+                parametros[0].Value = id_Caso;
+                parametros[0].Direction = ParameterDirection.Input;
+                db.Comando.Parameters.Add(parametros[0]);
+
+                parametros[1] = db.Comando.CreateParameter();
+                parametros[1].ParameterName = "vrCodResult";
+                parametros[1].Value = 0;
+                parametros[1].Direction = ParameterDirection.Output;
+                db.Comando.Parameters.Add(parametros[1]);
+
+                parametros[2] = db.Comando.CreateParameter();
+                parametros[2].ParameterName = "vrDescResult";
+                parametros[2].Value = "";
+                parametros[2].Direction = ParameterDirection.Output;
+                parametros[2].Size = 200;
+                parametros[2].DbType = DbType.String;
+                db.Comando.Parameters.Add(parametros[2]);
+
+                DbDataReader datos = db.EjecutarConsulta();
+                CasosBE c = null;
+                while (datos.Read())
+                {
+                    try
+                    {
+                        c = new CasosBE();
+                        c.Id_Casos = datos.GetValue(0).ToString();
+                        c.Observaciones = datos.GetString(1);
+                        c.Tipo_Caso.Id_Tipo_Caso = datos.GetValue(2).ToString();
+                        c.Detalle_Venta.Id_Detalle_Venta = datos.GetValue(3).ToString();
+                        c.Fecha = datos.GetDateTime(4);
+                        c.EstadoCaso = datos.GetString(5);
+                        lstCaso.Add(c);
+                    }
+                    catch (InvalidCastException ex)
+                    {
+                        throw new Exception("Los tipos no coinciden.", ex);
+                    }
+                    catch (DataException ex)
+                    {
+                        throw new Exception("Error de ADO.NET.", ex);
+                    }
+                }
+                datos.Close();
+                db.Desconectar();
+            }
+            catch (Exception ex)
+            {
+                throw new Exception("Error al acceder a la base de datos para obtener los CasosBEs.");
+            }
+            return lstCaso;
+        }
+
+        public Detalle_VentaBE ConsultarDetalleVenta(string idDetalle)
+        {
+            Detalle_VentaBE detalleVenta = new Detalle_VentaBE();
+            try
+            {
+                string nameSP = "ConsultarDetalleVenta";
+                BaseDatos db = new BaseDatos();
+                db.Conectar();
+                db.CrearComandoSP(nameSP);
+                DbParameter[] parametros = new DbParameter[3];
+                parametros[0] = db.Comando.CreateParameter();
+                parametros[0].ParameterName = "vrId_DetalleVenta";
+                parametros[0].Value = idDetalle;
+                parametros[0].Direction = ParameterDirection.Input;
+                db.Comando.Parameters.Add(parametros[0]);
+
+                parametros[1] = db.Comando.CreateParameter();
+                parametros[1].ParameterName = "vrCodResult";
+                parametros[1].Value = 0;
+                parametros[1].Direction = ParameterDirection.Output;
+                db.Comando.Parameters.Add(parametros[1]);
+
+                parametros[2] = db.Comando.CreateParameter();
+                parametros[2].ParameterName = "vrDescResult";
+                parametros[2].Value = "";
+                parametros[2].Direction = ParameterDirection.Output;
+                parametros[2].Size = 200;
+                parametros[2].DbType = DbType.String;
+                db.Comando.Parameters.Add(parametros[2]);
+
+                DbDataReader datos = db.EjecutarConsulta();
+                Detalle_VentaBE dv = null;
+                while (datos.Read())
+                {
+                    try
+                    {
+                        dv = new Detalle_VentaBE();
+                        VentaBE venta = new VentaBE();
+                        dv.IdVenta = datos.GetValue(0).ToString();
+                        dv.Id_Cliente = datos.GetString(1);
+                        venta.Fecha = datos.GetDateTime(1);
+                        venta.Observaciones = datos.GetString(1);
+                        dv.Id_Cilindro_Entrada = datos.GetString(1);
+                        dv.Id_Cilindro_Salida = datos.GetString(1);
+                        dv.Venta = venta;
+                        detalleVenta = dv;
+                    }
+                    catch (InvalidCastException ex)
+                    {
+                        throw new Exception("Los tipos no coinciden.", ex);
+                    }
+                    catch (DataException ex)
+                    {
+                        throw new Exception("Error de ADO.NET.", ex);
+                    }
+                }
+                datos.Close();
+                db.Desconectar();
+            }
+            catch (Exception ex)
+            {
+                throw new Exception("Error al acceder a la base de datos para obtener los VentaBEs.");
+            }
+            return detalleVenta;
+        }
     }
 }
