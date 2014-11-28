@@ -129,8 +129,9 @@
                         <p>
                         <asp:TextBox ID="TxtPlaca" runat="server" CssClass="textEntry" Width="80px" Enabled="False" ></asp:TextBox>
                         &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-                        <asp:TextBox ID="TxtConductor" runat="server" CssClass="textEntry" Width="165px" Enabled="False" ></asp:TextBox>
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                        <asp:TextBox ID="TxtConductor" runat="server" CssClass="textEntry" Width="238px" 
+                                Enabled="False" ></asp:TextBox>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
                         <asp:TextBox ID="TxtRuta" runat="server" CssClass="textEntry" Enabled="False"></asp:TextBox>
                         </p>
                    </div>
