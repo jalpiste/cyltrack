@@ -56,6 +56,12 @@ namespace Unisangil.CYLTRACK.CYLTRACK_BE
         [DataMember]
         public UbicacionBE Ubicacion { get; set; }
 
+        ///// <summary>
+        ///// ciudad de un cliente
+        ///// </summary> 
+        //[DataMember]
+        //public CiudadBE Ciudad { get; set; }
+
         /// <summary>
         /// Lista de Direcciones Cliente
         /// </summary> 
