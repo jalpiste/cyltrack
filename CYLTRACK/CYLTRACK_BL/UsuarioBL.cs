@@ -83,7 +83,7 @@ namespace Unisangil.CYLTRACK.CYLTRACK_BL
         public string Autenticacion(UsuarioBE usuario)
         {
             string resp ;
-            resp = "PrimeraVez";
+            resp = "SegundaVez";
             return resp;            
         }
 
