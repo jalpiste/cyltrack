@@ -82,7 +82,7 @@ namespace Unisangil.CYLTRACK.CYLTRACK_WebApp.Autenticacion
                 else
                 {
                 usuario.Usuario = txtNombreUsuario.Text;
-                usuario.Contrasena_1 = (txtContrasena.Text);
+                usuario.Contrasena_1 = lblContra.Text;
                 usuario.Correo = txtEmail.Text;
                 usuario.Cedula = txtCedula.Text;
                 usuario.Nombre = txtNombre.Text;
@@ -140,6 +140,37 @@ namespace Unisangil.CYLTRACK.CYLTRACK_WebApp.Autenticacion
         protected void lstCargo_SelectedIndexChanged(object sender, EventArgs e)
         {
             SetFocus(btnCrearUsuario);
+        }
+
+        protected void btnConsulta_Click(object sender, EventArgs e)
+        {
+            UsuarioServiceClient servUsuario = new UsuarioServiceClient();
+                                   
+            long consultaUsuario = servUsuario.ConsultarExistencia(txtNombreUsuario.Text);
+
+            if (consultaUsuario != 0)
+            {
+                MessageBox.Show("El usuario digitado ya se encuentra registrado en el sistema", "Registrar Usuario");
+                DatosPersonales.Visible = false;
+                txtContrasena.Enabled = true;
+                txtConfirmarContrasena.Enabled = true;
+                txtEmail.Enabled = true;
+                txtNombreUsuario.Enabled = true;
+                btnCrearUsuario.Visible = false;
+                btnConsulta.Visible = true;
+            }
+
+            else
+            {
+                DatosPersonales.Visible = true;
+                txtContrasena.Enabled = false;
+                txtConfirmarContrasena.Enabled = false;
+                txtEmail.Enabled = false;
+                txtNombreUsuario.Enabled = false;
+                btnCrearUsuario.Visible = true;
+                lblContra.Text = txtContrasena.Text;
+                btnConsulta.Visible = false;
+            }
         }
     }
 }

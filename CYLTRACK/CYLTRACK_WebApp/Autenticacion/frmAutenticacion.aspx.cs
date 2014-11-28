@@ -29,15 +29,16 @@ namespace Unisangil.CYLTRACK.CYLTRACK_WebApp.Autenticacion
             {
                 string autentic;
                 usuario.Usuario = txtNombreUsuario.Text;
-                usuario.Contrasena_1 = ( txtContrasena.Text);
+                usuario.Contrasena_1 = (txtContrasena.Text);
 
                 autentic = servUsuario.Autenticacion(usuario);
 
-                if (autentic==Tipo_Autenticacion.PrimeraVez.ToString())
+                if (autentic == Tipo_Autenticacion.PrimeraVez.ToString())
                 {
-                    divAutentica.Visible = false;
-                    divPrimeraVez.Visible = true;
-                    btnIniciarSesion.Visible = false;
+                    //divAutentica.Visible = false;
+                    //divPrimeraVez.Visible = true;
+                    //btnIniciarSesion.Visible = false;
+                    Response.Redirect("~/Default.aspx");
                 }
                 if (autentic == Tipo_Autenticacion.SegundaVez.ToString())
                 {
@@ -50,14 +51,15 @@ namespace Unisangil.CYLTRACK.CYLTRACK_WebApp.Autenticacion
                 }
             }
             catch (Exception ex)
-             {
+            {
                 Response.Redirect("~/About.aspx");
-             }
+            }
 
             finally
             {
                 servUsuario.Close();
             }
+            Response.Redirect("~/Default.aspx");
  
            }
        
