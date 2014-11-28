@@ -147,7 +147,8 @@
         </fieldset>
     </div>
     <div class="submitButton" id="divBotones" runat="server" visible="false">
-        <asp:Button ID="btnImp" runat="server" Text="Imprimir" Width="115px" />
+        <asp:Button ID="btnImp" runat="server" Text="Imprimir" Width="115px" 
+            onclick="btnImp_Click" />
         &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
         <asp:Button ID="btnMenu" runat="server" Text="Menú Principal" Width="115px" OnClick="btnMenu_Click" />
     &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;  
