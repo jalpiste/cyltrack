@@ -6,6 +6,7 @@ using System.Web.UI;
 using System.Web.UI.WebControls;
 using Unisangil.CYLTRACK.CYLTRACK_BE;
 using CYLTRACK_WebApp.VentaService;
+using CYLTRACK_WebApp.ReporteService;
 using System.Data;
 
 namespace Unisangil.CYLTRACK.CYLTRACK_WebApp.Ventas
@@ -16,15 +17,24 @@ namespace Unisangil.CYLTRACK.CYLTRACK_WebApp.Ventas
         {
             if (!IsPostBack)
             {
-                List<string> tiposCasos = Auxiliar.ConsultarTipoCaso();
-                foreach (string datosCasos in tiposCasos)
+                ReporteServiceClient servReporte = new ReporteServiceClient();
+                try
                 {
-                    lstCaso.Items.Add(datosCasos);
+                    List<Tipo_CasoBE> lstTipCasos = new List<Tipo_CasoBE>(servReporte.ConsultaTiposCasos());
+
+                    lstCaso.DataSource = servReporte.ConsultaTiposCasos();
+                    lstCaso.DataValueField = "Id_Tipo_Caso";
+                    lstCaso.DataTextField = "Nombre_Caso";
+                    lstCaso.DataBind();
                 }
-            }
-            if(IsPostBack)
-            {
-                gvReporte.Focus();
+                catch (Exception ex)
+                {
+                    Response.Redirect("~/About.aspx");
+                }
+                finally
+                {
+                    servReporte.Close();
+                }
             }
         }
        

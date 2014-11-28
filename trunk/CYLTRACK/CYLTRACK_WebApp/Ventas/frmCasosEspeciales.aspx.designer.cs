@@ -13,6 +13,24 @@ namespace Unisangil.CYLTRACK.CYLTRACK_WebApp.Ventas {
     public partial class frmCasosEspeciales {
         
         /// <summary>
+        /// Control RegistrarCaso.
+        /// </summary>
+        /// <remarks>
+        /// Campo generado automáticamente.
+        /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.ValidationSummary RegistrarCaso;
+        
+        /// <summary>
+        /// Control validarCodigo.
+        /// </summary>
+        /// <remarks>
+        /// Campo generado automáticamente.
+        /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.ValidationSummary validarCodigo;
+        
+        /// <summary>
         /// Control lblCedulaCliente.
         /// </summary>
         /// <remarks>
@@ -211,6 +229,15 @@ namespace Unisangil.CYLTRACK.CYLTRACK_WebApp.Ventas {
         protected global::System.Web.UI.WebControls.ListBox lstCaso;
         
         /// <summary>
+        /// Control validListaCaso.
+        /// </summary>
+        /// <remarks>
+        /// Campo generado automáticamente.
+        /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.RequiredFieldValidator validListaCaso;
+        
+        /// <summary>
         /// Control divGrid.
         /// </summary>
         /// <remarks>
@@ -299,6 +326,15 @@ namespace Unisangil.CYLTRACK.CYLTRACK_WebApp.Ventas {
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
         protected global::System.Web.UI.WebControls.TextBox txtCodigoVerific;
+        
+        /// <summary>
+        /// Control validarCodigoExpresion.
+        /// </summary>
+        /// <remarks>
+        /// Campo generado automáticamente.
+        /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.RegularExpressionValidator validarCodigoExpresion;
         
         /// <summary>
         /// Control lblObserva.

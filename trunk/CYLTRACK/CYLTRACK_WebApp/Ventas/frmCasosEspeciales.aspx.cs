@@ -199,22 +199,6 @@ namespace Unisangil.CYLTRACK.CYLTRACK_WebApp.Ventas
 
             try
             {
-                if (lstCaso.SelectedItem.Text == Tipo_Casos.ESCAPE.ToString())
-                {
-                    divEscape.Visible = true;
-                    SetFocus(lstCilEntrega);
-                    List<Ubicacion_CilindroBE> lstCilVehiculos = new List<Ubicacion_CilindroBE>(servVehiculo.ConsultarCilPorVehiculo("1"));
-
-                    foreach (Ubicacion_CilindroBE datos in lstCilVehiculos)
-                    {
-                        lstCilEntrega.Items.Add(datos.Cilindro.Codigo_Cilindro);
-                    }
-                }
-                else
-                {
-                    divEscape.Visible = false;
-                }
-
                 if (lstCaso.SelectedItem.Text == Tipo_Casos.CODIGO.ToString() + " " + Tipo_Casos.ERRADO.ToString())
                 {
                     divCodCorrecto.Visible = true;
@@ -224,16 +208,44 @@ namespace Unisangil.CYLTRACK.CYLTRACK_WebApp.Ventas
                 {
                     divCodCorrecto.Visible = false;
                 }    
-             }
-                catch (Exception ex)
+            
+            if (lstCaso.SelectedItem.Text == Tipo_Casos.ESCAPE.ToString())
+            {
+                divEscape.Visible = true;
+                SetFocus(lstCilEntrega);
+                List<Ubicacion_CilindroBE> lstCilVehiculos = new List<Ubicacion_CilindroBE>(servVehiculo.ConsultarCilPorVehiculo("1"));
+
+                if (lstCilVehiculos.Count == 0)
                 {
-                    Response.Redirect("~/About.aspx");
+                    MessageBox.Show("El vehículo no tiene cilindros cargados", "Casos Especiales");
+                    btnGuardar.Visible = false;
+                    lstCaso.Items.RemoveAt(lstCaso.SelectedIndex);
+                    divCodCorrecto.Visible = false;
+                    lstCilEntrega.Visible = false;
+                    lblCodigoVerific.Visible = false;
                 }
-                finally
+                else
                 {
-                    servVehiculo.Close();
-                    divGrid.Visible = true;                    
+                    foreach (Ubicacion_CilindroBE datos in lstCilVehiculos)
+                    {
+                        lstCilEntrega.Items.Add(datos.Cilindro.Codigo_Cilindro);
+                    }
                 }
+            }
+            else
+            {
+                divEscape.Visible = false;
+            }
+            }
+            catch (Exception ex)
+            {
+                Response.Redirect("~/About.aspx");
+            }
+            finally
+            {
+                servVehiculo.Close();
+                divGrid.Visible = true;
+            }
        }
 
         protected void Seleccion_onClick(object sender, EventArgs e)
@@ -330,6 +342,7 @@ namespace Unisangil.CYLTRACK.CYLTRACK_WebApp.Ventas
             lblMsn.Text = ((System.Web.UI.WebControls.RadioButton)sender).Attributes["value2"].ToString();
             ((System.Web.UI.WebControls.RadioButton)sender).Checked = false;
             btnGuardar.Visible = true;
+            gvCargue.Focus();
         }
 
         protected void txtCodigoVerific_TextChanged(object sender, EventArgs e)
@@ -340,9 +353,9 @@ namespace Unisangil.CYLTRACK.CYLTRACK_WebApp.Ventas
             {
                 respConsultaExistencias = servCilindro.ConsultarExistenciaCilindro(txtCodigoVerific.Text);
 
-                if (respConsultaExistencias == 0)
+                if (respConsultaExistencias != 0)
                 {
-                    MessageBox.Show("El código digitado no se encuentra registrado en el sistema", "Casos Especiales");
+                    MessageBox.Show("El código digitado ya se encuentra registrado en el sistema", "Casos Especiales");
                     txtCodigoVerific.Text = "";
                 }
             }
