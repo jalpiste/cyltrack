@@ -33,7 +33,6 @@
                 <TextBlock Height="30" HorizontalAlignment="Left" Name="lblContrasena" Text="Contraseña: "  Margin="10,155,0,214" />
                 <PasswordBox Height="Auto" HorizontalAlignment="Left" Name="pwContrasena" VerticalAlignment="Top" Width="303" Style="{StaticResource contraseña}" Margin="2,173,0,0" />
                 <HyperlinkButton Content="Olvidó Contraseña" Height="30" HorizontalAlignment="Left" Margin="12,236,0,0" Name="hprlkOlvidoContrasena" VerticalAlignment="Top" Width="200" Style="{StaticResource link}" Click="hprlkOlvidoContrasena_Click" />
-                <CheckBox Content="Mantener la sesión iniciada" Height="72" HorizontalAlignment="Left" Margin="2,267,0,0" Name="checkSesionActiva" VerticalAlignment="Top" />
                 <Button Content="Iniciar Sesión " Height="72" HorizontalAlignment="Left" Margin="9,340,0,0" Name="btonIniciarSesion" VerticalAlignment="Top" Width="200" Click="btonIniciarSesion_Click" />
                 <Button Content="Menú " Height="72" HorizontalAlignment="Left" Margin="210,340,0,0" Name="btnMenu" VerticalAlignment="Top" Width="160" Click="btnMenu_Click" />
                 </Grid>
