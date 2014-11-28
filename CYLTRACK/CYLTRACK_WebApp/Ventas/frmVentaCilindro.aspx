@@ -139,7 +139,6 @@
       </div>       
         
                <div id="DivDetalleVenta" runat="server" visible="false">
-               
                    <div class="post">Información de la Venta de Cilindros</div>
                    <asp:Label ID="lblTamanoCil" runat="server" Text="Tamaño Cilindro:"></asp:Label>
                       &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
@@ -157,7 +156,11 @@
                          ValidationGroup="AgregarVenta"/>
                   
                           <asp:Label ID="lblIdVehiculo" runat="server" Visible="false"></asp:Label>
-        
+                          <br />
+                          <div id="divDatosConsulta" runat="server" visible="false" >
+<asp:Label ID="lblRegVeh" runat="server" Visible="False" Width="273px" Height="16px"></asp:Label>   
+
+<asp:Label ID="lblRegCli" runat="server" Visible="False" Width="273px"></asp:Label>
     <table border="0">
         <tr>
             <td valign="top">
@@ -175,7 +178,7 @@
                     <FooterStyle BackColor="#507CD1" Font-Bold="True" ForeColor="White" />
                     <PagerStyle BackColor="#2461BF" ForeColor="White" HorizontalAlign="Center" />
                      <EmptyDataTemplate>
-                         No hay registros
+                         No existen registros 
                      </EmptyDataTemplate>
                     <SelectedRowStyle BackColor="#C5BBAF" Font-Bold="True" ForeColor="#333333"  />
                     <HeaderStyle BackColor="#AC3332" Font-Bold="True" ForeColor="White"  />
@@ -229,7 +232,7 @@
                     <FooterStyle BackColor="#507CD1" Font-Bold="True" ForeColor="White" />
                     <PagerStyle BackColor="#2461BF" ForeColor="White" HorizontalAlign="Center" />
                      <EmptyDataTemplate>
-                         No hay registros
+                         No existen registros
                      </EmptyDataTemplate>
                     <SelectedRowStyle BackColor="#C5BBAF" Font-Bold="True" ForeColor="#333333"  />
                     <HeaderStyle BackColor="#AC3332" Font-Bold="True" ForeColor="White"  />
@@ -274,26 +277,33 @@
                     <p>
                         <asp:Label ID="lblTipoVenta" runat="server" Text="Seleccione una de las opciones:"></asp:Label>
                     <br />
-                    <asp:RadioButtonList ID="radioTipoDeVenta" runat="server" OnSelectedIndexChanged="SelectTipoVenta"  ValidationGroup="ValidarSiembra" AutoPostBack="True" Width="227px">
-            <asp:ListItem>Intercambio</asp:ListItem>
-            <asp:ListItem>Prestamo</asp:ListItem>
-        </asp:RadioButtonList>
-        <asp:RequiredFieldValidator ID="validarSeleccionTipoVenta" runat="server" ControlToValidate="radioTipoDeVenta" 
+                </p>
+                    <p>
+                        <asp:RadioButton ID="rdIntercambio" GroupName="Intercambio" OnCheckedChanged="SelectTipoVenta"
+                         Text="Intercambio" runat="server"/>
+                         <br />
+                         <asp:RadioButton Id="rdPrestamo" GroupName="Prestamo" OnCheckedChanged="SelectTipoVenta"
+                        Text="Préstamo" runat="server"/>
+
+        <%--<asp:RequiredFieldValidator ID="validarSeleccionTipoVenta" runat="server" ControlToValidate="radioTipoDeVenta" 
                              CssClass="failureNotification" ErrorMessage="Debe seleccionar alguna de las opciones" ToolTip="Debe seleccionar alguna de las opciones" 
-                             ValidationGroup="ValidarSiembra">*</asp:RequiredFieldValidator>
+                             ValidationGroup="ValidarSiembra">*</asp:RequiredFieldValidator>--%>
                 </p>
                 </div>
                 <div id="divIntercambioCil" runat="server" visible="false">             
                      <div class="post">Proceso de Siembra de Cilindros</div>                    
                      <p>
                          <asp:Label ID="lblTipoCil" runat="server" Text="Tipo de Cilindro:"></asp:Label>
-                          <asp:RadioButtonList ID="rdTipoCil" runat="server" AutoPostBack="true">
-                             <asp:ListItem>Universal</asp:ListItem>
-                             <asp:ListItem>Marcado</asp:ListItem>
-                         </asp:RadioButtonList>
-                                 <asp:RequiredFieldValidator ID="RequiredFieldValidator2" runat="server" ControlToValidate="rdTipoCil" 
+                         <br />
+                          <asp:RadioButton ID="rdUniversal" GroupName="TipoCilUni" OnCheckedChanged="SelectTipoVenta"
+                         Text="Universal" Visible="false" runat="server"/>
+                         <br />
+                         <asp:RadioButton Id="rdMarcado" Visible="false"  GroupName="TipoCilMar" OnCheckedChanged="SelectTipoVenta"
+                        Text="Marcado" runat="server"/>
+
+                                <%-- <asp:RequiredFieldValidator ID="RequiredFieldValidator2" runat="server" 
                              CssClass="failureNotification" ErrorMessage="Debe seleccionar alguna de las opciones" ToolTip="Debe seleccionar alguna de las opciones" 
-                             ValidationGroup="ValidarSiembra">*</asp:RequiredFieldValidator>
+                             ValidationGroup="ValidarSiembra">*</asp:RequiredFieldValidator>--%>
                        </p>
                        <p>
                         <asp:Label ID="lblCilSiembra" runat="server" Text="Código Cilindro Recibido: "></asp:Label>
@@ -307,16 +317,15 @@
                              <asp:RegularExpressionValidator ID="validarDatosCilindro" runat="server" ControlToValidate="txtCilSiembra" 
                             CssClass="failureNotification" ErrorMessage="El código del cilindro debe contener entre 11 y 12 dígitos." 
                             ValidationExpression="^([\d]{11,12})$"  Font-Size = "Small" ValidationGroup="ValidarSiembra">*</asp:RegularExpressionValidator>
-                       &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-                       
-                            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-
+                     
                         </p>
-                    </div>
-                    <p>                    
+                        <p>                    
                         <asp:Label ID="lblObservacion" runat="server" Text="Observación: "></asp:Label><br />
                         <asp:TextBox ID="txtObservacion" runat="server" Height="77px" Width="306px"></asp:TextBox>
                     </p>
+                    </div>
+                    </div>
+                    
                      </div>
                 </fieldset>
                 <p class="submitButton">

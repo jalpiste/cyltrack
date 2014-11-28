@@ -283,6 +283,33 @@ namespace Unisangil.CYLTRACK.CYLTRACK_WebApp.Ventas {
         protected global::System.Web.UI.WebControls.Label lblIdVehiculo;
         
         /// <summary>
+        /// Control divDatosConsulta.
+        /// </summary>
+        /// <remarks>
+        /// Campo generado automáticamente.
+        /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
+        /// </remarks>
+        protected global::System.Web.UI.HtmlControls.HtmlGenericControl divDatosConsulta;
+        
+        /// <summary>
+        /// Control lblRegVeh.
+        /// </summary>
+        /// <remarks>
+        /// Campo generado automáticamente.
+        /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Label lblRegVeh;
+        
+        /// <summary>
+        /// Control lblRegCli.
+        /// </summary>
+        /// <remarks>
+        /// Campo generado automáticamente.
+        /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Label lblRegCli;
+        
+        /// <summary>
         /// Control gvCilVehiculo.
         /// </summary>
         /// <remarks>
@@ -373,22 +400,22 @@ namespace Unisangil.CYLTRACK.CYLTRACK_WebApp.Ventas {
         protected global::System.Web.UI.WebControls.Label lblTipoVenta;
         
         /// <summary>
-        /// Control radioTipoDeVenta.
+        /// Control rdIntercambio.
         /// </summary>
         /// <remarks>
         /// Campo generado automáticamente.
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.RadioButtonList radioTipoDeVenta;
+        protected global::System.Web.UI.WebControls.RadioButton rdIntercambio;
         
         /// <summary>
-        /// Control validarSeleccionTipoVenta.
+        /// Control rdPrestamo.
         /// </summary>
         /// <remarks>
         /// Campo generado automáticamente.
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.RequiredFieldValidator validarSeleccionTipoVenta;
+        protected global::System.Web.UI.WebControls.RadioButton rdPrestamo;
         
         /// <summary>
         /// Control divIntercambioCil.
@@ -409,22 +436,22 @@ namespace Unisangil.CYLTRACK.CYLTRACK_WebApp.Ventas {
         protected global::System.Web.UI.WebControls.Label lblTipoCil;
         
         /// <summary>
-        /// Control rdTipoCil.
+        /// Control rdUniversal.
         /// </summary>
         /// <remarks>
         /// Campo generado automáticamente.
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.RadioButtonList rdTipoCil;
+        protected global::System.Web.UI.WebControls.RadioButton rdUniversal;
         
         /// <summary>
-        /// Control RequiredFieldValidator2.
+        /// Control rdMarcado.
         /// </summary>
         /// <remarks>
         /// Campo generado automáticamente.
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.RequiredFieldValidator RequiredFieldValidator2;
+        protected global::System.Web.UI.WebControls.RadioButton rdMarcado;
         
         /// <summary>
         /// Control lblCilSiembra.

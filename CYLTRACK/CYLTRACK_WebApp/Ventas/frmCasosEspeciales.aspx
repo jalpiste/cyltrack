@@ -6,7 +6,12 @@
         Casos Especiales
     </h1>
      <div class="accountInfo">
+      <asp:ValidationSummary ID="RegistrarCaso" runat="server" CssClass="failureNotification" 
+                 ValidationGroup="RegistrarCaso" />
+                 <asp:ValidationSummary ID="validarCodigo" runat="server" CssClass="failureNotification" 
+                 ValidationGroup="validarCodigo" />
   <fieldset class="login" style="width: 777px">
+             
                 <legend>Casos Especiales</legend>
                 <h3>
                 Digite el número de cédula del cliente o código de la venta
@@ -106,10 +111,11 @@
                  
                <h3>Seleccione la opcion correspondiente a su caso: </h3>
                     <asp:ListBox ID="lstCaso" runat="server" Rows="1" AutoPostBack="True"
-                        onselectedindexchanged="lstCaso_SelectedIndexChanged">
+                        onselectedindexchanged="lstCaso_SelectedIndexChanged" >
                        </asp:ListBox>
-                        <br />
-
+               <asp:RequiredFieldValidator ID="validListaCaso" runat="server" ControlToValidate="lstCaso" 
+                             CssClass="failureNotification" ErrorMessage="El tipo de caso es obligatorio." ToolTip="El tipo de caso es obligatorio." 
+                             ValidationGroup="RegistrarCaso">*</asp:RequiredFieldValidator>
                     <div id="divGrid" runat="server" visible="false">
                     <h3>Seleccione el cilindro del caso a registrar: 
                         <asp:Label ID="lblIdDetalleV" runat="server" Visible="false"></asp:Label>
@@ -165,10 +171,16 @@
            </div>
            <div id="divCodCorrecto" runat="server" visible="false">
              <br />
-                 <asp:Label ID="lblCodigoVerific" runat="server" Text="Digite el código del cilindro correcto:"></asp:Label> 
+                 <asp:Label ID="lblCodigoVerific" runat="server" 
+                   Text="Digite el código del cilindro correcto y presione la tecla enter:"></asp:Label> 
                  <br />
                  <asp:TextBox ID="txtCodigoVerific" runat="server" CssClass="textEntry" 
                    ontextchanged="txtCodigoVerific_TextChanged"></asp:TextBox>
+                  &nbsp;&nbsp;&nbsp;
+                  <asp:RegularExpressionValidator ID="validarCodigoExpresion" runat="server" ControlToValidate="txtCodigoVerific" 
+                            CssClass="failureNotification" ErrorMessage="El código del cilindro debe contener 12 dígitos." 
+                            ValidationExpression="^([\d]{12})$"  Font-Size = "Small" Display ="Dynamic"
+                            ValidationGroup="validarCodigo" ></asp:RegularExpressionValidator>
            </div>
                <br />
                     <asp:Label ID="lblObserva" runat="server" Text="Observaciones"></asp:Label>
@@ -180,7 +192,7 @@
         </div>
                 <p class="submitButton">
                     <asp:Button ID="btnGuardar" runat="server" Text="Guardar" Width="115px" 
-                        visible="false" onclick="btnGuardar_Click"/>  
+                        visible="false" onclick="btnGuardar_Click" ValidationGroup="RegistrarCaso"/>  
                     &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; &nbsp;  
                     <asp:Button ID="btnMenu" runat="server" Text="Menú Principal" Width="115px" 
                         onclick="btnMenu_Click" />
