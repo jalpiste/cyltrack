@@ -54,11 +54,11 @@
                <asp:Label ID="lblDepartamento" runat="server" AssociatedControlID="lstDepartamento" 
                             Width="679px">Departamento:</asp:Label>
                        
-                   &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                   &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
                        
                <asp:Label ID="lblCiudad" runat="server" AssociatedControlID="LstCiudad" Width="685px" >Ciudad:</asp:Label>
                             <br />
-               <asp:ListBox ID="lstDepartamento" runat="server" Rows="1" AutoPostBack="true" 
+               <asp:ListBox ID="lstDepartamento" runat="server" Rows="1" AutoPostBack="true" Width="169px"
                        onselectedindexchanged="lstDepartamento_SelectedIndexChanged">
                             <asp:ListItem>Seleccionar...</asp:ListItem>
                         </asp:ListBox>
@@ -66,9 +66,7 @@
                      ErrorMessage="La selección del departamento es obligatoria." ToolTip="La selección del departamento es obligatoria." 
                      ValidationGroup="NuevaUbic"> * </asp:RequiredFieldValidator>
                      
-                   &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-                     
-                           <asp:ListBox ID="lstCiudad" runat="server" Rows="1"   AutoPostBack="false"
+                   &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<asp:ListBox ID="lstCiudad" runat="server" Rows="1"   AutoPostBack="false" Width="169px"
                        onselectedindexchanged="lstCiudad_SelectedIndexChanged">
                             <asp:ListItem>Seleccionar...</asp:ListItem>
                         </asp:ListBox>
@@ -82,9 +80,7 @@
               </p> 
                 </fieldset>
                 <p class="submitButton">
-                <asp:Button ID="btnLimpiar" runat="server" Text="Limpiar" Width="115px" Visible="false"
-                        onclick="btnLimpiar_Click"/> 
-                    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; &nbsp; 
+                 
                     <asp:Button ID="btnGuardar" runat="server" Text="Guardar" 
                         Width="115px" onclick="btnGuardar_Click" Visible="false" ValidationGroup="NuevaUbic"/>  
                     &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; &nbsp;  
