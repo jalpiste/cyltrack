@@ -36,7 +36,17 @@ namespace Unisangil.CYLTRACK.CYLTRACK_WCF_Services
         /// <returns>nombre de la ruta</returns>
         [OperationContract]
         long ModificarRuta(RutaBE ruta);
-        
+
+
+        /// <summary>
+        /// Método encargado de la modificaciòn de rutas en el sistema. Permite
+        /// que las aplicaciones llamen a los objetos de negocio directamente.
+        /// </summary>
+        /// <param name="ruta">Objeto de negocio ruta</param> 
+        /// <returns>nombre de la ruta</returns>
+        [OperationContract]
+        long RegistroCiudades(CiudadBE ciudad);
+
         /// <summary>
         /// Método encargado de la consulta de rutas en el sistema. Permite
         /// que las aplicaciones llamen a los objetos de negocio directamente.
@@ -44,7 +54,15 @@ namespace Unisangil.CYLTRACK.CYLTRACK_WCF_Services
         /// <param name="ruta">Objeto de negocio ruta</param> 
         /// <returns>nombre de la ruta</returns>
         [OperationContract]
-        List<RutaBE> ConsultarRuta(string ruta);
+        RutaBE ConsultarRuta(string ruta);
+
+        /// <summary>
+        /// Método encargado de la consulta de nombre de rutas en el sistema. Permite
+        /// que las aplicaciones llamen a los objetos de negocio directamente.
+        /// </summary>
+        /// <returns>nombre de la ruta</returns>
+        [OperationContract]
+        List<RutaBE> ConsultarNombreRuta();
 
 
         /// <summary>
