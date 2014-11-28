@@ -22,31 +22,66 @@ namespace Unisangil.CYLTRACK.CYLTRACK_BL
         public long RegistrarRuta(RutaBE ruta)
         {
             RutaDL regRuta = new RutaDL();
-            long respuesta = new long();
+            long respRuta = new long();
+            long respDet_Ruta = new long();
             try
             {
-                respuesta = regRuta.CrearRuta(ruta);
+                respRuta = regRuta.CrearRuta(ruta);
+
+                foreach (CiudadBE datos in ruta.Lista_Ciudades)
+                {
+                    Ciudad_RutaBE ciuRuta = new Ciudad_RutaBE();
+                    ciuRuta.Id_Ciudad= datos.Id_Ciudad;
+                    ciuRuta.Id_Ruta= respRuta.ToString();
+                    respDet_Ruta = regRuta.CrearRegistroDetalleRuta(ciuRuta);
+                }
             }
             catch (Exception ex)
             {
 
             }
-            return respuesta;
+            return respRuta;
         }
 
         public long ModificarRuta(RutaBE ruta)
         {
-            RutaDL rut = new RutaDL();
-            long resp = new long();
+            RutaDL rutaDL = new RutaDL();
+            long respModRuta = 0;
+            long respModDetalleRuta = 0;
+
             try
             {
-               resp = rut.ModificarRuta(ruta);
+                if (ruta.Nombre_Ruta != "")
+                {
+                    respModRuta = rutaDL.ModificarRuta(ruta);
+                }
+
+                foreach (CiudadBE datos in ruta.Lista_Ciudades)
+                {
+                    if (datos.Id_Ciudad_Ruta != null)
+                    {
+                        Ciudad_RutaBE ciuRuta = new Ciudad_RutaBE();
+                        ciuRuta.Id_Ciudad = datos.Id_Ciudad;
+                        ciuRuta.Id_Ciudad_Ruta = datos.Id_Ciudad_Ruta;
+                        respModDetalleRuta = rutaDL.ModificarDetalleRuta(ciuRuta);
+                    }
+                    else
+                    {
+                        Ciudad_RutaBE ciuRuta = new Ciudad_RutaBE();
+                        ciuRuta.Id_Ciudad = datos.Id_Ciudad;
+                        ciuRuta.Id_Ruta = ruta.Id_Ruta;
+                        respModDetalleRuta = rutaDL.CrearRegistroDetalleRuta(ciuRuta);
+                    }
+                }
             }
+
             catch (Exception ex)
             {
-
+                //guardar exepcion en el log de bd
+                respModDetalleRuta = -1;
             }
-            return resp;
+
+            return respModDetalleRuta;
 
         }
 
@@ -61,17 +96,32 @@ namespace Unisangil.CYLTRACK.CYLTRACK_BL
         /// </summary>
         /// <param name="consultarRutas"></param>
         /// <returns></returns>
-        public List<RutaBE> ConsultarRuta(string ruta)
+        public RutaBE ConsultarRuta(string ruta)
         {
             RutaDL rut = new RutaDL();
-            List<RutaBE> lstRuta = new List<RutaBE>();
+            RutaBE Ruta = new RutaBE();
             try
             {
                 if(ruta == "")
                 {
                     ruta = "0";
                 }
-                lstRuta = rut.ConsultarRutas(ruta);                
+                Ruta = rut.ConsultarRutas(ruta);                
+            }
+            catch (Exception ex)
+            {
+
+            }
+            return Ruta;
+        }
+
+        public List<RutaBE> ConsultarNombreRuta()
+        {
+            RutaDL rut = new RutaDL();
+            List<RutaBE> lstRuta = new List<RutaBE>();
+            try
+            {
+               lstRuta = rut.ConsultarNombreRutas();
             }
             catch (Exception ex)
             {
@@ -142,6 +192,34 @@ namespace Unisangil.CYLTRACK.CYLTRACK_BL
             }
             return datoRuta;
         }
+
+        public long InsertarCiudad(CiudadBE ciud)
+        {
+            RutaDL regRuta = new RutaDL();
+            long respRuta = new long();            
+            List<CiudadBE> lstCiudad = new List<CiudadBE>();
+            try
+            {
+                string idDept = ciud.Departamento.Id_Departamento;
+                lstCiudad = (regRuta.ConsultaCiudades(idDept));
+
+                foreach (CiudadBE datos in lstCiudad)
+                {
+                    CiudadBE ciuRuta = new CiudadBE();
+                    DepartamentoBE dep = new DepartamentoBE();
+                    ciuRuta.Id_Ciudad = datos.Id_Ciudad;
+                    dep.Id_Departamento = idDept;
+                    ciuRuta.Departamento = dep;
+                    respRuta = regRuta.CrearRegCiudad(ciuRuta);
+                }
+            }
+            catch (Exception ex)
+            {
+
+            }
+            return respRuta;
+        }
+
         #endregion
         #region Metodos privados
         #endregion

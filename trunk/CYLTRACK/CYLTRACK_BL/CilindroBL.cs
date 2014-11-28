@@ -63,6 +63,8 @@ namespace Unisangil.CYLTRACK.CYLTRACK_BL
             {
                 resp = cil.ConsultarExistenciaCilindro(cilindro);
             }
+
+
             catch (Exception ex)
             {
                 //guardar exepcion en el log de bd
@@ -134,7 +136,7 @@ namespace Unisangil.CYLTRACK.CYLTRACK_BL
                 {
                     VehiculoBE veh = new VehiculoBE();
                     veh.Id_Vehiculo = "0";
-                    cilindro.Vehiculo = veh;
+                    cilindro.Vehiculo = veh;                    
                 }
 
                 resp = cil.ModificarUbicacionCilindro(cilindro);
